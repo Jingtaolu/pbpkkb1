@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Image Import in Marvin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Image Import in Marvin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="ImageImportinMarvin-osraOSRAsoftwareandintegrationintoMarvin"><a class="anchor" name="osra" rel="nofollow"></a><span class="confluence-anchor-link" id="ImageImportinMarvin-osra"></span>OSRA software and integration into Marvin</h2>
+      <p><span style="color: rgb(0,0,255);"><a href="http://cactus.nci.nih.gov/osra/" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">OSRA</span></a></span>&nbsp;is a utility designed to convert graphical representations of chemical structures.</p>
+      <p>Since Marvin version 5.3.0 images can be imported from files, and pasted into Marvin using the OSRA software.</p>
+      <h2 id="ImageImportinMarvin-usageUsingOSRAinMarvin"><a class="anchor" name="usage" rel="nofollow"></a><span class="confluence-anchor-link" id="ImageImportinMarvin-usage"></span>Using OSRA in Marvin</h2>
+      <p>To make OSRA usable in Marvin:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Install the OSRA software (<span style="color: rgb(0,0,255);"><a href="http://cactus.nci.nih.gov/osra/#6" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">installers</span></a></span>&nbsp;are available for Windows and Mac, and it can be installed from source for Linux, Unix). Please make sure that<span>all the required softwares for OSRA</span>&nbsp;is also installed. (The installer may install them also.)</li>
+       <li>Set the OSRA&nbsp;<span style="color: rgb(0,0,255);"><a href="http://en.wikipedia.org/wiki/Environment_variable" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">environment variable</span></a></span>&nbsp;as the absolute path of the directory, where OSRA is installed, or add this path to the PATH environment variable.&nbsp;<br />Note: In 5.6.x version of Marvin it works only when it is set in the PATH, this is a known issue, that has been fixed in 5.7.0.</li>
+      </ul>
+      <p>Two methods are available to import images into MarvinSketch:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Opening an image chosen by a file chooser. (Use the Open Image, or the Open menu item from the File menu. The simple Open item is usable to open images since 5.6.)</li>
+       <li>If there is an image on the clipboard, the default Marvin paste will paste the image using OSRA.</li>
+      </ul>
+      <h2 id="ImageImportinMarvin-problemsCommonproblems"><a class="anchor" name="problems" rel="nofollow"></a><span class="confluence-anchor-link" id="ImageImportinMarvin-problems"></span>Common problems</h2>
+      <p>Common problems quoted from OSRA home page:</p>
+      <p>&quot;Note that any software designed for optical recognition is unlikely to be perfect, and the output produced might, and probably will, contain errors, so a curation by a human knowledgeable in chemical structures is highly recommended.&quot;</p>
+      <p>So OSRA sometimes can not recognize a chemical structure or do some mistakes, and there are issues easy to forget about OSRA. These are the most common of problems:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>OSRA can not open small images, and molecules. If a molecule contains less than 6 atoms, or smaller than 20*20 pixels (depending also from resolution, and font size) OSRA will most likely fail to recognize the structure.</li>
+       <li>OSRA may need programs installed on the computer to process with special types. To open a pdf/ps file Adobe Acrobat Reader/Ghostscript has to be installed on the computer.</li>
+       <li>OSRA can not open all image file types perfectly. Converting the image in different formats and importing them shows that there are formats OSRA easier recognize. So in some cases conversion to png file format helps (png seems to be the most OSRA friendly format).</li>
+       <li>OSRA has to be installed on your computer and the OSRA environment variable be set as the absolute path of the install directory. (If the import menu item is not enabled surely this is the problem. After installing OSRA and/or setting the variable Marvin must be restarted to make image import available.)</li>
+      </ul>
+      <p align="LEFT"><small>Marvin uses&nbsp;<span style="color: rgb(0,0,255);"><a href="http://osra.sourceforge.net/" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">OSRA</span></a></span>&nbsp;software for image import by&nbsp;<span style="color: rgb(0,0,255);"><a href="http://cactus.nci.nih.gov/osra" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">CADD Group Chemoinformatics Tools and User Services</span></a></span></small></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

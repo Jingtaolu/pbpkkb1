@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : cxtrain command line tool</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : cxtrain command line tool </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the cxtrain command line tool:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200958244 {padding: 0px;}
+div.rbtoc1439200958244 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200958244 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200958244"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#cxtraincommandlinetool-Introduction">Introduction</a></li> 
+          <li><a href="#cxtraincommandlinetool-Usage">Usage</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#cxtraincommandlinetool-Invokingcxtrain">Invoking cxtrain</a></li> 
+            <li><a href="#cxtraincommandlinetool-Inputofcxtrain">Input of&nbsp;cxtrain</a></li> 
+            <li><a href="#cxtraincommandlinetool-Placingthetraininglibrary">Placing the training library &nbsp;</a></li> 
+           </ul> </li> 
+          <li><a href="#cxtraincommandlinetool-Options">Options</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#cxtraincommandlinetool-Generaloptions">General options</a></li> 
+            <li><a href="#cxtraincommandlinetool-Plugin-specificoptions">Plugin-specific options</a></li> 
+           </ul> </li> 
+          <li><a href="#cxtraincommandlinetool-Examples">Examples &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#cxtraincommandlinetool-TrainingpKacalculations">Training&nbsp;pKa&nbsp;calculations &nbsp;</a></li> 
+            <li><a href="#cxtraincommandlinetool-TraininglogPcalculations">Training logP calculations &nbsp;</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="cxtraincommandlinetool-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Some property calculations&nbsp;can be enhanced when experimental data are available for molecules that are similar to the target. Such user-specific information can be incorporated into so-called <em>training</em> libraries, which can be generated with the ChemAxon's commandline tool <em>cxtrain</em>. It is a part of JChem and Marvin Beans packages.</p>
+      <p><span>The generated training library, stored on the user's computer, is used by the calculator plugins for improving the property prediction.</span></p>
+      <p>&nbsp;</p>
+      <h1 id="cxtraincommandlinetool-Usage"><span>Usage<br /></span></h1>
+      <h2 id="cxtraincommandlinetool-Invokingcxtrain"><span><br />Invoking cxtrain</span></h2>
+      <p><span>&nbsp;</span></p>
+      <p>Invoking&nbsp;<em>cxtrain -h</em>&nbsp;gives the following output:</p>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(0,0,0);">cxtrain</span>&nbsp;&lt;prediction&gt; [options] [input file (training set)]<br />&nbsp;</p>
+      <pre>Prediction:
+pka                                   train pKa prediction
+logp                                  train logP prediction
+prediction                            train custom prediction
+General options:
+cxtrain -h, --help                    this help message
+ -i, --training-id&lt;training&gt;          sets the training ID
+ -l, --list                           list available training ID's
+ -g, --ignore-error                   continue with next molecule on error
+pKa options:
+ -V, --validation &lt;filepath&gt;          validation results file path
+logP options:
+ -t, --tag &lt;tag name&gt;                 name of the SDFile tag that stores the experimental logP values
+ -a, --add-built-in-training-set      add built-in logP training set
+Custom prediction options:
+ -t, --tag &lt;tag name&gt;                 name of the SDFile tag that stores the experimental property values <br />&nbsp;</pre>
+      <p>So you can train a plugin by calling cxtrain:<br />&nbsp;</p>
+      <pre>cxtrain &lt;prediction&gt; [options] [input file (training set)] <br />&nbsp;</pre>
+      <p><span style="color: rgb(54,54,54);">where <em>prediction</em> must be chosen from among <em>pka</em>, <em>logP</em> or <em>Custom prediction</em> (used for a custom property).<br />&nbsp;</span></p>
+      <div class="confluence-information-macro confluence-information-macro-warning"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><span style="color: rgb(54,54,54);">cxtrain is only able to train the three plugins mentioned. If another plugin name is given as a command line parameter, the following message appears:<br />&nbsp;</span></p>
+        <pre>Prediction has to be one of the following: pka, logp, prediction.</pre>
+       </div> 
+      </div> 
+      <h2 id="cxtraincommandlinetool-Inputofcxtrain">Input of&nbsp;cxtrain</h2>
+      <p>&nbsp;</p>
+      <p>cxtrain can handle any molecular file format that is supported by ChemAxon. (e.g.: MDL Molfile, SDF) &nbsp;</p>
+      <p>&nbsp;</p>
+      <h2 id="cxtraincommandlinetool-Placingthetraininglibrary">Placing the training library<br />&nbsp;</h2>
+      <p>The generated training library is&nbsp;stored on your computer, and it can be used via Marvin, Chemical Terms, Instant JChem or&nbsp;<code>cxcalc</code>.</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>On Windows operating system the training file is placed under&nbsp;<span style="color: rgb(54,54,54);">$HOME\chemaxon\calculations\training, where $HOME is commonly c:\Users\username.</span></p>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>On UNIX-based operating systems (Unix, Linux, OSX) the training file is placed under&nbsp;<span style="color: rgb(54,54,54);">$HOME/.chemaxon/calculations/training, where $HOME is tipically&nbsp;</span><span style="color: rgb(54,54,54);">/home/useraccount on Linux and /users/useraccount on OSX.</span></p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h1 id="cxtraincommandlinetool-Options"><span>Options</span></h1>
+      <p><span>&nbsp;</span></p>
+      <h2 id="cxtraincommandlinetool-Generaloptions"><span>General options</span></h2>
+      <p><span><br /></span></p>
+      <div>
+       The following general options are available:
+      </div>
+      <ol>
+       <li>Applying the option&nbsp;<em>--training-id</em>&nbsp;(<em>-i</em>), you can set the ID of your training. Afterwards, this ID will refer the given training during the calculation.</li>
+       <li>The available training ID's can be listed using option&nbsp;<em>--list</em>&nbsp;(<em>-l</em>).</li>
+       <li><p><em>--ignore-error</em>&nbsp;(<em>-g</em>)&nbsp;skips the molecule on error and continues with the next correct one.</p></li>
+      </ol>
+      <p><span><br /></span></p>
+      <h2 id="cxtraincommandlinetool-Plugin-specificoptions"><span>Plugin-specific options</span></h2>
+      <p><span><br /></span></p>
+      <p>The following plugin-specific options are available:</p>
+      <p>p<em>K</em><sub>a</sub>&nbsp;Plugin:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>--validation &lt;filepath&gt;</em> (<em>-V</em>) creates validation data; the file path of the p<em>K</em><sub>a</sub>&nbsp;training validation chart can be defined optionally.</li>
+      </ul>
+      <p><a class="anchor" name="logP" rel="nofollow"></a>logP plugin:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><p><em>--add-built-in-training-set</em> (<em>-a</em>)&nbsp;merges your data with the data from built-in logP training set.</p></li>
+       <li><p>Option&nbsp;<em>--tag</em> (<em>-t</em>)&nbsp;defines the name of the SDFile tag that stores the experimental logP values.</p></li>
+      </ul>
+      <p><a class="anchor" name="custom" rel="nofollow"></a>Custom prediction option:</p>
+      <ul>
+       <li><p>Option&nbsp;<em>--tag</em> (<em>-t</em>)&nbsp;defines the name of the SDFile tag that stores the experimental custom defined values.</p></li>
+      </ul>
+      <p><span><br /></span></p>
+      <h1 id="cxtraincommandlinetool-Examples"><span>Examples<br />&nbsp;</span></h1>
+      <h2 id="cxtraincommandlinetool-TrainingpKacalculations">Training&nbsp;p<em>K</em><sub>a&nbsp;</sub>calculations<br />&nbsp;</h2>
+      <p>Step #1 &nbsp;Creating the training library from a given data file pKa_trainingset.sdf with a training ID <em>mypka:</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxtrain pka -i mypka pKa_trainingset.sdf</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>Step #2 &nbsp;Using the generated training set&nbsp;in pKa calcutlations with cxcalc:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc pKa --correctionlibrary mypka &quot;CSC1=NC2=C(N1)C=NC(O)=N2&quot;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The result of the training is:</p>
+      <p>&nbsp;</p>
+      <pre>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id apKa1 apKa2 bpKa1 bpKa2 atoms</pre>
+      <pre>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 11.19 16.01 2.34 -2.59 7,11,9,4</pre>
+      <p>&nbsp;</p>
+      <h2 id="cxtraincommandlinetool-TraininglogPcalculations">Training log<em>P</em> calculations<br />&nbsp;</h2>
+      <p>Step #1 Creating the training library from the given data file logP_trainingset.sdf (with experimental log<em>P</em> values stored in the SDF&nbsp;tag named <em>LOGP</em>),&nbsp;setting training ID to <em>mylogp</em> and including data from the built-in training set:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxtrain logp -t LOGP -i mylogp -a logP_trainingset.sdf</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>Step #2 To apply your generated log<em>P</em>&nbsp;training library in calculations use the parameter&nbsp;<em>--trainingid</em>&nbsp;and combine it with&nbsp;the parameter<em>&nbsp;--method</em>&nbsp;via&nbsp;cxcalc:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> cxcalc logp --method user --trainingid mylogp &quot;CC(C)CCO&quot;</pre> 
+       </div>
+      </div>
+      <p>&nbsp; &nbsp; &nbsp;</p>
+      <p>The result of the training is:</p>
+      <pre>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; id logP 1 1,13<br />&nbsp;</pre>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The following command lists available training IDs for logP calculation:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxtrain logp --list</pre> 
+         </div>
+        </div>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The following command trains a custom property calculation using the datafile pampa_trainingset.sdf&nbsp;(with the experimental values stored in the SDF&nbsp;tag named&nbsp;<em>PAMPA</em>) and setting training ID to <em>mypampa</em>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxtrain prediction -t PAMPA -i mypampa pampa_trainingset.sdf</pre> 
+         </div>
+        </div>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p><span><br /></span></p>
+      <p><span><br /></span></p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

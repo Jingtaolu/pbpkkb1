@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Markush Structures</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Markush Structures </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="MarkushStructures-R-groups">R-groups</h2>
+      <p>A query with an R-group represents substitution variation on the same root structure.The molecule containing an R-group is the so called scaffold.&nbsp;An R-group query can involve several derivatives which differ in one or more substituents (fragments).</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        You can also watch a video tutorial&nbsp;
+        <a href="https://www.youtube.com/watch?v=PjP5ApgrjSM" class="external-link" rel="nofollow">here</a>, or you can meet the Smart R-group tool 
+        <a href="Video-Tutorials_23692062.html#VideoTutorials-smartRGroup">here</a>.
+       </div> 
+      </div> 
+      <h3 id="MarkushStructures-CreatingR-groups">Creating R-groups</h3>
+      <p>&nbsp;<span>You can add R-groups to your root structure in three ways.</span></p>
+      <ol>
+       <li><strong>Smart R-group tool</strong><br />Helps you to create many R-groups by just clicking on&nbsp;a clear place on the canvas, or&nbsp;on the right place in the molecule (sprout drawing is also possible). In this case, the default set is that the auto numbering is active, which means that R1, R2, ...etc. groups will automatically appear in the place of the clicking in the right order.<br />There is an option to add or change R-groups to the required number by clicking on an R-group (when the Smart R-group tool is active). Clicking on an existing R-group opens the R-group dialog window, here you can turn off the auto numbering by unchecking the box and set the number of the R-group. When you check the auto numbering box again, numbering will carry on from the first number that is not yet represented on the canvas.</li>
+       <li><strong>Keyboard shortcut</strong>
+        <ol>
+         <li><strong><code>R+Spac</code></strong>e shortcut:<br />Opens the R-group dialog window, where you can <em>set the number of the R-group</em> (or you can&nbsp;leave the field empty to get an R-group without any number).<br />After closing the window, the chosen R-group will appear on the tip of the mouse pointer and this&nbsp;can be added to the root structure in the same way as atoms are inserted.</li>
+         <li><p>&quot;<code>r</code>&quot; keyboard shortcut:</p>
+          <ul>
+           <li>Typing &quot;r&quot; results that &quot;R&quot; will appear on the tip of the cursor; it can be placed on a clear place of the canvas with a left-click or pressing&nbsp;<code><strong>Enter</strong></code>.</li>
+           <li>To change other symbols to R-group label (without number), hover over an atomic symbol or select it by the Selection tool, and type &quot;r&quot;.</li>
+          </ul></li>
+        </ol></li>
+       <li><strong>Atom Properties menu</strong><br />Existing atoms can be replaced by R-group labels using the&nbsp;<a href="Properties_17236088.html#Properties-atomProperties">Atom properties</a>&nbsp;dialog as well, where the 'R-group' type should be chosen instead of 'Element'. In this case you can set the number, alias or map to the R-group.<br /><br /></li>
+      </ol>
+      <p><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/26705945/29098007.png?effects=border-simple,blur-border" data-image-src="attachments/26705945/29098007.png" data-unresolved-comment-count="0" data-linked-resource-id="29098007" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rgroup_create_1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="26705945" data-linked-resource-container-version="39" /></span>&nbsp;</p>
+      <h3 id="MarkushStructures-ManagingR-groupdefinitions">Managing R-group&nbsp;definitions</h3>
+      <h4 id="MarkushStructures-Creation">Creation</h4>
+      <p><span>In order to create the definition for an R-group, draw the substituents from which the R-group should stand for, then you can choose from two options.</span></p>
+      <ol>
+       <li><span><strong>Smart R-group tool</strong></span><br /><span>Selecting with the Smart R-group tool&nbsp;results that the R-group label will be given to the fragment (or fragments), which appears on the canvas. When there is more than one R-group in the scaffold, the label of the fragment will get the smallest R-group number, which hasn't got a definition yet.</span></li>
+       <li><strong><code>R+Space</code></strong> keyboard shortcut<br />Select the substituent(s) by one of the Selection tools, and then type R+Space shortcut. The R-group dialog opens, and you can set the relevant R-label.<br /><br /></li>
+      </ol>
+      <h4 id="MarkushStructures-Adding/Removingelementsto/fromthedefinition">Adding/Removing elements to/from the definition</h4>
+      <h4 id="MarkushStructures-Add">Add</h4>
+      <ol>
+       <li><strong>Smart R-group tool</strong><br />Selecting the substituents together with the Smart R-group tool&nbsp;results that the same R-group label will be given to the fragments.</li>
+       <li><strong>Context menu</strong><br />&nbsp;If you want to add one or more fragments to an R-group definition, select these fragments (with the Selection tool), right-click on the relevant R-group label, then choose the&nbsp;<strong>&quot;</strong><strong>Add to this group&quot;</strong>&nbsp;option.</li>
+      </ol>
+      <h4 id="MarkushStructures-Remove">Remove</h4>
+      <ol>
+       <li><strong>Smart R-group tool</strong><br />You can remove fragments from the definition by selecting it with the Smart R-group tool. In this case, the selected element will get a new label.</li>
+       <li><p><strong>Context menu</strong></p>In order to remove a fragment from a group, select this fragment, right-click on the R-label of the group and select&nbsp;<strong>&quot;Remove from this group&quot;</strong>&nbsp;option.&nbsp;</li>
+      </ol>
+      <h4 id="MarkushStructures-UngrouporDelete">Ungroup or Delete</h4>
+      <p>If you do not wish to have an R-group definition any longer, you have some options to get rid of them.</p>
+      <p>Ungrouping the definition results that the fragments will not be erased, but they will not belong to an R-group definition any longer. You can do it this way:&nbsp;right-click on the R-group label, and use the&nbsp;<strong style="text-align: justify;">&quot;Ungroup&quot;</strong>&nbsp;option in the pop-up menu.&nbsp;</p>
+      <p>In that case, the definition and all of its contents will be erased from the canvas.&nbsp;Deleting the definition can happen as with any other objects, by the Delete tool, or by the Delete keyboard button.</p>
+      <p>&nbsp;</p>
+      <p><span>The&nbsp;</span><span><a href="Context-Menus_17236082.html#ContextMenus-RlabelPopup">contextual menu items of the R-label</a></span><span>&nbsp;offer options for managing R-group definitions:&nbsp;</span><span>you can ungroup or add fragments to a definition list, or remove fragments from a definition.</span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/26705945/29098008.png?effects=border-simple,blur-border" data-image-src="attachments/26705945/29098008.png" data-unresolved-comment-count="0" data-linked-resource-id="29098008" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rgroup_create_2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="26705945" data-linked-resource-container-version="39" /></span></p>
+      <p>&nbsp;</p>
+      <h3 id="MarkushStructures-AddingAttachmentpoints">Adding Attachment points</h3>
+      <p><span style="font-size: 14.0px;line-height: 1.4285715;">You can add attachment points to the fragments in an R-group definition by using the</span><span style="color: rgb(0,0,255);">&nbsp;</span><a href="Toolbars_17236081.html#Toolbars-Rattachment">R-group attachment point</a><span style="font-size: 14.0px;line-height: 1.4285715;">&nbsp;button on the&nbsp;</span><strong style="font-size: 14.0px;line-height: 1.4285715;">Atoms</strong><span style="font-size: 14.0px;line-height: 1.4285715;">&nbsp;toolbar and clicking on an atom in a definition list, or from the context menu.&nbsp;The attachment points on every separate fragment are automatically numbered beginning with &quot;1&quot;.</span></p>
+      <p><span style="font-size: 14.0px;line-height: 1.4285715;">&nbsp;</span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/26705945/29098009.png?effects=border-simple,blur-border" data-image-src="attachments/26705945/29098009.png" data-unresolved-comment-count="0" data-linked-resource-id="29098009" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rgroup_create_3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="26705945" data-linked-resource-container-version="39" /></span></p>
+      <p><span style="line-height: 1.4285715;">The bond type of the R-group attachment points can be changed using either the R-group attachment point tool or any of the bond tools.</span></p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>R-group definition import and export are supported only in ChemAxon Marvin Document (MRV) format in Marvin JS; besides, you can choose other formats if the relevant web service is available.&nbsp;</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p></p>
+      <h2 id="MarkushStructures-AtomListsandNOTLists">Atom Lists and NOT Lists</h2>
+      <p>You can add an &quot;Atom List&quot; query atom to your molecule, which covers a set of atoms. The created structure produces a hit if any of the atoms in the list is found in the target. Similarly, you can use &quot;NOT List&quot; query atoms, too. A NOT List query atom can represent any atom that is not part of the list.<br />Atom Lists and NOT Lists can be defined using the&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Toolbars#Toolbars-periodicTable">Periodic Table</a></strong>. Pressing the appropriate button on the dialog then clicking on the atoms one after the other prepares the list. Close the Periodic Table when you are ready: the list of atoms is on the cursor. Furthermore, you can replace an atom with a new list or modify an already existing list in the&nbsp;<a href="https://confluence.chemaxon.com/display/MFJ/Toolbars#Toolbars-topic_ToolbarsPeriodicTable2" class="external-link" rel="nofollow"></a><strong><a href="https://docs.chemaxon.com/display/marvinjs/Properties#Properties-atomDialog">Atom properties</a></strong>&nbsp;dialog, by selecting 'List/NOT list' at the top of the dialog.</p>
+      <h2 id="MarkushStructures-homologyGroupsHomologygroups"><span class="confluence-anchor-link" id="MarkushStructures-homologyGroups"></span>Homology groups</h2>
+      <p>Built-in homology groups of Marvin JS represent series of chemical compounds with the same specific structural properties. Among these groups there are homologous series groups such as alkyl, alkenyl, alkynyl, carboalicyclyl and other generalized chemical names, like alkali and transition metal&nbsp;<em>etc</em>. Please,&nbsp;follow this&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Homology+Groups+and+Markush+Structures#HomologyGroupsandMarkushStructures-list">link</a>&nbsp;for the complete list of built-in homology groups as well as their aliases (shortened names).<br />Homology groups are available from the&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Properties#Properties-atomDialo">Atom properties</a></strong><span style="color: rgb(0,0,255);">&nbsp;</span>dialog after a right-click on an atom. At the top of the dialog, change to 'Homology Groups' instead of 'Element' then select the appropriate group from the list and choose either its full name or its alias at the 'Display' option.</p>
+      <h2 id="MarkushStructures-PositionVariationBond(variablepointofattachment)">Position Variation Bond (variable point of attachment)</h2>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><a href="https://docs.chemaxon.com/display/marvinjs/Video+Tutorials#VideoTutorials-positionVariationBond">See how to use the <strong>Position variation tool</strong> here.</a></p>
+       </div> 
+      </div> 
+      <p>Position variation bond represents a variable connection pointing from a group of atoms to an atom.</p>
+      <h4 id="MarkushStructures-Display:">Display:</h4>
+      <p>The variable atoms are highlighted with grey background, the darker highlight indicates that the atom is part of more than one position variation group. <br />To identify which atom belongs to which group of attachment you can hover over the bond in question, then a light blue frame will appear around the corresponding atoms.</p>
+      <p>&nbsp;</p>
+      <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="354" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236093/33390630.png?effects=border-simple,blur-border" data-image-src="attachments/17236093/33390630.png" data-unresolved-comment-count="0" data-linked-resource-id="33390630" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-1-8 13:2:39.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236093" data-linked-resource-container-version="45" /></span>
+      <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="343" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236093/33390631.png?effects=border-simple,blur-border" data-image-src="attachments/17236093/33390631.png" data-unresolved-comment-count="0" data-linked-resource-id="33390631" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-1-8 13:21:22.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236093" data-linked-resource-container-version="45" /></span>
+      <h4 id="MarkushStructures-Drawingpositionvariationbond:">Drawing position variation bond:</h4>
+      <ol>
+       <li>Create the structure.</li>
+       <li>Select the Position variation bond tool from the Bonds &quot;combo&quot; box.</li>
+       <li>You can select the atoms by the Position variation bond tool the same way, as selecting by Freehand selection tool.</li>
+       <li>A carbon atom with a simple bond will be established attached to variable atoms.</li>
+       <li>Change the carbon atom to any type of atoms (, query atoms, abbreviated groups, etc.), and the bond type.<br /><br /></li>
+      </ol>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Please, note that contracted abbreviated groups are not allowed to be among the variable atoms, and expanded abbreviated groups also will be ungroupped after establishing the bond.</p>
+       </div> 
+      </div>
+      <p></p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

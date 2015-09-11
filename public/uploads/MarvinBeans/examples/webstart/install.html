@@ -1,0 +1,39 @@
+<html>
+<head>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Installation guide to jnlp examples</title>
+</head>
+<body>
+<h1 align=center>Installation guide to jnlp examples</h1>
+<p>Below we will describe how you can create jnlp examples for Marvin Beans.</p>
+<p>Firstly, take a brief view of the content of the <em>jnlp</em> directory.
+<ul>
+<li><a href="msketch.jnlp.txt">msketch.jnlp.txt</a></strong> - Template for a simple MarvinSketch jnlp example.</li>
+<li><a href="mview.jnlp.txt">mview.jnlp.txt</a></strong> - Template for a simple MarvinView jnlp example.</li>
+<li><a href="msketch64.gif">msketch64.gif</a> - Icon to the MarvinSketch jnlp example</li>
+<li><a href="mview64.gif">mview64.gif</a> - Icon to the MarvinView jnlp example</li>
+</ul>
+</p>
+<p>Step by step instruction to configure the above examples for running.</p>
+<ol>
+<li>Firstly, you need a web server (e.g. 
+<a href="http://tomcat.apache.org/">Tomcat</a>) that will hosts the jnlp 
+examples.</li>
+<li>Install Marvin Beans package to the host where the web server is located.</li>
+<li>Check that the web server can access Marvin Beans directory. (If not, please
+consult with the web server's manual about howto set it.)</li>
+<li>In the <em>jnlp</em> sub directory of the Marvin Beans directory, take a copy
+about each file that ends with <em>.jnlp.txt</em>. The new name have to be
+the same than the old one without the <em>.txt</em> postfix.
+<pre>cp msketch.jnlp.txt msketch.jnlp
+cp mview.jnlp.txt mview.jnlp</pre></li>
+<li>Modify the absolute references in the jnlp files. Each occurance of
+<pre>http://www.chemaxon.com/marvin</pre>
+substitute to the URL of the Marvin Beans directory. (E.g.:
+<em>http://www.myhost.com/marvinbeans</em> )
+</li>
+</ol>
+<p>Now the configuration is ready (on server side). To run the example,
+type the URL of the jnlp example in your browser.</p>
+</body>
+</html>

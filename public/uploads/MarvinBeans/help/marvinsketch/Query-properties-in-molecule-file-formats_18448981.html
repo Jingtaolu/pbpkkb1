@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Query properties in molecule file formats</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Query properties in molecule file formats </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Query properties are supported in <a href="https://docs.chemaxon.com/display/FF/MDL+MOLfiles%2C+RGfiles%2C+SDfiles%2C+Rxnfiles%2C+RDfiles+formats">Molfiles</a> and <a href="https://docs.chemaxon.com/display/FF/SMILES">SMILES</a>/<a href="https://docs.chemaxon.com/display/FF/SMARTS">SMARTS</a> files. The following table shows the details.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Name</th>
+          <th class="confluenceTh">MDL Molfile</th>
+          <th class="confluenceTh">SMARTS</th>
+          <th class="confluenceTh">MarvinSketch<br />Parameter</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">any atom</td>
+          <td class="confluenceTd">yes (A)</td>
+          <td class="confluenceTd">yes (*)</td>
+          <td class="confluenceTd"><code>queryAtoms=any</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">heteroatom</td>
+          <td class="confluenceTd">yes (Q)</td>
+          <td class="confluenceTd">yes (!C!H)</td>
+          <td class="confluenceTd"><code>queryAtoms=hetero</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">atom list</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd"><code>queryAtoms=list</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">NOT list</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd"><code>queryAtoms=notlist</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">valence</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes (v)</td>
+          <td class="confluenceTd"><code>queryAtoms=val</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">hydrogens</td>
+          <td class="confluenceTd">no <sup><em>(extension)</em></sup></td>
+          <td class="confluenceTd">yes (H)</td>
+          <td class="confluenceTd"><code>queryAtoms=H</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">connections</td>
+          <td class="confluenceTd">no <sup><em>(extension)</em></sup></td>
+          <td class="confluenceTd">yes (X)</td>
+          <td class="confluenceTd"><code>queryAtoms=conn</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">rings</td>
+          <td class="confluenceTd">no <sup><em>(extension)</em></sup></td>
+          <td class="confluenceTd">yes (R)</td>
+          <td class="confluenceTd"><code>queryAtoms=rings</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">smallest ring size</td>
+          <td class="confluenceTd">no <sup><em>(extension)</em></sup></td>
+          <td class="confluenceTd">yes (r)</td>
+          <td class="confluenceTd"><code>queryAtoms=srs</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">aromatic atom</td>
+          <td class="confluenceTd">no <sup><em>(extension)</em></sup></td>
+          <td class="confluenceTd">yes (a)</td>
+          <td class="confluenceTd"><code>queryAtoms=arom</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">aliphatic atom</td>
+          <td class="confluenceTd">no <sup><em>(extension)</em></sup></td>
+          <td class="confluenceTd">yes (A)</td>
+          <td class="confluenceTd"><code>queryAtoms=arom</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">any bond</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes (~)</td>
+          <td class="confluenceTd"><code>extraBonds=any</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">single or double</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes (-,=)</td>
+          <td class="confluenceTd"><code>extraBonds=1or2</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">single or aromatic</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes (-,:)</td>
+          <td class="confluenceTd"><code>extraBonds=aromany</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">double or aromatic</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes (=,:)</td>
+          <td class="confluenceTd"><code>extraBonds=aromany</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">single up or down</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">not in Marvin</td>
+          <td class="confluenceTd"><code>extraBonds=either</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">double cis or trans</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd"><code>extraBonds=either</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">double cis or unspecified</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd"><code>extraBonds=ctu</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">double trans or unspecified</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd"><code>extraBonds=ctu</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">&quot;ring&quot; bond</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes (@)</td>
+          <td class="confluenceTd"><code>extraBonds=topology</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">&quot;chain&quot; bond</td>
+          <td class="confluenceTd">yes</td>
+          <td class="confluenceTd">yes(!@)</td>
+          <td class="confluenceTd"><code>extraBonds=topology</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p><em>Extensions:</em> Marvin generated Molfiles and Compressed Molfiles support extra SMARTS properties also. &nbsp; &nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Stereoisomer Generator Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Stereoisomer Generator Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Stereoisomer Generator Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200954959 {padding: 0px;}
+div.rbtoc1439200954959 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200954959 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200954959"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#StereoisomerGeneratorPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#StereoisomerGeneratorPlugin-Options">Options</a></li> 
+          <li><a href="#StereoisomerGeneratorPlugin-References">References&nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="StereoisomerGeneratorPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The Stereoisomer Generator Plugin&nbsp;is able to enumerate all possible stereoisomers of a given compound. The plugin handles both tetrahedral- and double-bond-type stereo centers.</p>
+      <p>An example for stereoisomer generation output in MarvinView (see <a href="#StereoisomerGeneratorPlugin-fig.1">Fig. 1</a>) and in MarvinSpace (see <a href="#StereoisomerGeneratorPlugin-fig.2">Fig. 2</a>) can be found below.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="StereoisomerGeneratorPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583542/29098478.png" data-image-src="attachments/12583542/29098478.png" data-unresolved-comment-count="0" data-linked-resource-id="29098478" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="stereoisomers.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583542" data-linked-resource-container-version="33" /></span></p>
+      <p>Fig. 1 Generated stereoisomers in MarvinView</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">Importing generated isomers</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>To replace your drawn molecule in the sketcher with any of the isomers shown, click on the structure then press &quot;Select&quot; at the bottom of the cells (the result window will be closed).</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="StereoisomerGeneratorPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583542/29098479.png" data-image-src="attachments/12583542/29098479.png" data-unresolved-comment-count="0" data-linked-resource-id="29098479" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="stereoisomers3D.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583542" data-linked-resource-container-version="33" /></span></p>
+      <p>Fig. 2 Generated stereoisomers in MarvinSpace</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">On filtering invalid structures</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>If &quot;Filter invalid 3D structures&quot; option is switched on in the&nbsp;<strong>Stereoisomers Options</strong>&nbsp;panel, the stereoisomers can also be displayed in 3D.</p>
+       </div> 
+      </div> 
+      <h1 id="StereoisomerGeneratorPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>The panel of the plugin has the following <a href="#StereoisomerGeneratorPlugin-fig.3">options</a> to set:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Generate</strong>
+        <ol>
+         <li><strong>Tetrahedral stereo isomers:</strong>&nbsp;only the R/S isomers are generated.</li>
+         <li><strong>double bond stereo isomers:</strong>&nbsp;only E/Z isomers are generated.</li>
+         <li><strong>both:</strong>&nbsp;both R/S and E/Z isomers are generated.</li>
+        </ol></li>
+       <li><strong>Generate all stereoisomers:</strong>&nbsp;all isomers are generated</li>
+       <li><strong>Generate maximum:</strong>&nbsp;sets an upper limit for the number of generated isomers. This option gets enabled if not all isomers are generated.</li>
+       <li><strong>Protect tetrahedral stereo centers:</strong>&nbsp;if checked, stereocenters already pre-set are not included in the stereoisomer generation.</li>
+       <li><strong>Protect double bond stereo:</strong>&nbsp;if checked, all double bonds with pre-set stereo information remain intact.</li>
+       <li><strong>Filter invalid 3D structures:</strong>&nbsp;sterically restricted isomers are discarded.</li>
+       <li><strong>Display in 3D:</strong>&nbsp;results are displayed in a 3D viewer. By default the results are shown in a 2D panel, one for each generated isomer. This option is enables only if 3D filtering is enabled.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="StereoisomerGeneratorPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="250" src="attachments/12583542/29099371.png" data-image-src="attachments/12583542/29099371.png" data-unresolved-comment-count="0" data-linked-resource-id="29099371" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="stereo_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583542" data-linked-resource-container-version="33" /></span></p>
+      <p>Fig. 3 Options window for stereoisomer calculation<br />&nbsp;</p>
+      <h1 id="StereoisomerGeneratorPlugin-References">References&nbsp;</h1>
+      <ol>
+       <li><span style="line-height: 1.4285715;">Smith, M. B.; March, J. Advanced Organic Chemistry, 5th ed., Wiley Interscience, New York, 2001; pp 1218-1223. ISBN 0471585890</span></li>
+      </ol>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

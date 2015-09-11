@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Cleaning</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Cleaning </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>Marvin allows you to clean your molecule in either 2D or 3D.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-equal" data-layout="two-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-warning"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Cleaning in 3D can lead stereoinformation loss (i.e. atropisomerism) or creation ( i.e. chirality not defined in 2D).</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+          <p>Cleaning will calculate new coordinates for the atoms. Generating conformers and choosing the favored one is also supported. For more information on molecule cleaning, please visit&nbsp;<a href="https://docs.chemaxon.com/display/SR/Cleaning+options">this link</a>.</p>
+          <p>You can initiate cleaning <em>via</em> the&nbsp;<strong class="buttonName">Structure &gt; Clean2D/3D</strong>&nbsp;submenu or using Ctrl+2/Ctrl+3 shortkeys.</p>
+          <ul>
+           <li>Clean 2D
+            <ul>
+             <li>Clean in 2D<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985918/26281145.png" data-image-src="attachments/25985918/26281145.png" data-unresolved-comment-count="0" data-linked-resource-id="26281145" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="clean2D24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985918" data-linked-resource-container-version="4" /></span> (shortcut :Ctrl+2) cleans the molecule(s) in 2D</li>
+             <li>Clean and Arrange in 2D&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" height="16" width="16" src="https://jira.chemaxon.com/secure/thumbnail/41404/_thumb_41404.png" data-image-src="https://jira.chemaxon.com/secure/thumbnail/41404/_thumb_41404.png" /></span> (shortcut :Ctrl+Shift+2): cleans the molecules and places them in the center of the canvas</li>
+             <li>Hydrogenize Chiral Center: adds an explicit hydrogen with a wedge bond to chiral centers which have no terminal atoms as substituents</li>
+             <li><p>Clean Wedge Bonds: changes wedge bonds for convention display<br /><br /></p>
+              <div class="confluence-information-macro confluence-information-macro-warning"> 
+               <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+               <div class="confluence-information-macro-body">
+                <p>Clean in 2D works as Clean and Arrange in 2D if the structure contains: amino acid, coordinate bond or position variation bond.</p>
+               </div> 
+              </div> <p><br /><br /></p></li>
+            </ul></li>
+           <li>Clean 3D
+            <ul>
+             <li>Clean in 3D<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985918/26281146.png" data-image-src="attachments/25985918/26281146.png" data-unresolved-comment-count="0" data-linked-resource-id="26281146" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="clean3D24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985918" data-linked-resource-container-version="4" /></span>: cleans the molecule(s) in 3D</li>
+             <li>Cleaning Method: choosing from various methods</li>
+             <li>Display Stored Conformers: works only if conformers of the sketched molecule had been generated with the help of the Conformer plugin, choosing the &quot;Store conformer information in property field&quot; option. See details in the&nbsp;<span> <a href="https://docs.chemaxon.com/display/CALCPLUGS/Conformer+Plugin"> <span>plugin's documentation</span> </a> </span>.</li>
+            </ul></li>
+          </ul>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

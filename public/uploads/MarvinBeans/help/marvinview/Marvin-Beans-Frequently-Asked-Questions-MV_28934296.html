@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Marvin Beans Frequently Asked Questions MV</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Marvin Beans Frequently Asked Questions MV </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p></p>
+      <div class="wiki-content">
+       <h2 id="MarvinBeansFrequentlyAskedQuestionsMV-FrequentlyAskedQuestions">Frequently Asked Questions</h2>
+       <style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201063555 {padding: 0px;}
+div.rbtoc1439201063555 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201063555 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+       <div class="toc-macro rbtoc1439201063555"> 
+        <ul class="toc-indentation"> 
+         <li><a href="#MarvinBeansFrequentlyAskedQuestionsMV-FrequentlyAskedQuestions">Frequently Asked Questions</a> 
+          <ul class="toc-indentation"> 
+           <li><a href="#MarvinBeansFrequentlyAskedQuestionsMV-WhichJavaversionsaresupportedbyMarvinBeans?">Which Java versions are supported by Marvin Beans?</a></li> 
+           <li><a href="#MarvinBeansFrequentlyAskedQuestionsMV-IfIputMViewPaneobjectsinJTablecellsthenIcandisplayonlyabout200molecules.Thesehugeobjectscauseoutofmemoryexceptions.Doyouprovideasimpleand&quot;thin&quot;viewercomponent,whichjustdisplaysamoleculewithoutanyrotationandlinkagetoth">If I put MViewPane objects in JTable cells then I can display only about 200 molecules. These huge objects cause out of memory exceptions. Do you provide a simple and &quot;thin&quot; viewer component, which just displays a molecule without any rotation and linkage to the sketcher?</a></li> 
+           <li><a href="#MarvinBeansFrequentlyAskedQuestionsMV-MViewPane.getM(int)returnswithnull.">MViewPane.getM(int) returns with null.</a></li> 
+           <li><a href="#MarvinBeansFrequentlyAskedQuestionsMV-IcalledMViewPane.setParams()tochangeonlyoneparameterinMarvinViewbutitchangedallofthem.">I called MViewPane.setParams() to change only one parameter in MarvinView but it changed all of them.</a></li> 
+           <li><a href="#MarvinBeansFrequentlyAskedQuestionsMV-Isthereawaytogenerateimagewithoutopeningadisplay?">Is there a way to generate image without opening a display?</a></li> 
+           <li><a href="#MarvinBeansFrequentlyAskedQuestionsMV-HowcanIgettheselectedatomsfromMSketchPane?">How can I get the selected atoms from MSketchPane?</a></li> 
+          </ul> </li> 
+        </ul> 
+       </div>
+       <br class="external-link" />
+       <ul>
+        <li><h3 id="MarvinBeansFrequentlyAskedQuestionsMV-WhichJavaversionsaresupportedbyMarvinBeans?"><a name="question0" rel="nofollow"></a>Which Java versions are supported by Marvin Beans?</h3><p>Marvin Beans requires at least Java 1.6.</p></li>
+        <li><h3 id="MarvinBeansFrequentlyAskedQuestionsMV-IfIputMViewPaneobjectsinJTablecellsthenIcandisplayonlyabout200molecules.Thesehugeobjectscauseoutofmemoryexceptions.Doyouprovideasimpleand&quot;thin&quot;viewercomponent,whichjustdisplaysamoleculewithoutanyrotationandlinkagetoth">If I put MViewPane objects in JTable cells then I can display only about 200 molecules. These huge objects cause out of memory exceptions. Do you provide a simple and &quot;thin&quot; viewer component, which just displays a molecule without any rotation and linkage to the sketcher?</h3><p>The rotation and the linkage to the sketcher have negligible contribution to the memory footprint. The largest contributions are from</p>
+         <ol>
+          <li>double buffering of Swing components</li>
+          <li>size of Molecule objects</li>
+          <li>large color arrays that store the shades for 3D rendering modes</li>
+         </ol><p>Even if we provided a &quot;thin&quot; panel without 3D support, it would only enable you to use about twice as many molecules. Then you would run out of memory again because of the double buffering.</p><p>The solution is to use only one <em>n</em>-molecule scrollable MViewPane instead of a JTable with <em>n</em> MViewPanes. Then the common data will be stored in only one place (instead of <em>n</em>) and the number of Swing components will be equal to the number of visible molecules which is usually much smaller than <em>n</em>.</p></li>
+        <li><h3 id="MarvinBeansFrequentlyAskedQuestionsMV-MViewPane.getM(int)returnswithnull.">MViewPane.getM(int) returns with null.</h3><p>I have this problem when I want to get a Molecule from MViewPane: <code>viewPane.getM(0)</code> returns null although I put a molecule in 0. Here is my code:</p>
+         <div>
+          <div class="syntaxhighlighter nogutter  java">
+           <p>&nbsp;</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd">
+                <div class="container" title="Hint: double-click to select code">
+                 <div class="line number1 index0 alt2">
+                  <code class="java plain">viewPane.setM(</code>
+                  <code class="java value">0</code>
+                  <code class="java plain">, </code>
+                  <code class="java string">&quot;mols-2d/caffeine.mol&quot;</code>
+                  <code class="java plain">);</code>
+                 </div>
+                 <div class="line number2 index1 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">Molecule m = viewPane.getM(</code>
+                  <code class="java value">0</code>
+                  <code class="java plain">);</code>
+                 </div>
+                </div></td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+           <p>&nbsp;</p>
+          </div>
+         </div><p>&nbsp;</p>The problem is that you called <code>getM(0)</code> too early. The molecule was not loaded yet, since <code>viewPane.getM(0)</code>. <code>MViewPane.setM(int,String)</code> launches a new thread for loading a molecule and the <code>getM(0)</code> method does not wait until this thread is finished. Thus, there is no guaranty that the molecule loading process is finished until the method returns. This method is generally used in case of loading a huge set of molecules in the same time. If you use debug option: <code>viewPane.setDebug(2)</code>, you can see when the molecule is loaded. Instead of <code>setM(int, java.lang.String)</code> use <code>setM(int, <a href="http://java.io" class="external-link" rel="nofollow">java.io</a>.File, java.lang.String)</code> method. Using this method will cause <code>setM</code> to wait until molecule loading is finished.<p>This example shows a similar problem:</p>
+         <div>
+          <div class="syntaxhighlighter nogutter  java">
+           <p>&nbsp;</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd">
+                <div class="container" title="Hint: double-click to select code">
+                 <div class="line number1 index0 alt2">
+                  <code class="java plain">viewPane.setM(</code>
+                  <code class="java value">0</code>
+                  <code class="java plain">, </code>
+                  <code class="java string">&quot;CN1C=NC2=C1C(=O)N(C)C(=O)N2C&quot;</code>
+                  <code class="java plain">);</code>
+                 </div>
+                 <div class="line number2 index1 alt1">
+                  <code class="java plain">Molecule m = viewPane.getM(</code>
+                  <code class="java value">0</code>
+                  <code class="java plain">);</code>
+                 </div>
+                </div></td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+           <p>&nbsp;</p>
+          </div>
+         </div><p>&nbsp;</p><p>In this case, there are several ways to avoid this problem. For example, you can use <code>MViewPane.setM(int, Molecule)</code> method:</p>
+         <div>
+          <div class="syntaxhighlighter nogutter  java">
+           <p>&nbsp;</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd">
+                <div class="container" title="Hint: double-click to select code">
+                 <div class="line number1 index0 alt2">
+                  <code class="java plain">String smiles=</code>
+                  <code class="java string">&quot;CN1C=NC2=C1C(=O)N(C)C(=O)N2C&quot;</code>
+                  <code class="java plain">;</code>
+                 </div>
+                 <div class="line number2 index1 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java keyword">byte</code>
+                  <code class="java plain">[] buf=smiles.getBytes();</code>
+                 </div>
+                 <div class="line number3 index2 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">MolImporter mi = </code>
+                  <code class="java keyword">new</code> 
+                  <code class="java plain">MolImporter(</code>
+                  <code class="java keyword">new</code> 
+                  <code class="java plain">ByteArrayInputStream(buf));</code>
+                 </div>
+                 <div class="line number4 index3 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java keyword">try</code>
+                  <code class="java plain">{</code>
+                 </div>
+                 <div class="line number5 index4 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">Molecule mol = mi.importMol(buf);</code>
+                 </div>
+                 <div class="line number6 index5 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">viewPane.setM(</code>
+                  <code class="java value">0</code>
+                  <code class="java plain">,mol);</code>
+                 </div>
+                 <div class="line number7 index6 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">}</code>
+                  <code class="java keyword">catch</code>
+                  <code class="java plain">(Exception e) {System.err.println(e);}</code>
+                 </div>
+                 <div class="line number8 index7 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">Molecule m = viewPane.getM(</code>
+                  <code class="java value">0</code>
+                  <code class="java plain">);</code>
+                 </div>
+                </div></td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+          </div>
+         </div></li>
+        <li><h3 id="MarvinBeansFrequentlyAskedQuestionsMV-IcalledMViewPane.setParams()tochangeonlyoneparameterinMarvinViewbutitchangedallofthem.">I called MViewPane.setParams() to change only one parameter in MarvinView but it changed all of them.</h3><p>The MarvinPanel.setParams(String) method is used to set parameters when MarvinPane is initialized (before loading the molecule). You should avoid calling this method after setMol(..) or any other property-setting method. You can find more details about it at <a class="external-link" rel="nofollow"> here</a>.</p><p>The difference between a parameter and a property that you can modify a property's value after initialization, while a parameter can only be set once.</p></li>
+        <li><h3 id="MarvinBeansFrequentlyAskedQuestionsMV-Isthereawaytogenerateimagewithoutopeningadisplay?"><a name="generateimage" rel="nofollow"></a>Is there a way to generate image without opening a display?</h3><p>Add the <code>-Djava.awt.headless=true</code> option to your Java command. E.g.:</p>
+         <div>
+          <div class="syntaxhighlighter nogutter  java">
+           <p>&nbsp;</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd">
+                <div class="container" title="Hint: double-click to select code">
+                 <div class="line number1 index0 alt2">
+                  <code class="java plain">java -classpath lib/MarvinBeans.jar -Djava.awt.headless=</code>
+                  <code class="java keyword">true</code> 
+                  <code class="java plain">chemaxon.formats.MolConverter</code>
+                 </div>
+                </div></td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+          </div>
+         </div></li>
+        <li><h3 id="MarvinBeansFrequentlyAskedQuestionsMV-HowcanIgettheselectedatomsfromMSketchPane?"><a name="selectedatoms" rel="nofollow"></a>How can I get the selected atoms from MSketchPane?</h3><p>&nbsp;</p>
+         <div>
+          <div class="syntaxhighlighter  java">
+           <p>&nbsp;</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd">
+                <div class="line number1 index0 alt2">
+                 1
+                </div>
+                <div class="line number2 index1 alt1">
+                 2
+                </div>
+                <div class="line number3 index2 alt2">
+                 3
+                </div>
+                <div class="line number4 index3 alt1">
+                 4
+                </div>
+                <div class="line number5 index4 alt2">
+                 5
+                </div>
+                <div class="line number6 index5 alt1">
+                 6
+                </div>
+                <div class="line number7 index6 alt2">
+                 7
+                </div>
+                <div class="line number8 index7 alt1">
+                 8
+                </div>
+                <div class="line number9 index8 alt2">
+                 9
+                </div>
+                <div class="line number10 index9 alt1">
+                 10
+                </div>
+                <div class="line number11 index10 alt2">
+                 11
+                </div>
+                <div class="line number12 index11 alt1">
+                 12
+                </div></td>
+               <td class="confluenceTd">
+                <div class="container" title="Hint: double-click to select code">
+                 <div class="line number1 index0 alt2">
+                  <code class="java plain">Please see the below example to get selected atoms.</code>
+                 </div>
+                 <div class="line number2 index1 alt1">
+                  &nbsp;
+                 </div>
+                 <div class="line number3 index2 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">Molecule mol = sketchPane.getMol();</code>
+                 </div>
+                 <div class="line number4 index3 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java keyword">if</code>
+                  <code class="java plain">(mol != </code>
+                  <code class="java keyword">null</code>
+                  <code class="java plain">) {</code>
+                 </div>
+                 <div class="line number5 index4 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java keyword">int</code> 
+                  <code class="java plain">size = mol.getAtomCount();</code>
+                 </div>
+                 <div class="line number6 index5 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java keyword">for</code>
+                  <code class="java plain">(</code>
+                  <code class="java keyword">int</code> 
+                  <code class="java plain">i = </code>
+                  <code class="java value">0</code>
+                  <code class="java plain">;i &lt; size;i++) {</code>
+                 </div>
+                 <div class="line number7 index6 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">MolAtom atom = mol.getAtom(i);</code>
+                 </div>
+                 <div class="line number8 index7 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java keyword">if</code>
+                  <code class="java plain">(atom.isSelected()) {</code>
+                 </div>
+                 <div class="line number9 index8 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">System.err.println(i+</code>
+                  <code class="java string">&quot;. atom is selected&quot;</code>
+                  <code class="java plain">);</code>
+                 </div>
+                 <div class="line number10 index9 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">}</code>
+                 </div>
+                 <div class="line number11 index10 alt2">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">}</code>
+                 </div>
+                 <div class="line number12 index11 alt1">
+                  <code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>
+                  <code class="java plain">}</code>
+                 </div>
+                </div></td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+          </div>
+         </div></li>
+       </ul>
+      </div>
+      <p></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

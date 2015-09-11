@@ -1,0 +1,93 @@
+/*
+ * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.
+ *
+ * This software is the confidential and proprietary information of
+ * ChemAxon. You shall not disclose such Confidential Information
+ * and shall use it only in accordance with the terms of the agreements
+ * you entered into with ChemAxon.
+ *
+ */
+
+import chemaxon.marvin.beans.*;
+import chemaxon.struc.Molecule;
+import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.*;
+import java.beans.*;
+
+/**
+ * Example to edit molecule and display molecule data simultaneously.
+ *
+ * @author  Tamas Vertse
+ * @version Marvin 4.1 06/01/2006
+ * @since Marvin 4.1 06/01/2006
+ */
+public class MolChangedEventExample extends javax.swing.JFrame implements
+    PropertyChangeListener
+{
+
+    // Variables declaration
+    private MSketchPane sketcher;
+    private JTextArea textarea;
+    private static String headertext = "Molecule data:\n\n";
+    
+    /** 
+     * Creates a new instance of MolChangedEventExample and initalize layout.
+     */
+    public MolChangedEventExample() {
+        
+        JSplitPane horizontalSplitPanel = new JSplitPane();
+        JScrollPane scrollPanel = new JScrollPane();        
+        
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        getContentPane().add(horizontalSplitPanel, BorderLayout.CENTER);
+
+        sketcher = new MSketchPane();
+        sketcher.setCloseEnabled(false);
+        sketcher.setMolbg(Color.white);
+        sketcher.addPropertyChangeListener(this);
+        horizontalSplitPanel.setLeftComponent(sketcher);
+        
+        textarea = new JTextArea();
+        textarea.setText(headertext);        
+        textarea.setBackground(getContentPane().getBackground());
+        textarea.setEditable(false);
+        scrollPanel.setViewportView(textarea);
+        scrollPanel.setPreferredSize(new Dimension(270,350));
+        horizontalSplitPanel.setRightComponent(scrollPanel);
+
+        pack();
+    }        
+        
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        new MolChangedEventExample().setVisible(true);
+    }
+
+    /* Handles PropertyChange events. */
+    public void propertyChange(PropertyChangeEvent evt) {
+        String name = evt.getPropertyName();
+        if(name.equals("mol")) { // molecule is changed in sketcher
+            Molecule newMol = (Molecule)evt.getNewValue(); // the new molecule
+            // refresh molecule data
+            String msg = headertext;
+            try {
+                msg += "SMILES: "+newMol.toFormat("smiles")+"\n";
+            } catch(Exception e) {
+                msg += "SMILES: The molecule could not be converted into SMILES\n";
+            }
+            msg += "Atom count:"+ newMol.getAtomCount()+"\n";
+            msg += "Atom count (without explicit hydgrogens):"+
+                (newMol.getAtomCount()-newMol.getExplicitHcount())+"\n";
+            msg += "Atom count (with implicit hydgrogens):"+
+                (newMol.getAtomCount()+newMol.getImplicitHcount())+"\n";
+            msg += "Bond count:"+ newMol.getBondCount()+"\n";
+            
+            textarea.setText(msg);
+        }
+    }    
+}

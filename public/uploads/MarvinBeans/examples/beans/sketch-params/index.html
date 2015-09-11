@@ -1,0 +1,41 @@
+<html>
+<head>
+    <script type="text/javascript" src="../../sh_main.js"></script>
+    <script type="text/javascript" src="../../sh_java.js"></script>
+    <link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style"><title>MarvinSketch Structure Display Example</title>
+</head>
+<body onload="sh_highlightDocument();">
+<h1>MarvinSketch Structure Display Example</h1>
+
+<h4>Concepts</h4>
+<p>The description and usage of R-group structures in Marvin can be found in the
+<a href="../../../help/sketch/sketch-chem.html#rgroups">R-groups</a> and <a href="../../../help/sketch/sketch-basic.html#howto-draw.rgroups">How to Draw R-group queries</a> paragraph of the Marvin User's Guide.
+</p>
+<p>The detailed description of R-group structures can be found in the <a href="../../../help/developer/core/rgroups.html">R-group structures</a> paragraph of the Developer's Guide.
+</p>
+
+<h4><a class="anchor" name="customize">How to work with structure display parameters to hide R-group definitions</a></h4>
+
+<p>
+By default, MarvinSketch displays all the R-group definitions that belong to a scaffold.
+Sometimes it's very practical to hide the R-group definitions because they take up too much 
+place from the display and we would like to emphasize the scaffold.
+<p>The result of switching off the R-group definitions can be seen on the picture below:<br>
+
+<center><img src="rgroups.png" width="864" height="827"/></center><br>
+
+<p>The code below is taken from <a href="SketchParams.java.html"><code>SketchParams.java</code></a>,
+    where the R-group definitions are hidden using the
+    <a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MarvinPane.html#setParams(java.lang.String)"><code>setParams</code></a> method of
+    the <a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html"><code>MSketchPane</code></a> class.
+</p>
+
+<pre class="sh_java">    msketchPane.setParams(ParameterConstants.R_GROUPS_VISIBLE+"=false");
+</pre>
+
+The possibility to switch off R-group definitions is also available
+as <a href="../../../help/developer/sketchman.html#parameters.rgroupsVisible">applet parameter</a>.
+
+</body>
+</html>

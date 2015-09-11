@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Marvin Sketch Examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Marvin Sketch Examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The MarvinSketch application can be launched via the Internet using Java<sup>TM</sup> Web Start.</p>
+      <p>If Java Web Start is not installed on your machine or there are any problems when you try to open the link, please click <a href="http://www.oracle.com/technetwork/java/javase/javawebstart/index.html" class="external-link" rel="nofollow">here</a> to download Java Web Start.</p>
+      <p>For users of Netscape 6 and higher or Mozilla 1.x web browsers, manual configuration is also required.</p>
+      <p>Please set up the Java Web Start MIME type <code>JNLP</code> in the <code>Edit-&gt;Preferences-&gt;Navigator-&gt; Helper Applications</code> section.<br /> To do this:</p>
+      <ul>
+       <li>Open the Edit-&gt;Preferences-&gt;Navigator-&gt;Helper Applications menu</li>
+       <li><p>Click on <code>New Type...</code> button and fill the fields:</p>
+        <div class="table-wrap">
+         <table class="confluenceTable">
+          <tbody>
+           <tr>
+            <td class="confluenceTd">File extension:</td>
+            <td class="confluenceTd"><code>jnlp</code></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd">Mime type:</td>
+            <td class="confluenceTd"><code>application/x-java-jnlp-file</code></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd">Application to use:</td>
+            <td class="confluenceTd"><code>JAVAWEBSTART_HOME/javaws/javaws</code></td>
+           </tr>
+          </tbody>
+         </table>
+        </div></li>
+      </ul>
+      <p>If you want to use MarvinSketch application from your browser, you just have to open the <a href="attachments/25988007/26281382.jnlp" data-linked-resource-id="26281382" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="msketch.jnlp" data-linked-resource-content-type="application/x-java-jnlp-file" data-linked-resource-container-id="25988007" data-linked-resource-container-version="4">msketch.jnlp</a> file from your browser.</p>
+      <p>Source of msketch.jnlp:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;jnlp codebase=&quot;http://www.chemaxon.com/marvin/&quot;
+        href=&quot;http://www.chemaxon.com/marvin/examples/webstart/msketch.jnlp&quot;&gt;
+    &lt;information&gt;
+        &lt;title&gt;MarvinSketch&lt;/title&gt;
+        &lt;vendor&gt;ChemAxon&lt;/vendor&gt;
+        &lt;homepage href=&quot;.&quot;/&gt;
+        &lt;description&gt;Application for drawing chemical structures.&lt;/description&gt;
+        &lt;offline-allowed/&gt;
+        &lt;icon href=&quot;examples/webstart/msketch64.gif&quot;/&gt;
+    &lt;/information&gt;
+    &lt;security&gt;
+        &lt;all-permissions/&gt; 
+    &lt;/security&gt;
+    &lt;resources&gt;
+        &lt;j2se href=&quot;http://java.sun.com/products/autodl/j2se&quot; version=&quot;1.3+&quot;/&gt;
+        &lt;jar href=&quot;lib/MarvinBeans.jar&quot;/&gt;
+        &lt;jar href=&quot;lib/jogl.jar&quot; download=&quot;lazy&quot;/&gt;
+        &lt;jar href=&quot;lib/chart.jar&quot; download=&quot;lazy&quot;/&gt;
+        &lt;jar href=&quot;lib/batik-core.jar&quot; download=&quot;lazy&quot;/&gt;
+        &lt;jar href=&quot;lib/freehep-base.jar&quot; download=&quot;lazy&quot;/&gt;        
+        &lt;jar href=&quot;lib/freehep-graphics2d.jar&quot; download=&quot;lazy&quot;/&gt;
+        &lt;jar href=&quot;lib/freehep-graphicsio.jar&quot; download=&quot;lazy&quot;/&gt;
+        &lt;jar href=&quot;lib/freehep-graphicsio-emf.jar&quot; download=&quot;lazy&quot;/&gt;
+        &lt;jar href=&quot;lib/freehep-graphicsio-pdf.jar&quot; download=&quot;lazy&quot;/&gt;
+        &lt;property name=&quot;sun.java2d.noddraw&quot; value=&quot;true&quot;/&gt;
+    &lt;/resources&gt;
+    
+    &lt;resources os=&quot;Windows&quot;&gt;
+        &lt;nativelib href=&quot;lib/jogl-natives-windows-i586.jar&quot;/&gt;
+    &lt;/resources&gt;
+    &lt;resources os=&quot;Linux&quot;&gt;
+        &lt;nativelib href=&quot;lib/jogl-natives-linux-i586.jar&quot;/&gt;
+    &lt;/resources&gt;
+    &lt;resources os=&quot;Mac OS X&quot;&gt;
+        &lt;nativelib href=&quot;lib/jogl-natives-macosx-ppc.jar&quot;/&gt;
+        &lt;nativelib href=&quot;lib/jog-natives-macosx-universal.jar&quot;/&gt;
+    &lt;/resources&gt;
+
+    &lt;application-desc main-class=&quot;chemaxon.marvin.Sketch&quot;/&gt;
+&lt;/jnlp&gt;</pre> 
+       </div>
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

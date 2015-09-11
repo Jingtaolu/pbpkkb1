@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Configure the Attach Data Dialog</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Configure the Attach Data Dialog </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h3 style="text-align: left;" id="ConfiguretheAttachDataDialog-TheSchemadefinition">The Schema definition</h3>
+      <p>The XML Schema Definition file of the configuration xml can be downloaded from this&nbsp;<a href="file:///D:/work/svn_head/Marvin/help/sketch/sketch-basic_files/AttachDataDialogConfig.xsd" style="text-decoration: underline;" class="external-link" rel="nofollow">link</a>.</p>
+      <p>With the help of the XSD file, you can validate your configuration before applying it to the MarvinSketch application. You can also find information about the usable elements, and attributes in the documentation sections of the definition file.</p>
+      <h3 id="ConfiguretheAttachDataDialog-ThedefaultAttachDatadialogconfiguration">The default AttachData dialog configuration</h3>
+      <p>The default configuration becomes active when no user configuration is found. If a user configuration file is in the [.]chemaxon directory inside the home directory of the user with the name &quot;AttachDataDialog.xml&quot; can be found, then the configuration defined in the file will be used, and the default configuration will not take effect.</p>
+      <p>Contents of the default configuration:&nbsp;</p>
+      <p>&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: true" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;AttachDataDialogConfig
+    xmlns=&quot;AttachDataDialogConfig&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;AttachDataDialogConfig AttachDataDialogConfig.xsd &quot;&gt;
+&lt;context name=&quot;Atom&quot;&gt;&lt;/context&gt;
+&lt;context name=&quot;Bond&quot;&gt;&lt;/context&gt;
+&lt;context name=&quot;Single Bond&quot;&gt;&lt;/context&gt;
+&lt;context name=&quot;Double Bond&quot;&gt;&lt;/context&gt;
+&lt;context name=&quot;Fragment&quot;&gt;&lt;/context&gt;
+&lt;context name=&quot;Group&quot; displayName=&quot;Group (Selection)&quot;&gt;
+    &lt;dataname textRepresentation=&quot;COEFF&quot;/&gt;
+    &lt;dataname textRepresentation=&quot;Stoichiometry&quot;/&gt;
+    &lt;dataname textRepresentation=&quot;[DUP]&quot;/&gt;
+    &lt;dataname textRepresentation=&quot;REAGENT&quot;/&gt;
+&lt;/context&gt;
+&lt;/AttachDataDialogConfig&gt;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h3 id="ConfiguretheAttachDataDialog-Acomplexexampleconfigurationfile">A complex example configuration file</h3>
+      <p>&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: true" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;AttachDataDialogConfig
+    xmlns=&quot;AttachDataDialogConfig&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;AttachDataDialogConfig AttachDataDialogConfig.xsd &quot;&gt;
+&lt;context name=&quot;Atom&quot;&gt;
+    &lt;dataname textRepresentation=&quot;foo&quot; defaultTag=&quot;f&quot; multipleValuesEnabled=&quot;false&quot; valueFieldEditable=&quot;false&quot;&gt;
+        &lt;value&gt;bar1&lt;/value&gt;
+        &lt;value&gt;bar2&lt;/value&gt;
+        &lt;value&gt;bar3&lt;/value&gt;
+        &lt;unit&gt;u1&lt;/unit&gt;
+        &lt;unit&gt;u2&lt;/unit&gt;
+    &lt;/dataname&gt;
+    &lt;dataname textRepresentation=&quot;foo2&quot; multipleValuesEnabled=&quot;true&quot;&gt;
+        &lt;value&gt;bar2&lt;/value&gt;
+        &lt;value&gt;bar4&lt;/value&gt;
+        &lt;unit&gt;u1&lt;/unit&gt;
+        &lt;unit&gt;u3&lt;/unit&gt;
+    &lt;/dataname&gt;
+&lt;/context&gt;
+&lt;context name=&quot;Group&quot; displayName=&quot;Group (Selection)&quot; nameFieldEditable=&quot;false&quot;&gt;
+    &lt;dataname textRepresentation=&quot;foo&quot;&gt;
+        &lt;value&gt;bar3&lt;/value&gt;
+        &lt;value&gt;bar4&lt;/value&gt;
+        &lt;value&gt;bar5&lt;/value&gt;
+        &lt;unit&gt;u1&lt;/unit&gt;
+        &lt;unit&gt;u3&lt;/unit&gt;
+        &lt;unit&gt;u4&lt;/unit&gt;
+    &lt;/dataname&gt;
+&lt;/context&gt;
+&lt;context name=&quot;Bond&quot;/&gt;
+&lt;context name=&quot;Single Bond&quot;&gt;
+    &lt;dataname textRepresentation=&quot;foooo&quot;/&gt;
+&lt;/context&gt;
+&lt;/AttachDataDialogConfig&gt;</pre> 
+       </div>
+      </div>
+      <p>The result of this configuration can be seen in the dialog.<br />With this file the following have been configured:</p>
+      <ul>
+       <li>The context field will have four values: the Atom, Group, Bond, Single Bond</li>
+       <li>When the Atom context is selected, the Name combo box will have the following values set: editable empty field, foo, foo2</li>
+       <li>When the Atom context is selected, and the value foo is selected in the Name combo box, the Value field will not be editable</li>
+       <li>When the Group context is selected, the Name combo box will have the following value set: foo</li>
+       <li>When the Group context is selected, the Name combo box will not be editable</li>
+       <li>When the Bond context is selected, the Name combo box will only contain the editable empty field</li>
+       <li>When the Single Bond context is selected, the Name combo box will have the editable empty field, and the foooo name set</li>
+       <li>In one session if the user enters something into the editable empty field, then that value will be added to the list of names belonging to the context. These values will be missing after restarting the application.</li>
+       <li>Same names in the name field are independent from each other, if they are in a different context. Same names inside the same context will cause confusion, and maybe malfunction.</li>
+       <li>After selecting the name, the Value field will load the defined values in the given Context for the specified name, if there are any.</li>
+       <li>If the multipleValuesEnabled attribute of the namedata element is set to true, then the user can select more than one value in the Values field, otherwise only one value can be selected.</li>
+       <li>If the defaultTag attribute is set for the dataname element, and the name is selected, then the Tag field will be filled with its defaultTag. (Tag can be of a single character length, this is only checked by the GUI.)</li>
+       <li>The Values field also has an empty editable field, newly entered values work the same as by the Name field.</li>
+       <li>The Unit field also has an empty editable field, newly entered values work the same as by the Name field.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

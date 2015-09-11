@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Initial Scripts</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Initial Scripts </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>You can define <em>molecule</em> sets and other <em>constants</em> in the user-defined initial script&nbsp;<code>$HOME/chemaxon/MARVIN_MAJOR_VERSION/jep.script</code>(Windows) or&nbsp;<code>$HOME/.chemaxon/MARVIN_MAJOR_VERSION/jep.script</code>&nbsp;(UNIX / Linux), where&nbsp;<code>$HOME</code>&nbsp;is your user home directory, and&nbsp;<code>MARVIN_MAJOR_VERSION</code>&nbsp;is the major version of Marvin (e.g. &quot;5.1&quot;).</p>
+      <p>This script is run right after the molecule sets are read and the constants defined here can be used later in your chemical expressions. Any valid chemical terms assignment is allowed here, and the terminating ';' characters may be omitted as long as you write each assignment in a separate line. Typically, you will define a molecule set by</p>
+      <ol style="margin-left: 20.0px;">
+       <li><p>listing its members:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">x = {acid_halide, alcohol, &quot;[#6]CC[#8]&quot;}
+y = {alkene, amide, imide, imine} 
+z = {alkene, amide, amine, alcohol, isocyanate}</pre> 
+         </div>
+        </div></li>
+       <li><p>or deriving it from other sets with the help of set operators:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">all = x + y + z     (union of x, y, z)
+join = y * z        (join of y and z)
+C = (x + y) * z     (join of the union of x and y with z)
+D = z - alcohol     (all elements of z except alcohol)
+E = (x + y) - z     (union of x and y without the elements of z)</pre> 
+         </div>
+        </div><pre>&nbsp;</pre>where &quot;<code>+&quot;</code>&nbsp;means set-union, &quot;<code>*&quot;</code>&nbsp;means set-join and &quot;<code>-&quot;</code>&nbsp;means exclusion.</li>
+      </ol>
+      <p>Predefined molecules and molecule sets are most useful in query definitions of the&nbsp;<em>match</em>&nbsp;function:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><code>match(amide)</code>&nbsp;will test whether the input molecule matches an amide group,&nbsp;<code>match(reactant(0), {amide,amine})</code>&nbsp;will test whether the first reactant in a&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-reaction_context">reaction context</a>&nbsp;matches an amide or an amine</li>
+       <li><code>match(2, {metalloid,alcohol}, 1)</code>&nbsp;will check whether atom&nbsp;<code>2</code>&nbsp;of the input molecule matches either a metalloid or an alcohol carbon - the last parameter<code>1</code>&nbsp;denotes the query atom map which picks the carbon from the alcohol definition;&nbsp;<code>match(ratom(2), {metalloid,alcohol}, 1)</code>&nbsp;is the same in a&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-reaction_context">reaction context</a>&nbsp;with checking target reactant atom which corresponds to the reactant atom with map&nbsp;<code>2</code>&nbsp;in the reaction equation.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

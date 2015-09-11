@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Installation MV</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Installation MV </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p></p>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201064592 {padding: 0px;}
+div.rbtoc1439201064592 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201064592 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439201064592"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#InstallationMV-MarvinApplets">Marvin Applets</a></li> 
+          <li><a href="#InstallationMV-MarvinBeansforJava">Marvin Beans for Java</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#InstallationMV-InstallationWindowsWindows">Windows</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#InstallationMV-64-bitWindows">&nbsp;64-bit Windows</a></li> 
+             </ul> </li> 
+            <li><a href="#InstallationMV-MACOSXMACOSX">MAC OS X</a></li> 
+            <li><a href="#InstallationMV-Linux/SolarisLinux/Solaris">Linux / Solaris</a></li> 
+            <li><a href="#InstallationMV-OtherPlatformsOtherPlatforms">Other Platforms</a></li> 
+           </ul> </li> 
+          <li><a href="#InstallationMV-Howtouninstall?">How to uninstall?</a></li> 
+          <li><a href="#InstallationMV-Additionalpackage">Additional package</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#InstallationMV-Whoneedsthispackage?">Who needs this package?</a></li> 
+            <li><a href="#InstallationMV-Installation">Installation</a></li> 
+           </ul> </li> 
+          <li><a href="#InstallationMV-MarvinBeansfor.NET">Marvin Beans for .NET</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h3 id="InstallationMV-MarvinApplets"><a class="anchor" name="install_applets" rel="nofollow"></a>Marvin Applets</h3>
+      <ol>
+       <li>Download the Marvin Applets package according to your platform from the <span>&nbsp;</span><a href="http://www.chemaxon.com/download/marvin-suite/#mapplets" class="external-link" rel="nofollow"><span><span class="external-link"><span>Marvin download page</span></span></span></a>.<br /> (<code>.tar.gz</code> is recommended for Unix-like platforms, <code>.zip</code> for others).</li>
+       <li>You need a web server on the machine where you would like to install the Marvin Applets package (because applets work properly only through HTTP protocol). If there is no web server on the target machine, we suggest to use <span> <a class="external-link" href="http://tomcat.apache.org/index.html" rel="nofollow"> <span>Tomcat</span></a></span>.</li>
+       <li>Extract <code>marvin-all-VERSION.tar.gz</code> (in Unix or in Mac OS X) or <code>marvin-all-VERSION.zip</code> (in MS Windows) in the parent directory of &quot;marvin&quot;, where <code>VERSION</code> is the current version number.</li>
+       <li>Modify the settings of the web server if the directory of Marvin is not accessible from the web server root. Then restart it (if it is necessary) to validate new settings. (Consult with the manual of the web server how to do it.)</li>
+       <li>Open the <code>index.html</code> file in a browser.</li>
+      </ol>
+      <p><strong>Removing any</strong> binary (<em>jar</em> or <em>zip</em>) or configuration (<em>properties</em> or <em>xml</em>) <strong>file</strong> from the applet <strong>package</strong> can <strong>cause</strong> unexcepted <strong>error or limitation in the usage.</strong></p>
+      <h3 id="InstallationMV-MarvinBeansforJava"><a class="anchor" name="install_applications" rel="nofollow"></a>Marvin Beans for Java</h3>
+      <p>Download the package according to your platform from one of these <a href="http://www.chemaxon.com/download/marvin-suite/#mbeans" class="external-link" rel="nofollow">links</a><strong>.</strong></p>
+      <p>Follow the instruction below:</p>
+      <p>Platforms:</p>
+      <ul>
+       <li><a href="#InstallationMV-InstallationWindows">Windows</a></li>
+       <li><a href="#InstallationMV-MACOSX">MAC OS X</a></li>
+       <li><a href="Installation-MS_16122112.html">Linux / Solaris</a></li>
+       <li><a href="#InstallationMV-OtherPlatforms">Other Platforms</a></li>
+      </ul>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <p class="title">Notes</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <ul>
+         <li>After installation, at the first launch of MarvinSketch, a dialog asks the user to select the desired skin for the GUI <span> <a href="https://confluence.chemaxon.com/display/marvinsketch/Configurations+of+MarvinSketch" class="external-link" rel="nofollow"> <span>configuration</span> </a> </span>:<br />&nbsp;</li>
+         <li>The selected <span> <a href="https://confluence.chemaxon.com/display/marvinsketch/Configurations+of+MarvinSketch" class="external-link" rel="nofollow"> <span>configuration</span> </a> </span> can be changed later any time.</li>
+        </ul>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h4 id="InstallationMV-InstallationWindowsWindows"><a name="install_windows" rel="nofollow"></a> <span class="confluence-anchor-link" id="InstallationMV-InstallationWindows"></span>Windows</h4>
+      <p>If you have a 64-bit Windows, you can choose both the normal (32-bit) Marvin Beans installer or its 64-bit version.</p>
+      <p>The following table helps you to choose which installer can you use on your platform.</p>
+      <div class="table-wrap">
+       <p>&nbsp;</p>
+       <div class="table-wrap">
+        <table class="confluenceTable">
+         <tbody>
+          <tr>
+           <th rowspan="2" class="confluenceTh">Installer</th>
+           <th colspan="2" style="text-align: center;" class="confluenceTh">32-bit Windows</th>
+           <th colspan="3" style="text-align: center;" class="confluenceTh">64-bit Windows</th>
+          </tr>
+          <tr>
+           <th class="confluenceTh">without Java</th>
+           <th style="text-align: center;" class="confluenceTh">with Java</th>
+           <th class="confluenceTh">without Java</th>
+           <th style="text-align: center;" class="confluenceTh">with 32-bit Java</th>
+           <th style="text-align: center;" class="confluenceTh">with 64-bit Java</th>
+          </tr>
+          <tr>
+           <th class="confluenceTh">marvinbeans-VERSION-windows.exe</th>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+          </tr>
+          <tr>
+           <th class="confluenceTh">marvinbeans-VERSION-windows_with_jre.exe (bundled with 32-bit Java)</th>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+          </tr>
+          <tr>
+           <th class="confluenceTh">marvinbeans_VERSION-windows_64bit.exe</th>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+           <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p>&nbsp;</p>
+      </div>
+      <p>If you have a 64-bit Windows, follow the instructions in the <span> <span> <a href="#InstallationMV-64-bitWindows">64-bit Windows</a> </span> </span> section.</p>
+      <ol>
+       <li>Double-click on <strong> <code>marvinbeans-VERSION-windows.exe</code> </strong> or <strong> <code>marvinbeans-VERSION-windows_with_jre.exe</code> </strong> to install.</li>
+       <li>You can add the <code>bin</code> folder of Marvin Beans to the PATH environment variable to be able to run Marvin applications from any directory in the command line. Details about editing environment variables is described in Windows Help.</li>
+      </ol>
+      <p><span class="confluence-anchor-link" id="InstallationMV-windowsNotes"></span></p>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <p class="title">Notes</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <ul>
+         <li>Please <strong>make sure to close all running Marvin applications before starting the installer</strong> otherwise it may not be able to perform the installation correctly (overwriting certain <code>.jar</code> files is not possible if they are being used by a running application).<br /> Running applications may include:
+          <ul>
+           <li>Marvin desktop applications</li>
+           <li>MS-Office documents where Marvin Objects are being edited</li>
+           <li>Running applications where Marvin is embedded, like Instant JChem</li>
+          </ul>If the installation stops and an error popup is displayed, check the running processes in Windows Task Manager: if <code>marvinOLEServer.exe</code> is running, please stop it manually. This may occur when an MS-Office document is just using Marvin.</li>
+         <li>You can run the installer in <strong>silent/non-interactive mode</strong>, which means that in case Marvin is already installed, it will be overwritten with the update without the need of checking the &quot;OK&quot; and &quot;Next&quot; buttons on the installer dialogs. To enable this mode, use the <code>-q</code> option (for example open the command prompt with <code>cmd.exe</code> and type &quot;<code>marvinbeans-5_3_0.exe -q</code>&quot;).</li>
+        </ul>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="InstallationMV-64-bitWindows"></span></p>
+      <h5 style="margin-left: 30.0px;" id="InstallationMV-64-bitWindows"><a name="install_windows64" rel="nofollow"></a> <span class="confluence-anchor-link">&nbsp;</span>64-bit Windows</h5>
+      <p style="margin-left: 30.0px;"><strong>System requirements:</strong> 64-bit Windows system having an installed Java for 64-bit architecture.</p>
+      <ol>
+       <li>After downloading <strong>marvinbeans-VERSION-windows_64bit.exe</strong>, take a double-click on the downloaded file (accept running if Windows expects verification).</li>
+       <li>Installer is started: go through the installation wizard. The installer will setup the 64-bit version of JChem_NET_API automatically (that is wrapped into the installer)</li>
+      </ol>
+      <p style="margin-left: 60.0px;"><u> <a name="notes_windows" rel="nofollow"></a> </u></p>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <p class="title">Notes</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <ul>
+         <li>JChem_NET_API is required to be able to insert Marvin OLE (embedded object) into MS-Office document or transfer it between Marvin and the MS-Office applications.</li>
+         <li>Earlier versions of MS-Office suites are not available in 64-bit format. If your Office does not support 64-bit platform, you cannot use the OLE functionality of 64-bit version of Marvin. In this case, install 32-bit version of Marvin Beans and JChem_NET_API that can incorporate with 32-bit Office applications.</li>
+         <li>When you edit an embedded Marvin Object in Office, the editor can be different depending on the platform.
+          <ul>
+           <li>MS-Office 32-bit requires 32-bit JChem .NET API for Marvin embedding. It uses 32-bit .NET implementation of MarvinSketch unless 32-bit Marvin Beans package is installed. In this case, it prefers the 32-bit Java implementation.</li>
+           <li>MS-Office 64-bit requires 64-bit JChem .NET API for Marvin embedding. The 64-bit .NET implentation of MarvinSketch is used in all cases.</li>
+          </ul></li>
+         <li>See further notes in the <a href="#InstallationMV-windowsNotes">32-bit Windows</a> section.</li>
+        </ul>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h4 id="InstallationMV-MACOSXMACOSX"><a name="install_mac" rel="nofollow"></a> <span class="confluence-anchor-link" id="InstallationMV-MACOSX"></span>MAC OS X</h4>
+      <ol>
+       <li>Double-click<strong> <code>marvinbeans-VERSION-macos.dmg</code> </strong> to install.</li>
+       <li>You can add the <code>bin</code> folder of the Marvin Beans folder to the PATH to be able to run Marvin applications from any directory in command line.</li>
+      </ol>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <ul>
+         <li>Requires Mac OS X 10.0 or later</li>
+         <li>The compressed installer should be recognized by Stuffit Expander and should automatically be expanded after downloading. If it is not expanded, you can expand it manually using <span> <a class="external-link" href="http://www.aladdinsys.com/expander/index.html" rel="nofollow"> <span> StuffIt Expander 6.0 or later</span> </a> </span>.</li>
+         <li>If you have any problems launching the installer once it has been expanded, make sure that the compressed installer was expanded using Stuffit Expander. If you still have problems, please contact our technical support.</li>
+         <li>You can run the installer in <strong>silent/non-interactive mode</strong>, which means that in case Marvin is already installed, it will be overwritten with the update without the need of confirmation. To enable this mode, use the <code>-q</code> option.</li>
+        </ul>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h4 id="InstallationMV-Linux/SolarisLinux/Solaris"><a name="install_linux" rel="nofollow"></a> <span class="confluence-anchor-link" id="InstallationMV-Linux/Solaris"></span>Linux / Solaris</h4>
+      <ol>
+       <li>Open a shell and <strong> <code>cd</code> </strong> to the directory where you downloaded the installer.</li>
+       <li>Type the following to install: <strong> <code>sh marvinbeans-VERSION-linux.sh </code> </strong> (or <strong> <code>sh marvinbeans-VERSION-linux_with_jre.sh</code> </strong> depend on which package has been downloaded).</li>
+       <li>You can add the <code>bin</code> subdirectory of the Marvin Beans directory to the PATH to be able to run Marvin applications from any directory.</li>
+      </ol>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <ul>
+         <li>If the installer does not start, check whether <strong>JAVA_HOME/bin</strong> is in PATH (where JAVA_HOME is the directory of Java).<br /> To check it, type the &quot;<strong>which&nbsp;java</strong>&quot; command that shows the location of the Java launcher. You should get something like this:<pre>/usr/java/jdk1.6/bin/java</pre>If Java is missing from PATH, you will see something like that:<pre>/usr/bin/which: no java in (/usr/java/jdk1.6/bin:/opt/apache-ant-1.6.1/bin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/home/vertset/bin)</pre></li>
+         <li>You can run the installer in <strong>silent/non-interactive mode</strong>, which means that in case Marvin is already installed, it will be overwritten with the update without the need of confirmation. To enable this mode, use the <code>-q</code> option. If you are in terminal mode (GUI is not accessible), we recommend to use this option.</li>
+        </ul>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-warning"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Application crashes with java virtual machine error on Linux systems when <strong>File&gt;Document Style &gt; Settings</strong> is opened. Uninstalling ttf-unifont package or updating Java to the latest version can eliminate the problem.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h4 id="InstallationMV-OtherPlatformsOtherPlatforms"><a name="install_other" rel="nofollow"></a> <span class="confluence-anchor-link" id="InstallationMV-OtherPlatforms"></span>Other Platforms</h4>
+      <ol>
+       <li>Go to the directory where <strong> <code>marvinbeans-VERSION.zip</code> </strong> was downloaded then uncompress the zip file.</li>
+       <li>You can start applications via scripts or batch files that you can find in the <code>marvinbeans/bin</code> directory.</li>
+      </ol>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <ul>
+         <li>You need an expander which can handle <code>zip</code> extension.</li>
+         <li>Batch files (<code>bin/*.bat</code>) have to be initialized before the first use. Set the <code>MARVINBEANSHOME</code> variable in the files to the full path of the directory where Marvin Beans is located.</li>
+        </ul>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h3 id="InstallationMV-Howtouninstall?"><a name="uninstall" rel="nofollow"></a>How to uninstall?</h3>
+      <p>Use the uninstaller to remove Marvin Beans from your machine. If you give the <strong>-q</strong> command line parameter by running the uninstaller, it will run in silent mode (no GUI, non-interactive mode).</p>
+      <ul>
+       <li><strong>Windows: </strong> Double click on <code>uninstall.exe</code> in the Marvin Beans's home folder or select Marvin Beans from the <em>Add / Remove programs</em> list on <em>Control Panel</em>.</li>
+       <li><strong>OS X: </strong> Double click on <code>ChemAxon Marvin Beans Uninstaller</code> in the Marvin Beans' home directory.</li>
+       <li><strong>Linux / Solaris: </strong> Launch the <code>uninstall</code> script in the Marvin Beans' home directory.</li>
+      </ul>
+      <h3 id="InstallationMV-Additionalpackage"><a class="anchor" name="signedjars" rel="nofollow"></a>Additional package</h3>
+      <h4 id="InstallationMV-Whoneedsthispackage?"><strong style="color: rgb(51,51,51);line-height: 1.4285715;">Who needs this package?</strong></h4>
+      <p>Install <code>marvinbeans-lib-VERSION-signed.zip</code> only if you need the <em>signed version</em> of the Marvin Beans package.<br /> If you would like to launch Marvin applications via Java Web Start from your server, you will need the signed version for security reasons.<br /> Please note that this archive can only be used as an extension of the already installed Marvin Beans package.</p>
+      <h4 id="InstallationMV-Installation"><strong>Installation</strong></h4>
+      <ol>
+       <li>Check the product version of the Marvin Beans package you have already installed. You can find the product version of your installed distribution in the <strong> <span> <a href="https://confluence.chemaxon.com/display/marvinsketch/Dialogs+of+MarvinSketch#DialogsofMarvinSketch-about" class="external-link" rel="nofollow"> <span>Help &gt; About dialog</span> </a> </span> </strong> or in the <code>version.properties</code> file located in the Marvin Beans installation directory.</li>
+       <li>Download the additional package for exactly the same version: <strong>marvinbeans-lib-VERSION-signed.zip</strong>.</li>
+       <li>Create a backup of the <strong>lib</strong> sub-directory of your Marvin Beans package.</li>
+       <li>Extract the <strong>marvinbeans-lib-VERSION-signed.zip</strong> archive file into the Marvin Beans directory. Your extractor tool (e.g. <em>unzip</em> or <em>WinZip</em>) may ask confirmation to update all files by unwrapping. In this case let it overwrite all. This operation will update the jar files (overwrite them with the signed versions) in the <strong>lib</strong> sub-directory of the installed Marvin Beans package.</li>
+      </ol>
+      <h3 id="InstallationMV-MarvinBeansfor.NET"><a class="anchor" name="install_beans_net" rel="nofollow"></a>Marvin Beans for .NET</h3>
+      <p>The Marvin Beans package for .NET platform can be downloaded from<a href="http://www.chemaxon.com/download/marvin-suite/#mdotnet" class="external-link" rel="nofollow"> <span> <span class="external-link"> <span>this link</span></span></span></a><span>&nbsp;</span>.</p>
+      <p></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

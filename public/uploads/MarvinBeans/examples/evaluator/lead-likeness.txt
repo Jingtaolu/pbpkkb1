@@ -1,0 +1,6 @@
+(mass() <= 450) &&
+(logD("7.4") >= -4) && (logD("7.4") <= 4) &&
+(ringCount() <= 4) &&
+(rotatableBondCount() <= 10) &&
+(donorCount() <= 5) &&
+(acceptorCount() <= 8)

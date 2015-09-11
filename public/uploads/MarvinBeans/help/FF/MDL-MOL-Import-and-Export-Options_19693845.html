@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : MDL MOL Import and Export Options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : MDL MOL Import and Export Options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h1 id="MDLMOLImportandExportOptions-Importoptions">Import options</h1>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th colspan="1" class="confluenceTh">Codename</th>
+          <th colspan="1" class="confluenceTh">Explanation</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_Xsg" rel="nofollow"></a><strong>Xsg</strong></td>
+          <td class="confluenceTd">Expand all S-groups.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_Usg" rel="nofollow"></a><strong>Usg</strong></td>
+          <td class="confluenceTd">Ungroup all S-groups.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_Fsg" rel="nofollow"></a><strong>Fsg</strong></td>
+          <td class="confluenceTd">Ungroup S-groups with 3 or more attachment points.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_b" rel="nofollow"></a><strong>b</strong>XXX&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class="confluenceTd">Set the C-C bond length used in the molfile. The molecule file is supposed to store coordinates in 1.54&Aring;/XXX units. Marvin uses &Aring; units internally, thus coordinates are rescaled by factor 1.54/XXX at import if XXX is a nonzero number. If XXX = 0, then coordinates are not rescaled (default setting for 3D molecules if option 'b' is not used). If XXX = A, then coordinates are rescaled to transform the molfile's average C-C bond length to 1.54 &Aring; (default setting for 2D molecules). Examples: &quot;caffeine.mol{b0}&quot; or &quot;caffeine.mol{b1.54}&quot; (bond lengths are in angstroms), &quot;caffeine.mol{b0.825}&quot; (bond lengths are in ISISDraw's units), &quot;caffeine-V3.mol{bA}&quot; (average bond length calculation, same as default).</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_nomolp" rel="nofollow"></a><strong>nomolp</strong></td>
+          <td class="confluenceTd">Read molecule type data fields (<code>$DTYPE $MFMT</code> and <code>$RFMT</code> in RDfiles) as strings instead of Molecule objects.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_skipMMRV" rel="nofollow"></a><strong>skipMMRV</strong></td>
+          <td class="confluenceTd">Neglect ChemAxon/Marvin specific lines in the properties block. Such lines are in the following format: <code>M&nbsp;&nbsp;MRV</code> ... They should be skipped if the file is converted with non-ChemAxon software, which preserved them but made them invalid, e.g. by changing the total number of atoms and bonds.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_skipAtomValue" rel="nofollow"></a><strong>skipAtomValue</strong></td>
+          <td class="confluenceTd">Disables the import of &quot;Atom values&quot; from the given ctfile.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ioption_convertZAliasedCarbonsToRgAttach" rel="nofollow"></a><strong>z</strong></td>
+          <td class="confluenceTd">Carbon atoms with &quot;Z&quot; as alias string are converted to r-group attachment points.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h1 id="MDLMOLImportandExportOptions-Exportoptions"><a class="anchor" name="options" rel="nofollow"></a>Export options</h1>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th colspan="1" class="confluenceTh">Codename</th>
+          <th colspan="1" class="confluenceTh">Explanation</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd"><p><a href="Basic-export-options_14943114.html">Basic options for aromatization and H atom adding/removal.</a></p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>V2</strong> or <strong>V3</strong>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class="confluenceTd">Force writing V2 or V3 (extended) molfiles. The default format is V2 for simple molecules, V3 if the number of atoms or bonds exceeds 999, in case of reactions with Rgroups or there is enhanced stereo in the molecule. Example: &quot;mol:V3&quot;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>P</strong></td>
+          <td class="confluenceTd">Write floating point numbers with maximum precision. Only meaningful for V3 molfiles. Example: &quot;mol:V3P&quot;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="option_b" rel="nofollow"></a><strong>b</strong>XXX</td>
+          <td class="confluenceTd">Set C-C bond length. If XXX is nonzero, then the exported atom coordinates are rescaled by XXX / 1.54. If XXX = 0, then coordinates are not rescaled.<br /> Examples: &quot;mol:b0&quot; or &quot;mol:b1.0&quot; (bond lengths are in angstroms), &quot;mol:b1.0a&quot; (set bond length, aromatize).<br /> Default: 0.825 in V2 format for 2D molecules, 1.54 (&Aring; units) (which means no rescaling) in any other case.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-anchor-link" id="MDLMOLImportandExportOptions-ec"></span><a class="text" name="option_ec" rel="nofollow"></a><strong>ec</strong></td>
+          <td class="confluenceTd">Convert to enhanced stereo representation, considering the chiral flag. Only meaningful with option V3. (Chiral centers are grouped into ABS or an AND stereo group, depending on the chiral flag. When the input molecule contained any enhanced stereo labels, the unlabeled stereo centers always will form a new AND group.) Example: &quot;mol:V3ec&quot;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-anchor-link" id="MDLMOLImportandExportOptions-ea"></span><a class="text" name="option_ea" rel="nofollow"></a><strong>ea</strong></td>
+          <td class="confluenceTd">Convert to enhanced stereo representation, assuming absolute stereochemistry. Only meaningful with option V3. (Chiral centers are grouped into the ABS group. In case the input molecule already contains enhanced stereo labels, the behaviour is similar to the one described at option <strong>ec</strong> above.) Example: &quot;mol:V3ea&quot;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="option_Abs" rel="nofollow"></a><strong>cc</strong></td>
+          <td class="confluenceTd">Write CHIRAL flag if there are only ABS enhanced stereo labels in the molecule. Only meaningful with option V2. Example: &quot;mol:V2cc&quot;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="option_omitClean0D" rel="nofollow"></a><strong>omitClean0D</strong></td>
+          <td class="confluenceTd">Omits the clean operation while exporting 0D molecules into ctfile format with V2 compatibility which is the default. This clean was introduced in 5.4 because the ctfile format cannot contain stereo information without coordinates.<br /> Example: &quot;mol:omitClean0D&quot;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="option_BOM" rel="nofollow"></a><strong>BOM</strong></td>
+          <td class="confluenceTd">Write the UTF-8 <em>byte order mark</em> (BOM), if the given or the system's encoding is UTF-8.<br /> Example: &quot;mol:BOM&quot;</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

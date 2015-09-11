@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Marvin Applets Frequently Asked Questions</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Marvin Applets Frequently Asked Questions </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p></p>
+      <ul>
+       <li><span style="color: rgb(51,51,51);">Class and JAR files</span></li>
+      </ul> 
+      <div id="expander-1052939020" class="expand-container"> 
+       <div id="expander-control-1052939020" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">Which Java versions are supported by Marvin applets?</span> 
+       </div> 
+       <div id="expander-content-1052939020" class="expand-content">
+        <p class="_mce_tagged_br">&nbsp;</p>
+        <p>ChemAxon products support only Oracle distributed Java. On Mac platform (where Oracle Java is not available), our products support Apple's built-in Java that is compatible with Oracle's distribution. Marvin applets requires at least Java 1.6.</p>
+        <p>&nbsp;</p>
+       </div> 
+      </div> 
+      <div id="expander-1078160477" class="expand-container"> 
+       <div id="expander-control-1078160477" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">Click here to expand..Which files are required to run Marvin applets?.</span> 
+       </div> 
+       <div id="expander-content-1078160477" class="expand-content">
+        <p>Several packages can be downloaded from the <a href="http://www.chemaxon.com/marvin/download.html" class="external-link" rel="nofollow">Marvin site</a>:</p>
+        <p><em>marvin-bin-VERSION.tar.gz</em> or <em>marvin-bin-VERSION.zip</em></p>
+        <p>Download and unpack:</p>
+        <pre>zip: unzip marvin-bin-VERSION.zip
+tar.gz: gunzip &lt; marvin-bin-VERSION.tar.gz |tar xf -</pre>This distribution contains all files necessary for using MarvinSketch and MarvinView applets, without HTML pages and examples.
+        <p>&nbsp;</p>
+        <p><em>marvin-all-VERSION.tar.gz</em> and <em>marvin-all-VERSION.zip</em></p>
+        <p>Download and unpack:</p>
+        <pre>zip: unzip marvin-all-VERSION.zip
+tar.gz: gunzip &lt; marvin-all-VERSION.tar.gz | tar xf -</pre>
+        <p>This distribution contains all files necessary for using MarvinSketch and MarvinView applets, as well as the documentation and examples.</p>
+       </div> 
+      </div> 
+      <div id="expander-1025497133" class="expand-container"> 
+       <div id="expander-control-1025497133" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">How can I delete plugin packages from the Marvin applets package?</span> 
+       </div> 
+       <div id="expander-content-1025497133" class="expand-content">
+        <p>Remove <code>chemaxon/marvin/plugin</code> and <code>sjars/plugin</code> directories from the <code>marvin</code> directory.</p>
+        <pre>    cd marvin
+    rm -r chemaxon/marvin/plugin
+    rm -r sjars/plugin
+    </pre>
+       </div> 
+      </div> 
+      <p><span class="confluence-anchor-link" id="MarvinAppletsFrequentlyAskedQuestions-unsigned"></span></p> 
+      <div id="expander-1407890462" class="expand-container"> 
+       <div id="expander-control-1407890462" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">How can I create an unsigned jar file from a signed jar file?</span> 
+       </div> 
+       <div id="expander-content-1407890462" class="expand-content">
+        See the linking 
+        <a href="https://www.chemaxon.com/forum/ftopic65.html" class="external-link" rel="nofollow">forum topic</a>.
+       </div> 
+      </div> 
+      <div id="expander-1895427720" class="expand-container"> 
+       <div id="expander-control-1895427720" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">How long is the signed applet valid?</span> 
+       </div> 
+       <div id="expander-content-1895427720" class="expand-content">
+        <p>Read the following document, to check the expiration date of signing for Marvin applets: <a href="https://docs.chemaxon.com/display/marvinsketch/Expiration+date+of+releases">Expiration date of releases</a></p>
+       </div> 
+      </div> 
+      <div id="expander-798625139" class="expand-container"> 
+       <div id="expander-control-798625139" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">I receive a java.lang.RuntimeException with IIS server, what's the problem?</span> 
+       </div> 
+       <div id="expander-content-798625139" class="expand-content">
+        <p>The following exception occurs with Marvin 5.2.x versions:</p>
+        <pre>    Exception in thread &quot;AWT-EventQueue-2&quot; java.lang.RuntimeException: java.lang.NoClassDefFoundError:
+    Could not initialize class chemaxon.marvin.modules.GraphInvariants
+            at chemaxon.marvin.util.MarvinModule.load(Unknown Source)
+            at chemaxon.struc.MoleculeGraph.a(Unknown Source)
+</pre>
+        <p>IIS servers versioned 6.0 and above serve only those files that are on the mime type list of the server or web site, but some types required by Marvin are not on the list by default.</p>
+        <p><strong>Solution:</strong> add the following mime types in the HTTP headers tab on the properties dialog of the web site or the server:</p>
+        <ul>
+         <li>.properties = &quot;text/plain&quot;</li>
+         <li>.data = &quot;application/octet-stream&quot;</li>
+        </ul>
+        <p>If IIS should transfer molecule files to the clients, then the molecule file formats should also be registered with their extension.<br /> A few commonly used extensions and the corresponding mime types are below:</p>
+        <ul>
+         <li>.mrv = &quot;chemical/x-chemaxon-marvinfile&quot;</li>
+         <li>.mol = &quot;chemical/x-mdl-molfile&quot;</li>
+         <li>.cdx = &quot;chemical/x-cdx&quot;</li>
+         <li>.sdf = &quot;chemical/x-mdl-sdfile&quot;</li>
+         <li>.smi = &quot;chemical/x-daylight-smiles&quot;</li>
+         <li>.rxn = &quot;chemical/x-mdl-rxnfile&quot;</li>
+         <li>.rdf = &quot;chemical/x-mdl-rdfile&quot;</li>
+         <li>.pdb = &quot;chemical/x-pdb&quot;</li>
+        </ul>
+       </div> 
+      </div> 
+      <div id="expander-853810595" class="expand-container"> 
+       <div id="expander-control-853810595" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text"> The applet is loading but it never loads.</span> 
+       </div> 
+       <div id="expander-content-853810595" class="expand-content">
+        <p>On the Java console a ClassNotFoundException is thrown, caused by an IOException which is thrown when the webserver reports an error to the GET request for the <code><a href="http://host.tld/appletpath/JMSketch.class" class="external-link" rel="nofollow">http://host.tld/appletpath/JMSketch.class</a></code></p>
+        <p><strong>This problem occurs with Java 1.6.0_u15+ versions, if the Java cache is turned off.</strong></p>
+        <p>The problem will no longer exist after Marvin 5.3, until that the Java cache is not suggested to be switched off.</p>
+       </div> 
+      </div> 
+      <div id="expander-205414657" class="expand-container"> 
+       <div id="expander-control-205414657" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">Some Applet functionalities do not work.</span> 
+       </div> 
+       <div id="expander-content-205414657" class="expand-content">
+        <p>On the Java console a ClassNotFoundException is thrown, caused by an IOException wich is thrown when the webserver reports and error to the GET request for a .class file.</p>
+        <p><strong>This problem occurs with Java 1.6.0_u15+ versions.</strong></p>
+        <p>The problem is caused by the <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6888528" class="external-link" rel="nofollow">6888528 java bug</a>. A possible solution is to clean the java cache, and redo the actions with a clean cache when this error occurs. Another solution is to turn off the &quot;Enable the next-generation Java Plug-in&quot; in the Java Plug-in group on the Advanced tab of the Java Control Panel.</p>
+       </div> 
+      </div> 
+      <ul>
+       <li>MarvinSketch and MarvinView</li>
+      </ul> 
+      <div id="expander-97292990" class="expand-container"> 
+       <div id="expander-control-97292990" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">When I put MView applets into an HTML table, I can only display about 200 molecules because the browser slows down and runs out of memory. Do you provide a simple and &quot;thin&quot; applet, which just displays molecules without any rotation and linkage to the sketcher?</span> 
+       </div> 
+       <div id="expander-content-97292990" class="expand-content">
+        <p>The rotation and the linkage to the sketcher have negligible contribution to the memory footprint. The largest contributions are from</p>
+        <ol>
+         <li>double buffering of Swing components</li>
+         <li>size of Molecule objects</li>
+         <li>large color arrays that store the shades for 3D rendering modes</li>
+        </ol>
+        <p>Even if we provided a &quot;thin&quot; applet without 3D support, it would only enable you to use about twice as many molecules. Then you would run out of memory again because of the double buffering.</p>
+        <p>You should use an <em>n</em>-molecule scrollable MView table instead of <em>n</em> applets. Then the common data will be stored in only one place (instead of <em>n</em>) and the number of Swing components will be equal to the number of visible molecules which is usually much smaller than <em>n</em>.</p>
+       </div> 
+      </div> 
+      <div id="expander-954280830" class="expand-container"> 
+       <div id="expander-control-954280830" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">I do not manage to load a molecule string using an applet parameter in Mozilla.</span> 
+       </div> 
+       <div id="expander-content-954280830" class="expand-content">
+        <p>Your molecule string may contain consecutive space characters in applet parameters which are converted to only one space. This bug applies to Mozilla 0.9.7-1.0 and probably some earlier versions too.</p>
+       </div> 
+      </div> 
+      <ul>
+       <li>Other:</li>
+      </ul> 
+      <div id="expander-1600254693" class="expand-container"> 
+       <div id="expander-control-1600254693" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">How can I set the Java environment of Firefox in Linux?</span> 
+       </div> 
+       <div id="expander-content-1600254693" class="expand-content">
+        <p>See the documentation of oOracle's Java: <a href="http://java.sun.com/javase/6/webnotes/install/jre/manual-plugin-install-linux.html" class="external-link" rel="nofollow">Manual Installation and Registration of Linux Plugin</a></p>
+       </div> 
+      </div> 
+      <div id="expander-97231597" class="expand-container"> 
+       <div id="expander-control-97231597" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">IE can not load Marvin applets over SSL communication. I have received this warning message: &quot;This page contains both secure and non-secure items.&quot;</span> 
+       </div> 
+       <div id="expander-content-97231597" class="expand-content">
+        <p>The <code>CODEBASE</code> attribute of the <code>OBJECT</code> tag refers to a non-secure page that the browser does not accept. The browser downloads the plugin from this URL, if the Java Plugin is not installed on your machine.<br /> You should change this URL to a secure one.</p>
+        <ol>
+         <li>To provide a secure page for downloading a Java Plugin, copy a JRE <em>cab</em> file to your site.<pre>    http://java.sun.com/products/plugin/autodl/jinstall-1_4_2-windows-i586.cab#Version=1,3,0,0
+    </pre></li>
+         <li>Modify the reference to this <em>cab</em> file in marvin.js. (Search the following code in the <code>applet_begin</code> function).<pre>    s += ' CODEBASE=&quot; http://java.sun.com/products/plugin/autodl/jinstall-1_4_2-windows-i586.cab#Version=1,3,0,0&quot;\n';
+    </pre>You should replace the text with<pre>    s += ' CODEBASE=&quot; https://&lt;PLUGINLOCATION&gt;/jinstall-1_4_2-windows-i586.cab#Version=1,3,0,0&quot;\n';
+    </pre>where <code>&lt;PLUGINLOCATION&gt;</code> is the new location of the <em>cab</em> file (e.g.: <span style="color: rgb(0,51,102);"><code><a href="http://www.my_secure_site.com/java_plugin" class="external-link" rel="nofollow"><span style="color: rgb(0,51,102);">www.my_secure_site.com/java_plugin</span></a></code></span>).&nbsp;<br /><small>Note: The new URL must start with &quot;https&quot; protocol instead of &quot;http&quot;.</small></li>
+        </ol>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <ul>
+       <li>To see further questions, visit the following pages:
+        <ul>
+         <li><a href="https://docs.chemaxon.com/display/marvinsketch/Browser+compatibility+of+Marvin+Applets">Notes for mac users</a></li>
+         <li>&nbsp;<a href="https://docs.chemaxon.com/display/marvinsketch/Frequently+Asked+Questions+MS">Crashes, freezes and other bugs</a></li>
+        </ul></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Reusable Content 14.28</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Reusable Content 14.28 </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span>Its current usage includes&nbsp;</span><a href="http://www.chemaxon.com/jchem/doc/user/reactor_cline.html#rules" style="text-decoration: underline;" class="external-link" rel="nofollow">chemical rules for reaction processing</a><span>,&nbsp;</span><a href="http://www.chemaxon.com/jchem/doc/user/Jcsearch.html#expression" style="text-decoration: underline;" class="external-link" rel="nofollow">search filters</a><span>&nbsp;or both as&nbsp;</span><a href="http://www.chemaxon.com/jchem/doc/guide/cartridge/cartapi.html#jc_evaluate" style="text-decoration: underline;" class="external-link" rel="nofollow">chemical calculations</a><span>&nbsp;and&nbsp;</span><a href="http://www.chemaxon.com/jchem/doc/guide/cartridge/cartapi.html#jc_compare_ctFilter" style="text-decoration: underline;" class="external-link" rel="nofollow">chemical filtering</a><span>&nbsp;in&nbsp;</span><a href="http://www.chemaxon.com/jchem/doc/guide/cartridge/index.html" style="text-decoration: underline;" class="external-link" rel="nofollow">JChem Cartridge</a><span>. The&nbsp;</span><a href="http://www.chemaxon.com/marvin/help/chemicalterms/Evaluator.html" style="text-decoration: underline;" class="external-link" rel="nofollow">Evaluator command line tool</a><span>&nbsp;and the&nbsp;</span><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/jep/Evaluator.html" style="text-decoration: underline;" class="external-link" rel="nofollow">Evaluator API</a><span>&nbsp;are also available for general purpose expression evaluation.</span><br /><a name="intro" rel="nofollow"></a></p>
+      <div>
+       <span><br /></span>
+      </div>
+      <p>The&nbsp;Chemical Terms Evaluator&nbsp;is designed to evaluate mathematical expressions on molecules using&nbsp;<a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html" style="text-decoration: underline;" class="external-link" rel="nofollow">built-in chemical and general purpose functions</a>. It is also possible to extend this built-in set of calculations by a&nbsp;<a href="http://www.chemaxon.com/marvin/help/chemicalterms/ChemicalTerms.html#config" style="text-decoration: underline;" class="external-link" rel="nofollow">user-defined configuration</a>.</p>
+      <p>The heart of the evaluator mechanism is the&nbsp;<a href="http://jep.sourceforge.net/" style="text-decoration: underline;" class="external-link" rel="nofollow">JEP Java Expression Parser</a>, equipped with chemical plugin calculations,&nbsp;<a href="http://www.chemaxon.com/jchem/doc/user/queryindex.html" style="text-decoration: underline;" class="external-link" rel="nofollow">chemical substructure search</a>&nbsp;and some additional&nbsp;<a href="http://www.chemaxon.com/marvin/help/chemicalterms/Evaluator.html#functiondef" style="text-decoration: underline;" class="external-link" rel="nofollow">chemical and general purpose functions</a>.&nbsp;<a href="http://www.chemaxon.com/marvin/help/chemicalterms/ChemicalTerms.html#config" style="text-decoration: underline;" class="external-link" rel="nofollow">User defined functions</a>&nbsp;can also be added to this function set.</p>
+      <p><a name="simpleexamples" rel="nofollow"></a><span class="confluence-anchor-link" id="ReusableContent14.28-simple_examples"></span>Here are some simple examples showing how some well-known chemical rules can be formulated for a given input molecule read from a&nbsp;<a href="http://www.chemaxon.com/marvin/help/chemicalterms/ChemicalTerms.html#molcontext" style="text-decoration: underline;" class="external-link" rel="nofollow">molecule context</a>:</p>
+      <p><span style="color: rgb(54,54,54);">The following filters are used in drug discovery and drug development to narrow down the scope of molecules. They provide estimation on solubility and permeability of orally active compounds considering their physical and chemical properties. The examined properties are given as chemical terms.</span></p>
+      <ol style="margin-left: 20.0px;">
+       <li>Lipinski's rule of five states that the absorption or permeation of a molecule is more likely when the molecular weight is under 500 g/mol, the value of logP is lower than 5, and the molecule has utmost 5 H-donor and 10 H-acceptor atoms. The definition of the aforementioned rule by ChemicalTerms is:<pre>(mass() &lt;= 500) &amp;&amp; 
+(logP() &lt;= 5) &amp;&amp; 
+(donorCount() &lt;= 5) &amp;&amp; 
+(acceptorCount() &lt;= 10)
+</pre><pre>&nbsp;</pre></li>
+       <li>Lead-likeness:<pre>(mass() &lt;= 450) &amp;&amp;
+(logD(&quot;7.4&quot;) &gt;= -4) &amp;&amp; (logD(&quot;7.4&quot;) &lt;= 4) &amp;&amp;
+(ringCount() &lt;= 4) &amp;&amp;
+(rotatableBondCount() &lt;= 10) &amp;&amp;
+(donorCount() &lt;= 5) &amp;&amp;
+(acceptorCount() &lt;= 8)
+</pre><pre>&nbsp;</pre></li>
+       <li>Bioavailability:<pre>(mass() &lt;= 500) +
+(logP() &lt;= 5) +
+(donorCount() &lt;= 5) +
+(acceptorCount() &lt;= 10) +
+(rotatableBondCount() &lt;= 10) +
+(PSA() &lt;= 200) +
+(fusedAromaticRingCount() &lt;= 5) &gt;= 6
+</pre>Note, that summing up the&nbsp;<code>7</code>&nbsp;subresults above means to count how many of them are satisfied. The requirement that this sum should be at least&nbsp;<code>6</code>&nbsp;means that we do not require all of the subconditions to be satisfied but instead we allow at&nbsp;most one of them to fail.<p>&nbsp;</p></li>
+       <li>Ghose filter:<pre>(mass() &gt;= 160) &amp;&amp; (mass() &lt;= 480) &amp;&amp;
+(atomCount() &gt;= 20) &amp;&amp; (atomCount() &lt;= 70) &amp;&amp;
+(logP() &gt;= -0.4) &amp;&amp; (logP() &lt;= 5.6) &amp;&amp;
+(refractivity() &gt;= 40) &amp;&amp; (refractivity() &lt;= 130)
+</pre><pre>&nbsp;</pre></li>
+       <li>Scaffold hopping:<pre>refmol = &quot;actives.sdf&quot;;
+dissimilarity(&quot;ChemicalFingerprint&quot;, refmol) - 
+dissimilarity(&quot;PharmacophoreFingerprint&quot;, refmol) &gt; 0.6
+</pre>Note, that molecule constants can be defined by a molecule file path or a SMILES string. Multiple expressions are separated by ';' characters, whitespace characters can be added freely for readability, since they are not considered by the evaluation process.</li>
+      </ol>
+      <p>A set of&nbsp;<a href="https://www.chemaxon.com/marvin/examples/evaluator/index.html" style="text-decoration: underline;" class="external-link" rel="nofollow">working examples</a>&nbsp;is also available.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Pop-up menu</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Pop-up menu </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The Pop-up menu appears when you&nbsp;right-click&nbsp;over the canvas. Functions available in this menu will significantly change in future releases.<br />In version 1.3 the Popup menu looks like as on the image.<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Popup Menu" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/popup.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/popup.png" /></span></p>
+      <ul style="margin-left: 20.0px;">
+       <li>The first item,&nbsp;<strong>Best fit</strong>, works well in all cases. This sets zoom ratio and view angle to optimal values to allow to see the entire content of the current cell (where right mouse button was pressed) regardless of the size and the number of structures displayed in that cell.</li>
+       <li><a href="MarvinSpace-Operations_13828256.html#MarvinSpaceOperations-zoomtopocket">Zoom to pocket</a>&nbsp;is a combination of selections and hide events offering a quick way of restraining the view to a binding pocket.</li>
+       <li>Atom selections can be extended to whole residues by the next menu.</li>
+       <li><strong>Show</strong>&nbsp;and&nbsp;<strong>Show monitors</strong>&nbsp;do not change the viewing transformations, just set invisible components to be ideally visible. To have a component being visible in fact, it may also be necessary to use Best fit.</li>
+       <li>The&nbsp;<strong>Hide</strong>&nbsp;menu items can be used on graphic components and on parts of components, for example atoms.</li>
+       <li><strong>Fade</strong>&nbsp;is similar to Hide in the sense that it helps reducing the view to the interesting part. Faded components are usually drawn with dark gray color, they are not considered during Best fit, and they cannot be picked by the mouse. So the behaviour of hidden and faded elements is the same, the difference is that faded elements can be seen.</li>
+       <li><strong>Delete</strong>&nbsp;is the way of removing components finally from the scene. There is a great difference between deleting and the upper operations as Show, Hide and Fade: Delete is defined only on complete components, so for example atoms cannot be deleted.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : H&uuml;ckel Analysis Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : H&uuml;ckel Analysis Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the H&uuml;ckel Analysis Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956218 {padding: 0px;}
+div.rbtoc1439200956218 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956218 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956218"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#H&uuml;ckelAnalysisPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#H&uuml;ckelAnalysisPlugin-Options">Options</a></li> 
+          <li><a href="#H&uuml;ckelAnalysisPlugin-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="H&uuml;ckelAnalysisPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The H&uuml;ckel Analysis Plugin is able to calculate different structural descriptors for aromatic atoms.&nbsp;</p>
+      <p>Localization energies L(+) and L(-) for electrophilic and nucleophilic attack at an aromatic center are calculated by the H&uuml;ckel method. A smaller L(+) or L(-) value means more reactive atomic location. Order of atoms in E(+) or in Nu(-) attack are adjusted according to their localization energies. The total π&nbsp;energy, the π&nbsp;electron density and the total electron density are also calculated by H&uuml;ckel method. Depending on the chemical environment, the following atoms have optimal Coulomb and resonance integral parameters: B, C, N, O, S, F, Cl, Br, I.</p>
+      <p>All other atoms have a default, non-optimized parameter.&nbsp;Theoretical background is taken from&nbsp;<a href="#H&uuml;ckelAnalysisPlugin-isaacs">Isaacs' book</a>. Additional literature for the H&uuml;ckel's parameters is&nbsp;<a href="#H&uuml;ckelAnalysisPlugin-streitwieser">Streitwieser's book.</a></p>
+      <p>The results appear in a new window, indicating the calculated values at the atoms in the aromatic ring. In the following example the first picture is the <a href="#H&uuml;ckelAnalysisPlugin-fig.1">result of Aromatic E(+)/Nu(-) order calculation</a>, while the second picture is the <a href="#H&uuml;ckelAnalysisPlugin-fig.2">result of a Pi energy calculation</a>.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="H&uuml;ckelAnalysisPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584082/29099427.png" data-image-src="attachments/12584082/29099427.png" data-unresolved-comment-count="0" data-linked-resource-id="29099427" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="enOrder.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584082" data-linked-resource-container-version="23" /></span></p>
+      <p>Fig. 1 Aromatic E(+)/Nu(-) calculation result</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="H&uuml;ckelAnalysisPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584082/29098625.png" data-image-src="attachments/12584082/29098625.png" data-unresolved-comment-count="0" data-linked-resource-id="29098625" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pienergy.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584082" data-linked-resource-container-version="23" /></span>&nbsp;</p>
+      <p>Fig. 2 Pi energy calculation result&nbsp;<br />&nbsp;</p>
+      <h1 id="H&uuml;ckelAnalysisPlugin-Options">Options</h1>
+      <p>The following calculation parameters can be set in the&nbsp;<a href="#H&uuml;ckelAnalysisPlugin-fig.3"><em>Huckel Analysis Options</em>&nbsp;window</a>:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:</strong>&nbsp;setting the number of decimal places with which the result value is given.</li>
+       <li><strong>Type</strong>: sets the type of the calculation. That could be:
+        <ul style="margin-left: 20.0px;">
+         <li><strong>E(+)/Nu(-) order:</strong>&nbsp;numbers the aromatic atoms according to their probability of being attacked by electrophiles or nucleophiles.</li>
+         <li><strong>Localization energy L(+)/L(-):</strong>&nbsp;gives the localization energies of the aromatic center (dimension β).</li>
+         <li><strong>Pi energy:</strong>&nbsp;calculates the π&nbsp;energy of the aromatic ring(s) (dimension β).</li>
+         <li><strong>Electron density:</strong>&nbsp;calculates the π&nbsp;electron density.</li>
+         <li><strong>Charge density:</strong>&nbsp;calculates total charge density on the ring atoms.</li>
+        </ul></li>
+       <li><strong>Subtype: E(+)</strong>&nbsp;or<strong>&nbsp;Nu(-):</strong>&nbsp;for E(+)/Nu(-) order and localization energy L(+)/L(-), the electrophilicity and nucleophilicity approaches can be selected (at least one of them). Results for E(+) are coloured red, and Nu(-) blue.</li>
+       <li><strong>Take major microspecies at pH:</strong>&nbsp;calculates the values for the major microspecies at the given pH.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="H&uuml;ckelAnalysisPlugin-fig.3"></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584082/29099428.png" data-image-src="attachments/12584082/29099428.png" data-unresolved-comment-count="0" data-linked-resource-id="29099428" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="huckel_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584082" data-linked-resource-container-version="23" /></span></p>
+      <p>Fig. 3 Huckel Analysis Options window</p>
+      <p>&nbsp;</p>
+      <h1 id="H&uuml;ckelAnalysisPlugin-References">References</h1>
+      <ol>
+       <li><p><a class="text" name="ref2" style="text-decoration: underline;" rel="nofollow"></a><span class="confluence-anchor-link" id="H&uuml;ckelAnalysisPlugin-isaacs"></span>Isaacs, N.S.,&nbsp;<em>Physical Organic Chemistry</em>, John Wiley &amp; Sons, Inc., New York,&nbsp;<strong>1987</strong>,&nbsp;ISBN 0582218632.</p></li>
+       <li><p><span class="confluence-anchor-link" id="H&uuml;ckelAnalysisPlugin-streitwieser"></span>Streitwieser, A.,&nbsp;<em>Molecular Orbital Theory for Organic Chemists,</em>&nbsp;John Wiley,&nbsp;<strong>1961</strong>,&nbsp;ISBN 0471833584.</p></li>
+      </ol> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

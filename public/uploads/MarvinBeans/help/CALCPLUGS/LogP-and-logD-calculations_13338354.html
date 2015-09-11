@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : LogP and logD calculations</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : LogP and logD calculations </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <span>This background material explains the theory behind the log<em>P </em>and log<em>D</em> </span>calculation:
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200961318 {padding: 0px;}
+div.rbtoc1439200961318 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200961318 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200961318"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#LogPandlogDcalculations-Introduction">Introduction &nbsp;</a></li> 
+          <li><a href="#LogPandlogDcalculations-Symbolsused">Symbols used</a></li> 
+          <li><a href="#LogPandlogDcalculations-DefinitionoflogPandlogD">Definition of logP&nbsp;and logD &nbsp;</a></li> 
+          <li><a href="#LogPandlogDcalculations-Example">Example</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#LogPandlogDcalculations-Partitionanddistributioncoefficients">Partition and distribution coefficients</a></li> 
+            <li><a href="#LogPandlogDcalculations-Relationbetweenmacroandmicropartitioncoefficients">Relation between macro and micro partition coefficients</a></li> 
+           </ul> </li> 
+          <li><a href="#LogPandlogDcalculations-LogPcalculationmethods">LogP calculation methods</a></li> 
+          <li><a href="#LogPandlogDcalculations-ExamplesforlogPandlogDcalculations">Examples for logP&nbsp;and logD&nbsp;calculations</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#LogPandlogDcalculations-Example#1">Example #1 &nbsp;</a></li> 
+            <li><a href="#LogPandlogDcalculations-Example#2">Example #2</a></li> 
+            <li><a href="#LogPandlogDcalculations-Example#3">Example #3</a></li> 
+            <li><a href="#LogPandlogDcalculations-Example#4">Example #4</a></li> 
+           </ul> </li> 
+          <li><a href="#LogPandlogDcalculations-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="LogPandlogDcalculations-Introduction"><span style="color: rgb(54,54,54);">Introduction<br />&nbsp;</span></h1>
+      <p><span style="color: rgb(54,54,54);">The mass flux of a molecule at the interface of two immiscible solvents is governed by its lipophilicity. The more lipophilic a molecule is, the more soluble it is in lipophilic organic phase. For the same reason drug penetration into a biological membrane is also influenced by the lipophilicity of the drug. When a molecule is ionizable at a given pH, it forms a hydrophilic anion or cation and subsequently fails to dissolve in organic phase. Ionization of a molecule leads to the accumulation of the hydrophilic form in the aqueous phase. In contrast, its lipophilic form decreases in both aqueous and organic phase due to the law of conservation of mass.</span></p>
+      <p><span style="color: rgb(54,54,54);">The partition coefficient of a molecule observed in a water–</span><em>n</em><span style="color: rgb(54,54,54);">-octanol system has been adopted as the standard measure of lipophilicity. The observed partition coefficient depends on the support electrolyte concentration of the bulk phase the compound is dissolved in. Extra ion-pair forming chemical agents added to the aqueous/organic phase may have a significant effect on the partitioning behaviour of a molecule.</span></p>
+      <p><span style="color: rgb(54,54,54);">It is often meaningful to obtain the partition coefficients of molecules by calculation. The molecular structure and extent of ionization are the primary factors in calculating the partition coefficient. The standard partition coefficient of ionized and unionized species calculated from the molecular structure is based largely on the atomic log</span><em>P</em><span style="color: rgb(54,54,54);">&nbsp;increments given in&nbsp;</span><a href="#LogPandlogDcalculations-viswan">Viswanadhan et al.</a>&nbsp;<span style="color: rgb(54,54,54);">The extent of ionization at a given pH is obtained from the predicted p</span><em>K</em><sub>a</sub><span style="color: rgb(54,54,54);">&nbsp;of the molecule. Our calculation method takes into account the effect of the counterion concentration on log</span><em>D</em><span style="color: rgb(54,54,54);">&nbsp;and log</span><em>P</em><span style="color: rgb(54,54,54);">.</span><a name="Symbols" rel="nofollow"></a><span style="color: rgb(54,54,54);">&nbsp;<br /><br /></span></p>
+      <h1 id="LogPandlogDcalculations-Symbolsused"><span style="color: rgb(54,54,54);">Symbols used<br /><br /></span></h1>
+      <p><span style="color: rgb(54,54,54);">Throughout the document we use the following symbols:</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>P</em><sub>i</sub>&nbsp;(upper case) is the macro partition coefficient, where subscript<em> i</em> refers to the ionization state of species included in&nbsp;<em>P</em><sub>i</sub>, e.g. i= -2, -1, 0, +1, +2</li>
+       <li><em>p</em><sub>i</sub>&nbsp;(lower case) is the micro partition coefficient, where subscript i refers to the microspecies, e.g. i=1,2,3,4,…</li>
+       <li><em>D</em>&nbsp;is the distribution coefficient</li>
+       <li>[ ] &nbsp;means concentration of microspecies</li>
+       <li>log<em>P</em>&nbsp; is the logarithm of the partition coefficient</li>
+       <li>log<em>D</em>&nbsp;is the logarithm of the distribution coefficient</li>
+      </ul>
+      <p>&nbsp;</p>
+      <h1 id="LogPandlogDcalculations-DefinitionoflogPandlogD">Definition of log<em>P&nbsp;</em>and log<em>D</em><br />&nbsp;</h1>
+      <p><span style="color: rgb(54,54,54);">The partition coefficient is the ratio of the concentration of the compound in octanol to its concentration in water. The distribution coefficient is the ratio of the sum of the concentrations of all species of the compound in octanol to the sum of the concentrations of all species of the compound in water. Based on acidic/basic dissociation reactions, we can introduce the concept of a partition coefficient for cationic and anionic species and for neutral species. </span></p>
+      <p><span style="color: rgb(54,54,54);">The<a href="#LogPandlogDcalculations-fig.1"> following figure</a> gives the definition of partition and distribution coefficients for ionized and unionized species.&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;<span class="confluence-anchor-link" id="LogPandlogDcalculations-fig.1"></span></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099619.png" data-image-src="attachments/13338354/29099619.png" data-unresolved-comment-count="0" data-linked-resource-id="29099619" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logPlogD_def.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span><span style="color: rgb(54,54,54);">&nbsp;<br /></span>Fig. 1 Partition and distribution coefficients for ionized and unionized species</p>
+      <p><br /><span style="color: rgb(54,54,54);">The partition and distribution coefficients for multiprotic compounds are defined in much the same way as for monoprotic compounds using the <a href="#LogPandlogDcalculations-fig.2">following formulae</a>.</span></p>
+      <p><span style="color: rgb(54,54,54);"><span class="confluence-anchor-link" id="LogPandlogDcalculations-fig.2"></span>&nbsp;</span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099620.png" data-image-src="attachments/13338354/29099620.png" data-unresolved-comment-count="0" data-linked-resource-id="29099620" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="multipro_def.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Fig. 2 Partition and distribution coefficients for multiprotic compounds</span></p>
+      <h1 id="LogPandlogDcalculations-Example"><span style="color: rgb(0,0,0);">Example</span></h1>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">In this example we suppose that a compound A</span><sub>1</sub><span style="color: rgb(54,54,54);">A</span><sub>2</sub><span style="color: rgb(54,54,54);">B</span><sub>1</sub><span style="color: rgb(54,54,54);">B</span><sub>2</sub><span style="color: rgb(54,54,54);">&nbsp;contains two acidic and two basic ionization sites. This compound has 16 protonation states in aqueous solution. The microspecies which are assigned to the protonation states are summarized in the <a href="#LogPandlogDcalculations-tab.1">following table</a>.<br /></span><br /><span class="confluence-anchor-link" id="LogPandlogDcalculations-tab.1"></span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">Microspecies</td>
+          <td class="confluenceTd">charge</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub>B<sub>1</sub>B<sub>2</sub></td>
+          <td class="confluenceTd">0</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub>B<sub>1</sub>B<sub>2</sub></td>
+          <td class="confluenceTd">-1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub><sup>-</sup>B<sub>1</sub>B<sub>2</sub></td>
+          <td class="confluenceTd">-1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub>B<sub>1</sub><sup>+</sup>B<sub>2</sub></td>
+          <td class="confluenceTd">+1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub>B<sub>1</sub>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">+1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub><sup>-</sup>B<sub>1</sub>B<sub>2</sub></td>
+          <td class="confluenceTd">-2</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub>B<sub>1</sub><sup>+</sup>B<sub>2</sub></td>
+          <td class="confluenceTd">0</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub>B<sub>1</sub>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">0</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub><sup>-</sup>B<sub>1</sub><sup>+</sup>B<sub>2</sub></td>
+          <td class="confluenceTd">0</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub><sup>-</sup>B<sub>1</sub>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">0</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub>B<sub>1</sub><sup>+</sup>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">+2</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub><sup>-</sup>B<sub>1</sub><sup>+</sup>B<sub>2</sub></td>
+          <td class="confluenceTd">-1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub><sup>-</sup>B<sub>1</sub>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">-1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub>B<sub>1</sub><sup>+</sup>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">+1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub>A<sub>2</sub><sup>-</sup>B<sub>1</sub><sup>+</sup>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">+1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A<sub>1</sub><sup>-</sup>A<sub>2</sub><sup>-</sup>B<sub>1</sub><sup>+</sup>B<sub>2</sub><sup>+</sup></td>
+          <td class="confluenceTd">0</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 3 All microspecies with their charge values generated from the initial compound<br />&nbsp;</p>
+      <h2 id="LogPandlogDcalculations-Partitionanddistributioncoefficients">Partition and distribution coefficients</h2>
+      <p>&nbsp;</p>
+      <p>Partition and distribution coefficients then can be expressed as follows:</p>
+      <ul>
+       <li>Partition coefficient of the neutral species is<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099621.png" data-image-src="attachments/13338354/29099621.png" data-unresolved-comment-count="0" data-linked-resource-id="29099621" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="P0_exp.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span>&nbsp;</li>
+       <li>Partition coefficients of the anionic and the cationic species are<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099622.png" data-image-src="attachments/13338354/29099622.png" data-unresolved-comment-count="0" data-linked-resource-id="29099622" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="P_ion1_exp.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span>&nbsp;<br />and&nbsp;<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099623.png" data-image-src="attachments/13338354/29099623.png" data-unresolved-comment-count="0" data-linked-resource-id="29099623" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="P_ion2_exp.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></li>
+       <li>Distribution coefficient of the original molecule is<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099631.png" data-image-src="attachments/13338354/29099631.png" data-unresolved-comment-count="0" data-linked-resource-id="29099631" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="D_exp.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></li>
+      </ul>
+      <h5 id="LogPandlogDcalculations-"><a class="anchor" name="Microp" rel="nofollow"></a></h5>
+      <p><span style="color: rgb(54,54,54);">The micro partition coefficient is the ratio of the concentration of two microspecies defined with&nbsp;</span><em>p</em><sub>i</sub><span style="color: rgb(54,54,54);">&nbsp;as expressed with the next relation:&nbsp;<br /></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099632.png" data-image-src="attachments/13338354/29099632.png" data-unresolved-comment-count="0" data-linked-resource-id="29099632" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pi_exp.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></p>
+      <h2 id="LogPandlogDcalculations-Relationbetweenmacroandmicropartitioncoefficients"><span style="color: rgb(0,0,0);">Relation between macro and micro partition coefficients</span></h2>
+      <p><span style="color: rgb(0,0,0);">&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Macro partition coefficients</span><em>&nbsp;P<sub>0</sub>…P<sub>i</sub></em><span style="color: rgb(54,54,54);">&nbsp;can also be expressed as a function of micro partition coefficients&nbsp;</span><em>p<sub>0</sub>…p<sub>i</sub></em><span style="color: rgb(54,54,54);">.&nbsp;</span><span style="color: rgb(54,54,54);">From the definition of micro partition coefficients we obtain the following formula for the concentration of microspecies in octanol:&nbsp;</span><br /><br /><span style="color: rgb(54,54,54);">[microspecies]</span><sub>i,octanol</sub><span style="color: rgb(54,54,54);">&nbsp;=</span><em>&nbsp;p</em><sub>i</sub><span style="color: rgb(54,54,54);">&nbsp;⋅[microspecies]</span><sub>i,water</sub><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span><br /><span style="color: rgb(54,54,54);">where&nbsp;</span><em>p</em><sub>i</sub><span style="color: rgb(54,54,54);">&nbsp;is the micro partition coefficient of microspecies <em>i</em>.&nbsp;</span><br /><br /><span style="color: rgb(54,54,54);">For example,&nbsp;</span><em>P</em><sub>-1</sub><span style="color: rgb(54,54,54);">&nbsp;includes four micro partition coefficients (</span><em>p<sub>1</sub>, p<sub>2</sub>, p<sub>3</sub>, p<sub>4</sub></em><span style="color: rgb(54,54,54);">). They are given by the following formulae:</span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099648.png" data-image-src="attachments/13338354/29099648.png" data-unresolved-comment-count="0" data-linked-resource-id="29099648" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="p1p2p3p4.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></p>
+      <p>After substituting the&nbsp;<em>p</em><sub>i</sub>s into the original formula for&nbsp;<em>P</em><sub>-1</sub>&nbsp;we get the following simpler formula which includes only aqueous concentration of the appropriate microspecies:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099650.png" data-image-src="attachments/13338354/29099650.png" data-unresolved-comment-count="0" data-linked-resource-id="29099650" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="P_1_new.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></p>
+      <p>This can be further simplified if we introduce the acid dissociation constants of the A<sub>1</sub>A<sub>2</sub>B<sub>1</sub>B<sub>2</sub>&nbsp;molecule. The next five ionization reactions of the A<sub>1</sub>A<sub>2</sub>B<sub>1</sub>B<sub>2</sub>&nbsp;molecule are used to rearrange&nbsp;<em>P</em><sub>-1</sub>&nbsp;into a concentration free form:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099653.png" data-image-src="attachments/13338354/29099653.png" data-unresolved-comment-count="0" data-linked-resource-id="29099653" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="5_reaction.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></p>
+      <p><span style="color: rgb(54,54,54);">So we can further simplify the formula for&nbsp;</span><em>P</em><sub>-1</sub><span style="color: rgb(54,54,54);">&nbsp;to the following. This expression reveals that&nbsp;</span><em>P</em><sub>-1</sub><span style="color: rgb(54,54,54);">&nbsp;does not depend on the pH of the solution:&nbsp;</span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099654.png" data-image-src="attachments/13338354/29099654.png" data-unresolved-comment-count="0" data-linked-resource-id="29099654" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="P_1_Concfree.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span><span style="color: rgb(54,54,54);">&nbsp;</span><br /><br /><span style="color: rgb(54,54,54);">Similarly, one could show that&nbsp;</span><em>P</em><sub>0</sub><span style="color: rgb(54,54,54);">,&nbsp;</span><em>P</em><sub>+1</sub><span style="color: rgb(54,54,54);">,</span><em>&nbsp;P</em><sub>-2</sub><span style="color: rgb(54,54,54);">&nbsp;and&nbsp;</span><em>P</em><sub>+2</sub><span style="color: rgb(54,54,54);">&nbsp;are also pH-independent.</span><br /><br /><span style="color: rgb(54,54,54);">In contrast to this, the distribution coefficient&nbsp;</span><em>D</em><span style="color: rgb(54,54,54);">&nbsp;does depend on the solution pH (see&nbsp;</span><a href="#LogPandlogDcalculations-klopman">Klopman et al.</a><span style="color: rgb(54,54,54);">):</span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099655.png" data-image-src="attachments/13338354/29099655.png" data-unresolved-comment-count="0" data-linked-resource-id="29099655" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="D_pi.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></p>
+      <h1 id="LogPandlogDcalculations-LogPcalculationmethods">Log<em>P</em> calculation methods</h1>
+      <p>&nbsp;</p>
+      <p><span>log</span><em>P</em><span>&nbsp;calculations are based on a pool of fragments predefined in the log<em>P</em> calculator. This set is based on the data set in&nbsp;<a href="#LogPandlogDcalculations-viswan">Viswanadhan et al</a>. Every fragment is assigned a unique name and a value.&nbsp;<span>The log</span><em>P</em><span>&nbsp;value of a molecule is the sum of the fragment values that are present in the molecule.&nbsp;</span></span></p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><span>log</span><em>P</em><span>&nbsp;plugin handled only one fragment set until version 5.1.2, but then it was extended with two additional sets. The sets are based on a published data set (see&nbsp;<a href="#LogPandlogDcalculations-klopman">Klopman et al.</a>) and the </span><a href="#LogPandlogDcalculations-physprop"><span>PhysProp</span><sup>&copy;</sup><span>&nbsp;database</span></a><span>.</span></p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p><span>The&nbsp;</span>trainable log<em>P</em><span>&nbsp;calculation (available from version 5.1.3)&nbsp;offers the user to define his own log</span><em>P</em><span>&nbsp;database and calculate log</span><em>P</em><span>&nbsp;values based on experimental data. New fragment value extensions make a more precise calculation possible.&nbsp;<span>Choosing the <em>W</em><em>eighted method</em> requires the user to define the weight of each set of data needed. This method may include any of the three internal data sets and the user defined set.</span></span></p>
+      <h1 id="LogPandlogDcalculations-ExamplesforlogPandlogDcalculations">Examples for log<em>P&nbsp;</em>and log<em>D&nbsp;</em>calculations</h1>
+      <p>&nbsp;</p>
+      <p>The following examples show the different log<em>P</em>/log<em>D</em> related calculations.</p>
+      <h2 id="LogPandlogDcalculations-Example#1">Example #1<br />&nbsp;</h2>
+      <p><span style="color: rgb(54,54,54);">The compound below is zwitterionic that looks like the A</span><sub>1</sub><span style="color: rgb(54,54,54);">A</span><sub>2</sub><span style="color: rgb(54,54,54);">B</span><sub>1</sub><span style="color: rgb(54,54,54);">B</span><sub>2</sub><span style="color: rgb(54,54,54);">&nbsp;molecule in the theoretical section above. Lipophilicity of this compound<a href="#LogPandlogDcalculations-fig.3"> reaches its maximum</a> near to the isoelectric point.</span></p>
+      <p><span style="color: rgb(54,54,54);"><span class="confluence-anchor-link" id="LogPandlogDcalculations-fig.3"></span><br /></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099656.png" data-image-src="attachments/13338354/29099656.png" data-unresolved-comment-count="0" data-linked-resource-id="29099656" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mol_logD-pH.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099657.jpg" data-image-src="attachments/13338354/29099657.jpg" data-unresolved-comment-count="0" data-linked-resource-id="29099657" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logD-pH.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span></p>
+      <p>Fig. 3 Zwitterionic molecule and its lipophilicity plot&nbsp;</p>
+      <h2 id="LogPandlogDcalculations-Example#2">Example #2</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);"><a href="#LogPandlogDcalculations-fig.5">Homidium</a> is a quaternary ammonium ion with strong hydrophilic character. Its log</span><em>P</em><span style="color: rgb(54,54,54);">&nbsp;is calculated with the use of the ionic fragment of the N</span><sup>+</sup><span style="color: rgb(54,54,54);">&nbsp;ion. The calculated (-1.09) and measured (<a href="#LogPandlogDcalculations-physprop">-1.10</a>) log</span><em>P</em><span style="color: rgb(54,54,54);">&nbsp;values agree.&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p><span class="confluence-anchor-link" id="LogPandlogDcalculations-fig.5"></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099658.png" data-image-src="attachments/13338354/29099658.png" data-unresolved-comment-count="0" data-linked-resource-id="29099658" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="homidium.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Fig. 4 Homidium molecule</span></p>
+      <h2 id="LogPandlogDcalculations-Example#3"><a class="anchor" name="Example3" rel="nofollow"></a>Example #3</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">Ibuprofen has the typical</span><a href="#LogPandlogDcalculations-fig.6"><span style="color: rgb(54,54,54);">&nbsp;</span><span style="color: rgb(54,54,54);">log</span><em>D</em><span style="color: rgb(54,54,54);">&nbsp;vs. pH profile</span></a><span style="color: rgb(54,54,54);">&nbsp;</span><span style="color: rgb(54,54,54);"> that is characteristic of acidic compounds. Lipophilic behavior of ibuprofen will be dominant when its carboxylic group is unionized (at low pH). At higher pH the carboxylic group reaches the fully ionized state and hydrofilicity becomes enhanced.&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;<span class="confluence-anchor-link" id="LogPandlogDcalculations-fig.6"></span></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099659.jpg" data-image-src="attachments/13338354/29099659.jpg" data-unresolved-comment-count="0" data-linked-resource-id="29099659" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ibuprofen_logD.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Fig. 6 Iburofen and its log<em>D</em>-pH plot</span></p>
+      <h2 id="LogPandlogDcalculations-Example#4"><a class="anchor" name="Example4" rel="nofollow"></a>Example #4</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">The measured distribution coefficient also depends on the method. The shake flask and the pH-metric methods are the most popular. The <a href="#LogPandlogDcalculations-fig.7">figure below</a> shows the calculated and measured log</span><em>D</em><span style="color: rgb(54,54,54);">&nbsp;of lignocaine as function of pH.&nbsp;</span></p>
+      <p><span class="confluence-anchor-link" id="LogPandlogDcalculations-fig.7"></span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338354/29099660.jpg" data-image-src="attachments/13338354/29099660.jpg" data-unresolved-comment-count="0" data-linked-resource-id="29099660" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="lignocaine_logD.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338354" data-linked-resource-container-version="57" /></span><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p>Fig. 7 Lignocaine and its logD-pH<em>&nbsp;</em>plot</p>
+      <p>&nbsp;</p>
+      <h1 id="LogPandlogDcalculations-References"><br />References</h1>
+      <ol>
+       <li><a class="text" name="Ref1" rel="nofollow"></a><span class="confluence-anchor-link" id="LogPandlogDcalculations-viswan"></span>Viswanadhan, V. N.; Ghose, A. K.; Revankar, G. R. and Robins, R. K.,&nbsp;<em>J.Chem.Inf.Comput.Sci.</em>,&nbsp;<strong>1989</strong>,&nbsp;<em>29</em>, 3, 163-172;&nbsp;<a href="http://dx.doi.org/10.1021/ci00063a006" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><a class="text" name="Ref1a" rel="nofollow"></a><span class="confluence-anchor-link" id="LogPandlogDcalculations-klopman"></span>Klopman, G.; Li, Ju-Yun.; Wang, S.; Dimayuga, M.:&nbsp;<em>J.Chem.Inf.Comput.Sci.</em>,&nbsp;<strong>1994</strong>,&nbsp;<em>34</em>, 752;&nbsp;<a href="http://dx.doi.org/10.1021/ci00020a009" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><span class="confluence-anchor-link" id="LogPandlogDcalculations-physprop"></span>PhysProp<sup>&copy;</sup>&nbsp;database,&nbsp;<a href="http://esc.syrres.com/interkow/pp1357.htm" style="text-decoration: underline;" class="external-link" rel="nofollow">webpage</a></li>
+       <li><a class="text" name="Ref2" rel="nofollow"></a>Csizmadia, F.; Tsantili-Kakoulidou, A.; Panderi, I. and Darvas, F.,&nbsp;<em>J.Pharm.Sci.</em>,&nbsp;<strong>1997</strong>,&nbsp;<em>86</em>, 7, 865-871;&nbsp;<a href="http://dx.doi.org/10.1021/js960177k" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><a class="text" name="Ref3" rel="nofollow"></a>Bouchard, G.; Carrupt, P. A.; Testa, B.; Gobry, V. and Girault, H. H.,&nbsp;<em>Pharm.Res.</em>,&nbsp;<strong>2001</strong>,&nbsp;<em>18</em>, 5, 702-708;&nbsp;<a href="http://dx.doi.org/10.1023/A:1011001914685" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+      </ol>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

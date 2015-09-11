@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Logging</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Logging </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Basically there are five components relating to Marvin OLE which the user can expect log files generated from.</p>
+      <ul>
+       <ul>
+        <li><p><strong>Marvin OLE</strong>: This logging folder represents all logging information written out from the embedded OLE sketch.</p></li>
+        <li><p><strong>CXNEmfExporter</strong>: This logging folder contains log files by EMF picture generator, EMFExporter component is responsible for antialiased picture rendering.</p></li>
+        <li><p><strong>CXNdotNetClassCOMLoader</strong>: This logging folder contains log files if .NET components are about to be loaded, typical case when .NET version of Marvin OLE is running.</p></li>
+        <li><p><strong>CXNMarvinOLEWrapper</strong>: OLE Wrapper component is typically used in browser based ChemAxon solutions e.g. SharePoint data editing.</p></li>
+        <li><p><strong>CXNOLEClient</strong>: OLE Client component is used in thick client applciations for Marvin OLE conversions, e.g. JChem for Excel.</p></li>Component specific folders can be found in the ChemAxon root folder under the following locations:
+        <ul>
+         <li>Windows XP: <code>C:\Documents and Settings\{CURRENT USER}\Application Data\ChemAxon</code></li>
+         <li>Windows Vista or above: <code>C:\Users\{CURRENT USER}\AppData\Roaming\ChemAxon</code></li>
+        </ul>If the users turn to support help, these folders need to be zipped and sent to the relevant support team/department. Please take care of that log files might contain confidential local information (molecules) therefore log files are better to be sent directly to the support teams. Forum posts are public and searchable for other users therefore should be avoided for any log file uploading. Support teams handle the logging information confidentially.
+       </ul>
+      </ul>
+      <h4 id="Logging-Howtosetlogging">How to set logging</h4>
+      <ul>
+       <ul>
+        In Marvin OLE (but also true for other components listed above) the verbose and style of the logging can be set in the following location of the registry: HKEY_CURRENT_USER\Software\ChemAxon\MarvinOLE. Under the Verbose registry key there are five options to be set:
+        <li><p><strong>DateFormat</strong>: The default time format of the logging is %H:%M:%S. Log files are separated by dates so the relevant date information can be seen in the name of the log file as default. User can freely customize it to include full date time if necessary. <a class="external-link" href="http://msdn.microsoft.com/en-us/library/fe06s4ak%28v=vs.71%29.aspx" rel="nofollow">Microsoft DateTime formatting guidelines</a></p></li>
+        <li><p><strong>FileExtension</strong>: This setting contains the file extension of the log file.</p></li>
+        <li><p><strong>FileName</strong>: The name of the log file can also be changed, but it should keep the rules of file name generation under Windows.</p></li>
+        <li><p><strong>Level</strong>: This is the most important setting for both the users and the adminsitrators. It allows to change the verbose level, i.e. how much information the log file needs to contain.</p></li>
+        <ul>
+         <li>FATAL (0): Reports only fatal errors. We do not use this and it is not recommended. All error level problems should be logged.</li>
+         <li>ERROR (1 Default): Recommended setting for error reporting.</li>
+         <li>WARNING (2): Reports the more problematical things, which are not error but relevant for support.</li>
+         <li>INFO (3): Lighter infromation, which can be very useful in the case of support.</li>
+         <li>DEBUG (4): Development level information, e.g. Variable contents.</li>
+         <li>ALL (5): All logging.</li>
+        </ul>
+        <li><p><strong>MessageFormat</strong>: The default format is {%s [%d]%s %s - %s} e.g.: 23:59:21 [3]INFO MarvinOLE - C:\PROGRA~1\ChemAxon\Shared\MARVIN~1\MARVIN~1.EXE <a class="external-link" href="http://msdn.microsoft.com/en-us/library/hf4y5e3w.aspx" rel="nofollow">Microsoft message formatting guidelines</a></p>
+         <ul>
+          <li>%s : the formatted date/time stamp value indicating the moment when the log information arrives in the logger component.</li>
+          <li>[%d] : level of the current logging</li>
+          <li>%s : name of the current logging level</li>
+          <li>%s - %s : application domain name - and the message itself</li>
+         </ul></li>
+       </ul>
+      </ul>
+      <h4 id="Logging-Eventlogging">Event logging</h4>
+      <ul>
+       <ul>
+        All CXN components, like Marvin OLE, also place error level log information in the System Event Log (in addition to the log file).
+       </ul>
+      </ul>
+      <p><a class="external-link" href="http://msdn.microsoft.com/en-us/library/aa385780%28v=vs.85%29.aspx" rel="nofollow">Microsoft Event Log Guide</a></p>
+      <ul>
+       <ul>
+        Event Viewer shows all types of logs, ChemAxon generally reports problems under the Application section.
+       </ul>
+      </ul>
+      <div class="lenia">
+       &nbsp;
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

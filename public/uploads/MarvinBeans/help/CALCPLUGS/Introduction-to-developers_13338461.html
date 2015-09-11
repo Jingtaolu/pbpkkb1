@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Introduction to developers</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Introduction to developers </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent">
+         This page gives you a walk-through on how the Calculator Plugins work:
+        <br />
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200960512 {padding: 0px;}
+div.rbtoc1439200960512 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200960512 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200960512"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#Introductiontodevelopers-Introduction">Introduction</a></li> 
+          <li><a href="#Introductiontodevelopers-Pluginmechanism">Plugin mechanism</a></li> 
+          <li><a href="#Introductiontodevelopers-Pluginloadingmechanism">Plugin loading mechanism</a></li> 
+          <li><a href="#Introductiontodevelopers-Pluginconfiguration">Plugin configuration</a></li> 
+          <li><a href="#Introductiontodevelopers-Plugincustomization">Plugin customization</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#Introductiontodevelopers-Namingconventionforpluginclasses">Naming convention for plugin classes</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="Introductiontodevelopers-Introduction"><span style="color: rgb(51,51,51);">Introduction</span></h1>
+      <p><span style="color: rgb(51,51,51);"><br /></span></p>
+      <p><span style="color: rgb(51,51,51);">Plugins are generally used to add dynamically loaded modules to an application based on user defined configuration.&nbsp;</span>Our chemical calculator plugin structure was added to Marvin for the following reasons:</p>
+      <ul>
+       <li>There are a large number of chemical calculations and the set of necessary calculations may vary.</li>
+       <li>Users may need special calculations that are available via the internet or even more specific ones for which they have their own implementation.</li>
+       <li>A general mechanism is needed to enable both graphical Java applications and command line tools to set calculation parameters, perform the required calculation and display the results.</li>
+      </ul>
+      <p>We developed a mechanism to handle these calculations in a uniform way. This common interface is utilized as a common Java <a href="Using-Calculator-Plugins-via-API_13828328.html">API </a>for developers, as a&nbsp;<a href="cxcalc-command-line-tool_12584204.html">command line tool</a>&nbsp;and also in our graphical applications and applets.</p>
+      <h1 id="Introductiontodevelopers-Pluginmechanism"><br />Plugin mechanism</h1>
+      <p>&nbsp;</p>
+      <p>The implementation of the general plugin handling mechanism can be found in the&nbsp;<code>chemaxon.marvin.plugin</code>&nbsp;package. Our specific plugin implementations are in the&nbsp;<code>chemaxon.marvin.calculations</code>&nbsp;package. The calculator plugins have a common base class:&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>chemaxon.marvin.plugin.CalculatorPlugin</code></a>. This base class declares methods to be implemented by the specific plugin classes for input molecule setting, parameter setting, performing the calculation and getting the results, implements the license handling, and provides some helper functions (e.g. for number formatting).</p>
+      <p><a name="plugindisplay" rel="nofollow"></a>Apart from this main plugin class, our graphical applications and applets&nbsp;<a href="https://docs.chemaxon.com/download/attachments/12584291/marvinsketch?version=1&amp;modificationDate=1388749454000&amp;api=v2" data-linked-resource-id="14123093" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="marvinsketch" data-nice-type="Image" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584291" data-linked-resource-container-version="2">MarvinSketch</a>&nbsp;and&nbsp;<a href="https://docs.chemaxon.com/download/attachments/13338309/marvinview?version=1&amp;modificationDate=1388749435000&amp;api=v2" data-linked-resource-id="14123092" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="marvinview" data-nice-type="Image" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338309" data-linked-resource-container-version="2">MarvinView</a>&nbsp;require a&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>chemaxon.marvin.plugin.CalculatorPluginDisplay</code></a>&nbsp;class to provide result GUI components. For most plugins, the default implementation is sufficient as long as the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#getResultMolecule()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>CalculatorPlugin.getResultMolecule()</code></a>&nbsp;method is implemented such that molecular results are written to molecule properties by&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#setProperty(java.lang.String, java.lang.String)" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>Molecule.setProperty(String key, String value)</code></a>&nbsp;and atomic properties are written to extra lables by&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html#setExtraLabel(java.lang.String)" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>MolAtom.setExtraLabel(String label)</code></a>. It is also possible to set the atom label display color by&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html#setExtraLabelColor(long)" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>MolAtom.setExtraLabelColor(long color)</code></a>. The&nbsp;<code>CalculatorPluginDisplay</code>&nbsp;base class provides a MarvinView display for all of these in&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html#getResultComponent()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>CalculatorPluginDisplay.getResultComponent()</code></a>. However, your plugin may require a different display, in which case you should write a custom display class extending&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>chemaxon.marvin.plugin.CalculatorPluginDisplay</code></a>&nbsp;which overrides&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html#getResultComponent()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>CalculatorPluginDisplay.getResultComponent()</code></a>. You can also rewrite&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html#store()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>CalculatorPluginDisplay.store()</code></a>&nbsp;to store results - this is mainly useful when more molecules are drawn as a multi-fragment molecule in the sketcher and your plugin handles these one-by-one (<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#handlesMultiFragmentMolecules()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>CalculatorPlugin.handlesMultiFragmentMolecules()</code></a>&nbsp;returns&nbsp;<code>false</code>).</p>
+      <p>In Marvin applications and applets plugin parameters can be set in a plugin specific parameter panel which can be configured in a corresponding XML code. If the parameter setting panel is more complicated then it is also possible to return it in&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html#getParameterPanel()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>CalculatorPluginDisplay.getParameterPanel()</code></a>.</p>
+      <p>There is an&nbsp;<a href="Using-Calculator-Plugins-via-API_13828328.html">example plugin</a>&nbsp;implementation with a test application to demonstrate the implementation mechanism.</p>
+      <p><a name="pluginoutput" rel="nofollow"></a>The&nbsp;<a href="cxcalc-command-line-tool_12584204.html">cxcalc</a>&nbsp;command line tool uses&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginOutput.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>chemaxon.marvin.plugin.CalculatorPluginOutput</code></a>&nbsp;to generate the plugin results in table form. This class implements the default table output with one result row for each input molecule, the molecule ID in the first column followed by the plugin results in the subsequent columns. A specific output table format can be defined by subclassing this class.</p>
+      <p>&nbsp;</p>
+      <h1 id="Introductiontodevelopers-Pluginloadingmechanism">Plugin loading mechanism</h1>
+      <p>&nbsp;</p>
+      <p>The central plugin loader class is the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/PluginFactory.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>chemaxon.marvin.plugin.PluginFactory</code></a>: this class reads the configuration from a<code>java.util.Properties</code>&nbsp;object or from a configuration file. In the latter case the&nbsp;<code>Tools</code>&nbsp;menu is also constructed based on this configuration. The parameter panels are dynamically constructed from the plugin specific parameter panel descriptor XMLs or fetched from the display class. In the former case the parameter panel can be constructed and displayed before the plugin class is loaded.</p>
+      <p>The plugin loading mechanism is the following: first the program tries to load the plugin class by the default class loader from the CLASSPATH; if the plugin class is not found then the JAR is loaded and the system tries to load the plugin class from there.</p>
+      <p>&nbsp;If the plugin name is omitted then the plugin is loaded directly from the JAR where the&nbsp;<code style="line-height: 1.4285715;">Plugin-Class</code>&nbsp;manifest attribute specifies the plugin class.</p>
+      <p>If the JAR name is omitted then the plugin is loaded from the CLASSPATH.</p>
+      <p>For example, here is the above plugin configuration with omitted fields:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">#$&lt;plugin class name&gt;$&lt;plugin JAR URL&gt;$&lt;menu&gt;$&lt;mnemonics&gt;$&lt;group&gt;$&lt;groupmnemonics&gt;$&lt;NOPARAMS&gt;
+
+#first char is separator, you can choose any ASCII character that is not contained in the fields
+
+plugin_01=$chemaxon.marvin.calculations.ElementalAnalyserPlugin$$Elemental Analysis$EA$$
+plugin_11=$$pKaPlugin.jar$pKa$pK$Protonation$P</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre>&nbsp;</pre>
+      <h1 id="Introductiontodevelopers-Pluginconfiguration">Plugin configuration</h1>
+      <p>&nbsp;</p>
+      <p>The&nbsp;<a href="cxcalc-command-line-tool_12584204.html">c</a>xcalc&nbsp;command line tool, the graphical applications and applets require separate configuration files that specify the available calculations/calculator plugins. For the configuration of the command line tool see its<a href="cxcalc-command-line-tool_12584204.html">&nbsp;user manual</a>. The plugin configuration for&nbsp;MarvinSketch&nbsp;and&nbsp;MarvinView&nbsp;describes the calculator plugins accessible from the&nbsp;<code>Tools</code>&nbsp;menu. It is read from&nbsp;<code>plugins/plugins.properties</code>&nbsp;file (relative to the Marvin root directory), or from&nbsp;<code>xjars/plugins.properties</code>&nbsp;file (located inside MarvinBeans.jar) if the previous one does not exist. It is also possible to specify the configuration in Java properties file given in the&nbsp;<code>toolfiles</code>&nbsp;application or applet parameter (the file name should be given relative to the&nbsp;<code>CLASSPATH</code>). Marvin applets load configuration files from the server computer.</p>
+      <p>The configuration file syntax is best shown by an example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">#$&lt;plugin class name&gt;$&lt;plugin JAR URL&gt;$&lt;menu&gt;$&lt;mnemonics&gt;$&lt;group&gt;$&lt;groupmnemonics&gt;$&lt;NOPARAMS&gt;
+
+#first char is separator, you can choose any ASCII character that is not contained in the fields
+
+plugin_01=$chemaxon.marvin.calculations.ElementalAnalyserPlugin$ElementalAnalyserPlugin.jar$Elemental Analysis$EA$$
+plugin_11=$chemaxon.marvin.calculations.pKaPlugin$pKaPlugin.jar$pKa$pK$Protonation$P</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The property keys should be unique within one configuration file. The&nbsp;<em>Tools</em>&nbsp;menu is constructed with submenus specified in group strings with menuitems defined in menu strings. Mnemonics can be set for groups using groupmnemonics and for plugins defining mnemonics strings. If group string is left empty then the plugin is listed directly in the&nbsp;<em>Tools</em>&nbsp;menu.</p>
+      <p>Each property value defines a plugin configuration by giving the following fields:</p>
+      <ol>
+       <li>the full package name of the&nbsp;<em>plugin class</em></li>
+       <li>the&nbsp;<em>plugin JAR</em>&nbsp;(with path relative to the&nbsp;<code>plugins</code>&nbsp;directory)</li>
+       <li>the label in the&nbsp;<em>Tools</em>&nbsp;menu</li>
+       <li>the menu label mnemonics character (only first character is considered if a string is given)</li>
+       <li>the menu group label in the <em>Tools</em>&nbsp;menu</li>
+       <li>the menu group label mnemonics character (only first character is considered if a string is given)</li>
+       <li>an optional &quot;NOPARAMS&quot; string indicating that the plugin has no parameters</li>
+      </ol>
+      <p>At least one of the plugin classes and plugin JARs is mandatory. If the plugin class is not specified, then it is read from the&nbsp;<code>Plugin-Class</code>&nbsp;attribute of the JAR manifest. If the JAR is not specified, then the plugin is loaded from the CLASSPATH. The ending &quot;NOPARAMS&quot; option can simply be omitted, while if an intermediate field is omitted, then the corresponding separator character should be added.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">#$&lt;plugin class name&gt;$&lt;plugin JAR URL&gt;$&lt;menu&gt;$&lt;mnemonics&gt;$&lt;group&gt;$&lt;groupmnemonics&gt;$&lt;NOPARAMS&gt;
+
+#first char is separator, you can choose any ASCII character that is not contained in the fields
+
+plugin_01=$chemaxon.marvin.calculations.ElementalAnalyserPlugin$ElementalAnalyserPlugin.jar$Elemental Analysis$EA$$
+plugin_11=$chemaxon.marvin.calculations.pKaPlugin$pKaPlugin.jar$pKa$pK$Protonation$P</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="Introductiontodevelopers-Plugincustomization">Plugin customization</h1>
+      <p>&nbsp;</p>
+      <p>The following table shows the items needed for the different plugin uses.</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd"><a href="https://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html" class="external-link" rel="nofollow">Calculator Plugin</a> subclass</td>
+          <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html" class="external-link" rel="nofollow">CalculatorPluginDisplay</a> class or subclass</td>
+          <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginOutput.html" class="external-link" rel="nofollow">CalculatorPluginOutput</a> class or subclass</td>
+          <td style="text-align: center;" class="confluenceTd"><em>plugins.properties</em></td>
+          <td style="text-align: center;" class="confluenceTd"><em>calc.properties</em></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>MarvinSketch/MarvinView</strong></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474327.gif" data-image-src="attachments/13338461/30474327.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474327" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>cxcalc command line tool</strong></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474327.gif" data-image-src="attachments/13338461/30474327.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474327" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474327.gif" data-image-src="attachments/13338461/30474327.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474327" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Java API</strong></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474326.gif" data-image-src="attachments/13338461/30474326.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="yes.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474327.gif" data-image-src="attachments/13338461/30474327.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474327" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474327.gif" data-image-src="attachments/13338461/30474327.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474327" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474327.gif" data-image-src="attachments/13338461/30474327.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474327" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/13338461/30474327.gif" data-image-src="attachments/13338461/30474327.gif" data-unresolved-comment-count="0" data-linked-resource-id="30474327" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338461" data-linked-resource-container-version="56" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><strong><br /></strong></p>
+      <h2 id="Introductiontodevelopers-Namingconventionforpluginclasses"><strong>Naming convention for plugin classes</strong></h2>
+      <p><strong><br /></strong></p>
+      <p>The plugin handling mechanism currently requires the following naming convention:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Plugin class: any class name will do, but built-in plugins are named&nbsp;<code>...Plugin</code>&nbsp;(e.g.&nbsp;<code>chemaxon.marvin.calculations.HBDAPlugin</code>)</li>
+       <li>Display class:&nbsp;<code>&lt;plugin class name&gt;Display</code>&nbsp;(e.g.&nbsp;<code>chemaxon.marvin.calculations.HBDAPluginDisplay</code>)</li>
+       <li>Output class:&nbsp;<code>&lt;plugin class name&gt;Output</code>&nbsp;(e.g.&nbsp;<code>chemaxon.marvin.calculations.HBDAPluginOutput</code>)</li>
+      </ul>
+      <p>Here are some guidelines to follow when designing your own plugin as a&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>CalculatorPlugin</code></a>&nbsp;subclass:</p>
+      <p>First search and download some code or write your own. The calculation code is assumed to work on one input molecule at a time; it should perform the calculation and then return various results of the calculation. The plugin class should first set the input molecule, run the calculation and finally query the results, so it is a good idea to follow roughly the same implementation style in the calculation module. The more your code follows this model, the easier your work will be when you write the plugin wrapper.</p>
+      <p>Then extend the abstract base plugin class&nbsp;<code>chemaxon.marvin.plugin.CalculatorPlugin</code>. Here is the list of methods that have to be implemented:</p>
+      <ol>
+       <li><pre><code>abstract protected void setInputMolecule(Molecule mol) throws PluginException<br />&nbsp;</code></pre>This method sets the input molecule. Throw a&nbsp;<code>PluginException</code>&nbsp;on any error.<br />&nbsp;</li>
+       <li><pre><code>public void setParameters(Properties params) throws PluginException<br />&nbsp;</code></pre>This method sets the plugin specific parameters: the&nbsp;<code>params</code>&nbsp;argument contains the plugin parameters as&nbsp;<code>long parameter name -&gt; parameter value</code>&nbsp;pairs. (The&nbsp;<code>long parameter name</code>&nbsp;here is without the &quot;<code>--</code>&quot; prefix: e.g. if you have&nbsp;<code>--type</code>&nbsp;as a command line parameter then it will be present with key&nbsp;<code>type</code>&nbsp;in this property table.) Your task is to convert the parameter values from string to the required format and set the parameter in the calculation module or store it in the plugin for later use. Throw a&nbsp;<code>PluginException</code>&nbsp;on any error (unexpected format, unexpected value). All possible plugin parameters have a default value so a missing parameter should not cause any error: use its default value instead.<br />&nbsp;</li>
+       <li><pre><code>public void checkMolecule(Molecule mol) throws PluginException<br />&nbsp;</code></pre>Checks the input molecule. Throws a&nbsp;<code>PluginException</code>&nbsp;if the plugin calculation result is not defined for the given molecule (e.g. molecule is a reaction molecule or a molecule with R-groups). The exception message will be formed to an error message to the user and the molecule will not be processed if a&nbsp;<code>PluginException</code>&nbsp;is thrown. Do nothing if the molecule is accepted.<br />&nbsp;</li>
+       <li><pre><code>abstract public boolean run() throws PluginException</code></pre>This method performs the calculation and stores the results. Include those tasks that must be run once for each molecule and produce the calculation results in the end. Returns&nbsp;<code>true</code>&nbsp;if the calculation was successful,&nbsp;<code>false</code>&nbsp;on calculation problems. Again, throw a&nbsp;<code>PluginException</code>&nbsp;on any error.<br />&nbsp;</li>
+       <li><pre><code>public Object[] getResultTypes()<br />&nbsp;</code></pre>This method returns the queried result types. For example, the&nbsp;<code>charge</code>&nbsp;calculation may have three result types:&nbsp;<code>sigma</code>,&nbsp;<code>pi</code>&nbsp;and<code>total</code>, the&nbsp;<code>logp</code>&nbsp;calculation may have two result types:&nbsp;<code>increments</code>&nbsp;and&nbsp;<code>molecule</code>. The built-in plugins&nbsp;<code>charge</code>,&nbsp;<code>logp</code>&nbsp;and&nbsp;<code>pka</code>have the&nbsp;<code>--type</code>&nbsp;command line parameter that specifies the required result types: this method returns those that are specified in this parameter. However, it is possible to return all available result types and not provide this choice.<br />&nbsp;</li>
+       <li><pre><code>public int getResultDomain(Object type)<br />&nbsp;</code></pre>This returns the domain that the calculation result for the specified result type refers to: currently it can be&nbsp;<code>ATOM</code>&nbsp;or&nbsp;<code>MOLECULE</code>. For example, the&nbsp;<code>logPPlugin</code>&nbsp;returns&nbsp;<code>ATOM</code>&nbsp;if&nbsp;<code>type</code>&nbsp;is&nbsp;<code>&quot;increments&quot;</code>&nbsp;and returns&nbsp;<code>MOLECULE</code>&nbsp;if&nbsp;<code>type</code>&nbsp;is&nbsp;<code>&quot;molecule&quot;</code>.<br />&nbsp;</li>
+       <li><pre><code>public int getResultCount(Object type)</code></pre><p>&nbsp;</p>This returns the number of result items for the specified result type. For&nbsp;<code>ATOM</code>&nbsp;result domain this is usually the number of atoms in the molecule, for&nbsp;<code>MOLECULE</code>&nbsp;domain this is usually&nbsp;<code>1</code>.<br /><br /></li>
+       <li><pre><code>public Object getResult(Object type, int index) throws PluginException<br />&nbsp;</code></pre>This returns the result for the specified result type and the specified result index: this index must be at least&nbsp;<code>0</code>&nbsp;and less than the result count returned by&nbsp;<code>getResultCount(Object type)</code>&nbsp;for this result type. In our case the result is a number: it must be wrapped into the derived class of&nbsp;<code>java.lang.Number</code>&nbsp;corresponding to its primitive type (e.g.&nbsp;<code>double</code>&nbsp;must be wrapped into<code>java.lang.Double</code>).&nbsp;<code>PluginException</code>&nbsp;can be thrown on any error.<br />&nbsp;</li>
+       <li><pre><code>public String getResultAsString(Object type, int index, Object result) throws PluginException</code></pre><p>&nbsp;</p>This returns a string representation of the result. The result type and index are also given: in some cases the string representation may include these or depend on these as well. The&nbsp;<code>protected String format(double x)</code>&nbsp;can be used to<code>double -&gt; String</code>&nbsp;conversion with a given number of fractional digits. If you intend to use this formatting then&nbsp;<code>protected void setDoublePrecision(int precision)</code>&nbsp;has to be called once beforehand to set the maximum number of decimal digits allowed in the fractional portion of a number.&nbsp;<code>PluginException</code>&nbsp;can be thrown on&nbsp;<br />any error.<br />&nbsp;</li>
+       <li><pre><code>public String getResultAsRGB(Object type, int index, Object result) throws PluginException</code></pre>Returns the color to be used when displaying the result. For example, this method is used when acidic p<em>K</em><sub>a</sub>&nbsp;values are displayed in red while basic p<em>K</em><sub>a</sub>&nbsp;values are displayed in blue. The color is returned as a single&nbsp;<code>int</code>&nbsp;(see the&nbsp;<em>java.awt.Color.(int)</em>&nbsp;for a definition of encoding a color into a single&nbsp;<code>int</code>). The default implementation returns&nbsp;<code>0</code>&nbsp;which means that the result will be displayed using the current foreground color.&nbsp;<code>PluginException</code>&nbsp;can be thrown on any error.<br />&nbsp;</li>
+       <li><p><code>public void standardize(Molecule mol)</code></p><p>This method is used to bring the molecule to a standardized form. Some calculations require a certain standardization preprocess, such as aromatization or a common form of certain functional groups (one prescribed tautomer or mezomer form). The current implementation performs only aromatization and nitro group and sulphynil group conversions (transforms to the neutral forms). If any other transformation is needed or no such transformation is necessary, then you must implement this method. Be careful with transformations that change the atom set of the molecule since these change the atom indices as well: if the result domain is&nbsp;<code>ATOM,</code>&nbsp;then after querying the results with&nbsp;<code>getResult(Object key, int index)</code>&nbsp;and&nbsp;<code>getResultAsString(Object key, int index, Object result)</code>&nbsp;the program will output the returned result for the specified atom index in the&nbsp;<em>original molecule</em>&nbsp;and not in the transformed one. If the standardization procedure changes the atom indices then the index given in these result query methods must be transformed to the corresponding atom index in the transformed molecule and the result for that atom index must be returned.<br />&nbsp;</p></li>
+       <li><pre><code>public boolean isLicensed()<br />&nbsp;</code></pre>Returns&nbsp;<code>true</code>&nbsp;if the plugin is licensed. Implement this only if you want to sell your plugin and protect it with a license key. The default implementation always returns&nbsp;<code>true</code>&nbsp;which means that the plugin is free: no license key is required. This method returns only information about the licensing, license checking has to be implemented separately.</li>
+      </ol> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : CML Export Options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : CML Export Options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 class="western" id="CMLExportOptions-cmlExportOptionsExportoptions"><span class="confluence-anchor-link" id="CMLExportOptions-cmlExportOptions"></span>Export options</h2>
+      <p>The argument of MolConverter, MolExporter and the <code>getMol</code>/<code>getM</code> functions (of the applets and beans) is the format string. The format specification (&quot;cml&quot;) is followed by &quot;:&quot; and the selected option(s) for CML export.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <colgroup>
+         <col /> 
+         <col /> 
+        </colgroup>
+        <tbody>
+         <tr>
+          <th colspan="1" class="confluenceTh">CodeName</th>
+          <th colspan="1" class="confluenceTh">Explanation</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>&nbsp;</p></td>
+          <td class="confluenceTd"><a href="Basic-export-options_14943114.html">Basic options for aromatization and Hydrogen atom adding/removal.</a></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><strong>A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p></td>
+          <td class="confluenceTd"><p>Atom attributes are stored in arrays. For 2D molecules, only the x, y coordinates are stored. This is a more compact form of storage than the default (using <code>&lt;atom&gt;</code> tags).</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><strong>P</strong></p></td>
+          <td class="confluenceTd"><p>Create human readable output: put new XML elements in new lines and indent for embedded elements.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><strong>C</strong><em>N</em></p></td>
+          <td class="confluenceTd"><p>The accuracy of the exported coordinates can be given: <em>N</em> is the length of the decimals of the coordinate, 0 &lt; <em>N</em> ≤ 9</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><strong>D</strong></p></td>
+          <td class="confluenceTd"><p>This option is important if the molecule has parity information and has 0 dimension. By default during the export, a clean method is invoked on the structure and the generated coordinates and wedge information are exported into CML format but <em>NOT</em> the parity information. However, using this option coordinates and wedge information are not generated but parity information is exported.<br /> <span style="color: rgb(255,0,0);">Attention: When a CML file containing parity information is imported to Marvin older than 5.8, the parity information will be displayed wrong!</span></p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><strong>I</strong></p></td>
+          <td class="confluenceTd"><p>Ignore unexportable molecule properties. Without this option the exporter will throw an exception when reach an unexportable property.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><strong>BOM</strong></p></td>
+          <td class="confluenceTd"><p>Write the UTF-8 <em>byte order mark</em> (BOM), if the given or the system's encoding is UTF-8.</p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><em>For example:</em> cml:A or cml:C5.</p>
+      <h3 id="CMLExportOptions-ExampleofCMLfileexportedwithoutoptions:">Example of CML file exported without options:</h3>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot;?&gt;&lt;cml xmlns=&quot;http://www.xml-cml.org/schema&quot; xmlns:convention=&quot;http://www.xml-cml.org/convention&quot; convention=&quot;convention:molecular&quot; xmlns:marvin=&quot;http://www.chemaxon.com/marvin/marvinDictRef&quot;&gt;
+&lt;molecule title=&quot;Ethane&quot; id=&quot;m1&quot;&gt;&lt;atomArray&gt;&lt;atom id=&quot;a1&quot; elementType=&quot;C&quot; x2=&quot;0.0&quot; y2=&quot;0.0&quot;&gt;&lt;/atom&gt;&lt;atom id=&quot;a2&quot; elementType=&quot;C&quot; x2=&quot;0.0&quot; y2=&quot;1.54&quot;&gt;&lt;/atom&gt;&lt;/atomArray&gt;&lt;bondArray&gt;&lt;bond atomRefs2=&quot;a1 a2&quot; order=&quot;1&quot;&gt;&lt;/bond&gt;&lt;/bondArray&gt;&lt;/molecule&gt;
+&lt;/cml&gt;</pre> 
+       </div>
+      </div>
+      <h3 id="CMLExportOptions-ExampleofCMLfileexportedwithoption&quot;A&quot;:">Example of CML file exported with option &quot;A&quot;:</h3>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot;?&gt;&lt;cml xmlns=&quot;http://www.xml-cml.org/schema&quot; xmlns:convention=&quot;http://www.xml-cml.org/convention&quot; convention=&quot;convention:molecular&quot; xmlns:marvin=&quot;http://www.chemaxon.com/marvin/marvinDictRef&quot;&gt;
+&lt;molecule title=&quot;Ethane&quot; id=&quot;m1&quot;&gt;&lt;atomArray atomID=&quot;a1 a2&quot; elementType=&quot;C C&quot; x2=&quot;0.0 0.0&quot; y2=&quot;0.0 1.54&quot;&gt;&lt;/atomArray&gt;&lt;bondArray&gt;&lt;bond atomRefs2=&quot;a1 a2&quot; order=&quot;1&quot;&gt;&lt;/bond&gt;&lt;/bondArray&gt;&lt;/molecule&gt;
+&lt;/cml&gt;</pre> 
+       </div>
+      </div>
+      <h3 id="CMLExportOptions-ExampleofCMLfileexportedwithoption&quot;P&quot;:">Example of CML file exported with option &quot;P&quot;:</h3>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;cml xmlns=&quot;http://www.xml-cml.org/schema&quot; xmlns:convention=&quot;http://www.xml-cml.org/convention&quot; convention=&quot;convention:molecular&quot; xmlns:marvin=&quot;http://www.chemaxon.com/marvin/marvinDictRef&quot;&gt;
+&lt;molecule title=&quot;Ethane&quot; id=&quot;m1&quot;&gt;
+  &lt;atomArray&gt;
+    &lt;atom id=&quot;a1&quot; elementType=&quot;C&quot; x2=&quot;0.0&quot; y2=&quot;0.0&quot;/&gt;
+    &lt;atom id=&quot;a2&quot; elementType=&quot;C&quot; x2=&quot;0.0&quot; y2=&quot;1.54&quot;/&gt;
+  &lt;/atomArray&gt;
+  &lt;bondArray&gt;
+    &lt;bond atomRefs2=&quot;a1 a2&quot; order=&quot;1&quot;/&gt;
+  &lt;/bondArray&gt;
+&lt;/molecule&gt;
+&lt;/cml&gt;</pre> 
+       </div>
+      </div>
+      <h3 id="CMLExportOptions-ExampleofCMLfileexportedwithoptions&quot;AP&quot;:">Example of CML file exported with options &quot;AP&quot;:</h3>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;cml xmlns=&quot;http://www.xml-cml.org/schema&quot; xmlns:convention=&quot;http://www.xml-cml.org/convention&quot; convention=&quot;convention:molecular&quot; xmlns:marvin=&quot;http://www.chemaxon.com/marvin/marvinDictRef&quot;&gt;
+&lt;molecule title=&quot;Ethane&quot; id=&quot;m1&quot;&gt;
+  &lt;atomArray atomID=&quot;a1 a2&quot; elementType=&quot;C C&quot; x2=&quot;0.0 0.0&quot; y2=&quot;0.0 1.54&quot;/&gt;
+  &lt;bondArray&gt;
+    &lt;bond atomRefs2=&quot;a1 a2&quot; order=&quot;1&quot;/&gt;
+  &lt;/bondArray&gt;
+&lt;/molecule&gt;
+&lt;/cml&gt;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre>&nbsp;</pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

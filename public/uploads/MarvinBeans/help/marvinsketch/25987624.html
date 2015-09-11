@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : WSDL/SOAP</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : WSDL/SOAP </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>SOAP Services defined by WSDL can be accessed via Marvin Services.</p>
+      <p>The user interface supports automatic discovery of various options from local file system, or any available URL.</p>
+      <p>&nbsp;</p>
+      <h5 id="WSDL/SOAP-SupportedTypesandtheirmapping">Supported Types and their mapping</h5>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">SOAP</td>
+          <td class="confluenceTd">Java</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>xs:string</code></td>
+          <td class="confluenceTd"><code>java.lang.String</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>xs:int</code></td>
+          <td class="confluenceTd"><code>java.lang.Integer</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>xs:double</code></td>
+          <td class="confluenceTd"><code>java.lang.Double</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>xs:float</code></td>
+          <td class="confluenceTd"><code>java.lang.Float*</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>xs:boolean</code></td>
+          <td class="confluenceTd"><code>java.lang.Boolean</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>xs:anytype</code></td>
+          <td class="confluenceTd"><code>java.lang.Object</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><em>* Please note that WSDL Float support is not complete.</em></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

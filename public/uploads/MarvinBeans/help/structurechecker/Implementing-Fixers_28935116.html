@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Implementing Fixers</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Implementing Fixers </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul>
+       <li><a href="#ImplementingFixers-use">Use a ChemAxon Fixer</a></li>
+       <li><a href="#ImplementingFixers-create">Create a new Fixer</a></li>
+       <ul>
+        <li><a href="#ImplementingFixers-fix">Implement the new fixer</a></li>
+        <li><a href="#ImplementingFixers-int">Integrate the new fixer</a></li>
+       </ul>
+      </ul>
+      <h2 id="ImplementingFixers-createCreatingFixersforthenewChecker"><a rel="nofollow"></a><span class="confluence-anchor-link" id="ImplementingFixers-create"></span>Creating Fixers for the new Checker</h2>
+      <p>The new Checker has a custom error code, so the stock fixers cannot recognize it. You can use the&nbsp;<code>@FixesExternal</code>&nbsp;annotation to bind a fixer to a result.</p>
+      <h3 id="ImplementingFixers-useUseaChemAxonFixer"><a rel="nofollow"></a><span class="confluence-anchor-link" id="ImplementingFixers-use"></span>Use a ChemAxon Fixer</h3>
+      <p>If you want to use a ChemAxon fixer to fix the problem, the easiest way is to create a subclass of it, and use the&nbsp;<code>@FixesExternal</code>&nbsp;annotation.</p>
+      <p>Download the&nbsp;<a href="attachments/28935116/29098567.zip" data-linked-resource-id="29098567" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="custom.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28935116" data-linked-resource-container-version="8">example</a>&nbsp;and find &quot;ExternalRemoveAtomMapFixer.java&quot;.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">    @FixesExternal(DuplicateAtomMapChecker.DUPLICATE_ATOM_MAP_CHECKER_ERROR)
+    @FixerInfo(
+        name = &quot;Remove duplicated atom maps&quot;,
+        description = &quot;Removes duplicated atom maps.&quot;,
+        actionStringToken = &quot;removeduplicatedmaps&quot;)
+    public class ExternalRemoveAtomMapFixer extends RemoveAtomMapFixer {
+    }</pre> 
+       </div>
+      </div>
+      <h2 id="ImplementingFixers-fixCreateanewFixer"><span class="confluence-anchor-link" id="ImplementingFixers-fix"></span>Create a new Fixer</h2>
+      <p>To implement a new Fixer, you have to subclass the&nbsp;<code>AbstractStructureFixer</code>&nbsp;class, add the annotations as above, and implement the&nbsp;<code>fix</code>&nbsp;method.</p>
+      <p>Download the&nbsp;<a href="file:///C:/Users/merdos/AppData/Local/Temp/Temp1_structurechecker.zip/structurechecker/custom.zip" class="external-link" rel="nofollow">example</a>&nbsp;and find &quot;RemapReactionFixer.java&quot;.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">     @FixesExternal(DuplicateAtomMapChecker.DUPLICATE_ATOM_MAP_CHECKER_ERROR)
+    @FixerInfo(name = &quot;Remap reaction&quot;,
+            description = &quot;Remaps the reaction with AutoMapper&quot;,
+            actionStringToken = &quot;remapreaction&quot;)
+    public class RemapReactionFixer extends AbstractStructureFixer {
+
+        @Override
+        public boolean fix(StructureCheckerResult result) {
+            boolean success = false;
+
+            // check if we are trying to fix a reaction
+            if (result.getMolecule().isReaction()) {
+
+                // clear the current mapping
+                AutoMapper.clearMaps(RxnMolecule.getReaction(result.getMolecule()));
+                try {
+                    // try to get complete mapping
+                    AutoMapper.map(
+                            RxnMolecule.getReaction(result.getMolecule()),
+                            AutoMapper.COMPLETE);
+                    success = true;
+                } catch (AutoMapperException e) {
+                    // AutoMapper failed
+                }
+            }
+            return success;
+        }
+    }</pre> 
+       </div>
+      </div>
+      <h2 id="ImplementingFixers-intIntegration"><span class="confluence-anchor-link" id="ImplementingFixers-int"></span>Integration</h2>
+      <p>Export all the classes to a JAR file, and use MarvinSketch Preferences to add the Checker and Fixers from it. Imported Checkers and Fixers will be available in all applications using Structure Checker.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Introduction to Structure Checker API</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Introduction to Structure Checker API </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul>
+       <li><a href="#IntroductiontoStructureCheckerAPI-intro">Introduction</a></li>
+       <li><a href="#IntroductiontoStructureCheckerAPI-architecture">Architecture</a></li>
+       <li><a href="#IntroductiontoStructureCheckerAPI-anno0">Annotation</a>
+        <ul>
+         <li><p><a href="#IntroductiontoStructureCheckerAPI-anno1">Annotation of Stucture Checkers</a></p></li>
+         <li><p><a href="#IntroductiontoStructureCheckerAPI-anno2">Annotation of Stucture Fixers</a></p></li>
+        </ul></li>
+       <li><a href="#IntroductiontoStructureCheckerAPI-example">Example</a></li>
+       <li><a href="#IntroductiontoStructureCheckerAPI-custom">Customization and localiziation of checker or fixer descriptions</a></li>
+       <li><a href="#IntroductiontoStructureCheckerAPI-tutorial">Tutorial</a></li>
+      </ul>
+      <h2 id="IntroductiontoStructureCheckerAPI-introIntroduction"><a name="intro" rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-intro"></span>Introduction</h2>
+      <p>Structure Checker is an API which provides functionality (through&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureChecker.html" class="external-link" rel="nofollow">StructureChecker implementations&nbsp;</a>) to check properties, features, or errors on a&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/struc/Molecule.html" class="external-link" rel="nofollow">Molecule</a>&nbsp;object and with the help of the&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/fixers/StructureFixer.html" class="external-link" rel="nofollow">Structure Fixer</a>&nbsp;classes, it provides fixing mechanism for the detected problems.</p>
+      <h2 id="IntroductiontoStructureCheckerAPI-architectureArchitecture"><a name="architecture" rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-architecture"></span>Architecture</h2>
+      <p>The most important interface in the Structure Checker API is&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureChecker.html" class="external-link" rel="nofollow">StructureChecker</a>. Every&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureChecker.html" class="external-link" rel="nofollow">StructureChecker</a>&nbsp;instance has a method called&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureChecker.html#check(chemaxon.struc.Molecule)" class="external-link" rel="nofollow">check(Molecule mol)</a>, which provides the mechanism to check for problem in the molecule. This method returns a&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/result/StructureCheckerResult.html" class="external-link" rel="nofollow">StructureCheckerResult</a>&nbsp;if any problem is found in the molecule or null otherwise. This result contains all the information needed for fixing the problem. All other methods of&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureChecker.html" class="external-link" rel="nofollow">StructureChecker</a>&nbsp;provide properties for GUI based representation. Every&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureChecker.html" class="external-link" rel="nofollow">StructureChecker</a>&nbsp;instance has an error type, which signs the kind of the problem it checks. This error type has to be unique for every implementation.<br /><br />For a developer who wants to extend the list of existing checker tools, the best choice is to extend from&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/ExternalStructureChecker.html" class="external-link" rel="nofollow">ExternalStructureChecker</a>&nbsp;class. It is a descendant of&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/AbstractStructureChecker.html" class="external-link" rel="nofollow">AbstractStructureChecker</a>&nbsp;so it already implements all GUI property based functionalities (such as name handling, error message handling, icon handling etc.) and automatically sets the error type of the checker to&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureCheckerErrorType.html#EXTERNAL" class="external-link" rel="nofollow">EXTERNAL</a>, which designates that this checker is not part of the ChemAxon built-in checker list and thus the runner framework will know that this checker's result had to be handled separately; And of course with this super class, the developer have to implement only the checker mechanism for the problem. Structure Checker classes use&nbsp;<a href="#IntroductiontoStructureCheckerAPI-anno0">annotations</a>&nbsp;to store UI related information since version 5.7.x.&nbsp;<br />WARNING! Of course any developer can implement a checker with the same error type as one of the built-in checkers, but in this case there can be ambiguous issues with the running framework and unexpected errors could happen. So in this case the proper work of the checker system cannot be guaranteed.</p>
+      <p><a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/fixers/StructureFixer.html" class="external-link" rel="nofollow">StructureFixer</a>&nbsp;implementations provide the functionality to fix a problem signed by a&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/result/StructureCheckerResult.html" class="external-link" rel="nofollow">StructureCheckerResult</a>. A fixer can modify anything in the molecule as the result has a reference to the&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/struc/Molecule.html" class="external-link" rel="nofollow">Molecule</a>&nbsp;and also contains a list of atoms and bonds affected by the problem. Structure Fixer classes use&nbsp;<a href="#IntroductiontoStructureCheckerAPI-anno0">annotations</a>&nbsp;to store UI related information since version 5.9.x.</p>
+      <p><a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/runner/CheckerRunner.html" class="external-link" rel="nofollow">CheckerRunner</a>&nbsp;provides the functionality to run a set of checkers automatically on a molecule to collect all the results produced by the checkers, and to find the related fixers for the problems or fix the problems automatically.</p>
+      <h2 id="IntroductiontoStructureCheckerAPI-anno0Annotations"><a class="anchor" name="annotation" rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-anno0"></span>Annotations</h2>
+      <p>Compared to previously used property files, Structure Checker classes have been using annotations to store UI related information since version 5.7.x, while Structure Fixer classes have been using annotations since version 5.9.x. Applying annotations, the usage of external descriptors is optional in case of structure checkers and fixers. To provide backward compatibility and custom definitions, property files are still available for both custom checkers and fixers.&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/structurechecker/personalize_checkers.html" class="external-link" rel="nofollow">Read more about checker and fixer customization, available from version 6.1.x.</a></p>
+      <h3 id="IntroductiontoStructureCheckerAPI-anno1AnnotationofStuctureCheckers"><a class="anchor" name="annotation_ch" rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-anno1"></span>Annotation of Stucture Checkers</h3>
+      <p>The name of the annotation class is&nbsp;<strong>CheckerInfo</strong>, and the following attributes can be specified:</p>
+      <ul>
+       <li><strong>name (String)</strong>: name of the structure checker</li>
+       <li><strong>localMenuName (String)</strong>: printed name of the structure checker in local menus.</li>
+       <li><strong>description (String)</strong>: description of the structure checker</li>
+       <li><strong>noErrorMessage (String)</strong>: the message printed by the structure checker, when a structure does not contain errors, defined by this structure checker</li>
+       <li><strong>oneErrorMessage (String)</strong>: postfix of the message printed - the prefix is 1 in this case - by the structure checker, when a structure contains one error defined by this structure checker.</li>
+       <li><strong>moreErrorMessage (String)</strong>: postfix of the message printed - the prefix is the count of errors in this case - by the structure checker, when a structure contains more than one error defined by this structure checker.</li>
+       <li><strong>editorClassName (String)</strong>: name of the class of the property-list editor for the structure checker</li>
+       <li><strong>helpText (String)</strong>: the help text for the structure checker</li>
+       <li><strong>iconPath (String)</strong>: the path of the icon for the structure checker</li>
+       <li><strong>severity (CheckerSeverity)</strong>: the severity of the structure checker, instance of CheckerSeverity class</li>
+      </ul>
+      <p><span style="color: rgb(0,0,0);">A new attribute option has been added to the command line interface in version 5.9:</span></p>
+      <ul>
+       <li><strong>actionStringToken (String)</strong>: the actionstring token used by command line interface for this structure checker</li>
+      </ul>
+      <h3 id="IntroductiontoStructureCheckerAPI-anno2AnnotationofStuctureFixers"><a class="anchor" name="annotation_f" rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-anno2"></span>Annotation of Stucture Fixers</h3>
+      <p>The name of the annotation class is&nbsp;<strong>FixerInfo</strong>, and the following attributes can be specified:</p>
+      <ul>
+       <li><strong>name (String)</strong>: name of the structure fixer</li>
+       <li><strong>description (String)</strong>: description of the structure fixer</li>
+       <li><strong>actionStringToken (String)</strong>: the actionstring token used by comman line interface for this structure fixer</li>
+      </ul>
+      <h2 id="IntroductiontoStructureCheckerAPI-exampleExample"><a name="example" rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-example"></span>Example</h2>
+      <p>To initiate a&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/StructureChecker.html" class="external-link" rel="nofollow">checker</a>&nbsp;instance and to check a&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/struc/Molecule.html" class="external-link" rel="nofollow">molecule</a>&nbsp;object for problems developer has to do the following:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">//This example assumes that mol is chemaxon.struc.Molecule object 
+...
+//BondLengthChecker is one of the ChemAxon built-in checker implementations
+StructureChecker checker = new BondLengthChecker(); 
+StructureCheckerResult result = checker.check(mol);
+...</pre> 
+       </div>
+      </div>
+      <p>A valid&nbsp;<a href="#IntroductiontoStructureCheckerAPI-anno1">annotation for a structure checker</a>&nbsp;is as follows:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">    @CheckerInfo(
+	name=&quot;Molecule Charge Checker&quot;,
+	localMenuName=&quot;Molecule Charge&quot;,
+	description=&quot;Detects non-neutral molecules in which the total charge is not zero&quot;,
+	noErrorMessage=&quot;No charged molecule found&quot;,
+	oneErrorMessage=&quot;charged molecule found&quot;,
+	moreErrorMessage=&quot;charged molecules found&quot;,
+	actionStringToken=&quot;moleculecharge&quot;,
+	editorClassName=&quot;chemaxon.marvin.sketch.swing.modules.checker.editors.ExplicitHydrogenCheckerEditor&quot;,
+	severity=CheckerSeverity.WARNING
+	)
+	public class MoleculeChargeChecker{
+	...</pre> 
+       </div>
+      </div>
+      <pre>The next code example shows how to apply a&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/fixers/StructureFixer.html" class="external-link" rel="nofollow">StructureFixer</a>&nbsp;to an existing&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/result/StructureCheckerResult.html" class="external-link" rel="nofollow">StructureCheckerResult</a>
+</pre>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">   //This example assumes that result is a chemaxon.checkers.result.StructureCheckerResult object
+	//Could be a continuation of the previous example
+	...
+	//CleanFixer is one of the ChemAxon built-in fixer implementations
+	StructureFixer fixer = new CleanFixer();
+	fixer.fix(result);
+	...</pre> 
+       </div>
+      </div>
+      <p>A valid&nbsp;<a href="#IntroductiontoStructureCheckerAPI-anno2">annotation for a structure fixer</a>&nbsp;is as follows:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">	@Fixes({StructureCheckerErrorType.ALIAS, StructureCheckerErrorType.ALIAS_ATOM})
+	@FixerInfo(	
+	name=&quot;Convert to Atom&quot;,
+	description=&quot;Converts to an atom.&quot;,
+	actionStringToken=&quot;aliastoatom&quot;
+	)
+	public class ConvertToAtomFixer{
+	...</pre> 
+       </div>
+      </div>
+      <pre><a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/checkers/runner/CheckerRunner.html" class="external-link" rel="nofollow">CheckerRunner</a>&nbsp;provides automatic checking and fixing features. Usage of this class is the following:</pre>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">CheckerRunner runner;
+
+	//... (initialize/initiate the current CheckerRunner instance)
+	List&lt;StructureCheckerResult&gt; results = runner.checkAndWait();
+	for (StructureChecekrResult result : results) {
+		List&lt;StructureFixer&gt; fixers = runner.getFixers(result);
+		//execute one of the fixers
+	}</pre> 
+       </div>
+      </div>
+      <p>CheckerRunner supports executing the default fixer of a {@link StructureCheckerResult}</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">CheckerRunner runner;
+	... (initialize/initiate the current CheckerRunner instance)
+	List&lt;StructureCheckerResult&gt; results = runner.checkAndWait();
+	for (StructureCheckerResult result : results) {
+		runner.fix(result);
+	}</pre> 
+       </div>
+      </div>
+      <h2 id="IntroductiontoStructureCheckerAPI-customCustomizationandlocaliziationofcheckerorfixerdescriptions"><a rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-custom"></span>Customization and localiziation of checker or fixer descriptions</h2>
+      <p>From Structure Checker version 6.1, the checkers and fixers of ChemAxon's Structure Checker can be personalized according to individual requirements, for example, they can be renamed, have special description texts, or distinctive warning messages. You can even simply rephrase or translate the standard checker or fixer messages into different languages.&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/structurechecker/personalize_checkers.html" class="external-link" rel="nofollow">Learn more.</a>&nbsp;</p>
+      <h2 id="IntroductiontoStructureCheckerAPI-tutorialTutorial"><a name="tutorial" rel="nofollow"></a><span class="confluence-anchor-link" id="IntroductiontoStructureCheckerAPI-tutorial"></span>Tutorial</h2>
+      <p>This documentation also provides a&nbsp;<a href="http://www.chemaxon.com/jchem/doc/dev/java/structurechecker/custom_implementations.html" class="external-link" rel="nofollow">tutorial</a>&nbsp;which contains three different class implementation. &quot;DuplicateAtomMapChecker.java&quot; shows how to create a new StructureChecker implementation. &quot;DuplicateAtomMapCheckerEditor.java&quot; presents an editor, which supports the checker configuration from GUI. &quot;RemapReactionFixer.java&quot; describes how easy to connect existing Structure Checker fixers to custom checker implementation. &quot;ExternalRemoveAtomMapFixer.java&quot; introduces how to develop a new fixer for your own checker. All classes have their own JUNIT test file to test with. This tutorial only works with the current version of the properly installed Marvin and with MarvinBeans.jar, MarvinBeans-license.jar and MarvinBeans-checkers.jar in the classpath during compile. Download&nbsp;<a href="attachments/28935067/29098562.zip" data-linked-resource-id="29098562" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="custom.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28935067" data-linked-resource-container-version="25">custom.zip</a><a href="http://www.chemaxon.com/jchem/doc/dev/java/structurechecker/custom.zip" class="external-link" rel="nofollow">&nbsp;which contains the example.</a></p>
+      <h2 id="IntroductiontoStructureCheckerAPI-"><a class="anchor" name="links" rel="nofollow"></a></h2>
+      <div class="lenia">
+       &nbsp;
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

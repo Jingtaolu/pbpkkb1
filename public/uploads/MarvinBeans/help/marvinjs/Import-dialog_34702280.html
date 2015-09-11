@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Import dialog</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Import dialog </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p><span>Marvin JS can import all the commonly used molecule file formats.</span></p>
+          <p>Marvin JS handles MDL Molfiles V2000 (.mol) and ChemAxon Marvin Documents (.mrv) as input files natively, and other file types can also be imported if the appropriate web service is available.</p>
+          <h2 id="Importdialog-ThestructureoftheImportdialog">The structure of the Import dialog</h2>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34702280/35423549.png" data-image-src="attachments/34702280/35423549.png" data-unresolved-comment-count="0" data-linked-resource-id="35423549" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Import dialog.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34702280" data-linked-resource-container-version="17" /></span></p>
+          <p><strong>Available Import formats in Marvin JS</strong></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">&nbsp;</th>
+              <th style="text-align: center;" class="confluenceTh">Import Format</th>
+             </tr>
+             <tr>
+              <td rowspan="2" class="confluenceTd">Native</td>
+              <td class="confluenceTd">ChemAxon Marvin Document (MRV)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">MDL Molfile</td>
+             </tr>
+             <tr>
+              <td rowspan="19" class="confluenceTd">Web service is needed</td>
+              <td class="confluenceTd">MDL RXNfile</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">MDL RGfile</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">MDL RDfile</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">SMILES</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">ChemAxon SMILES</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">SMARTS</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">ChemAxon Extended SMARTS</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">InChI</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">HTML or XML</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">Name</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">CML</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">MDL Molfile V3000</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">MDL RXNfile V3000</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">MDL RGfile V3000</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">MDL SDfile</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">ChemAxon Compressed Molfile</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><span>ChemAxon Compressed SDfile</span></td>
+             </tr>
+             <tr>
+              <td class="highlight-red confluenceTd" colspan="1" data-highlight-colour="red">CDX File Format (Available via Open file option, or Drag &amp; Drop)</td>
+             </tr>
+             <tr>
+              <td class="highlight-red confluenceTd" colspan="1" data-highlight-colour="red">SKC File Format <span>(Available via <span>Open file</span> option, or Drag &amp; Drop)</span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p><strong>How to import by&nbsp;Paste source&nbsp;function</strong></p>
+          <p>Open the structure file with a text editor, select all, and copy the file contents to the clipboard then paste it into the input area. Above the text field you can select the appropriate file format from a drop-down list, or you can choose the &lt;<strong>auto recognize&gt;&nbsp;</strong>option. Finally, pressing the&nbsp;<strong>Import</strong>&nbsp;button loads the structure on the canvas.</p>
+          <p>&nbsp;</p>
+          <div class="panel" style="background-color: white;border-color: #ff9900;border-width: 1px;">
+           <div class="panelContent" style="background-color: white;"> 
+            <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> <strong>Drag &amp; Drop</strong></p>
+            <p>You can also open your <span>molecule </span>file by choosing it in your file system, and dragging than and drop it onto the Marvin JS canvas.&nbsp;</p> 
+           </div>
+          </div>
+          <p>&nbsp;</p>
+          <h2 id="Importdialog-Relatedpages">Related pages</h2>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Import_33293351.html">Import</a></p>
+          <p style="text-align: center;"><a href="Export-dialog_34702304.html">Export dialog</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Export_33293361.html">Export</a></p>
+          <p style="text-align: center;"><a href="33293374.html">Cut / Copy / Paste</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+          <p style="text-align: right;"><a href="Dialogs_34702276.html">... back to Dialogs</a></p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

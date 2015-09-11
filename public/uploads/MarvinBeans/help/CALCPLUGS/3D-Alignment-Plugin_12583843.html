@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : 3D Alignment Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : 3D Alignment Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives you a walk-through on how to use the 3D Alignment Plugin:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200955371 {padding: 0px;}
+div.rbtoc1439200955371 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200955371 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200955371"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#id-3DAlignmentPlugin-Introduction">Introduction &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#id-3DAlignmentPlugin-Input">Input</a></li> 
+            <li><a href="#id-3DAlignmentPlugin-Output">Output</a></li> 
+           </ul> </li> 
+          <li><a href="#id-3DAlignmentPlugin-Options">Options</a></li> 
+          <li><a href="#id-3DAlignmentPlugin-Example">Example &nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="id-3DAlignmentPlugin-Introduction">Introduction<br />&nbsp;</h1>
+      <p>The 3D Alignment Plugin overlays molecules onto each other by translating and rotating them in the space. The molecules&nbsp;<span>shoud be pasted on to the same <a href="https://docs.chemaxon.com/display/marvinsketch/Canvas+MS">MarvinSketch canvas</a> by reading multiple molecules from a file. You can also <a href="https://docs.chemaxon.com/display/marvinsketch/Working+in+MarvinSketch">copy &amp; paste</a> or drag molecules from another sketch panel.</span></p>
+      <h2 id="id-3DAlignmentPlugin-Input"><span>Input</span></h2>
+      <p>The input&nbsp;can be two or more molecules in 2D or in 3D. If 2D molecules are given, their 3D structure is automatically generated.The molecules can be treated<em> rigid</em> (then the original conformation is preserved), or <em>flexible</em> (then dihedral degrees of freedom are added to the molecule). To preserve the input conformation simply select the molecule on the canvas.</p>
+      <h2 id="id-3DAlignmentPlugin-Output">Output</h2>
+      <p>The&nbsp;output&nbsp;is the ensemble of aligned molecules in displayed in a <a href="#id-3DAlignmentPlugin-fig.1">MarvinSpace canvas</a>. The input and output molecules are all displayed in different colours and shown in a tree view on the right side of the canvas. To save the aligned orientation use the popup menu and click on the molecules with the right mouse button.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="id-3DAlignmentPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583843/29099380.png" data-image-src="attachments/12583843/29099380.png" data-unresolved-comment-count="0" data-linked-resource-id="29099380" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="3dalign.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583843" data-linked-resource-container-version="38" /></span></p>
+      <p>Fig. 1 Input and output molecules displayed on the result MarvinSpace canvas</p>
+      <p>&nbsp;</p>
+      <h1 id="id-3DAlignmentPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>Following options can be set in the&nbsp;<a href="#id-3DAlignmentPlugin-fig.2"><em>3D Alignment Options</em>&nbsp;panel</a>:</p>
+      <p><strong>Alignment types</strong></p>
+      <ul>
+       <li><strong>Align by extended atom types:</strong><span>&nbsp;extended atom types are assigned to each atom to enable chemically relevant atomic overlay. During the alignment process the overlap of the atoms of the same type is maximized.&nbsp;</span><br /><span>Types differentiate atomic number, hybridization state and aromaticity, e.g. aromatic nitrogen atom is not matched against a tertiary amine. These extended atom types correspond to the ones used in Dreiding force field.</span></li>
+       <li><strong>Align by common scaffold (MCS):</strong>&nbsp;the atom-atom pairing is obtained from the 2D maximum common substructure of the molecules. Alignment by extended atom types is applied on the non-MCS atoms.<br />&nbsp;</li>
+      </ul>
+      <p><strong>Detailed options</strong></p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Initial conformation count:</strong>&nbsp;the number of diverse conformations to generate as an input for the alignment.</li>
+       <li><strong>Accuracy</strong>: determines the alignment accuracy. Normal, fast and accurate accuracy options are defined.<br />&nbsp;</li>
+      </ul>
+      <p><strong>Display in MarvinSpace:</strong>&nbsp;if ticked, the result window is a MarvinSpace 3D viewer. Molecules are visualized in different colours for better distinction of structures.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="id-3DAlignmentPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583843/29099381.png" data-image-src="attachments/12583843/29099381.png" data-unresolved-comment-count="0" data-linked-resource-id="29099381" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="alignment_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583843" data-linked-resource-container-version="38" /></span></p>
+      <p>Fig. 2 Alignment Options panel<br />&nbsp;</p>
+      <h1 id="id-3DAlignmentPlugin-Example">Example<br />&nbsp;</h1>
+      <p>Let's suppose you have an SDfile contaning some molecules (called&nbsp;<em>wish.sdf</em>) that you wish to align. This must be converted for the alignment to a single molecule multi-fragment file where each fragment is a molecule from&nbsp;<em>wish.sdf</em>:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Create an empty file in MarvinSketch called&nbsp;<em>empty.mol</em></li>
+       <li><p>Type at command prompt:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> molconvert mol empty.mol -R wish.sdf -o wish_fused.mol</pre> 
+         </div>
+        </div></li>
+       <li>Open wish_fused.mol in MarvinSketch<br />&nbsp;</li>
+      </ul>
+      <p>If you know which atoms to overlap use the Reaction arrow tool to connect them. This can improve the alignment. If you have only 3D molecules as input and you select one of them, its original conformation will be preserved during the alignment, while others remain flexible.</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Select <em><a href="#id-3DAlignmentPlugin-fig.2">Tools &gt; Conformation &gt; 3D Alignment</a></em></li>
+       <li>Untick the Display in MarvinSpace option</li>
+       <li>Alignment process can take a while, around a minute for 4 drug-size molecules</li>
+       <li>Click on the result window with the right mouse button and select &quot;Save As&quot; from the pop menu.</li>
+      </ul> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

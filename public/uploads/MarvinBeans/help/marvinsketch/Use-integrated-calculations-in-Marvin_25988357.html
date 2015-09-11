@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Use integrated calculations in Marvin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Use integrated calculations in Marvin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="UseintegratedcalculationsinMarvin-Calculationintegrationasservice"><a class="external-link" href="http://www.chemaxon.com/marvin/help/calculations/services_menu.html#tautomer" name="tautomer" rel="nofollow"></a>Calculation integration as service</h2>
+      <p>Services is a handy module of Marvin that helps to integrate <a href="#UseintegratedcalculationsinMarvin-third">third-party calculations</a><sup>*</sup> via <a href="Services-module_13336710.html">the MarvinSketch GUI</a>.</p>
+      <p>The linked services are listed under the <a href="Services-Menu_16122215.html"><strong>Services</strong> menu</a>. The menu contains the names of the services in the formerly set order.</p>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>When no Services are set in MarvinSketch, the <strong>Services</strong> menu will be disabled.</p>
+       </div> 
+      </div> 
+      <h2 id="UseintegratedcalculationsinMarvin-Howtouse">How to use</h2>
+      <p>Select the desired third-party calculation from the<strong> Services menu</strong>.</p>
+      <p>The opening new window — right of MarvinSketch — has the same title as the service name.</p>
+      <p>&nbsp;</p>
+      <p><strong>Figure 2.</strong> MarvinSketch window (left) with the new service window (right)</p>
+      <p><a href="http://www.chemaxon.com/marvin/help/calculations/services_files/services02.png" title="Click to enlarge" class="external-link" rel="nofollow"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="Services display window" height="456" width="600" src="http://www.chemaxon.com/marvin/help/calculations/services_files/services02_small.png" data-image-src="http://www.chemaxon.com/marvin/help/calculations/services_files/services02_small.png" /></span></a></p>
+      <p>The collapsible panels of the window are the following:</p>
+      <ul>
+       <li><strong>Structure</strong>: The upper panel will show the structure in question. The structure can only be edited in the MarvinSketch window.
+        <ul>
+         <li><strong>Update</strong> button: If the structure is changed in MarvinSketch, press this button to refresh the structure for the calculation. <strong>Note</strong>: The button will be disabled if <strong>Calculate automatically</strong> is checked;</li>
+        </ul></li>
+       <li><strong>Arguments</strong>: The middle panel shows the calculation parameters. Unless the parameter is bold, it can be modified;</li>
+       <li><strong>Result</strong>: The lower panel will show the result of the calculation. The panel can present different output formats, e.g., string, structure, web page;
+        <ul>
+         <li><strong>Calculate automatically</strong> check box: If the structure is changed in MarvinSketch, the update of the structure and the calculation will run automatically. <strong>Note</strong>: In case it is checked, the <strong>Calculate</strong> and <strong>Update</strong> buttons will be inactive;</li>
+         <li><strong>Calculate</strong> button: Calculates and retrieves the result.</li>
+        </ul></li>
+      </ul>
+      <p><strong>Figure 3.</strong> Different output type examples</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><strong>String</strong></td>
+          <td class="confluenceTd"><strong>Structure</strong></td>
+          <td class="confluenceTd"><strong>Web page</strong></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" height="290" width="200" src="http://www.chemaxon.com/marvin/help/calculations/services_files/services03.png" data-image-src="http://www.chemaxon.com/marvin/help/calculations/services_files/services03.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" height="388" width="200" src="http://www.chemaxon.com/marvin/help/calculations/services_files/services04.png" data-image-src="http://www.chemaxon.com/marvin/help/calculations/services_files/services04.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" height="387" width="200" src="http://www.chemaxon.com/marvin/help/calculations/services_files/services05.png" data-image-src="http://www.chemaxon.com/marvin/help/calculations/services_files/services05.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p><a class="anchor" name="thirdparty" rel="nofollow"></a><sup><span class="confluence-anchor-link" id="UseintegratedcalculationsinMarvin-third"></span>*</sup>All calculations not provided in ChemAxon's Marvin Beans or in its JChem package are referred to third-party calculations.se</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

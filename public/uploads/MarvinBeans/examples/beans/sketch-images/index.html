@@ -1,0 +1,111 @@
+<html>
+<head>
+    <script type="text/javascript" src="../../sh_main.js"></script>
+    <script type="text/javascript" src="../../sh_java.js"></script>
+    <link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+<title>MarvinSketch Image Creation Example</title>
+</head>
+<body onload="sh_highlightDocument();">
+<h1>MarvinSketch Image Creation Example</h1>
+
+Let us start with the definition of some terms appearing in this paragraph.
+<hr>
+The MarvinSketch canvas is referred to as the area where all molecule fragments and graphical
+objects such as arrows, text boxes, etc. appear.<br>
+The scale factor in MarvinSketch determines the displayed size of a Carbon-Carbon single
+bond measured in pixels. The magnification is the value in percents that indicate the actual
+zoom ratio of the contents of the canvas.<br>
+The default value of the scale factor is 28, and this is equivalent to 100% magnification.
+<hr>
+
+<p>This example demonstrates how to create images from the contents of
+the MarvinSketch canvas using two different approaches.</p>
+<p>The image below shows the sample GUI component of this example. There
+are two buttons below the MSketchPane component, <b>Get Sketch Image</b> and
+<b>Get Molecule Image</b>, that will demonstrate the difference between the two methods.
+ To make it easy, the images that are created will be shown by placing them
+    on a <code>javax.swing.JLabel</code> component below the two buttons.</p>
+
+<center><img src="sketch_image.png" width="438" height="710"></center><br>
+
+<p>By pressing the <b>Get Sketch Image</b> button, the image of the canvas using the
+actual magnification is generated and set
+as the icon image of the label.</p>
+
+<p>The <b>Get Molecule Image</b> button creates a 200 x 200 pixel size image,
+automatically computing the appropriate scale factor.
+In this example we modify the default behavior with a parameter.    
+If this scale factor is greater than 100%, the scale factor is explicitly
+set to 100%, so that small molecules will not be overscaled.
+Note, that the molecule is automatically centered in the image.</p>
+
+<p>The very brief code samples below are taken
+from <a href="SketchImages.java.html"><code>SketchImages.java</code></a>.</p>
+
+<h4>Creating the image of the canvas </h4>
+
+The MSketchPane bean can generate an image from the contents of the canvas if either
+a scale factor or an absolute image size (with java.awt.Dimension) is set. In this example we use the actual
+<a href="../../../help/developer/sketchman.html#parameters.scale">scale factor</a>
+of the canvas itself, thus zooming affects the result of the generated image.
+
+<pre class="sh_java">
+    // getting the actual scale factor of the canvas
+    double currentScale = sketchPane.<a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html#getScale()">getScale</a>();
+    // getting the image of the canvas with the current scale factor
+    Image canvasImage = sketchPane.<a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html#getImage(double)">getImage</a>(currentScale);
+</pre>
+
+<h4>Converting the molecule of the canvas to an image</h4>
+
+<p>The image format along with additional options should be set
+as a String. The options are separated from the format identifier with a colon, and from each other
+with commas.<br>
+More details of specifying image formats are available in the <a href="../../../help/formats/images-doc.html">Image Generation</a> documentation.</p>
+<p>With the use of the <code>maxscale</code> parameter the scale factor is not allowed to be grater than that of 100%.</p>
+<pre class="sh_java">
+    String format = "jpeg:w200,h200,maxscale28";
+    byte[] imageData = sketchPane.getMol().toBinFormat(format);
+</pre>
+
+As of Marvin 5.2.0 images can be created with transparent background in PNG, SVG, PDF and EMF formats.
+To set the transparent background, the <code>transbg</code> parameter should be set along with a
+background color containing alpha values in RGBA form.
+<pre class="sh_java">
+    String format = "png:w200,h200,maxscale28,transbg,#ffffffff";
+</pre>
+
+<p>There is an alternative to the image generation method which does not require to set the image
+    format explicitely, and retrieves a <code>java.awt.Image</code> object instead of the image data.
+    This conversion is more appropriate in case the image is not written to file.</p>
+<pre class="sh_java">
+    Image image = sketchPane.getMol().toObject("image:w200,h200");
+</pre>
+
+<h4>Comparison of the two methods</h4>
+<p>The advantages of converting the molecule to an image format are straightforward:</p>
+<ul>
+    <li>Bean creation is not necessary, it can even be used as a command line method.</li>
+    <li>Arbitrary image size setting is possible considering memory limits.</li>
+</ul>
+
+<p>However there is one disadvantage as well, namely that the various functionalities offered
+by the JavaBean component affecting the display are not directly available on the molecule itself.
+This means that all display options being different from the default <b>has to be set explicitely</b>
+as the parameter of the conversion String.</p>
+
+<p>For example, to convert a molecule to an image where the CHIRAL flags are visible is as follows:</p>
+
+<pre class="sh_java">
+    String format = "jpeg:w200,h200,chiral_all";
+    byte[] imageData = sketchPane.getMol().toBinFormat(format);
+</pre>
+
+The available options are enumerated
+as <a href="../../../help/formats/images-doc.html">Export options</a> of the
+Image Generation documentation.
+
+
+</body>
+</html>

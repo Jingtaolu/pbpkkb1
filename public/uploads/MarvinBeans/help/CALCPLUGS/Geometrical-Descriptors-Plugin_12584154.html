@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Geometrical Descriptors Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Geometrical Descriptors Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Geometrical Descriptors Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956111 {padding: 0px;}
+div.rbtoc1439200956111 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956111 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956111"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#GeometricalDescriptorsPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#GeometricalDescriptorsPlugin-Options">Options</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="GeometricalDescriptorsPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The Geometrical Descriptors Plugin&nbsp;calculates 3D geometric descriptors for a molecule.&nbsp;The following window shows a <a href="#GeometricalDescriptorsPlugin-fig.1">calculation result</a>.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="GeometricalDescriptorsPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584154/29099722.png" data-image-src="attachments/12584154/29099722.png" data-unresolved-comment-count="0" data-linked-resource-id="29099722" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="IMG_12082014_121449.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584154" data-linked-resource-container-version="18" /></span></p>
+      <p>Fig.1 Geometrical Descriptors Plugin result window</p>
+      <p>&nbsp;</p>
+      <h1 id="GeometricalDescriptorsPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>The following options can be set in the<em>&nbsp;</em><a href="#GeometricalDescriptorsPlugin-fig.2"><em>Geometrical Descriptors Options</em>&nbsp;</a>window:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Type</strong>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Dreiding energy:</strong>&nbsp;calculates the energy of the 3D structure (conformation) of the molecule using Dreiding force field.</li>
+         <li><strong>MMFF94 energy:</strong>&nbsp;calculates the energy of the 3D structure (conformation) of the molecule using MMFF94 force field.</li>
+         <li><strong>Steric hindrance:</strong>&nbsp;calculates steric hindrance of an atom calculated from the covalent radii values and geometrical distances.</li>
+         <li><strong>Minimal projection area:</strong>&nbsp;calculates the minimum of projection areas of the conformer, based on the van der Waals radius (in &Aring;<sup>2</sup>).</li>
+         <li><strong>Maximal projection area:</strong>&nbsp;calculates the maximum of projection areas of the conformer, based on the van der Waals radius (in &Aring;<sup>2</sup>).</li>
+         <li><strong>Minimal projection radius:</strong>&nbsp;calculates the radius for the minimal projection area of the conformer (in &Aring;).</li>
+         <li><strong>Maximal projection radius:</strong>&nbsp;calculates the radius for the maximal projection area of the conformer (in &Aring;).</li>
+         <li><strong>Maximal distance perpendicular to the min projection:</strong>&nbsp;calculates the maximal extension of the conformer perpendicular to the minimal projection area (in &Aring;).</li>
+         <li><strong>Maximal distance perpendicular to the max projection:</strong>&nbsp;calculates the maximal extension of the conformer perpendicular to the maximal projection area (in &Aring;).</li>
+         <li><strong>van der Waals volume:</strong>&nbsp;calculates the van der Waals volume of the conformer (in &Aring;<sup>3</sup>).</li>
+        </ul></li>
+       <li><strong>Energy unit:</strong>&nbsp;unit of the calculated energy (kcal/mol or kJ/mol).</li>
+       <li><strong>Decimal places:&nbsp;</strong>setting the number of decimal places with which the result value is given.</li>
+       <li><strong>Set MMFF94 optimalization</strong>: The structure is optimized before MMFF94 energy calculation.</li>
+       <li><strong>Set projection optimalization</strong>&nbsp;The structure is optimized before projection area and projection radius calculation(s).</li>
+       <li><strong>Calculate for lowest energy conformer:</strong>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>If molecule is in 2D</strong>: the lowest energy conformer is generated if the input molecule is in 2D; 3D input molecules are considered in the given conformation.</li>
+         <li><strong>Never</strong>: the input molecule is used for calculation.</li>
+         <li><strong>Always</strong>: the lowest energy conformer is generated (for 3D and 2D molecules as well).</li>
+        </ul></li>
+       <li><strong>Optimization limit:&nbsp;</strong>sets the rigour of convergence for optimization. Stricter convergence means lower gradient limit to reach during optimization. The values can be:&nbsp;
+        <ul style="margin-left: 20.0px;">
+         <li>Very loose</li>
+         <li>Normal</li>
+         <li>Strict</li>
+         <li>Very strict</li>
+        </ul></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="GeometricalDescriptorsPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584154/29099721.png" data-image-src="attachments/12584154/29099721.png" data-unresolved-comment-count="0" data-linked-resource-id="29099721" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="IMG_12082014_120958.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584154" data-linked-resource-container-version="18" /></span></p>
+      <p>Fig. 2 Geometrical Descriptors Options window</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

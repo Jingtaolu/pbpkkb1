@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Context Menus</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Context Menus </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span style="line-height: 1.4285715;">The pop-up menus (or context menus) of Marvin JS can also make chemical structure editing more efficient. The pop-up menus can be opened with a right-click on the appropriate object (</span><em style="line-height: 1.4285715;">e.g.</em><span style="line-height: 1.4285715;">, on an atom or on a bond). The elements of these menus can be divided up into the following classes.</span></p>
+      <div class="panel" style="background-color: WhiteSmoke;border-color: Teal;border-style: solid;border-width: 1px;">
+       <div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: Teal;background-color: WhiteSmoke;">
+        <b>Context menus</b>
+       </div>
+       <div class="panelContent" style="background-color: WhiteSmoke;"> 
+        <p style="margin-left: 30.0px;"><span style="color: rgb(0,0,0);"><strong><a href="#ContextMenus-atomPopup">Atom</a></strong></span><span>&nbsp; context menu;</span></p>
+        <p style="margin-left: 30.0px;"><span><strong><a href="#ContextMenus-bondPopup">Bond</a></strong> context menu;</span></p>
+        <p style="margin-left: 30.0px;"><span style="color: rgb(0,0,0);"><strong><a href="#ContextMenus-groupPopup">Group</a></strong></span>&nbsp;context menu;</p>
+        <p style="margin-left: 30.0px;"><span style="color: rgb(0,0,0);"><strong><a href="#ContextMenus-RlabelPopup">R-label</a></strong></span>&nbsp;context menu;</p>
+        <p style="margin-left: 30.0px;"><span style="color: rgb(0,0,0);"><strong><a href="#ContextMenus-graphicalPopup">Graphical objects</a></strong></span>&nbsp;context menu;</p>
+        <p style="margin-left: 30.0px;"><span style="color: rgb(0,0,0);"><strong><a href="#ContextMenus-editPopup">Edit</a></strong></span>&nbsp;context menu;</p>
+        <p style="margin-left: 30.0px;"><span style="color: rgb(0,0,0);"><strong><a href="#ContextMenus-selectionPopup">Selection</a></strong></span>&nbsp;context menu</p> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">&nbsp;</p>
+      <p>In the first two cases, you do not need to select an atom or a bond in order to open the respective context menu; if you right-click on the object you want to edit, the appropriate pop-up menu will appear. Among the elements of the <strong>Edit</strong> pop-up menu there are options which are available only if there is active selection on the canvas. The same applies for the last group of pop-up menu elements: they appear only upon selection. In many cases, the displayed context menu contains a combination of the elements from the classes mentioned above. Clicking on a selected atom, for example, will result in the following pop-up menu:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236082/34504705.png" data-image-src="attachments/17236082/34504705.png" data-unresolved-comment-count="0" data-linked-resource-id="34504705" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-3 15:32:57.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236082" data-linked-resource-container-version="27" /></span></p>
+      <h2 id="ContextMenus-atomPopupAtomPop-upMenu"><span class="confluence-anchor-link" id="ContextMenus-atomPopup"></span><span style="color: rgb(0,0,0);">Atom Pop-up Menu</span></h2>
+      <p>The <strong>Atom</strong> pop-up menu opens by right-clicking on an atom. It contains tools for editing atoms and their properties:</p>
+      <p><strong>Atom Properties</strong>: opens the <span style="color: rgb(0,0,0);"><strong><a href="Properties_17236088.html#Properties-atomProperties">Atom properties</a></strong></span> dialog window.</p>
+      <h2 id="ContextMenus-bondPopupBondPop-upMenu"><span class="confluence-anchor-link" id="ContextMenus-bondPopup"></span>Bond Pop-up Menu</h2>
+      <p>The Bond&nbsp;pop-up menu opens by right-clicking on a bond. It&nbsp;opens the <strong><a href="Properties_17236088.html#Properties-bondProp">Bond&nbsp;properties</a></strong>&nbsp;dialog window which contains tools for editing atoms and their properties.</p>
+      <h2 id="ContextMenus-groupPopupGroupPop-upMenu"><span class="confluence-anchor-link" id="ContextMenus-groupPopup"></span><span style="color: rgb(0,0,0);">Group Pop-up Menu</span></h2>
+      <p>Right-click on an expanded/contracted abbreviated group while its feedback is active will open the group contextual menu containing the following menu items:</p>
+      <ul>
+       <li><strong>Expand</strong>: Displays the whole structure of the chemical group instead of its abbreviated name.</li>
+       <li><strong>Contract</strong>: Displays the abbreviation of a chemical group.</li>
+       <li><strong>Ungroup</strong>: The &quot;abbreviated group&quot; status is removed from the group.</li>
+      </ul>
+      <p>The &quot;Expand&quot; and &quot;Contract&quot; options are never active simultaneously. In case of a contracted abbreviated group, only the &quot;Expand&quot; option is available, while for an expanded group, only the &quot;Contract&quot; menu item is active.</p>
+      <h2 id="ContextMenus-RlabelPopupR-labelPop-upMenu"><span class="confluence-anchor-link" id="ContextMenus-RlabelPopup"></span><span style="color: rgb(0,0,0);">R-label Pop-up Menu</span></h2>
+      <p>The R-label contextual menu also offers some options for managing R-group definition lists. These menu items are the following:</p>
+      <ul>
+       <li><strong>Ungroup:</strong> The R-group definition list in question is ungrouped, but its elements will remain on the canvas.</li>
+       <li><strong>Add to this group:</strong> The selected molecules are added to this particular R-group definition.</li>
+       <li><strong>Remove from this group:</strong> The selected fragments are removed from the R-group definition in question.</li>
+      </ul>
+      <h2 id="ContextMenus-graphicalPopUpGraphicalObjectsPop-upMenu"><span class="confluence-anchor-link" id="ContextMenus-graphicalPopUp"></span>Graphical Objects Pop-up Menu</h2>
+      <p><span>This pop-up offers formatting options for graphical objects (</span><em>e.g.</em><span>, for rectangle boxes):</span></p>
+      <ul>
+       <li><strong>Set box color:</strong>&nbsp;The color of the graphical objects' (boxes) edges and background can be selected from a predefined list.<span><br class="_mce_tagged_br" /></span></li>
+      </ul>
+      <h2 id="ContextMenus-editPopupEditPop-upMenu"><span class="confluence-anchor-link" id="ContextMenus-editPopup"></span><span style="color: rgb(0,0,0);">Edit Pop-up Menu</span></h2>
+      <p>Right-click on an empty spot on the canvas will open the <strong>Edit</strong> pop-up menu containing general editing options. Some of them are available only if there is active selection on the canvas.</p>
+      <ul>
+       <li><strong>Copy</strong>: copies the selection to the clipboard;</li>
+       <li><strong>Paste</strong>: inserts the content of the clipboard into the canvas of Marvin for JavaScript;</li>
+       <li><strong>Clear</strong>: deletes everything on the canvas;</li>
+       <li><strong>Zoom All</strong>: determines the optimal rate of magnification to see everything on the canvas;</li>
+       <li><strong>Zoom to Selection</strong>: increases the zoom ratio with the selected object in the center.</li>
+       <li><strong>Absolute stereo (chiral)</strong>: sets the &quot;Absolute&quot; chiral flag on the entire structure indicating that the molecule represents a single, well-defined stereoisomer.</li>
+      </ul>
+      <h2 id="ContextMenus-selectionPopupPop-upMenuElementsuponSelection"><span class="confluence-anchor-link" id="ContextMenus-selectionPopup"></span><span style="color: rgb(0,0,0);">Pop-up Menu Elements upon Selection</span></h2>
+      <p>These tools appear only in the context menu if there is active selection on the canvas. The mirror tools are active only when the selected object can be mirrored (whole molecule or fragment connected with no more than one bond to the rest of the structure).</p>
+      <ul>
+       <li><strong>Mirror Horizontally</strong>: mirrors a selected molecule or fragment horizontally;</li>
+       <li><strong>Mirror Vertically</strong>: mirrors a selected molecule or fragment vertically.</li>
+      </ul> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

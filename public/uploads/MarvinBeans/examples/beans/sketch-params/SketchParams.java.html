@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinSketch Structure Display Example</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/**</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">BorderLayout</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JFrame</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JPanel</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">MSketchPane</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">common</span><span class="symbol">.</span><span class="normal">ParameterConstants</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * Example of hiding R-group definitions and showing only the</span>
+<span class="comment"> * root structure of an R-group structure. </span>
+<span class="comment"> * For the detailed description of this example, please visit</span>
+<span class="comment"> * </span><span class="url">http://www.chemaxon.com/marvin/examples/beans/sketch-params/index.html</span>
+<span class="comment"> * </span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Erika Biro</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.2.2 04/29/2009</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment">   Marvin 5.0</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> SketchParams </span><span class="keyword">extends</span><span class="normal"> JPanel </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="keyword">final</span><span class="normal"> String molString </span><span class="symbol">=</span>
+<span class="normal">        </span><span class="string">"$MDL  REV  1 0424081105\n$MOL\n$HDR\n\n  Marvin  04240811052D          \n\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"$END HDR\n$CTAB\n  8  8  0  0  0  0            999 V2000\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -4.0661    2.6518    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -4.7805    2.2393    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -4.7805    1.4143    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -4.0661    1.0018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -3.3516    1.4143    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -3.3516    2.2393    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -4.0661    3.4768    0.0000 R#  0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"   -2.6371    2.6518    0.0000 R#  0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  2  1  0  0  0  0\n  1  6  1  0  0  0  0\n  2  3  1  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  3  4  1  0  0  0  0\n  4  5  1  0  0  0  0\n  5  6  1  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  7  2  0  0  0  0\n  6  8  1  0  0  0  0\nM  LOG  1   1   0   0   &gt;0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"M  LOG  1   2   0   0   &gt;0\nM  RGP  2   7   2   8   1\nM  END\n$END CTAB\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"$RGP\n  1\n$CTAB\n  2  1  0  0  0  0            999 V2000\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    0.5304    3.1821    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    0.5304    2.3571    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  2  2  0  0  0  0\nM  APO  1   2   1\nM  END\n$END CTAB\n$CTAB\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  2  1  0  0  0  0            999 V2000\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    3.9777    3.2116    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    3.9777    2.3866    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  2  1  0  0  0  0\nM  APO  1   2   1\nM  END\n$END CTAB\n$CTAB\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  3  2  0  0  0  0            999 V2000\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    2.1804    3.2705    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    2.1804    2.4455    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    1.5970    1.8622    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  2  2  0  0  0  0\n  2  3  1  0  0  0  0\nM  APO  1   3   1\nM  END\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"$END CTAB\n$END RGP\n$RGP\n  2\n$CTAB\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  6  6  0  0  0  0            999 V2000\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    1.0312   -0.3536    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    0.3168   -0.7661    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    0.3168   -1.5911    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    1.0312   -2.0036    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    1.7457   -1.5911    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    1.7457   -0.7661    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  2  1  0  0  0  0\n  1  6  2  0  0  0  0\n  2  3  2  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  3  4  1  0  0  0  0\n  4  5  2  0  0  0  0\n  5  6  1  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"M  APO  1   2   1\nM  END\n$END CTAB\n$CTAB\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  5  5  0  0  0  0            999 V2000\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    3.9188   -0.3884    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    3.2513   -0.8733    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    3.5062   -1.6579    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    4.3313   -1.6579    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    4.5862   -0.8733    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  2  1  0  0  0  0\n  1  5  1  0  0  0  0\n  2  3  2  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  3  4  1  0  0  0  0\n  4  5  2  0  0  0  0\nM  APO  1   2   1\nM  END\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"$END CTAB\n$CTAB\n  2  1  0  0  0  0            999 V2000\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    5.8929   -0.6482    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"    5.8929   -1.4732    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"  1  2  2  0  0  0  0\nM  APO  1   1   1\nM  END\n$END CTAB\n$END RGP\n"</span><span class="symbol">+</span>
+<span class="normal">        </span><span class="string">"$END MOL\n"</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="function">SketchParams</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Creating the MSketchPane JavaBean component</span>
+<span class="normal">	MSketchPane msketchPane </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MSketchPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Set parameter to hide R-group definitions </span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> and show only the scaffold.</span>
+<span class="normal">	msketchPane</span><span class="symbol">.</span><span class="function">setParams</span><span class="symbol">(</span><span class="normal">ParameterConstants</span><span class="symbol">.</span><span class="normal">R_GROUPS_VISIBLE </span><span class="symbol">+</span><span class="string">"=false"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	msketchPane</span><span class="symbol">.</span><span class="function">setMol</span><span class="symbol">(</span><span class="normal">molString</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Adding the bean to the panel</span>
+<span class="normal">        </span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">add</span><span class="symbol">(</span><span class="normal">msketchPane</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Create the GUI and show it. For thread safety,</span>
+<span class="comment">     * this method should be invoked from the event-dispatching thread.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Create and set up the window.</span>
+<span class="normal">        JFrame frame </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFrame</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setTitle</span><span class="symbol">(</span><span class="string">"MarvinSketch Structure Display Parameter Example"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setDefaultCloseOperation</span><span class="symbol">(</span><span class="normal">JFrame</span><span class="symbol">.</span><span class="normal">EXIT_ON_CLOSE</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="keyword">final</span><span class="normal"> SketchParams sketchParams </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">SketchParams</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">sketchParams</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">pack</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setLocationRelativeTo</span><span class="symbol">(</span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setVisible</span><span class="symbol">(</span><span class="keyword">true</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="normal">    </span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Schedule a job for the event-dispatching thread:</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">creating and showing this application's GUI.</span>
+<span class="normal">        javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">SwingUtilities</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

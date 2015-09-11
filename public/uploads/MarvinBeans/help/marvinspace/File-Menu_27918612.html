@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : File Menu</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : File Menu </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The main function provided in the&nbsp;<strong>File</strong>&nbsp;submenu is loading molecular structure files. These can either be small molecules or a macromolecules (that is, proteins, protein-ligand complexes, RNA, DNA etc).&nbsp;<br />The structure opened is displayed in the current&nbsp;<a href="#FileMenu-layout">cell</a>&nbsp;(marked by a thin red frame) and is registered in the&nbsp;<a href="Selection-Panel_28934483.html">selection panel</a>&nbsp;on the right hand side of the MarvinSpace window.</p>
+      <p>There are two alternative ways to load new structures in MarvinSpace.&nbsp;<strong>Open</strong>&nbsp;removes all existing objects (after confirmation) and loads new structures in either one or more cells depending on user selection.&nbsp;<br />In contrast to this,&nbsp;<strong>Add</strong>&nbsp;keeps all previously loaded structures and adds new ones to the current cell.</p>
+      <p><strong>Open from RCSB PDB</strong>&nbsp;connects&nbsp;<a href="http://www.rcsb.org/" class="external-link" rel="nofollow">http://www.rcsb.org</a>&nbsp;to load a pdb file given by its identifier.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Open from RCSB PDB Dialog" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/rcsb.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/rcsb.png" /></span></p>
+      <p><strong>Open property file</strong>&nbsp;is to map volumetric data on molecular surfaces. Currently supported property file formats are Gaussian Cube (*.cube) and Charmm (*.phi80).</p>
+      <p><strong>Save screen</strong>&nbsp;saves the canvas as a PNG, BMP or JPG file. It does full screen anti-aliasing before image saving. The size of the image will be the same as the size of the canvas.</p>
+      <p><strong>Export image</strong>&nbsp;saves the canvas in arbitrary size in the above formats. There is a limitation: export image does not work properly if:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>smooth background is enabled</li>
+       <li>there are multiple cells</li>
+       <li>there are any labels drawn in 2d</li>
+      </ul>
+      <p><strong>Exit</strong>&nbsp;leaves the program.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

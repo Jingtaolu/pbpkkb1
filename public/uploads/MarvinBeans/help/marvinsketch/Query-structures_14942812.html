@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Query structures</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Query structures </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>There are molecules that cannot be represented by a single structure. Although it is possible to run multiple structure searches in cascade, it is much more efficient to run a search only once using a well designed query structure. This structure often contains query features, possibly including complex conditional expressions for atoms and bonds. For a more detailed description of this please see the&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Query+features">Query Guide.</a></p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent">
+             &nbsp;
+            <style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201029354 {padding: 0px;}
+div.rbtoc1439201029354 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201029354 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+            <div class="toc-macro rbtoc1439201029354"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#Querystructures-R-groups">R-groups</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#Querystructures-CreateanR-group">Create an R-group</a></li> 
+                <li><a href="#Querystructures-AddR-logic">Add R-logic</a></li> 
+                <li><a href="#Querystructures-HowtodrawR-groups-Stepbystepexample">How to draw R-groups - Step by step example</a></li> 
+               </ul> </li> 
+              <li><a href="#Querystructures-Positionvariation">Position variation</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#Querystructures-HowtodrawPositionVariation:">How to draw Position Variation:</a></li> 
+               </ul> </li> 
+              <li><a href="#Querystructures-Homologygroups">Homology groups</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#Querystructures-Addahomologygroup">Add a homology group</a></li> 
+                <li><a href="#Querystructures-EditingthehomologygrouppropertiesinMarvinSketch">Editing the homology group properties in MarvinSketch</a></li> 
+               </ul> </li> 
+              <li><a href="#Querystructures-Linknodes">Link nodes</a></li> 
+              <li><a href="#Querystructures-GenericQueryAtoms">Generic Query Atoms</a></li> 
+              <li><a href="#Querystructures-AtomList/NOTList">Atom List/ NOT List</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#Querystructures-HowtocreateanAtomList">How to create an Atom List</a></li> 
+                <li><a href="#Querystructures-HowtocreateaNOTList">How to create a NOT List</a></li> 
+               </ul> </li> 
+              <li><a href="#Querystructures-Frequencyvariation-Repeatingunitswithrepetitionrange">Frequency variation - Repeating units with repetition range</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#Querystructures-Syntaxoftherepetitionranges">Syntax of the repetition ranges</a></li> 
+                <li><a href="#Querystructures-Todrawarepeatingunitwithrepetitionranges">To draw a repeating unit with repetition ranges</a></li> 
+               </ul> </li> 
+             </ul> 
+            </div> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="Querystructures-R-groups">R-groups</h1>
+          <p>An R-group can describe a set of derivatives in one single structure (substitution variation).</p>
+          <h2 id="Querystructures-CreateanR-group">Create an R-group</h2>
+          <ol>
+           <li>Draw the root structure and place some R atoms&nbsp; from the Periodic Table dialog window or from the popup menu or by typing a corresponding label such as &quot;R1&quot; on the keyboard. <br /><br /></li>
+           <li>Draw the variable R-group ligands and select those substituting the R1 atom. If you type &quot;R1&quot; now, the selected groups will be marked with &quot;R1&quot;. <br /><br /></li>
+          </ol>
+          <p>To add attachment points for the R-definitions, you can use menu&nbsp;<strong>Atom &gt; R-group Attachment</strong>&nbsp;from the menu (or&nbsp;<strong>R-group Attachment</strong>&nbsp;from the popup menu), or alternatively, when you draw the R-definitions and the mouse cursor still shows &quot;R1&quot;, clicking on an atom of the definition will toggle the attachment point on that atom. (Please note that divalent R-groups must have two attachment points defined.).</p>
+          <p>To change the order of the attachment point select an the attachment point and set the new number using the <strong>R-group Attachment</strong> <strong>Order</strong> option from the contextual menu (or<strong> Atom &gt; </strong>&nbsp;<strong>R-group Attachment</strong> <strong>Order</strong> menu item).</p>
+          <h2 id="Querystructures-AddR-logic">Add R-logic</h2>
+          <p>You can define additional conditions, such as occurrence, rest H, and if-then expressions to R-groups in the&nbsp;<strong>R-logic</strong>&nbsp;dialog window.</p>
+          <p style="margin-left: 30.0px;">To do this, select menu option&nbsp;<strong>Structure&nbsp; &gt; R-logic</strong>. After setting the conditions in the&nbsp;<strong>R-logic</strong>&nbsp;dialog window, press the&nbsp;<strong>OK</strong>&nbsp;button to apply the changes.&nbsp;<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281209.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-step7.png?version=1&amp;modificationDate=1403177004000&amp;api=v2" /></span></p>
+          <p style="margin-left: 30.0px;"><br />R-logic can be visualized by switching on the&nbsp;<strong>View &gt; Advanced &gt; R-logic</strong>&nbsp;menu option.</p>
+          <p style="margin-left: 30.0px;">R-groups can be formatted as all other atom labels. For more details click <a href="https://docs.chemaxon.com/display/marvinsketch/Atom+Label+Editor">here</a>.</p>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Please note that the R-logic is not applicable for R0.</p>
+           </div> 
+          </div> 
+          <p>&nbsp;</p>
+          <h2 id="Querystructures-HowtodrawR-groups-Stepbystepexample">How to draw R-groups - Step by step example</h2>
+          <ol>
+           <li><strong>Draw&nbsp;the root structure</strong>.<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281200.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-step1.png?version=1&amp;modificationDate=1403176617000&amp;api=v2" /></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281201.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-step2.png?version=1&amp;modificationDate=1403176652000&amp;api=v2" /></span><p style="margin-left: 60.0px;">Move the cursor to the atom where you would like to<strong>&nbsp;</strong>place the R-group. (In this example, we place R-groups in place of the terminal carbon atoms.)</p><p style="margin-left: 60.0px;">When the atom is highlighted (blue circle around the atom label), type 'R1' (or the other required R-label) on the keyboard.</p><p style="margin-left: 60.0px;">Alternative solution is selecting the R-label from&nbsp;<em>R-group</em>&nbsp;sub-menu of the popup menu by pressing right mouse button over the atom.</p><p style="margin-left: 60.0px;">You can replace selected atoms by R-labels using the list either on the&nbsp;<a href="https://docs.chemaxon.com/display/marvinsketch/Advanced+tab" rel="nofollow">Advanced</a>&nbsp;tab of the&nbsp;Periodic Table&nbsp;or in the&nbsp;<a href="https://docs.chemaxon.com/display/marvinsketch/Atom+Menu" rel="nofollow">Atom &gt; R-group</a>&nbsp;menu item.</p><br /><p style="margin-left: 60.0px;">Draw an alternative ligand with an R-group connection:</p><p style="margin-left: 60.0px;">Move the cursor to an empty place on the canvas (take care that nothing is selected) then type the next R-group label (R2 in this case). The &quot;in hand&quot; object changes to the ID of the R-group (R2). (In this example, we add a ligand to terminal oxygen atom.)</p><p style="margin-left: 60.0px;">Click the terminal oxygen, then drag the mouse. You will see that the new bond is displayed and its orientation follows the cursor. Release the mouse button when the bond stands in the right direction.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281202.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-step3.png?version=1&amp;modificationDate=1403176691000&amp;api=v2" /></span></p></li>
+           <li><strong>Draw</strong>&nbsp;<strong>new fragments separately</strong>&nbsp;from the root structure, which will belong to one of the two R-group definitions. <br />(In this example, we draw the fragments for the first R-group definition to the right side and the second R-group definition will be placed below the root structure.)<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281203.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-step4.png?version=1&amp;modificationDate=1403176720000&amp;api=v2" /></span></li>
+           <li><strong>Define the R-group definitions</strong>.<br />To do this, select those fragments that the first R-group should contain (on the right side). After selection, type the first R-group ID (R1) on the keyboard. The ID and equal sign (R1=) will be displayed beside the selected set and the &quot;in hand&quot; object will be the R1-label.<br /><br /></li>
+           <li><strong>Define attachment points&nbsp;on R-group members</strong></li>
+          </ol>
+          <p style="margin-left: 30.0px;">Click with the left mouse button on atoms where you would like to place the attachment points. Repeat this operation on the other two members in the R1-definition. (In this example, at the third molecule, we select the left oxygen atom for attachment.) Alternatively, you can define R-group attachment points&nbsp;<em>via</em>&nbsp;the popup menu by selecting the&nbsp;<strong>R-group attachment</strong>&nbsp;option on an atom of an R-group definition.</p>
+          <p style="margin-left: 30.0px;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281204.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-step5.png?version=2&amp;modificationDate=1403176823000&amp;api=v2" /></span></p>
+          <p style="margin-left: 30.0px;"><strong>Create the R2-definition</strong>&nbsp;by repeating the last two steps on the two remaining fragments.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281206.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-step6.png?version=1&amp;modificationDate=1403176841000&amp;api=v2" /></span></p>
+          <p>In case of one attachment point, the connections are not numbered, only marked by a wavy line on the substituent side.&nbsp;<br />In case of more than one attachment point, the connections are marked by numbers on the root structure (the so called&nbsp;<em>ligand order</em>). Connection points on the substituents are marked with a wavy line, and the order is indicated by numbers (except for the first one).<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281207.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/r-group-attachmentpoints.png?version=1&amp;modificationDate=1403176918000&amp;api=v2" /></span></p>
+          <p>The ligand order on a bond can be changed using the&nbsp;<strong>Bond &gt; Ligand order</strong>&nbsp;menu item. Simply select the bond in question and go to this menu option (also available upon mouse-over in the context menu). Selecting another ligand order option in the offered list will transpose the two affected ligand order numbers. The example below demonstrates a case where we want to change ligand order on a bond which connects two R-groups.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942812/26281208.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942812/ligandorder.png?version=1&amp;modificationDate=1403176960000&amp;api=v2" /></span></p>
+          <p></p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <hr />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="Querystructures-Positionvariation">Position variation</h1>
+          <p>You can create a variable point of attachment (postion variation) to represent a variable connection point to a group of atoms.</p>
+          <p>The representation is similar to the above mentioned multi-center bonds.</p>
+          <p>For example:&nbsp;<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942814/26281193.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942814/markush3.png?version=1&amp;modificationDate=1403170830000&amp;api=v2" /></span><br />The alternative attachment points are displayed with grey shadow. If you move the cursor to the center (the bond ending in the ring) the represented atoms are highlighted (blue circle around the atom labels).&nbsp;</p>
+          <h3 id="Querystructures-HowtodrawPositionVariation:">How to draw Position Variation:</h3>
+          <ol>
+           <li>Draw the structure that includes the position variation.</li>
+           <li>Select the alternative connection point atoms.</li>
+           <li>Choose &quot;<strong>Structure/Add/Position variation bond</strong>&quot; from the main menu or &quot;<strong>Add/Position variation bond</strong>&quot; from the contextual menu. The alternative attachment points are highlighted by a grey shadow and a bond will be drawn in the center.</li>
+           <li>Edit the bond if required. The atoms are displayed with grey shadow and bond length will be increased.</li>
+           <li>Repeat step 2-4 to draw further position variation bonds.</li>
+          </ol>
+          <p></p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <hr />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="Querystructures-Homologygroups">Homology groups</h1>
+          <p>'Built-in'&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Homology+Groups+and+Markush+Structures#HomologyGroupsandMarkushStructures-list" rel="nofollow">Homology groups</a>&nbsp;can be found in the '<strong><a href="https://docs.chemaxon.com/display/marvinsketch/Special+nodes+and+R-groups">Special Nodes</a></strong>' section of the&nbsp;Periodic Table's<strong><a href="https://docs.chemaxon.com/display/marvinsketch/Advanced+tab" rel="nofollow"> Advanced tab</a></strong>, as a drop-down list, starting with &quot;Alkyl&quot;.</p>
+          <p>More details of some other<a href="https://docs.chemaxon.com/display/jchembase/Query+features" rel="nofollow">&nbsp;<span class="confluence-link">Query features</span> </a>&nbsp;and&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Homology+Groups+and+Markush+Structures#HomologyGroupsandMarkushStructures-definition" rel="nofollow">Homology groups</a> can be found in the&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Query+features" rel="nofollow">Query Guide.</a></p>
+          <h3 id="Querystructures-Addahomologygroup">Add a homology group</h3>
+          <p>The simplest way is to insert homology groups is creating a pseudo atom with the homology group name using the <a href="https://docs.chemaxon.com/display/marvinsketch/Atom+Label+Editor">Atom Label Editor</a> tool.</p>
+          <p>Alternatively, homology groups can be inserted from the Periodic Table's <a href="https://docs.chemaxon.com/display/marvinsketch/Advanced+tab" rel="nofollow">Advanced tab</a>.</p>
+          <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942814/26281195.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942814/homology_periodic.png?version=1&amp;modificationDate=1403171081000&amp;api=v2" /></span></p>
+          <ol>
+           <li>Open the Periodic Table (toolbar or from the Atom menu), choose the Advanced tab.</li>
+           <li>In the Special nodes section, choose the homology group from the dropdown list.</li>
+           <li>The homology group stays at the mouse pointer, you can click the atom(s) on the canvas. You don't need to close the Periodic Table to continue drawing.</li>
+          </ol>
+          <h3 id="Querystructures-EditingthehomologygrouppropertiesinMarvinSketch">Editing the homology group properties in MarvinSketch</h3>
+          <p>Select the homology group and right-click. Choose <strong>Edit Properties</strong>... Set the group properties in the dialog box.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942814/26281196.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942814/homology_properties_menu.png?version=1&amp;modificationDate=1403171089000&amp;api=v2" /></span><br />&nbsp;</p>
+          <p>Here is an example of the property dialog window for a cycloalkyl group:</p>
+          <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/14942814/26281197.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942814/homology_properties_dialog.png?version=1&amp;modificationDate=1403175144000&amp;api=v2" /></span><br /><br /></p>
+          <p>By default, the atom and homology group properties are not shown. You can switch it on by checking the<strong> View &gt; Advanced &gt; Atom Properties menu</strong>.</p>
+          <p>&nbsp;</p>
+          <p></p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <hr />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="Querystructures-Linknodes">Link nodes</h1>
+          <p>You can draw link nodes using the contextual popup menu in two ways:</p>
+          <ol>
+           <li>Right-click on the atom to open the popup menu.</li>
+           <li>Select the required repetition number from the <strong>Link node</strong> submenu. Marvin finds out the outer (non-repeating) bonds for you.</li>
+          </ol>
+          <p>&nbsp;</p>
+          <ol>
+           <li>Select the atom you would like to be the link node and two neighboring bonds for outer (non-repeating) bonds.</li>
+           <li>Right-click anywhere on the canvas to bring up the popup menu.</li>
+           <li>Select the required repetition number from the <strong>Link node</strong> submenu.</li>
+          </ol>
+          <p>&nbsp;</p>
+          <p>The <strong>Link Node</strong> submenu can be reach fro the <strong>Atom</strong> menu as well.<br />If it is not possible to create a link node for the specified configuration (for example at ring fusions) an error message is thrown.</p>
+          <p>Outer (non-repeating) bonds will be denoted by brackets crossing them, and the repetition numbers will be put on the atom.</p>
+          <p>All portion of the molecule connected to the link atom through non-outer bonds are supposed to repeat together with the atom.</p>
+          <p>See examples below.</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td style="text-align: center;" class="confluenceTd">Molecule with link node</td>
+              <td style="text-align: center;" class="confluenceTd">Meaning</td>
+             </tr>
+             <tr>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281215.png" data-image-src="attachments/19693757/26281215.png" data-unresolved-comment-count="0" data-linked-resource-id="26281215" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln02.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281214.png" data-image-src="attachments/19693757/26281214.png" data-unresolved-comment-count="0" data-linked-resource-id="26281214" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln02_m.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+             </tr>
+             <tr>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281212.png" data-image-src="attachments/19693757/26281212.png" data-unresolved-comment-count="0" data-linked-resource-id="26281212" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln03.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281213.png" data-image-src="attachments/19693757/26281213.png" data-unresolved-comment-count="0" data-linked-resource-id="26281213" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln03_m.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+             </tr>
+             <tr>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281210.png" data-image-src="attachments/19693757/26281210.png" data-unresolved-comment-count="0" data-linked-resource-id="26281210" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln01.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281211.png" data-image-src="attachments/19693757/26281211.png" data-unresolved-comment-count="0" data-linked-resource-id="26281211" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln01_m.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>To edit a link node repetition number or change outer bonds, repeat the drawing steps above.</p>
+          <p>To make a link atom ordinary atom again, select <strong>Off</strong> from the <strong>Link node</strong> submenu or more simply, it can be overwritten.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <hr />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="Querystructures-GenericQueryAtoms">Generic Query Atoms</h1>
+          <p>MarvinSketch supports the following types of&nbsp;Generic Query Atoms:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">
+               <div class="tablesorter-header-inner">
+                Name
+               </div></th>
+              <th class="confluenceTh">
+               <div class="tablesorter-header-inner">
+                Description
+               </div></th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">A</td>
+              <td class="confluenceTd">Any (any atom except hydrogen)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">AH</td>
+              <td class="confluenceTd">Any atom, including hydrogen</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Q</td>
+              <td class="confluenceTd">Hetero (any atom except hydrogen and carbon)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">QH</td>
+              <td class="confluenceTd">Hetero atom or hydrogen (any atom except carbon)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">M</td>
+              <td class="confluenceTd">Metal (contains alkali metals, alkaline earth metals, transition metals, actinides, lanthanides, poor(basic) metals, Ge, Sb and Po)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">MH</td>
+              <td class="confluenceTd">Metal or hydrogen</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">X</td>
+              <td class="confluenceTd">Halogen (F,Cl,Br or I)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">XH</td>
+              <td class="confluenceTd">Halogen or hydrogen</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>Generic Query Atoms&nbsp;can be added to a query structure to include a wide range of elements. For a more detailed description of this please see the&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Query+Guide" rel="nofollow">Query Guide.</a></p>
+          <p><br />To add a Generic Query Atom to the molecule, select one of the Generic Query Atom types from the<a href="https://docs.chemaxon.com/display/marvinsketch/Periodic+Table+tab" rel="nofollow">&nbsp;<strong class="buttonName">Periodic Table</strong></a>&nbsp;and place it on the canvas.</p>
+          <p></p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <hr />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="Querystructures-AtomList/NOTList">Atom List/ NOT List</h1>
+          <p></p>
+          <p>MarvinSketch allows you to add Atom List and NOT lists query atoms to your molecule.</p>
+          <p>An Atom List is a user-defined list of elements included in a structure.</p>
+          <p>A NOT List is a query atom that allows you to define a list of elements that should not be included in the structure.</p>
+          <p>&nbsp;</p>
+          <p>Atom List and NOT list can be edited using the<strong> Atom label editor</strong> tool. For more details click <a href="https://docs.chemaxon.com/display/marvinsketch/Atom+Label+Editor">here</a>.</p>
+          <p>&nbsp;</p>
+          <h2 id="Querystructures-HowtocreateanAtomList">How to create an Atom List</h2>
+          <ol>
+           <li>Overwrite an atom<br />1.Move your mouse over the appropriate atom of a molecule or make selections on one or multiple atoms.<br />2.Type chemical symbols separated by commas, the Atom List replaces the selected atoms.<br /><br /></li>
+           <li class="buttonName">Edit the atom label by the Atom Label Editor<br />1.Select the <strong><a href="https://docs.chemaxon.com/display/marvinsketch/Atom+Label+Editor">Atom Label Editor</a></strong> tool.<br />2.Click on the atom you want to change.<br />3.Type the list. Syntax: [atom1,atom2,...]&nbsp; <br /><br /></li>
+           <li>Creating a list on the canvas<br />1.Move your mouse over the canvas.<br />2.Type the atoms you wish to add to the Atom List separated by commas (e.g., au,pt,ag). Backspace can be used to delete errors.<br />&nbsp;&nbsp; The Atom List is displayed on the upper left corner of the canvas and concurrently at the tip of the pointer (e.g., L[Au,Pt,Ag]).<br />3 Click on the query atom you want to add this Atom List.<br /><br /></li>
+           <li>You can add Atom Lists to your molecule through the&nbsp;<strong class="buttonName"><a href="https://docs.chemaxon.com/display/marvinsketch/Periodic+Table+tab" rel="nofollow">Periodic Table</a></strong>. To add an Atom List to the molecule<br />1.Select the&nbsp;<strong class="buttonName">Atom List</strong>&nbsp;button.<br />2.Select the elements you wish to include in the list.<br />3.Move the mouse into the canvas and click to add a Query atom representing this atom list.<br /><br /></li>
+          </ol>
+          <p>&nbsp;</p>
+          <h2 id="Querystructures-HowtocreateaNOTList">How to create a NOT List</h2>
+          <p>&nbsp;</p>
+          <ol>
+           <li>Overwrite an atom<br />1.Move your mouse over the appropriate atom of a molecule or make selections on one or multiple atoms.<br />2.Type an exclamation mark first, then start typing chemical symbols separated by commas, the Atom List replaces the selected atoms.<br /><br /></li>
+           <li class="buttonName">Edit the atom label by the Atom Label Editor<br />1.Select the <strong><a href="https://docs.chemaxon.com/display/marvinsketch/Atom+Label+Editor">Atom Label Editor</a></strong> tool.<br />2.Click on the atom you want to change.<br />3.Type the list. Syntax: ![atom1,atom2,...]&nbsp; <br /><br /></li>
+           <li>Creating a list on the canvas<br />1.Move your mouse over the canvas.<br />2.Type an exclamation mark first, then type the atoms you wish to add to the NOT Atom List separated by commas (e.g., au,pt,ag). Backspace can be used to delete errors.<br />&nbsp;&nbsp; The Atom List is displayed on the upper left corner of the canvas and concurrently at the tip of the pointer (e.g., ~L![A[Au,Pt,Ag]).<br />3 Click on the query atom you want to add this NOT Atom List.<br /><br /></li>
+           <li>You can add NOT Atom Lists to your molecule through the&nbsp;<strong class="buttonName"><a href="https://docs.chemaxon.com/display/marvinsketch/Periodic+Table+tab" rel="nofollow">Periodic Table</a></strong>.<br />1.Select the&nbsp;<strong class="buttonName">NOT List</strong>&nbsp;button in the&nbsp;<strong class="buttonName"><a href="https://docs.chemaxon.com/display/marvinsketch/Periodic+Table+tab" rel="nofollow">Periodic Table</a></strong>,<br />2.Select the elements you wish to include in the list.<br />3.Move the mouse into the canvas and click to add a Query atom representing this atom list.</li>
+          </ol>
+          <p></p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <hr />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="Querystructures-Frequencyvariation-Repeatingunitswithrepetitionrange">Frequency variation - Repeating units with repetition range</h1>
+          <p>A sequence of ranges to specify the repetition can also be used in a special group called&nbsp;<strong>repeating unit with repetition ranges</strong>.</p>
+          <p>For example:&nbsp;<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14942814/26281194.png" data-image-src="https://docs.chemaxon.com/download/attachments/14942814/markush2.png?version=1&amp;modificationDate=1403171034000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="26281194" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markush2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14942814" data-linked-resource-container-version="31" /></span></p>
+          <p>Here the repetition range is &quot;3,5-7&quot;. The repetition count for the included structure can be: 3,5,6 or 7.</p>
+          <h4 id="Querystructures-Syntaxoftherepetitionranges">Syntax of the repetition ranges</h4>
+          <p>The&nbsp;<strong>repetition ranges</strong>&nbsp;consist of ranges and/or numbers separated by commas. E.g 3, 5-7</p>
+          <h4 id="Querystructures-Todrawarepeatingunitwithrepetitionranges">To draw a repeating unit with repetition ranges</h4>
+          <ol>
+           <li>Draw the structure.</li>
+           <li>Click the <strong>Group</strong> tool on the toolbar, and select the structure to be included in the range.</li>
+           <li>In the &quot;<strong>Create Group</strong>&quot; dialog window choose the type &quot;<strong>Repeating unit with repetition ranges</strong>&quot; from the &quot;<strong>Type</strong>&quot; list.</li>
+           <li>Set the repetition ranges.</li>
+           <li>Click OK.</li>
+          </ol>
+          <p></p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <hr />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

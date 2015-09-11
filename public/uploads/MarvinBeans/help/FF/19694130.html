@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : ChemDraw sketch file (CDX, CDXML)</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : ChemDraw sketch file (CDX, CDXML) </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="sectionColumnWrapper">
+       <div class="sectionMacro">
+        <div class="sectionMacroRow">
+         <div class="columnMacro">
+          <p>The cdx format of CambridgeSoft's ChemDraw is imported and exported by Marvin. The import of cdxml format is supported, but export isn't.</p>
+          <h2 id="ChemDrawsketchfile(CDX,CDXML)-Import">Import</h2>
+          <h4 id="ChemDrawsketchfile(CDX,CDXML)-Supportedfeatures">Supported features</h4>
+          <ul>
+           <li><em><a href="Features-imported-from-CDX-and-CDXML-files_19694132.html#FeaturesimportedfromCDXandCDXMLfiles-cdxatom"><em>Atom properties:</em></a> </em>Following properties are supported: charge, isotope, substituents, free sites, unsaturation, reaction stereo, enhanced stereochemistry, radical, ring bond count.</li>
+           <li><em>Element:</em> The 'Element' type node is read as a single atom. For the supported properties see the supported Atom properties list.</li>
+           <li><em>Element List:</em> Element Lists are read as Atom List (or not list). For the supported properties see the supported node properties list.</li>
+           <li><em>Label:</em> Labels are converted to an S-group and imported in its contracted state.</li>
+           <li><em>Nickname: </em>Nicknames are converted to an S-group and imported in its contracted state.</li>
+           <li><em><a href="Features-imported-from-CDX-and-CDXML-files_19694132.html#FeaturesimportedfromCDXandCDXMLfiles-cdximportbond">Bond types</a>:</em> Single bonds, double bonds, query bonds, topology, reaction centers are imported. See details.</li>
+           <li><em>Fragment</em></li>
+           <li><a href="Features-imported-from-CDX-and-CDXML-files_19694132.html#FeaturesimportedfromCDXandCDXMLfiles-genericLabels"><em>Generic Label:</em></a> Generic Labels are read as Generic query atoms.</li>
+           <li><em>Attachment Points:</em> Attachment Points are imported.</li>
+           <li><em><a href="Features-imported-from-CDX-and-CDXML-files_19694132.html#FeaturesimportedfromCDXandCDXMLfiles-reactionArrow">Reaction arrows</a>:</em> All types of arrows are imported, but only one arrow per file.</li>
+           <li><em><a href="Features-imported-from-CDX-and-CDXML-files_19694132.html#FeaturesimportedfromCDXandCDXMLfiles-groups">Bracketed groups</a>:</em> All groups are imported.</li>
+           <li><em>Alternative Group:</em> Alternative Groups are read as R-groups, up to two connections per R-group.</li>
+           <li><em>Anonymous Alternative Group:</em> An Anonymous Alternative Group is imported as R-group and is assigned the R-group number n+1 where n is the largest R-group number in the file.</li>
+           <li><em>R-logic</em></li>
+           <li><em>Link Node:</em> Link Node is read as Link Node.</li>
+           <li><em>Variable Attachment and Multi-Center Attachment:</em> These are imported as Multicenter S-groups.</li>
+           <li><em>Text Box:</em> Marvin reads the position and the formatted text.</li>
+           <li><em><a href="Features-imported-from-CDX-and-CDXML-files_19694132.html#FeaturesimportedfromCDXandCDXMLfiles-symbols">Basic Graphic Objects:</a></em> Ellipses, rectangles and some of the symbols are read. See details.</li>
+           <li><em><a href="Features-imported-from-CDX-and-CDXML-files_19694132.html#FeaturesimportedfromCDXandCDXMLfiles-complexGraphics">Graphic Objects:</a></em> Tables and TLC plate drawings are imported as graphics. See details.</li>
+           <li><em>Formatted text in atom labels:</em> supported since 6.2.0.</li>
+          </ul>
+         </div>
+         <div class="columnMacro">
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename:</em> <strong>cdx, cdxml</strong></p>
+            <p><em>Extension:</em><strong> .cdx, .cdxml</strong></p> 
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <h4 id="ChemDrawsketchfile(CDX,CDXML)-Notsupportedfeatures:">Not supported features:</h4>
+      <ul>
+       <li>ElementListNickname</li>
+       <li>ElectronFlow arrow</li>
+       <li>Complex graphical objects (e.g. laboratory equipment drawings, biological drawings)</li>
+      </ul>
+      <h4 id="ChemDrawsketchfile(CDX,CDXML)-Notes">Notes</h4>
+      <ul>
+       <li>Only ASCII characters are imported.</li>
+       <li>R-logic import is supported, export not yet.</li>
+      </ul>
+      <h2 id="ChemDrawsketchfile(CDX,CDXML)-Export">Export</h2>
+      <h4 id="ChemDrawsketchfile(CDX,CDXML)-Supportedfeatures.1">Supported features</h4>
+      <ul>
+       <li><em>Chemical structures</em></li>
+       <li><em>Formatted text</em></li>
+       <li><em>R-groups:</em> R-logic is not supported.</li>
+       <li><em><a href="Features-exported-to-CDX-and-CDXML-files_19694451.html#FeaturesexportedtoCDXandCDXMLfiles-groups">S-groups</a></em></li>
+       <li><a href="Features-exported-to-CDX-and-CDXML-files_19694451.html#FeaturesexportedtoCDXandCDXMLfiles-atom"><em>Atom and bond query properties</em></a></li>
+       <li><em>Rectangles, rounded rectangles and ellipses</em></li>
+       <li><em><a href="Features-exported-to-CDX-and-CDXML-files_19694451.html#FeaturesexportedtoCDXandCDXMLfiles-reactionArrow">Reactions</a></em></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

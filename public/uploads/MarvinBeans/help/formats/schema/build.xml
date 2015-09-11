@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JChemSearchReport" default="transform" basedir=".">
+
+    <target name="transform">
+        <xslt in="${basedir}/mrvSchema.xsd" out="${basedir}/mrv-doc.html" style="${basedir}/mrvSchema.xsl"/>
+    </target>
+
+</project>

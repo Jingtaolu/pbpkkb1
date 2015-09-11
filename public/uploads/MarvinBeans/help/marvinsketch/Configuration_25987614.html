@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Configuration</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Configuration </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The location of service configuration file is provided by the <code>servicesConfigURL</code> User Setting, and defaults to <code>servicesconfig.xml</code> in the users's ChemAxon folder - located in user home as .chemaxon or ChemAxon, depending on operating system.</p>
+      <p>The file should be valid for the following XSD schema:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: true" style="font-size:12px;">	&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+	&lt;xs:schema elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+	&lt;!--  definition of attributes --&gt;
+	&lt;xs:attribute name=&quot;alias&quot;   type=&quot;xs:string&quot; /&gt;
+	&lt;xs:attribute name=&quot;name&quot;   type=&quot;xs:string&quot; /&gt;
+	&lt;xs:attribute name=&quot;class&quot;  type=&quot;xs:string&quot; /&gt;
+	&lt;xs:attribute name=&quot;url&quot;    type=&quot;xs:string&quot; /&gt;
+	&lt;xs:attribute name=&quot;method&quot; type=&quot;xs:string&quot; /&gt;
+	&lt;xs:attribute name=&quot;descriptor&quot; type=&quot;xs:string&quot; default=&quot;chemaxon.marvin.services.descriptors.LocalServiceDescriptor&quot;/&gt;
+	&lt;xs:attribute name=&quot;value&quot; type=&quot;xs:string&quot; /&gt;
+	&lt;xs:attribute name=&quot;expression&quot; type=&quot;xs:string&quot; /&gt;
+
+	&lt;!-- definition of complex types --&gt;
+	&lt;xs:complexType name=&quot;evaluationType&quot;&gt;
+	  &lt;xs:simpleContent&gt;
+	    &lt;xs:extension base=&quot;xs:string&quot;&gt;
+	      &lt;xs:attribute ref=&quot;class&quot; use=&quot;optional&quot; default=&quot;chemaxon.marvin.services.ChemicalTermsArgument&quot; /&gt;
+	      &lt;xs:attribute ref=&quot;expression&quot; use=&quot;optional&quot; /&gt;
+	    &lt;/xs:extension&gt;
+	  &lt;/xs:simpleContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name=&quot;argumentType&quot;&gt;
+	  &lt;xs:all&gt;
+	    &lt;xs:element name=&quot;Evaluate&quot; type=&quot;evaluationType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot; /&gt;
+	  &lt;/xs:all&gt;
+	  &lt;xs:attribute name=&quot;class&quot; use=&quot;optional&quot; default=&quot;java.lang.String&quot;&gt;
+	    &lt;xs:simpleType&gt;
+	      &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+	        &lt;xs:enumeration value=&quot;java.lang.Integer&quot; /&gt;
+	        &lt;xs:enumeration value=&quot;java.lang.Float&quot; /&gt;
+	        &lt;xs:enumeration value=&quot;java.lang.Double&quot; /&gt;
+	        &lt;xs:enumeration value=&quot;java.lang.String&quot; /&gt;
+	        &lt;xs:enumeration value=&quot;java.lang.Long&quot; /&gt;
+	        &lt;xs:enumeration value=&quot;java.lang.Boolean&quot; /&gt;
+	        &lt;xs:enumeration value=&quot;chemaxon.struc.Molecule&quot; /&gt;
+	        &lt;xs:enumeration value=&quot;chemaxon.struc.MDocument&quot; /&gt;
+	      &lt;/xs:restriction&gt;
+	    &lt;/xs:simpleType&gt;
+	  &lt;/xs:attribute&gt;
+	  &lt;xs:attribute ref=&quot;value&quot; use=&quot;optional&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;name&quot; use=&quot;optional&quot; default=&quot;Unnamed&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;alias&quot; use=&quot;optional&quot; /&gt;	
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name=&quot;serviceType&quot;&gt;
+	  &lt;xs:all&gt;
+	    &lt;xs:element name=&quot;Arguments&quot; minOccurs=&quot;0&quot;&gt;
+	      &lt;xs:complexType&gt;
+	        &lt;xs:sequence&gt;
+	          &lt;xs:element name=&quot;Argument&quot; type=&quot;argumentType&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+	        &lt;/xs:sequence&gt;
+	      &lt;/xs:complexType&gt;
+	    &lt;/xs:element&gt;
+	  &lt;/xs:all&gt;
+	  &lt;xs:attribute ref=&quot;name&quot; use=&quot;required&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;url&quot; use=&quot;required&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;method&quot; use=&quot;required&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;class&quot; use=&quot;optional&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;descriptor&quot; use=&quot;optional&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;alias&quot; use=&quot;optional&quot; /&gt;
+	  &lt;xs:anyAttribute processContents=&quot;skip&quot; /&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:element name=&quot;Services&quot;&gt;
+	  &lt;xs:complexType&gt;
+	    &lt;xs:sequence&gt;
+	      &lt;xs:element name=&quot;Service&quot; type=&quot;serviceType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+	    &lt;/xs:sequence&gt;
+	  &lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;/xs:schema&gt;
+				&nbsp;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre>&nbsp;</pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

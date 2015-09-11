@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : R-atom</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : R-atom </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-equal" data-layout="two-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <ul style="margin-left: 20.0px;">
+           <li>Checker searches for R-atoms. Tick options for searching:
+            <ul style="margin-left: 20.0px;">
+             <li>All (<code>:all=true</code>);</li>
+             <li>Disconnected (<code>:disconnected=true</code>);</li>
+             <li>Generic (<code>:generic=true</code>);</li>
+             <li>Linker (<code>:linker=true</code>);</li>
+             <li>Nested R-atoms (<code>:nested=true</code>).</li>
+            </ul></li>
+           <li>Fixer: no fixer is available for this checker.</li>
+          </ul>
+          <p><br /> <strong>Example</strong> <span style="color: rgb(54,54,54);">:</span></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">R-atom Checker (<code>ratom</code>)</th>
+              <th class="confluenceTh">Warning:</th>
+              <th class="confluenceTh">Fix</th>
+             </tr>
+             <tr>
+              <th class="confluenceTh">Find All R-atoms (<code>:all=true</code>)</th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_ratom_ch" height="123" width="327" src="attachments/10028881/29098350.png" data-image-src="attachments/10028881/29098350.png" data-unresolved-comment-count="0" data-linked-resource-id="29098350" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_ratom_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no fixer" height="24" width="24" src="attachments/10028881/29098355.png" data-image-src="attachments/10028881/29098355.png" data-unresolved-comment-count="0" data-linked-resource-id="29098355" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+             </tr>
+             <tr>
+              <th class="confluenceTh">Find Disconnected R-atoms (<code>:disconnected=true</code>)</th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_ratom_disconnected_ch" height="100" width="229" src="attachments/10028881/29098351.png" data-image-src="attachments/10028881/29098351.png" data-unresolved-comment-count="0" data-linked-resource-id="29098351" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_ratom_chdisc.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no fixer" height="24" width="24" src="attachments/10028881/29098355.png" data-image-src="attachments/10028881/29098355.png" data-unresolved-comment-count="0" data-linked-resource-id="29098355" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+             </tr>
+             <tr>
+              <th class="confluenceTh">Find Generic R-atoms (<code>:generic=true</code>)</th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_ratom_generic_ch" height="89" width="85" src="attachments/10028881/29098352.png" data-image-src="attachments/10028881/29098352.png" data-unresolved-comment-count="0" data-linked-resource-id="29098352" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_ratom_chgener.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no fixer" height="24" width="24" src="attachments/10028881/29098355.png" data-image-src="attachments/10028881/29098355.png" data-unresolved-comment-count="0" data-linked-resource-id="29098355" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+             </tr>
+             <tr>
+              <th class="confluenceTh">Find Linker R-atoms (<code>:linker=true</code>)</th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_ratom_linker_ch" height="182" width="89" src="attachments/10028881/29098353.png" data-image-src="attachments/10028881/29098353.png" data-unresolved-comment-count="0" data-linked-resource-id="29098353" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_ratom_chlink.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no fixer" height="24" width="24" src="attachments/10028881/29098355.png" data-image-src="attachments/10028881/29098355.png" data-unresolved-comment-count="0" data-linked-resource-id="29098355" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+             </tr>
+             <tr>
+              <th class="confluenceTh">Find Nested R-atoms (<code>:nested=true</code>)</th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_ratom_linker_ch" height="155" width="298" src="attachments/10028881/29098354.png" data-image-src="attachments/10028881/29098354.png" data-unresolved-comment-count="0" data-linked-resource-id="29098354" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_ratom_chnest.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no fixer" height="24" width="24" src="attachments/10028881/29098355.png" data-image-src="attachments/10028881/29098355.png" data-unresolved-comment-count="0" data-linked-resource-id="29098355" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028881" data-linked-resource-container-version="3" /></span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

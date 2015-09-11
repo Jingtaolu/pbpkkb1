@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : logD Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : logD Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives you a walk-through on how to use the log<em>D</em>&nbsp;Plugin:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200953765 {padding: 0px;}
+div.rbtoc1439200953765 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200953765 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200953765"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#logDPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#logDPlugin-Options">Options</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#logDPlugin-GeneralOptions">General Options</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#logDPlugin-logPmethod">logP method</a></li> 
+              <li><a href="#logDPlugin-Otheroptions">Other options</a></li> 
+             </ul> </li> 
+            <li><a href="#logDPlugin-DisplayOptions">Display Options</a></li> 
+           </ul> </li> 
+          <li><a href="#logDPlugin-logDPlugindemopage">logD Plugin demo page</a></li> 
+          <li><a href="#logDPlugin-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="logDPlugin-Introduction"><br />Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Compounds having ionizable groups exist in solution as a mixture of different ionic forms. The ionization of those groups, thus the ratio of the ionic forms depends on the pH.&nbsp;Since lo<em style="line-height: 1.4285715;">P</em>&nbsp;describes the hydrophobicity of one form only, the apparent log<em style="line-height: 1.4285715;">P</em>&nbsp;value can be different. The log<em style="line-height: 1.4285715;">D</em>&nbsp;represents the octanol-water coefficient of compounds at a given pH value.</p>
+      <p><a href="LogP-and-logD-calculations_13338354.html">Learn more</a>&nbsp;about how the log<em>D</em> Plugin&nbsp;works.</p>
+      <p>The<a href="#logDPlugin-fig.1"> result window</a> shows the pH:log<em>D</em>&nbsp;curves for each molecule drawn in the sketcher. The molecule images are shown in the legend. When clicking on an image, the corresponding molecule is displayed in the upper-left part of the panel.</p>
+      <p>The reference log<em>D</em>&nbsp;values originally shown can be reached by either clicking on the chart outside of the legend image areas or by selecting&nbsp;<em>logD&nbsp;at reference pHs</em>&nbsp;from the&nbsp;<em>View<strong>&nbsp;</strong></em>menu.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="logDPlugin-fig.1"></span></p>
+      <p><span style="line-height: 1.4285715;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/12583364/35947559.jpg" data-image-src="attachments/12583364/35947559.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947559" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logd_pl4.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583364" data-linked-resource-container-version="56" /></span><br />Fig. 1 log<em>D&nbsp;</em>result window showing the log<em>D</em>-pH curves for three molecules</span></p>
+      <p><span style="line-height: 1.4285715;"><br /></span></p>
+      <h1 id="logDPlugin-Options"><span style="line-height: 1.4285715;">Options</span></h1>
+      <p><span style="line-height: 1.4285715;"><br /></span></p>
+      <h2 id="logDPlugin-GeneralOptions"><span style="line-height: 1.4285715;">General Options</span></h2>
+      <p>&nbsp;</p>
+      <p>Different calculation (prediction) options can be set in the<strong><em>&nbsp;</em></strong><em><a href="#logDPlugin-fig.2">General Options</a> </em>tab of the&nbsp;<em>log</em><em>D&nbsp;Options</em>&nbsp;window:</p>
+      <h3 id="logDPlugin-logPmethod">log<em>P</em> method</h3>
+      <p>&nbsp;</p>
+      <p>This option is for selecting the applied method for log<em>P </em>prediction. These can be:</p>
+      <ul style="margin-left: 20.0px;">
+       <li style="list-style-type: none;background-image: none;">
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Consensus</strong>: this method uses a consensus model built on the&nbsp;<a href="#logDPlugin-chemaxonmod">ChemAxon</a>&nbsp;and&nbsp;<a href="#logDPlugin-refklopman">Klopman et al.</a>&nbsp;models and the&nbsp;<a href="#logDPlugin-refphysprop">PhysProp</a>&nbsp;database.&nbsp;</li>
+         <li><strong><span class="confluence-anchor-link" id="logDPlugin-chemaxonmod"></span>ChemAxon</strong>: this method is based on ChemAxon's own logP model, which is based on the VG method (derived from&nbsp;<a href="#logDPlugin-refviswan">Viswanadhan et al.</a>). Read more about it&nbsp;<a href="logP-Plugin_12583265.html">here</a>.&nbsp;</li>
+         <li><strong>User defined:</strong>&nbsp;if a training set of structures and corresponding experimental log<em>P</em>&nbsp;values is available, it can be used as a database for log<em>P</em>&nbsp;calculations. See&nbsp;<a href="Training-the-logP-Plugin_13338141.html">the manual page</a>&nbsp;on creating such training sets.</li>
+        </ul></li>
+      </ul>
+      <p>&nbsp;</p>
+      <h3 id="logDPlugin-Otheroptions">Other options</h3>
+      <p>&nbsp;</p>
+      <p>These options are for refining the log<em>D&nbsp;</em>prediction.&nbsp;</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Log<em>P</em>&nbsp;training ID:</strong>&nbsp;if the&nbsp;<strong>User defined</strong>&nbsp;method is selected, this dropdown list becomes active. All created training sets are listed here. Choose the one you want to apply for the calculation.&nbsp;<a href="Training-the-logP-Plugin_13338141.html">Read more on creating a training set.</a></li>
+       <li><strong>Electrolyte concentration</strong>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Cl<sup>-</sup>&nbsp;concentration:</strong>&nbsp;can be set between 0.1 and 0.25 mol/L.</li>
+         <li><strong>Na<sup>+</sup>/ K<sup>+</sup>&nbsp;concentration:</strong>&nbsp;can be set between 0.1 and 0.25 mol/L.</li>
+        </ul></li>
+       <li><strong>Use pKa correction library:</strong>&nbsp;the custom pKa training for the compounds may be used. First, create a training set for your compunds, which then will appear in the dropdown list. If the option is checked, this list becomes active.&nbsp;<a href="Training-the-pKa-Plugin_13338106.html">Read more on creating a training set.</a></li>
+       <li><strong>Consider tautomerization/resonance:</strong>&nbsp;in case of tautomer structures, all dominant tautomers at the given pH are taken into account during the log<em>D&nbsp;</em>calculation.</li>
+      </ul>
+      <p><span style="line-height: 1.4285715;">&nbsp;<span class="confluence-anchor-link" id="logDPlugin-fig.2"></span></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="300" src="attachments/12583364/35947512.jpg" data-image-src="attachments/12583364/35947512.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947512" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logd_pl1.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583364" data-linked-resource-container-version="56" /></span></p>
+      <p><span style="line-height: 1.4285715;">&nbsp;Fig. 2 General Options tab of the log<em>D</em> Options window</span></p>
+      <h2 id="logDPlugin-DisplayOptions"><span style="color: rgb(0,0,0);"><br />Display Options</span></h2>
+      <p>&nbsp;</p>
+      <p>Different display options can be set in the&nbsp;<em style="line-height: 1.4285715;"><a href="#logDPlugin-fig.3">Display Options</a> </em>tab of the<strong style="line-height: 1.4285715;">&nbsp;</strong><em style="line-height: 1.4285715;">logD&nbsp;Options</em>&nbsp;panel:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places</strong>: this sets the number of decimal places for the precision of the result value.</li>
+       <li><strong>Chart: </strong>sets the parameters for the pH window in which the log<em>D</em>&nbsp;is calculated and displayed. The chart displays pH values starting from the lower limit incremented by the step size up until the upper limit. The results are given in table format as well.</li>
+       <li><strong>Reference pH values:</strong>&nbsp;the log<em>D</em>&nbsp;at the given reference pH values are calculated&nbsp;with the predefined accuracy.</li>
+      </ul>
+      <p><span style="color: rgb(0,0,0);">&nbsp;<span class="confluence-anchor-link" id="logDPlugin-fig.3"></span></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="250" src="attachments/12583364/35947540.jpg" data-image-src="attachments/12583364/35947540.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947540" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logd_pl3.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583364" data-linked-resource-container-version="56" /></span></p>
+      <p><span style="color: rgb(0,0,0);">Fig. 3 Display Options tab of the log<em>D</em> Options window</span></p>
+      <p><span style="color: rgb(0,0,0);"><br /></span></p>
+      <h1 id="logDPlugin-logDPlugindemopage"><span style="color: rgb(0,0,0);">log<em>D</em> Plugin demo page</span></h1>
+      <p><span style="color: rgb(0,0,0);"><br /></span></p>
+      <p><span style="color: rgb(0,0,0);">You can try the log<em>D</em> prediction for free on this&nbsp;<a href="https://disco.chemaxon.com/apps/calculations-examples/logd-predictor.html" class="external-link" rel="nofollow">demo page</a>.&nbsp;</span></p>
+      <h1 id="logDPlugin-References"><span style="color: rgb(0,0,0);"><br />References</span></h1>
+      <ol>
+       <li><a class="text" name="ref1" rel="nofollow"></a><span class="confluence-anchor-link" id="logDPlugin-refviswan"></span>Viswanadhan, V. N.; Ghose, A. K.; Revankar, G. R.; Robins, R. K.,&nbsp;<em>J. Chem. Inf. Comput. Sci.</em>,&nbsp;<strong>1989</strong>,&nbsp;<em>29</em>, 163-172;&nbsp;<a href="http://dx.doi.org/10.1021/ci00063a006" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><a class="text" name="ref2" rel="nofollow"></a><span class="confluence-anchor-link" id="logDPlugin-refklopman"></span>Klopman, G.;&nbsp;Li, Ju-Yun.; Wang, S.; Dimayuga, M.:&nbsp;<em>J.Chem.Inf.Comput.Sci.</em>,&nbsp;<strong>1994</strong>,&nbsp;<em>34</em>, 752;&nbsp;<a href="http://dx.doi.org/10.1021/ci00020a009" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><span class="confluence-anchor-link" id="logDPlugin-refphysprop"></span>PHYSPROP<sup>&copy;</sup>&nbsp;database</li>
+       <li><a class="text" name="ref3" rel="nofollow"></a>Csizmadia, F; Tsantili-Kakoulidou, A.; Pander, I.; Darvas, F.,&nbsp;<em>J. Pharm. Sci.</em>,&nbsp;<strong>1997</strong>,&nbsp;<em>86</em>, 865-871;&nbsp;<a href="http://dx.doi.org/10.1021/js960177k" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+      </ol>
+      <p><span style="line-height: 1.4285715;"><br /></span></p>
+      <p>&nbsp;</p>
+      <div class="documentation_helpsection">
+       <p>&nbsp;</p>
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

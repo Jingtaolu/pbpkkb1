@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : HLB Predictor</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : HLB Predictor </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives you a walk-through on how to use the HLB Predictor:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200953617 {padding: 0px;}
+div.rbtoc1439200953617 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200953617 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200953617"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#HLBPredictor-Introduction">Introduction</a></li> 
+          <li><a href="#HLBPredictor-Usage">Usage</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#HLBPredictor-MarvinSketch">MarvinSketch&nbsp;</a></li> 
+            <li><a href="#HLBPredictor-cxcalc">cxcalc</a></li> 
+            <li><a href="#HLBPredictor-ChemicalTerms">Chemical Terms</a></li> 
+            <li><a href="#HLBPredictor-KNIME">KNIME</a></li> 
+            <li><a href="#HLBPredictor-API">API</a></li> 
+           </ul> </li> 
+          <li><a href="#HLBPredictor-referencesReferences">References&nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="HLBPredictor-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The hydrophilic-lipophilic balance number (HLB number) measures the degree of a molecule being hydrophilic or lipophilic. This number is calculated based on identifying various hydrophil and liphophil regions in the molecule. This number is a commonly used descriptor in any workflow in which lipid based delivery can be an option. (e.g. lipid-based drug delivery, cosmetics)</p>
+      <p>The HLB Predictor is a general tool for predicting the HLB number. It can predict the HLB number based on the <a href="#HLBPredictor-davies">Davies</a> or the <a href="#HLBPredictor-griffin">Griffin</a> method.</p>
+      <p>The accuracy of the HLB Predictor was measured using a test set of 26 molecules with available measured HLB values. The experimental molecules and their measured HLB values were taken from the&nbsp;<a href="#HLBPredictor-references">reference articles</a>.</p>
+      <p>The plot below shows how the predictor performed on this test set. The calculated R<sup>2&nbsp;</sup>is 0.79.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="HLBPredictor-plot"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/37322760/37912694.jpg" data-image-src="attachments/37322760/37912694.jpg" data-unresolved-comment-count="0" data-linked-resource-id="37912694" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pred_hlb.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="37322760" data-linked-resource-container-version="54" /></span></p>
+      <p>Fig. 1 Plot showing the accuracy of the HLB Predictor on a test set of 26 molecules</p>
+      <p>&nbsp;</p>
+      <h1 id="HLBPredictor-Usage">Usage</h1>
+      <p>&nbsp;</p>
+      <p>The HLB Predictor is integrated in various ChemAxon products.&nbsp;</p>
+      <p>&nbsp;</p>
+      <h2 id="HLBPredictor-MarvinSketch">MarvinSketch&nbsp;</h2>
+      <p>&nbsp;</p>
+      <p>The HLB Predictor is available as a plugin in MarvinSketch. It can be found under&nbsp;<em><a href="#HLBPredictor-fig.1">Calculations &gt; Partitioning &gt; HLB</a></em>. The plugin has the following methods for calculation:</p>
+      <p>&nbsp;</p>
+      <ul>
+       <li><strong>ChemAxon</strong>: this is a consensus method based on the other two methods with optimal weights (default)</li>
+       <li><strong>Davies</strong>: this is an extended version of the&nbsp;<a href="#HLBPredictor-davies">Davies</a>&nbsp;method</li>
+       <li><strong>Griffin</strong>: &nbsp;this is an extended version of the <a href="#HLBPredictor-griffin">Griffin</a> method</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="HLBPredictor-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" height="150" src="attachments/37322760/37912644.jpg" data-image-src="attachments/37322760/37912644.jpg" data-unresolved-comment-count="0" data-linked-resource-id="37912644" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hlb_1.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="37322760" data-linked-resource-container-version="54" /></span></p>
+      <p>Fig. 2 The HLB Options window showing the available calculation methods</p>
+      <p>&nbsp;</p>
+      <p>The calculation result appears in a separate pop-up window with the input molecule.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="HLBPredictor-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/37322760/37912647.jpg" data-image-src="attachments/37322760/37912647.jpg" data-unresolved-comment-count="0" data-linked-resource-id="37912647" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hlb_2.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="37322760" data-linked-resource-container-version="54" /></span></p>
+      <p>Fig. 3 The result window with the predicted HLB value and the input molecule</p>
+      <h2 id="HLBPredictor-cxcalc"><br />cxcalc</h2>
+      <p>&nbsp;</p>
+      <p>To use the HLB Predictor from the cxcalc command line tool, use the following syntax:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc [general options] [input files/strings] hlb [hlb options] [input files/strings]
+</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The following options are available for the HLB predictor:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">-h, --help       this help message
+-p, --precision  &lt;floating point precision as number of
+                 fractional digits: 0-8 or inf&gt; (default: 2)
+-m, --method     [chemaxon|davies|griffin]
+                 (default: chemaxon)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>Here are some examples of how to use the HLB Predictor via cxcalc:</p>
+      <ul>
+       <li><p>Calculating the HLB number for an input molecule stored in SD format using the default method:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> cxcalc hlb test.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Calculating the HLB number for an input molecule stored in SMILES using the Griffin method with 3 digit precision:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc hlb -m griffin -p 3 test.smiles</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <h2 id="HLBPredictor-ChemicalTerms"><br />Chemical Terms</h2>
+      <p>&nbsp;</p>
+      <p>The HLB prediction functionality is also available in the Chemical Terms language via the&nbsp;<em>hlb()</em> function. The function has one parameter, the name of the method. If no parameter is given, the calculation runs with the default method.</p>
+      <p>Here is an example of how to calculate the HLB number via the Chemical Terms language:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;hlb('davies')&quot; test.sdf</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h2 id="HLBPredictor-KNIME">KNIME</h2>
+      <p><br />The HLB Predictor is also available as a ChemAxon KNIME node. You can see the KNIME node Options panel with the same options as in MarvinSketch <a href="#HLBPredictor-fig.4">below</a>.</p>
+      <p><span class="confluence-anchor-link" id="HLBPredictor-fig.4"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="350" src="attachments/37322760/38404129.png" data-image-src="attachments/37322760/38404129.png" data-unresolved-comment-count="0" data-linked-resource-id="38404129" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hlb_screen_knime.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="37322760" data-linked-resource-container-version="54" /></span></p>
+      <p>Fig. 4 HLB Options panel in KNIME</p>
+      <p>&nbsp;</p>
+      <h2 id="HLBPredictor-API">API</h2>
+      <p>&nbsp;</p>
+      <p>The HLB Plugin with usage examples can be found <a href="https://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/marvin/calculations/HlbPlugin.html" class="external-link" rel="nofollow">here</a>.</p>
+      <h1 id="HLBPredictor-referencesReferences"><br /><span class="confluence-anchor-link" id="HLBPredictor-references"></span>References&nbsp;</h1>
+      <p>&nbsp;</p>
+      <ol>
+       <li><span class="confluence-anchor-link" id="HLBPredictor-davies"></span><span class="reference-text">Davies, J.T. A quantitative kinetic theory of emulsion type, I. Physical chemistry of the emulsifying agent<em>&nbsp;Gas/Liquid and Liquid/Liquid Interface&nbsp;(Proceedings of the International Congress of Surface Activity),</em>&nbsp;<strong>1957</strong>,&nbsp;426–38</span></li>
+       <li><span class="reference-text"><span style="color: rgb(37,37,37);"><span class="confluence-anchor-link" id="HLBPredictor-griffin"></span>Griffin, W. C. </span>Calculation of HLB Values of Non-Ionic Surfactants<span style="color: rgb(37,37,37);">,&nbsp;</span><em>Journal of the Society of Cosmetic Chemists,&nbsp;</em><strong>1954</strong>,<span style="color: rgb(37,37,37);">&nbsp;</span>5<span style="color: rgb(37,37,37);">&nbsp;(4), 249-56<br /><br />&nbsp;</span></span></li>
+      </ol> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

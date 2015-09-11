@@ -1,0 +1,130 @@
+#!/bin/bash
+#
+# Unix shell script.
+#
+# Old JVMs: line numbers are only shown if the JIT is disabled
+# exec java -Djava.compiler=NONE <classname> $@
+# Increase maximum heap size (default is 64M in java 1.4)
+# exec java -Xmx128m <classname> $@
+############################
+# The default HEAP setting is "500".
+
+HEAP_LIMIT=512
+
+
+pathconvert() {
+    cygpath.exe -a -w "$1"
+}
+
+# @param find the ini tile under this location
+# The config file looks like this:
+#
+# [Java Runtime Environment]
+# Java-Path=/opt/java/jre1.6/
+#
+# Path have to be ended with file separator
+#
+getJavaPathFromIni() {
+if [ -f "$1" ]; then
+	grep "^Java Path=" "$1" |sed -e "s/^Java Path=//"
+fi
+}
+
+if [ -z "$OSTYPE" ]; then
+    if [ -f "/usr/bin/cygpath.exe" ]; then
+        OSTYPE=cygwin
+    fi
+fi
+
+case "$OSTYPE" in
+cygwin*)
+	dir=`pathconvert "$0"`
+        dir=`dirname "$dir"`
+        MARVINBEANSHOME=`dirname "$dir"`
+	CLASSPATH="$MARVINBEANSHOME\\lib\\MarvinBeans.jar;$CLASSPATH"
+	# detect java
+	java_path=`getJavaPathFromIni "${MARVINBEANSHOME}\\bin\\java.ini"`
+	if [ "${java_path}" == "" ]; then
+		JVMPATH="java"
+	else
+		JVMPATH="${java_path}bin\\java"
+		JVMPATH=`cygpath -u "$JVMPATH"`
+	fi
+	;;
+*)
+	mypath=$0
+	while [ -h "$mypath" ]; do # Resolve symlinks
+		ls=`/bin/ls -ld "$mypath"`
+		link=`/usr/bin/expr "$ls" : '.*-> \(.*\)$'`
+		if /usr/bin/expr "$link" : '\/' > /dev/null; then
+			mypath="$link"
+		else
+			mypath=`/usr/bin/dirname "$mypath"`/"$link"
+		fi
+	done
+	dir=`/usr/bin/dirname "$mypath"`;
+        MARVINBEANSHOME="$dir/.."
+	CLASSPATH="$MARVINBEANSHOME/lib/MarvinBeans.jar:$CLASSPATH"
+	# detect java
+	java_path=`getJavaPathFromIni "$MARVINBEANSHOME/bin/java.ini"`
+	if [ "${java_path}" == "" ]; then
+		JVMPATH="java"
+	else
+		JVMPATH="${java_path}bin/java"
+	fi
+	;;
+esac
+export CLASSPATH
+
+# Parse -X* java options
+IS_HEAP_LIMIT_DEFINED="false"
+javaopts=""
+for ARG in "$@"; do
+	case $ARG in
+		-server)
+			;;
+		-client)
+			;;
+		-Xmx*)
+			# to preserve set -Xmx option twice
+			IS_HEAP_LIMIT_DEFINED="true"
+			;;
+		-X*)
+			;;
+		-D*)
+			;;
+		*)
+			break
+	esac
+	javaopts="$javaopts $ARG"
+	shift;
+done
+# Set -Xmx if it is not specified yet
+if [ "$IS_HEAP_LIMIT_DEFINED" = "false" ]; then	
+javaopts="$javaopts -Xmx${HEAP_LIMIT}M"
+fi
+# ----------------- End of Marvin Script header ------------------------------
+
+
+case "$OSTYPE" in
+cygwin*)
+	# Workaround for the weird command line expansion behavior in DOS.
+	# The following trick is needed to prevent java.exe expanding the *
+	# wildcard.
+	argv=()
+	i=0
+	for v in "$@"; do
+		i=$(($i+1))
+		if [ "$v" = "*" ]; then
+			argv[$i]=\"*\"
+		else
+			argv[$i]=$v
+		fi
+	done
+
+	"$JVMPATH" $javaopts chemaxon.naming.Annotate "${argv[@]}"
+	;;
+*)
+	"$JVMPATH" $javaopts chemaxon.naming.Annotate "$@"
+	;;
+esac

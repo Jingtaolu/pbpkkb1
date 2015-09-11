@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Local Service</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Local Service </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Local service is for accessing third party java functions. It does not require server or network connection. Java Archive (JAR) file acts as &quot;server&quot;, any public class with default constructor acts as &quot;service&quot;, and all the public method can be called. Please mind that the build-in editor may hide methods that requires unsupported argument type. Direct access of the Marvin Services API does not have this restriction, any type can be used.</p>
+      <p>Local Service is the most easy way to embed third-party calculation to MarvinSketch application, cxcalc or Chemical Terms, however java coding is required to assemble the jar files. Also note that these services can not be accessed in non-java environment such as Marvin .NET or JChem for Excel.</p>
+      <p>Keep in mind that classes used via service call should be stateless, as each service call will create a new instance of the class by the default constructor before calling the function.</p>
+      <p>Local Service makes good use of the <code>Alias</code> and <code>Description</code> annotations. Any methods annotated can provide default names and description for services and arguments. Also, these aliases are available from cxcalc as well - so a default service and argument name can be guaranteed by the class author.</p>
+      <h5 id="LocalService-CallingLocalServicefromAPI">Calling Local Service from API</h5>
+      <p>The following code snippet calls the <code>Integer countAtoms(Molecule)</code> function of <code>example.services.SampleService</code> class located in <a href="attachments/25987622/28016674.jar" data-linked-resource-id="28016674" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="localserviceexample.jar" data-nice-type="Java Archive" data-linked-resource-content-type="application/java-archive" data-linked-resource-container-id="25987622" data-linked-resource-container-version="3">localserviceexample.jar</a>.</p>
+      <p>&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">&nbsp;// input molecule
+	Molecule input = MolImporter.importMol(&quot;c1ccncc1&quot;);
+
+	// initialize descriptor
+	LocalServiceDescriptor descriptor = new LocalServiceDescriptor();
+	descriptor.setURL(&quot;/path/to/localserviceexample.jar&quot;);
+	descriptor.setClassName(&quot;example.services.SampleService&quot;);
+	descriptor.setMethodName(&quot;countAtoms&quot;);
+	descriptor.addArgument(ServiceArgument.createArgument(new Molecule()));
+
+	// asynchronous call
+	descriptor.getServiceHandler().callService(descriptor, new AsyncCallback&lt;Integer&gt;() {
+
+	    @Override
+	    public void onSuccess(Integer result) {
+	        System.out.println(&quot;Asynchronous call returned &quot; + result);
+	    }
+
+	    @Override
+	    public void onFailure(ServiceException caught) {
+	        System.err.println(&quot;Asynchronous call failed.&quot;);
+	    }
+	}, input);
+
+	// synchronized call
+	Object result = null;
+	try {
+  	    result = descriptor.getServiceHandler().callService(descriptor, input);
+	} catch (ServiceException e) {
+	    System.err.println(&quot;Service call failed.&quot;);
+	}
+	System.out.println(&quot;Synchronized call returned &quot; + result);
+		</pre> 
+       </div>
+      </div>
+      <pre>	</pre>
+      <h5 id="LocalService-Useannotationstodefinedefaultnamesanddescription">Use annotations to define default names and description</h5>
+      <p>Local Service can look up default service and argument names, as well as description information from annotations. These values used in MarvinSketch when adding the Local Service to the services list by automatically completing the form. The values can be edited manually, but the defaults are always available from Chemical Terms or cxcalc - as well as the optionally overwritten ones.</p>
+      <p>You can find a sample class can be used as a Local Service below. To download the sample service jar file with source, click <a href="attachments/25987622/28016674.jar" data-linked-resource-id="28016674" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="localserviceexample.jar" data-nice-type="Java Archive" data-linked-resource-content-type="application/java-archive" data-linked-resource-container-id="25987622" data-linked-resource-container-version="3">here</a>.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">*
+ * Copyright (c) 1998-2014 ChemAxon Ltd. All Rights Reserved.
+ *
+ * This software is the confidential and proprietary information of
+ * ChemAxon. You shall not disclose such Confidential Information
+ * and shall use it only in accordance with the terms of the agreements
+ * you entered into with ChemAxon.
+ *
+ */
+package example.services;
+
+import chemaxon.formats.MolFormatException;
+import chemaxon.formats.MolImporter;
+import chemaxon.marvin.services.localservice.Alias;
+import chemaxon.marvin.services.localservice.Description;
+import chemaxon.struc.Molecule;
+
+/**
+ * This is a sample class to demonstrate how to write
+ * classes for Marvin Services Local Service implementation.
+ * @author Istvan Rabel
+ */
+public class SampleService {
+
+    /**
+     * Returns the number of atoms in the specified molecule
+     * @param molecule the molecule being checked
+     * @return the number of atoms in the molecule
+     */
+    /* 
+     * (non-javadoc)
+     * This method can be called as a LocalService from
+     * Marvin Sketch, cxcalc and Chemical Terms.
+     * Annotations are used to provide default names
+     * for Service and arguments, as well as a description.
+     */
+    @Alias(name=&quot;AtomCount&quot;, params={&quot;Structure&quot;})
+    @Description(&quot;Returns the number of atoms in the structure&quot;)
+    public Integer countAtoms(Molecule molecule) {
+        return molecule.getAtomCount();
+    }
+    
+    /**
+     * Returns a formatted (HTML) message with the number of
+     * atoms in the molecule imported from argument.
+     * @param moleculeString a string representation of a molecule
+     * @return a formatted (HTML) message with the number of atoms
+     */
+    /* 
+     * (non-javadoc)
+     * This method can be called as a LocalService from
+     * Marvin Sketch, cxcalc and Chemical Terms.
+     * Annotations are used to provide default names
+     * for Service and arguments, as well as a description.
+     */
+    @Alias(name=&quot;AtomCountText&quot;, params={&quot;Molecule&quot;})
+    @Description(&quot;Returns a formatted text message containing the number of atoms in the structure.&quot;)
+    public String countAtomsHTML(String moleculeString) {
+        
+        // import the molecule
+        Molecule molecule = null;
+        try {
+            molecule = MolImporter.importMol(moleculeString);
+        } catch (MolFormatException e) {
+            // invalid molecule string
+            molecule = new Molecule();
+        }
+    
+        // get the atom count
+        int value = countAtoms(molecule);
+    
+        // build and return the result string
+        StringBuilder builder = new StringBuilder(&quot;&lt;html&gt;&lt;body&gt;&quot;);
+        if(value &gt; 1) {
+            builder.append(&quot;The structure has &lt;font color='blue'&gt;&lt;b&gt;&quot;);
+            builder.append(value);
+            builder.append(&quot;&lt;/b&gt;&lt;/font&gt; atoms.&quot;);
+        } else {
+            builder.append(&quot;The structure has &lt;font color='red'&gt;&lt;i&gt;&quot;
+                + (value == 0 ? &quot;no atoms&quot; : &quot;only one atom&quot;)
+                + &quot;&lt;/i&gt;&lt;/font&gt;.&quot;);
+        }
+        builder.append(&quot;&lt;/body&gt;&lt;/html&gt;&quot;);
+        return builder.toString();
+    }
+    
+}</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre><span style="color: rgb(63,127,89);"><br /></span></pre> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

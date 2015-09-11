@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Draw link nodes</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Draw link nodes </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>You can draw link nodes using the contextual popup menu in two ways:</p>
+      <ol>
+       <li>Right-click on the atom to open the popup menu.</li>
+       <li>Select the required repetition number from the <strong>Link node</strong> submenu. Marvin finds out the outer (non-repeating) bonds for you.</li>
+      </ol>
+      <p>&nbsp;</p>
+      <ol>
+       <li>Select the atom you would like to be the link node and two neighboring bonds for outer (non-repeating) bonds.</li>
+       <li>Right-click anywhere on the canvas to bring up the popup menu.</li>
+       <li>Select the required repetition number from the <strong>Link node</strong> submenu.</li>
+      </ol>
+      <p>&nbsp;</p>
+      <p>The <strong>Link Node</strong> submenu can be reach fro the <strong>Atom</strong> menu as well.<br />If it is not possible to create a link node for the specified configuration (for example at ring fusions) an error message is thrown.</p>
+      <p>Outer (non-repeating) bonds will be denoted by brackets crossing them, and the repetition numbers will be put on the atom.</p>
+      <p>All portion of the molecule connected to the link atom through non-outer bonds are supposed to repeat together with the atom.</p>
+      <p>See examples below.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd">Molecule with link node</td>
+          <td style="text-align: center;" class="confluenceTd">Meaning</td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281215.png" data-image-src="attachments/19693757/26281215.png" data-unresolved-comment-count="0" data-linked-resource-id="26281215" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln02.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281214.png" data-image-src="attachments/19693757/26281214.png" data-unresolved-comment-count="0" data-linked-resource-id="26281214" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln02_m.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281212.png" data-image-src="attachments/19693757/26281212.png" data-unresolved-comment-count="0" data-linked-resource-id="26281212" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln03.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281213.png" data-image-src="attachments/19693757/26281213.png" data-unresolved-comment-count="0" data-linked-resource-id="26281213" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln03_m.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281210.png" data-image-src="attachments/19693757/26281210.png" data-unresolved-comment-count="0" data-linked-resource-id="26281210" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln01.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19693757/26281211.png" data-image-src="attachments/19693757/26281211.png" data-unresolved-comment-count="0" data-linked-resource-id="26281211" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ln01_m.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19693757" data-linked-resource-container-version="8" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>To edit a link node repetition number or change outer bonds, repeat the drawing steps above.</p>
+      <p>To make a link atom ordinary atom again, select <strong>Off</strong> from the <strong>Link node</strong> submenu or more simply, it can be overwritten.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

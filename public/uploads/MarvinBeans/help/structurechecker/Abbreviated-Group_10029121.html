@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Abbreviated Group</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Abbreviated Group </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul style="margin-left: 20.0px;">
+       <li>Checker searches for&nbsp;<a href="https://docs.chemaxon.com/display/marvinsketch/Abbreviated+%28superatom%29+groups">abbreviated groups</a>&nbsp;in the structure&nbsp;<a href="http://www.chemaxon.com/marvin/help/structurechecker/checkerlist.html#note1" style="text-decoration: underline;" class="external-link" rel="nofollow"> <sup>*</sup> </a>. Options:
+        <ul style="margin-left: 20.0px;">
+         <li>expanded (<code>:expanded=true</code>);</li>
+         <li>contracted (<code>:contracted=true</code>);</li>
+         <li>both expanded and contracted groups (default).</li>
+        </ul>You can specify a list of&nbsp;<strong>excluded</strong>&nbsp;abbreviated groups, i.e., checker will not find (and fix) abbreviated groups that are indicated in this list. Default and custom abbreviations are also possible to set. The excluded list elements are case sensitive and should be separated by commas (,). (<code>:excluded=Ph,Ala,Gly,MyGroup</code>)&nbsp;<br /> <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="excluded list" height="108" width="221" src="attachments/10029121/29098247.png" data-image-src="attachments/10029121/29098247.png" data-unresolved-comment-count="0" data-linked-resource-id="29098247" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_excluded01.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></li>
+       <li>Fixer offers - in order of priority -:
+        <ol>
+         <li>ungroup abbreviated groups (<code>ungroup</code>);</li>
+         <li>expand abbreviated groups (<code>expandgroup</code>);</li>
+         <li>contract abbreviated groups (<code>contractgroup</code>).</li>
+        </ol></li>
+      </ul>
+      <p><br /> <strong>Example</strong> <span style="color: rgb(54,54,54);">:</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Abbreviated Group Checker (<code>abbrevgroup</code>)</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th colspan="3" class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Ungroup (<code>ungroup</code>)</th>
+          <th class="confluenceTh">Expand Group (<code>expandgroup</code>)</th>
+          <th class="confluenceTh">Contract Group (<code>contractgroup</code>)</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Expanded Groups</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_exp_ch" height="117" width="169" src="attachments/10029121/29098225.png" data-image-src="attachments/10029121/29098225.png" data-unresolved-comment-count="0" data-linked-resource-id="29098225" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_exp_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_contr_f" height="91" width="159" src="attachments/10029121/29098230.png" data-image-src="attachments/10029121/29098230.png" data-unresolved-comment-count="0" data-linked-resource-id="29098230" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_exp_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="unavailable" height="24" width="24" src="attachments/10029121/29098226.png" data-image-src="attachments/10029121/29098226.png" data-unresolved-comment-count="0" data-linked-resource-id="29098226" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_contr_f" height="30" width="94" src="attachments/10029121/29098248.png" data-image-src="attachments/10029121/29098248.png" data-unresolved-comment-count="0" data-linked-resource-id="29098248" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_exp_fcont.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Contracted Groups</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_contr_f" height="71" width="44" src="attachments/10029121/29098238.png" data-image-src="attachments/10029121/29098238.png" data-unresolved-comment-count="0" data-linked-resource-id="29098238" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_contr_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_contr_f" height="144" width="93" src="attachments/10029121/29098227.png" data-image-src="attachments/10029121/29098227.png" data-unresolved-comment-count="0" data-linked-resource-id="29098227" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_contr_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_contr_f" height="168" width="127" src="attachments/10029121/29098228.png" data-image-src="attachments/10029121/29098228.png" data-unresolved-comment-count="0" data-linked-resource-id="29098228" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_contr_fex.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="unavailable" height="24" width="24" src="attachments/10029121/29098226.png" data-image-src="attachments/10029121/29098226.png" data-unresolved-comment-count="0" data-linked-resource-id="29098226" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect All Groups</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_both_ch" height="77" width="156" src="attachments/10029121/29098234.png" data-image-src="attachments/10029121/29098234.png" data-unresolved-comment-count="0" data-linked-resource-id="29098234" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_both_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_both_f" height="93" width="150" src="attachments/10029121/29098235.png" data-image-src="attachments/10029121/29098235.png" data-unresolved-comment-count="0" data-linked-resource-id="29098235" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_both_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_both_fex" height="101" width="155" src="attachments/10029121/29098237.png" data-image-src="attachments/10029121/29098237.png" data-unresolved-comment-count="0" data-linked-resource-id="29098237" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_both_fex.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_both_fcontr" height="40" width="108" src="attachments/10029121/29098236.png" data-image-src="attachments/10029121/29098236.png" data-unresolved-comment-count="0" data-linked-resource-id="29098236" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_both_fcont.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Contracted Groups with excluded list</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_exclude_ch" height="33" width="297" src="attachments/10029121/29098243.png" data-image-src="attachments/10029121/29098243.png" data-unresolved-comment-count="0" data-linked-resource-id="29098243" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_excluded02_ex.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_exclude_f" height="150" width="272" src="attachments/10029121/29098246.png" data-image-src="attachments/10029121/29098246.png" data-unresolved-comment-count="0" data-linked-resource-id="29098246" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_excluded02_fung.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_exclude_f" height="156" width="316" src="attachments/10029121/29098244.png" data-image-src="attachments/10029121/29098244.png" data-unresolved-comment-count="0" data-linked-resource-id="29098244" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_abbrev_excluded02_fex.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_abbrev_both_fcontr" height="24" width="24" src="attachments/10029121/29098226.png" data-image-src="attachments/10029121/29098226.png" data-unresolved-comment-count="0" data-linked-resource-id="29098226" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029121" data-linked-resource-container-version="5" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /> <a rel="nofollow"></a> <sup>*</sup> <strong>Note</strong> <span style="color: rgb(54,54,54);">:&nbsp;</span> <a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=13338044">User defined abbreviated groups</a> <span style="color: rgb(54,54,54);">&nbsp;are also available to be applied as recognizable abbreviated group set.</span> <br /> <strong>Note</strong> <span style="color: rgb(54,54,54);">: If attachment point is not connected to any atom, ungrouping removes attachment points of the abbreviated group and adds an implicit hydrogen.</span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

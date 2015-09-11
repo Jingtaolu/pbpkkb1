@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Structure Display Options MV</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Structure Display Options MV </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>There is a wide range of functions related to the display of the molecules. These settings can be found in the&nbsp;<span> <a href="View-Menu-MV_25987291.html"> <span> <strong>View</strong> menu</span> </a> </span>&nbsp;and in the <span><a href="Preferences-MV_25987309.html"><span>Preferences dialog</span></a></span>. Additionally, you can <a href="Manipulating-the-Molecule_13338432.html">move, rotate and zoom in/out</a> the structure.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201062360 {padding: 0px;}
+div.rbtoc1439201062360 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201062360 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201062360"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#StructureDisplayOptionsMV-formatMoleculeFormat">Molecule Format</a></li> 
+              <li><a href="#StructureDisplayOptionsMV-colorColors">Colors</a></li> 
+              <li><a href="#StructureDisplayOptionsMV-hydrogenImplicit/ExplicitHydrogens">Implicit/Explicit Hydrogens</a></li> 
+              <li><a href="#StructureDisplayOptionsMV-markAtomMarkingAtoms">Marking Atoms</a></li> 
+              <li><a href="#StructureDisplayOptionsMV-errorHighlightErrorHighlighting">Error Highlighting</a></li> 
+              <li><a href="#StructureDisplayOptionsMV-savingDisplaySavingDisplayOptions">Saving Display Options</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="StructureDisplayOptionsMV-formatMoleculeFormat"><span class="confluence-anchor-link" id="StructureDisplayOptionsMV-format"></span>Molecule Format</h3>
+          <p>You can set the display format for the molecule and screen resolution using the&nbsp;<strong class="buttonName">View &gt; Display</strong>&nbsp;submenu. Available molecule formats are&nbsp;<strong class="buttonName">Wireframe, Wireframe with Knobs, Sticks, Ball and Stick,</strong>&nbsp;and&nbsp;<strong class="buttonName">Spacefill</strong>.</p>
+          <h3 id="StructureDisplayOptionsMV-colorColors"><span class="confluence-anchor-link" id="StructureDisplayOptionsMV-color"></span>Colors</h3>
+          <p>The&nbsp;<strong class="buttonName">View &gt; Colors</strong>&nbsp;submenu allows you to specify the&nbsp;<a href="18448667.html">color scheme</a>&nbsp;of the molecules. The available options are:</p>
+          <ul>
+           <li><p>Monochrome</p></li>
+           <li><p>CPK</p></li>
+           <li><p>Shapely - based on RasMol's shapely color scheme for nucleic and amino acids</p></li>
+           <li><p>Group - based on PDB residue numbers</p></li>
+           <li><p>Atom Set - based on previously defined atom set coloring (can be set in MarvinSketch)</p></li>
+          </ul>
+          <p><a name="implicit-explicit-H" rel="nofollow"></a></p>
+          <h3 id="StructureDisplayOptionsMV-hydrogenImplicit/ExplicitHydrogens"><span class="confluence-anchor-link" id="StructureDisplayOptionsMV-hydrogen"></span>Implicit/Explicit Hydrogens</h3>
+          <p>Marvin has a number of options for the display of implicit and explicit hydrogens. Because Marvin is chemically intelligent, it will automatically add hydrogens as necessary within the structure. They are called implicit hydrogen atoms, are always displayed without bonds and based on the options set in the&nbsp;<strong class="buttonName">View</strong>&nbsp;menu. In case of Ball &amp; Stick and Spacefill modes, the impilcit hydrogen atoms are never displayed.</p>
+          <p>To view all hydrogen atoms explicitly, displayed as atoms with bonds connected to neighbors, chose&nbsp;<strong class="buttonName">Structure &gt; Add &gt; Explicit H Atoms</strong>. The&nbsp;<strong class="buttonName">Structure &gt; Remove &gt; Explicit H atoms</strong>&nbsp;will remove every explicitly drawn hydrogen from your structure.</p>
+          <p><a name="marking_atoms" rel="nofollow"></a></p>
+          <h3 id="StructureDisplayOptionsMV-markAtomMarkingAtoms"><span class="confluence-anchor-link" id="StructureDisplayOptionsMV-markAtom"></span>Marking Atoms</h3>
+          <p>Hover the cursor over an atom and it will be marked by light blue circle. Clicking on it will select the atom in question and the circle will turn dark blue. At the same time, you can mark one atom, and select another one even if they are in different molecules. A property change event is sent on every atom mark.&nbsp;<a href="18448667.html">See developer guide for details.</a></p>
+          <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338419/13402275.png" data-image-src="attachments/13338419/13402275.png" data-unresolved-comment-count="0" data-linked-resource-id="13402275" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hover_over.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338419" data-linked-resource-container-version="9" /></span></p>
+          <p><a name="error-hilight" rel="nofollow"></a></p>
+          <h3 id="StructureDisplayOptionsMV-errorHighlightErrorHighlighting"><span class="confluence-anchor-link" id="StructureDisplayOptionsMV-errorHighlight"></span>Error Highlighting</h3>
+          <p>Marvin can not automatically correct all valence errors or any reaction errors. Instead, these errors are highlighted and you may make the appropriate corrections yourself. This option can be enabled and disabled using the the&nbsp;<strong class="buttonName"> <span> <a href="Preferences-MV_25987309.html"> <span>Edit &gt; Preferences</span></a> </span></strong>dialog window.</p>
+          <h3 id="StructureDisplayOptionsMV-savingDisplaySavingDisplayOptions"><a name="preferences" rel="nofollow"></a> <span class="confluence-anchor-link" id="StructureDisplayOptionsMV-savingDisplay"></span>Saving Display Options</h3>
+          <p>Many of the display settings in Marvin are saved and reloaded the next time you start the program. Background color, molecule color scheme, and hydrogen visibility can be set from the&nbsp;<strong class="buttonName">View </strong>menu&nbsp;and will be saved automatically when you exit the program. Other options, including look &amp; feel, error highlighting, and object visibility can be set using the<strong> </strong><strong class="buttonName"><span><a href="Preferences-MV_25987309.html"><span>Preferences</span> </a></span></strong>dialog window from the&nbsp;<strong class="buttonName">Edit </strong>menu.</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

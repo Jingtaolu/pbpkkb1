@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : JFileChooser Example</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : JFileChooser Example </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>This section demonstrates the possible integrations of Marvin to Swing components in a practical example.</p>
+      <p>In this example we use Marvin as a custom accessory component of a file chooser to provide preview to molecule files.</p>
+      <p>In case the currently selected item in the list of the file chooser is a structure file that Marvin can import, the accessory component displays a thumbnail sketch of the molecule rendered by Marvin. Otherwise, the accessory component is empty.</p>
+      <p>The file chooser with this custom accessory component is shown in the image below:</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" height="561" width="673" src="http://www.chemaxon.com/marvin/examples/beans/jfilechooser-accessory/open.png" data-image-src="http://www.chemaxon.com/marvin/examples/beans/jfilechooser-accessory/open.png" /></span></p>
+      <p>The following text about creating custom accessory components is quoted from the <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/filechooser.html" class="external-link" rel="nofollow">Java Tutorials</a>:</p>
+      <hr />
+      <p>Any object that inherits from the JComponent class can be an accessory component. The component should have a preferred size that looks good in the file chooser. The file chooser fires a property change event when the user selects an item in the list. A program with an accessory component must register to receive these events to update the accessory component whenever the selection changes.</p>
+      <hr />
+      <p>The following paragraphs describe the major steps of setting up the accessory component.</p>
+      <h4 id="JFileChooserExample-Creatingandsettinguptherenderer">Creating and setting up the renderer</h4>
+      <p>The MolPrinter class is applied to render the molecules. In case the molecule coordinates are not given in the structure file, the 2D coordinates are automatically computed.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">    private static class MoleculeRenderer extends JComponent {
+        private MolPrinter mPrinter = new MolPrinter();
+
+        public void setMolecule(Molecule molecule) {
+        // Passing the current molecule to MolPrinter.
+        mPrinter.setMol(molecule);
+    }
+
+    public void paintComponent(Graphics g) {
+        // It is very important to set the scale factor of MolPrinter,
+        // otherwise the molecule will not appear.
+        // The scale factor is computed by MolPrinter from
+        // the current size.
+        mPrinter.setScale(mPrinter.maxScale(getSize()));
+        mPrinter.paint(g, new Rectangle(getSize()));
+    }
+}</pre> 
+       </div>
+      </div>
+      <pre class="sh_java sh_sourceCode">&nbsp;</pre>
+      <h4 id="JFileChooserExample-Followingfileselectionchanges">Following file selection changes</h4>
+      <p>To update the preview of the molecule in case the user selects a different file, the accessory component has to react to file selection change events with the help of a property change listener. In the example the <code>SimpleJFileChooserAccessory</code> object itself serves as the <code>java.beans.PropertyChangeListener</code> for the specific <code>JFileChooser.SELECTED_FILE_CHANGED_PROPERTY</code> property of the file chooser.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">     public SimpleJFileChooserAccessory(JFileChooser fileChooser) {
+         molImporter = new MolImporter();
+         renderer = new MoleculeRenderer();
+         ...
+             fileChooser.addPropertyChangeListener(
+                     JFileChooser.SELECTED_FILE_CHANGED_PROPERTY, this);
+     }
+
+     //This method handles file selection change events.
+     public void propertyChange(PropertyChangeEvent evt) {
+         File selection = (File)(evt.getNewValue());
+         if(selection != null) {
+             try {
+                 //Passes the selected molecule file to the importer,
+                 //or the first molecule in case of a multi-molecule file.
+                 molImporter.setFileName(selection.getAbsolutePath());
+                 //Passes the molecule from the importer to the renderer.
+                 setMolecule();
+             } catch (IOException exception) {
+                 renderer.setMolecule(new Molecule());
+             }
+         }
+     }
+
+     //Passes the molecule from the importer to the renderer.
+     private void setMolecule() {
+         try {
+             renderer.setMolecule(
+                     molImporter.nextDoc().getPrimaryMolecule());
+             renderer.repaint();
+         } catch (IOException exception) {
+             renderer.setMolecule(new Molecule());
+         }
+     }</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h4 id="JFileChooserExample-Assigningthecustomaccessorycomponenttothefilechooser">Assigning the custom accessory component to the file chooser</h4>
+      <p>The example calls the setAccessory method to establish an instance of the <code>SimpleJFileChooserAccessory</code> class, as the chooser's accessory component:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">     SimpleJFileChooserAccessory accessory =
+             new SimpleJFileChooserAccessory(fileChooser);
+     //Adding the accessory instance to file chooser.
+     fileChooser.setAccessory(accessory);
+</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="JFileChooserExample-code"></span>Sample code:<a href="attachments/25988041/26281303.txt" data-linked-resource-id="26281303" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="SimpleJFileChooserAccessory.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="25988041" data-linked-resource-container-version="4">SimpleJFileChooserAccessory.txt</a></p>
+      <h4 id="JFileChooserExample-Advancedpreviewofmulti-moleculefiles">Advanced preview of multi-molecule files</h4>
+      <p>Aside from a simple previewer, the accessory component can be set up to offer the possibility of browsing inside multi-molecule files without actually opening them.</p>
+      <p>The following image shows the advanced accessory component:</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" height="353" width="547" src="http://www.chemaxon.com/marvin/examples/beans/jfilechooser-accessory/open2.png" data-image-src="http://www.chemaxon.com/marvin/examples/beans/jfilechooser-accessory/open2.png" /></span></p>
+      <p>In this advanced example there are two additional buttons inside the custom accessory component that enables browsing inside multi-molecule files.</p>
+      <p>The management of the two buttons are not described in detail, only the parts closely related to Marvin, but the <a href="#JFileChooserExample-code">full source code</a> is available.</p>
+      <p>MolImporter refers to each individual molecule in a multi-molecule file by its index (position in file, starting from 0) and provides a method to position to a molecule specified by its index.</p>
+      <pre class="sh_java sh_sourceCode">     molImporter<span class="sh_symbol">.</span><span class="sh_function">seekRecord</span><span class="sh_symbol">(</span>position<span class="sh_symbol">,</span> <span class="sh_keyword">null</span><span class="sh_symbol">);</span>
+ </pre>
+      <p>The second argument is an optional progress monitor object which is omitted here.</p>
+      <p>The custom file chooser accessory shown in this section is already used in several ChemAxon applications and proven to be useful.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

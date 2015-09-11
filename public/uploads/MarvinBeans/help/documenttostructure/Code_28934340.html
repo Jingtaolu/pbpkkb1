@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Document to Structure : Code</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Document to Structure : Code </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="Code-TableofContents">Table of Contents</h2>
+      <ol>
+       <li><a href="#Code-structures_intext" rel="nofollow">Finding structures in text</a></li>
+       <li><a href="#Code-structures_webpage" rel="nofollow">Finding structures in a live webpage</a></li>
+       <li><a href="#Code-structures_inPDF" rel="nofollow">Finding structures in a PDF document</a></li>
+       <li><a href="#Code-highlighting" rel="nofollow">Highlighting recognized structures in a webpage</a></li>
+       <li><a href="#Code-saving_infile" rel="nofollow">Saving results in SDF or MRV file format</a></li>
+       <li><a href="#Code-inJChemTable" rel="nofollow">Storing results in a JChem structure table</a></li>
+       <li><a href="#Code-increasing_speed" rel="nofollow">Increasing processing speed by multithreading</a></li>
+      </ol>
+      <h2 id="Code-1.Findingstructuresintext"><a class="anchor" name="Code-structures_intext" rel="nofollow"></a>1. Finding structures in text</h2>
+      <p>In the first example, we use <code>DocumentExtractor</code>'s <code>processPlainText()</code> method to process a string. The result is a list of <code>Hit</code> objects that contain:</p>
+      <ul>
+       <li><code>text</code>, the string fragment that was recognized;</li>
+       <li><code>position</code>, the character index where this text is found;</li>
+       <li><code>structure</code>, a <code>Molecule</code> instance containing the recognized structure.</li>
+      </ul>
+      <pre class="sh_java">...
+
+String test = &quot;Aspirin:&quot; +
+&quot;Aspirin is the brandname of acetylsalicylic acid (ASA).&quot; +
+&quot;It has many uses, but is most commonly used as a pain killer, &quot; +
+&quot;or used to reduce fever or inflammation.&quot;;
+
+//process the string and get the results
+DocumentExtractor x = new DocumentExtractor();
+x.processPlainText(new StringReader(test));
+List&lt;Hit&gt; hits = x.getHits();
+ 
+//print out the recognized names
+for (Hit hit : hits) {
+    System.out.println(hit.structure.getName());
+}
+
+...</pre>
+      <p>Resources:</p>
+      <ul>
+       <li>Example code: Demo1.java in the <a href="attachments/28934340/29098017.zip" data-linked-resource-id="29098017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="d2sguide.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9">zip</a> file</li>
+       <li><a href="https://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/naming/DocumentExtractor.html" class="external-link" rel="nofollow">DocumentExtractor class API docs</a></li>
+      </ul>
+      <h2 id="Code-2.Findingstructuresinalivewebpage"><a class="anchor" name="Code-structures_webpage" rel="nofollow"></a>2. Finding structures in a live webpage</h2>
+      <p>In this section, the first example is extended with functionality to download a live webpage and process it using <code>DocumentExtractor</code>'s <code>processHTML()</code> method.</p>
+      <p>Loading a URL is done using the Apache HttpClient, a more basic solution might use the <code>java.net.HttpURLConnection</code> class. The returned string can be passed to <code>DocumentExtractor</code> using a <code>StringReader</code>.</p>
+      <pre class="sh_java">...
+
+private static String loadURL(String url) throws Exception {
+   
+    HttpClient httpclient = new DefaultHttpClient();
+    try {
+        HttpGet httpget = new HttpGet(url);
+
+        ResponseHandler&lt;String&gt; responseHandler =
+          new BasicResponseHandler();
+        String responseBody = httpclient.execute(
+          httpget, responseHandler);
+        return responseBody;
+
+    } finally {
+        httpclient.getConnectionManager().shutdown();
+    }
+}
+
+...</pre>
+      <p>Resources:</p>
+      <ul>
+       <li>Example code: Demo2.java and httpclient JAR files in the <a href="attachments/28934340/29098017.zip" data-linked-resource-id="29098017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="d2sguide.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9">zip</a> file</li>
+       <li><a href="http://hc.apache.org/" class="external-link" rel="nofollow">Apache HttpClient</a></li>
+      </ul>
+      <h2 id="Code-3.FindingstructuresinaPDFdocument"><a class="anchor" name="Code-structures_inPDF" rel="nofollow"></a>3. Finding structures in a PDF document</h2>
+      <p>Document to Structure is able to extract structures from PDF files since version 5.4. This supports only text-based PDF files. If <a href="https://docs.chemaxon.com/marvin/help/formats/imageimport.html#osra" rel="nofollow">OSRA</a> is installed, graphical repesentations of chemical structures are also processed. To retrieve the text content of a file, Apache PDFBox is used.</p>
+      <p>In this section, the former example has been modified to process a PDF file.</p>
+      <p>Instead of passing a <code>Reader</code> with the content to process, the <code>readPDF()</code> static method has to be use to create a <code>DocumentExtractor</code> instance that automatically reads the text from the document. After this, the <code>processPlainText()</code> method is called.</p>
+      <p>The returned <code>Hit</code> objects contain the page number where the hit was found. This can be accessed with the <code>getPageNumber()</code> method.</p>
+      <pre class="sh_java">...
+
+FileInputStream pdf = null;
+try {
+    pdf = new FileInputStream(&quot;test.pdf&quot;);
+    DocumentExtractor x = DocumentExtractor.readPDF(pdf);
+    x.processPlainText();
+    List&lt;Hit&gt; hits = x.getHits();        
+
+    //show where each structure was found
+    for (Hit hit : hits) {
+    System.out.println(hit.text +
+      &quot; found on page &quot; + hit.getPageNumber());
+    }
+   
+} finally {
+    if (pdf != null) {
+        pdf.close();
+    }
+}
+
+...</pre>
+      <p>Resources:</p>
+      <ul>
+       <li>Example code: Demo3.java and httpclient JAR files in the <a href="attachments/28934340/29098017.zip" data-linked-resource-id="29098017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="d2sguide.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9">zip</a> file</li>
+       <li><a href="http://pdfbox.apache.org/" class="external-link" rel="nofollow">Apache PDFBox</a></li>
+      </ul>
+      <h2 id="Code-4.Highlightingrecognizedstructuresinawebpage"><a class="anchor" name="Code-highlighting" rel="nofollow"></a>4. Highlighting recognized structures in a webpage</h2>
+      <p>A good way to display the results of processing is to show the recognized structures directly in the original document. In HTML pages this can be done by modifying the HTML code around each hit.</p>
+      <p>Using the <code>position</code> field of the <code>Hit</code>s, you can find the recognized names and wrap them with a special element. To keep track the modification in the HTML code, an extra variable (<code>modification</code>) is used.</p>
+      <pre class="sh_java">...
+
+public static String prefix = &quot;&lt;span data-structurename=\&quot;%n\&quot;&gt;&quot;;
+public static String suffix = &quot;&lt;/span&gt;&quot;;
+
+...
+
+int modification = 0;
+for (Hit hit : hits) {
+
+    //add the corrected name of this hit to the data attr.
+    String current_prefix = prefix.replace(&quot;%n&quot;,
+      hit.structure.getName());
+
+    //add the modified prefix before, and the suffix after this hit
+    pagecontent = pagecontent.substring(0,
+      hit.position - 1 + modification) +
+      current_prefix + hit.text + suffix +
+      pagecontent.substring(hit.position - 1 +
+        modification + hit.text.length());
+
+    //update the amount of modification performed so far
+    modification += current_prefix.length() + suffix.length();
+}
+
+System.out.println(pagecontent);
+
+...</pre>
+      <p>Highlighting can be achieved by styling the added elements using CSS: for this, a class can be added to the element.</p>
+      <p>Resources:</p>
+      <ul>
+       <li>Example code: Demo4.java and httpclient JAR files in the <a href="attachments/28934340/29098017.zip" data-linked-resource-id="29098017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="d2sguide.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9">zip</a> file</li>
+      </ul>
+      <h2 id="Code-5.SavingresultsinSDForMRVfileformat"><a class="anchor" name="Code-saving_infile" rel="nofollow"></a>5. Saving results in SDF or MRV file format</h2>
+      <p>This example is extended with the functionality that saves the results into a multi-molecule file using the <code>MolExporter</code> class.</p>
+      <p>Using the <code>Molecule.setProperty()</code> method, you can save related information in data fields such as the hit text, position; or in case of PDF files, you can add the page number.</p>
+      <pre class="sh_java">...
+
+//MolExporter exporter = new MolExporter(&quot;test.sdf&quot;, &quot;sdf&quot;);
+MolExporter exporter = new MolExporter(&quot;test.mrv&quot;, &quot;mrv&quot;);
+
+try {
+    for (Hit hit : hits) {
+        hit.structure.setProperty(&quot;hit text&quot;, hit.text);
+        hit.structure.setProperty(&quot;hit position&quot;, hit.position);        
+        exporter.write(hit.structure);
+    }
+} finally {
+   exporter.flush();
+   exporter.close();
+}
+
+...</pre>
+      <p>Resources:</p>
+      <ul>
+       <li>Example code: Demo5.java and httpclient JAR files in the <a href="attachments/28934340/29098017.zip" data-linked-resource-id="29098017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="d2sguide.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9">zip</a> file</li>
+       <li><a href="https://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/formats/MolExporter.html" class="external-link" rel="nofollow">MolExporter API docs</a></li>
+       <li><a href="https://docs.chemaxon.com/display/FF/File+Formats+Home">Supported formats</a></li>
+      </ul>
+      <h2 id="Code-6.StoringresultsinaJChemstructuretable"><a class="anchor" name="Code-inJChemTable" rel="nofollow"></a>6. Storing results in a JChem structure table</h2>
+      <p>JChem structure tables are fast, scalable and searchable repositories of chemical structures. This example is extended with the functionality to store the hits in a table.</p>
+      <p>Creating a structure table is detailed in the <a href="https://docs.chemaxon.com/display/jchembase/Administration">Administration Guide of JChem</a>. The recommended table type for this example is &quot;Any structure&quot; because some structures returned by DocumentExtractor contain query or R-group features (e.g.: penicillin). It is also recommended to enable the &quot;Filter out duplicate structures&quot; option because a structure usually appears several times in a document.</p>
+      <p>To store additional information about each structure, add 2 extra columns to the table (<a href="https://docs.chemaxon.com/display/jchembase/Administration+Guide+-+JChem+Manager#AdministrationGuide-JChemManager-AdministrationGuide-JChemManager-modify">Administration Guide</a>):</p>
+      <dl></dl>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/28934340/29098016.png" data-image-src="attachments/28934340/29098016.png" data-unresolved-comment-count="0" data-linked-resource-id="29098016" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="example6.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9" /></span></p>
+      <p>The <code>ConnectionHandler</code> and <code>UpdateHandler</code> classes are used to manage connection and data in the structure table.</p>
+      <p>Setting up a database connection, to a MySQL database and its structures table:</p>
+      <pre class="sh_java">...
+
+ConnectionHandler database = new ConnectionHandler();
+database.setDriver(DatabaseConstants.MYSQL_DRIVER);
+database.setUrl(&quot;jdbc:mysql://localhost/database&quot;);
+database.setLoginName(&quot;username&quot;);
+database.setPassword(&quot;password&quot;);
+
+database.connectToDatabase();
+
+
+UpdateHandler uh = new UpdateHandler(database,
+  UpdateHandler.INSERT, &quot;structures&quot;, &quot;position, text&quot;);
+
+...</pre>
+      <p>Next, you need a function to call while processing the hits. This function takes a <code>Hit</code> and stores it in the structure table.</p>
+      <pre class="sh_java">...
+
+private static void addStructure(Hit hit)
+  throws SQLException {
+
+    String struct = hit.structure.toFormat(&quot;mrv&quot;);
+    uh.setStructure(struct);
+
+    uh.setValueForAdditionalColumn(1, hit.position, java.sql.Types.INTEGER);
+    uh.setValueForAdditionalColumn(2, hit.text, java.sql.Types.VARCHAR);
+    
+    uh.execute();
+}
+
+...</pre>
+      <p>Resources:</p>
+      <ul>
+       <li>Example code: Demo6.java and httpclient JAR files in the <a href="attachments/28934340/29098017.zip" data-linked-resource-id="29098017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="d2sguide.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9">zip</a> file</li>
+       <li><a href="https://www.chemaxon.com/jchem/doc/dev/dbconcepts/#tabletypes" class="external-link" rel="nofollow">JChem table types</a></li>
+       <li><a href="https://www.chemaxon.com/jchem/doc/admin/#create" class="external-link" rel="nofollow">JChem table options</a></li>
+       <li><a href="https://www.chemaxon.com/jchem/dev/java/api/chemaxon/util/ConnectionHandler.html" class="external-link" rel="nofollow">ConnectionHandler class API docs</a></li>
+       <li><a href="https://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/jchem/db/UpdateHandler.html" class="external-link" rel="nofollow">UpdateHandler class API docs</a></li>
+      </ul>
+      <h2 id="Code-7.Increasingprocessingspeedbymultithreading"><a class="anchor" name="Code-increasing_speed" rel="nofollow"></a>7. Increasing processing speed by multithreading</h2>
+      <p>Performance is a high priority in online services. The example presents multithreading functionality to take advantage of a common multicore CPU on a single HTML page.</p>
+      <p>Splitting the HTML document into pieces, each thread can work independently. Splitting points need to be chosen carefully to ensure that possible results are not lost. We can only cut where no structural information would continue, such as at the end of sentences or at section separators.</p>
+      <p>Using certain HTML elements as separators is a good choice and they are easy to find with regular expressions. Here you can see a pattern that achieves this by cutting at block level HTML and other safe elements.</p>
+      <pre class="sh_java">...
+
+Pattern p = Pattern.compile(&quot;(.{2000}.*?&lt;/?(a|abbr|blockquote|&quot; +
+  &quot;caption|code|dd|div|dl|dt|h1|h2|h3|h4|h5|h6|hr|img|label|&quot; +
+  &quot;legend|li|ol|p|pre|table|td|th|tr|ul)[^&gt;]*&gt;|.*$)&quot;,
+  Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+
+...</pre>
+      <p>After splitting the content of the page using this pattern, a task is created for each piece - chunk - using the <code>java.util.concurrent</code> framework. A task processes that piece of content similar to the <a href="#structures_webpage" rel="nofollow">second example.</a></p>
+      <pre class="sh_java">...
+
+int availableProcessors = Runtime.getRuntime().availableProcessors();
+ExecutorService exec = Executors.newFixedThreadPool(availableProcessors);
+ExecutorCompletionService execservice = new ExecutorCompletionService(exec);
+int execservicesize = 0;
+
+...
+
+Matcher m = p.matcher(pagecontent);
+while (m.find()) {
+
+    //create and submit new callable instance
+    execservice.submit(new DocumentExtractorTask(m.group(1)));
+    execservicesize++;
+
+}
+
+...
+
+while (execservicesize-- &gt; 0) {
+
+    //wait until the next fragment is finished
+    Future&lt;List&lt;Hit&gt;&gt; f = execservice.take();
+    List&lt;Hit&gt; hits = f.get();
+
+    //print out the name of each recognized structure
+    for (Hit hit : hits) {
+        System.out.println(hit.text);
+    }
+
+}
+
+...</pre>
+      <p>This solution works for HTML documents, however, fragmenting pages with other content types is not easy, since traditional separators such as punctuation characters can appear in structure names. If you have a good solution to this problem, please do not hesitate to share it in our <a href="https://www.chemaxon.com/forum/" class="external-link" rel="nofollow">forum</a>.</p>
+      <p>Resources:</p>
+      <ul>
+       <li>Example code: Demo7.java and httpclient JAR files in the <a href="attachments/28934340/29098017.zip" data-linked-resource-id="29098017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="d2sguide.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28934340" data-linked-resource-container-version="9">zip</a> file</li>
+      </ul> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

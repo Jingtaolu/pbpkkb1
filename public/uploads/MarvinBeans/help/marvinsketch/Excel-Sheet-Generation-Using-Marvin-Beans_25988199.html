@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Excel Sheet Generation Using Marvin Beans</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Excel Sheet Generation Using Marvin Beans </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The following example is a JSP page which generates an Excel Sheet with Marvin generated structure images and structure data.</p>
+      <p>To run the examples, please follow the next steps:</p>
+      <ul>
+       <li>Install MS Excel 2000 or higher version.</li>
+       <li>Install <a href="http://jakarta.apache.org/tomcat" class="external-link" rel="nofollow">Tomcat</a>. (of course the examples also run under other servlet servers.)</li>
+       <li>Copy all jar files (files with <code>.jar</code> extension) of the Marvin Beans or JChem package under Tomcat's <code>lib</code> directory.</li>
+       <li>Create the <code>marvin</code> directory under Tomcat's <code>webapps/examples/jsp/marvin</code></li>
+       <li>Copy the <code>generate_image.jsp</code> file from the <code>examples/image-generation</code> directory and the <code>molsheet.jsp</code> file from the <code>examples/excelsheet-generation</code> directory of Marvin Beans to Tomcat's <code>webapps/examples/jsp/marvin/</code> directory.</li>
+       <li>Start Tomcat</li>
+       <li>Open:
+        <ul>
+         <li>Start MS Excel and open the following link: <a href="http://localhost:8080/examples/jsp/marvin/molsheet.jsp" class="external-link" rel="nofollow">http://localhost:8080/examples/jsp/marvin/molsheet.jsp</a><br /><br /></li>
+         <li>If you have <a href="http://xml.apache.org/cocoon/index.html" class="external-link" rel="nofollow">cocoon</a> or other xml publishing framework installed under your servlet server you can open the <a href="http://localhost:8080/examples/jsp/marvin/molsheet.jsp" class="external-link" rel="nofollow">http://localhost:8080/examples/jsp/marvin/molsheet.jsp</a> link from your browser.</li>
+        </ul></li>
+      </ul>
+      <p>Please also see:</p>
+      <ul>
+       <li><a href="https://docs.chemaxon.com/display/FF">File Formats</a></li>
+      </ul>
+      <ul>
+       <li><a href="Image-Generation-Using-Marvin-Beans_25988193.html">Image export</a></li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

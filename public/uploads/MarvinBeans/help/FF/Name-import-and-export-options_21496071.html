@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Name import and export options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Name import and export options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Nameimportandexportoptions-Importoption">Import option</h2>
+          <p>See the <a href="https://docs.chemaxon.com/display/n2s/Format+options">format options for Name to Structure</a>.</p>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <p><a href="Name_21496069.html">Name Format</a></p> 
+           </div>
+          </div>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Nameimportandexportoptions-Exportoptions">Export options</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="export_t" rel="nofollow"></a> <strong>t</strong></td>
+              <td class="confluenceTd">converts to traditional name. This option generates a common name if one is known for the structure. Otherwise, it generates a systematic name, but sometimes uses some traditionally accepted rules instead of the strict application of the IUPAC rules, when that generates a simpler name.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="export_common" rel="nofollow"></a> <strong>common</strong></td>
+              <td class="confluenceTd">generates the most popular common name of a structure. (It fails if none is known.)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="export_allcommon" rel="nofollow"></a> <strong>common,all</strong></td>
+              <td class="confluenceTd">generates all common names of a structure.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="export_source" rel="nofollow"></a> <strong>source</strong></td>
+              <td class="confluenceTd">outputs the name present in the source data (no generation).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="export_casNum" rel="nofollow"></a> <strong>cas#</strong></td>
+              <td class="confluenceTd">Fetches the CAS Registry Number(s) of the structure, using a public internet webservice. In case the structure corresponds to several CAS Registry Numbers, they are all returned, separated by commas.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="export_ascii" rel="nofollow"></a> <strong>ascii</strong></td>
+              <td class="confluenceTd">Use only ASCII characters to encode the name.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="export_timeout" rel="nofollow"></a> <strong>timeout=&lt;N&gt;</strong></td>
+              <td class="confluenceTd">Use at most N seconds for the name to be computed. The default timeout is currently 20 seconds (which should normally be reached exceptionally, for very large structures). A value of 0 means no timeout.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

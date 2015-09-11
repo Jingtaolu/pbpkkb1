@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Bond Angle Checker</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Bond Angle Checker </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <dl></dl>
+      <p>Checker searches for bonds NOT matching the following rules:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">
+           <ul>
+            <li>Triple bond angle 180&deg; (&plusmn; 0.5 rad):</li>
+           </ul></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="check_angle1" height="24" width="90" src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle1.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle1.png" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">
+           <ul>
+            <li>Double bond angle 120&deg; or 180&deg; (&plusmn; 0.5 rad):</li>
+           </ul></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="check_angle2" height="55" width="250" src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle2.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle2.png" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">
+           <ul>
+            <li>sp<sup>2</sup> atom's bond angles 120&deg;:</li>
+           </ul></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="check_angle3" height="51" width="57" src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle3.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle3.png" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">
+           <ul>
+            <li>sp<sup>3</sup> atom's bond angles 90&deg;<br /> <strong>or</strong> 3 bond angles 120&deg;, 4th bond of an angle of n times 15&deg;;<br /> <strong>or</strong> a bond angle of 120&deg; and two adjacent angles equal:</li>
+           </ul></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="check_angle4" height="191" width="132" src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle4.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/check_angle4.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Fixer offers cleaning the structure by 2D clean or partial clean.</p>
+      <p><br /><strong>Example</strong>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Bond Angle Checker</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Clean</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Bond Angle errors</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_bondangle_ch" height="113" width="286" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_bondangle_ch1.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_bondangle_ch1.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_bondangle_f" height="128" width="256" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_bondangle_f1.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_bondangle_f1.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /> <strong>Note</strong>: The current version of bond angle checker examines chain bonds of 2D molecules. Envelope-shaped cyclic compounds are considered as error. Partial clean is not available. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Configuring copy/paste operations in applets</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Configuring copy/paste operations in applets </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Using this configuration the copy/paste operations available in the applet can be controlled: the formats available for copy or paste can be manipulated, or the corresponding resources can be preloaded.<br /> For example, the copy or paste of specific file formats can be forced to be immediately available after the start of the applet, so instead of loading the underlying architecture on demand, the required resources are loaded during the applet initialization time.<br /> In addition, the formats available on the clipboard after a simple copy operation can be configured, as well as the list of formats available in the Copy As dialog.</p>
+      <p>The configuration is available through a Java properties file which has to be placed to the APPLET_CODEBASE/chemaxon/marvin/datatransfer.properties file. If this file is available in the applet codebase, the configuration will take effect.</p>
+      <p>This properties file contains settings for format keys. The property name format is as follows: <code>formatkey.configuration.setting.id</code>, so for example, if somebody wants to disable the png format on the copy as dialog, then the <code>png.use.dialog</code> key has to be set to false.</p>
+      <p>&nbsp;</p>
+      <h3 id="Configuringcopy/pasteoperationsinapplets-Availableformatkeysinthepropertyfile,andthecorrespondingformats:">Available format keys in the property file, and the corresponding formats:</h3>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Format key</th>
+          <th class="confluenceTh">The corresponding format</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">mrv</td>
+          <td class="confluenceTd">Marvin Document Format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">skc</td>
+          <td class="confluenceTd">IsisDraw Sketch file format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">cdx</td>
+          <td class="confluenceTd">ChemDraw Sketch file format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">mol</td>
+          <td class="confluenceTd">MDL MOLfile format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">rxn</td>
+          <td class="confluenceTd">MDL RXNfile format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">smiles</td>
+          <td class="confluenceTd">Daylight SMILES format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">smarts</td>
+          <td class="confluenceTd">Daylight SMARTS format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">cxsmiles</td>
+          <td class="confluenceTd">Chemaxon extended SMILES format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">cxsmarts</td>
+          <td class="confluenceTd">Chemaxon extended SMARTS format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">name</td>
+          <td class="confluenceTd">IUPAC name format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">trad_name</td>
+          <td class="confluenceTd">Traditional name format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">inchi</td>
+          <td class="confluenceTd">IUPAC InChI format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">inchikey</td>
+          <td class="confluenceTd">IUPAC InChIKey format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">string</td>
+          <td class="confluenceTd">Molecule source, containing the actual file format of the molecule object</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">emf</td>
+          <td class="confluenceTd">Enchanced Metafile picture format (available only on windows platforms)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">jpg</td>
+          <td class="confluenceTd">JPG image format</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">png</td>
+          <td class="confluenceTd">PNG image format</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h3 id="Configuringcopy/pasteoperationsinapplets-Availableconfigurablepropertiesforallformatsandtheirmeanings:">Available configurable properties for all formats and their meanings:</h3>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter name</th>
+          <th class="confluenceTh">Valid values</th>
+          <th class="confluenceTh">Meaning</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">name</td>
+          <td class="confluenceTd">can be any String</td>
+          <td class="confluenceTd">This will be displayed in the Copy As dialog to represent the format.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">disabled</td>
+          <td class="confluenceTd">true/false</td>
+          <td class="confluenceTd">If set to false, then the format won't be available at all.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">preload.copy</td>
+          <td class="confluenceTd">true/false</td>
+          <td class="confluenceTd">If set to true, then the classes needed for copying in the specified format will be preloaded at applet initialization.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">preload.paste</td>
+          <td class="confluenceTd">true/false</td>
+          <td class="confluenceTd">If set to true, then the classes needed for pasting in the specified format will be preloaded at applet initialization.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">preload</td>
+          <td class="confluenceTd">true/false</td>
+          <td class="confluenceTd">If set to true, then the classes needed for copying or pasting in the specified format will be preloaded at applet initialization.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">use.default</td>
+          <td class="confluenceTd">true/false</td>
+          <td class="confluenceTd">If set to true, then the molecule will be placed to the clipboard by a simple copy operation in the specified format.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">use.dialog</td>
+          <td class="confluenceTd">true/false</td>
+          <td class="confluenceTd">If set to false, then the specified format won't be available in the Copy As dialog.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>By default, none of the formats are preloaded, all of them are configured as they worked before.</p>
+      <p>&nbsp;</p>
+      <h3 id="Configuringcopy/pasteoperationsinapplets-Otheravailableoptions:">Other available options:</h3>
+      <p>The following keys are not related to the formats, and should be used as they are:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Property name</th>
+          <th class="confluenceTh">Valid values</th>
+          <th class="confluenceTh">Meaning</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">ole.enabled</td>
+          <td class="confluenceTd">true/false</td>
+          <td class="confluenceTd">If Microsoft OLE object copy should be disabled then set to false.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a href="http://ole.name" class="external-link" rel="nofollow">ole.name</a></td>
+          <td class="confluenceTd">can be any String</td>
+          <td class="confluenceTd">This will be displayed in the Copy as dialog to represent the Microsoft OLE object format.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">separator</td>
+          <td class="confluenceTd">a comma separated list of format keys.</td>
+          <td class="confluenceTd">After the enumerated formats a separator will be placed in the copy as dialog.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h3 id="Configuringcopy/pasteoperationsinapplets-Thedefaultconfigurationfile">The default configuration file</h3>
+      <p><code> #define where to place separator in the copy as dialog.<br /> #comma separated list, separators will be placed after the listed formats<br /> separator = string<br /> <br /> #OLE related settings. Note: OLE is usable only on Windows platforms.<br /> <a href="http://ole.name" class="external-link" rel="nofollow">ole.name</a> = Marvin Object (OLE)<br /> ole.enabled = true<br /> <br /> #structure formats<br /> <a href="http://mrv.name" class="external-link" rel="nofollow">mrv.name</a> = Marvin Document (MRV)<br /> mrv.disabled = false<br /> mrv.preload.copy = false<br /> mrv.preload.paste = false<br /> mrv.use.default = true<br /> mrv.use.dialog = true<br /> <br /> <a href="http://skc.name" class="external-link" rel="nofollow">skc.name</a> = ISIS (Symyx) file (SKC)<br /> skc.disabled = false<br /> skc.preload = false<br /> skc.use.default = true<br /> skc.use.dialog = true<br /> <br /> <a href="http://cdx.name" class="external-link" rel="nofollow">cdx.name</a> = ChemDraw file (CDX)<br /> cdx.disabled = false<br /> cdx.preload = false<br /> cdx.use.default = true<br /> cdx.use.dialog = true<br /> <br /> <a href="http://mol.name" class="external-link" rel="nofollow">mol.name</a> = MDL MOLfile<br /> mol.disabled = false<br /> mol.preload.copy = false<br /> mol.preload.paste = false<br /> mol.use.default = true<br /> mol.use.dialog = true<br /> <br /> <a href="http://rxn.name" class="external-link" rel="nofollow">rxn.name</a> = MDL RXNfile<br /> rxn.disabled = false<br /> rxn.preload.copy = false<br /> rxn.preload.paste = false<br /> rxn.use.default = true<br /> rxn.use.dialog = true<br /> <br /> <a href="http://smiles.name" class="external-link" rel="nofollow">smiles.name</a> = Daylight SMILES<br /> smiles.disabled = false<br /> smiles.preload.copy = false<br /> smiles.preload.paste = false<br /> smiles.use.default = false<br /> smiles.use.dialog = true<br /> <br /> <a href="http://smarts.name" class="external-link" rel="nofollow">smarts.name</a> = Daylight SMARTS<br /> smarts.disabled = false<br /> smarts.preload.copy = false<br /> smarts.preload.paste = false<br /> smarts.use.default = false<br /> smarts.use.dialog = true<br /> <br /> <a href="http://cxsmiles.name" class="external-link" rel="nofollow">cxsmiles.name</a> = ChemAxon SMILES (CXSMILES)<br /> cxsmiles.disabled = false<br /> cxsmiles.preload.copy = false<br /> cxsmiles.preload.paste = false<br /> cxsmiles.use.default = false<br /> cxsmiles.use.dialog = true<br /> <br /> <a href="http://cxsmarts.name" class="external-link" rel="nofollow">cxsmarts.name</a> = ChemAxon SMARTS (CXSMILES)<br /> cxsmarts.disabled = false<br /> cxsmarts.preload.copy = false<br /> cxsmarts.preload.paste = false<br /> cxsmarts.use.default = false<br /> cxsmarts.use.dialog = true<br /> <br /> <a href="http://name.name" class="external-link" rel="nofollow">name.name</a> = Name<br /> name.disabled = false<br /> name.preload.copy = false<br /> name.preload.paste = false<br /> name.use.default = false<br /> name.use.dialog = true<br /> <br /> <a href="http://inchi.name" class="external-link" rel="nofollow">inchi.name</a> = InChI<br /> inchi.disabled = false<br /> inchi.preload = false<br /> inchi.use.default = false<br /> inchi.use.dialog = true<br /> <br /> <a href="http://inchikey.name" class="external-link" rel="nofollow">inchikey.name</a> = InChIKey<br /> inchikey.disabled = false<br /> inchikey.preload = false<br /> inchikey.use.default = false<br /> inchikey.use.dialog = true<br /> <br /> <a href="http://string.name" class="external-link" rel="nofollow">string.name</a> = Molecule Source (Plain Text)<br /> string.disabled = false<br /> string.preload = false<br /> string.use.default = true<br /> string.use.dialog = true<br /> <br /> #image formats<br /> #emf supported only on Windows platforms<br /> <a href="http://emf.name" class="external-link" rel="nofollow">emf.name</a> = EMF Image<br /> emf.disabled = false<br /> emf.preload = false<br /> emf.use.default = true<br /> emf.use.dialog = true<br /> <br /> #default copy contains these formats because Java Image Flavor is used in default copy.<br /> <a href="http://jpg.name" class="external-link" rel="nofollow">jpg.name</a> = JPG Image<br /> jpg.disabled = false<br /> jpg.preload = false<br /> jpg.use.default = false<br /> jpg.use.dialog = true<br /> <br /> <a href="http://png.name" class="external-link" rel="nofollow">png.name</a> = PNG Image<br /> png.disabled = false<br /> png.preload = false<br /> png.use.default = false<br /> png.use.dialog = true<br /> </code></p>
+      <h3 id="Configuringcopy/pasteoperationsinapplets-Furtherformatcouplings">Further format couplings</h3>
+      <p>Please consider this information also while changing the configuration.</p>
+      <ul>
+       <li>If OLE is enabled, then the OLE data will contain the mrv, the mol or rxn file, and the emf image also.</li>
+       <li>Default copy places image data to the clipboard, in java image format. If you want to disable this behaviour you have to set the <code>jimage.use.default</code> property to true.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

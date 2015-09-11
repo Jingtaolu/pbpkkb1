@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinView In JTable Example</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">struc</span><span class="symbol">.</span><span class="normal">Molecule</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">MViewPane</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolImporter</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JFrame</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JPanel</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JScrollPane</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JTable</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">table</span><span class="symbol">.</span><span class="normal">DefaultTableCellRenderer</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">table</span><span class="symbol">.</span><span class="normal">AbstractTableModel</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">BorderLayout</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">Dimension</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">util</span><span class="symbol">.</span><span class="normal">ArrayList</span><span class="symbol">;</span>
+
+
+<span class="comment">/**</span>
+<span class="comment"> * Application using MViewPane as the cell renderer and the cell </span>
+<span class="comment"> * editor of a JTable, and as an alternative approach using</span>
+<span class="comment"> * MolPrinter as a cell renderer.</span>
+<span class="comment"> * </span><span class="keyword">&lt;p&gt;</span>
+<span class="comment"> * These renderer and editor classes are also accessible as part of</span>
+<span class="comment"> * the public API.</span><span class="keyword">&lt;br&gt;</span>
+<span class="comment"> * Renderer: {</span><span class="type">@link</span><span class="comment"> chemaxon.marvin.beans.MViewRenderer}</span><span class="keyword">&lt;br&gt;</span>
+<span class="comment"> * Editor: {</span><span class="type">@link</span><span class="comment"> chemaxon.marvin.beans.MViewEditor}</span>
+<span class="comment"> * </span><span class="keyword">&lt;p&gt;</span>
+<span class="comment"> * For the detailed description of this example, please visit</span>
+<span class="comment"> * </span><span class="url">http://www.chemaxon.com/marvin/examples/beans/view-jtable/index.html</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Judit Vasko-Szedlar</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Gabor Bartha</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.2.2 May 16, 2009</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment">   Marvin 2.10.5, 09/02/2002</span>
+<span class="comment"> </span><span class="comment">*/</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> ViewJTable </span><span class="keyword">extends</span><span class="normal"> JPanel </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> JTable table</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Constructor, creates the JTable and its editor and renderer objects</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="function">ViewJTable</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Creates the data object of the table</span>
+<span class="normal">	MoleculeTableModel molModel </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MoleculeTableModel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment">Creates the table</span>
+<span class="normal">        table </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JTable</span><span class="symbol">(</span><span class="normal">molModel</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment">Sets table's dimensions</span>
+<span class="normal">        table</span><span class="symbol">.</span><span class="function">setPreferredScrollableViewportSize</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Dimension</span><span class="symbol">(</span><span class="number">400</span><span class="symbol">,</span><span class="normal"> </span><span class="number">450</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	table</span><span class="symbol">.</span><span class="function">setRowHeight</span><span class="symbol">(</span><span class="number">150</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment">Sets the cell renderer of the table</span>
+<span class="normal">	</span><span class="function">setUpMolRenderer</span><span class="symbol">(</span><span class="normal">table</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal"> 	</span><span class="comment">//</span><span class="comment">Sets the cell editor of the table</span>
+<span class="normal">        </span><span class="function">setUpMolEditor</span><span class="symbol">(</span><span class="normal">table</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Creates a scroll pane and adds the table to it.</span>
+<span class="normal">        JScrollPane scrollPane </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JScrollPane</span><span class="symbol">(</span><span class="normal">table</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        scrollPane</span><span class="symbol">.</span><span class="function">setViewportView</span><span class="symbol">(</span><span class="normal">table</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">add</span><span class="symbol">(</span><span class="normal">scrollPane</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Create the GUI and show it. For thread safety,</span>
+<span class="comment">     * this method should be invoked from the</span>
+<span class="comment">     * event-dispatching thread.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> mols molecules to be displayed in the table</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="normal">ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="normal"> mols</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Create and set up the window.</span>
+<span class="normal">        JFrame frame </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFrame</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setTitle</span><span class="symbol">(</span><span class="string">"MarvinView in JTable Example"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setDefaultCloseOperation</span><span class="symbol">(</span><span class="normal">JFrame</span><span class="symbol">.</span><span class="normal">EXIT_ON_CLOSE</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        ViewJTable viewJTable </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">ViewJTable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        viewJTable</span><span class="symbol">.</span><span class="function">setMolecules</span><span class="symbol">(</span><span class="normal">mols</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Adds a scroll pane to the content pane.</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">viewJTable</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">pack</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setLocationRelativeTo</span><span class="symbol">(</span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setVisible</span><span class="symbol">(</span><span class="keyword">true</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setMolecules</span><span class="symbol">(</span><span class="normal">ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="normal"> mols</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        MoleculeTableModel tm </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">MoleculeTableModel</span><span class="symbol">)</span><span class="normal">table</span><span class="symbol">.</span><span class="function">getModel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        tm</span><span class="symbol">.</span><span class="function">setMolecules</span><span class="symbol">(</span><span class="normal">mols</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        table</span><span class="symbol">.</span><span class="function">setModel</span><span class="symbol">(</span><span class="normal">tm</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Initializes an MViewPane instance and assigns it as the cell editor</span>
+<span class="comment">     * of Molecule objects in the table.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> table The JTable object to which an MViewPane</span>
+<span class="comment">     * is set as a cell editor</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setUpMolEditor</span><span class="symbol">(</span><span class="normal">JTable table</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+
+<span class="normal">        MViewEditor me </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MViewEditor</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment">Sets its editable property to MViewPane.SKETCHABLE which launches</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">MarvinSketch when double clicking on MViewPane</span>
+<span class="normal">        me</span><span class="symbol">.</span><span class="function">setEditable</span><span class="symbol">(</span><span class="normal">MViewPane</span><span class="symbol">.</span><span class="normal">SKETCHABLE</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Sets the moleditor to the cell editor of the table which cells</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> are containing Molecule objects</span>
+<span class="normal">	table</span><span class="symbol">.</span><span class="function">setDefaultEditor</span><span class="symbol">(</span><span class="normal">Molecule</span><span class="symbol">.</span><span class="keyword">class</span><span class="symbol">,</span><span class="normal"> me</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Initializes an MViewPane or MolPrinter instance and assigns it</span>
+<span class="comment">     * as the cell renderer of Molecule objects in the table.</span>
+<span class="comment">     * It also initializes and sets a renderer component to String objects.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> table The JTable object to which an MViewPane</span>
+<span class="comment">     * is set as a cell renderer</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setUpMolRenderer</span><span class="symbol">(</span><span class="normal">JTable table</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">using cell renderer with MViewPane</span>
+<span class="normal">        table</span><span class="symbol">.</span><span class="function">setDefaultRenderer</span><span class="symbol">(</span><span class="normal">Molecule</span><span class="symbol">.</span><span class="keyword">class</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MViewRenderer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> using cell renderer with MolPrinter</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">table.setDefaultRenderer(Molecule.class, new MolRenderer());</span>
+
+<span class="normal">        table</span><span class="symbol">.</span><span class="function">setDefaultRenderer</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">.</span><span class="keyword">class</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">StringRenderer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">final</span><span class="normal"> ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="normal"> mols </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">if</span><span class="symbol">(</span><span class="normal">args</span><span class="symbol">=</span><span class="symbol">=</span><span class="keyword">null</span><span class="normal"> </span><span class="symbol">|</span><span class="symbol">|</span><span class="normal"> args</span><span class="symbol">.</span><span class="normal">length</span><span class="symbol">=</span><span class="symbol">=</span><span class="number">0</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                mols</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">MolImporter</span><span class="symbol">.</span><span class="function">importMol</span><span class="symbol">(</span><span class="string">"C1CCCC1"</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                mols</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">MolImporter</span><span class="symbol">.</span><span class="function">importMol</span><span class="symbol">(</span><span class="string">"C1=CC2=C(C=C1)C=CC=C2"</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                mols</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">MolImporter</span><span class="symbol">.</span><span class="function">importMol</span><span class="symbol">(</span>
+<span class="normal">                        </span><span class="string">"CN1C=NC2=C1C(=O)N(C)C(=O)N2C"</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                mols</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">MolImporter</span><span class="symbol">.</span><span class="function">importMol</span><span class="symbol">(</span><span class="string">"N1C=CC=C1"</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">            </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">Exception e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                e</span><span class="symbol">.</span><span class="function">printStackTrace</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="keyword">else</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                MolImporter mi </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolImporter</span><span class="symbol">(</span><span class="normal">args</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">]</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                Molecule mol</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="keyword">while</span><span class="symbol">(</span><span class="symbol">(</span><span class="normal">mol </span><span class="symbol">=</span><span class="normal"> mi</span><span class="symbol">.</span><span class="function">read</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">!</span><span class="symbol">=</span><span class="keyword">null</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                    mols</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">mol</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="cbracket">}</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">            </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">Exception e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                e</span><span class="symbol">.</span><span class="function">printStackTrace</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Schedule a job for the event-dispatching thread:</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">creating and showing this application's GUI.</span>
+<span class="normal">        javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">SwingUtilities</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="normal">mols</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * String renderer to align text in cells</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> StringRenderer </span><span class="keyword">extends</span><span class="normal"> DefaultTableCellRenderer </span><span class="cbracket">{</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="function">StringRenderer</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="function">setHorizontalAlignment</span><span class="symbol">(</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">SwingConstants</span><span class="symbol">.</span><span class="normal">CENTER </span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * The table model object manages the actual table data. </span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> MoleculeTableModel </span><span class="keyword">extends</span><span class="normal"> AbstractTableModel </span><span class="cbracket">{</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment">Defines names of columns</span>
+<span class="normal">        </span><span class="keyword">final</span><span class="normal"> String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> columnNames </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span><span class="string">"Index"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Molecule"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Mass"</span><span class="cbracket">}</span><span class="symbol">;</span>
+
+<span class="normal">        Object</span><span class="symbol">[</span><span class="symbol">]</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> data </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span><span class="cbracket">}</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">int</span><span class="normal"> </span><span class="function">getColumnCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">return</span><span class="normal"> columnNames</span><span class="symbol">.</span><span class="normal">length</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">int</span><span class="normal"> </span><span class="function">getRowCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">return</span><span class="normal"> data</span><span class="symbol">.</span><span class="normal">length</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> String </span><span class="function">getColumnName</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> col</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">return</span><span class="normal"> columnNames</span><span class="symbol">[</span><span class="normal">col</span><span class="symbol">]</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">   	</span><span class="comment">//</span><span class="comment">Gets a molecule located at the defined row and col of the table</span>
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> Object </span><span class="function">getValueAt</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> col</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">return</span><span class="normal"> data</span><span class="symbol">[</span><span class="normal">row</span><span class="symbol">]</span><span class="symbol">[</span><span class="normal">col</span><span class="symbol">]</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> Class </span><span class="function">getColumnClass</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> c</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">return</span><span class="normal"> </span><span class="function">getValueAt</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">,</span><span class="normal"> c</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">getClass</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> In case of double clicking with the mouse's left button</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> on a cell, this function gets called.</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> It returns true for the molecule column only,</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> thus allowing its cell editor to work.</span>
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">boolean</span><span class="normal"> </span><span class="function">isCellEditable</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> col</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">return</span><span class="normal"> col </span><span class="symbol">=</span><span class="symbol">=</span><span class="normal"> </span><span class="number">1</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment">Sets a molecule at the defined row and col of the table</span>
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setValueAt</span><span class="symbol">(</span><span class="normal">Object value</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> col</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            data</span><span class="symbol">[</span><span class="normal">row</span><span class="symbol">]</span><span class="symbol">[</span><span class="normal">col</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> value</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="keyword">if</span><span class="symbol">(</span><span class="normal">col</span><span class="symbol">=</span><span class="symbol">=</span><span class="number">1</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> setting the mass here keeps the column updated</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> upon editing the molecules</span>
+<span class="normal">                </span><span class="function">setValueAt</span><span class="symbol">(</span><span class="string">""</span><span class="symbol">+</span><span class="symbol">(</span><span class="symbol">(</span><span class="normal">Molecule</span><span class="symbol">)</span><span class="normal">value</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">getMass</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">,</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">            </span><span class="function">fireTableCellUpdated</span><span class="symbol">(</span><span class="normal">row</span><span class="symbol">,</span><span class="normal"> col</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setMolecules</span><span class="symbol">(</span><span class="normal">ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="normal"> mols</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            data </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> Object</span><span class="symbol">[</span><span class="normal">mols</span><span class="symbol">.</span><span class="function">size</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">]</span><span class="symbol">[</span><span class="number">3</span><span class="symbol">]</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="keyword">for</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> i</span><span class="symbol">=</span><span class="number">0</span><span class="symbol">;</span><span class="normal"> i</span><span class="symbol">&lt;</span><span class="normal">mols</span><span class="symbol">.</span><span class="function">size</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span><span class="normal"> i</span><span class="symbol">+</span><span class="symbol">+</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">setValueAt</span><span class="symbol">(</span><span class="string">""</span><span class="symbol">+</span><span class="symbol">(</span><span class="normal">i</span><span class="symbol">+</span><span class="number">1</span><span class="symbol">)</span><span class="symbol">,</span><span class="normal"> i</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="function">setValueAt</span><span class="symbol">(</span><span class="normal">mols</span><span class="symbol">.</span><span class="function">get</span><span class="symbol">(</span><span class="normal">i</span><span class="symbol">)</span><span class="symbol">,</span><span class="normal"> i</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> we set the mass inside the setValueAt method instead</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment">setValueAt(""+mols.get(i).getMass(), i, 2);</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Licensing : Licensing via Java Web Start</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Licensing : Licensing via Java Web Start </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="LicensingviaJavaWebStart-"><a name="jws" rel="nofollow"></a></h2>
+      <p>The license file should be set as a resource to the Web Start configuration.</p>
+      <p>Example:</p>
+      <pre><strong>&lt;resources&gt; &lt;property name=&quot;chemaxon.license.url&quot; value=&quot;https://www.yourserver.com/chemaxon/license.cxl&quot;/&gt; &lt;/resources&gt; </strong></pre>
+      <p>Restrictions:</p>
+      <ul>
+       <li>The licenses should have the &quot;Server mode allowed&quot; field</li>
+       <li>The value should start with http:// or https://</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

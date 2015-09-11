@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Implementing a new Structure Checker</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Implementing a new Structure Checker </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul>
+       <li><a href="Implementing-a-new-Structure-Checker_28935112.html">Implementing a new Structure Checker</a><br />
+        <ul>
+         <li><a href="#ImplementinganewStructureChecker-prep">Preparations</a></li>
+        </ul></li>
+       <li><a href="#ImplementinganewStructureChecker-create">Create a new Structure Checker</a>
+        <ul>
+         <li><a href="#ImplementinganewStructureChecker-new">Start with a new class</a></li>
+         <li><a href="#ImplementinganewStructureChecker-add">Adding an Option</a></li>
+         <li><a href="#ImplementinganewStructureChecker-pers">Making it persistent</a></li>
+         <li><a href="#ImplementinganewStructureChecker-logic">Business Logic and Metadata</a></li>
+        </ul></li>
+      </ul>
+      <h2 id="ImplementinganewStructureChecker-implImplementinganewStructureChecker"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="ImplementinganewStructureChecker-impl"></span>Implementing a new Structure Checker</h2>
+      <p>Structure Checkers meant to detect well-defined issues in chemical structures. A Checker should be simple, and focus on a single problem. Although a Checker can have options to fine-tune its behavior, it is not recommended to create Checkers focusing more issues.</p>
+      <h4 id="ImplementinganewStructureChecker-prepPreparations"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="ImplementinganewStructureChecker-prep"></span>Preparations</h4>
+      <p>You will need Java 6 SDK and Marvin Beans 6.0 (or newer) installed on your computer. An Integrated Development Environment (IDE) such as Eclipse, IntelliJ IDEA or NetBeans is recommended. This training material is using Eclipse.</p>
+      <p>Create a new Java project, and add the&nbsp;<em>MarvinBeans.jar</em>&nbsp;to the class path.</p>
+      <p><strong>Hint</strong>: The location of MarvinBeans.jar is the&nbsp;<em>&lt;installation path&gt;/MarvinBeans/lib</em>&nbsp;folder. To add the jar to the class path in Eclipse, go to&nbsp;<em>Project/Properties/Java Build Path/Libraries</em>; press the&nbsp;<em>Add External Library</em>&nbsp;button, and browse the&nbsp;<em>MarvinBeans.jar</em>&nbsp;from the file system.</p>
+      <h3 id="ImplementinganewStructureChecker-createCreateanewStructureChecker"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="ImplementinganewStructureChecker-create"></span>Create a new Structure Checker</h3>
+      <p>We are going to implement a new Structure Checker to detect atom map duplications in reactions only. The Checker will report if the same mapping is used for more than one atom in the reactant or in the product side. With an option, the user can specify which side of the reaction should be checked for map duplications.</p>
+      <h4 id="ImplementinganewStructureChecker-newCreateanewclass"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="ImplementinganewStructureChecker-new"></span>Create a new class</h4>
+      <p>Create a new&nbsp;<code>DuplicateAtomMapChecker</code>&nbsp;class to&nbsp;<code>custom.checkers</code>&nbsp;package that extends the&nbsp;<code>chemaxon.checkers.ExternalStructureChecker</code>&nbsp;class provided by&nbsp;<em>MarvinBeans.jar</em>.</p>
+      <p>Download the&nbsp;<a href="attachments/28935112/29098566.zip" data-linked-resource-id="29098566" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="custom.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28935112" data-linked-resource-container-version="19">example</a>&nbsp;and find &quot;DuplicateAtomMapChecker.java&quot;.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">package custom.checkers;
+
+	import chemaxon.checkers.ExternalStructureChecker;
+	import chemaxon.checkers.result.StructureCheckerResult;
+	import chemaxon.struc.Molecule;
+	
+	public class DuplicateAtomMapChecker extends ExternalStructureChecker {
+
+	    /** error code of duplicate atom map checker */
+	    public static final String DUPLICATE_ATOM_MAP_CHECKER_ERROR = &quot;duplicateAtomMapCheckerError&quot;;
+
+	    /** * Constructs a duplicate atom map checker with default settings. */
+	    public DuplicateAtomMapChecker() {
+	        super(DUPLICATE_ATOM_MAP_CHECKER_ERROR);
+	    }
+	    
+	    @Override
+	    protected StructureCheckerResult check1(Molecule molecule) {
+	        // TODO Auto-generated method stub
+	        return null;
+	    }
+	}</pre> 
+       </div>
+      </div>
+      <pre>The&nbsp;<code style="line-height: 1.4285715;">ExternalStructureChecker</code>&nbsp;superclass requires a&nbsp;<code style="line-height: 1.4285715;">String</code>&nbsp;argument to identify the type of problem this checker can detect. We can use this identifier to offer fixers for the problem later.</pre>
+      <p><strong>Note</strong>: Since fixers are not bound to checkers, but to error types, different Structure Checkers using the same error type will share the compatible fixers as well.</p>
+      <h4 id="ImplementinganewStructureChecker-addAddinganOption"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="ImplementinganewStructureChecker-add"></span>Adding an Option</h4>
+      <p>To fulfill the requirement of specifying the side of the reaction to be checked for duplicate mappings, the code must be enhanced with:</p>
+      <ul>
+       <li>an enumeration type with possible values;</li>
+       <li>a data member holding the selected value;</li>
+       <li>getter and setter to handle this option.</li>
+      </ul>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;"> /** * Specifies the reaction side to check for duplicate mappings. */
+	    public enum ReactionSide { 
+
+	        /** check the reactant side only */
+	        REACTANT, 
+
+	        /** check the product side only */
+	        PRODUCT, 
+
+	        /** check both sides */
+	        BOTH 
+	    }
+
+	    private ReactionSide reactionSide;
+
+	    /** * Returns the reaction side to check for duplicate mappings. * * @return the reaction side to check for duplicate mappings */
+		
+	    public ReactionSide getReactionSide() {
+	        return reactionSide;
+	    }
+
+	    /** * Sets the reaction side to check for duplicate mappings. * * @param reactionSide * the reaction side to check */
+	    public void setReactionSide(ReactionSide reactionSide) {
+	        ReactionSide oldValue = getReactionSide();
+	        this.reactionSide = reactionSide;
+	        propertyChangeSupport.firePropertyChange(REACTION_SIDE, oldValue,
+	                reactionSide);
+	    }</pre> 
+       </div>
+      </div>
+      <h4 id="ImplementinganewStructureChecker-persMakingitpersistent"><span class="confluence-anchor-link" id="ImplementinganewStructureChecker-pers"></span>Making it persistent</h4>
+      <p>To properly use the new checker in ChemAxon applications, it is required to make the reaction side parameter persistent. That is achieved with:</p>
+      <ul>
+       <li>annotate reaction side member, and set up a default value;</li>
+       <li>a new constructor with a Map argument.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">	    @Persistent
+	    private ReactionSide reactionSide = ReactionSide.BOTH;
+
+	    /** * Constructs a duplicate atom map checker with specified settings. * * @param params * the settings to use */
+	    // NOTE: this constructor is required by StructureCheckerFactory // if checker has parameters.
+	    public DuplicateAtomMapChecker(Map&lt;String, String&gt; params) {
+	        super(DUPLICATE_ATOM_MAP_CHECKER_ERROR);
+	        this.reactionSide = ReactionSide.BOTH;
+	        if (params.containsKey(REACTION_SIDE)) {
+	            String value = params.get(REACTION_SIDE).toUpperCase();
+	            try {
+	                this.reactionSide = ReactionSide.valueOf(value);
+	            } catch (IllegalArgumentException e) {
+	                // invalid argument set, using default
+	            }
+	        }
+	    }</pre> 
+       </div>
+      </div>
+      <pre>The&nbsp;<code style="line-height: 1.4285715;">@Persistent</code>&nbsp;annotation tells the Structure Checker API to save the value of the member when exporting the Checker to a configuration file. To retrieve the current value, a corresponding getter will be called, in this case the&nbsp;<code style="line-height: 1.4285715;">getReactionSide()</code>&nbsp;function.</pre>
+      <p>When a Checker has a parameter, it must have a constructor with&nbsp;<code>Map&lt;String, String&gt;</code>&nbsp;argument. The Structure Checker API will try to create the Checker instance by passing key value pairs according to the parameters.</p>
+      <h4 id="ImplementinganewStructureChecker-logicBusinessLogicandMetadata"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="ImplementinganewStructureChecker-logic"></span>Business Logic and Metadata</h4>
+      <p>The new Checker will display properly if it has a&nbsp;<code>@CheckerInfo</code>&nbsp;annotation set, and to make it work, it is required to add the logic to the&nbsp;<code>check1</code>&nbsp;method.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">@CheckerInfo(
+	    name = &quot;Duplicate Atom Map Checker&quot;,
+	    description = &quot;Checks for mapping duplicates in a reaction.&quot;,
+	    noErrorMessage = &quot;No duplicate mappings found&quot;,
+	    moreErrorMessage = &quot;duplicate mappings found&quot;,
+	    actionStringToken= &quot;duplicateatommap&quot;)
+	public class DuplicateAtomMapChecker extends ExternalStructureChecker {
+
+	    @Override
+	    protected StructureCheckerResult check1(Molecule molecule) {
+
+	        // we are checking only reactions
+	        if (molecule.isReaction()) {
+
+	            // create a list for atoms
+	            List&lt;MolAtom&gt; atomList = new ArrayList&lt;MolAtom&gt;();
+
+	            if (ReactionSide.REACTANT.equals(getReactionSide())
+	                    || ReactionSide.BOTH.equals(getReactionSide())) {
+	                // if we are checking reactants, add the duplicates to the list
+	            atomList.addAll(getAtomsWithMappingDuplicates(RxnMolecule
+	                        .getReaction(molecule).getReactants()));
+	            } 
+		    if (ReactionSide.PRODUCT.equals(getReactionSide())
+	                    || ReactionSide.BOTH.equals(getReactionSide())) {
+	                // if we are checking products, add the duplicates to the list
+	                atomList.addAll(getAtomsWithMappingDuplicates(RxnMolecule
+	                        .getReaction(molecule).getProducts()));
+	            }
+
+	            if (!atomList.isEmpty()) {
+	                // create and return the result
+	                return new DefaultExternalStructureCheckerResult(this,
+	                        atomList, Collections.&lt;MolBond&gt; emptyList(), molecule,
+	                        DUPLICATE_ATOM_MAP_CHECKER_ERROR);
+	            }
+	        }
+
+	        // return with no result
+	        return null;
+	    }
+
+	    /**
+	     * Returns a list of atoms that have the same mapping in the input set.
+	     * 
+	     * @param molecules
+	     *            the input set
+	     * @return a list of atoms that have the same mapping in the input set
+	     */
+	    protected static List&lt;MolAtom&gt; getAtomsWithMappingDuplicates(
+	            Molecule[] molecules) {
+
+	        // create a list for results
+	        List&lt;MolAtom&gt; list = new ArrayList&lt;MolAtom&gt;();
+
+	        // create a map for mapping - atom data
+	        Map&lt;Integer, MolAtom&gt; mappings = new HashMap&lt;Integer, MolAtom&gt;();
+
+	        // for each molecule in the input set
+	        for (Molecule molecule : molecules) {
+
+	            // iterate all atoms in the molecule
+	            for (MolAtom atom : molecule.getAtomArray()) {
+	                int atomMap = atom.getAtomMap(); // get the atom map
+
+	                // if atom has mapping
+	                if (atomMap != 0) {
+
+	                    // check if mapping already found
+	                    if (mappings.containsKey(atomMap)) {
+	                        // if the list not contains the other atom with same
+	                        // mapping, add it to the list
+	                        if (!list.contains(mappings.get(atomMap))) {
+	                            list.add(mappings.get(atomMap));
+	                        }
+	                        list.add(atom); // add atom to the error list
+	                    } else {
+	                        mappings.put(atomMap, atom); // add mapping to the
+	                                                     // mappings set
+	                    }
+	                }
+	            }
+	        }
+
+	        // return the result
+	        return list;
+	    }</pre> 
+       </div>
+      </div>
+      <p>After implementing the checker, it will highlight the errors in MarvinSketch.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/28935112/29098565.png" data-image-src="attachments/28935112/29098565.png" data-unresolved-comment-count="0" data-linked-resource-id="29098565" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="highlight_msketch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935112" data-linked-resource-container-version="19" /></span></p>
+      <div class="lenia">
+       <span style="font-size: 20.0px;line-height: 1.5;"> <br /><br /></span>
+      </div>
+      <div class="lenia">
+       &nbsp;
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

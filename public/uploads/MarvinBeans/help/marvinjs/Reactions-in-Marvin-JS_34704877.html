@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Reactions in Marvin JS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Reactions in Marvin JS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="ReactionsinMarvinJS-Reaction">Reaction</h2>
+      <p>In Marvin JS there is an option to draw a reaction by the&nbsp;<strong>Reaction tool</strong>&nbsp;buttons.&nbsp;</p>
+      <p></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th style="text-align: center;" class="confluenceTh">Reaction arrow symbol</th>
+          <th style="text-align: center;" class="confluenceTh"><span>Reaction arrow type</span></th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/34078845/34504734.png" data-image-src="attachments/34078845/34504734.png" data-unresolved-comment-count="0" data-linked-resource-id="34504734" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-4 14:53:2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34078845" data-linked-resource-container-version="22" /></span></td>
+          <td style="text-align: center;" class="confluenceTd">Straight arrow</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/34078845/34504735.png" data-image-src="attachments/34078845/34504735.png" data-unresolved-comment-count="0" data-linked-resource-id="34504735" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-4 14:53:20.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34078845" data-linked-resource-container-version="22" /></span></td>
+          <td style="text-align: center;" class="confluenceTd">Two-headed arrow (Resonance arrow.)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/34078845/34504736.png" data-image-src="attachments/34078845/34504736.png" data-unresolved-comment-count="0" data-linked-resource-id="34504736" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-4 14:53:46.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34078845" data-linked-resource-container-version="22" /></span></td>
+          <td style="text-align: center;" class="confluenceTd">Equilibrium arrow</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p></p>
+      <p><strong>Creating Reactions in Marvin JS:&nbsp;</strong>With Reaction tool you can draw &quot;+&quot; signs, arrows, and you also can map the reactions. You can read detailed description about the creation in the <strong><a href="Reaction_34701342.html#Reaction-createReaction">Reaction page</a></strong> in Drawing features section. (For more information about mapping see below.)</p>
+      <p>Multistep&nbsp;reactions and&nbsp;graphical charts&nbsp;also can be displayed by the&nbsp;<strong>Reaction tool</strong>.</p>
+      <p></p>
+      <div class="panel" style="background-color: white;border-color: #ff9900;border-width: 1px;">
+       <div class="panelContent" style="background-color: white;"> 
+        <p><strong><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> Technical details - Export reactions</strong></p>
+        <ul>
+         <li>If the structure on the canvas contains <em>only a single step reaction</em>, then it will be automatically exported as a &quot;reaction file&quot; by Marvin JS. <br />(This means that in the exported file there will be separate blocks for reactants, products and agents making it possible to use the exported file in a reaction search.)<br />In this case, only those file formats are available in the&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Export+dialog">Export&nbsp;dialog</a></strong> which support reactions (MRV, RXN, SMILES, CXSMILES, SMARTS, CXSMARTS, CML, RXN V3000, SDF, CSSDF, CDX, SKC).</li>
+        </ul>
+        <p style="text-align: left;margin-left: 30.0px;"><span><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)" /><strong> Please note, that the conversion of the structure to a reaction file happens on server side and requires the reaction converter web service to be available.</strong></span></p>
+        <ul>
+         <li>When the structure contains <em>more than one reaction or a multistep reaction</em> (or when the reaction converter web service is not available), the structure will not be converted to a reaction file.<br />In this case, there will not be reactant/product/agent blocks in the exported files and the + signs and arrows of the reaction(s) will be exported as text characters.</li>
+        </ul> 
+       </div>
+      </div>
+      <p></p>
+      <h2 id="ReactionsinMarvinJS-AtomMapping">Atom Mapping</h2>
+      <p>Marvin JS provides the option to set map numbers to individual atoms. Unlike atom indices, map numbers remain constant during editing the molecule. Mapping can be useful if you want to identify corresponding atoms in the reactant and product side of a reaction.</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><a href="Display-Options_17236089.html#DisplayOptions-showAtomMaps">Atom map visibility</a> should be turned on to display the atom map numbers.</p>
+       </div> 
+      </div> 
+      <p><strong>Creating and maintaining map numbers in Marvin JS:&nbsp;</strong>There are two ways for adding map numbers to the atoms.You can add map number to every single atom manually from the<strong><a href="Atom-properties-dialog_35946507.html"><span style="color: rgb(0,0,0);">&nbsp;</span>Atom properties&nbsp;dialog</a></strong> or if you would like to map the same atom with the same number, you can map these atoms by dragging from atom to atom when the&nbsp;<strong><a href="Atom-mapping_35946780.html#Atommapping-assignMapNumberToAtoms">Reaction tool</a></strong>&nbsp;is active. Both way are suitable for changing, or deleting the corresponding numbers.</p>
+      <h4 id="ReactionsinMarvinJS-Auto-mapping">Auto-mapping</h4>
+      <p>Click the&nbsp;<a href="Auto-map_33293636.html"><strong>Auto Map&nbsp;button</strong></a>. In this case every atom in the reaction would get atom map number automatically.&nbsp;</p>
+      <p><span>This feature is only available with Standardizer license.</span></p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Please, note that Auto-map function only works for structures which are in the same reaction. (In other words: there should be only one reaction&nbsp;(one arrow) on the canvas where every molecule would be a reactant or a product of it.)
+       </div> 
+      </div> 
+      <h2 id="ReactionsinMarvinJS-ReactionMechanisms">Reaction Mechanisms</h2>
+      <p>Marvin JS supports the detailed display of reaction mechanisms by using electron flow arrows (or mechanism arrows) to describe the formation and breaking of chemical bonds.</p>
+      <p><a href="Reaction-mechanisms-in-Marvin-JS_35947752.html">For more details, please, visit the Reaction mechanisms page.</a></p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

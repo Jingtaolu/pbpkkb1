@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Chemical Terms configuration file sample -->
+
+<EvaluatorConfiguration Version="0.1">
+
+	<Plugins>
+		<Plugin ID="bemisMurcko" Class="BemisMurckoPlugin" JAR="BemisMurckoPlugin.jar">
+			<Param Name="type" Value="structure"></Param>
+			<ReturnType>Molecule</ReturnType>
+			<Category>Frameworks</Category>
+			<Description>
+				<![CDATA[calculates the Bemis-Murcko framework of the molecule]]>
+			</Description>
+			<ReturnValue>
+				<![CDATA[the Bemis-Murcko framework of the molecule]]>
+			</ReturnValue>
+			<Parameters>
+				<![CDATA[-]]>
+			</Parameters>
+			<MoleculeContextExample>
+				<![CDATA[<code>bemisMurcko()</code> returns the Bemis-Murcko framework of the input molecule]]>
+			</MoleculeContextExample>
+			<ReactionContextExample>
+				<![CDATA[<code>bemisMurcko(reactant(0))</code> returns the Bemis-Murcko framework of the first reactant <code>bemisMurcko(product(1))</code> 
+				returns the Bemis-Murcko framework of the second product]]>
+			</ReactionContextExample>
+		</Plugin>
+		<Plugin ID="bemisMurckoAtomCount" Class="BemisMurckoPlugin" JAR="BemisMurckoPlugin.jar">
+			<Param Name="type" Value="atomcount"></Param>
+			<ReturnType>int</ReturnType>
+			<Category>Frameworks</Category>
+			<Description>
+				<![CDATA[calculates the number of atoms in the Bemis-Murcko framework of the molecule]]>
+			</Description>
+			<ReturnValue>
+				<![CDATA[the number of atoms in the Bemis-Murcko framework of the molecule]]>
+			</ReturnValue>
+			<Parameters>
+				<![CDATA[-]]>
+			</Parameters>
+			<MoleculeContextExample>
+				<![CDATA[<code>bemisMurckoAtomCount()</code> returns the number of atoms in the Bemis-Murcko framework of the input molecule]]>
+			</MoleculeContextExample>
+			<ReactionContextExample>
+				<![CDATA[<code>bemisMurckoAtomCount(reactant(0))</code> returns the number of atoms in the Bemis-Murcko framework of the 
+				first reactant <code>bemisMurckoAtomCount(product(1))</code> returns the number of atoms in the Bemis-Murcko framework of the second product]]>
+			</ReactionContextExample>
+		</Plugin>
+		<Plugin ID="bemisMurckoBondCount" Class="BemisMurckoPlugin" JAR="BemisMurckoPlugin.jar">
+			<Param Name="type" Value="bondcount"></Param>
+			<ReturnType>int</ReturnType>
+			<Category>Frameworks</Category>
+			<Description>
+				<![CDATA[calculates the number of bonds in the Bemis-Murcko framework of the molecule]]>
+			</Description>
+			<ReturnValue>
+				<![CDATA[the number of bonds in the Bemis-Murcko framework of the molecule]]>
+			</ReturnValue>
+			<Parameters>
+				<![CDATA[-]]>
+			</Parameters>
+			<MoleculeContextExample>
+				<![CDATA[<code>bemisMurckoBondCount()</code> returns the number of bonds in the Bemis-Murcko framework of the input molecule]]>
+			</MoleculeContextExample>
+			<ReactionContextExample>
+				<![CDATA[<code>bemisMurckoBondCount(reactant(0))</code> returns the number of bonds in the Bemis-Murcko framework of the 
+				first reactant <code>bemisMurckoBondCount(product(1))</code> returns the number of bonds in the Bemis-Murcko framework of the second product]]>
+			</ReactionContextExample>
+		</Plugin>
+	</Plugins>
+
+</EvaluatorConfiguration>

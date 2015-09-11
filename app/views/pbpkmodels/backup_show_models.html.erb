@@ -1,0 +1,105 @@
+<h1>xxxxx</h1>
+<p>xxxxxxx</p>
+
+
+
+<style type="text/css">
+    #root {
+        background-color: #eee;
+    }
+
+    #left_side {
+        float: left;
+    }
+
+    #center_s {
+        margin-left: auto;
+        margin-right: auto;
+        width: 65px;
+        background-color: #ccc;
+    }
+
+    #right_side {
+        float: right;
+    }
+
+
+</style>
+
+<div id="left_side">LEFT</div>
+<div id="right_side">RIGHT</div>
+<div id="center_s">CENTER</div>
+
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+
+<%@tanimoto_rank.each do |a| %>
+    <%if @pbpkmodels_chemical.include? a[0] %>
+        <div id="left_side">
+        <table>
+          <thead>
+          <tr>
+            <th>Chemical</th>
+            <th>Simiarity Index</th>
+            <th>Simiarity Rank</th>
+          </tr>
+          </thead>
+
+          <tbody>
+
+          <tr>
+            <td><%= a[0] %></td>
+            <td><%= a[1].round(4) %></td>
+            <td><%= @tanimoto_rank.index(a)+1 %></td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+
+
+        <%model=@pbpkmodels_all.select { |b| b["chemical"] == a[0]} %>
+        <div id="center_s">
+        <table>
+          <thead>
+          <tr>
+            <th>Chemical</th>
+            <th>Model Type</th>
+            <th>Species Strain</th>
+            <th>Gender</th>
+            <th>Development Stage</th>
+            <th>Routes of Administration</th>
+            <th>Number of Compartments</th>
+            <th>Organ Compartmentse</th>
+            <th>PMID</th>
+          </tr>
+          </thead>
+
+
+          <%model.each do |ccc| %>
+              <tbody>
+              <tr>
+                <td><%= ccc["chemical"] %></td>
+                <td><%= ccc["model_type"] %></td>
+                <td><%= ccc["species_strain"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+                <td><%= ccc["gender"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+                <td><%= ccc["development_stage"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+                <td><%= ccc["routes_of_administration"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+                <td><%= ccc["number_of_compartments"] %></td>
+                <td><%= ccc["organ_compartments"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+                <td><%= ccc["pmid"] %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <br/>
+        <br/>
+          </div>
+    <% end %>
+<% end %>

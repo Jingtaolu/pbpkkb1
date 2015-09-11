@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Markush Functions</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Markush Functions </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Markush functions operate with <strong>Markush structures</strong> that cover a set of compounds with similar chemcal structures.</p>
+      <h3 id="MarkushFunctions-Example">Example</h3>
+      <p>We examine the displayed Markush structure:</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828792/14123063.png" data-image-src="attachments/13828792/14123063.png" data-unresolved-comment-count="0" data-linked-resource-id="14123063" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markush.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828792" data-linked-resource-container-version="19" /></span></p>
+      <p>The general scaffold contains three R groups, but there is also and embedded R group assigned to this structure marked as R4.</p>
+      <p>The number of possible structures can easily be given with Chemical Terms:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">&nbsp;markushEnumerationCount()</pre> 
+       </div>
+      </div>
+      <p>According to this function, the number of possible compounds covered by this Markush representation is <em>18</em>.</p>
+      <p>Using Markush functions, the whole compound set can be enumerated or emphasis can be put on a subset of molecules. Here, we generate three random molecules from the example Markush structure.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">randomMarkushEnumerations(3)</pre> 
+       </div>
+      </div>
+      <p>These three molecules were enumerated as a result:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828792/14123064.png" data-image-src="attachments/13828792/14123064.png" data-unresolved-comment-count="0" data-linked-resource-id="14123064" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="random1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828792" data-linked-resource-container-version="19" /></span>&nbsp; &nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828792/14123066.png" data-image-src="attachments/13828792/14123066.png" data-unresolved-comment-count="0" data-linked-resource-id="14123066" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="random3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828792" data-linked-resource-container-version="19" /></span>&nbsp; &nbsp; &nbsp;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828792/14123065.png" data-image-src="attachments/13828792/14123065.png" data-unresolved-comment-count="0" data-linked-resource-id="14123065" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="random2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828792" data-linked-resource-container-version="19" /></span></p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

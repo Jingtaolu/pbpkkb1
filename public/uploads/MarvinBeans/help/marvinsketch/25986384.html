@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Abbreviated (superatom) groups</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Abbreviated (superatom) groups </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201026386 {padding: 0px;}
+div.rbtoc1439201026386 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201026386 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201026386"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#Abbreviated(superatom)groups-Workingwithabbreviatedgroups">Working with abbreviated groups</a></li> 
+              <li><a href="#Abbreviated(superatom)groups-Add/Removeattachmentpointstoabbreviatedgroups">Add/Remove attachment points to abbreviated groups</a></li> 
+              <li><a href="#Abbreviated(superatom)groups-Createanabbreviatedgroup">Create an abbreviated group</a></li> 
+              <li><a href="#Abbreviated(superatom)groups-AddabbreviatedgroupstotheTemplateLibrary">Add abbreviated groups to the Template Library</a></li> 
+              <li><a href="#Abbreviated(superatom)groups-Formatdefaultanduser-definedabbreviatedgroups">Format default and user-defined abbreviated groups</a></li> 
+              <li><a href="#Abbreviated(superatom)groups-userUser-definedabbreviatedgroups">User-defined abbreviated groups</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#Abbreviated(superatom)groups-Formattinguser-definedabbreviatedgroups">Formatting user-defined abbreviated groups</a></li> 
+                <li><a href="#Abbreviated(superatom)groups-synSyntaxoftheabbreviatedgroupname">Syntax of the abbreviated group name</a></li> 
+               </ul> </li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>Abbreviated groups are used to represent (sub)structure with a text abbreviation and are useful tools for drawing large, complex structures or structures which has the same substructure ie. functional groups.</p>
+          <p>MarvinSketch contains a default library of common abbreviated groups which can be accessed though the<strong> Insert&lt;Group</strong> submenu.</p>
+          <p>Typing the first character(s) of an abbreviation group the list of available abbreviated groups is displayed in th upper-left corner of the canvas.</p>
+          <p>Besides the default abbreviated groups you can also set up your own user-defined groups (or redefine the default ones).</p>
+          <h3 id="Abbreviated(superatom)groups-Workingwithabbreviatedgroups">Working with abbreviated groups</h3>
+          <p><strong>Place an abbreviated group to the canvas</strong></p>
+          <ul>
+           <li><strong>Insert an abbreviated group</strong>&nbsp;into your sketch</li>
+          </ul>
+          <ol>
+           <li style="margin-left: 30.0px;">Type the name of the abbreviation.&nbsp;</li>
+           <li style="margin-left: 30.0px;">Click on the canvas to place it.</li>
+          </ol>
+          <p style="margin-left: 60.0px;"><br />To complete a longer name, press ENTER or END after typing the first few characters.</p>
+          <div class="confluence-information-macro confluence-information-macro-warning"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p style="margin-left: 60.0px;">Group abbreviations are case sensitive: <em>e.g.</em>, typing either &quot;NO&quot; or &quot;no&quot; both lead to the nitrosyl (NO) functional group, while typing &quot;No&quot; displays the atom symbol of nobelium.</p>
+            <p style="margin-left: 60.0px;">Similar groups: Ac, Am, Ce and Pr.</p>
+           </div> 
+          </div> 
+          <p>&nbsp;</p>
+          <p style="margin-left: 60.0px;">&nbsp;If the cursor was placed over an atom, it will be automatically changed to the abbreviated group.<br />&nbsp;If no atom was selected, the abbreviation is placed on the cursor. Clicking with it places it on the canvas.<br />&nbsp;To ungroup an S-group before placing it to the canvas, press the&nbsp;<strong>SHIFT</strong>&nbsp;button before you release the mouse on the desired location.</p>
+          <p style="margin-left: 60.0px;">&nbsp;</p>
+          <p>You can retrieve the hidden structure from the text abbreviation with the &quot;<strong>Expand</strong>&quot; function and hide the structure with the &quot;<strong>Contract</strong>&quot; function.</p>
+          <p>Manipulation with abbreviated groups is possible with &quot;<strong>Expand</strong>&quot;, &quot;<strong>Contract</strong>&quot;, &quot;<strong>Ungroup</strong>&quot;, and &quot;<strong>Remove</strong>&quot;&nbsp; options from the <strong>Structure &gt; Group</strong> submenu or by right-clicking for the contextual menu on an existing group. For hints how you can customize the Editor see the <a href="Customizing-MarvinSketch-GUI_13336666.html">Customize MarvinGUI section</a>.</p>
+          <p><br /><strong class="buttonName">Contract:</strong>&nbsp;if there is one group selected contracts to its abbreviation, otherwise contracts all groups in the canvas.&nbsp;<br /><strong class="buttonName">Expand Group</strong>: displays the full structure instead of a contracted group if there is one group selected, otherwise expands all groups in the canvas.&nbsp;<br /><strong class="buttonName">Ungroup</strong>: removes all abbreviated groups from the selection or from the canvas. The structures will remain, but will no longer be associated with their abbreviations.</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Note that Marvin gives priority to the user-defined abbreviated groups and overrides the default after redefinition.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="Abbreviated(superatom)groups-Add/Removeattachmentpointstoabbreviatedgroups">Add/Remove attachment points to abbreviated groups</h3>
+          <p>After creating the abbreviated group (see previous section), right-click the corresponding atom and choose <strong>Add S-group attachment</strong> or select the atom and use the same option in the <strong>Atom menu</strong>.</p>
+          <p>The attachment point is marked by a number in a green rectangle. <br />There is no limit to how many attachment points can be added to an abbreviated group; they will be numbered in the order of their creation. Similarly, an atom of the abbreviated group can have more attachment points.</p>
+          <p>Bonds will connect to group atoms through their first free attachment point ( with the exception of amino acids).</p>
+          <p>Only attachment points not involved in bonds are marked by numbers in the expanded abbreviated group.</p>
+          <p>To removal an attachment point select the <strong>Remove S-group attachment</strong> option either from the contextual pop-up menu or from the<strong> Atom menu</strong>. If the selected atom has more than one attachment points they are deleted in descending order.</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="Abbreviated(superatom)groups-Createanabbreviatedgroup">Create an abbreviated group</h3>
+          <p>Besides the default abbreviated groups you can also set up your own user-defined groups or redefine the default ones.</p>
+          <p>To create a new abbreviated group</p>
+          <ol>
+           <li>Click the <strong>Group</strong> button in the <strong><a href="Tools-Toolbar_16122176.html">Tools toolbar</a></strong> then select the group atoms and bonds. or upon releasing the mouse button, the &quot;Create group&quot; dialog window pops up (this dialog window may be opened from the <strong>Structure &gt; Group submenu</strong> as well or use the <strong>CTRL+G</strong> shortkey.</li>
+           <li>Name the group in the dialog window.</li>
+           <li>To format you abbreviated group use the<strong><a href="Atom-Label-Editor_31196105.html"> Atom Label editor tool</a></strong><strong>.</strong><br /><br /></li>
+          </ol>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="Abbreviated(superatom)groups-AddabbreviatedgroupstotheTemplateLibrary">Add abbreviated groups to the Template Library</h3>
+          <p>The abbreviated groups can be added to the Templates.</p>
+          <ol>
+           <li>Select the group.</li>
+           <li>Right-click and select&nbsp; &quot;Add to My Templates&quot; from the contextual menu.</li>
+          </ol>
+          <p>The structure is added to the<strong> <a href="Advanced-Templates-Toolbar_16122186.html">Advance Template Toolbar</a></strong> by default.</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="Abbreviated(superatom)groups-Formatdefaultanduser-definedabbreviatedgroups">Format default and user-defined abbreviated groups</h3>
+          <p>The <a href="Atom-Label-Editor_31196105.html"><strong>Atom label editor</strong></a> tool allows you to change characters to bold, italic, super- and subscript and insert symbols.</p>
+          <p>Color, font type and size can be set using the <a href="Drawing-settings_25986514.html"><strong>Format...</strong></a> option from the contextual menu.</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="Abbreviated(superatom)groups-userUser-definedabbreviatedgroups"><span class="confluence-anchor-link" id="Abbreviated(superatom)groups-user"></span>User-defined abbreviated groups</h3>
+          <p>Marvin stores its default groups in a formatted .txt file named&nbsp;<strong>default.abbrevgroup</strong>&nbsp;and by adding your own group file you can complement the default.</p>
+          <p>To assemble your own <strong>.abbrevgroup</strong>&nbsp;file you should strictly follow&nbsp;<a href="https://docs.chemaxon.com/display/FF/ChemAxon+SMILES+Abbreviated+Group" rel="nofollow">abbreviated groups file format</a>.</p>
+          <p>The newly defined file must be named&nbsp;<strong>user.abbrevgroup</strong>&nbsp;and should be stored in the chemaxon folder of your home directory in your file system.</p>
+          <p>A very basic process to create user-defined abbreviated group is:</p>
+          <ol>
+           <li>Clear the canvas.</li>
+           <li>Draw the structure.</li>
+           <li>Select the structure and using the 'Create Group' dialog name it.</li>
+           <li>Add attachment point. - Optional&nbsp; (Select the atom and click the Add <strong>S-group attachment</strong> from the contextual menu.)</li>
+           <li>Copy the content of Edit&lt;Source&lt;View&lt;SMILES&lt;Chemaxon SMILES Abbreviated Groups dialog to a text editor. (For more options see the <a href="https://docs.chemaxon.com/display/FF/ChemAxon+SMILES+Abbreviated+Group" rel="nofollow">abbreviated group file formats</a>.)<br />
+            <ol>
+             <li>&nbsp;If you do not have user.abbrevgroup file than save it to your Chemaxon folder</li>
+             <li>If&nbsp; your already has created user-defined abbreviated groups&nbsp; copy the content of the dialog box to your file.</li>
+            </ol></li>
+          </ol>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h4 id="Abbreviated(superatom)groups-Formattinguser-definedabbreviatedgroups">Formatting user-defined abbreviated groups</h4>
+          <p>The label of the abbreviated groups can be formatted, by adding the graphicalMarvinProperty::FormattedLabel&nbsp; property to the abbreviated group atom.</p>
+          <p>Example:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">i-Bu CC(C)C 1 abbrevAtomProperties=graphicalMarvinProperty&amp;#58;&amp;#58;FormattedLabel.\ii\n\-Bu</pre> 
+           </div>
+          </div>
+          <div class="confluence-information-macro confluence-information-macro-warning"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>In the property name the ’:’ character should be replaced to &amp;#58; because the ’:’ character has a special meaning in the abbrevAtomProperties value</p>
+           </div> 
+          </div> 
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h4 id="Abbreviated(superatom)groups-synSyntaxoftheabbreviatedgroupname"><span class="confluence-anchor-link" id="Abbreviated(superatom)groups-syn"></span>Syntax of the abbreviated group name</h4>
+          <p>Numbers are automatically subscripted unless &quot;\n&quot; is used or at the start of string. Charges (+, -, ++, --, 3+ etc.) are automatically superscripted at end of string or if the following character is a closing parenthesis.&nbsp;<br />Allowed control sequences in the abbreviated group name:</p>
+          <ul>
+           <li>italic: \i</li>
+           <li>small: \m<span class="confluence-link">&nbsp;</span></li>
+           <li>bold: \b</li>
+           <li>underline: \u</li>
+           <li>subscript: \s</li>
+           <li>superscript: \S</li>
+           <li>reset (normal): \n</li>
+           <li>escape (escaping autoformatting): \</li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-note"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Block restriction: <span class="error">[format]</span>{<span class="error">[text]</span>}</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div id="expander-2077825159" class="expand-container"> 
+           <div id="expander-control-2077825159" class="expand-control"> 
+            <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+            <span class="expand-control-text"> To expand examples click here.</span> 
+           </div> 
+           <div id="expander-content-2077825159" class="expand-content">
+            <p>Examples:</p>
+            <p style="margin-left: 60.0px;">text\ssubscript -&gt; text<sub>subscript</sub></p>
+            <p style="margin-left: 60.0px;">text\s{sub}script -&gt; text<sub>sub</sub>script</p>
+            <p style="margin-left: 60.0px;">text\iitalic\ssubscript -&gt; text<em>italic<sub>subscript</sub></em></p>
+            <p style="margin-left: 60.0px;">text\iitalic\n\ssubscript-&gt;text<em>italic</em><sub>subscript</sub></p>
+            <p style="margin-left: 60.0px;">text\bold\uunderline -&gt; text<strong>bold<u>underline</u></strong></p>
+            <p style="margin-left: 60.0px;">text\{bold}\uunderline -&gt; text<strong>bold</strong><u>underline</u></p>
+            <p><u><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25986384/26280481.png" data-image-src="attachments/25986384/26280481.png" data-unresolved-comment-count="0" data-linked-resource-id="26280481" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Sgroupsyntax2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25986384" data-linked-resource-container-version="33" /></span></u></p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

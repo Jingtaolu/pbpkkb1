@@ -1,0 +1,38 @@
+<h1>Fileup#tanimoto</h1>
+<p>Find me in app/views/fileup/tanimoto.html.erb
+
+  <%=@f11 %>
+</p>
+
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Tanimoto Index</th>
+    <th>rank</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+
+
+  <tbody>
+  <%@f11.each do |chemical1| %>
+      <tr>
+        <td><%= chemical1[0] %></td>
+        <td><%= chemical1[1] %></td>
+        <td><%= @f11.index(chemical1) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

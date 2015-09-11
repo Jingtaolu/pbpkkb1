@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : MarvinSketch Structure Display Parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : MarvinSketch Structure Display Parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h4 id="MarvinSketchStructureDisplayParameters-Concepts">Concepts</h4>
+      <p>The description and usage of R-group structures in Marvin can be found in the <a href="Query-Features_13338022.html">R-groups</a> and <a href="Query-structures_14942812.html#Querystructures-R-group">How to Draw R-group queries</a> paragraph of the Marvin User's Guide.</p>
+      <p>The detailed description of R-group structures can be found in the <a href="http://www.chemaxon.com/marvin/help/developer/core/rgroups.html" class="external-link" rel="nofollow">R-group structures</a> paragraph of the Developer's Guide.</p>
+      <h4 id="MarvinSketchStructureDisplayParameters-HowtoworkwithstructuredisplayparameterstohideR-groupdefinitions"><a class="external-link" href="http://www.chemaxon.com/marvin/examples/beans/sketch-params/index.html#customize" name="customize" rel="nofollow"></a>How to work with structure display parameters to hide R-group definitions</h4>
+      <p>By default, MarvinSketch displays all the R-group definitions that belong to a scaffold.</p>
+      <p>Sometimes it is very practical to hide the R-group definitions because they take up too much place from the display and we would like to emphasize the scaffold.</p>
+      <p>The result of switching off the R-group definitions can be seen on the picture below:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988033/29098583.png" data-image-src="attachments/25988033/29098583.png" data-unresolved-comment-count="0" data-linked-resource-id="29098583" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rgroups.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988033" data-linked-resource-container-version="3" /></span></p>
+      <p>The code below is taken from <code>SketchParams.java</code>, where the R-group definitions are hidden using the <code>setParams</code> method of the <code>MSketchPane</code> class.</p>
+      <pre class="sh_java sh_sourceCode">    msketchPane<span class="sh_symbol">.</span><span class="sh_function">setParams</span><span class="sh_symbol">(</span>ParameterConstants<span class="sh_symbol">.</span>R_GROUPS_VISIBLE<span class="sh_symbol">+</span><span class="sh_string">&quot;=false&quot;</span><span class="sh_symbol">);</span>
+</pre>
+      <p>The possibility to switch off R-group definitions is also available as <a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-vis">applet parameter</a>.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

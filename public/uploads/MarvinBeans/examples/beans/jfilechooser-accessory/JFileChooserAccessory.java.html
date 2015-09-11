@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinView JFileChooser Example</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolImporter</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">struc</span><span class="symbol">.</span><span class="normal">Molecule</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">MolPrinter</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="symbol">*</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">PropertyChangeListener</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">PropertyChangeEvent</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">event</span><span class="symbol">.</span><span class="normal">ActionEvent</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="symbol">*</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">File</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">IOException</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * JFileChooserAccessory</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment"> Attila Szabo, Judit Vasko-Szedlar</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.0.3 Apr 21, 2008</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment"> Marvin 5.0.3</span>
+<span class="comment"> </span><span class="comment">*/</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> JFileChooserAccessory </span><span class="keyword">extends</span><span class="normal"> JPanel</span>
+<span class="normal">        </span><span class="keyword">implements</span><span class="normal"> PropertyChangeListener </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="comment">//</span><span class="comment">MolImporter for reading molecule files</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> MolImporter molImporter</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">MoleculeRenderer that paints the molecules</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> MoleculeRenderer renderer</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="comment">//</span><span class="comment">Position in the molecule file</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">int</span><span class="normal"> position</span><span class="symbol">=</span><span class="number">0</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">Molecule count in the molecule file</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">long</span><span class="normal"> moleculeCount</span><span class="symbol">=</span><span class="number">0</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">Step forward in a multi-molecule file</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> Action moveForward </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">AbstractAction</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">actionPerformed</span><span class="symbol">(</span><span class="normal">ActionEvent e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">position </span><span class="symbol">&lt;</span><span class="normal"> moleculeCount</span><span class="symbol">-</span><span class="number">1</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                position</span><span class="symbol">+</span><span class="symbol">+</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="function">setMolecule</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">Step backward in a multi-molecule file</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> Action moveBackward </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">AbstractAction</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">actionPerformed</span><span class="symbol">(</span><span class="normal">ActionEvent e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">if</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0</span><span class="symbol">&lt;</span><span class="normal">position</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                position</span><span class="symbol">-</span><span class="symbol">-</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="function">setMolecule</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="comment">//</span><span class="comment">forward button</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> JButton forwardButton </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JButton</span><span class="symbol">(</span><span class="normal">moveForward</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">backward button</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> JButton backwardButton </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JButton</span><span class="symbol">(</span><span class="normal">moveBackward</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="comment">//</span><span class="comment">Adds propertyChangeListener to the file chooser</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">Initializes the MoleculeRenderer and the MolImporter and the buttons</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="function">JFileChooserAccessory</span><span class="symbol">(</span><span class="normal">JFileChooser fileChooser</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        molImporter </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolImporter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        renderer </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MoleculeRenderer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        fileChooser</span><span class="symbol">.</span><span class="function">addPropertyChangeListener</span><span class="symbol">(</span>
+<span class="normal">                JFileChooser</span><span class="symbol">.</span><span class="normal">SELECTED_FILE_CHANGED_PROPERTY</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">this</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">add</span><span class="symbol">(</span><span class="normal">renderer</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        JPanel buttonHolderPanel</span><span class="symbol">=</span><span class="keyword">new</span><span class="normal"> </span><span class="function">JPanel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        backwardButton</span><span class="symbol">.</span><span class="function">setText</span><span class="symbol">(</span><span class="string">"&lt;&lt;"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        forwardButton</span><span class="symbol">.</span><span class="function">setText</span><span class="symbol">(</span><span class="string">"&gt;&gt;"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        buttonHolderPanel</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">backwardButton</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        buttonHolderPanel</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">forwardButton</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">add</span><span class="symbol">(</span><span class="normal">buttonHolderPanel</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">SOUTH</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">//</span><span class="comment">This method handles file selection change events.</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">propertyChange</span><span class="symbol">(</span><span class="normal">PropertyChangeEvent evt</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        File selection </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">File</span><span class="symbol">)</span><span class="symbol">(</span><span class="normal">evt</span><span class="symbol">.</span><span class="function">getNewValue</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">if</span><span class="symbol">(</span><span class="normal">selection </span><span class="symbol">!</span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment">Passes the selected molecule file to the importer,</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment">or the first molecule in case of a multi-molecule file.</span>
+<span class="normal">                molImporter</span><span class="symbol">.</span><span class="function">setFileName</span><span class="symbol">(</span><span class="normal">selection</span><span class="symbol">.</span><span class="function">getAbsolutePath</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                moleculeCount</span><span class="symbol">=</span><span class="function">getMolCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                position</span><span class="symbol">=</span><span class="number">0</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment">Passes the molecule from the importer to the renderer.</span>
+<span class="normal">                </span><span class="function">setMolecule</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">IOException exception</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                renderer</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Molecule</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">int</span><span class="normal"> </span><span class="function">getMolCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="type">int</span><span class="normal"> i </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+<span class="normal">        MolImporter importer </span><span class="symbol">=</span><span class="normal"> molImporter</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">while</span><span class="symbol">(</span><span class="normal">importer</span><span class="symbol">.</span><span class="function">skipRecord</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                i</span><span class="symbol">+</span><span class="symbol">+</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">IOException e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            i</span><span class="symbol">=</span><span class="symbol">-</span><span class="number">1</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> i</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">//</span><span class="comment">Passes the molecule from the importer to the renderer.</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setMolecule</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            molImporter</span><span class="symbol">.</span><span class="function">seekRecord</span><span class="symbol">(</span><span class="normal">position</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            renderer</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="normal">molImporter</span><span class="symbol">.</span><span class="function">nextDoc</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">getPrimaryMolecule</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            renderer</span><span class="symbol">.</span><span class="function">repaint</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">IOException exception</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            renderer</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Molecule</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Create the GUI and show it. For thread safety,</span>
+<span class="comment">     * this method should be invoked from the event-dispatching thread.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Initiate a JFileChooser</span>
+<span class="normal">        JFileChooser fileChooser </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFileChooser</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Initiate SimpleJFileChooserAccessory with the JFileChooser instance</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">to custumize.</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">This is very important, otherwise the accessory can't handle</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">file change events fired from the JFileChooser instance.</span>
+<span class="normal">        JFileChooserAccessory accessory </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFileChooserAccessory</span><span class="symbol">(</span><span class="normal">fileChooser</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Adding the accessory instance to file chooser.</span>
+<span class="normal">        fileChooser</span><span class="symbol">.</span><span class="function">setAccessory</span><span class="symbol">(</span><span class="normal">accessory</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        fileChooser</span><span class="symbol">.</span><span class="function">showOpenDialog</span><span class="symbol">(</span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        System</span><span class="symbol">.</span><span class="function">exit</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Schedule a job for the event-dispatching thread:</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">creating and showing this application's GUI.</span>
+<span class="normal">        javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">SwingUtilities</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> MoleculeRenderer </span><span class="keyword">extends</span><span class="normal"> JComponent </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">private</span><span class="normal"> MolPrinter mPrinter </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolPrinter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setMolecule</span><span class="symbol">(</span><span class="normal">Molecule molecule</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> Passing the current molecule to MolPrinter.</span>
+<span class="normal">            mPrinter</span><span class="symbol">.</span><span class="function">setMol</span><span class="symbol">(</span><span class="normal">molecule</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">        </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">paintComponent</span><span class="symbol">(</span><span class="normal">Graphics g</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> It is very important to set the scale factor of MolPrinter,</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> otherwise the molecule will not appear.</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> The scale factor is computed by MolPrinter from</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> the current size.</span>
+<span class="normal">            mPrinter</span><span class="symbol">.</span><span class="function">setScale</span><span class="symbol">(</span><span class="normal">mPrinter</span><span class="symbol">.</span><span class="function">maxScale</span><span class="symbol">(</span><span class="function">getSize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            mPrinter</span><span class="symbol">.</span><span class="function">setBackgroundColor</span><span class="symbol">(</span><span class="keyword">this</span><span class="symbol">.</span><span class="function">getBackground</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            mPrinter</span><span class="symbol">.</span><span class="function">paint</span><span class="symbol">(</span><span class="symbol">(</span><span class="normal">Graphics2D</span><span class="symbol">)</span><span class="normal"> g</span><span class="symbol">,</span><span class="normal"> </span><span class="function">getSize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

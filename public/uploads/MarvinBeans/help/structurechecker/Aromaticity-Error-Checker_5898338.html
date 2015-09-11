@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Aromaticity Error Checker</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Aromaticity Error Checker </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Checker searches for <strong>General</strong>, <strong>Basic</strong>, or <strong>Loose</strong> aromatic systems that can't be dearomatized or rearomatizing with the given method does not reproduce the initial molecule. <a href="http://www.chemaxon.com/marvin/help/sci/aromatization-doc.html" class="external-link" rel="nofollow">Details on aromaticity detection.</a></p>
+      <p>Fixer offers:</p>
+      <ul>
+       <li>rearomatizing or;</li>
+       <li>dearomatizing the aromatic system.</li>
+      </ul>
+      <p><strong>Example</strong>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Aromaticity Error checker</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th colspan="2" class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Rearomatize</th>
+          <th class="confluenceTh">Dearomatize</th>
+         </tr>
+         <tr>
+          <th rowspan="2" class="confluenceTh">General</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_ch" height="144" width="103" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chg.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chg.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_ch" height="102" width="166" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chb2.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chb2.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Basic</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_ch" height="148" width="109" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_ch.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_ch.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_f" height="180" width="135" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_f" height="180" width="135" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_ch" height="102" width="166" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chb2.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chb2.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Loose</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_ch" height="148" width="109" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_ch.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_ch.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_f" height="180" width="135" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_f" height="180" width="135" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_f.png" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_ch" height="101" width="164" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chl.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_chl.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_f" height="105" width="169" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_flrea.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_flrea.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_arom_f" height="104" width="166" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_fldea.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_arom_fldea.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /><strong>Note</strong>: The 2-pyridone aromatized in general mode is corrected after a checking of aromatization in basic mode.<br /> In this case, both rearomatization and dearomatization fix yields the same structure.</p>
+      <dl></dl> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Structure display parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Structure display parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="absLabel" rel="nofollow"></a>absLabelVisible</td>
+          <td class="confluenceTd">Show (true) or hide (false) &quot;Absolute&quot; label</td>
+          <td class="confluenceTd">false</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>atomFont</code></td>
+          <td class="confluenceTd">Atom symbol/label font: <code>Serif</code>, <code>SansSerif</code> or <code>Monospaced</code></td>
+          <td class="confluenceTd"><code>SansSerif</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-map"></span>atomMappingVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) atom mapping</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>atomPropertiesVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) atom properties</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><s><code><span class="confluence-anchor-link" id="Structuredisplayparameters-atom"></span>atomNumbersVisible</code></s></td>
+          <td class="confluenceTd">Deprecated</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>atomNumberingType</code></td>
+          <td class="confluenceTd">Sets the type of atom numbering to Off (0), Atom numbers (1) or IUPAC numbering (2)</td>
+          <td class="confluenceTd"><code>0</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-vp"></span>valencePropertyVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) valence properties</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>atomsize</code></td>
+          <td class="confluenceTd"><p>Atom symbol font size in C-C bond length units:<br /> <em>atomsize</em>*1.54 &Aring; = <em>atomsize</em>*<em>scale</em> points</p><p>Can be given in pt ie.:msketch_param(\&quot;atomsize\&quot;, \&quot;16 pt\&quot;);</p></td>
+          <td class="confluenceTd"><p><code>0.35714285714285715</code></p><p><code>(10pt)</code></p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>atomSymbolsVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) atom symbols</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>automaticFogEnabled</code></td>
+          <td class="confluenceTd">Deprecated.</td>
+          <td class="confluenceTd"><code>&nbsp;</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-ball"></span>ballRadius</code></td>
+          <td class="confluenceTd">Ball radius for &quot;ballstick&quot; <a href="#Structuredisplayparameters-render">rendering mode</a>, in units of covalent radius.</td>
+          <td class="confluenceTd"><code>0.5</code></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><code>boldBondWidth</code></td>
+          <td colspan="1" class="confluenceTd">Width of bold bond in pt.</td>
+          <td colspan="1" class="confluenceTd"><code>6</code></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><code>bondLength</code></td>
+          <td colspan="1" class="confluenceTd">Lenght of bond in pt.</td>
+          <td colspan="1" class="confluenceTd"><code>28</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>bondLengthVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) bond length labels</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>bondSpacing</code></td>
+          <td class="confluenceTd">Double bond spacing in C-C bond length units:<br /> <em>spacing</em>*1.54 &Aring; = <em>spacing</em>*<em>scale</em> pixels</td>
+          <td class="confluenceTd"><code>0.18</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>chargeWithCircle</code></td>
+          <td class="confluenceTd">Charge label (plus or minus sign) is displayed circled(true) or normal(false)</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>chiralitySupport</code></td>
+          <td class="confluenceTd">When to show atom chirality (R/S).
+           <ul>
+            <li><code>off</code> - never</li>
+            <li><code>selected</code> - if chiral flag is set for the molecule or the atom's enhanced stereo type is absolute</li>
+            <li><code>all</code> - always</li>
+            <li><code>all</code>Possible - show all chiral centers and highlight possible but undefined centers too</li>
+           </ul></td>
+          <td class="confluenceTd"><code>off</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>circledChargeFont</code></td>
+          <td class="confluenceTd">Circled charge labels font: any of the fonts installed on the machine Deprecated, will be removed by January 1st 2016.</td>
+          <td class="confluenceTd"><code>SansSerif</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>circledChargeSize</code></td>
+          <td class="confluenceTd"><p>Circled Charge labels font size in C-C bond length units: <em>circledChargeSize</em><span>*1.54 &Aring; = </span><em>circledChargeSize</em><span>*</span><em>scale</em><span> points</span></p><p><span>&nbsp;</span>Deprecated, will be removed by January 1st 2016.</p></td>
+          <td class="confluenceTd"><code>0.4</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-color"></span>colorScheme</code></td>
+          <td class="confluenceTd">Color scheme.
+           <ul>
+            <li><code>mono</code> - monochrome</li>
+            <li><code>cpk</code> - Corey-Pauling-Kultun</li>
+            <li><code>shapely</code> - <a href="The-shapely-color-scheme-in-Marvin_18448663.html">shapely</a> (residue types)</li>
+            <li><code>group</code> - residue sequence numbers</li>
+           </ul></td>
+          <td class="confluenceTd"><code>cpk</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-down"></span>downWedge</code></td>
+          <td class="confluenceTd">Wedge bond display convention. Down wedge points downward in MDL's convention (<code>mdl</code>), upward (at the chiral center) in Daylight's (<code>daylight</code>).</td>
+          <td class="confluenceTd"><code>mdl</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>explicitH</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) explicit hydrogens</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>ezVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) E/Z labels</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>fogFactor</code></td>
+          <td class="confluenceTd">Set the custom fog factor in a range from <code>0</code> to <code>100</code>. The value <code>100</code> is for the strongest fog and <code>0</code> for the weakest (no) fog.</td>
+          <td class="confluenceTd"><code>66</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-grin"></span>grinvVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) graph invariants (canonical labels)</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-iH"></span>implicitH</code></td>
+          <td class="confluenceTd">How to display H labels.
+           <ul>
+            <li><code>off</code></li>
+            <li><code>hetero</code> - on heteroatoms</li>
+            <li><code>heteroterm</code> - on hetero or terminal atoms</li>
+            <li><code>all</code> - all atoms</li>
+           </ul></td>
+          <td class="confluenceTd"><code>heteroterm</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-ligand"></span>ligandErrorVisible</code></td>
+          <td class="confluenceTd">Show (true) or not (false) ligand error by coloring to red</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-lone"></span>lonePairsVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) lone pairs</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>lonePairsAutoCalc</code></td>
+          <td class="confluenceTd">Switch on (true) or off (false) automatic calculation of lone pairs. The <a href="#Structuredisplayparameters-lone">lonePairsVisible</a> parameter should be set to true to display the result of the automatic calculation.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>maxscale</code></td>
+          <td class="confluenceTd">Maximizes the magnification for autoscale to prevent overscaling of small molecules. It is usually set to 28, which is the <a href="#Structuredisplayparameters-scale">scale</a> factor for 100% magnification.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>peptideDisplayType</code></td>
+          <td class="confluenceTd">Show peptide sequences with one letter or three letter abbreviations.<br /> Valid values are &quot;1-letter&quot; and &quot;3-letter&quot;</td>
+          <td class="confluenceTd"><code>3-letter</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span style="text-decoration: line-through;"><span class="confluence-anchor-link" id="Structuredisplayparameters-reaction"></span>reactionErrorVisible</span></code></td>
+          <td class="confluenceTd">Deprecated.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-render"></span>rendering</code></td>
+          <td class="confluenceTd">Rendering style.
+           <ul>
+            <li><code>wireframe</code> - wireframe</li>
+            <li><code>wireknobs</code> - wireframe with knobs</li>
+            <li><code>sticks</code> - 3D sticks</li>
+            <li><code>ballstick</code> - ball &amp; stick</li>
+            <li><code>spacefill</code> - balls</li>
+           </ul></td>
+          <td class="confluenceTd"><code>wireframe</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>rgroupsVisible</code></td>
+          <td class="confluenceTd">Show (true) or hide (false) R-group definitions.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-scale"></span>scale</code></td>
+          <td class="confluenceTd">Magnification. A 1.54 &Aring; long C-C bond is magnified to <em>scale</em> pixels.</td>
+          <td class="confluenceTd"><code>28</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>sketchAnyBond</code></td>
+          <td class="confluenceTd">Display type of the Any bond in the sketcher:
+           <ul>
+            <li><code>auto</code> - displayed as dashed line in most cases, solid line only when all bonds are generated from atom coordinates (e.g. XYZ and PDB files).</li>
+            <li><code>dashed</code> - displayed as dashed line</li>
+            <li><code>solid</code> - displayed as solid line</li>
+           </ul></td>
+          <td class="confluenceTd"><code>auto</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>stickdst</code></td>
+          <td class="confluenceTd">Stick distance of atoms in C-C bond length units.</td>
+          <td class="confluenceTd"><code>0.3</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>showSets</code></td>
+          <td class="confluenceTd">Show the specified atom sets only. Comma separated list of set sequence numbers (0, ..., 63).</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-sk"></span>sketchCarbonVisibility</code></td>
+          <td class="confluenceTd">Display the label of carbon atoms in structures.
+           <ul>
+            <li><code>on</code> - Always show the atom labels of carbon atoms.</li>
+            <li><code>off</code> - Never show the atom labels of carbon atoms.</li>
+            <li><code>inChain</code> - Show the atom labels of carbon atoms at straight angles and at implicit Hydrogens.</li>
+           </ul></td>
+          <td class="confluenceTd"><code>inChain</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>sketchLigandOrderVisibility</code></td>
+          <td class="confluenceTd">Display the ligand order of R-group atoms in structures.
+           <ul>
+            <li><code>on</code> - Always show the ligand order of R-group atoms.</li>
+            <li><code>off</code> - Never show the ligand order of R-group atoms.</li>
+            <li><code>showOnlyWithDefinition</code> - Show the ligand order of R-group atoms only on R-groups with definition.</li>
+           </ul></td>
+          <td class="confluenceTd"><code>off</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-st"></span>stickThickness</code></td>
+          <td class="confluenceTd">3D stick diameter for &quot;sticks&quot; and &quot;ballstick&quot;<a href="#Structuredisplayparameters-render">rendering modes</a>, in Angstroms.</td>
+          <td class="confluenceTd"><code>0.1</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-valence"></span>valenceErrorVisible</code></td>
+          <td class="confluenceTd">Highlight (by underlining) the labels of those atoms with valence errors. This option can also be set on the <strong>Edit</strong>/<strong>Preferences</strong>/<strong>MarvinSketch</strong> panel.
+           <ul>
+            <li><code>true</code> - display errors</li>
+            <li><code>false</code> - do not display errors</li>
+           </ul></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>viewAnyBond</code></td>
+          <td class="confluenceTd">Display type of the Any bond in the viewer:
+           <ul>
+            <li><code>auto</code> - displayed as dashed line in most cases, solid line only when all bonds are generated from atom coordinates (e.g. XYZ and PDB files).</li>
+            <li><code>dashed</code> - displayed as dashed line</li>
+            <li><code>solid</code> - displayed as solid line</li>
+           </ul></td>
+          <td class="confluenceTd"><code>auto</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>zeroBasedAtomIndexing</code></td>
+          <td class="confluenceTd">Starts the atom indexing from zero instead of one:
+           <ul>
+            <li><code>true</code> - atom indexes are started from zero</li>
+            <li><code>false</code> - atom indexes are started from one</li>
+           </ul></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structuredisplayparameters-wire"></span>wireThickness</code></td>
+          <td class="confluenceTd">Line thickness for &quot;wireframe&quot; and &quot;wireknobs&quot; <a href="#Structuredisplayparameters-render">rendering modes</a>, in Angstroms.</td>
+          <td class="confluenceTd"><code>0.064</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

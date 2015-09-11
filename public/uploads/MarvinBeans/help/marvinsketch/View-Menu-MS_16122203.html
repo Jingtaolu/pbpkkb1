@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : View Menu MS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : View Menu MS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <p><span class="external-link">&nbsp;</span>This menu allows you to alter the way the molecule is displayed without modifying the structure file itself. You can change the molecule display type, background color, color scheme, error highlighting, etc. See also: Structure Display Options. The View menu also contains operations to change the graphical user interface.</p>
+       <p>&nbsp;</p>
+       <div class="table-wrap">
+        <table class="confluenceTable">
+         <tbody>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="normalMode" rel="nofollow"></a>Mouse Mode &gt; Sketch&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099591.png" data-image-src="attachments/16122203/29099591.png" data-unresolved-comment-count="0" data-linked-resource-id="29099591" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sketch-mode16.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">The Sketch mode allows drawing into the canvas.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="zoomMode" rel="nofollow"></a>Mouse Mode &gt; Zoom&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099592.png" data-image-src="attachments/16122203/29099592.png" data-unresolved-comment-count="0" data-linked-resource-id="29099592" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="zoom-mode24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Zoom the content of the canvas by dragging the mouse without modifying atom coordinates.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="rotate3DMode" rel="nofollow"></a><span class="confluence-anchor-link" id="ViewMenuMS-rotate3d"></span>Mouse Mode &gt; Rotate in 3D&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099593.png" data-image-src="attachments/16122203/29099593.png" data-unresolved-comment-count="0" data-linked-resource-id="29099593" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate-mode24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Spin the structure around its central point in 3 dimension with the help of the mouse without modifying atom coordinates. Compare it to the <strong><a href="Edit-Menu-MS_16122201.html">Free 3D rotation</a></strong> of <strong>Edit Menu</strong>, which affects the molecular coordinates.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="resetView" rel="nofollow"></a>Mouse Mode &gt; Reset View&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099594.png" data-image-src="attachments/16122203/29099594.png" data-unresolved-comment-count="0" data-linked-resource-id="29099594" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="resetview24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Restores the starting view as modified by rotation and zoom.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="zoomTool" rel="nofollow"></a>Zoom Level</td>
+           <td class="confluenceTd">Allows you to select a magnification percentage from the list or to type a custom percentage.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="atomSymbols" rel="nofollow"></a>Structure Display &gt; Atom Symbols in 3D</td>
+           <td class="confluenceTd">Sets atom symbol visibility in 3D mode. Note that in 3D mode, atoms may become invisible in Wireframe and Stick mode by hiding atom symbols.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="wireframe" rel="nofollow"></a>Structure Display &gt; Wireframe</td>
+           <td class="confluenceTd">Displays bonds as thin lines, and atoms (except Carbon) as symbols.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="wireframeAndKnobs" rel="nofollow"></a>Structure Display &gt; Wireframe with Knobs</td>
+           <td class="confluenceTd">Displays bonds as thin lines, Carbon atoms as knobs, and other atoms as symbols.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="stick" rel="nofollow"></a>Structure Display &gt; Stick</td>
+           <td class="confluenceTd">Displays bonds as thick lines, and atoms (except Carbon) as symbols.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="ballAndStick" rel="nofollow"></a>Structure Display &gt; Ball and Stick</td>
+           <td class="confluenceTd">Displays bonds as thick lines, atoms as shaded balls, and atoms (except Carbon and Hydrogen) as symbols on balls.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="spacefill" rel="nofollow"></a>Structure Display &gt; Spacefill</td>
+           <td class="confluenceTd">Displays atoms as large shaded balls, and atoms (except Carbon and Hydrogen) as symbols on the balls.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="monoScheme" rel="nofollow"></a>Colors &gt; Monochrome</td>
+           <td class="confluenceTd">Displays all atoms with default drawing color.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="cpkScheme" rel="nofollow"></a>Colors &gt; CPK</td>
+           <td class="confluenceTd">Displays all atoms with Corey-Pauling-Kultun colors.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="shapelyScheme" rel="nofollow"></a>Colors &gt; Shapely</td>
+           <td class="confluenceTd">This color scheme is based on RasMol's shapely color scheme for nucleic and amino acids.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="groupScheme" rel="nofollow"></a>Colors &gt; Group</td>
+           <td class="confluenceTd">Coloring atoms based on PDB residue numbers.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="coloringEnabled" rel="nofollow"></a>Colors &gt; Atom/Bond Sets</td>
+           <td class="confluenceTd">Colors atoms and bonds according to the color of the pre-defined set they belong to.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="coloringEnabled" rel="nofollow"></a>Colors &gt; Peptide Bridges</td>
+           <td class="confluenceTd">Colors with different colors the new Peptide Bridge bonds which are crosslinking the peptide chains.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="background" rel="nofollow"></a>Colors &gt; Background</td>
+           <td class="confluenceTd">Sets custom background color with adjusted default drawing color.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="whiteBackground" rel="nofollow"></a>Colors &gt; White Background</td>
+           <td class="confluenceTd">Sets the background color to white and the default drawing color to black.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="blackBackground" rel="nofollow"></a>Colors &gt; Black Background</td>
+           <td class="confluenceTd">Sets the background color to black and the default drawing color to white.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Stereo &gt; R/S Labels &gt; All possible</td>
+           <td class="confluenceTd">Always show atom chirality (R/S) including not defined stereocenters&nbsp; (?) .</td>
+          </tr>
+          <tr>
+           <td colspan="1" class="confluenceTd">Stereo &gt; R/S Labels &gt; All</td>
+           <td colspan="1" class="confluenceTd">Always show atom chirality (R/S).</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Stereo &gt; R/S Labels &gt; Absolute Stereo</td>
+           <td class="confluenceTd">Show atom chirality if chiral flag is set for the molecule or the atom's enhanced stereo type is absolute.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Stereo &gt; R/S Labels &gt; None</td>
+           <td class="confluenceTd">Do not show atom chirality (R/S).</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="EZLabelsVisible" rel="nofollow"></a>Stereo &gt; E/Z Labels</td>
+           <td class="confluenceTd">Toggles the display of absolute double bond stereo configuration labels. Bonds known to have an (E) or (Z) configuration will be marked as such.</td>
+          </tr>
+          <tr>
+           <td colspan="1" class="confluenceTd">Stereo &gt; M/P Labels</td>
+           <td colspan="1" class="confluenceTd">Toggles the display of axial stereochemistry labels M and P:</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Stereo &gt; Absolute Labels</td>
+           <td class="confluenceTd">Toggles the display of the Absolute label if the chiral flag is set on the molecule.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Implicit Hydrogens &gt; On All</td>
+           <td class="confluenceTd">View hydrogens by symbol on all atoms. This option is disabled in <strong>Spacefill</strong> and <strong>Ball &amp; Stick</strong> display modes.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Implicit Hydrogens &gt; On Hetero and Terminal</td>
+           <td class="confluenceTd">View hydrogens by symbol on hetero and terminal carbon atoms. This option is disabled in <strong>Spacefill</strong> and <strong>Ball &amp; Stick</strong> display modes.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Implicit Hydrogens &gt; On Hetero</td>
+           <td class="confluenceTd">View hydrogens by symbol on hetero atoms only. This option is disabled in <strong>Spacefill</strong> and <strong>Ball &amp; Stick</strong> display modes.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Implicit Hydrogens &gt; Off</td>
+           <td class="confluenceTd">Disable hydrogens by symbol on all atoms.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Peptide Display &gt; 1-letter</td>
+           <td class="confluenceTd">View peptide sequence with 1-letter aminoacid codes.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Peptide Display &gt; 3-letter</td>
+           <td class="confluenceTd">View peptide sequence with 3-letter aminoacid codes.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Advanced &gt; Atom Numbering &gt; Off</td>
+           <td class="confluenceTd">Disable the visibility of atom indices.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Advanced &gt; Atom Numbering &gt; Atom Number</td>
+           <td class="confluenceTd">Enable the visibility of unique internal atom indices. The indices are continuous starting from 1.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">Advanced &gt; Atom Numbering &gt; IUPAC Numbering</td>
+           <td class="confluenceTd">Enable the visibility of IUPAC numbering of atoms in a molecule. It is synchronized with the numbering of <strong>Structure to name</strong> option.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="atomPropertiesVisible" rel="nofollow"></a>Advanced &gt; Atom Properties</td>
+           <td class="confluenceTd">Toggles the visibility of atom properties.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="atomMappingVisible" rel="nofollow"></a>Advanced &gt; Atom Mapping</td>
+           <td class="confluenceTd">Toggles the visibility of atom mapping labels.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="graphInvariantsVisible" rel="nofollow"></a>Advanced &gt; Graph Invariants</td>
+           <td class="confluenceTd">Toggles the display of graph invariants (canonical labels).</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="bondLengthsVisible" rel="nofollow"></a>Advanced &gt; Bond Lengths</td>
+           <td class="confluenceTd">Toggles the display of bond lengths in Angstroms on the middle of the bonds.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="lonePairsVisible" rel="nofollow"></a>Advanced &gt; Lone Pairs</td>
+           <td class="confluenceTd">Toggles the display of lone pairs.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="rGroupsVisible" rel="nofollow"></a>Advanced &gt; R-groups</td>
+           <td class="confluenceTd">Toggles the display of R-group definitions.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="rLogicVisible" rel="nofollow"></a>Advanced &gt; R-logic</td>
+           <td class="confluenceTd">Toggles the display of R-logic definitions.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="valence" rel="nofollow"></a>Advanced &gt; Valence</td>
+           <td class="confluenceTd">Toggles the display of valence numbers. Default setting is <strong>On</strong>.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="ligandError" rel="nofollow"></a>Advanced &gt; Ligand Error</td>
+           <td class="confluenceTd">Toggles the display of ligand errors. Default setting is <strong>On</strong>.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="fitPageWidth" rel="nofollow"></a>Pages &gt; Fit Page Width&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099704.png" data-image-src="attachments/16122203/29099704.png" data-unresolved-comment-count="0" data-linked-resource-id="29099704" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="fit-width24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Adjusts the width of the current page to the width of the canvas.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="fitPageHeight" rel="nofollow"></a>Pages &gt; Fit Page Height&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099699.png" data-image-src="attachments/16122203/29099699.png" data-unresolved-comment-count="0" data-linked-resource-id="29099699" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="fit-height24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Adjusts the height of the current page to the height of the canvas.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="fitPage" rel="nofollow"></a>Pages &gt; Fit Page&nbsp;&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099700.png" data-image-src="attachments/16122203/29099700.png" data-unresolved-comment-count="0" data-linked-resource-id="29099700" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="fit-page24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Adjusts the current page so that the whole current page will be placed centralized within the canvas.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="previousPage" rel="nofollow"></a>Pages &gt; Previous Page&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099703.png" data-image-src="attachments/16122203/29099703.png" data-unresolved-comment-count="0" data-linked-resource-id="29099703" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="previous24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Goes to the previous page of multipage molecular document.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="nextPage" rel="nofollow"></a>Pages &gt; Next Page&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099702.png" data-image-src="attachments/16122203/29099702.png" data-unresolved-comment-count="0" data-linked-resource-id="29099702" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="next24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Goes to the next page of multipage molecular document.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="firstPage" rel="nofollow"></a>Pages &gt; First Page&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099698.png" data-image-src="attachments/16122203/29099698.png" data-unresolved-comment-count="0" data-linked-resource-id="29099698" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="first24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Goes to the first page of multipage molecular document.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="lastPage" rel="nofollow"></a>Pages &gt; Last Page&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099701.png" data-image-src="attachments/16122203/29099701.png" data-unresolved-comment-count="0" data-linked-resource-id="29099701" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="last24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Goes to the last page of multipage molecular document.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="gotoPage" rel="nofollow"></a>Pages &gt; Goto Page&nbsp;</td>
+           <td class="confluenceTd">Goes directly to a specific page by entering a number in the appearing dialog window.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="marvinSpace" rel="nofollow"></a>Open MarvinSpace&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099590.png" data-image-src="attachments/16122203/29099590.png" data-unresolved-comment-count="0" data-linked-resource-id="29099590" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mspace24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span></td>
+           <td class="confluenceTd">Launches a MarvinSpace window containing the current molecule from the Sketcher.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="toolbars" rel="nofollow"></a>Toolbars &gt; Toolbars</td>
+           <td class="confluenceTd">Sets the visibility of individual toolbars.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="menubar" rel="nofollow"></a>Menubar</td>
+           <td class="confluenceTd">Sets the visibility of the main menubar.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="statusbar" rel="nofollow"></a>Status Bar</td>
+           <td class="confluenceTd">Sets the visibility of the status bar.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="configurations" rel="nofollow"></a>Editor Style &gt; Configurations</td>
+           <td class="confluenceTd">Lists the available configurations, and allows quick switch.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="configurationsDialog" rel="nofollow"></a>Editor Style &gt; Configuration Settings</td>
+           <td class="confluenceTd">Configurations are GUI alternatives storing whole menu, toolbar and popup personalizations. This makes easy to define and quickly change the GUI for various purposes like sketching, publishing, teaching, etc.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="resetConfiguration" rel="nofollow"></a>Editor Style &gt; Reset Current Configuration</td>
+           <td class="confluenceTd">Removes all local modifications made on the active GUI configuration. Note that this action cannot be undone.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><a class="text" name="customize" rel="nofollow"></a>Editor Style &gt; Customize</td>
+           <td class="confluenceTd">Customization allows you to personalize the GUI of MarvinSketch including menus, toolbars and keyboard shortcuts.</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p>&nbsp;</p>
+      </div>
+      <h3 id="ViewMenuMS-"><a class="anchor" name="insert" rel="nofollow"></a><span class="confluence-anchor-link">&nbsp;</span></h3> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<head>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+<title>Excel Sheet Generation Using Marvin Beans</title>
+</head>
+<body>
+<h1 align=center>Excel Sheet Generation Using Marvin Beans</h1>
+<p>The following example is a JSP page which generates an Excel Sheet 
+with Marvin generated structure images and structure data. 
+
+<p>To run the examples, please follow the next steps:
+<ul>
+	<li>Install MS Excel 2000 or higher version.
+	<li>Install <a href="http://jakarta.apache.org/tomcat">Tomcat</a>.
+	(of course the examples also run under other servlet servers.)
+
+	<li>Copy all jar files (files with <code>.jar</code> extension) of 
+	the Marvin Beans or JChem package under	Tomcat's <code>lib</code> 
+	directory. 
+	
+	<li>Create the <code>marvin</code> directory under Tomcat's
+	<code>webapps/examples/jsp/marvin</code>
+	
+	<li>Copy the <code>generate_image.jsp</code> file from the 
+	<code>examples/image-generation</code>
+	directory and the <code>molsheet.jsp</code> file from the 
+	<code>examples/excelsheet-generation</code> directory 
+	of Marvin Beans to Tomcat's
+	<code>webapps/examples/jsp/marvin/</code> directory.
+	
+	<li>Start Tomcat
+	
+	<li>Open:
+	
+	<ul>
+	    <li>Start MS Excel and open the following link: 
+		<a href="http://localhost:8080/examples/jsp/marvin/molsheet.jsp">http://localhost:8080/examples/jsp/marvin/molsheet.jsp</a><br><br>
+
+		<li>If you have 
+		<a href="http://xml.apache.org/cocoon/index.html">cocoon</a> 
+		or other xml publishing framework installed under your servlet
+		server you can open the 
+		<a href="http://localhost:8080/examples/jsp/marvin/molsheet.jsp">http://localhost:8080/examples/jsp/marvin/molsheet.jsp</a> 
+		link from your browser. 
+	    
+		
+	</ul>
+</ul>
+
+Please also see:
+<ul>
+    <li><a href="http://www.chemaxon.com/marvin/help/formats/formats.html">http://www.chemaxon.com/marvin/help/formats.html</a>
+    <li><a href="http://www.chemaxon.com/marvin/help/formats/images-doc.html">http://www.chemaxon.com/marvin/help/formats/images-doc.html</a>
+</ul>
+</body>
+</html>
+

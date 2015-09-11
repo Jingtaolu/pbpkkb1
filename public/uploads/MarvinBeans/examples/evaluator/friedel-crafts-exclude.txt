@@ -1,0 +1,3 @@
+match("[#15][H]") || 
+(max(pka(filter("match('[O,S;H1]')"), "acidic")) > 14.5)  ||
+(max(pka(filter("match('[#7:1][H]', 1)"), "basic")) > 0) 

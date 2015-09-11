@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Substructure Checker</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Substructure Checker </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Checker searches for SMARTS defined substructures. Substructure Checkers can be set individually.</p>
+      <p>Fixer: when the substructure is specified as reaction SMARTS or SMIRKS, the checker works as fixer as well.</p>
+      <p><br /><strong>Example</strong>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Substructure Checker</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">O=N=O&gt;&gt;[O-][N+]=O</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Checker setting</strong>: SMARTS: O=N=O&gt;&gt;[O-][N+]=O</td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="substructure_nitro" height="148" width="167" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_sub_ch.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_sub_ch.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="substructure_fixed" height="142" width="166" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_sub_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_sub_f.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /> <strong>Note</strong>: This checker is available only in JChem. The checker can also be accessed from MarvinSketch if MarvinSketch is run from the JChem\bin folder (e.g, c:\Program Files\ChemAxon\Jchem\bin\msketch.bat). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

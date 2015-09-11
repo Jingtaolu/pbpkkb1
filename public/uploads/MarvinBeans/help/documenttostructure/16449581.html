@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Document to Structure : Document to Structure User's Guide</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Document to Structure : Document to Structure User's Guide </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Document to Structure processes PDF, HTML, XML, text files and office file formats: DOC, DOCX, PPT, PPTX, XLS, XLSX, ODT. It recognizes and converts the chemical names (IUPAC, CAS, common and drug names), SMILES and InChI found in the document into chemical structures.</p>
+      <p>D2s conversion uses the name-to-structure converter. For the supported names and current limitation, see the&nbsp;<a href="https://docs.chemaxon.com/display/products/Name+to+Structure">Name to Structure</a>&nbsp;documentation. You can extend the document to structure conversion by creating a <a href="https://docs.chemaxon.com/display/n2s/Custom+Dictionary+in+Name+Import">custom dictionary file</a>.</p>
+      <p>D2s can be used via <a href="16449593.html">API</a>, <a href="#DocumenttoStructureUser'sGuide-d2s_molconvert">command line application (MolConverter)</a>, or <a href="#DocumenttoStructureUser'sGuide-d2s_MView">MarvinView</a>. Text mining can also be automatized by using d2s integrated into <a href="http://www.chemaxon.com/products/workflow-tools/#knime" class="external-link" rel="nofollow"> Knime</a> or into <a href="http://www.chemaxon.com/products/workflow-tools/#pipelinepilot" class="external-link" rel="nofollow">Pipeline Pilot</a>.</p>
+      <h2 id="DocumenttoStructureUser'sGuide-OCRandsyntaxcorrection">OCR and syntax correction</h2>
+      <p>Chemaxon's d2s toolkit is able to correct several simple OCR and syntax error. For instance, given the incorrect name &quot;3-rnethyl-l-me-thoxynaphthalene&quot;, it automatically corrects the name to &quot;3-methyl-1-methoxynaphthalene&quot; and generates the corresponding structure.</p>
+      <h2 id="DocumenttoStructureUser'sGuide-d2s_MViewDocumenttoStructureConversioninMarvinView"><a class="anchor" name="d2s_MView" rel="nofollow"></a> <span class="confluence-anchor-link" id="DocumenttoStructureUser'sGuide-d2s_MView"></span>Document to Structure Conversion in MarvinView</h2>
+      <p>Open a PDF file containing chemical names. MarvinView will display all the structures corresponding to the recognized names. The structures can then be saved, copy-pasted, opened in the MarvinSketch editor.</p>
+      <h2 id="DocumenttoStructureUser'sGuide-d2s_molconvertDocumenttostructureconversionfromcommandline"><a class="anchor" name="d2s_molconvert" rel="nofollow"></a> <span class="confluence-anchor-link" id="DocumenttoStructureUser'sGuide-d2s_molconvert"></span>Document to structure conversion from command line</h2>
+      <p>As a commandline tool, you can use <a href="https://docs.chemaxon.com/display/FF/Molecule+File+Conversion+with+MolConverter">MolConverter</a> for d2s conversion. Example:</p>
+      <ul>
+       <li>Converting &quot;test.pdf&quot; name file to MOL file:<pre> molconvert mol test.pdf -o test.mol</pre></li>
+      </ul>
+      <h2 id="DocumenttoStructureUser'sGuide-StructureconversionfromOLEobjects"><a class="anchor" name="d2s_OLE" rel="nofollow"></a>Structure conversion from OLE objects</h2>
+      <p>D2s converts the chemical structures from OLE objects – created by various chemical sketchers such as Marvin, ChemDraw, ISIS/DRAW, SYMYX DRAW, and Accelrys Draw – embedded in office documents.</p>
+      <h2 id="DocumenttoStructureUser'sGuide-Chemicalimagerecognition"><a class="anchor" name="d2s_OSR" rel="nofollow"></a>Chemical image recognition</h2>
+      <p>For structures represented as images in PDF or Office documents, d2s can make use of several <strong>Image to Structure</strong> tools (also called <strong>Optical Structure Recognition</strong> or <strong>Chemical OCR</strong>). When such a tool is installed and successfully recognizes an image, the chemical structure becomes part of the output of d2s; it can be visualized, edited, indexed and searched just like any other structure.</p>
+      <p>Currently, the supported Image to Structure tools are:</p>
+      <ul>
+       <li>Keymodule <a href="http://www.keymodule.co.uk/products/clide/clide-batch.html" class="external-link" rel="nofollow">CLiDE</a>;</li>
+       <li>NIH <a href="http://cactus.nci.nih.gov/osra/" class="external-link" rel="nofollow">OSRA</a>; and</li>
+       <li>GGA <a href="http://ggasoftware.com/opensource/imago" class="external-link" rel="nofollow">Imago</a>.</li>
+      </ul>
+      <p>See <a href="Configuring-OSR-tools-for-Document-to-Structure_16449596.html">configuration instructions</a> to know how to make those tools recognized by d2s.</p>
+      <p>Note that structures present as vector graphics rather than bitmap are not converted, unless the <code>osraRendered</code> format option is used.</p>
+      <h2 id="DocumenttoStructureUser'sGuide-Seealso">See also</h2>
+      <ul>
+       <li><a href="16449593.html">Developer documentation for d2s</a></li>
+       <li><a href="http://www.chemaxon.com/marvin/examples/d2s/index.html" class="external-link" rel="nofollow">d2s code examples</a></li>
+      </ul>
+      <h2 id="DocumenttoStructureUser'sGuide-Licenseinformation">License information</h2>
+      <p>You need the &quot;Document to Structure&quot; license.</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

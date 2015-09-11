@@ -1,0 +1,26 @@
+<div align="center">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+<h1>Physiologically-based pharmacokinetic knoledgebase (PBPK-KB)</h1>
+  <br/>
+<p><font size="3">A database that can display existing PBPK models ranked by structural similarity toward query chemical</font></p>
+
+  <br/>
+<br/>
+  <br/>
+  <br/>
+  <br/>
+  PBPK-KB accept structure (.mol) file from chemspider:
+  <br/>
+  <br/>
+<%= form_for @file1, :url => url_for(:controller => 'fileup', :action => 'display') do |f| %>
+    <%= f.file_field :something %>
+
+    <%= f.submit "Upload" %>
+<% end %>
+
+</div>

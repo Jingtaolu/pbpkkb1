@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Topological Analysis Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Topological Analysis Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Topological Analysis Plugin:<br /><br /></span><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956937 {padding: 0px;}
+div.rbtoc1439200956937 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956937 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956937"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#TopologicalAnalysisPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#TopologicalAnalysisPlugin-Availabletopologicaldescriptors">Available topological descriptors&nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="TopologicalAnalysisPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The Topology Analysis Plugin&nbsp;calculates different topological descriptors for a molecule. The example below shows the result window of the plugin.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="TopologicalAnalysisPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584146/29098602.png" data-image-src="attachments/12584146/29098602.png" data-unresolved-comment-count="0" data-linked-resource-id="29098602" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="topolanal.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584146" data-linked-resource-container-version="65" /></span></p>
+      <p>Fig.1 Topological descriptors calculated and displayed for molecules<br />&nbsp;</p>
+      <p>These options can be set in the&nbsp;<a href="#TopologicalAnalysisPlugin-f"><em>Topology Analysis Options</em>&nbsp;</a>window, as shown below with the <em>Atom/Bond Tab</em> opened.&nbsp;<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="TopologicalAnalysisPlugin-fig.2"></span></p>
+      <p><span style="line-height: 1.4285715;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584146/29098601.png" data-image-src="attachments/12584146/29098601.png" data-unresolved-comment-count="0" data-linked-resource-id="29098601" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="topanal_panel1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584146" data-linked-resource-container-version="65" /></span></span></p>
+      <p><span style="line-height: 1.4285715;">Fig. 2 Topology Analysis Options window</span></p>
+      <p><span style="line-height: 1.4285715;"><br /></span></p>
+      <p>The<em>&nbsp;Decimal places<strong>&nbsp;</strong></em>and the <em>Single fragment mode<strong>&nbsp;</strong></em>set the number of decimal places for the calculation results and the displaying mode of the molecules, respectively. &nbsp;</p>
+      <h1 id="TopologicalAnalysisPlugin-Availabletopologicaldescriptors"><br />Available topological descriptors&nbsp;</h1>
+      <p>&nbsp;</p>
+      <p>The following descriptors can be calculated (each group of descriptors can be found under a separate tab of the <a href="#TopologicalAnalysisPlugin-fig.2">options window</a>):</p>
+      <h2 id="TopologicalAnalysisPlugin-Atom/bonddescriptors">Atom/bond descriptors</h2>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Aliphatic atom count:</strong>&nbsp;number of atoms in the molecule having no aromatic bond (excluding hydrogens).</li>
+       <li><strong>Aliphatic bond count:</strong>&nbsp;number of non-aromatic bonds in the molecule (excluding bonds of hydrogen atoms).</li>
+       <li><strong>Aromatic atom count:</strong>&nbsp;number of atoms in the molecule having aromatic bonds.</li>
+       <li><strong>Aromatic bond count:</strong>&nbsp;number of aromatic bonds in the molecule.</li>
+       <li><strong>Asymmetric atom count:</strong>&nbsp;the number of asymmetric atoms (having four different ligands).</li>
+       <li><strong>Atom count:</strong>&nbsp;number of atoms in the molecule including hydrogens.</li>
+       <li><strong>Bond count:</strong>&nbsp;number of bonds in the molecule including bonds of hydrogen atoms.</li>
+       <li><strong>Chain atom count:</strong>&nbsp;number of chain atoms (non-ring atoms excluding hydrogens).</li>
+       <li><strong>Chain bond count:</strong>&nbsp;number of chain bonds (non-ring bonds excluding bonds of hydrogen atoms).</li>
+       <li><strong>Chiral center count:</strong>&nbsp;the number of tetrahedral stereogenic centers. This function identifies two chiral centers in 1,4-dimethylcyclohexane, which does not contain asymmetric atoms.</li>
+       <li><strong>Ring atom count:</strong>&nbsp;number of ring atoms.</li>
+       <li><strong>Ring bond count:</strong>&nbsp;number of ring bonds.</li>
+       <li><strong>Rotatable bond count:</strong>&nbsp;number of rotatable bonds in the molecule. Unsaturated bonds, and single bonds connected to hydrogens or terminal atoms, single bonds of amides, sulphonamides and those connecting two hindered aromatic rings (having at least three ortho substituents) are considered non-rotatable.</li>
+       <li><strong>Stereo double bond count:</strong>&nbsp;number of double bonds with defined stereochemistry.<br /><br /></li>
+      </ul>
+      <h2 id="TopologicalAnalysisPlugin-Ringdescriptors">Ring descriptors</h2>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Aliphatic ring count:</strong>&nbsp;number of those rings in the molecule that have non-aromatic bonds (SSSR based).</li>
+       <li><strong>Aromatic ring count:</strong>&nbsp;number of aromatic rings in the molecule. This number is calculated from the smallest set of smallest aromatic rings (SSSAR), which might contain rings which are not part of the standard SSSR ring set. As a consequence, the sum of the aliphatic ring count and the aromatic ring count can sometimes be greater than the ring count value. The difference is the signal of a macroaromatic ring system.</li>
+       <li><strong>Carbo ring count:</strong>&nbsp;number of rings containing only carbon atoms.</li>
+       <li><strong>Carboaliphatic ring count:</strong>&nbsp;number of aliphatic rings containing only carbon atoms.</li>
+       <li><strong>Carbooaromatic ring count:</strong>&nbsp;number of aromatic rings containing only carbon atoms (SSSAR based).</li>
+       <li><strong>Fused aliphatic ring count:</strong>&nbsp;number of aliphatic rings having common bonds with other rings.</li>
+       <li><strong>Fused aromatic ring count:</strong>&nbsp;number of aromatic rings having common bonds with other rings.</li>
+       <li><strong>Fused ring count:</strong>&nbsp;number of fused rings in the molecule (having common bonds).</li>
+       <li><strong>Hetero ring count:</strong>&nbsp;number of rings containing hetero atom(s).</li>
+       <li><strong>Heteroaromatic ring count:</strong>&nbsp;number of aromatic heterocycles in the molecule.</li>
+       <li><strong>Largest ring size:</strong>&nbsp;size of the largest ring in the molecule.</li>
+       <li><strong>Largest ring system size:</strong>&nbsp;number of rings in the largest ring system.</li>
+       <li><strong>Ring count:</strong>&nbsp;number of rings in the molecule. This calculation is based on SSSR (Smallest Set of Smallest Rings).</li>
+       <li><strong>Ring system count:</strong>&nbsp;number of disjunct ring systems.</li>
+       <li><strong>Smallest ring size:</strong>&nbsp;size of the smallest ring in the molecule.</li>
+       <li><p><strong>Smallest ring system size:</strong>&nbsp;number of rings in the smallest ring system.</p></li>
+      </ul>
+      <p>&nbsp;</p>
+      <h2 id="TopologicalAnalysisPlugin-Path-baseddescriptors">Path-based descriptors</h2>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Platt index:</strong>&nbsp;sum of the edge degrees of a molecular graph.</li>
+       <li><p><strong>Randic index:</strong>&nbsp;harmonic sum of the geometric means of the node degrees for each edge.</p></li>
+      </ul>
+      <p>&nbsp;</p>
+      <h2 id="TopologicalAnalysisPlugin-Distance-baseddescriptors">Distance-based descriptors</h2>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Balaban index:</strong>&nbsp;the Balaban distance connectivity of the molecule, which is the average distance sum connectivity.</li>
+       <li><strong>Distance degree:</strong>&nbsp;the sum of the corresponding row values in the distance matrix for each atom.</li>
+       <li><strong>Eccentricity:</strong>&nbsp;the greatest value in the corresponding row of the distance matrix for each atom.</li>
+       <li><strong>Harary index:</strong>&nbsp;half-sum of the off-diagonal elements of the reciprocal molecular distance matrix of the molecule.</li>
+       <li><strong>Hyper Wiener index:</strong>&nbsp;a variant of the Wiener index.</li>
+       <li><strong>Szeged index:</strong>&nbsp;The Szeged index extends the Wiener index for cyclic graphs by counting the number of atoms on both sides of each bond (those atoms only which are nearer to the given side of the bond than to the other), and sum these counts.</li>
+       <li><strong>Wiener index:</strong>&nbsp;the average topological atom distance (half of the sum of all atom distances) in the molecule.</li>
+       <li><p><strong>Wiener polarity:</strong>&nbsp;the number of 3 bond length distances in the molecule.</p><p>&nbsp;</p></li>
+      </ul>
+      <h2 id="TopologicalAnalysisPlugin-Othertopologicaldescriptors">Other topological descriptors</h2>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Cyclomatic number:</strong>&nbsp;the smallest number of bonds which must be removed so that no circuit remains. Also known as circuit rank.</li>
+       <li><strong>Fragment count</strong>: number of fragments in the sketch.</li>
+       <li><strong>Steric effect index:</strong>&nbsp;topological steric effect index (TSEI) of an atom calculated from the covalent radii values and topological distances. The stericEffectIndex is related to the steric hindrance of the given atom.</li>
+       <li><p><strong style="line-height: 1.4285715;">Fsp3</strong>: number of sp<sup>3</sup>&nbsp;hybridized carbons diveded by the total carbon count.</p></li>
+      </ul>
+      <p>&nbsp;</p>
+      <h2 id="TopologicalAnalysisPlugin-http://www.chemaxon.com/marvin/help/calculations/geometrygroup.html#geometry"><a class="external-link" href="http://www.chemaxon.com/marvin/help/calculations/geometrygroup.html#geometry" name="geometry" style="text-decoration: underline;" rel="nofollow"></a></h2> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

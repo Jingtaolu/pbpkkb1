@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Visualizers Tab</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Visualizers Tab </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><strong>Visualizers</strong>&nbsp;tab that applies to Ligands, MacroMolecules, Water and Ions, and sets the following properties:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><strong>Parameter</strong></th>
+          <th class="confluenceTh">Description</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Ball radius</strong></td>
+          <td class="confluenceTd">Size of atom spheres in&nbsp;<strong>Ball</strong>&nbsp;draw type, measured in Angstroms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Bond radius</strong></td>
+          <td class="confluenceTd">Size of bond cylinders in&nbsp;<strong>Ball and Stick</strong>&nbsp;draw type, measured in Angstroms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Stick radius</strong></td>
+          <td class="confluenceTd">Size of bond cylinders in&nbsp;<strong>Stick</strong>&nbsp;draw type, measured in Angstroms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Line width</strong></td>
+          <td class="confluenceTd">Width of bonds in wire mode.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Double bond distance</strong></td>
+          <td class="confluenceTd">Gap between two lines/sticks representing a double bond. It is determined as a percentage of Bond radius.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Double bond width</strong></td>
+          <td class="confluenceTd">Thickness of line/stick representing a double bond. It is expressed relative to the thickness of a single bond.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Display bond order</strong></td>
+          <td class="confluenceTd">When checked double bonds are drawn by two line segments, otherwise all bonds are represented as single bonds.&nbsp;<br />Future releases will introduce drawing mode for triple and aromatic bonds too.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>vdW scaled balls</strong></td>
+          <td class="confluenceTd">When checked atom spheres in Ball and Ball-and-Stick modes are scaled according to their van der Waals radii. Otherwise all atoms (apart from hydrogen) are represented by uniform sphere radii. Hydrogen radius is half of atom radius.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Smooth colored sticks</strong></td>
+          <td class="confluenceTd">When checked bi-colored stick bonds are colored gradually from one color to the other (in CPK atom coloring mode). Otherwise the two halves are draw with the two different colors.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

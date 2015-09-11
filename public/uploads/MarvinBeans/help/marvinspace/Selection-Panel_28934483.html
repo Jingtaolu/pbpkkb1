@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Selection Panel</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Selection Panel </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Components in MarvinSpace are registered in the selection panel in hierarchical way. Macromolecules may consist of Chains, Ligands, Ions and Water. Computed molecular surfaces and the secondary structure are also displayed under the related macromolecule.</p>
+      <p>Components being in an inactive cell will appear faded and selecting them will cause the activation of the containing cell.</p>
+      <p>Every component has a symbolic image on the selection panel that is a rectangle with a specific color. The color helps identifying the structures. For example when macromolecule chains are colored by chain type the related symbolic images will have the same color as the chain.</p>
+      <p>By clicking on a symbolic image a component can be shown/hidden quickly and the image changes the visibility state of the components.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Selection panel of MarvinSpace" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/selectionpanel.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/selectionpanel.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="PDB Information" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/pdbinfo2.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/pdbinfo2.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>The selection panel has its own&nbsp;<strong>Popup Menu</strong>&nbsp;that contains submenus and menu items according to the selected component. Components can be selected/deselected, shown/hidden, closed and have their display properties changed independently. There are some actions that are not available from the&nbsp;<a href="#SelectionPanel-menubar">Menubar</a>, because they are connected to specific components.</p>
+      <p>These are as follows:</p>
+      <p><strong>Information</strong>&nbsp;of MacroMolecules displays variuos information found in pdb files.</p>
+      <p><strong>Selecting the neighborhood of a ligand</strong>&nbsp;causes the selection of all components or parts of components (atoms) lying in a customizable size environment of the specified ligand. This is useful when dealing with large macromolecules because the display can be greatly reduced to the interesting part of the molecule by choosing&nbsp;<strong>Hide unselected components</strong>&nbsp;in the main Popup menu.</p>
+      <p><strong>Extending selection</strong>&nbsp;of a chain will cause the selection of every atoms of every residue that have at least one atom already selected. Hidden atoms will also be selected and become visible.</p>
+      <p><strong>Reduce triangle count</strong>&nbsp;will take effect on a specific surface. Each time this is invoked the number of triangles will be reduced. Note, that invoking it many times will totally deform the surface.</p>
+      <p><strong>Significant drawing</strong>&nbsp;of a surface is used when the surface is colored by electrostatic potential. In this case surface triangles where the potential is between the two threshold value will not be drawn.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

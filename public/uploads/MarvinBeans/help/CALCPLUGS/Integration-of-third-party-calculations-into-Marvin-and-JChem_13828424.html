@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Integration of third-party calculations into Marvin and JChem</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Integration of third-party calculations into Marvin and JChem </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives you a walk-through on how to integrate your own calculation into ChemAxon tools:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200960309 {padding: 0px;}
+div.rbtoc1439200960309 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200960309 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200960309"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-Introduction">Introduction&nbsp;</a></li> 
+          <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-Exampleplugin">Example plugin</a></li> 
+          <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-Generalnotes">General notes</a></li> 
+          <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-Integrationintodifferentproducts">Integration into different products</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-MarvinSketch/MarvinView">MarvinSketch/MarvinView</a></li> 
+            <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-Marvinapplets">Marvin applets</a></li> 
+            <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-cxcalc">cxcalc</a></li> 
+            <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-ChemicalTerms">Chemical Terms</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-Applets">Applets</a></li> 
+              <li><a href="#Integrationofthird-partycalculationsintoMarvinandJChem-API">API</a></li> 
+             </ul> </li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="Integrationofthird-partycalculationsintoMarvinandJChem-Introduction">Introduction&nbsp;</h1>
+      <p>&nbsp;</p>
+      <p>Third-party calculations can be integrated into Marvin and JChem by using ChemAxon's Calculator Plugin system. By a third-party calculation we mean any calculation which is not provided by ChemAxon via Marvin Beans or JChem. The guides below describe how third-party calculations can be integrated into ChemAxon applications and toolkits, including GUI, applet, command line and API.&nbsp;All guides contain code examples and links to the related topics in developers guide:</p>
+      <p>&nbsp;</p>
+      <p>MarvinSketch GUI offers a user-friendly way of integrating third-party calculation as a service via the&nbsp;<a href="https://docs.chemaxon.com/display/marvinsketch/Marvin+Services">Services module</a>.<br /><br /></p>
+      <h1 id="Integrationofthird-partycalculationsintoMarvinandJChem-Exampleplugin">Example plugin</h1>
+      <p>&nbsp;</p>
+      <p>To create an example it is first required to extend the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>chemaxon.marvin.plugin.CalculatorPlugin</code></a>&nbsp;class; the descendant class should call the third-party calculation. The steps of the implementation are described in the&nbsp;<a href="Introduction-to-developers_13338461.html">Calculator Plugins Developers Guide</a>.</p>
+      <p>In the examples below the BemisMurckoPlugin&nbsp;will be used to showcase third-party plugin implementation. The BemisMurckoPlugin will be able calculate the Bemis-Murcko framework of a molecule, return it as Molecule object, and can also calculate the number of atoms and bonds in the generated Bemis-Murcko framework, returning them as integers.</p>
+      <p>A custom plugin implementation - of course - can call any Java library, native application (through JNI), or libraries written in other languages, such as C or C++ (through JNI). In the current example only MarvinBeans Java library is called from the code of the BemisMurckoPlugin.</p>
+      <p>&nbsp;</p>
+      <h1 id="Integrationofthird-partycalculationsintoMarvinandJChem-Generalnotes">General notes</h1>
+      <p>&nbsp;</p>
+      <p>In this document we will refer to the Marvin installation directory as&nbsp;<code>MarvinBeans</code>&nbsp;directory.&nbsp;</p>
+      <p>If Marvin's default installation was followed, Marvin installation directory is:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Windows:&nbsp;<code>C:\Program Files\ChemAxon\MarvinBeans</code></li>
+       <li>Linux:&nbsp;<code>$HOME/ChemAxon/MarvinBeans</code>&nbsp;(e.g.&nbsp;<code>/home/myusername/ChemAxon/MarvinBeans</code>)</li>
+       <li>OS X:&nbsp;<code>/Applications/ChemAxon/MarvinBeans<br />&nbsp;</code></li>
+      </ul>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>In MarvinSketch and MarvinView Calculator Plugins can be accessed from the&nbsp;<em>Tools</em>&nbsp;menu.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h1 id="Integrationofthird-partycalculationsintoMarvinandJChem-Integrationintodifferentproducts">Integration into different products</h1>
+      <p>&nbsp;</p>
+      <h2 id="Integrationofthird-partycalculationsintoMarvinandJChem-MarvinSketch/MarvinView">MarvinSketch/MarvinView</h2>
+      <p>&nbsp;</p>
+      <p>To integrate a calculation into MarvinSketch/MarvinView application the following steps should be made:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>Implement a CalculatorPlugin class.&nbsp;Implement also a CalculatorPluginDisplay class, if required (see more <a href="Introduction-to-developers_13338461.html">here</a>).&nbsp;<span style="line-height: 1.4285715;">We only implemented&nbsp;</span><a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.java</code></a><span style="line-height: 1.4285715;">. In the current example&nbsp;</span><code style="line-height: 1.4285715;">BemisMurckoPluginDisplay</code><span style="line-height: 1.4285715;">&nbsp;class is not required.</span><br /><span style="line-height: 1.4285715;"><br /></span></li>
+       <li>Compile the classes.<p>Use the Marvin Beans package for compilation.</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">javac -classpath MarvinBeans/lib/MarvinBeans.jar BemisMurckoPlugin.java</pre> 
+         </div>
+        </div></li>
+       <li>Create the plugin options panel description in XML file (for details, please email to the&nbsp;<a href="mailto:calc-support@chemaxon.com" class="external-link" rel="nofollow">ChemAxon's support</a>).&nbsp;<span style="line-height: 1.4285715;">Copy the created&nbsp;</span><code><a href="attachments/13828424/30474334.xml" data-linked-resource-id="30474334" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPluginParameters.xml" data-nice-type="XML File" data-linked-resource-content-type="text/xml" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPluginParameters.xml</code></a></code><span style="line-height: 1.4285715;">&nbsp;to a directory named&nbsp;</span><code style="line-height: 1.4285715;">xjars</code><span style="line-height: 1.4285715;">.<br />&nbsp;</span></li>
+       <li><p>Pack the created class and XML files into a JAR.&nbsp;<span style="line-height: 1.4285715;">In the next command&nbsp;</span><a href="attachments/13828424/30474333.txt" data-linked-resource-id="30474333" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.txt</code></a><span style="line-height: 1.4285715;">&nbsp;refers to JAR manifest file, which also has to be created. The&nbsp;</span><code style="line-height: 1.4285715;">BemisMurckoPlugin.class</code><span style="line-height: 1.4285715;">&nbsp;file is the result of the compilation of&nbsp;</span><code style="line-height: 1.4285715;">BemisMurckoPlugin.java</code><span style="line-height: 1.4285715;">&nbsp;into class file.</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jar cmf BemisMurckoPlugin.txt BemisMurckoPlugin.jar BemisMurckoPlugin.class xjars/BemisMurckoPluginParameters.xml</pre> 
+         </div>
+        </div></li>
+       <li>Copy the JAR file into the plugins directory.&nbsp;<span style="line-height: 1.4285715;">The created JAR file (</span><a href="attachments/13828424/30474335.jar" data-linked-resource-id="30474335" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.jar" data-nice-type="Java Archive" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.jar</code></a><span style="line-height: 1.4285715;">) has to be copied to the&nbsp;</span><code style="line-height: 1.4285715;">MarvinBeans/plugins</code><span style="line-height: 1.4285715;">&nbsp;directory.<br />&nbsp;</span></li>
+       <li><p>Create/edit the&nbsp;<em>Tools</em>&nbsp;menu configuration file.&nbsp;<span style="line-height: 1.4285715;">Create your own instance of&nbsp;</span><a href="attachments/13828424/30474336.properties" data-linked-resource-id="30474336" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="plugins.properties" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>plugins.properties</code></a><span style="line-height: 1.4285715;">&nbsp;in the&nbsp;</span><code style="line-height: 1.4285715;">MarvinBeans/plugins</code><span style="line-height: 1.4285715;">&nbsp;directory. This properties file describes the structure of the&nbsp;Tools&nbsp;menu in MarvinSketch/MarvinView. If this file exists, it overwrites the default&nbsp;Tools&nbsp;menu. There is a template for&nbsp;</span><code style="line-height: 1.4285715;">plugins.properties</code><span style="line-height: 1.4285715;">&nbsp;(</span><code style="line-height: 1.4285715;">plugins.properties.sample.txt</code><span style="line-height: 1.4285715;">) in this directory. Just make a copy of it, and edit it.&nbsp;</span><span style="line-height: 1.4285715;">To add a new menuitem for the new plugin add the following line to the file:<br /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">plugin_999=$BemisMurckoPlugin$BemisMurckoPlugin.jar$Bemis Murcko Framework$B$$</pre> 
+         </div>
+        </div><p><br />Run MarvinSketch/MarvinView. You can run the example plugin by selectin<span>Bemis Murcko Framework</span>&nbsp;from the&nbsp;<em><span>Tools</span></em>&nbsp;menu.</p>
+        <div class="confluence-information-macro confluence-information-macro-information"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>The plugin class has to be referenced with full name (including the name of the package that contains the class).</p>
+         </div> 
+        </div> </li>
+      </ol>
+      <h2 id="Integrationofthird-partycalculationsintoMarvinandJChem-Marvinapplets">Marvin applets</h2>
+      <p>&nbsp;</p>
+      <p>Integration into MarvinSketch and MarvinView applets is quite similar to the application integration, only the compilation process and the JAR file creation is different. In this section&nbsp;<code>marvin</code>&nbsp;will refer to the root directory of Marvin Applets.</p>
+      <ol style="margin-left: 20.0px;">
+       <li>Implement a CalculatorPlugin class (<a href="Introduction-to-developers_13338461.html">see more</a>). Implement also a CalculatorPluginDisplay class, if required (<a href="Introduction-to-developers_13338461.html">see more</a>).<p>We only implemented&nbsp;<a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.java</code></a>. In the current example&nbsp;<code>BemisMurckoPluginDisplay</code>&nbsp;class is not required.<br />&nbsp;</p></li>
+       <li><p>Compile the classes.&nbsp;<span style="line-height: 1.4285715;">Use JAR files from Marvin Applets package for compilation of the new plugin. Since Marvin Applets classes are compiled with 1.5 compatible compiler, additional code has to compile with 1.5 compatible JDK. To provide compatibility, set the source and the target attributes to 1.5.</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">javac -source 1.5 -target 1.5 -classpath &quot;marvin/jmarvin.jar:marvin/sjars/Plugin.jar:marvin/sjars/PluginGUI.jar&quot; BemisMurckoPlugin.java</pre> 
+         </div>
+        </div></li>
+       <li>Create the plugin options panel description in XML file (for details, mail to&nbsp;<a href="mailto:calc-support@chemaxon.com" class="external-link" rel="nofollow">ChemAxon's support</a>).<p>Copy the created&nbsp;<a href="attachments/13828424/30474334.xml" data-linked-resource-id="30474334" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPluginParameters.xml" data-nice-type="XML File" data-linked-resource-content-type="text/xml" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPluginParameters.xml</code></a>&nbsp;to a directory named&nbsp;<code>xjars</code>.<br />&nbsp;</p></li>
+       <li><p>Pack the created class and XML files into a JAR.&nbsp;<span style="line-height: 1.4285715;">Marvin applets accept custom plugins from certain location:&nbsp;</span><code style="line-height: 1.4285715;">marvin/plugin/extensions.jar</code><span style="line-height: 1.4285715;">. Therefore, wrap resources for your plugin into&nbsp;</span><code style="line-height: 1.4285715;">extensions.jar</code><span style="line-height: 1.4285715;">. In this example,&nbsp;</span><a href="attachments/13828424/30474333.txt" data-linked-resource-id="30474333" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.txt</code></a><span style="line-height: 1.4285715;">&nbsp;is the manifest file for the JAR file,&nbsp;</span><code style="line-height: 1.4285715;">BemisMurckoPlugin.class</code><span style="line-height: 1.4285715;">&nbsp;file is the result of the compilation of&nbsp;</span><code style="line-height: 1.4285715;">BemisMurckoPlugin.java</code><span style="line-height: 1.4285715;">&nbsp;into class file.<br /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jar cmf BemisMurckoPlugin.txt extensions.jar BemisMurckoPlugin.class xjars/BemisMurckoPluginParameters.xml</pre> 
+         </div>
+        </div><p><br />The JAR files that Marvin applets load have to be signed.</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jarsigner -keystore &quot;&lt;keystorepath&gt;&quot; -storepass &lt;password&gt; extensions.jar &lt;alias&gt;</pre> 
+         </div>
+        </div><p><br />In the above statement, the&nbsp;<code>&lt;keystorepath&gt;</code>&nbsp;is the location of the keystore file where your signing key is stored. The<code>&lt;password&gt;</code>&nbsp;gives the password for the keystore. The&nbsp;<code>&lt;alias&gt;</code>&nbsp;is the alias of the certification key in the keystore.<br />&nbsp;</p></li>
+       <li>Copy the JAR file into the plugins directory.&nbsp;<span style="line-height: 1.4285715;">The created JAR file (</span><a href="attachments/13828424/30474338.jar" data-linked-resource-id="30474338" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="extensions.jar" data-nice-type="Java Archive" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>extensions.jar</code></a><span style="line-height: 1.4285715;">&nbsp;- note: the downloadable jar is not signed) has to be copied to the&nbsp;</span><code style="line-height: 1.4285715;">marvin/plugins&nbsp;</code><span style="line-height: 1.4285715;">directory.<br />&nbsp;</span></li>
+       <li>Create/Edit the&nbsp;Tools&nbsp;menu configuration file (<a href="Introduction-to-developers_13338461.html">see more</a>).<p>Create your own instance of&nbsp;<a href="attachments/13828424/30474336.properties" data-linked-resource-id="30474336" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="plugins.properties" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>plugins.properties</code></a>&nbsp;in the&nbsp;<code>marvin/plugins</code>&nbsp;directory. This properties file describes the structure of the&nbsp;Tools&nbsp;menu in MarvinSketch/MarvinView. If this file exists, it overwrites the default&nbsp;Tools&nbsp;menu. There is a template for&nbsp;<code>plugins.properties</code>&nbsp;(<code>plugins.properties.sample.txt</code>) in this directory. Just make a copy of it, and edit it.</p><p>To add a new menuitem for the new plugin add the following line to the file:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">plugin_999=$BemisMurckoPlugin$BemisMurckoPlugin.jar$Bemis Murcko Framework$B$$</pre> 
+         </div>
+        </div><p>Now, you are ready. In MarvinSketch/MarvinView applet the new plugin will display in the&nbsp;<em>Tools</em>&nbsp;menu.</p></li>
+      </ol>
+      <p>&nbsp;</p>
+      <h2 id="Integrationofthird-partycalculationsintoMarvinandJChem-cxcalc">cxcalc</h2>
+      <p>&nbsp;</p>
+      <p>cxcalc&nbsp;is ChemAxon's application for performing the plugin calculations in batch mode. Integration with&nbsp;cxcalc&nbsp;goes as follows:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>Implement a CalculatorPlugin class (<a href="Introduction-to-developers_13338461.html">see more</a>). Implement also a CalculatorPluginOutput class, if required (<a href="Introduction-to-developers_13338461.html">see more</a>).<p>We only implemented<a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60">&nbsp;</a><code><a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.java</code></a></code>. In the current example&nbsp;<code>BemisMurckoPluginOutput</code>&nbsp;class is not required.<br />&nbsp;</p></li>
+       <li><p>Compile the classes.&nbsp;<span style="line-height: 1.4285715;">Use the Marvin Beans package for compilation:<br /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">javac -classpath MarvinBeans/lib/MarvinBeans.jar BemisMurckoPlugin.java</pre> 
+         </div>
+        </div></li>
+       <li><p>Pack the created class file(s) into a JAR.&nbsp;<span style="line-height: 1.4285715;">In the next command&nbsp;</span><code><code><a href="attachments/13828424/30474333.txt" data-linked-resource-id="30474333" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.txt</code></a></code></code><span style="line-height: 1.4285715;">&nbsp;refers to JAR manifest file, which also has to be created.<br /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jar cmf BemisMurckoPlugin.txt BemisMurckoPlugin.jar BemisMurckoPlugin.class</pre> 
+         </div>
+        </div></li>
+       <li>Copy the JAR file into the plugins directory.&nbsp;<span style="line-height: 1.4285715;">The created JAR file (</span><code><code><a href="attachments/13828424/30474335.jar" data-linked-resource-id="30474335" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.jar" data-nice-type="Java Archive" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.jar</code></a></code></code><span style="line-height: 1.4285715;">) has to be copied to the&nbsp;</span><code style="line-height: 1.4285715;">MarvinBeans/plugins</code><span style="line-height: 1.4285715;">&nbsp;directory.<br />&nbsp;</span></li>
+       <li>Create/edit the&nbsp;<code>calc.properties</code>&nbsp;configuration file (<a href="Introduction-to-developers_13338461.html">see more</a>).&nbsp;<span style="line-height: 1.4285715;">Create your own instance of&nbsp;</span><code><a href="attachments/13828424/30474339.properties" data-linked-resource-id="30474339" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="calc.properties" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>calc.properties</code></a></code><span style="line-height: 1.4285715;">&nbsp;in the&nbsp;</span><code style="line-height: 1.4285715;">MarvinBeans/plugins</code><span style="line-height: 1.4285715;">&nbsp;directory. This properties file should contain the configurations (parameters, help text, etc.) of the third-party calculations. If this file exists, then the calculations defined in it are added to default calculations. There is a template for&nbsp;</span><code style="line-height: 1.4285715;">calc.properties</code><span style="line-height: 1.4285715;">&nbsp;(</span><code style="line-height: 1.4285715;">calc.properties.sample.txt</code><span style="line-height: 1.4285715;">) in this directory; just make a copy of it, and edit it.</span></li>
+      </ol>
+      <p>&nbsp;</p>
+      <p>The new calculations can be run with the following commands:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><p>Generate the Bemis-Murcko framework</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc bemismurcko testmols.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Count atoms of the Bemis-Murcko framework</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc bemismurckoatomcount testmols.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Count bonds of the Bemis-Murcko framework</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc bemismurckobondcount testmols.sdf</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <h2 id="Integrationofthird-partycalculationsintoMarvinandJChem-ChemicalTerms">Chemical Terms</h2>
+      <p>&nbsp;</p>
+      <p><a href="https://docs.chemaxon.com/display/chemicalterms">Chemical Terms</a>&nbsp;is a language for adding advanced chemical intelligence to cheminformatics applications. It is an additional interface to access plugin calculations, and is integrated into a number of ChemAxon's applications (e.g. Instant JChem, JChem Base, JChem Cartridge, Reactor). Chemical Terms can also be used with Marvin applets through JavaScript.</p>
+      <p>In case of Chemical Terms, integration means adding a new Chemical Terms function. After the function is added, it can be used from all applications that make use of Chemical Terms.</p>
+      <p>The integration steps are the following:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>Implement a CalculatorPlugin class (<a href="https://docs.chemaxon.com/display/CALCPLUGS/Introduction+to+developers" rel="nofollow">see more</a>).<p>We implemented&nbsp;<a class="unresolved" href="#"><code>BemisMurckoPlugin.java</code></a><a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60">.</a><br />&nbsp;</p></li>
+       <li><p>Compile the classes.&nbsp;<span style="line-height: 1.4285715;">Use the Marvin Beans package for compilation.<br /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">javac -classpath MarvinBeans/lib/MarvinBeans.jar BemisMurckoPlugin.java</pre> 
+         </div>
+        </div></li>
+       <li><p>Pack the created class files into a JAR.&nbsp;<span style="line-height: 1.4285715;">In the next command&nbsp;</span><code><code><code><a class="unresolved" href="#"><code>BemisMurckoPlugin.txt</code></a></code></code></code><span style="line-height: 1.4285715;">&nbsp;refers to JAR manifest file, which also has to be created. The&nbsp;</span><code style="line-height: 1.4285715;">BemisMurckoPlugin.class</code><span style="line-height: 1.4285715;">&nbsp;file is the result of the compilation of&nbsp;</span><code style="line-height: 1.4285715;">BemisMurckoPlugin.java</code><span style="line-height: 1.4285715;">&nbsp;into class file.<br /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jar cmf BemisMurckoPlugin.txt BemisMurckoPlugin.jar BemisMurckoPlugin.class</pre> 
+         </div>
+        </div></li>
+       <li>Copy the JAR file into the plugins directory.&nbsp;<span style="line-height: 1.4285715;">The created JAR file (</span><code><a href="attachments/13828424/30474335.jar" data-linked-resource-id="30474335" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.jar" data-nice-type="Java Archive" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.jar</code></a></code><span style="line-height: 1.4285715;">) has to be copied to the&nbsp;</span><code style="line-height: 1.4285715;">MarvinBeans/plugins</code><span style="line-height: 1.4285715;">&nbsp;directory.</span><br /><span style="line-height: 1.4285715;"><br /></span></li>
+       <li>Create/edit the&nbsp;<code>evaluator.xml</code>&nbsp;configuration file (<a class="external-link" href="http://www.chemaxon.com/marvin/help/chemicalterms/Evaluator.html#config" rel="nofollow" style="text-decoration: underline;">see more</a>).<p>Create your own instance of&nbsp;<code><a href="attachments/13828424/30474344.xml" data-linked-resource-id="30474344" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="evaluator.xml" data-nice-type="XML File" data-linked-resource-content-type="text/xml" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>evaluator.xml</code></a></code>&nbsp;file in the&nbsp;<code>MarvinBeans/config</code>&nbsp;directory (see the Evaluator manual for alternative location). This XML file describes the Chemical Terms functions. If this file exists, then the functions defined in it are added to default functions. There is a template for&nbsp;<code>evaluator.xml</code>&nbsp;(<code>evaluator.xml.sample.txt</code>) in this directory; just make a copy of it, and edit it.</p></li>
+      </ol>
+      <p><br />Test the new functions with&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/Chemical+Terms+Evaluator">Chemical Terms Evaluator</a>:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><p>Generate the Bemis-Murcko framework</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e bemisMurcko() testmols.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Count atoms of the Bemis-Murcko framework</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e bemisMurckoAtomCount() testmols.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Count bonds of the Bemis-Murcko framework</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e bemisMurckoBondCount() testmols.sdf</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <h3 id="Integrationofthird-partycalculationsintoMarvinandJChem-Applets"><a class="anchor" name="ctapplet" rel="nofollow"></a>Applets</h3>
+      <p>&nbsp;</p>
+      <p>After performing the steps below the Chemical Terms functions will be accessible via JavaScript from MarvinSketch/MarvinView applet. For usage examples see:&nbsp;<a class="external-link" href="http://www.chemaxon.com/marvin/sketch/index.jsp" rel="nofollow" style="text-decoration: underline;">Marvin, Calculator Plugin and Chemical Terms Demo page</a>. In this section&nbsp;<code>marvin</code>&nbsp;will refer to the root directory of Marvin Applets.</p>
+      <ol style="margin-left: 20.0px;">
+       <li>Implement a CalculatorPlugin class (<a href="https://docs.chemaxon.com/display/CALCPLUGS/Introduction+to+developers" rel="nofollow">see more</a>).<p>We implemented&nbsp;<code><a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.java</code></a></code>.<br />&nbsp;</p></li>
+       <li><p>Compile the classes.&nbsp;<span style="line-height: 1.4285715;">Use JAR files from Marvin Applets package for compilation of the new plugin. Since Marvin Applets classes are compiled with 1.5 compatible compiler, additional code has to compile with 1.5 compatible JDK. To provide compatibility, set the source and the target attributes to 1.5.</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">javac -source 1.5 -target 1.5 -classpath &quot;marvin/jmarvin.jar:marvin/sjars/Plugin.jar:marvin/sjars/PluginGUI.jar&quot; BemisMurckoPlugin.java</pre> 
+         </div>
+        </div></li>
+       <li>Pack the created class files into a JAR.<p>Marvin applets accept custom plugins from certain location:&nbsp;<code>marvin/plugin/extensions.jar</code>. Therefore, wrap resources for your plugin into&nbsp;<code>extensions.jar</code>. In this example,&nbsp;<code><a href="attachments/13828424/30474333.txt" data-linked-resource-id="30474333" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.txt</code></a></code>&nbsp;is the manifest file for the JAR file,&nbsp;<code>BemisMurckoPlugin.class</code>&nbsp;file is the result of the compilation of&nbsp;<code>BemisMurckoPlugin.java</code>&nbsp;into class file.</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jar cmf BemisMurckoPlugin.txt extensions.jar BemisMurckoPlugin.class</pre> 
+         </div>
+        </div><p>&nbsp;</p><p>The JAR files that Marvin applets load have to be signed.</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jarsigner -keystore &quot;&lt;keystorepath&gt;&quot; -storepass &lt;password&gt; extensions.jar &lt;alias&gt;</pre> 
+         </div>
+        </div><p>&nbsp;</p><p>In the above statement, the&nbsp;<code>&lt;keystorepath&gt;</code>&nbsp;is the location of the keystore file where your signing key is stored. The&nbsp;<code>&lt;password&gt;</code>&nbsp;gives the password for the keystore. The&nbsp;<code>&lt;alias&gt;</code>&nbsp;is the alias of the certification key in the keystore.<br />&nbsp;</p></li>
+       <li>Copy the JAR file into the plugins directory.<p>The created JAR file (<code><a href="attachments/13828424/30474338.jar" data-linked-resource-id="30474338" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="extensions.jar" data-nice-type="Java Archive" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>extensions.jar</code></a></code>&nbsp;- note: the downloadable jar is not signed) has to be copied to the&nbsp;<code>marvin/plugins</code>directory.<br />&nbsp;</p></li>
+       <li>Create/edit the&nbsp;<code>evaluator.xml</code>&nbsp;configuration file (<a href="https://docs.chemaxon.com/display/chemicalterms/Chemical+Terms+Evaluator">see more</a>).<p>Create your own instance of&nbsp;<code><a href="attachments/13828424/30474344.xml" data-linked-resource-id="30474344" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="evaluator.xml" data-nice-type="XML File" data-linked-resource-content-type="text/xml" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>evaluator.xml</code></a></code>&nbsp;file in the&nbsp;<code>marvin/config</code>&nbsp;directory (see the&nbsp;<a href="https://docs.chemaxon.com/display/products/Chemical+Terms">Chemical Terms Language Reference</a>&nbsp;for alternative location). This XML file describes the Chemical Terms functions. If this file exists, then the functions defined in it are added to default functions. There is a template for&nbsp;<code>evaluator.xml</code>&nbsp;(<code>evaluator.xml.sample.txt</code>) in this directory; just make a copy of it, and edit it.</p></li>
+      </ol>
+      <p>After performing these steps the new calculations can be called from the applet via JavaScript, as show on&nbsp;<a class="external-link" href="http://www.chemaxon.com/marvin/sketch/index.jsp" rel="nofollow" style="text-decoration: underline;">Marvin, Calculator Plugin and Chemical Terms Demo page</a>.</p>
+      <h3 id="Integrationofthird-partycalculationsintoMarvinandJChem-API"><br />API</h3>
+      <p>&nbsp;</p>
+      <p>The implemented<a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60">&nbsp;</a><code><a href="attachments/13828424/30474332.java" data-linked-resource-id="30474332" data-linked-resource-version="5" data-linked-resource-type="attachment" data-linked-resource-default-alias="BemisMurckoPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828424" data-linked-resource-container-version="60"><code>BemisMurckoPlugin.java</code></a></code>&nbsp;provides also java Application Programming Interface, so it can be used from other Java code. For details see&nbsp;<a href="Plugin-API-usage-examples_13828315.html">Calculator Plugins Code Examples</a>.</p>
+      <h1 id="Integrationofthird-partycalculationsintoMarvinandJChem-"><a class="anchor" name="exampleplugin" rel="nofollow"></a></h1> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

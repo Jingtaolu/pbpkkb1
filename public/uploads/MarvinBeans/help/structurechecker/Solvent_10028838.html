@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Solvent</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Solvent </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Checker</strong> searches for fragments in the molecule file defined as solvent molecules if more than one fragment is present. The solvent list is customizable and is stored in a configuration file.</li>
+       <li><strong>Fixer</strong> offers removing solvent fragment(s) (<code>removeatom</code>).</li>
+      </ul>
+      <p><br /> <strong>Examples</strong> <span style="color: rgb(54,54,54);">:</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Solvent Checker (<code>solvent</code>)</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Delete Atom (<code>removeatom</code>)</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Find Solvent Molecules</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10028838/17400178.png" data-image-src="attachments/10028838/17400178.png" data-unresolved-comment-count="0" data-linked-resource-id="17400178" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="twosolventmoleculesdetected.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028838" data-linked-resource-container-version="18" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10028838/17400179.png" data-image-src="attachments/10028838/17400179.png" data-unresolved-comment-count="0" data-linked-resource-id="17400179" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="twosolventmoleculesfixed.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028838" data-linked-resource-container-version="18" /></span></td>
+         </tr>
+         <tr>
+          <th colspan="1" class="confluenceTh"><strong>Find Solvent Molecules</strong></th>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_solvent_ch" height="163" width="345" src="attachments/10028838/29098380.png" data-image-src="attachments/10028838/29098380.png" data-unresolved-comment-count="0" data-linked-resource-id="29098380" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_solvent_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028838" data-linked-resource-container-version="18" /></span></td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_solvent_f" height="75" width="349" src="attachments/10028838/29098382.png" data-image-src="attachments/10028838/29098382.png" data-unresolved-comment-count="0" data-linked-resource-id="29098382" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_solvent_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028838" data-linked-resource-container-version="18" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>In case there are only solvent molecules in the input structure, Solvent Checker detects the solvents but no fixer is offered.</p>
+       </div> 
+      </div> 
+      <p>The&nbsp;<strong>default solvents</strong>&nbsp;in the solvent dictionary are:</p>
+      <p>water, methanol, ethanol, propan-1-ol propan-2-ol, butan-1-ol, formic acid, acetic acid, pentane, hexane, benzene, methylbenzene, ethoxyethane, trichloromathane, ethyl acetate, dichloromethane, propan-2-one, acetonitrile, N-methylacetamide, methanesulfonylmethane, oxolane, heptane, 2-mezhylpropan-2-ol, butan-2-one, cyclohexane, cycloheptane, 1,2-dichloroethane, 2-(propan-2-yloxy)propane, 1,2-dimethoxyethane, N,N-dimethylacetamide, pyridine, 1,2-dimethylbenzene, 2-methyoxy-2-methylpropane</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Conformer Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Conformer Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Conformer Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200955545 {padding: 0px;}
+div.rbtoc1439200955545 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200955545 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200955545"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#ConformerPlugin-Introduction">Introduction &nbsp;</a></li> 
+          <li><a href="#ConformerPlugin-Options">Options &nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="ConformerPlugin-Introduction">Introduction<br />&nbsp;</h1>
+      <p>Conformational isomerism is a form of isomerism that describes the phenomenon of molecules with the same structural formula having different 3D structure. Conformations are transformed into each other by rotations along rotatable bonds. Different conformations might have different energies and they are very rarely able to be isolated in a laboratory.&nbsp;</p>
+      <p>The Conformer Plugin generates a selected number of conformers or the lowest energy conformer of a molecule.&nbsp;&nbsp;</p>
+      <p>The results appear in a <a href="#ConformerPlugin-fig.1">new window</a>, containing all calculated conformers in 3D with their energy.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="ConformerPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583817/29098594.png" data-image-src="attachments/12583817/29098594.png" data-unresolved-comment-count="0" data-linked-resource-id="29098594" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="conformers.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583817" data-linked-resource-container-version="16" /></span></p>
+      <p>Fig. 1 The Conformers Plugin result window, showing the generated conformers with their energy</p>
+      <p>&nbsp;</p>
+      <h1 id="ConformerPlugin-Options">Options<br />&nbsp;</h1>
+      <p>Different options can be set in the&nbsp;<em><a href="#ConformerPlugin-fig.2">Conformers Options</a></em>&nbsp;window:</p>
+      <p>&nbsp;</p>
+      <p><strong>Display options</strong>:</p>
+      <ul>
+       <li><strong>Display conformers:</strong>&nbsp;conformers are displayed in a MarivnView window.There are options for displaying generated conformers:</li>
+       <li><strong style="line-height: 1.4285715;">Store conformer information in property field:</strong><span style="line-height: 1.4285715;">&nbsp;the conformer data are calculated and stored with the structures. This option provides the calculations needed to select a specific conformer when using 3D cleaning (menu item Structure &gt; Clean 3D &gt; Display Stored Conformers). The conformers will only be stored if you select one conformer and click on &quot;Select&quot;.</span></li>
+      </ul>
+      <p><strong>Conformer generation options</strong>:</p>
+      <ul>
+       <li><strong>Force field:</strong>&nbsp;force field used for calculation. By default, Dreiding force field is used.</li>
+       <li><strong>Energy unit:</strong>&nbsp;giving results in kcal/mol or kJ/mol.</li>
+       <li><strong>Optimization limit:</strong>&nbsp;set the optimization to loose, normal, strict very strict (in this order increasing calculation times and precisity).</li>
+       <li><strong>Calculate lowest energy conformer:</strong>&nbsp;calculates and displays only the lowest energy conformer structure. When checking this option, max. number if conformers and diversity limit are disabled.</li>
+       <li><strong>Maximum numbers of conformers:</strong>&nbsp;limiting the number of calculated structures.</li>
+       <li><strong>Diversity limit:</strong>&nbsp;conformers within diversity limit will be considered the same and removed.</li>
+       <li><strong>Timelimit (s):</strong>&nbsp;no conformers will be displayed if the calculation is stopped at the time limit (e.g. there are too many conformers to calculate, the operation is cancelled after the given time had elapsed).</li>
+       <li><strong>Prehydrogenize:</strong>&nbsp;if checked, converts all implicit hydrogens to explicit hydrogens without removing them after the calculation. If unchecked, no explicit hydrogens will be added.</li>
+       <li><strong>Hyperfine:</strong>&nbsp;inserts more itineration steps in the calculations, gives more precision in results but the needed time becomes longer.</li>
+       <li><strong>Multi-fragment optimization:</strong>&nbsp;multi-fragment optimization with MMFF94.</li>
+       <li><strong>Visualize H bonds</strong>: marks intramolecular hydrogen bonds in the conformer where it is likely to occur.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="ConformerPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583817/29099377.png" data-image-src="attachments/12583817/29099377.png" data-unresolved-comment-count="0" data-linked-resource-id="29099377" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="conform_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583817" data-linked-resource-container-version="16" /></span></p>
+      <p>Fig. 2 Conformers Options window</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

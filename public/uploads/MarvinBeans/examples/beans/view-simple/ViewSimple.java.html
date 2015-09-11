@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinView Simple Bean Example</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">MViewPane</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JFileChooser</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JFrame</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JMenu</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JMenuBar</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JMenuItem</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JPanel</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">event</span><span class="symbol">.</span><span class="normal">ActionEvent</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">event</span><span class="symbol">.</span><span class="normal">ActionListener</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">BorderLayout</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">IOException</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * Embeds the MViewPane bean component in a Swing container.</span>
+<span class="comment"> * MViewPane has a single cell to which a molecule can be loaded by</span>
+<span class="comment"> * the created open menu item.</span>
+<span class="comment"> * The built-in View menu and Pop-up menus of MarvinView are used.</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Judit Vasko-Szedlar</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Tamas Vertse</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.0.3 04/11/2008</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment">   Marvin 3.5.2, 12/21/2004</span>
+<span class="comment"> </span><span class="comment">*/</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> ViewSimple </span><span class="keyword">extends</span><span class="normal"> JPanel </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> The MarvinView bean. </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> MViewPane viewPane</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> JFileChooser fileChooser </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Schedule a job for the event-dispatching thread:</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">creating and showing this application's GUI.</span>
+<span class="normal">        javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">SwingUtilities</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Create the GUI and show it. For thread safety,</span>
+<span class="comment">     * this method should be invoked from the event-dispatching thread.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        JFrame frame </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFrame</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setTitle</span><span class="symbol">(</span><span class="string">"Simple MarvinView Bean Example"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setDefaultCloseOperation</span><span class="symbol">(</span><span class="normal">JFrame</span><span class="symbol">.</span><span class="normal">EXIT_ON_CLOSE</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        ViewSimple viewSimple </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">ViewSimple</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">viewSimple</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        viewSimple</span><span class="symbol">.</span><span class="function">addMenuBar</span><span class="symbol">(</span><span class="normal">frame</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">pack</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setSize</span><span class="symbol">(</span><span class="number">400</span><span class="symbol">,</span><span class="normal"> </span><span class="number">400</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setLocationRelativeTo</span><span class="symbol">(</span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setVisible</span><span class="symbol">(</span><span class="keyword">true</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="function">ViewSimple</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> Creating the MarvinView JavaBean component.</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> The component is ready and can simply added to</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> any Swing container.</span>
+<span class="normal">        viewPane </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MViewPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">add</span><span class="symbol">(</span><span class="normal">viewPane</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">addMenuBar</span><span class="symbol">(</span><span class="normal">JFrame frame</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> Creates the menu bar</span>
+<span class="normal">        JMenuBar menubar </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenuBar</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	frame</span><span class="symbol">.</span><span class="function">setJMenuBar</span><span class="symbol">(</span><span class="normal">menubar</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> The File menu will contain the Open and Exit items.</span>
+<span class="normal">	JMenu fileMenu </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenu</span><span class="symbol">(</span><span class="string">"File"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        fileMenu</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="function">createOpenMenuItem</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        fileMenu</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="function">createExitMenuItem</span><span class="symbol">(</span><span class="normal">frame</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        menubar</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">fileMenu</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> The built-in View menu of the bean is added to the menubar.</span>
+<span class="normal">        JMenu viewMenu </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenu</span><span class="symbol">(</span><span class="string">"View"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">makeViewMenu</span><span class="symbol">(</span><span class="normal">viewMenu</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        menubar</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">viewMenu</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> JMenuItem </span><span class="function">createOpenMenuItem</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        JMenuItem openMI </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenuItem</span><span class="symbol">(</span><span class="string">"Open"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        openMI</span><span class="symbol">.</span><span class="function">addActionListener</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">ActionListener</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">actionPerformed</span><span class="symbol">(</span><span class="normal">ActionEvent ev</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="keyword">if</span><span class="symbol">(</span><span class="normal">fileChooser </span><span class="symbol">=</span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                    fileChooser </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFileChooser</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="cbracket">}</span>
+<span class="normal">                </span><span class="keyword">if</span><span class="symbol">(</span><span class="symbol">(</span><span class="normal">fileChooser</span><span class="symbol">.</span><span class="function">showOpenDialog</span><span class="symbol">(</span><span class="normal">viewPane</span><span class="symbol">)</span>
+<span class="normal">                        </span><span class="symbol">=</span><span class="symbol">=</span><span class="normal"> JFileChooser</span><span class="symbol">.</span><span class="normal">APPROVE_OPTION</span><span class="symbol">)</span>
+<span class="normal">                        </span><span class="symbol">&amp;</span><span class="symbol">&amp;</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">fileChooser</span><span class="symbol">.</span><span class="function">getSelectedFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">canRead</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                    </span><span class="comment">//</span><span class="comment">With this method a molecule file can be set</span>
+<span class="normal">                    </span><span class="comment">//</span><span class="comment">to MViewPane. The advantage of using this is its</span>
+<span class="normal">                    </span><span class="comment">//</span><span class="comment">simplicity, since no additional coding is required.</span>
+<span class="normal">                    </span><span class="comment">//</span><span class="comment">The disadvantage is the limitation in funtionality,</span>
+<span class="normal">                    </span><span class="comment">//</span><span class="comment">because additional cells are not created in case of</span>
+<span class="normal">                    </span><span class="comment">//</span><span class="comment">setting a multi-mlecule file.</span>
+<span class="normal">                    viewPane</span><span class="symbol">.</span><span class="function">setM</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">,</span><span class="normal"> fileChooser</span><span class="symbol">.</span><span class="function">getSelectedFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="cbracket">}</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> openMI</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> JMenuItem </span><span class="function">createExitMenuItem</span><span class="symbol">(</span><span class="keyword">final</span><span class="normal"> JFrame frame</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        JMenuItem exitMI </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenuItem</span><span class="symbol">(</span><span class="string">"Exit"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        exitMI</span><span class="symbol">.</span><span class="function">addActionListener</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">ActionListener</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">actionPerformed</span><span class="symbol">(</span><span class="normal">ActionEvent ev</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">windowClosing</span><span class="symbol">(</span><span class="normal">frame</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> exitMI</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">//</span><span class="comment"> Saves the changes made by using the View menu and closes the window.</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">synchronized</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">windowClosing</span><span class="symbol">(</span><span class="keyword">final</span><span class="normal"> JFrame frame</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> Save settings of SimpleViewer using UserSettings</span>
+<span class="normal">        </span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            viewPane</span><span class="symbol">.</span><span class="function">getUserSettings</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">save</span><span class="symbol">(</span><span class="string">"Settings of SimpleViewer"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="symbol">(</span><span class="normal">IOException ioe</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            ioe</span><span class="symbol">.</span><span class="function">printStackTrace</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">	viewPane</span><span class="symbol">.</span><span class="function">exit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	frame</span><span class="symbol">.</span><span class="function">dispose</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

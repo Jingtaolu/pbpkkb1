@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Applet modules MV</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Applet modules MV </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">reactionquerydrawing</td>
+          <td class="confluenceTd">Draw reaction query</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">importexport</td>
+          <td class="confluenceTd">Core classes for import / export modules</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">license</td>
+          <td class="confluenceTd">License manager</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">drawing</td>
+          <td class="confluenceTd">Drawable components</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">util</td>
+          <td class="confluenceTd">Frequently used utility classes</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">concurrent</td>
+          <td class="confluenceTd">Concurrent processing</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">logging</td>
+          <td class="confluenceTd">Extra classes for logging</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view</td>
+          <td class="confluenceTd">MarvinView GUI core classes</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketchstart</td>
+          <td class="confluenceTd">Core classes that are called by MarvinSketch startup</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">lwsketchmenu</td>
+          <td class="confluenceTd">Classes to load menu in MarvinSketch from file</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketchmenu</td>
+          <td class="confluenceTd">Classes to load menu in MarvinSketch without file</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketchmenubg</td>
+          <td class="confluenceTd">Extra classes for menu in MarvinSketch</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketchbackground</td>
+          <td class="confluenceTd">Menu actions and other resources that are not required immediately by MarvinSketch startup</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch</td>
+          <td class="confluenceTd">Core MarvinSketch classe</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">smarts</td>
+          <td class="confluenceTd">Smarts module</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">nullexport</td>
+          <td class="confluenceTd">Dummy Null export module</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">smilesimport</td>
+          <td class="confluenceTd">SMILES import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">molimport</td>
+          <td class="confluenceTd">MDL mol format import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sybylexport</td>
+          <td class="confluenceTd">Tripos Sybyl export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sybylimport</td>
+          <td class="confluenceTd">Tripos Sybyl import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">mol2export</td>
+          <td class="confluenceTd">Tripos Mol2 export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">mol2import</td>
+          <td class="confluenceTd">Tripos Mol2 import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">mrvexport</td>
+          <td class="confluenceTd">MRV export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">cmlexport</td>
+          <td class="confluenceTd">CML export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">cdximportexport</td>
+          <td class="confluenceTd">CDX import/export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">gzipexport</td>
+          <td class="confluenceTd">Gzip export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">gzipimport</td>
+          <td class="confluenceTd">Gzip import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">base64export</td>
+          <td class="confluenceTd">Base64 export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">base64import</td>
+          <td class="confluenceTd">Base64 import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">xyzexport</td>
+          <td class="confluenceTd">XYZ export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">inchi</td>
+          <td class="confluenceTd">IUPAC InChi import/export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">hydrogenize</td>
+          <td class="confluenceTd">Hydrogenize module</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">pdbexport</td>
+          <td class="confluenceTd">PDB export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">spacefill</td>
+          <td class="confluenceTd">Spacefill module</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">atomlabellers</td>
+          <td class="confluenceTd">Module for drawing atom labels</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">superatomsgroupcoords</td>
+          <td class="confluenceTd">Superatom Sgroup Coordinates module</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">threedim</td>
+          <td class="confluenceTd">3D utility functions</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">xyzimport</td>
+          <td class="confluenceTd">XYZ import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">goutimport</td>
+          <td class="confluenceTd">Gout import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">gjfexport</td>
+          <td class="confluenceTd">Gjf export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">charmmimport</td>
+          <td class="confluenceTd">CharmmGrid import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">pdbimport</td>
+          <td class="confluenceTd">PDB import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">jpegexport</td>
+          <td class="confluenceTd">Jpeg export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">msbmpexport</td>
+          <td class="confluenceTd">MS BMP image export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">pngexport</td>
+          <td class="confluenceTd">PNG image export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">ppmexport</td>
+          <td class="confluenceTd">PPM image export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">povexport</td>
+          <td class="confluenceTd">POV image export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">svgexport</td>
+          <td class="confluenceTd">SVG graphics export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">vectgraphicsexport</td>
+          <td class="confluenceTd">PDF grapics export and old EMF graphics export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">imageexport</td>
+          <td class="confluenceTd">common classes for various image export modules</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">documenthandling</td>
+          <td class="confluenceTd">Document handling</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">mchart</td>
+          <td class="confluenceTd">MChart module</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">abbrevgroups</td>
+          <td class="confluenceTd">Abbreviation groups dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">reaxysgenerics</td>
+          <td class="confluenceTd">Generic groups dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">abbrevgroupexport</td>
+          <td class="confluenceTd">Abbreviationgroup export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">clean2d</td>
+          <td class="confluenceTd">Clean 2D</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">clean3d</td>
+          <td class="confluenceTd">Clean 3D</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">modelling</td>
+          <td class="confluenceTd">Modelling package</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">atommapper</td>
+          <td class="confluenceTd">Mapping atoms</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">singlelinerecordreader</td>
+          <td class="confluenceTd">SingleLine record reader</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">nameexport</td>
+          <td class="confluenceTd">IUPAC name export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">nameimport</td>
+          <td class="confluenceTd">IUPAC name import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">peptidevmnimport</td>
+          <td class="confluenceTd">Peptide and VMN import</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">peptideexport</td>
+          <td class="confluenceTd">Peptide export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">skc</td>
+          <td class="confluenceTd">Skc file format import/export</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.aboutjvm</td>
+          <td class="confluenceTd">About dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.editmolfileframe</td>
+          <td class="confluenceTd">EditMolfile frame</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.exceptionframe</td>
+          <td class="confluenceTd">Exception frame</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.help</td>
+          <td class="confluenceTd">Help dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.loadsave</td>
+          <td class="confluenceTd">Load/save dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.print</td>
+          <td class="confluenceTd">Print module</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.regenbonds</td>
+          <td class="confluenceTd">Regenerate bonds</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.preferences</td>
+          <td class="confluenceTd">Preferences dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">common.swing.fontediting</td>
+          <td class="confluenceTd">Font attributes panel</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.edit</td>
+          <td class="confluenceTd">Utility for S-groups</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.linesm</td>
+          <td class="confluenceTd">Polyline drawing mode</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.boxsm</td>
+          <td class="confluenceTd">Rectangle drawing</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.bracketsm</td>
+          <td class="confluenceTd">Bracket drawing</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.periodicdialog</td>
+          <td class="confluenceTd">Periodic system dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.rlogicdialog</td>
+          <td class="confluenceTd">Rlogic dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.groupcreationdialog</td>
+          <td class="confluenceTd">Create group dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.attachdatadialog</td>
+          <td class="confluenceTd">Attach data dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.textboxeditor</td>
+          <td class="confluenceTd">Text box editor</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.templates</td>
+          <td class="confluenceTd">Handling templates</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.mobjectpropertiesdialog</td>
+          <td class="confluenceTd">Graphical object properties dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">sketch.swing.guiconfigurationdialog</td>
+          <td class="confluenceTd">Menu configuration dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.scripter</td>
+          <td class="confluenceTd">Helper class for handling JavaScript invokes</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.viewdnd</td>
+          <td class="confluenceTd">Drag and drop in MarvinView</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.imageviewframe</td>
+          <td class="confluenceTd">Image viewer frame</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.mviewanimator</td>
+          <td class="confluenceTd">Molecule rotation in MarvinView</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.mviewframe</td>
+          <td class="confluenceTd">Popup MarvinView frame</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.mviewsketch</td>
+          <td class="confluenceTd">Popup MarvinSketch frame from MarvinView</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.printview</td>
+          <td class="confluenceTd">Additional resource for print in MarvinView</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.molsframe</td>
+          <td class="confluenceTd">Display multiple molecules in a separate frame</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.tableview</td>
+          <td class="confluenceTd">Spreadsheet table renderer</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.gridbagview</td>
+          <td class="confluenceTd">Moleculematrix table renderer</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.find</td>
+          <td class="confluenceTd">Find dialog</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">view.swing.showconformers</td>
+          <td class="confluenceTd">Display conformers</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Plugin</td>
+          <td class="confluenceTd">Core and GUI classes for calculator plugins</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.Alignment</td>
+          <td class="confluenceTd">Alignment plugin</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.CalculationsCore</td>
+          <td class="confluenceTd">Core classes needed for calculator plugins</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.Protonation</td>
+          <td class="confluenceTd">Protonations plugins</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.Partitioning</td>
+          <td class="confluenceTd">Partitioning plugins</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.Tautomers</td>
+          <td class="confluenceTd">Tautomer plugins</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.Analysers</td>
+          <td class="confluenceTd">Analyser plugins</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.MolecularModelling</td>
+          <td class="confluenceTd">Plugins for molecular modelling</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.MarkushEnumeration</td>
+          <td class="confluenceTd">Markush enumeration plugin</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">plugins.Other</td>
+          <td class="confluenceTd">Other plugins</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">checkers</td>
+          <td class="confluenceTd">Various structure checkers</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">propertyeditor</td>
+          <td class="confluenceTd">Classes for editing atom/bond/molecule properties</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">jep</td>
+          <td class="confluenceTd">jep package</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">icons</td>
+          <td class="confluenceTd">Icons mainly for the menus</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Aromaticity Error</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Aromaticity Error </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul style="margin-left: 20.0px;">
+       <li>Checker searches for&nbsp;<strong>General</strong>,&nbsp;<strong>Basic</strong>, or&nbsp;<strong>Loose</strong>&nbsp;aromatic systems that can't be dearomatized or rearomatizing with the given method does not reproduce the initial molecule.&nbsp;<a href="https://docs.chemaxon.com/display/SB/Aromatization">Details on aromaticity detection.</a></li>
+       <li>Fixer offers:
+        <ol>
+         <li>rearomatizing (<code>rearomatize</code>);</li>
+         <li>dearomatizing the aromatic system (<code>dearomatize</code>).</li>
+        </ol></li>
+      </ul>
+      <p><br /> <strong>Example</strong> <span style="color: rgb(54,54,54);">:</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Aromaticity Error checker (<code>aromaticity</code>)</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th colspan="2" class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Rearomatize (<code>rearomatize</code>)</th>
+          <th class="confluenceTh">Dearomatize (<code>dearomatize</code>)</th>
+         </tr>
+         <tr>
+          <th rowspan="2" class="confluenceTh">General</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_ch" src="plugins/servlet/confluence/placeholder/unknown-attachment" title="ex_arom_chg.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no" height="24" width="24" src="attachments/10029113/29098259.png" data-image-src="attachments/10029113/29098259.png" data-unresolved-comment-count="0" data-linked-resource-id="29098259" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no" height="24" width="24" src="attachments/10029113/29098259.png" data-image-src="attachments/10029113/29098259.png" data-unresolved-comment-count="0" data-linked-resource-id="29098259" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_ch" height="102" width="166" src="attachments/10029113/29098261.png" data-image-src="attachments/10029113/29098261.png" data-unresolved-comment-count="0" data-linked-resource-id="29098261" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_chb2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no" height="24" width="24" src="attachments/10029113/29098259.png" data-image-src="attachments/10029113/29098259.png" data-unresolved-comment-count="0" data-linked-resource-id="29098259" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no" height="24" width="24" src="attachments/10029113/29098259.png" data-image-src="attachments/10029113/29098259.png" data-unresolved-comment-count="0" data-linked-resource-id="29098259" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+         </tr>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Basic</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_ch" height="148" width="109" src="attachments/10029113/29098260.png" data-image-src="attachments/10029113/29098260.png" data-unresolved-comment-count="0" data-linked-resource-id="29098260" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_f" height="180" width="135" src="attachments/10029113/29098263.png" data-image-src="attachments/10029113/29098263.png" data-unresolved-comment-count="0" data-linked-resource-id="29098263" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_f" height="180" width="135" src="attachments/10029113/29098263.png" data-image-src="attachments/10029113/29098263.png" data-unresolved-comment-count="0" data-linked-resource-id="29098263" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_ch" height="102" width="166" src="attachments/10029113/29098261.png" data-image-src="attachments/10029113/29098261.png" data-unresolved-comment-count="0" data-linked-resource-id="29098261" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_chb2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no" height="24" width="24" src="attachments/10029113/29098259.png" data-image-src="attachments/10029113/29098259.png" data-unresolved-comment-count="0" data-linked-resource-id="29098259" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no" height="24" width="24" src="attachments/10029113/29098259.png" data-image-src="attachments/10029113/29098259.png" data-unresolved-comment-count="0" data-linked-resource-id="29098259" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+         </tr>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Loose</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_ch" height="148" width="109" src="attachments/10029113/29098260.png" data-image-src="attachments/10029113/29098260.png" data-unresolved-comment-count="0" data-linked-resource-id="29098260" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_f" height="180" width="135" src="attachments/10029113/29098263.png" data-image-src="attachments/10029113/29098263.png" data-unresolved-comment-count="0" data-linked-resource-id="29098263" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_f" height="180" width="135" src="attachments/10029113/29098263.png" data-image-src="attachments/10029113/29098263.png" data-unresolved-comment-count="0" data-linked-resource-id="29098263" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_ch" height="101" width="164" src="attachments/10029113/29098262.png" data-image-src="attachments/10029113/29098262.png" data-unresolved-comment-count="0" data-linked-resource-id="29098262" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_chl.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_f" height="105" width="169" src="attachments/10029113/29098265.png" data-image-src="attachments/10029113/29098265.png" data-unresolved-comment-count="0" data-linked-resource-id="29098265" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_flrea.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_arom_f" height="104" width="166" src="attachments/10029113/29098264.png" data-image-src="attachments/10029113/29098264.png" data-unresolved-comment-count="0" data-linked-resource-id="29098264" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_arom_fldea.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029113" data-linked-resource-container-version="4" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /> <strong>Note</strong> <span style="color: rgb(54,54,54);">: The 2-pyridone aromatized in general mode is corrected after a checking of aromatization in basic mode.</span> <br /> <span style="color: rgb(54,54,54);">In this case, both rearomatization and dearomatization fix yields the same structure.</span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

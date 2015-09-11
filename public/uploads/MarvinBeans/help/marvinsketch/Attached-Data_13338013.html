@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Attached Data</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Attached Data </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>Textual attributes may be attached to atoms and brackets.</p>
+          <p>This data may include search restrictions in queries. Find details of query usage in JChem's&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Query+Guide">Query Guide</a>.</p>
+          <h4 id="AttachedData-Addingdata">Adding data</h4>
+          <ol>
+           <li>Select an atom or group bracket, right-click and choose&nbsp;<strong class="buttonName">Add &gt; Data...</strong>&nbsp;or&nbsp;<strong class="buttonName">Data...</strong>, respectively, from the context menu.</li>
+           <li>Fill the appropriate fields in the dialog.</li>
+           <li>Click OK.</li>
+          </ol>
+          <h4 id="AttachedData-Editingdata">Editing data</h4>
+          <p>The attached data can be edited any time.</p>
+          <ol>
+           <li>Right-click the atom, the bracket or the data label.</li>
+           <li>Choose Edit Data... from the context menu.</li>
+          </ol>
+          <h4 id="AttachedData-Contextfield">Context field</h4>
+          <ul>
+           <li>Atom - the data will be attached independently to all atoms in the selection.</li>
+           <li>Bond - the data will be attached independently to all bonds in the selection.</li>
+           <li>Single Bond - the data will be attached independently to all single bonds in the selection.</li>
+           <li>Double Bond - the data will be attached independently to all double bonds in the selection.</li>
+           <li>Fragment - the data will be attached independently to all disconnected fragments that are completely or partially contained by the selection.</li>
+           <li>Selection - the data will be attached to the whole selection.</li>
+          </ul>
+          <p>The number and name of the selectable contexts may vary in different configurations.</p>
+          <h4 id="AttachedData-URLsasattacheddata">URLs as attached data</h4>
+          <p>Values starting with www and including at least 2 full stops are handled as web page links (no spaces allowed). The format &lt;scheme&gt;://&lt;authority&gt;&lt;path&gt;?&lt;query&gt;#&lt;fragment&gt; is also recognized. Double-click or Ctrl-click on the link will open the webpage. Links are currently not underlined.</p>
+          <h4 id="AttachedData-Customizability">Customizability</h4>
+          <p>The elements of the 'Name' and the 'Value' editable combo boxes can be customized by the administrator. The corresponding elements of the 'Value' combo box can be defined for each element in the 'Name' combo box list, just as the corresponding 'Name' combo box contents for each element in the context combo box.<br /><span class="confluence-link">Details on the customization process.</span> can be found <a href="Configure-the-Attach-Data-Dialog_13336703.html">here</a>.</p>
+          <h4 id="AttachedData-Labelplacement">Label placement</h4>
+          <p>The labels can be positioned in 3 ways:</p>
+          <ul>
+           <li>absolute</li>
+           <li>relative</li>
+           <li>next to objects.</li>
+          </ul>
+          <p>Absolute means a stationary label, which can be moved independently from the structure. If the structure is moved, the label does not change its place.</p>
+          <p>Relative labels always move with the same xy coordinates as the object.</p>
+          <p>Labels next to objects can not be moved separately.</p>
+          <p>Mouseover highlights all details of the attached data.</p>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201032309 {padding: 0px;}
+div.rbtoc1439201032309 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201032309 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201032309"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#AttachedData-Addingdata">Adding data</a></li> 
+              <li><a href="#AttachedData-Editingdata">Editing data</a></li> 
+              <li><a href="#AttachedData-Contextfield">Context field</a></li> 
+              <li><a href="#AttachedData-URLsasattacheddata">URLs as attached data</a></li> 
+              <li><a href="#AttachedData-Customizability">Customizability</a></li> 
+              <li><a href="#AttachedData-Labelplacement">Label placement</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

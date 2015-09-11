@@ -1,0 +1,4 @@
+(mass() <= 500) && 
+(logP() <= 5) && 
+(donorCount() <= 5) && 
+(acceptorCount() <= 10)

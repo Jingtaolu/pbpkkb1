@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : SMARTS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : SMARTS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>ChemAxon products import and export SMARTS strings with the following features:</p>
+          <h2 id="SMARTS-Full-functional(editable)queryfeatures">Full-functional (editable) query features</h2>
+          <p>SMARTS features interpreted during import/export as full-functional (editable) query features:</p>
+          <ul>
+           <li>atom lists like [C,N,P] and 'NOT' lists like [!#6!#7!#15]</li>
+           <li>any bond: ~</li>
+           <li>ring bond: C@C</li>
+           <li>hydrogen count: H0, H1, H2, H3, H4</li>
+           <li>valence: v0, v1, ..., v8</li>
+           <li>connectivity: X0, X1, X2, X3, X4</li>
+           <li>in ring: R<br /> ring count: R0, R1, ..., R6</li>
+           <li>size of smallest ring: r3, r4, r5, r..</li>
+           <li>number of ring bonds: x2, x3, x4 <br />at least one ring bond: x</li>
+           <li>aromatic and aliphatic atoms: a, A</li>
+           <li>aliphatic, aromatic atom query properties</li>
+           <li>single_or_double, single_or_aromatic, double_or_aromatic bonds (used in Marvin)</li>
+           <li>directional or unspecified bonds: C\C=C/?C</li>
+           <li>chiral or unspecified atoms: C[C@?H](Cl)Br</li>
+           <li>component level grouping: (C).(O) (C.O)</li>
+          </ul>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>smarts, smiles:s</strong></p> 
+           </div>
+          </div>
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><strong>See also:</strong></p>
+            <ul>
+             <li><a href="SMILES_19694469.html">SMILES</a></li>
+             <li><a href="SMILES-and-SMARTS-import-and-export-options_19694473.html">SMILES and SMARTS import and export options</a></li>
+             <li><a href="19694483.html">ChemAxon Extended SMILES and SMARTS (CXSMILES and CXSMARTS)</a></li>
+            </ul> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="SMARTS-Featureswithlimitededitingsupport">Features with limited editing support</h2>
+          <p>A subset of SMARTS features are imported as SMARTS atoms/bonds. These atoms/bonds have limited editing support in the Marvin GUI, but can be exported and evaluated (e.g. JChem structure searching handles them correctly):</p>
+          <ul>
+           <li>implicit hydrogen count: h2, h3, h..</li>
+           <li>degree: D2, D3, D..</li>
+           <li>more difficult logical expressions in atom or bond expressions: &amp;,;!<br /> (Simpler cases, like atom lists, not lists, &quot;and&quot;-expressions are handled by the above features.)</li>
+           <li>recursive SMARTS: [$(CCC)]</li>
+          </ul>
+          <h2 id="SMARTS-FeaturesexportedasSMARTSatoms/bonds">Features exported as SMARTS atoms/bonds</h2>
+          <p>A subset of features are exported as SMARTS atoms/bonds.</p>
+          <ul>
+           <li>MDL Substitution Count query atom property <em>s&lt;n&gt;</em> is converted to degree <em>Dn</em>. In case of <em>s*</em> the non-H neighbours are counted and exported as degree <em>D&lt;number&gt;</em>.</li>
+           <li>MDL Unsaturated Atom query atom property <em>u</em> is converted to recursive SMARTS: $([*,#1]=,#,:[*,#1]) is appended after the SMARTS atom.</li>
+          </ul>
+          <h2 id="SMARTS-ImplicitandQueryHydrogenAtoms">Implicit and Query Hydrogen Atoms</h2>
+          <p><a class="text" name="querySMARTS" rel="nofollow"></a></p>
+          <ul>
+           <li>Impicit Hydrogen atoms are not written inside brackets. Eg: [C:1]</li>
+           <li>Query Hydrogen atoms are written inside brackets without using the low precedence &quot;and&quot; operator ';'. Eg: [CH3]</li>
+          </ul>
+          <h2 id="SMARTS-Implicitbondtypes"><a class="text" name="defaultBondTypes" rel="nofollow"></a>Implicit bond types</h2>
+          <p>The default bond types for import and export strongly depend on the atoms connected by the bond.</p>
+          <ul>
+           <li>Aromatic bonds are not written explicitly if neither atoms are aliphatic and they are in a ring.<br /> <em>e.g</em>.: c1ccccc1 But: c:c, c:[c;a], [#6]:c</li>
+           <li>Single bonds are not written explicitly if at least one atom is not aromatic. <br /> <em>e.g.</em>: CC, C[c;a], Cc, C[C;A], [#6]C But: [#6]-[c;a], c1ccc(cc1)-c2ccccc2</li>
+           <li>Single_or_aromatic bonds are not written explicitly if both atoms of the bond are aromatic and any of them is not in the same ring.<br /> <em>e.g.</em>: [#6]cc, [#6][c;a], [#6][#6]</li>
+          </ul>
+          <p>&nbsp;</p>
+          <p>™: SMILES, SMARTS, and SMIRKS are trademarks of Daylight Chemical Information Systems.</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : The celli and celli_j parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : The celli and celli_j parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The parameter values of components in cell <em>i</em> can be specified either by listing them in one single list, using the <code>cell</code><em>i</em> parameter, or by assignments for each component separately, using <code>cell</code><em>i</em>_<em>j</em>, where <em>i</em> = 0, 1, ..., <em><a href="Molecule-tables_25987107.html#Moleculetables-rows">rows</a></em>*<span class="confluence-link">&nbsp;</span><a href="Molecule-tables_25987107.html#Moleculetables-cols"><span class="confluence-link"><em>cols</em></span> </a>-1 is the cell index and <em>j</em> = 0, 1, 2, ... is the component index inside the cell.</p>
+      <p>The contents of <code>cell</code><em>i</em>_<em>j</em> parameters are listed in the following table for the different component types:</p>
+      <blockquote>
+       <p>&nbsp;</p>
+       <div class="table-wrap">
+        <table class="confluenceTable">
+         <tbody>
+          <tr>
+           <th class="confluenceTh">Component</th>
+           <th class="confluenceTh">Parameters</th>
+           <th class="confluenceTh">Description</th>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>M</code></td>
+           <td class="confluenceTd"><em>molfile</em></td>
+           <td class="confluenceTd"><em>molfile:</em> the molecule URL or the molecule itself (inline) in a molecule file format (MDL mol, compressed mol, MRV etc.)</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>L</code></td>
+           <td class="confluenceTd"><em>label</em></td>
+           <td class="confluenceTd"><em>label:</em> the label string.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>B</code></td>
+           <td class="confluenceTd"><code>|</code><em>label</em><code>|</code><em>spec</em><code>|</code><em>action</em></td>
+           <td class="confluenceTd"><em>label:</em> the button label,<br /> <em>spec:</em> the special character (<code>%</code> from now),<br /> <em>action:</em> the action string.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>C</code></td>
+           <td class="confluenceTd"><code>|||||</code><br /> <code>|||</code><em>state</em><code>||</code><br /> <code>|||</code><em>state</em><code>|-|-</code><br /> ...<br /> <code>|</code><em>label0</em><code>|</code><em>label1</em><code>|</code><em>state</em><code>|</code><em>action0</em><code>|</code><em>action1</em></td>
+           <td class="confluenceTd"><em>label0:</em> label for the unchecked state,<br /> <em>label1:</em> label for the checked state,<br /> <em>state:</em> default state (0, 1 or nothing),<br /> <em>action0:</em> action string for unchecking,<br /> <em>action1:</em> action string for checking.<br /> For a &quot;real&quot; checkbox, both labels have to be empty string, otherwise the &quot;checkbox&quot; will be buttonlike.<br /> If both <em>action</em> strings are empty, then the checkbox is disabled. To make it enabled without specifying JavaScript actions, the <em>action</em> values must be &quot;<code>-</code>&quot;. Example: &quot;<code>|||1|-|-</code>&quot;</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>T</code></td>
+           <td class="confluenceTd"><em>string</em></td>
+           <td class="confluenceTd"><em>string:</em> initial value.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>I</code></td>
+           <td class="confluenceTd"><code>|</code><em>iconfile</em><code>||</code><br /> <code>|</code><em>iconfile</em><code>|</code><em>action</em><code>|</code><em>title</em></td>
+           <td class="confluenceTd"><em>iconfile:</em> GIF or JPEG file containing the icon,<br /> <em>action:</em> image file or <code>js:</code>JavaScript code<br /> <em>title:</em> window title, only used if action is an image file.</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p>&nbsp;</p>
+      </blockquote>
+      <p>Since newlines are usually neglected in applet parameters by the browsers, each newline should be replaced or preceded by <code>\n</code>, where <code>\</code> is an escape character defined using the <a href="MarvinView-Other-parameters_25987121.html#MarvinViewOtherparameters-esc">escapeChar</a> parameter. If it is defined, then occurrences of this character must also be escaped as &quot;<code>\\</code>&quot;. The parameter lists of the <code>B</code>, <code>C</code> and <code>I</code> components should start with &quot;<code>E\|</code>&quot; or &quot;<code>|</code>&quot;, where <code>\</code> is an escape character which overrides the&nbsp; <a href="MarvinView-Other-parameters_25987121.html#MarvinViewOtherparameters-esc">escapeChar</a> setting and <code>|</code> is the separator character (can also be colon, comma or anything else). If the separator occurs inside the parameter string of a component, then it must be escaped: &quot;<code>|</code>&quot; should be replaced by &quot;<code>\|</code>&quot;.</p>
+      <p>Note that specifying the applet parameters in JavaScript (instead of directly inside an HTML applet tag) requires backslash to be escaped once more, except in case of the newline (\n) which does not need without extra escaping.</p>
+      <p>The action string for the <code>B</code>, <code>C</code> and <code>I</code> components can be an URL for buttons, a JPEG, PNG or GIF file for images, or <code>js:</code><em>javascript expression</em> for buttons, checkboxes and images. The button action string may contain <code>%C</code> (where <code>%</code> is the special character), which is substituted with the checkbox states represented as a hexadecimal number. The n<sup>th</sup> bit in this number is the state of the n<sup>th</sup> checkbox.</p>
+      <p>A javascript expression can be used <em>only</em> if you specify the <code>MAYSCRIPT</code> attribute in the applet tag.</p>
+      <p>Example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">&lt;param name=&quot;escapeChar&quot; value=&quot;\&quot;&gt;
+&lt;param name=&quot;cell2_0&quot; value=&quot;\n
+  MSketch 04169816382D\n
+\n
+ 66 72  0  0  0  0  0  0  0  0999 V2000\n
+mcIWFRwV60\n
+...
+M  END\n&quot;&gt;
+&lt;param name=&quot;cell2_1&quot; value=&quot;1002&quot;&gt;
+&lt;param name=&quot;cell2_2&quot; value=&quot;not bad&quot;&gt;
+&lt;param name=&quot;cell2_3&quot; value=&quot;|||1|js:cbx(1002,'not selected')|js:cbx(1002,'selected')&quot;&gt;
+&lt;param name=&quot;cell2_4&quot; value=&quot;| Include | Include ||js:cbx(1002,'no include')|js:cbx(1002,'include')&quot;&gt;
+&lt;param name=&quot;cell2_5&quot; value=&quot;| Exclude | Exclude ||js:cbx(1002,'no exclude')|js:cbx(1002,'exclude')&quot;&gt;
+&lt;param name=&quot;cell2_6&quot; value=&quot;| Search |%|js:searchmore(1002)&quot;&gt;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>A <code>cell</code><em>i</em> parameter contains the parameter values for all components in a single list. The list starts either with &quot;<code>E\|</code>&quot; or &quot;<code>|</code>&quot;, where <code>\</code> and <code>|</code> are the escape and separator characters. (Not necessarily backslash and vertical line.)</p>
+      <p>Example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">&lt;param name=&quot;cell2&quot; value=&quot;E\|\n
+  MSketch 04169816382D\n
+\n
+ 66 72  0  0  0  0  0  0  0  0999 V2000\n
+mcIWFRwV60\n
+...
+M  END\n
+|1002|not bad|||1|js:cbx(1002,'not selected')|js:cbx(1002,'selected')
+| Include | Include ||js:cbx(1002,'no include')|js:cbx(1002,'include')
+| Exclude | Exclude ||js:cbx(1002,'no exclude')|js:cbx(1002,'exclude')
+| Search |%|searchmore.cgi?mol=1002&amp;n=5&amp;cbx=%C&quot;&gt;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><small>It is suggested to use celli parameter in MViewPane JavaBean to create an advanced layout (containing more visual elements than one molecule with a label, such as, checkboxes, buttons, images, etc.). Since Javascript is not supported in MarvinBeans: use <em>java.awt.event.ActionListener</em>s and <em>java.awt.event.ItemListener</em>s in your code instead of action strings. See marvinbeans/examples/view-checkbox/MViewExampleWithCheckbox.java. </small></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

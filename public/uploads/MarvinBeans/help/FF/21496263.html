@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Markush DARC format (VMN)</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Markush DARC format (VMN) </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-warning"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p><strong>VMN import is not supported since version 14.7.7.0.</strong></p>
+           </div> 
+          </div> 
+          <h2 id="MarkushDARCformat(VMN)-ImportfromVMNformat"><s>Import from VMN format</s></h2>
+          <p><s>Markush structure files complying the Markush DARC format are processed by Marvin, though with some <a href="#MarkushDARCformat(VMN)-limitation">limitations</a>. The AMN file is looked for in the directory of the VMN file, with the same name and <code>.amn</code> extension (e.g. the AMN file of <code>46mrk001.vmn</code> is <code>46mrk001.amn</code>). The atom attributes and the AMN text notes are stored in atom properties, as <a href="#MarkushDARCformat(VMN)-homology">described below</a>.</s></p>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><s><em>Codename</em>: <strong>vmn</strong></s></p>
+            <p><s><em>Extension</em>: <strong>.vmn</strong></s></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="MarkushDARCformat(VMN)-interpretationInterpretationofVMNfeatures"><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-interpretation"></span><s>Interpretation of VMN features</s></h3>
+          <ul>
+           <li><p><s><strong>Groups</strong>: <code>G0</code> is read in as root structure while <code>G1</code>, <code>G2</code>, ... are stored in corresponding R-groups <code>R1</code>, <code>R2</code>, ... The representation of attachments is <span class="confluence-link">&nbsp;</span><a href="#MarkushDARCformat(VMN)-RgroupAttachment"><span class="confluence-link">described below</span></a>.</s></p></li>
+           <li><p><s><strong>Undefined attachment information</strong> is stored in form of position variation (variable attachment) bonds.&nbsp;</s></p></li>
+           <li><p><s><strong>Moieties</strong> are represented as repeating units with repetition ranges with no crossing bonds, but ignored (ungrouped) during search and enumeration.</s></p></li>
+           <li><p><s><strong>Multipliers</strong> are represented asrepeating units with repetition ranges with a single crossing bond, but ignored (ungrouped) during search and enumeration.</s></p></li>
+           <li><p><s><strong>Repeating units</strong> other than moieties and multipliers are described using a numerotation (numbering) attribute of three digits (e.g. <code>100</code>) on the atoms of the repeating unit, with the appropriate repetition range text recorded in the corresponding AMN file (e.g. <code>M100=1-4</code>). Note, that there is a&nbsp;<a href="#MarkushDARCformat(VMN)-limitation">limitation</a> on the number of elements in a repetition range (at most <code>10</code>) and on the number of crossing bonds that can be processed (<code>2</code> or <code>4</code>).</s></p></li>
+           <li><p><s><a href="#MarkushDARCformat(VMN)-shortcuts"><strong>Structure shortcuts</strong></a> are read in as specific built-in abbreviated groups (superatom S-groups).&nbsp;</s></p></li>
+           <li><p><s><a href="#MarkushDARCformat(VMN)-aminoAcids"><strong>Amino acids </strong></a>are read in by <a href="21496092.html">peptide import</a>, which uses built-in abbreviated groups (superatom S-groups) to represent peptides.</s></p></li>
+           <li><p><s><a href="#MarkushDARCformat(VMN)-superatom"><strong>Superatoms</strong></a> are read in as pseudo-atoms and treated as homology groups.</s></p></li>
+           <li><p><s><strong>Atom attributes</strong>: we interpret the following VMN atom attributes:</s></p>
+            <ul>
+             <li><s><strong>AM - Abnormal mass</strong> is stored in the mass number of the atom</s></li>
+             <li><s><strong>AV - Abnormal valence</strong> is stored in AV atom property</s></li>
+             <li><s><strong>DL - Peptide attribute</strong> is interpreted by <a href="21496092.html">peptide import</a></s></li>
+            </ul></li>
+           <li><p><s><a name="attributes" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-homology"></span>Homology atom attributes</strong>: we store the following VMN homology atom attributes in Marvin atom properties:</s></p>
+            <div class="table-wrap">
+             <table class="confluenceTable">
+              <tbody>
+               <tr>
+                <th class="confluenceTh"><s>VMN attribute name</s></th>
+                <th class="confluenceTh"><s>Marvin atom property name</s></th>
+                <th class="confluenceTh"><s>property values</s></th>
+               </tr>
+               <tr>
+                <td class="confluenceTd"><s>DT - Deuterium-Tritium counts</s></td>
+                <td class="confluenceTd"><s>DTCOUNT</s></td>
+                <td class="confluenceTd"><s>D[deuterium count]T[tritium count] (e.g. D3T2)</s></td>
+               </tr>
+               <tr>
+                <td rowspan="4" class="confluenceTd"><s>CR - Carbon ring attributes</s></td>
+                <td class="confluenceTd"><s>BRANCHING</s></td>
+                <td class="confluenceTd"><s>BRA, STR</s></td>
+               </tr>
+               <tr>
+                <td class="confluenceTd"><s>SIZE</s></td>
+                <td class="confluenceTd"><s>LO, MID, HI, LO MID, MID HI, LO HI</s></td>
+               </tr>
+               <tr>
+                <td class="confluenceTd"><s>SATURATION</s></td>
+                <td class="confluenceTd"><s>SAT, UNS</s></td>
+               </tr>
+               <tr>
+                <td class="confluenceTd"><s>RINGTYPE</s></td>
+                <td class="confluenceTd"><s>MON, FU</s></td>
+               </tr>
+               <tr>
+                <td class="confluenceTd"><s>data in AMN</s></td>
+                <td class="confluenceTd"><s>TEXTNOTES</s></td>
+                <td class="confluenceTd"><s>AMN text referring to the atom (e.g. N0-4,S0-4)</s></td>
+               </tr>
+              </tbody>
+             </table>
+            </div><p><s>For the interpretation of these attributes, refer to the&nbsp;<a class="unresolved" href="#">Homology groups and Markush structures</a> manual.</s></p></li>
+          </ul>
+          <h3 id="MarkushDARCformat(VMN)-shortcutStructureshortcuts(abbreviatedgroups)"><s><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-shortcut"></span>Structure shortcuts (abbreviated groups)</s></h3>
+          <p><s>The following structure shortcuts (abbreviated groups) are supported:</s></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td colspan="6" class="confluenceTd"><s>C2, C3, ..., C50</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>ACE</s></td>
+              <td class="confluenceTd"><s>BU</s></td>
+              <td class="confluenceTd"><s>CN</s></td>
+              <td class="confluenceTd"><s>CO1</s></td>
+              <td class="confluenceTd"><s>CO2</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>COI</s></td>
+              <td class="confluenceTd"><s>ET</s></td>
+              <td class="confluenceTd"><s>IBU</s></td>
+              <td class="confluenceTd"><s>IPR</s></td>
+              <td class="confluenceTd"><s>MBE</s></td>
+              <td class="confluenceTd"><s>NBU</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>NO2</s></td>
+              <td class="confluenceTd"><s>NPR</s></td>
+              <td class="confluenceTd"><s>OBE</s></td>
+              <td class="confluenceTd"><s>PBE</s></td>
+              <td class="confluenceTd"><s>PH</s></td>
+              <td class="confluenceTd"><s>PO3</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>PO4</s></td>
+              <td class="confluenceTd"><s>SBU</s></td>
+              <td class="confluenceTd"><s>SO2</s></td>
+              <td class="confluenceTd"><s>SO3</s></td>
+              <td class="confluenceTd"><s>TBU</s></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="MarkushDARCformat(VMN)-aminoAcidAminoacids(peptides)"><s><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-aminoAcid"></span>Amino acids (peptides)</s></h3>
+          <p><s>The following standard amino acids (peptide abbreviated groups) are supported:</s></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><s>ALA</s></td>
+              <td class="confluenceTd"><s>ARG</s></td>
+              <td class="confluenceTd"><s>ASN</s></td>
+              <td class="confluenceTd"><s>ASP</s></td>
+              <td class="confluenceTd"><s>CYS</s></td>
+              <td class="confluenceTd"><s>GLN</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>GLU</s></td>
+              <td class="confluenceTd"><s>GLY</s></td>
+              <td class="confluenceTd"><s>HIS</s></td>
+              <td class="confluenceTd"><s>ILE</s></td>
+              <td class="confluenceTd"><s>LEU</s></td>
+              <td class="confluenceTd"><s>LYS</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>MET</s></td>
+              <td class="confluenceTd"><s>PHE</s></td>
+              <td class="confluenceTd"><s>PRO</s></td>
+              <td class="confluenceTd"><s>SER</s></td>
+              <td class="confluenceTd"><s>THR</s></td>
+              <td class="confluenceTd"><s>TRY</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>TYR</s></td>
+              <td class="confluenceTd"><s>VAL</s></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p><s>The following non-standard peptides are also supported:</s></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><s>ABU</s></td>
+              <td class="confluenceTd"><s>aminobutyric acid</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>ASU</s></td>
+              <td class="confluenceTd"><s>aminosuberic acid</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>GLP</s></td>
+              <td class="confluenceTd"><s>pyroglumatic acid</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>HCY</s></td>
+              <td class="confluenceTd"><s>homocysteine</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>HSE</s></td>
+              <td class="confluenceTd"><s>homoserine</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>NLE</s></td>
+              <td class="confluenceTd"><s>norleucine</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>NVA</s></td>
+              <td class="confluenceTd"><s>norvaline</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>ORN</s></td>
+              <td class="confluenceTd"><s>ornithine</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>SAR</s></td>
+              <td class="confluenceTd"><s>sarcosine</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>STA</s></td>
+              <td class="confluenceTd"><s>statine</s></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p><s>Note, that peptide connection bonds are not handled currently, therefore peptide sequences may not be correct.</s></p>
+          <p><s>For more information on peptide representation refer to the&nbsp;<a href="21496092.html">Sequences (peptide, DNA, RNA)</a> documentation.</s></p>
+          <h3 id="MarkushDARCformat(VMN)-superatomSuperatoms(homologypseudoatoms)"><s><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-superatom"></span>Superatoms (homology pseudo atoms)</s></h3>
+          <p><s>Superatoms representing homology groups are read in as pseudo atoms. The following homologies are interpreted by enumeration and search:</s></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><s>CHK</s></td>
+              <td class="confluenceTd"><s>CHE</s></td>
+              <td class="confluenceTd"><s>CHY</s></td>
+              <td class="confluenceTd"><s>CYC</s></td>
+              <td class="confluenceTd"><s>ARY</s></td>
+              <td class="confluenceTd"><s>HET</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>HEA</s></td>
+              <td class="confluenceTd"><s>HEF</s></td>
+              <td class="confluenceTd"><s>UNK</s></td>
+              <td class="confluenceTd"><s>MX</s></td>
+              <td class="confluenceTd"><s>AMX</s></td>
+              <td class="confluenceTd"><s>A35</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>TRM</s></td>
+              <td class="confluenceTd"><s>LAN</s></td>
+              <td class="confluenceTd"><s>ACT</s></td>
+              <td class="confluenceTd"><s>HAL</s></td>
+              <td class="confluenceTd"><s>ACY</s></td>
+              <td class="confluenceTd"><s>PRT</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>XX</s></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p><s>For a detailed description of the interpretation, refer to the&nbsp;<a class="unresolved" href="#">Homology groups and Markush structures</a> manual.</s></p>
+          <h3 id="MarkushDARCformat(VMN)-RgroupAttachmentMultipleR-groupattachments"><s><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-RgroupAttachment"></span>Multiple R-group attachments</s></h3>
+          <p><s><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/21496263/21430330.png" data-image-src="attachments/21496263/21430330.png" data-unresolved-comment-count="0" data-linked-resource-id="21430330" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="vmn_1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="21496263" data-linked-resource-container-version="15" /></span></s></p>
+          <h3 id="MarkushDARCformat(VMN)-formatCorrectionVMNformatcorrections"><s><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-formatCorrection"></span>VMN format corrections</s></h3>
+          <ul>
+           <li><s>C0 is interpreted as CHK.</s></li>
+           <li><s>C1 is interpreted as C.</s></li>
+           <li><s>Deuterium/Tritium: we remove D and T ligands of the R-atoms.</s></li>
+           <li><s>Homology groups being in rings are transformed to XX.</s></li>
+           <li><s>R-group attachment bond type is transformed to parent R-atom bond type if different.</s></li>
+          </ul>
+          <h3 id="MarkushDARCformat(VMN)-limitationLimitations"><s><span class="confluence-anchor-link" id="MarkushDARCformat(VMN)-limitation"></span>Limitations</s></h3>
+          <h4 id="MarkushDARCformat(VMN)-Repeatingunitswithrepetitionranges"><s>Repeating units with repetition ranges</s></h4>
+          <p><s>The number of elements in a repetition range is limited to <code>10</code> (e.g. range <code>M100=2,5- </code> is interpreted as <code>M100=2,5-13</code>). Repeating units with more than <code>4</code> crossing bonds are not processed by search and enumeration.</s></p>
+          <h4 id="MarkushDARCformat(VMN)-Superatoms(homologies)thatarenotsupported"><s>Superatoms (homologies) that are not supported</s></h4>
+          <p><s>The following superatoms (homologies) are not supported by search and enumeration (but read in and displayed as pseudo-atoms):</s></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><s>POL</s></td>
+              <td class="confluenceTd"><s>PEG</s></td>
+              <td class="confluenceTd"><s>DYE</s></td>
+              <td class="confluenceTd"><s>PRT</s></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p><s>The detailed description of homology interpretation is described in the&nbsp;<a class="unresolved" href="#">Homology groups and Markush structures</a> manual.</s></p>
+          <h4 id="MarkushDARCformat(VMN)-Atomattributesthatarenotprocessedbysearchandenumeration"><s>Atom attributes that are not processed by search and enumeration</s></h4>
+          <p><s>The following atom attributes are not processed by search and enumeration (but displayed in atom labels):</s></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><s>PA</s></td>
+              <td class="confluenceTd"><s>Polymer indicator</s></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><s>SP</s></td>
+              <td class="confluenceTd"><s>Position indicator</s></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h2 id="MarkushDARCformat(VMN)-ExporttoVMNformat"><s>Export to VMN format</s></h2>
+          <p><s>VMN export is not available yet.</s></p>
+          <h2 id="MarkushDARCformat(VMN)-References"><s><a class="anchor" name="references" rel="nofollow"></a>References</s></h2>
+          <ol>
+           <li><s>The Markush DARC Format, T Ferns, Internal Technical Report, Thomson Scientific, 2002</s></li>
+           <li><s><a href="http://science.thomsonreuters.com/m/pdfs/mgr/Markush_Darc_User_Manual.pdf" class="external-link" rel="nofollow">Derwent World Patents Index, Markush DARC User Manual, The Thomson Corporation, 1993, 2008</a></s></li>
+          </ol>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

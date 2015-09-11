@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Calculations</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Calculations </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div>
+           In addition to the drawing capabilities MarvinSketch offers predictions of a number of properties for your compounds.
+          </div>
+          <p>Calculator Plugins are modules of ChemAxon's Marvin and JChem cheminformatics platforms which calculate physico-chemical&nbsp;properties from chemical structures.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-equal" data-layout="two-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>For more information please visit the Calculator Plugins <a href="https://docs.chemaxon.com/display/CALCPLUGS/Introduction+to+Calculator+Plugins">homepage</a>.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Calculations-Shortusageguide">Short usage guide</h2>
+          <p><strong>Calculator plugins are available directly from Marvin, Instant JChem and Reactor applications, and also from command line, API, or via ChemAxon's <a href="https://docs.chemaxon.com/display/chemicalterms/Chemical+Terms+Home">Chemical Terms</a> language. <br /><br /></strong></p>
+          <ul>
+           <li><p>The available calculator plugins are located in the <strong class="buttonName">Calculations</strong> menu in the graphical user interface of <strong>MarvinSketch</strong>, (and in the <strong class="buttonName">Tools</strong> menu in <strong>MarvinView</strong>.)</p></li>
+           <li><p><a href="https://docs.chemaxon.com/display/CALCPLUGS/cxcalc+calculator+functions"><code><strong>cxcalc</strong></code></a> is the command line tool of the Calculator Plugin. Batch processing is available using <code>cxcalc</code> (see the <a href="https://docs.chemaxon.com/display/CALCPLUGS/cxcalc+calculator+functions"><span class="confluence-link">list of calculations</span></a><span class="confluence-link">&nbsp;</span> accessible from <code>cxcalc</code>).</p></li>
+           <li><p>Calculators are used in the <strong>Chemical Terms</strong> language to calculate combinations of properties (like Lipinski's rule of 5) in an easy way. Learn more about it in the <a href="https://docs.chemaxon.com/display/chemicalterms/Chemical+Terms+Home">Chemical Terms</a> section.</p></li>
+           <li><p>Some of the calculators (such as <a href="https://docs.chemaxon.com/display/CALCPLUGS/logP+Plugin">log<em>P</em></a>, <a href="https://docs.chemaxon.com/display/CALCPLUGS/pKa+Plugin">p<em>K</em><sub>a</sub></a> and <span class="confluence-link">Predictor </span>) can be trained with the user's data <a href="https://docs.chemaxon.com/display/CALCPLUGS/cxtrain+command+line+tool"><strong>via cxtrain</strong></a>.</p></li>
+           <li><p><strong>Third-party calculations</strong> can be integrated easily into <strong>MarvinSketch</strong> via the <a href="Services-module_13336710.html">Services</a> module of the graphical user interface. For more information on integrating third-party calculations, see our <a href="Services-module_13336710.html">Setting Services</a> page.</p></li>
+          </ul>
+          <p>The Calculator Plugins</p>
+          <ul>
+           <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Elemental+Analysis+Plugin">Elemental Analysis Plugin</a></li>
+           <li><span class="confluence-link">Protonation</span>
+            <ul>
+             <li><span class="confluence-link">&nbsp;</span><a href="https://docs.chemaxon.com/display/CALCPLUGS/pKa+Plugin"><span class="confluence-link">p<em>K</em><sub>a</sub> Plugin</span><span class="confluence-link">&nbsp;</span></a><span class="confluence-link">&nbsp;</span></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Major+Microspecies+Plugin">Major Microspecies Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Isoelectric+Point+Plugin">Isoelectric Point Plugin</a></li>
+            </ul></li>
+           <li><span class="confluence-link">Partitioning</span>
+            <ul>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/logP+Plugin">log<em>P</em> Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/logD+Plugin">log<em>D</em> Plugin</a></li>
+            </ul></li>
+           <li>Solubility
+            <ul>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Solubility+Predictor">Solubility Plugin</a></li>
+            </ul></li>
+           <li><span class="confluence-link">Charge</span>
+            <ul>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Charge+Plugin">Charge Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Polarizability+Plugin">Polarizability Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Orbital+Electronegativity+Plugin">Orbital Electronegativity Plugin</a></li>
+             <li>Dipole Moment Calculation Plugin</li>
+            </ul></li>
+           <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/NMR+Predictor">NMR</a>
+            <ul>
+             <li>CNMR Prediction</li>
+             <li>HNMR Prediction</li>
+             <li><span class="confluence-link"><span class="confluence-link">NMR Spectrum Viewer</span></span></li>
+            </ul></li>
+           <li><span class="confluence-link">Isomers</span>
+            <ul>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Tautomer+Generation+Plugin">Tautomers Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Stereoisomer+Generator+Plugin">Stereoisomers Plugin</a></li>
+            </ul></li>
+           <li><span class="confluence-link">Conformation</span>
+            <ul>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Conformer+Plugin">Conformers Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Molecular+Dynamics+Plugin">Molecular Dynamics Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/3D+Alignment+Plugin">3D Alignment Plugin</a></li>
+            </ul></li>
+           <li><span class="confluence-link">Geometry</span>
+            <ul>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Topological+Analysis+Plugin">Topology Analysis Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Geometrical+Descriptors+Plugin">Geometry Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=12584161">Polar Surface Area Plugin (2D)</a></li>
+             <li><a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=12584169">Molecular Surface Area Plugin (3D)</a></li>
+            </ul></li>
+           <li>Other
+            <ul>
+             <li><a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=12584079">Hydrogen Bond Donor/Acceptor Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=12584082">Huckel Analysis Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Refractivity+Plugin">Refractivity Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Resonance+Plugin">Resonance Plugin</a></li>
+             <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Structural+Frameworks+Plugin">Structural Frameworks Plugin</a></li>
+            </ul></li>
+           <li><a href="https://docs.chemaxon.com/display/naming/Naming+Home">Naming Plugin</a></li>
+           <li><a href="https://docs.chemaxon.com/display/CALCPLUGS/Markush+Enumerator+Plugin">Markush Enumeration Plugin</a></li>
+          </ul>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

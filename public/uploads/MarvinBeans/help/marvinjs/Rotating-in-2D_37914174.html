@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Rotating in 2D</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Rotating in 2D </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>When a structure was been selected, it can be rotated around its center in two dimensions.<br /><span class="confluence-embedded-file-wrapper"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400124.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400124.png" data-unresolved-comment-count="0" data-linked-resource-id="17400124" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_1b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span></span><br class="atl-forced-newline" />The pink circle with a dot is the center of the selected area (pivot point). The molecule can be rotated around this point by clicking on the green dot and dragging the cursor on the canvas. During dragging, you can see the angle of rotation near this green dot. By default, rotation is done in 6&deg; increments. For continuous rotation hold the &quot;<strong>Shift</strong>&quot; button while rotating.<br /><span class="confluence-embedded-file-wrapper"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400125.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400125.png" data-unresolved-comment-count="0" data-linked-resource-id="17400125" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_2b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span></span><br class="atl-forced-newline" />When a whole molecule is selected, the original center of rotation can be relocated by dragging. In this case, if the new rotation center is too close to its original position, it will be snapped back to it. However, pressing the&nbsp;<strong>&quot;Shift&quot;</strong>&nbsp;key while dragging the center of rotation allows it to be as close to its original place as you wish. Moving the center lets you rotate the molecule around any point of the canvas. The image of the starting structure remains displayed in grey during rotation.<br /><span class="confluence-embedded-file-wrapper"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400126.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400126.png" data-unresolved-comment-count="0" data-linked-resource-id="17400126" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_3b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span></span><br class="atl-forced-newline" />When a selected part is only a fragment which connects to the rest of the molecule with one bond only, you cannot move the pivot point (which is gray in this case). In such cases the rotation center will be that atom of the selected fragment which connects to the non-selected part of the structure.<br /><span class="confluence-embedded-file-wrapper"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400127.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400127.png" data-unresolved-comment-count="0" data-linked-resource-id="17400127" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_4b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span></span>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

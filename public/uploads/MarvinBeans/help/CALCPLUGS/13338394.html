@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Red &amp; blue representation of pKa values</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Red &amp; blue representation of pKa values </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual explains the difference between the representations of coloured pK<sub>a </sub>values:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200961956 {padding: 0px;}
+div.rbtoc1439200961956 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200961956 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200961956"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#Red&amp;bluerepresentationofpKavalues-Staticred&amp;bluerepresentationofpKavalues">Static red &amp; blue representation of pKa values &nbsp;</a></li> 
+          <li><a href="#Red&amp;bluerepresentationofpKavalues-Dynamicred&amp;bluerepresentationofpKavalues">Dynamic red &amp; blue representation of pKa values</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="Red&amp;bluerepresentationofpKavalues-Staticred&amp;bluerepresentationofpKavalues"><br />Static red &amp; blue representation of pK<sub>a</sub> values<br />&nbsp;</h1>
+      <p>The&nbsp;static (default)&nbsp;red&nbsp;&amp;&nbsp;blue&nbsp;colour annotation&nbsp;is related to the ionization steps shown in the <a href="#Red&amp;bluerepresentationofpKavalues-fig.1">figure below</a>.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="Red&amp;bluerepresentationofpKavalues-fig.1"></span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338394/29099479.png" data-image-src="attachments/13338394/29099479.png" data-unresolved-comment-count="0" data-linked-resource-id="29099479" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="redblue1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338394" data-linked-resource-container-version="18" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 1 Static red &amp; blue colouring schema</p>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">The&nbsp;</span>static&nbsp;red&nbsp;&amp;&nbsp;blue&nbsp;coloring schema<span style="color: rgb(54,54,54);">&nbsp;does not depend on the ionic form of a molecule submitted to the pKa calculation. The next <a href="#Red&amp;bluerepresentationofpKavalues-fig.2">three species</a> have the same pKa values and the same colour.<br />&nbsp;</span></p>
+      <p><span class="confluence-anchor-link" id="Red&amp;bluerepresentationofpKavalues-fig.2"></span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338394/29099481.png" data-image-src="attachments/13338394/29099481.png" data-unresolved-comment-count="0" data-linked-resource-id="29099481" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="redblue2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338394" data-linked-resource-container-version="18" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 2 Calculated pK<sub>a</sub> of the deprotonated, neutral and the protonated forms of ammonia in the static red &amp; blue colouring schema</p>
+      <p>&nbsp;</p>
+      <h1 id="Red&amp;bluerepresentationofpKavalues-Dynamicred&amp;bluerepresentationofpKavalues">Dynamic red &amp; blue representation of pK<sub>a</sub> values</h1>
+      <p>&nbsp;</p>
+      <p>The&nbsp;dynamic (non-default setting)&nbsp;red&nbsp;&amp;&nbsp;blue&nbsp;<a href="#Red&amp;bluerepresentationofpKavalues-fig.3">colouring schema</a>&nbsp;depends on the&nbsp;submitted molecule.<br /><span class="confluence-anchor-link" id="Red&amp;bluerepresentationofpKavalues-fig.3"></span>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338394/29099480.png" data-image-src="attachments/13338394/29099480.png" data-unresolved-comment-count="0" data-linked-resource-id="29099480" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="redblue4.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338394" data-linked-resource-container-version="18" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 3 Dynamic red &amp; blue colouring schema<br />&nbsp;</p>
+      <p>The <a href="#Red&amp;bluerepresentationofpKavalues-fig.4">result of the previous ammonia example</a> with the non-default p<em style="line-height: 1.4285715;">K</em><sub>a</sub>&nbsp;calculation:<br /><span class="confluence-anchor-link" id="Red&amp;bluerepresentationofpKavalues-fig.4"></span>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338394/29099484.png" data-image-src="attachments/13338394/29099484.png" data-unresolved-comment-count="0" data-linked-resource-id="29099484" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="redblue6.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338394" data-linked-resource-container-version="18" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 4 Calculated pKa of deprotonated, neutral, and the protonated forms of ammonia according to the dynamic&nbsp;red&nbsp;&amp;&nbsp;blue&nbsp;colouring schema</p>
+      <p>&nbsp;</p>
+      <p>Differences between the&nbsp;static&nbsp;and the&nbsp;dynamic&nbsp;red&nbsp;&amp;&nbsp;blue&nbsp;colouring schema are summarized in the <a href="#Red&amp;bluerepresentationofpKavalues-tab.1">following table</a>.<br /><span class="confluence-anchor-link" id="Red&amp;bluerepresentationofpKavalues-tab.1"></span>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <thead>
+         <tr>
+          <th class="confluenceTh">&nbsp;</th>
+          <th class="confluenceTh">static</th>
+          <th class="confluenceTh">dynamic</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="confluenceTd">Subject of calculation</td>
+          <td class="confluenceTd">neutral state of the submitted molecule</td>
+          <td class="confluenceTd">the submitted molecule</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Blue color assigned to</td>
+          <td class="confluenceTd">the acid dissociation constant between the neutral base and its conjugated acid</td>
+          <td class="confluenceTd">the acid dissociation constant between the submitted base and its conjugated acid</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Red color assigned to</td>
+          <td class="confluenceTd">the acid dissociation constant between the neutral acid and its conjugated base</td>
+          <td class="confluenceTd">the acid dissociation constant between the submitted acid and its conjugated base</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">setting in the Options panel</td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338394/29099485.png" data-image-src="attachments/13338394/29099485.png" data-unresolved-comment-count="0" data-linked-resource-id="29099485" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="redblue7.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338394" data-linked-resource-container-version="18" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338394/29099486.png" data-image-src="attachments/13338394/29099486.png" data-unresolved-comment-count="0" data-linked-resource-id="29099486" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="redblue8.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338394" data-linked-resource-container-version="18" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Tab. 1 Differences between the static and dynamic red &amp; blue colouring schema</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

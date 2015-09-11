@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Naming : Name to Structure User's Guide</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Naming : Name to Structure User's Guide </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span style="color: rgb(54,54,54);">ChemAxon’s naming toolkit capabilities allow you to generate chemical structures from IUPAC, trivial, drug, CAS names and from CAS numbers.</span></p>
+      <h3 id="NametoStructureUser'sGuide-Supportednamesinclude">Supported names include</h3>
+      <ul style="margin-left: 20.0px;">
+       <li>IUPAC names, CAS names and generally systematic names</li>
+       <li>Common names (e.g. Toluene)</li>
+       <li>Drug names (e.g. Paracetamol, Doliprane)</li>
+       <li>Acronyms (e.g. ATP for &quot;Adenosine Triphosphate&quot;)</li>
+       <li>CAS numbers (Note, this feature uses a Web service.)</li>
+       <li>For systematic names:
+        <ul style="margin-left: 20.0px;">
+         <li>Chains</li>
+         <li>Monocycles</li>
+         <li>Retained/traditional names for ring systems with and without heteroatoms</li>
+         <li>Spiro ring systems</li>
+         <li>All cases of von Baeyer nomenclature for bridged ring systems</li>
+         <li>Fused ring systems</li>
+         <li>Ethers, esters, oximes, ...</li>
+         <li>Common characteristic groups</li>
+         <li>Ionic compounds</li>
+         <li>Compounds with one radical</li>
+         <li>Unlimited number of atoms and rings</li>
+         <li>All atom types</li>
+         <li>Substitutive and multiplicative nomenclatures</li>
+         <li>Stereochemistry</li>
+        </ul></li>
+      </ul>
+      <h3 id="NametoStructureUser'sGuide-Currentlimitations">Current limitations</h3>
+      <ul style="margin-left: 20.0px;">
+       <li>Molecules containing multiple radicals (e.g.&nbsp;<code>ethane-1,2-diyl</code>) are not supported yet.</li>
+       <li>Names containing isotopes are not supported yet.</li>
+      </ul>
+      <h3 id="NametoStructureUser'sGuide-SupportingcorporateIDsandcustomdictionaries">Supporting corporate IDs and custom dictionaries</h3>
+      <ul style="margin-left: 20.0px;">
+       <li>It is possible to extend the name to structure conversion, for instance to support corporate IDs such as ABC0001234, or to make use of common name dictionaries in addition to the default one. This can be done by&nbsp;<a href="https://docs.chemaxon.com/display/n2s/Custom+Webservice+in+Name+Import">connecting to a webservice</a>&nbsp;or by&nbsp;<a href="https://docs.chemaxon.com/display/n2s/Custom+Dictionary+in+Name+Import">creating a custom dictionary file</a>.</li>
+      </ul>
+      <h2 id="NametoStructureUser'sGuide-NametoStructureConversioninMarvinSketch"><a class="external-link" href="http://www.chemaxon.com/marvin/help/naming/n2s.html#name2str" name="name2str" style="text-decoration: underline;" rel="nofollow"></a>Name to Structure Conversion in MarvinSketch</h2>
+      <p>There are different ways how you can import a name directly into MarvinSketch and convert it to a chemical structure.</p>
+      <ul>
+       <li>A simple method is to select the name in the text of any page and drag&amp;drop or copy&amp;paste it to MarvinSketch.</li>
+      </ul>
+      <p>OR</p>
+      <ul>
+       <li>Select the &quot;Import Name&quot; (Ctrl+Shift+N) option from the File menu, and write the name into the text field and click the &quot;Import&quot; button (Ctrl+I).</li>
+      </ul>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="importsource" height="505" width="482" src="http://www.chemaxon.com/marvin/help/naming/iupac_images/importsource_66.png" data-image-src="http://www.chemaxon.com/marvin/help/naming/iupac_images/importsource_66.png" /></span></p>
+      <h2 id="NametoStructureUser'sGuide-NametoStructureConversioninMarvinView"><a class="external-link" href="http://www.chemaxon.com/marvin/help/naming/n2s.html#name2str_MView" name="name2str_MView" style="text-decoration: underline;" rel="nofollow"></a>Name to Structure Conversion in MarvinView</h2>
+      <p>Open a text file (.name) containing IUPAC names (one per row). MarvinView will open all the structures. Opening the same file in MarvinSketch, the program will ask you to select one structure (by its index number).</p>
+      <h2 id="NametoStructureUser'sGuide-Nametostructureconversionfromcommandline"><a class="external-link" href="http://www.chemaxon.com/marvin/help/naming/n2s.html#name2str_MView" name="name2str_MView" style="text-decoration: underline;" rel="nofollow"></a>Name to structure conversion from command line</h2>
+      <p><span style="color: rgb(54,54,54);">As a commandline tool, you can use&nbsp;</span><a href="http://www.chemaxon.com/marvin/help/applications/molconvert.html" style="text-decoration: underline;" class="external-link" rel="nofollow">MolConverter</a><span style="color: rgb(54,54,54);">&nbsp;for name to structure conversion. Examples:</span></p>
+      <ol style="margin-left: 20.0px;">
+       <li>Converting &quot;test.name&quot; name file to MOL file:<pre>molconvert mol test.name -o test.mol</pre></li>
+       <li>Converting &quot;test.name&quot; name file to &quot;test.smi&quot; SMILES file which also contains the name of the structures:<pre>molconvert smiles:n test.name&gt;test.smi</pre></li>
+      </ol>
+      <p><span style="color: rgb(54,54,54);">The behavior of name to structure can be controlled using&nbsp;</span><a href="http://www.chemaxon.com/marvin/help/formats/name-doc.html#import" style="text-decoration: underline;" class="external-link" rel="nofollow">format options</a><span style="color: rgb(54,54,54);">.</span></p>
+      <h3 id="NametoStructureUser'sGuide-Marvincanalsoconvertstructurestonames.">Marvin can also convert&nbsp;<a href="https://docs.chemaxon.com/display/s2n/User%27s+Guide">structures to names</a>.</h3>
+      <h2 id="NametoStructureUser'sGuide-Seealso">See also</h2>
+      <ul style="margin-left: 20.0px;">
+       <li><a href="http://www.chemaxon.com/marvin/help/formats/name-doc.html#import" style="text-decoration: underline;" class="external-link" rel="nofollow">name format options</a></li>
+       <li><a href="16449677.html">Developer documentation for naming</a></li>
+       <li><a href="https://confluence.chemaxon.com/x/KwD7" class="external-link" rel="nofollow">Document to Structure</a>&nbsp;is used to find names in documents and free text</li>
+      </ul>
+      <h2 id="NametoStructureUser'sGuide-Licenseinformation">License information</h2>
+      <ul>
+       <li>Name import is only available for a single molecule with the free MarvinSketch desktop application. For batch conversion (with MarvinView, MolConverter, API, ...) you need the &quot;Name to Structure&quot; licence.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

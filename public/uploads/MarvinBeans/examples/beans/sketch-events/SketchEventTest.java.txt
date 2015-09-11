@@ -1,0 +1,136 @@
+/*
+ * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.
+ *
+ * This software is the confidential and proprietary information of
+ * ChemAxon. You shall not disclose such Confidential Information
+ * and shall use it only in accordance with the terms of the agreements
+ * you entered into with ChemAxon.
+ *
+ */
+
+import java.awt.*;
+import java.awt.event.*;
+import java.beans.*;
+import javax.swing.*;
+import chemaxon.marvin.beans.*;
+
+/**
+ * MarvinSketch event tester.
+ * @version Marvin 4.0.2, 10/08/2005
+ * @author      Peter Csizmadia
+ * @since Marvin 2.5
+ */
+public class SketchEventTest extends JFrame
+    implements WindowListener, ActionListener, PropertyChangeListener
+{
+    private JTextArea textArea;
+
+    /** Initialize MarvinSketch. */
+    private SketchEventTest() {
+	setTitle("MarvinSketch");
+
+	MSketchPane sketchPane = new MSketchPane();
+	GridBagLayout gbl = new GridBagLayout();
+	GridBagConstraints gbc = new GridBagConstraints();
+	Container contentPane = getContentPane();
+	contentPane.setLayout(gbl);
+
+	gbc.gridx = 0;
+	gbc.gridy = 0;
+	gbc.weightx = 1;
+	gbc.weighty = 1;
+	gbc.fill = GridBagConstraints.BOTH;
+	gbl.setConstraints(sketchPane, gbc);
+	contentPane.add(sketchPane);
+	sketchPane.addActionListener(this);
+	sketchPane.addPropertyChangeListener(this);
+	sketchPane.setPreferredSize(new Dimension(430, 400));
+
+	gbc.gridy = 1;
+	gbc.fill = GridBagConstraints.HORIZONTAL;
+	textArea = new JTextArea(10, 80);
+	JScrollPane scrollPane = new JScrollPane(textArea,
+		JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+	scrollPane.setPreferredSize(new Dimension(430, 100));
+	gbl.setConstraints(scrollPane, gbc);
+	contentPane.add(scrollPane);
+
+	// Keyboard events are received by the JFrame but processed by the bean
+	addKeyListener(sketchPane);
+
+	addWindowListener(this);
+    }
+
+    /** Does nothing */
+    public void windowOpened(WindowEvent ev) { }
+
+    /** Does nothing */
+    public void windowClosed(WindowEvent ev) { }
+
+    /** Closes the window. */
+    public void windowClosing(WindowEvent ev) {
+	System.exit(0);
+    }
+
+    /** Does nothing */
+    public void windowIconified(WindowEvent ev) { }
+
+    /** Does nothing */
+    public void windowDeiconified(WindowEvent ev) { }
+
+    /** Does nothing */
+    public void windowActivated(WindowEvent ev) { }
+
+    /** Does nothing */
+    public void windowDeactivated(WindowEvent ev) { }
+
+    /** Menu action performed. */
+    public void actionPerformed(ActionEvent ev) {
+	Object t = ev.getSource();
+	if(t instanceof Component) {
+	    String name = ((JComponent)t).getName();
+	    System.out.println("actionPerformed: cmd="+ev.getActionCommand()+
+			       " component.name="+name);
+	    textArea.setCaretPosition(textArea.getDocument().getLength());
+	    textArea.append("actionPerformed: cmd="+ev.getActionCommand()+
+			    " component.name="+name+"\n");
+	    if(name != null) {
+		// File/Close
+		if(name.equals("close")) {
+		    System.exit(0);
+		}
+	    }
+	} else {
+	    System.out.println("actionPerformed: cmd="+ev.getActionCommand());
+	    textArea.setCaretPosition(textArea.getDocument().getLength());
+	    textArea.append("actionPerformed: cmd="+ev.getActionCommand()+"\n");
+	}
+    }
+
+    /** Change title if the "file" property has been changed. */
+    public void propertyChange(PropertyChangeEvent ev) {
+	String name = ev.getPropertyName();
+	System.out.println("propertyChange: name="+name+
+			   " value="+ev.getNewValue());
+	if(textArea != null) {
+	    textArea.setCaretPosition(textArea.getDocument().getLength());
+	    textArea.append("propertyChange: name="+name+
+		    " value="+ev.getNewValue()+"\n");
+	}
+    }
+
+    /** Run the application. */
+    public static void main(String[] args) {
+	final SketchEventTest w = new SketchEventTest();
+
+	// pack and show the window in the Swing thread to avoid deadlocks
+	SwingUtilities.invokeLater(new Runnable() {
+	    public void run() {
+		w.pack();
+		w.setVisible(true);
+		w.requestFocus();
+	    }
+	});
+    }
+}

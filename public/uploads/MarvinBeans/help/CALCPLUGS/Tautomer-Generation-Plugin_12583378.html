@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Tautomer Generation Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Tautomer Generation Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Tautomer Generation Plugin:<br /></span><br /><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200955108 {padding: 0px;}
+div.rbtoc1439200955108 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200955108 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200955108"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#TautomerGenerationPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#TautomerGenerationPlugin-Options">Options &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#TautomerGenerationPlugin-Generaloptions">General options &nbsp;</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#TautomerGenerationPlugin-Tautomerizationmethod">Tautomerization method&nbsp;</a></li> 
+              <li><a href="#TautomerGenerationPlugin-Tautomerizationscope">Tautomerization scope</a></li> 
+              <li><a href="#TautomerGenerationPlugin-Otheroptions">Other options</a></li> 
+             </ul> </li> 
+            <li><a href="#TautomerGenerationPlugin-Advancedoptions">Advanced options</a></li> 
+           </ul> </li> 
+          <li><a href="#TautomerGenerationPlugin-Examples">Examples</a></li> 
+          <li><a href="#TautomerGenerationPlugin-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="TautomerGenerationPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Tautomers are organic compounds that are interconvertible by tautomerization.Tautomerization results in the formal migration of a hydrogen atom or proton, accompanied by a switch of a single bond and an adjacent double bond. Usually the catalysts of these reactions are acids or bases. In solution there is an equilibrium state between the tautomeric forms. Some types of tautomers: ketone-enol, amid-imidic acid, lactam-lactim, enamine-imine tautomeric forms.&nbsp;</p>
+      <p>The Tautomer Generation Plugin<strong>&nbsp;</strong>is able to calculate tautomers based on many user-defined options.To have more information on tautomers and our tautomer generation method, see <a href="Tautomerization-and-tautomers_13338396.html">the tautomerization reference page</a>.</p>
+      <p>&nbsp;</p>
+      <h1 id="TautomerGenerationPlugin-Options">Options<br />&nbsp;</h1>
+      <p>The following general options can be set in the&nbsp;<em><a href="#TautomerGenerationPlugin-fig.1">Tautomers Options</a>&nbsp;</em>window.</p>
+      <h2 id="TautomerGenerationPlugin-Generaloptions">General options<br />&nbsp;</h2>
+      <h3 id="TautomerGenerationPlugin-Tautomerizationmethod">Tautomerization method&nbsp;</h3>
+      <ul style="margin-left: 20.0px;">
+       <li style="list-style-type: none;background-image: none;">
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Dominant tautomer distribution:</strong>&nbsp;calculates the distribution of different tautomer forms present at the given pH.&nbsp;</li>
+         <li><p><strong>Canonicalization:</strong>&nbsp;calculates a unique<em>&nbsp;</em>tautomer form for the input structure by default.</p></li>
+         <li><strong>Major tautomer:</strong>&nbsp;gives the first structure from the dominant tautomer distribution.</li>
+         <li><p><strong>All tautomers:</strong>&nbsp;combinatorially generates all possible tautomers. If any deuterium or tritium is involved in the tautomerization, isotopes are not removed; rational tautomer generation mode can be activated.</p></li>
+        </ul></li>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The old generic tautomer generation has been removed from the plugin interface. However, it is still available from cxcalc, Chemical Terms and from the API. In future releases it will <em>only</em> be available from the API as a functionality.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h3 id="TautomerGenerationPlugin-Tautomerizationscope">Tautomerization scope<br /><br /></h3>
+      <p>The tautomerization scope defines a scope for the selected tautomerization method.&nbsp;The available scope is:</p>
+      <ul>
+       <li><strong>Normal</strong>: this scope narrows down the possible tautomerization paths and results in chemically more relevant tautomer forms according to our model. This is the strict scope in our model.<br /><br /></li>
+      </ul>
+      <div class="confluence-information-macro confluence-information-macro-warning"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>If the 'Dominant tautomer distribution' or the 'Major tautomer' method is selected, the 'Normal tautomer generation' button is <a href="#TautomerGenerationPlugin-fig.1">disabled</a> because it is added and applied to the chosen method by default.</p>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>You can read more about our tautomerization method <a href="Tautomerization-and-tautomers_13338396.html">here</a>.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h3 id="TautomerGenerationPlugin-Otheroptions">Other options</h3>
+      <ul style="margin-left: 20.0px;">
+       <li style="list-style-type: none;background-image: none;">
+        <ul style="margin-left: 20.0px;">
+         <li><strong style="line-height: 1.4285715;">Max. number of structures:</strong>&nbsp;maximize the number of structures to display.&nbsp;</li>
+         <li><strong style="line-height: 1.4285715;">Consider pH effect:</strong>&nbsp;takes into account the protonation states at given pH. Applicable for Major tautomer and Dominant tautomer distribution calculations.</li>
+         <li><strong style="line-height: 1.4285715;">Single fragment mode:</strong>&nbsp;if checked (default), the results are displayed in separate windows; if unchecked, the calculation handles unlinked molecules together and results appear in the same window.<br /><br /></li>
+        </ul></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="TautomerGenerationPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="300" src="attachments/12583378/35947456.jpg" data-image-src="attachments/12583378/35947456.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947456" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="tautomer_pl.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583378" data-linked-resource-container-version="109" /></span></p>
+      <p>Fig. 1 General Options panel in the Tautomers Options window&nbsp;</p>
+      <h2 id="TautomerGenerationPlugin-Advancedoptions">Advanced options</h2>
+      <p>&nbsp;</p>
+      <p>The following advanced (calculation- and display-related) options can be set in the&nbsp;<em><a href="#TautomerGenerationPlugin-fig.2">Tautomers Options</a> </em>window:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:</strong>&nbsp;setting the number of decimal places used for displaying the tautomer distribution values.</li>
+       <li><strong>Set max. allowed length of the tautomerization path:</strong>&nbsp;sets the number of bonds (a path) which are considered by displacing a double bond.</li>
+       <li><strong>Protect aromaticity:</strong>&nbsp;if checked (default), the aromaticity is kept.</li>
+       <li><strong>Protect charge:</strong>&nbsp;if checked (default), charges of atoms are &nbsp;kept during calculation.</li>
+       <li><strong>Exclude antiaromatic compounds:</strong>&nbsp;if checked (default), any tautomer structure having an antiaromatic ring system will be discarded.</li>
+       <li><strong>Protect double bond stereo:</strong>&nbsp;if checked, all double bonds with stereo information remain intact. If unchecked (default), tautomer regions will lose the double bond stereo information, any other stereo information in the molecule is kept intact.</li>
+       <li><strong>Protect all tetrahedral stereo centers:</strong>&nbsp;if checked, stereocenters are not included in the tautomerization. If unchecked (default), tautomer regions will lose the tetrahedral stereo information, any other stereo information in the molecule is kept intact.</li>
+       <li><strong>Protect labeled tetrahedral stereo centers only:</strong>&nbsp;if checked, stereocenters labeled with chiral flag or MDL Enhanced Stereo Representation flags will not be included in tautomerization, other stereocenters will.</li>
+       <li><strong>Single fragment mode:</strong>&nbsp;if checked (default), the results are displayed in separate windows, if unchecked, the calculation handles unlinked molecules together and results are in the same window.</li>
+       <li><strong>Protect ester groups:</strong>&nbsp;if checked, ester groups are not taking part in tautomerization.</li>
+       <li><strong>Ring-chain tautomerization is allowed:</strong>&nbsp;this option can be activated when &quot;All tautomers&quot; function is selected; if checked, tautomer generation will take into account the possibility of ring closure.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="TautomerGenerationPlugin-fig.2"></span>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="300" src="attachments/12583378/35947411.png" data-image-src="attachments/12583378/35947411.png" data-unresolved-comment-count="0" data-linked-resource-id="35947411" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-10 14:45:50.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583378" data-linked-resource-container-version="109" /></span></p>
+      <p>Fig. 2 Advanced Options panel in the Tautomers Option window&nbsp;</p>
+      <h1 id="TautomerGenerationPlugin-Examples">Examples</h1>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">On tautomer generation options</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The number of generated tautomers strongly depends on the chosen options.</p>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">On retrieved tautomers </p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Tautomer Generator Plugin does not consider the three dimensional structure of molecules during tautomer generation. Symmetric structures are filtered out from the generated set.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>An an example we calculated the different tautomers for&nbsp;<em>4-amino-6-ethoxypyrimidin-2-ol</em>:</p>
+      <p>&nbsp;</p> 
+      <div id="expander-2062697082" class="expand-container"> 
+       <div id="expander-control-2062697082" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">Dominant tautomer distribution</span> 
+       </div> 
+       <div id="expander-content-2062697082" class="expand-content">
+        <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="450" src="attachments/12583378/35947387.jpg" data-image-src="attachments/12583378/35947387.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947387" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="dominant_ex.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583378" data-linked-resource-container-version="109" /></span></p>
+       </div> 
+      </div> 
+      <div id="expander-456396399" class="expand-container"> 
+       <div id="expander-control-456396399" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">Canonicalized form</span> 
+       </div> 
+       <div id="expander-content-456396399" class="expand-content">
+        <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/12583378/35947409.png" data-image-src="attachments/12583378/35947409.png" data-unresolved-comment-count="0" data-linked-resource-id="35947409" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-10 14:45:0.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583378" data-linked-resource-container-version="109" /></span></p>
+       </div> 
+      </div> 
+      <div id="expander-1058674503" class="expand-container"> 
+       <div id="expander-control-1058674503" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">Major tautomer</span> 
+       </div> 
+       <div id="expander-content-1058674503" class="expand-content">
+        <p>&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="222" src="attachments/12583378/35947413.png" data-image-src="attachments/12583378/35947413.png" data-unresolved-comment-count="0" data-linked-resource-id="35947413" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-10 14:46:53.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583378" data-linked-resource-container-version="109" /></span></p>
+       </div> 
+      </div> 
+      <div id="expander-1421530370" class="expand-container"> 
+       <div id="expander-control-1421530370" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">All tautomers</span> 
+       </div> 
+       <div id="expander-content-1421530370" class="expand-content">
+        <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/12583378/35947414.png" data-image-src="attachments/12583378/35947414.png" data-unresolved-comment-count="0" data-linked-resource-id="35947414" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-10 14:48:29.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583378" data-linked-resource-container-version="109" /></span></p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h1 id="TautomerGenerationPlugin-References">References</h1>
+      <ol>
+       <li><span style="line-height: 1.4285715;">Smith, M. B.; March, J. Advanced Organic Chemistry, 5th ed., Wiley Interscience, New York, 2001; pp 1218-1223. ISBN 0471585890</span></li>
+      </ol>
+      <div class="documentation_helpsection">
+       <p>&nbsp;</p>
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

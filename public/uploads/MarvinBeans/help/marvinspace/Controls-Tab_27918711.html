@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Controls Tab</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Controls Tab </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>This allows the user to customize how MarvinSpace reacts to various input events (like mouse motion, clicking etc). Note, that not all, but most of the important actions can be customized.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><strong>Parameter</strong></th>
+          <th class="confluenceTh">Description</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Default style</strong></td>
+          <td class="confluenceTd">With this user can select MarvinSpace style association of input&nbsp;<a href="#ControlsTab-acandev">actions and events</a>.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="customstyle" rel="nofollow"></a><strong>Custom style</strong></td>
+          <td class="confluenceTd">User can select which mouse event will perform rotation, zooming, translation and will pop up the menu.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Invert zoom</strong></td>
+          <td class="confluenceTd">Swaps between zooming policies. By default zoom in is associated to moving mouse away from us (thus towards the scene), while zooming out is done in the opposite direction. However, when this option box is checked the zooming directions swap.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Animated rotation</strong></td>
+          <td class="confluenceTd">When checked, rotation will not stop when mouse movement stops but continues for a while depending on the acceleration/deceleration of the mouse while it was moving. This results in an inertia effect. Useless, but nice!</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

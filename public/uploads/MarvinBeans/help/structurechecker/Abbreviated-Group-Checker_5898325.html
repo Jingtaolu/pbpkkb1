@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Abbreviated Group Checker</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Abbreviated Group Checker </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Checker searches for <a href="http://www.chemaxon.com/marvin/help/sketch/sketch-chem.html#sgroups" class="external-link" rel="nofollow">abbreviated groups</a>in the structure:</p>
+      <ul>
+       <li>contracted;</li>
+       <li>expanded; or</li>
+       <li>both.</li>
+      </ul>
+      <p>Fixer offers:</p>
+      <ul>
+       <li>ungroup abbreviated groups;</li>
+       <li>expand abbreviated groups;</li>
+       <li>contract abbreviated groups.</li>
+      </ul>
+      <p><strong>Example</strong>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Abbreviated Group Checker</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th colspan="3" class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Ungroup</th>
+          <th class="confluenceTh">Contract Group</th>
+          <th class="confluenceTh">Expand Group</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Expanded Groups</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_exp_ch" height="117" width="169" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_exp_ch.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_exp_ch.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_contr_f" height="91" width="159" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_exp_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_exp_f.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_contr_f" height="30" width="94" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_exp_fcont.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_exp_fcont.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="unavailable" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Contracted Groups</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_contr_f" height="71" width="44" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_contr_ch.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_contr_ch.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_contr_f" height="144" width="93" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_contr_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_contr_f.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="unavailable" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_contr_f" height="168" width="127" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_contr_fex.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_contr_fex.png" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect All Groups</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_both_ch" height="77" width="156" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_ch.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_ch.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_both_f" height="93" width="150" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_f.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_f.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_both_fcontr" height="40" width="108" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_fcont.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_fcont.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_abbrev_both_fex" height="101" width="155" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_fex.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_abbrev_both_fex.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /> <strong>Note</strong>: If attachment point is not connected to any atom, ungrouping removes attachment points of the abbreviated group and adds an implicit hydrogen.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

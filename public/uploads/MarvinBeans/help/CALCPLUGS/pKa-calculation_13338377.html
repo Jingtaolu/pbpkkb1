@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : pKa calculation</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : pKa calculation </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This background material explains the theory behind the pK<sub>a </sub>calculation:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200961735 {padding: 0px;}
+div.rbtoc1439200961735 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200961735 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200961735"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#pKacalculation-Introduction">Introduction &nbsp;</a></li> 
+          <li><a href="#pKacalculation-DefinitionofpKa">Definition of pKa &nbsp;</a></li> 
+          <li><a href="#pKacalculation-Definitionoftheacidic/basicprefixofpKa">Definition of the acidic/basic prefix of pKa</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#pKacalculation-Definitionofthebasicprefix">Definition of the basic prefix</a></li> 
+            <li><a href="#pKacalculation-Definitionoftheacidicprefix">Definition of the acidic prefix</a></li> 
+           </ul> </li> 
+          <li><a href="#pKacalculation-Multiproticmolecules">Multiprotic molecules</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#pKacalculation-Examplecase">Example case</a></li> 
+           </ul> </li> 
+          <li><a href="#pKacalculation-Examples">Examples &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#pKacalculation-Example#1">Example #1</a></li> 
+            <li><a href="#pKacalculation-Example#2">Example #2</a></li> 
+            <li><a href="#pKacalculation-Example#3">Example #3 &nbsp;</a></li> 
+           </ul> </li> 
+          <li><a href="#pKacalculation-References">References&nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="pKacalculation-Introduction">Introduction<br />&nbsp;</h1>
+      <p>Chemical properties of molecules depend largely on whether they are ionized or not. Most organic molecules are capable of gaining and/or losing a proton in aqueous solutions. Proton transfer most frequently occurs between water and any ionizable atom of the organic molecule.</p>
+      <p>The molecule's response to protonation or deprotonation depends significantly on the site that was disturbed by proton transfer. Partial charge distribution in the molecule also varies with protonation of the acid/base active sites. Since the partial charge distribution is very sensitive to the protonation-deprotonation process (both near and far from the disturbed site), it can be used to determine the p<em>K</em><sub>a</sub>&nbsp;of a molecule.</p>
+      <p>Our p<em>K</em><sub>a</sub>&nbsp;prediction program is based on the calculation of partial charge of atoms in the molecule.</p>
+      <p>Acidic and basic molecules are ionized in aqueous solution. Acidic or basic character is assigned to the molecule according to Br&ouml;nsted's rule. The ratio of the ionized and neutral forms depends on the pH, the temperature and the ion activity of the bulk phase. The ionization constant K<sub>a</sub>&nbsp;is obtained from the activity ratio of conjugated base and conjugated acid multiplied with proton activity:</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099474.gif" data-image-src="attachments/13338377/29099474.gif" data-unresolved-comment-count="0" data-linked-resource-id="29099474" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Ka_def.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span></p>
+      <h1 id="pKacalculation-DefinitionofpKa"><span style="color: rgb(0,0,0);">Definition of pK<sub>a<br />&nbsp;</sub></span></h1>
+      <p>The p<em>K</em><sub>a </sub>value is obtained from the ionization constant of a molecule using the following definition:<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099475.gif" data-image-src="attachments/13338377/29099475.gif" data-unresolved-comment-count="0" data-linked-resource-id="29099475" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKa_def.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>&nbsp;<br />When the pH of the solution is equal with p<em>K</em><sub>a</sub>, the concentrations of the dissociated and undissociated species are equal.&nbsp;</p>
+      <h1 id="pKacalculation-Definitionoftheacidic/basicprefixofpKa"><a class="anchor" name="DefofAcidBasicPrefix" rel="nofollow"></a>Definition of the acidic/basic prefix of p<em>K</em><sub>a<br /></sub></h1>
+      <h2 id="pKacalculation-Definitionofthebasicprefix">Definition of the basic prefix</h2>
+      <p><br />Protonated positive ions are considered as&nbsp;<em>protonated basic sites</em>&nbsp;, therefore &quot;basic&quot; prefix is used for them. The <em>neutral basic sites</em>&nbsp;are predefined in the p<em>K</em><sub>a</sub>&nbsp;calculator, they also have the &quot;basic&quot; prefix.,&nbsp;e.g. if the submitted molecule is CH<sub>3</sub>NH<sub>2</sub>&nbsp;or CH<sub>3</sub>NH<sub>3</sub><sup>+,</sup>, they get &quot;basic&quot; prefix and p<em>K</em><sub>a</sub>=10.08.</p>
+      <h2 id="pKacalculation-Definitionoftheacidicprefix">Definition of the acidic prefix<br /><br /></h2>
+      <p>Deprotonated negative ions are considered as&nbsp;<em>deprotonated acidic sites</em>&nbsp;, therefore &quot;acidic&quot; prefix is used for them.&nbsp;The&nbsp;<em>neutral acidic sites</em>&nbsp;are predefined in the p<em>K</em><sub>a</sub>&nbsp;calculator, they also have &quot;acidic&quot; prefix,&nbsp;e.g. if submitted molecule is CH<sub>3</sub>COOH or CH<sub>3</sub>COO<sup>-</sup>&nbsp;, they get &quot;acidic&quot; prefix and p<em>K</em><sub>a</sub>=4.54.<br /><br /></p>
+      <h1 id="pKacalculation-Multiproticmolecules"><span style="font-size: 24.0px;line-height: 1.25;">Multiprotic molecules</span></h1>
+      <p>&nbsp;</p>
+      <p>When a molecule contains more than one ionizable atom, it is called a multiprotic compound. For these types of molecules we need to distinguish between micro and macro acidic dissociation constants. The micro acidic dissociation constant is obtained from the equilibrium concentration of the conjugated acid-base pairs. The macro acidic dissociation constant is obtained from the global mass and charge conservation law. When a molecule has N ionizable sites, the total number of microspecies in the solution is 2<sup>N</sup>.</p>
+      <h2 id="pKacalculation-Examplecase">Example case</h2>
+      <p>&nbsp;</p>
+      <p>To better understand the difference between micro and macro constants we consider ionization equilibrium of a triprotic acid AH<sub>3</sub>. Referring to the different deprotonation sites of the AH<sub>3</sub>&nbsp;molecule we introduce the upper indexes of the protons:</p>
+      <p><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099476.gif" data-image-src="attachments/13338377/29099476.gif" data-unresolved-comment-count="0" data-linked-resource-id="29099476" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="AH3.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>&nbsp;</p>
+      <p>The ionization process of the AH<sup>1</sup>H<sup>2</sup>H<sup>3</sup>&nbsp;molecule in aqueous solution is described with 12 equilibrium reactions. Microspecies and their charge are summarized in&nbsp;<a href="#pKacalculation-tab.1">Table 1</a>.</p>
+      <h3 id="pKacalculation-"><a class="anchor" name="AH3" rel="nofollow"></a></h3>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099477.gif" data-image-src="attachments/13338377/29099477.gif" data-unresolved-comment-count="0" data-linked-resource-id="29099477" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="AH3_ions.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="pKacalculation-tab.1"></span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">Microspecies</td>
+          <td class="confluenceTd">charge</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">AH<sup>1</sup>H<sup>2</sup>H<sup>3</sup></td>
+          <td class="confluenceTd">0</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">AH<sup>1</sup>H<sup>2</sup>&nbsp;, AH<sup>1</sup>H<sup>3</sup>&nbsp;, AH<sup>2</sup>H<sup>3</sup></td>
+          <td class="confluenceTd">-1</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">AH<sup>1</sup>&nbsp;, AH<sup>2</sup>&nbsp;, AH<sup>3</sup></td>
+          <td class="confluenceTd">-2</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">A</td>
+          <td class="confluenceTd">-3</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Tab. 1 Microspecies of AH<sub>3</sub> and their charge&nbsp;</p>
+      <p><br />The AH<sub>3</sub>&nbsp;molecule has three macro acidic constants since it is a triprotic acid. Macro acidic constants&nbsp;<em>K<sub>1</sub>, K<sub>2</sub>,&nbsp;</em>and&nbsp;<em>K<sub>3</sub></em>&nbsp;are obtained from the concentration of the microspecies:</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099478.gif" data-image-src="attachments/13338377/29099478.gif" data-unresolved-comment-count="0" data-linked-resource-id="29099478" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Macro_K.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span></p>
+      <p>And the three macro p<em>K</em><sub>a</sub>&nbsp;values of the AH<sub>3</sub>&nbsp;molecule that would be obtained with routine laboratory measurements are as follows:&nbsp;<br /><br />p<em>K</em><sub>a,1</sub>=-log<sub>10</sub>(<em>K</em><sub>1</sub>)&nbsp;<br />p<em>K</em><sub>a,2</sub>=-log<sub>10</sub>(<em>K</em><sub>2</sub>)&nbsp;<br />p<em>K</em><sub>a,3</sub>=-log<sub>10</sub>(<em>K</em><sub>3</sub>)&nbsp;</p>
+      <h1 id="pKacalculation-Examples">Examples<br />&nbsp;</h1>
+      <p>The following examples show the different acidic/basic processes and related calculations.</p>
+      <h2 id="pKacalculation-Example#1">Example #1</h2>
+      <div>
+       <br />The ionization steps of&nbsp;
+       <em>p</em>-amino benzoic acid are outlined
+       <a href="#pKacalculation-fig.1"> below</a>. Calculated micro ionization constants&nbsp;
+       <em>k<sub>1</sub>, k<sub>2</sub>, k<sub>3</sub></em>&nbsp;and&nbsp;
+       <em>k<sub>4</sub></em>&nbsp;are indicated on the arrows.
+       <br />
+       <br />
+       <span class="confluence-anchor-link" id="pKacalculation-fig.1"></span>
+       <br />&nbsp;
+      </div>
+      <div>
+       <a name="pamSteps" rel="nofollow"></a>
+       <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099530.png" data-image-src="attachments/13338377/29099530.png" data-unresolved-comment-count="0" data-linked-resource-id="29099530" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pAm_k.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>&nbsp;
+      </div>
+      <div>
+       Fig. 1 Ionization steps of&nbsp;
+       <em>p</em>-amino benzoic acid
+      </div>
+      <div>
+       <br />
+       <a name="pampKa" rel="nofollow"></a>Below are the calculated and the experimental p
+       <em>K</em>
+       <sub>a</sub>&nbsp;values of&nbsp;
+       <em>p</em>-amino benzoic acid:
+      </div>
+      <p><br /><a class="unresolved" href="#"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099531.png" data-image-src="attachments/13338377/29099531.png" data-unresolved-comment-count="0" data-linked-resource-id="29099531" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKa12.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span></a>&nbsp;<br /><br /></p>
+      <h2 id="pKacalculation-Example#2">Example #2</h2>
+      <p><br />Imides and amides can have either acidic or basic character. The extent of amide/imide ionization at a given pH is determined by two acid dissociation constants:&nbsp;p<em>K</em><sub>a,1 </sub>is assigned to the deprotonation step &nbsp;RNH&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099532.png" data-image-src="attachments/13338377/29099532.png" data-unresolved-comment-count="0" data-linked-resource-id="29099532" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="reactionarrow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>&nbsp;RN<sup>-</sup>&nbsp;+ H<sup>+</sup>&nbsp;and p<em>K</em><sub>a,2 </sub>is assigned to the protonation step RNH<sub>2</sub><sup>+</sup>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099532.png" data-image-src="attachments/13338377/29099532.png" data-unresolved-comment-count="0" data-linked-resource-id="29099532" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="reactionarrow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>RNH + H<sup>+</sup>&nbsp;.<br /><br />The ratio of anionic and cationic species depends on p<em>K</em><sub>a,1</sub>, p<em>K</em><sub>a,2</sub>&nbsp;and the pH:&nbsp;<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099533.gif" data-image-src="attachments/13338377/29099533.gif" data-unresolved-comment-count="0" data-linked-resource-id="29099533" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="amide_ratio.gif" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>&nbsp;<br /><br />If 2*pH - (p<em>K</em><sub>a,1</sub>&nbsp;+ p<em>K</em><sub>a,2</sub>) &gt; 0 than deprotonation of amide/imide is favored and the molecule is said to have an acidic character.&nbsp;<br />If 2*pH - (p<em>K</em><sub>a,1</sub>&nbsp;+ p<em>K</em><sub>a,2</sub>) &lt; 0 than protonation of amide/imide is favored and it is considered to have a basic character.&nbsp;<br /><br />Chemists often want to know the ionization state of organic compounds at pH 7.4. In general, the macro p<em>K</em><sub>a</sub>s of amide/imide compounds are calculated and their acidic or basic character determined with the above formulas at pH 7.4.&nbsp;</p>
+      <p><br /><br /></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099534.jpg" data-image-src="attachments/13338377/29099534.jpg" data-unresolved-comment-count="0" data-linked-resource-id="29099534" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="phtal.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span></p>
+      <p>&nbsp;</p>
+      <div>
+       Calculated and measured p
+       <em>K</em>
+       <sub>a</sub>&nbsp;of phtalimide and 2-pyridone are given in 
+       <a href="#pKacalculation-tab.2">Table 2</a>.&nbsp;
+      </div>
+      <div>
+       <p>&nbsp;</p>
+       <p><span class="confluence-anchor-link" id="pKacalculation-tab.2"></span></p>
+       <div class="table-wrap">
+        <table class="confluenceTable">
+         <tbody>
+          <tr>
+           <td class="confluenceTd">Compound</td>
+           <td class="confluenceTd">Calculated p<em>K</em><sub>a</sub></td>
+           <td class="confluenceTd">Observed p<em>K</em><sub>a</sub></td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">phtalimide</td>
+           <td class="confluenceTd">8.22</td>
+           <td class="confluenceTd">8.30</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">2-pyridone</td>
+           <td class="confluenceTd">11.40</td>
+           <td class="confluenceTd">11.70</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p>Tab. 2 &nbsp;Calculated and measured pK<sub>a&nbsp;</sub>values of phtalimide and 2-pyridone</p>
+       <br />
+       <p>&nbsp;</p>
+       <h2 id="pKacalculation-Example#3">Example #3<br />&nbsp;</h2>
+       <p>The value of ionization constants of conjugated acid-base pairs usually falls between 10<sup>-10</sup>&nbsp;and 10<sup>20</sup>, so these limits are generally used to predict the p<em>K</em><sub>a</sub>. When an ionizable site in the molecule has very weak basic or acidic character, this can be accomodated by increasing the calculation range.&nbsp;<br /><br />The molecule depicted below contains a very weak basic atom. First, macro p<em>K</em><sub>a</sub>&nbsp;is calculated with default limits predefined between 10<sup>-10</sup>&nbsp;and 10<sup>20</sup>. Then macro p<em>K</em><sub>a</sub>&nbsp;is calculated with altered limits defined between 10<sup>-50</sup>&nbsp;and 10<sup>20</sup>.&nbsp;<br />Changing of the default settings of macro p<em>K</em><sub>a</sub>&nbsp;calculation can be done in the <em>Tools &gt;&nbsp;Options &gt;&nbsp;pK<sub>a</sub>&nbsp;</em>menu of MarvinSketch.&nbsp;</p>
+       <p><br />Calculated and observed acidity constants are summarized in <a href="#pKacalculation-tab.3">Table 3</a>. Measured p<em>K</em><sub>a</sub>s taken from&nbsp;<a href="#pKacalculation-clark">Clark et al.</a>&nbsp;</p>
+       <p><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338377/29099535.jpg" data-image-src="attachments/13338377/29099535.jpg" data-unresolved-comment-count="0" data-linked-resource-id="29099535" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="limits.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338377" data-linked-resource-container-version="38" /></span>&nbsp;<br /><br /><span class="confluence-anchor-link" id="pKacalculation-tab.3"></span></p>
+       <div class="table-wrap">
+        <table class="confluenceTable">
+         <tbody>
+          <tr>
+           <td class="confluenceTd">p<em>K</em><sub>a</sub></td>
+           <td class="confluenceTd">First calc.</td>
+           <td class="confluenceTd">Second calc.</td>
+           <td class="confluenceTd">Observed</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">p<em>K</em><sub>a,1</sub></td>
+           <td class="confluenceTd">4.24</td>
+           <td class="confluenceTd">4.24</td>
+           <td class="confluenceTd">4.51</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">p<em>K</em><sub>a,2</sub></td>
+           <td class="confluenceTd">5.75</td>
+           <td class="confluenceTd">5.75</td>
+           <td class="confluenceTd">6.01</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd">p<em>K</em><sub>a,3</sub></td>
+           <td class="confluenceTd">-</td>
+           <td class="confluenceTd">-35.81</td>
+           <td class="confluenceTd">-</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <br />
+       <div>
+        <span style="color: rgb(61,61,61);">Table 3. Calculated and measured acidity constants<br />&nbsp;</span>
+       </div>
+       <h1 id="pKacalculation-References"><span style="color: rgb(61,61,61);">References&nbsp;</span></h1>
+       <ol>
+        <li><a class="external-link" href="http://www.chemaxon.com/conf/Prediction_of_dissociation_constant_using_microconstants.pdf" style="text-decoration: underline;" rel="nofollow">Prediction of dissociation constant using microconstants</a>, J. Szegezdi and F. Csizmadia, 27th ACS National Meeting, Anaheim, California, March 28-April 1, 2004</li>
+        <li><a class="external-link" href="https://www.chemaxon.com/conf/Calculating_pKa_values_of_small_and_large_molecules.pdf" style="text-decoration: underline;" rel="nofollow">Calculating pKa values of small and large molecules</a>, J. Szegezdi and F. Csizmadia, American Chemical Society Spring meeting, March 25-29th, 2007</li>
+        <li><a class="text" name="ref3" rel="nofollow"></a><span class="confluence-anchor-link" id="pKacalculation-clark"></span>Clark, F. H.; Cahoon, N. M.,&nbsp;<em>J. Pharm. Sci.</em>,&nbsp;<strong>1987</strong>,&nbsp;<em>76</em>, 8, 611-620</li>
+        <li>Dixon, S. L.; Jurs, P. C.,&nbsp;<em>J. Comp. Chem.</em>,&nbsp;<strong>1993</strong>,&nbsp;<em>14</em>, 12, 1460-1467;&nbsp;<a href="http://dx.doi.org/10.1002/jcc.540141208" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+        <li>Csizmadia, F.; Tsantili-Kakoulidou, A.; Panderi, I.; Darvas, F.,&nbsp;<em>J. Pharm. Sci.</em>,&nbsp;<strong>1997</strong>,&nbsp;<em>86</em>, 7, 865-871;&nbsp;<a href="http://dx.doi.org/10.1021/js960177k" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       </ol>
+      </div>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Alias</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Alias </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul style="margin-left: 20.0px;">
+       <li>Checker searches for&nbsp;<strong>aliases</strong>&nbsp;in the structure.</li>
+       <li>Fixer offers:
+        <ol>
+         <li>converting alias to abbreviated group if the alias value corresponds to a group in the abbreviated group list&nbsp;<a href="http://www.chemaxon.com/marvin/help/structurechecker/checkerlist.html#note4" style="text-decoration: underline;" class="external-link" rel="nofollow"> <sup>*</sup> </a>&nbsp;(<code>aliastogroup</code>);</li>
+         <li>converting alias to atom if the alias value corresponds to an element (e.g., Ar) (<code>aliastoatom</code>);</li>
+         <li>removing alias (revealing the atom under the alias)&nbsp;<a href="http://www.chemaxon.com/marvin/help/structurechecker/checkerlist.html#note5" style="text-decoration: underline;" class="external-link" rel="nofollow"> <sup>**</sup> </a>&nbsp;(<code>removealias</code>);</li>
+         <li>deleting the atom having alias information (<code>removeatom</code>).</li>
+        </ol></li>
+      </ul>
+      <p><br /> <strong>Example</strong> <span style="color: rgb(54,54,54);">:</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Alias Checker (<code>alias</code>)</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th colspan="4" class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Convert Alias to Group (<code>aliastogroup</code>)</th>
+          <th class="confluenceTh">Convert to Atom (<code>aliastoatom</code>)</th>
+          <th class="confluenceTh">Remove Alias (<code>removealias</code>)</th>
+          <th class="confluenceTh">Delete Atom (<code>removeatom</code>)</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Alias</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_alias_ch" height="86" width="131" src="attachments/10029115/29098253.png" data-image-src="attachments/10029115/29098253.png" data-unresolved-comment-count="0" data-linked-resource-id="29098253" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_alias_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029115" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="convert ot group" height="81" width="131" src="attachments/10029115/29098256.png" data-image-src="attachments/10029115/29098256.png" data-unresolved-comment-count="0" data-linked-resource-id="29098256" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_alias_fcong.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029115" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="convert to atom" height="86" width="126" src="attachments/10029115/29098254.png" data-image-src="attachments/10029115/29098254.png" data-unresolved-comment-count="0" data-linked-resource-id="29098254" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_alias_fcona.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029115" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_alias_frem" height="76" width="121" src="attachments/10029115/29098258.png" data-image-src="attachments/10029115/29098258.png" data-unresolved-comment-count="0" data-linked-resource-id="29098258" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_alias_frem.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029115" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_alias_fdel" height="37" width="85" src="attachments/10029115/29098257.png" data-image-src="attachments/10029115/29098257.png" data-unresolved-comment-count="0" data-linked-resource-id="29098257" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_alias_fdel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029115" data-linked-resource-container-version="4" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /> <strong>Note</strong> <span style="color: rgb(54,54,54);">: &quot;OMe&quot; and &quot;CL&quot; were defined as alias. After converting &quot;OMe&quot; to methoxy group, the abbreviated group is linked correctly to the chain, i.e., bond through the oxygen atom.&nbsp;</span> <br /> <a rel="nofollow"></a> <sup>*</sup> <strong>Note</strong> <span style="color: rgb(54,54,54);">:&nbsp;</span> <a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=13338044">User defined abbreviated groups</a> <span style="color: rgb(54,54,54);">&nbsp;are also available to be applied as recognizable abbreviated group set.&nbsp;</span> <br /> <a rel="nofollow"></a> <sup>**</sup> <strong>Note</strong> <span style="color: rgb(54,54,54);">: Alias only covers the atom, and fixer removes this alias from the original atom.</span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

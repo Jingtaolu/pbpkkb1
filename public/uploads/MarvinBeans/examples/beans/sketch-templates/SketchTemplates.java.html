@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinSketch Structure Templates Example</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">MSketchPane</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">BorderLayout</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JFrame</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JPanel</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * Example of customizing structure templates in MarvinSketch.</span>
+<span class="comment"> * The goal of this example is to customize the template structures of</span>
+<span class="comment"> * MarvinSketch in the following way:</span>
+<span class="comment"> *  - Generic and Rings template groups are set to visible on the toolbar</span>
+<span class="comment"> *  - Two wedge bonds are defined in the Extra Templates group, which will</span>
+<span class="comment"> *    also be visible on the toolbar</span>
+<span class="comment"> *  - A new template group, Conformers is defined consisting of</span>
+<span class="comment"> *    six structures</span>
+<span class="comment"> *</span>
+<span class="comment"> * Template files (SDfiles/compressed SDfiles with .t extension) should be</span>
+<span class="comment"> * put into the JAR file.</span>
+<span class="comment"> * Each template structure group should have a name. Structures stored</span>
+<span class="comment"> * in the template files will be available in the Template Library</span>
+<span class="comment"> * and in the Advanced Template toolbar.</span>
+<span class="comment"> *</span>
+<span class="comment"> * For the detailed description of this example, please visit</span>
+<span class="comment"> * </span><span class="url">http://www.chemaxon.com/marvin/examples/beans/sketch-templates/index.html</span>
+<span class="comment"> *</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Judit Vasko-Szedlar</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Peter Csizmadia</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.0.3 Mar 25, 2008</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment">   Marvin 2.7</span>
+<span class="comment"> </span><span class="comment">*/</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> SketchTemplates </span><span class="keyword">extends</span><span class="normal"> JPanel </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="function">SketchTemplates</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> Creating the MSketchPane JavaBean component</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> The default template groups are set here</span>
+<span class="normal">        MSketchPane sketchPane </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MSketchPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> Custom definition of template groups:</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">    - Generic and Rings template groups are set to visible on</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">      the toolbar with the ttmpls parameter</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">    - with xtmpls parameter, two wedge bonds are added to</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">      the Extra Templates group</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">    - a new template group, Conformers is defined with the</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">      tmpls11 parameter</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> At this point we have 12 defined template groups apart from</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> the My Templates group</span>
+<span class="normal">        sketchPane</span><span class="symbol">.</span><span class="function">setParams</span><span class="symbol">(</span>
+<span class="normal">            </span><span class="string">"ttmpls0=*Generic*chemaxon/marvin/templates/generic.t\n"</span><span class="symbol">+</span>
+<span class="normal">            </span><span class="string">"ttmpls1=*Rings*chemaxon/marvin/templates/rings.t\n"</span><span class="symbol">+</span>
+<span class="normal">            </span><span class="string">"xtmpls=chemaxon/marvin/templates/wedgebonds.t\n"</span><span class="symbol">+</span>
+<span class="normal">            </span><span class="string">"tmpls11=:Conformers:chemaxon/marvin/templates/conformers.t\n"</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> Adding the bean to the container panel</span>
+<span class="normal">        </span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">add</span><span class="symbol">(</span><span class="normal">sketchPane</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Create the GUI and show it. For thread safety,</span>
+<span class="comment">     * this method should be invoked from the event-dispatching thread.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        JFrame frame </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFrame</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setTitle</span><span class="symbol">(</span><span class="string">"MarvinSketch Structure Templates Example"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setDefaultCloseOperation</span><span class="symbol">(</span><span class="normal">JFrame</span><span class="symbol">.</span><span class="normal">EXIT_ON_CLOSE</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        SketchTemplates sketchTemplates </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">SketchTemplates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">sketchTemplates</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">pack</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setLocationRelativeTo</span><span class="symbol">(</span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        frame</span><span class="symbol">.</span><span class="function">setVisible</span><span class="symbol">(</span><span class="keyword">true</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Schedule a job for the event-dispatching thread:</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">creating and showing this application's GUI.</span>
+<span class="normal">        javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">SwingUtilities</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

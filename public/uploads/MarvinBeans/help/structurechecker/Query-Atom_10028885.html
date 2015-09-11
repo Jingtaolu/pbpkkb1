@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Query Atom</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Query Atom </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul style="margin-left: 20.0px;">
+       <li>Checker searches for query atoms and atom query properties (learn more about query atoms <a href="https://docs.chemaxon.com/display/jchembase/Query+features">here</a>).</li>
+       <li>Fixer offers converting query atom to carbon atom&nbsp;<a href="http://www.chemaxon.com/marvin/help/structurechecker/checkerlist.html#note15" style="text-decoration: underline;" class="external-link" rel="nofollow"> <sup>*</sup> </a>&nbsp;(<code>converttocarbon</code>).</li>
+      </ul>
+      <p><br /> <strong>Example</strong>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Query Atom Checker (<code>queryatom</code>)</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Convert to Carbon (<code>converttocarbon</code>)</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Find Query Atoms</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_queryatom_ch" height="142" width="360" src="attachments/10028885/29098345.png" data-image-src="attachments/10028885/29098345.png" data-unresolved-comment-count="0" data-linked-resource-id="29098345" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_queryatom_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028885" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="convert to carbon" height="121" width="317" src="attachments/10028885/29098346.png" data-image-src="attachments/10028885/29098346.png" data-unresolved-comment-count="0" data-linked-resource-id="29098346" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_queryatom_fconvert.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028885" data-linked-resource-container-version="9" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><a rel="nofollow"></a> <sup>*</sup> <strong>Note</strong>: Fixer &quot;Convert to Carbon&quot; will not remove any atom query property found by the &quot;Query Atom&quot; checker, but converts related atoms to carbon atoms.&nbsp;<br /> <strong>Suggestion</strong>: To overcome the unwanted conversion of atoms having atom query property to carbon, apply checker <a href="Atom-Query-Property_10029109.html">Atom Query Property</a> and its fixer before Query Atom checker.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

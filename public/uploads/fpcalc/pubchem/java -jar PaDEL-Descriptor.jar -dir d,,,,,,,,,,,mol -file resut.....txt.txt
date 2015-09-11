@@ -1,0 +1,2 @@
+java -jar D:/WORK/EPA/2015pbpk_corpus/similarity_calc/PaDEL/PaDEL-Descriptor.jar -fingerprints -dir d:/mol -file D:/WORK/EPA/2015pbpk_corpus/similarity_calc/PaDEL/fingerprint.txt & type D:\\WORK\\EPA\\2015pbpk_corpus\\similarity_calc\\PaDEL\\fingerprint.txt
+

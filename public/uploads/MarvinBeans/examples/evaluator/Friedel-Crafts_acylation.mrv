@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<MDocument>
+  <MChemicalStruct>
+    <reaction>
+      <propertyList>
+        <property dictRef="NAME" title="NAME">
+          <scalar><![CDATA[Friedel-Crafts acylation]]></scalar>
+        </property>
+        <property dictRef="DESCRIPTION" title="DESCRIPTION">
+          <scalar><![CDATA[Acylation of aromatic compounds by means of acyl halides in the presence of Lewis acids.]]></scalar>
+        </property>
+        <property dictRef="COMPONENTS" title="COMPONENTS">
+          <scalar><![CDATA[aromatics + acid halides >> acilated aromatics]]></scalar>
+        </property>
+        <property dictRef="REAGENTS" title="REAGENTS">
+          <scalar><![CDATA[aluminium halide; zinc halide; iron halide]]></scalar>
+        </property>
+        <property dictRef="EXCLUDE" title="EXCLUDE">
+          <scalar><![CDATA[match(ratom(2), "[C:1]C=C", 1) ||
+match(reactant(0), "[#15][H]") || 
+(max(pka(reactant(0), filter(reactant(0), "match('[O,S;H1]')"), "acidic")) > 14.5) || (max(pka(reactant(0), filter(reactant(0), "match('[#7:1][H]', 1)"), "basic")) > 0) ]]></scalar>
+        </property>
+        <property dictRef="EXPLAIN&#95;EXCLUDE" title="EXPLAIN&#95;EXCLUDE">
+          <scalar><![CDATA[Exclude aromatic compounds containing nucleophilic groups and also exclude acryloyc halides.]]></scalar>
+        </property>
+        <property dictRef="SELECTIVITY" title="SELECTIVITY">
+          <scalar>-energyE(ratom(1))</scalar>
+        </property>
+        <property dictRef="EXPLAIN&#95;SELECTIVITY" title="EXPLAIN&#95;SELECTIVITY">
+          <scalar><![CDATA[Aromatic directing rule: the electrophilic substitution takes place on the aromatic carbon atom with the lowest localization energy having an attached electrophile in the transition state.]]></scalar>
+        </property>
+        <property dictRef="EXAMPLE" title="EXAMPLE">
+          <scalar><![CDATA[O=N(=O)c1ccccc1.CC(Cl)=O>>CC(=O)c1cccc(c1)N(=O)=O.Cl
+Brc1ccccc1.CC(Cl)=O>>CC(=O)c1ccc(Br)cc1.Cl
+c1ccc2[nH]ccc2c1.CCC(Cl)=O>>CCC(=O)c1c[nH]c2ccccc12.Cl
+c1ccc2cc3ccccc3cc2c1.CC(C)C(Cl)=O>>CC(C)C(=O)c1c2ccccc2cc3ccccc13.Cl]]></scalar>
+        </property>
+        <property dictRef="PREPARATION" title="PREPARATION">
+          <scalar><![CDATA[Adding the Lewis acid in small portions to the solution of aromatic and acid halide in halogenated solvent with efficient stirring than refluxing for 20-30h. After decomposition of complex and isolation disttillation gives product.]]></scalar>
+        </property>
+        <property dictRef="SOLVENT" title="SOLVENT">
+          <scalar><![CDATA[halogenated hydrocarbons]]></scalar>
+        </property>
+        <property dictRef="TEMPERATURE / Celsius degree" title="TEMPERATURE / Celsius degree">
+          <scalar>45-95</scalar>
+        </property>
+        <property dictRef="MEDIA" title="MEDIA">
+          <scalar>acidic</scalar>
+        </property>
+        <property dictRef="REACTION TIME / h" title="REACTION TIME / h">
+          <scalar>20-30</scalar>
+        </property>
+        <property dictRef="TOTAL TIME / h" title="TOTAL TIME / h">
+          <scalar>25-35</scalar>
+        </property>
+        <property dictRef="YIELD / %" title="YIELD / %">
+          <scalar>60-70</scalar>
+        </property>
+        <property dictRef="DIFFICULTY" title="DIFFICULTY">
+          <scalar>2</scalar>
+        </property>
+        <property dictRef="SAFETY" title="SAFETY">
+          <scalar>3</scalar>
+        </property>
+        <property dictRef="ENVIRONMENTAL HAZARD" title="ENVIRONMENTAL HAZARD">
+          <scalar>3</scalar>
+        </property>
+        <property dictRef="GENERALITY" title="GENERALITY">
+          <scalar>3</scalar>
+        </property>
+        <property dictRef="REPRODUCABILITY" title="REPRODUCABILITY">
+          <scalar>3</scalar>
+        </property>
+        <property dictRef="REFERENCES" title="REFERENCES">
+          <scalar><![CDATA[Friedel, C., Crafts, J.N.	Compt. Rend.	1877	84	1450
+Groggins, P.T.	Ind. Eng. Chem.	1951	43	1970
+Renfrow, W.B.	J. Am. Chem. Soc.	1951	73	318
+Kulka, M.	J. Org. Chem.	1986	51	2128
+Pearson, D.E.	Synthesis	1972		533
+Berliner, E. in Organic Reactions V, p 229 (New York, 1949)
+Price, C.C. in Organic Reactions III, p I (New York, 1946)
+Johnson, W.S. in Organic Reactions V, p 130 (New York, 1944)
+Thomas, C.A. Anhydrous Aluminum Chloride in Organic Chemistry, p 77 (New York, 1941)
+Calloway, N.O.	Chem. Revs.	1935	17	327
+Francis, A.W.	Chem. Revs.	1948	43	257
+Gore, P.H.	Chem. Revs.	1955	55	229
+Friedman, L.D., Dook, G.O.	Chem. Revs.	1957	57	499
+Matsumoto, T.	J. Org. Chem.	1958	23	106
+Franzen, V.	Chem. Ztg.	1957	81	68
+Franzen, V.	Chem. Ztg.	1957	81	290
+Franzen, V. Reaktionsmechanismen I, pp 115-128 (A. Huthig Verlag Heidelberg, 1958)
+Jerchel, D., Noetzel, S., Thomas, K.	Ber.	1960	93	2966
+Herberich, G.E., Fischer, E.O.	Ber.	1962	95	2803
+Sharman, S.H.	J. Am. Chem. Soc.	1962	84	2945
+Diep, B.K., Buu-Hoi, N.P., Xuong, N.D.	J. Chem. Soc.	1963		2784
+Olah, G.A., Kuhn, S.J.	J. Org. Chem.	1964	29	2317
+Olah, G.A. Friedel-Crafts and Related Reactions, 3 volames (New York, 1963-1965)]]></scalar>
+        </property>
+        <property dictRef="TOLERANCE" title="TOLERANCE">
+          <scalar>0.02</scalar>
+        </property>
+        <property dictRef="REACTIVITY" title="REACTIVITY">
+          <scalar><![CDATA[charge(ratom(1), "aromaticsystem") < -0.2]]></scalar>
+        </property>
+        <property dictRef="EXPLAIN&#95;REACTIVITY" title="EXPLAIN&#95;REACTIVITY">
+          <scalar><![CDATA[Friedel-Crafts acylation occurs only if the aromatic system is at least as activated as mono-halobenzenes.]]></scalar>
+        </property>
+        <property dictRef="CATALYLST" title="CATALYLST">
+          <scalar></scalar>
+        </property>
+        <property dictRef="EXPLAIN&#95;TOLERANCE" title="EXPLAIN&#95;TOLERANCE">
+          <scalar><![CDATA[Aromatic carbon with the lowest localization energy provides the main product. Other aromatic carbons having similar localization energies (with less difference than 0.02) are also considered to lead to main products.]]></scalar>
+        </property>
+      </propertyList>
+      <reactantList>
+        <molecule molID="m1">
+          <atomArray
+              atomID="a1 a2"
+              elementType="C H"
+              mrvMap="1 4"
+              mrvQueryProps="a1 0"
+              x2="0.025514641180037323 0.025514641180037417"
+              y2="-0.6421083708202842 0.8978916291797159"
+              />
+          <bondArray>
+            <bond atomRefs2="a1 a2" order="1" />
+          </bondArray>
+        </molecule>
+        <molecule molID="m2">
+          <atomArray
+              atomID="a1 a2 a3"
+              elementType="Cl C O"
+              mrvMap="3 2 0"
+              mrvQueryProps="L,Cl,Br,I: 0 L,O,S:"
+              x2="4.185416404406229 4.143885927581788 5.477565049409824"
+              y2="-0.6846220179494225 1.0626832751337687 1.8326832751337685"
+              />
+          <bondArray>
+            <bond atomRefs2="a1 a2" order="1" />
+            <bond atomRefs2="a2 a3" order="2" />
+          </bondArray>
+        </molecule>
+      </reactantList>
+      <agentList>
+        <molecule molID="m3">
+          <atomArray
+              atomID="a1"
+              elementType="R"
+              sgroupRef="sg1"
+              x2="10.033333778381348"
+              y2="1.4583333730697632"
+              />
+          <bondArray>
+          </bondArray>
+          <molecule id="sg1" role="SuperatomSgroup" title="AlCl3" molID="m4">
+            <atomArray
+                atomID="a2 a3 a4 a5"
+                elementType="Cl Al Cl Cl"
+                x2="1.1102230246251565E-16 1.1102230246251565E-16 1.3336791218280362 -1.3336791218280353"
+                y2="1.5399999999999998 -2.220446049250313E-16 -0.7699999999999998 -0.7699999999999998"
+                />
+            <bondArray>
+              <bond atomRefs2="a2 a3" order="1" />
+              <bond atomRefs2="a3 a4" order="1" />
+              <bond atomRefs2="a3 a5" order="1" />
+            </bondArray>
+          </molecule>
+        </molecule>
+      </agentList>
+      <productList>
+        <molecule molID="m5">
+          <atomArray
+              atomID="a1 a2 a3"
+              elementType="C C O"
+              mrvMap="1 2 0"
+              mrvQueryProps="a1 0 L,O,S:"
+              x2="15.148523931884768 15.1574396077474 16.491118729575433"
+              y2="-0.6663650178813936 1.0078949582767485 1.7778949582767498"
+              />
+          <bondArray>
+            <bond atomRefs2="a1 a2" order="1" />
+            <bond atomRefs2="a2 a3" order="2" />
+          </bondArray>
+        </molecule>
+        <molecule molID="m6">
+          <atomArray
+              atomID="a1 a2"
+              elementType="Cl H"
+              mrvMap="3 4"
+              mrvQueryProps="L,Cl,Br,I: 0"
+              x2="20.944582875569665 20.944582875569665"
+              y2="-0.44196834406216945 1.0980316559378305"
+              />
+          <bondArray>
+            <bond atomRefs2="a1 a2" order="1" />
+          </bondArray>
+        </molecule>
+      </productList>
+    </reaction>
+  </MChemicalStruct>
+</MDocument>
+

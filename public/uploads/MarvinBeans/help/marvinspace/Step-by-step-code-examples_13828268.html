@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Step-by-step code examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Step-by-step code examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h5 id="Step-by-stepcodeexamples-CreateaJFramecontainingaMarvinSpacecanvas"><span style="color: rgb(51,51,51);">Create a JFrame containing a MarvinSpace canvas</span></h5>
+      <p>Let's create a simple MarvinSpace application.</p>
+      <p>First, we have to install the Jogl native libraries.&nbsp;<code>MSpaceInstaller</code>&nbsp;will do this for us.</p>
+      <p>The second step is creating a&nbsp;<code style="line-height: 1.4285715;">JFrame</code>.</p>
+      <p>Third, we have to put the MarvinSpace canvas on it.&nbsp;<code>MSpaceEasy</code>&nbsp;makes it simple, we can also add several GUI components such as Popup Menu and MenuBar.</p>
+      <p>Finally the frame is ready:</p>
+      <pre>public void createSimpleMarvinSpaceFrame() throws Exception {
+    //parameter true tells that dynamic loading of the Jogl native libraries is necessary
+    final chemaxon.marvin.space.MSpaceEasy mspace = new chemaxon.marvin.space.MSpaceEasy(true);
+
+    JFrame frame = new JFrame();
+    frame.setTitle(chemaxon.marvin.space.gui.MSpace.programName+&quot; &quot;+chemaxon.marvin.space.gui.MSpace.version);
+    frame.setSize(800, 750);
+    frame.setLocationRelativeTo(null);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    mspace.addCanvas(frame.getContentPane());
+    mspace.addPopupMenu();
+    mspace.addMenuBar(frame);
+    mspace.setSize(600, 600);
+
+    frame.pack();
+    frame.show();
+}
+</pre>
+      <h5 id="Step-by-stepcodeexamples-Loadamolecule">Load a molecule</h5>
+      <p><span style="color: rgb(54,54,54);">To go one step further, we will need some molecules to display. The following code lines can be placed for example before the&nbsp;</span><code>frame.pack()</code><span style="color: rgb(54,54,54);">call.</span></p>
+      <p>In case of having a SMILES String:</p>
+      <pre>    final String molS = &quot;C1C2=CC=CC=C2C3=C4CC5=CC=CC=C5C4=C6CC7=CC=CC=C7C6=C13&quot;;
+    Molecule mol = MolImporter.importMol(molS);
+    mspace.addMolecule( mol );
+</pre>
+      <p><span style="color: rgb(54,54,54);">By default MarvinSpace checks whether the molecule is defined in plane or not, and calls Clean, Hydrogenize and Aromatize functions of the&nbsp;</span>Molecule<span style="color: rgb(54,54,54);">.</span></p>
+      <p>Loading from a file or URL:</p>
+      <pre>    mspace.addMolecule(&quot;http://www.chemaxon.com/MarvinSpace/data/1AID.pdb&quot;);
+</pre>
+      <p>Let's suppose we have a properly initilaized Vector containing&nbsp;<code>Molecule</code>&nbsp;objects. We can place them in different cells each:</p>
+      <pre>    for(int i=0; i&lt;molVector.size(); i++) {
+        mspace.addMoleculeToEmptyCell(molVector.get(i));
+    }
+</pre>
+      <p>Loading a molecule without calling Clean, Hydrogenize and Aromatize:</p>
+      <pre>    mspace.addMoleculeWithoutChange( mol );
+</pre>
+      <p>In the previous examples we added the molecules to the scene, but we can also load a molecule by closing all molecules before:</p>
+      <pre>    mspace.openMolecule( mol );
+</pre>
+      <p>Loading molecule to a specific cell (indexing starts from 0, from top to bottom and left to right):</p>
+      <pre>    mspace.addMoleculeTo( mol, 1 );
+</pre>
+      <p>Runnable code example can be found&nbsp;<a href="http://www.chemaxon.com/marvin/examples/space/MSpaceExample2.java.txt" style="text-decoration: underline;" class="external-link" rel="nofollow">here</a>.</p>
+      <h5 id="Step-by-stepcodeexamples-applets"><a name="applet" rel="nofollow"></a><span class="confluence-anchor-link" id="Step-by-stepcodeexamples-applets"></span></h5> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

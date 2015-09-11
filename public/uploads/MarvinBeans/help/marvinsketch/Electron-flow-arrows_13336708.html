@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Electron flow arrows</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Electron flow arrows </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201030449 {padding: 0px;}
+div.rbtoc1439201030449 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201030449 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201030449"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#Electronflowarrows-Howtodrawanelectronflowarrow">How to draw an electron flow arrow</a></li> 
+              <li><a href="#Electronflowarrows-Handlingendpoints">Handling endpoints</a></li> 
+              <li><a href="#Electronflowarrows-Displayingelectronflowarrows">Displaying electron flow arrows</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: left;"><span style="color: rgb(51,51,51);">Electron flow arrows show the actual direction of motion of the electrons. They can point from an electron or lone pair of an atom or from a bond to another atom or bond or even to an incipient bond (formed after the electron transition).</span></p>
+          <h2 id="Electronflowarrows-Howtodrawanelectronflowarrow">How to draw an electron flow arrow</h2>
+          <ol>
+           <li>Select the arrow type (single electron flow or electron pair flow). (Menu:&nbsp;<strong>Insert</strong>&nbsp;&gt;&nbsp;<strong>Electron Flow</strong>)</li>
+           <li>Move the cursor over a bond, electron, or lone pair (or over the atom itself if the valence electrons are not displayed around it) of the structure on the canvas, and push the mouse button. (It will be the source of the electron flow.)</li>
+           <li>Select the destination: drag the arrow while holding down the mouse button and release the button over the destination to finalize the electron flow arrow.</li>
+          </ol>
+          <p><span>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402241.png" data-image-src="attachments/13336708/13402241.png" data-unresolved-comment-count="0" data-linked-resource-id="13402241" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></span></p>
+          <h2 id="Electronflowarrows-Handlingendpoints">Handling endpoints</h2>
+          <p>Logic of the selection of electron flow arrow endpoints are the following:</p>
+          <p><strong>If the source is an&nbsp;<u>electron, or lone pair (or an atom)</u>, the destination can be:</strong></p>
+          <ul>
+           <li>any atom;</li>
+           <li>a bond connected to this atom;</li>
+           <li>an incipient bond between this atom and any other atom.</li>
+          </ul>
+          <p>&nbsp;</p>
+          <p><strong>If the source is a&nbsp;<u>bond</u>, the destination can be:</strong></p>
+          <ul>
+           <li>an atom;</li>
+           <li>a bond connected to this bond (has common ending atom);</li>
+           <li>an incipient bond between an atom belonging to this bond and any other atom.</li>
+          </ul>
+          <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402242.png" data-image-src="attachments/13336708/13402242.png" data-unresolved-comment-count="0" data-linked-resource-id="13402242" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></p>
+          <p>If one endpoint of the electron flow arrow is in an&nbsp;<u>S-group</u>&nbsp;and the other is not, the arrow has to connect to the attachment point of S-group.</p>
+          <h2 id="Electronflowarrows-Displayingelectronflowarrows">Displaying electron flow arrows</h2>
+          <p>Although an electron flow arrow can start from any atom or bond, its illustration in MarvinSketch follows certain rules:</p>
+          <p><strong>If the source is an&nbsp;<u>atom</u>, the origin of a single electron flow arrow can be:</strong></p>
+          <ul>
+           <li>a radical;</li>
+           <li>an electron of a lone pair;</li>
+           <li>the atom label if neither radicals nor lone pairs are displayed on the atom.</li>
+          </ul>
+          <p><span>If the atom has more than one radical and/or lone pair, the user is free to decide from which electron to start the single electron flow arrow.</span></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402243.png" data-image-src="attachments/13336708/13402243.png" data-unresolved-comment-count="0" data-linked-resource-id="13402243" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402247.png" data-image-src="attachments/13336708/13402247.png" data-unresolved-comment-count="0" data-linked-resource-id="13402247" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow6.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402248.png" data-image-src="attachments/13336708/13402248.png" data-unresolved-comment-count="0" data-linked-resource-id="13402248" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow7.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p><strong>If the source is an&nbsp;<u>atom</u>, the origin of the electron pair flow arrow can be:</strong></p>
+          <ul>
+           <li>a lone pair;</li>
+           <li>the charge if lone pairs are not displayed;</li>
+           <li>the atom label if the atom does not have any charge and lone pairs are not displayed.</li>
+          </ul>
+          <p><span>If the atom has more than one lone pair, the user is free to decide from which lone pair to start the electron pair flow arrow.</span></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402244.png" data-image-src="attachments/13336708/13402244.png" data-unresolved-comment-count="0" data-linked-resource-id="13402244" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402245.png" data-image-src="attachments/13336708/13402245.png" data-unresolved-comment-count="0" data-linked-resource-id="13402245" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow4.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336708/13402246.png" data-image-src="attachments/13336708/13402246.png" data-unresolved-comment-count="0" data-linked-resource-id="13402246" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="electronflow5.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336708" data-linked-resource-container-version="4" /></span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p><strong>If several electron flow arrows start from the same atom, MarvinSketch ensures that their arrangement is chemically correct:</strong></p>
+          <ul>
+           <li>no more than one single electron flow arrow can start from a radical;</li>
+           <li>no more than two single electron flow arrows can start from a lone pair;</li>
+           <li>no more than one electron pair flow arrow can start from a lone pair.</li>
+          </ul>
+          <p>&nbsp;</p>
+          <p><strong>If the source is a&nbsp;<u>bond</u>, the origin of the electron flow arrow is the midpoint of the bond.</strong></p>
+          <p><strong>In every case, the&nbsp;<u>destination</u>&nbsp;of an electron flow arrow is:</strong></p>
+          <ul>
+           <li>an atom label if the destination is an atom;</li>
+           <li>the midpoint of a bond if the destination is a bond;</li>
+           <li>the midpoint (single electron flow) or the 3/4 point (electron pair flow) of the distance between two atoms if the destination is an incipient bond.</li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

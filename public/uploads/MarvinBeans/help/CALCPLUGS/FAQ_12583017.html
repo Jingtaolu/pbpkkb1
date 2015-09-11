@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : FAQ</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : FAQ </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span style="color: rgb(54,54,54);">Here you can find some important questions related to Calculator Plugins:</span></p>
+        <ol>
+         <li><span style="color: rgb(54,54,54);"><a href="#FAQ-reach">How can I reach the plugins?</a></span></li>
+         <li><span style="color: rgb(54,54,54);"><a href="#FAQ-used">How are plugins used in other tools of ChemAxon?</a></span></li>
+         <li><a href="#FAQ-integration">Can I integrate the plugins in my application?</a></li>
+         <li><a href="#FAQ-train">Can I train the plugins with my own dataset?</a></li>
+         <li><a href="#FAQ-thirdparty">Can I combine my in-house application with a ChemAxon tool?</a></li>
+        </ol> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <ol>
+       <li><span class="confluence-anchor-link" id="FAQ-reach"></span>Calculator Plugins and their features are available in many ways in ChemAxon's products: <span style="color: rgb(54,54,54);">directly from MarvinSketch, Instant JChem and Reactor applications, but also from command line, API or via ChemAxon's Chemical Terms language.&nbsp;</span><span style="color: rgb(54,54,54);">The calculations can be performed in single or batch mode.&nbsp;</span><span style="color: rgb(54,54,54);">Here are some details:</span></li>
+      </ol>
+      <ul>
+       <li><span>The plugins are located under the&nbsp;</span><em>Calculations</em><span><em>&nbsp;</em>menu in the graphical user interface of&nbsp;</span>MarvinSketch<span>, and under the&nbsp;</span><em>Tools</em><span>&nbsp;menu in&nbsp;</span>MarvinView<span>.</span></li>
+       <li><span>They are also available with ChemAxon's applets<strong>.</strong>&nbsp;</span></li>
+       <li><p class="_mce_tagged_br"><em>cxcalc</em>&nbsp;is a command line tool that offers the same functionalities and enables the user to process molecules in a row. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp;</p></li>
+      </ul>
+      <p class="_mce_tagged_br">&nbsp; &nbsp; &nbsp;2.&nbsp;<span class="confluence-anchor-link" id="FAQ-used"></span>&nbsp;The calculator plugins are used in other tools of ChemAxon as well:&nbsp;</p>
+      <ul>
+       <li>Calculators are used in the&nbsp;Chemical Terms<em><strong>&nbsp;</strong></em><span style="color: rgb(51,51,51);">language</span> to calculate combinations of properties (like Lipinski's rule of 5) in an easy way.&nbsp;Learn more about it in the&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms">Chemical&nbsp;Terms</a>&nbsp;section.</li>
+       <li><p class="_mce_tagged_br">Plugin calculations can be used for filtering results of database searches in&nbsp;JChem Base,&nbsp;Instant JChem&nbsp;and&nbsp;JChem Cartridge.</p></li>
+       <li><p class="_mce_tagged_br">Smart reaction rules can be defined using plugin calculations in&nbsp;Reactor&nbsp;(ChemAxon's virtual reaction processing tool).<br />&nbsp;</p></li>
+      </ul>
+      <p>&nbsp; &nbsp; &nbsp;3. <span class="confluence-anchor-link" id="FAQ-integration"></span>&nbsp;Plugins can be integrated easily into any Java application<strong>.</strong>&nbsp;For more information on using calculator plugin Java API,&nbsp;please see &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/index.html" class="external-link" rel="nofollow">chemaxon.marvin.calculation</a>&nbsp;documentation. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />&nbsp;</p>
+      <p><span style="line-height: 1.4285715;">&nbsp; &nbsp; &nbsp;4. <span class="confluence-anchor-link" id="FAQ-train"></span>Some of the calculators (such as</span><span style="color: rgb(51,51,51);"> log<em>P</em>) </span><span style="line-height: 1.4285715;">can be trained with the user's data via MarvinSketch and the&nbsp;</span><em><a href="cxtrain-command-line-tool_13336661.html">cxtrain</a><strong style="line-height: 1.4285715;">&nbsp;</strong></em><span style="line-height: 1.4285715;">command line tool.<br />&nbsp;</span></p>
+      <p>&nbsp; &nbsp; &nbsp;5. <span class="confluence-anchor-link" id="FAQ-thirdparty"></span>Third-party calculations&nbsp;can be integrated easily into&nbsp;MarvinSketch&nbsp;via the<strong style="line-height: 1.4285715;"><span style="color: rgb(0,51,102);">&nbsp;</span></strong><em>Services</em> module of the graphical user interface.&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;For more information on integrating third-party calculations, see our&nbsp;<a href="https://docs.chemaxon.com/display/marvinsketch/Marvin+Services">Setting Services</a>&nbsp;page.</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

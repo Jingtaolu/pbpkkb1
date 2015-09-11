@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Property colors in MarvinView</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Property colors in MarvinView </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h3 id="PropertycolorsinMarvinView-Thepropertylist">The property list</h3>
+      <p>It is possible to color molecules in MarvinView by certain properties of their atoms. These properties are stored in an additional data field in an SDfile as a property list. The name of the data field can be specified for MarvinView by the <code>-t</code> parameter. The property list contains one or more property symbols for each atom, by the order of the atoms. The properties of different atoms are separated by a semicolon. The number of specified atoms must match the number of atoms in the molecule. If an atom has two or more properties, they are separated by a slash.</p>
+      <h4 id="PropertycolorsinMarvinView-Anexampledescribingtheatomicpropertiesofamoleculecontaining5atoms:">An example describing the atomic properties of a molecule containing 5 atoms:</h4>
+      <p><code>;;a;b/c;</code></p>
+      <ul>
+       <li>the first two atoms have no properties.</li>
+       <li>the third atom has property denoted by symbol &quot;a&quot;</li>
+       <li>the fourth atom has both property b and c</li>
+       <li>the fifth atom has no properties.</li>
+      </ul>
+      <h3 id="PropertycolorsinMarvinView-Thecolorconfigurationfile">The color configuration file</h3>
+      <p>The color profile for each data field labels is stored in a configuration file in &quot;symbol = value&quot; format. The file name of the color profile is an input parameter of MarvinView (-p).</p>
+      <h4 id="PropertycolorsinMarvinView-Example:">Example:</h4>
+      <pre>a = red
+b = blue
+c = green
+d = black
+e = navy
+f = maroon
+a/d = purple
+b/d = lime
+a/c = aqua
+empty = #808080
+other = fuchsia
+</pre>
+      <p>All property symbols and their combinations (separated by slash character) can have own colors assigned. There are two special symbols: &quot;empty&quot; and &quot;other&quot;. Atoms not having any property will be displayed with the color of &quot;empty&quot;. The rest of atoms are displayed with the color of &quot;other&quot; (undefined combinations). MarvinView supports the 16 color names of the HTML standard (see below), but it is allowed to assign any valid RGB color value to symbols.</p>
+      <h4 id="PropertycolorsinMarvinView-Supportedcolornames:">Supported color names:</h4>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">Name</td>
+          <td class="confluenceTd">Code</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Black</td>
+          <td class="confluenceTd">#000000</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Green</td>
+          <td class="confluenceTd">#008000</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Silver</td>
+          <td class="confluenceTd">#C0C0C0</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Lime</td>
+          <td class="confluenceTd">#00FF00</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Gray</td>
+          <td class="confluenceTd">#808080</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Olive</td>
+          <td class="confluenceTd">#808000</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">White</td>
+          <td class="confluenceTd">#FFFFFF</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Yellow</td>
+          <td class="confluenceTd">#FFFF00</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Maroon</td>
+          <td class="confluenceTd">#808080</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Navy</td>
+          <td class="confluenceTd">#000080</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Red</td>
+          <td class="confluenceTd">#FF0000</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Blue</td>
+          <td class="confluenceTd">#0000FF</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Purple</td>
+          <td class="confluenceTd">#800080</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Teal</td>
+          <td class="confluenceTd">#008080</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Fuchsia</td>
+          <td class="confluenceTd">#FF00FF</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Aqua</td>
+          <td class="confluenceTd">#00FFFF</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>MarvinView <a rel="nofollow">Parameters and Events</a></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

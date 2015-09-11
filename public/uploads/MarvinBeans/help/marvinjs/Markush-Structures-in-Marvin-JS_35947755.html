@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Markush Structures in Marvin JS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Markush Structures in Marvin JS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="MarkushStructuresinMarvinJS-R-groups">R-groups</h2>
+      <p>A query with an R-group represents substitution variation on the same root structure.The molecule containing an R-group is the so called scaffold.&nbsp;An R-group query can involve several derivatives which differ in one or more substituents (fragments).</p>
+      <h3 id="MarkushStructuresinMarvinJS-R-grouplabel">R-group label</h3>
+      <p><strong>Creating R-groups in Marvin JS:</strong>&nbsp;You can add R-groups to your root structure in three ways: by the&nbsp;<strong style="line-height: 1.4285715;">Smart R-group tool </strong>or via<strong style="line-height: 1.4285715;">&nbsp;<strong>Keyboard shortcut.</strong></strong></p>
+      <p><strong><strong><strong>Managing R-groups: </strong></strong></strong>Change the number by clicking repeatedly with th Smart R-group tool; change the label and add other properties in the<strong><strong><strong> Atom Properties menu.</strong></strong></strong>&nbsp;</p>
+      <h3 id="MarkushStructuresinMarvinJS-R-groupdefinition">R-group&nbsp;definition</h3>
+      <p><strong>Creating R-group definitions in Marvin JS:</strong>&nbsp;In order to create the definition for an R-group, firstly, draw the substituents from which the R-group should stand for, then enframe them with&nbsp;the Smart R-group tool or after selection use the&nbsp;<code>R+Space</code>&nbsp;keyboard shortcut.</p>
+      <p><strong>Modify R-group definitions:</strong> You can manipulate the R-group definitions by the Smart R-group tool or by Context menu. <a href="R-group_34701344.html#R-group-editRGroup">See detailed description here.</a></p>
+      <h3 id="MarkushStructuresinMarvinJS-Attachmentpoints">Attachment points</h3>
+      <p><strong>Creating R-group attachment point in Marvin JS:&nbsp;</strong>You can add attachment points to the fragments in an R-group definition by using the<span style="color: rgb(0,0,255);">&nbsp;</span><strong><a href="R-group-attachment_34078841.html">R-group attachment</a></strong>&nbsp;button&nbsp;or from the context menu.&nbsp;The attachment points on every separate fragment are automatically numbered beginning with &quot;1&quot;.</p>
+      <p><strong>Change attachment's properties:</strong> The bond type of the R-group attachment points can be changed using either the R-group attachment point tool or any of the bond tools.</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>R-group definition import and export are supported only in ChemAxon Marvin Document (MRV) format in Marvin JS; besides, you can choose other formats if the relevant web service is available.&nbsp;</p>
+       </div> 
+      </div> 
+      <h2 id="MarkushStructuresinMarvinJS-AtomListsandNOTLists">Atom Lists and NOT Lists</h2>
+      <p>An Atom List query atom indicates any atom that is part of the list; similarly, a NOT List query atom can represent any atom that is not part of the list.</p>
+      <p><strong>Create them in Marvin JS:&nbsp;</strong>Atom Lists and NOT Lists can be defined using the&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Periodic+table+dialog" rel="nofollow">Periodic Table</a></strong>.&nbsp;</p>
+      <p><strong>Usage in Marvin JS:&nbsp;</strong>After creation, you can modify the elements in&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Atom+properties+dialog#Atompropertiesdialog-listNOTlistProperties" rel="nofollow">Atom properties dialog</a></strong>, otherwise, you can handle them as other atoms (move, delete, overwrite etc.).<strong>&nbsp;</strong>For more details, please check the&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Atom#Atom-drawAtomList" rel="nofollow">Atom</a></strong>&nbsp;page in the Drawing features section.</p>
+      <h2 id="MarkushStructuresinMarvinJS-Homologygroups">Homology groups</h2>
+      <p>Built-in homology groups of Marvin JS represent series of chemical compounds with the same specific structural properties.&nbsp;&nbsp;<a href="https://docs.chemaxon.com/display/marvinjs/Atom+properties+dialog#Atompropertiesdialog-homologyGroupProperties" rel="nofollow">Click here for the list of the available homology groups.</a>&nbsp;<br /><em>(If you need more information about the properties or search conditions of the homology groups, please, check the corresponding pages of JChem Base documentation or just click&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Homology+Groups+and+Markush+Structures#HomologyGroupsandMarkushStructures-list" rel="nofollow">here</a>.</em><em>)</em></p>
+      <p><strong><strong>Create them in Marvin JS:&nbsp;</strong>&nbsp;</strong>Homology groups can be created via&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Atom+properties+dialog" rel="nofollow">Atom properties<span style="color: rgb(0,0,255);">&nbsp;</span>dialog</a>,</strong>&nbsp;after a right-click on an atom. At the top of the dialog, change 'Element' to 'Homology Groups'&nbsp;then select the appropriate group from the list and choose either its full name or its alias at the 'Display' option.</p>
+      <p><strong>Usage in Marvin JS:</strong>&nbsp;On the canvas you can manipulate the homology groups as other atoms (move, delete, overwrite etc.).&nbsp;For more details, please check the&nbsp;<strong><a href="https://docs.chemaxon.com/display/marvinjs/Atom#Atom-drawAtomList" rel="nofollow">Atom page</a></strong>&nbsp;in the Drawing features section.</p>
+      <h2 id="MarkushStructuresinMarvinJS-PositionVariationBond(variablepointofattachment)">Position Variation Bond (variable point of attachment)</h2>
+      <p>Position variation bond represents a variable connection pointing from a group of atoms to an atom.</p>
+      <p><strong>Create them in Marvin JS:&nbsp;</strong>Find these kind of bonds in the&nbsp;<a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=34078788#Bonds...-kindOfBonds" rel="nofollow">Bonds combo-box</a>&nbsp;on the Tools toolbar.&nbsp;<a href="https://docs.chemaxon.com/display/marvinjs/Bond#Bond-drawPosVarBond" rel="nofollow">Detailed description how to draw position variation bond here.</a></p>
+      <p><strong>Usage in Marvin JS:&nbsp;</strong>After creation, several properties of this bon is changeable, such as bond type, topology, location on the canvas, etc.&nbsp;<a href="https://docs.chemaxon.com/display/marvinjs/Bond#Bond-changeBondProperties" rel="nofollow">You can see a detailed description about editing the bonds here.</a></p>
+      <p><a href="https://docs.chemaxon.com/display/marvinjs/Bond#Bond-changeBondProperties" rel="nofollow"><strong style="line-height: 1.4285715;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="25" src="attachments/35947689/35948102.png" data-image-src="attachments/35947689/35948102.png" data-unresolved-comment-count="0" data-linked-resource-id="35948102" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-28 13:6:17.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span>&nbsp;</strong></a><strong style="line-height: 1.4285715;"><a href="https://docs.chemaxon.com/display/marvinjs/Video+Tutorials#VideoTutorials-positionVariationBond" rel="nofollow">See how to use the&nbsp;<strong>Position variation tool</strong>&nbsp;here.</a></strong></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

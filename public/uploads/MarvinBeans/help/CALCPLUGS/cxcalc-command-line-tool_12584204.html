@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : cxcalc command line tool</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : cxcalc command line tool </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives a walk-through on how to use cxcalc command line tool:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200958831 {padding: 0px;}
+div.rbtoc1439200958831 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200958831 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200958831"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#cxcalccommandlinetool-Introduction">Introduction &nbsp;</a></li> 
+          <li><a href="#cxcalccommandlinetool-GeneralUsage">General Usage</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#cxcalccommandlinetool-Invokingcxcalc">Invoking cxcalc</a></li> 
+            <li><a href="#cxcalccommandlinetool-Inputandoutputofcxcalc">Input and output of cxcalc</a></li> 
+           </ul> </li> 
+          <li><a href="#cxcalccommandlinetool-Optionsofcxcalc">Options of cxcalc&nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#cxcalccommandlinetool-Generaloptions">General options</a></li> 
+            <li><a href="#cxcalccommandlinetool-plugspecoPlugin-specificoptions">Plugin-specific options</a></li> 
+           </ul> </li> 
+          <li><a href="#cxcalccommandlinetool-cxcalccalculatorfunctions">cxcalc calculator functions</a></li> 
+          <li><a href="#cxcalccommandlinetool-Configuringcxcalc">Configuring cxcalc</a></li> 
+          <li><a href="#cxcalccommandlinetool-Examples">Examples</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="cxcalccommandlinetool-Introduction">Introduction<br />&nbsp;</h1>
+      <p>cxcalc<strong>&nbsp;</strong>is the command line version of ChemAxon's Calculator Plugins.&nbsp;</p>
+      <p>&nbsp;</p>
+      <h1 id="cxcalccommandlinetool-GeneralUsage">General Usage</h1>
+      <p>&nbsp;</p>
+      <h2 id="cxcalccommandlinetool-Invokingcxcalc">Invoking cxcalc</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">cxcalc performs plugin calculations in a uniform way: it processes general input, output parameters and SDF file tag names and also plugin specific parameters that are different for each plugin. It</span><span style="color: rgb(54,54,54);">&nbsp;can also be used to train some of the calculators.</span></p>
+      <p><span style="color: rgb(54,54,54);">The command has the following syntax:</span></p>
+      <pre>cxcalc&nbsp;[general options] [input file(s)/string(s)] &lt;plugin&gt; [plugin option(s)] [input file(s)/string(s)] </pre>
+      <p>or</p>
+      <pre>cxcalc&nbsp;[training options] [input file (the training set)]</pre>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Two or more&nbsp;plugins can also be invoked with its own parameters within one command. In this case calculations are run in the order of invocation.&nbsp;</p>
+       </div> 
+      </div> 
+      <h2 id="cxcalccommandlinetool-Inputandoutputofcxcalc"><br />Input and output of cxcalc<br /><br /></h2>
+      <p>cxcalc takes molecules from text files or from SMILES strings. Most molecular file formats are accepted (e.g. SMILES, SDF).&nbsp;If no input file name or SMILES string is given in the command line, input molecules are read from the standard input.</p>
+      <p>cxcalc&nbsp;writes calculation results in a format that is based on the specified tags. If the result refers to the entire molecule, it is written as a single number. If the calculation gives a separate number for each atom in the molecule, it is written as a list of numbers separated by semicolons. The order of the results corresponds to the order of the atoms determined by their atom indices. Other output formats may be available for certain plugins, see the&nbsp;<a href="#cxcalccommandlinetool-plugspeco">plugin specific options</a>&nbsp;for the plugin. By default, results are written without the input molecule in a table form, but they can also written in an SDF file as an SDF tag by adding&nbsp;<em>--sdf-output</em><code>.&nbsp;</code></p>
+      <p>&nbsp;</p>
+      <h1 id="cxcalccommandlinetool-Optionsofcxcalc">Options of cxcalc&nbsp;</h1>
+      <p>&nbsp;</p>
+      <h2 id="cxcalccommandlinetool-Generaloptions">General options</h2>
+      <p>&nbsp;</p>
+      <p>The following general (that can be used for every calculation function) options are available:</p>
+      <pre>cxcalc -h, --help                 this help message,
+                                    list of available calculations
+  cxcalc &lt;plugin&gt; -h, --help        plugin specific help message
+  -o, --output &lt;filepath&gt;           output file path (default: standard output)
+  -t, --tag &lt;tag name&gt;              name of the SDFile tag to store the
+                                    calculation results, tag name prefix
+                                    to default tag names in case of multiple
+                                    plugins (default: see plugin help)
+  -i, --id &lt;tag name|format&gt;        the name of the existing SDFile tag that
+                                    stores the molecule ID; or create
+                                    molecule ID by converting the input
+                                    molecule into the specified format;
+                                    (default: molecule index is used as ID)
+  -N, --do-not-display &lt;type&gt;       [i|h|ih]
+                                    do not display molecule ID and/or
+                                    table header (in table output form)
+          i                         no molecule ID
+          h                         no table header
+          ih                        neither molecule ID nor table header
+  -S, --sdf-output                  SDF output with results in SDF tags
+  -M, --mrv-output                  result molecule output in MRV format
+                                    (if neither -S nor -M is specified, then
+                                    plugin results are written in table form)
+  -g, --ignore-error                continue with next molecule on error
+  -v, --verbose                     print calculation warnings to the console
+      --log &lt;filepath&gt;              write log messages to file
+                                    (default: write log to system error)
+      --log-level &lt;level&gt;           [error|warning|off]
+                                    set log level (default: error)
+          error                     log error level information
+          warning                   log warning and error level information
+          off                       no log information
+      --log-options &lt;options&gt;       list of logger options, separated by ','
+          time                      log calculation execution time; calculation
+                                    will run on ONE CPU in this case
+          timelimit=&lt;time in ms&gt;    only execution times above the specified
+                                    limit will be logged
+          format=&lt;molecule format&gt;  log file format; default is SDF when
+                                    logging to file and SMILES when logging to
+                                    system error
+</pre>
+      <p>You can also pass&nbsp;some JVM options&nbsp;to the Java Virtual Machine as&nbsp;command line arguments.</p>
+      <p>Input files can be given both on the general option side and on the plugin specific option side, in both cases these input files/strings give the input molecules for the calculations. If more plugins are given, then all calculations are performed for the input molecules.</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Plugin IDs are not case-sensitive, you can alter upper- and lower case letters if you like, e.g.</p>
+        <ul style="margin-left: 20.0px;">
+         <li><p><code>cxcalc logp&nbsp;in.mol =&nbsp;</code><code>cxcalc logP&nbsp;in.mol</code></p></li>
+         <li><code>cxcalc totalchargedensity in.mol =&nbsp;</code><code>cxcalc totalChargeDensity in.mol</code></li>
+        </ul>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The syntax of commands can be different under various command line shells, e.g. bash, tcsh, zsh.</p>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Some notes on the command line parameters:
+        <br />
+        <ul style="margin-left: 20.0px;">
+         <li>The command line parameter&nbsp;<code>--tag</code>&nbsp;specifies the SDF file tag name to be used when storing the calculation results in an SDF file.</li>
+         <li>If the&nbsp;<code>--do-not-display</code>&nbsp;parameter is specified, then no molecule ID and/or table header is displayed. This option has no effect in&nbsp;<code>--sdf-output</code>&nbsp;and&nbsp;<code>--mrv-output</code>&nbsp;output modes.</li>
+         <li>If the&nbsp;<code>--sdf-output</code>&nbsp;parameter is given, then the input molecules are written in SDF format and the calculation results are added in SDF file tags.</li>
+         <li>If the&nbsp;<code>--mrv-output</code>&nbsp;parameter is given, then the decorated result molecules are written in MRV format. Atomic results are written into atom labels, while molecular results are displayed as molecule properties. Not every calculation has this decorated molecule output.</li>
+         <li>If neither&nbsp;<code>--sdf-output</code>&nbsp;nor&nbsp;<code>--mrv-output</code>&nbsp;are specified, then the calculation results are shown in text table form. The display of table header and molecule ID column can be altered in the&nbsp;<code>--do-not-display</code>&nbsp;option.</li>
+         <li><p>The parameter&nbsp;<code>--id</code>&nbsp;parameter specifies the input SDF file tag that stores the molecule ID to be written in the output table. This parameter is only used if the output is in text table form (neither&nbsp;<code>--sdf-output</code>&nbsp;nor&nbsp;<code>--mrv-output</code>&nbsp;is specified). By default the input file index of the molecule is used as molecule ID. Molecule formats can be specified with output options, for the available formats and options see the&nbsp;<a href="https://docs.chemaxon.com/display/FF">File Formats in Marvin</a>&nbsp;manual. Probably the most frequently used format replacing a molecule ID is&nbsp;SMILES, possibly with the&nbsp;<em>a-H</em>&nbsp;(aromatize, remove explicit hydrogens) option (<em>smiles:a-H</em>) to generate canonical strings.</p></li>
+        </ul>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h2 id="cxcalccommandlinetool-plugspecoPlugin-specificoptions"><span class="confluence-anchor-link" id="cxcalccommandlinetool-plugspeco"></span>Plugin-specific options</h2>
+      <p>&nbsp;</p>
+      <p>The plugin specific help message is printed if the user types:</p>
+      <pre>cxcalc&nbsp;&lt;plugin&gt; -h</pre>
+      <p>Here the second option is the plugin key from the&nbsp;configuration file, e.g. typing&nbsp;</p>
+      <pre>cxcalc logp -h&nbsp;</pre>
+      <p>gives the following output:</p>
+      <pre>Calculator plugin: logp.
+
+logP calculation:
+for type logPTrue: logP of uncharged species, or,
+in the case of zwitterions, logD at pI;
+for type logPMicro: logP of the input species.
+
+Usage:
+  cxcalc [general options] [input files/strings] logp
+[logp options] [input files/strings]
+
+logp options: 
+  
+ -h, --help                     this help message
+ -p, --precision                &lt;floating point precision as number of
+                                fractional digits: 0-8 or inf&gt; (default: 2)
+ -m, --method                   [vg|klop|phys|user|weighted]
+                                (default: weighted)
+     --trainingid               &lt;training id&gt;
+ -w, --weights                  &lt;wVG:wKLOP:wPHYS:wUSER&gt; method weights
+                                (default: 1:1:1:0)
+                                wVG: weight of the VG method
+                                wKLOP: weight of the KLOP method
+                                wPHYS: weight of the PHYS method
+                                wUSER: weight of the user defined method
+ -a, --anion                    &lt;Cl- concentration&gt;
+                                (default: 0.1, range: [0.0, 0.25])
+ -k, --kation                   &lt;Na+ K+ concentration&gt;
+                                (default: 0.1, range: [0.0, 0.25])
+ -t, --type                     [increments|logPMicro|logPTrue]
+                                (default: logPTrue)
+ -i, --increments               [true|false] show atomic increments
+                                (default: false)
+     --considertautomerization  [true|false] consider tautomerization
+                                (default: false)
+Multiple values for the same parameter
+should be separated by commas (',' without space).
+
+Example:
+  cxcalc -S -t myLOGP logp -a 0.15 -k 0.05 test.mol</pre>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><span style="color: rgb(54,54,54);">Some notes on plugin-specific options:<br /></span></p>
+        <ul style="margin-left: 20.0px;">
+         <li>The command line parameter&nbsp;<code>--precision</code>&nbsp;specifies the required floating point precision, that is, the number of required decimal digits in the output.</li>
+         <li>The command line parameter&nbsp;<code>--type</code>&nbsp;specifies the result type:&nbsp;<code>increments</code>&nbsp;gives the atomic logp increment values for each atom in the molecule while&nbsp;<code>logPTrue</code>&nbsp;gives the overall logp value for the molecule. Both results can be queried by specifying both types separated by a comma:&nbsp;<code>-t increments,implh,logPTrue</code>.</li>
+         <li>The command line parameter&nbsp;<code>--majortautomer</code>&nbsp;specifies if major tautomeric form of the input molecule should be taken as input for the logP calculation. In cases when an option takes&nbsp;<code>[true|false]</code>&nbsp;parameter values the&nbsp;<code>true</code>&nbsp;parameter value can be omitted:&nbsp;<code>cxcalc logp --majortautomer true mols.sdf</code>&nbsp;and&nbsp;<code>cxcalc logp --majortautomer mols.sdf</code>&nbsp;commands produce the same results.</li>
+        </ul>
+       </div> 
+      </div> 
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <h1 id="cxcalccommandlinetool-cxcalccalculatorfunctions"><span style="color: rgb(54,54,54);">cxcalc calculator functions<br /></span></h1>
+      <p><span style="color: rgb(54,54,54);line-height: 1.25;"><br /></span></p>
+      <p><span style="color: rgb(54,54,54);line-height: 1.25;">You can find the full list of available calculator functions <a href="cxcalc-calculator-functions_13338228.html">here</a>.<br /></span></p>
+      <h1 id="cxcalccommandlinetool-Configuringcxcalc"><br />Configuring cxcalc</h1>
+      <p>&nbsp;</p>
+      <p>It is possible to configure cxcalc via a configuration file, which is a JAVA property file.</p>
+      <p>An example configuration file below shows its format:</p>
+      <pre>charge=$chemaxon.marvin.calculations.ChargePlugin\
+	$ChargePlugin.jar\
+	$Charge\
+	$p=precision:2;t=type:total;i=implh:false;r=resonance:false;H=pH\
+	$CHARGE\
+	$Partial charge calculation.\nTypes aromaticsystem / aromaticring calculate the sum of charges\nin the aromatic system / aromatic ring containing the atom.\
+	$-p, --precision=&lt;floating point precision as number of
+	\nfractional digits: 0-8 or inf&gt;(default: 2);-t, --type=[sigma|pi|total|implh|\naromaticsystem|aromaticsystemsigma|aromaticsystempi|\naromaticring|aromaticringsigma|aromaticringpi]
+	\n(default: total);-i, --implh=[true|false] implicit H charge sum shown in brackets
+	\n(for sigma and total charge only) (default: false);-r, --resonance=[true|false]
+	\ntrue: take resonant structures (default: false);-H, --pH=&lt;pH value&gt;&gt; takes major microspecies at this pH
+	\n(default: no pH, takes the input molecule)\
+	$cxcalc -S -o result.sdf -t myCHARGE charge -t pi,total -p 3 test.mol
+</pre>
+      <p>The key <em>charge</em> is the plugin name which refers to the calculation in cxcalc.</p>
+      <p>Configuration items are separated by '$' characters. The '\' characters allow property values to be expanded to multiple lines: the '\' character itself as well as leading white spaces in the next line are ignored.</p>
+      <p>The configuration items are as follows:</p>
+      <ol>
+       <li>the plugin class with full package name</li>
+       <li>the plugin JAR name (with path relative to the&nbsp;<code>plugins</code>&nbsp;directory)</li>
+       <li>the plugin group name (used for grouping the available plugins in the help message)</li>
+       <li>the plugin specific parameters:<pre>&lt;short name&gt;=&lt;long name&gt;:&lt;default value&gt;</pre>separated by semicolons</li>
+       <li>the default SDF file tag name storing the results in case of SDF file output</li>
+       <li>a short description used in the plugin specific help message</li>
+       <li>the plugin specific help text (parameter description text) with newline characters replaced by semicolons</li>
+       <li>an example usage text (optional)</li>
+      </ol>
+      <p>&nbsp;</p>
+      <p>The&nbsp;plugin loading mechanism<strong>&nbsp;</strong>is the following: first the program tries to load the plugin class by the default class loader from the CLASSPATH. If this the plugin class is not found, then the JAR is loaded and the system tries to load the plugin class from there.&nbsp;If the plugin name is omitted, the plugin is loaded directly from the JAR where the&nbsp;<code>Plugin-Class</code>&nbsp;manifest attribute specifies the plugin class.&nbsp;If the JAR name is omitted, then the plugin is loaded from the CLASSPATH.</p>
+      <p>Missing configuration items should be denoted by '-' characters. For example, here is the plugin configuration from above with omitted JAR name:</p>
+      <pre>charge=$chemaxon.marvin.calculations.ChargePlugin\
+	$-\
+	$Charge\
+	$p=precision:2;t=type:total;i=implh:false;H=pH\
+	$CHARGE\
+	$Partial charge calculation.\nTypes aromaticsystem / aromaticring calculate the sum of charges\nin the aromatic system / aromatic ring con        taining the atom.\
+	$-p, --precision=&lt;floating point precision as number of
+	\nfractional digits: 0-8 or inf&gt; (default: 2);-t, --type=[sigma|pi|total|implh|aromaticsystem|aromaticring]
+	\n(default: total);-i, --implh=[true|false] implicit H charge sum shown in brackets
+	\n(for sigma and total charge only) (default: false);-H, --pH=&lt;pH value&gt; takes physiological microspecies at this pH
+	\n(default: no pH, takes the input molecule)\
+	$cxcalc -S -o result.sdf -t myCHARGE charge -t pi,total -p 3 test.mol</pre>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-warning"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Long parameter names in the <em>plugin specific parameters</em> section should correspond to the parameter property keys used in the plugin class in the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#setParameters(java.util.Properties)" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>setParameters(Properties params)</code></a>&nbsp;method.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h1 id="cxcalccommandlinetool-Examples">Examples</h1>
+      <p>&nbsp;</p>
+      <div>
+       Here we give some examples on how to use cxcalc:
+      </div>
+      <ol>
+       <li><p>p<em>K</em><sub>a</sub>&nbsp;calculation with table form output, showing the two most significant acidic and the two most significant basic p<em>K</em><sub>a</sub>&nbsp;values (this is the default table output mode):</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc mols.sdf pka</pre> 
+         </div>
+        </div></li>
+       <li><p>The same with molecule ID-s taken from the&nbsp;<code>ID</code>&nbsp;tag of the input SDF file, writing three significant values from each p<em>K</em><sub>a</sub>&nbsp;type:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc mols.sdf -i ID pka -a 3 -b 3&nbsp;</pre> 
+         </div>
+        </div></li>
+       <li><p>The same with setting minimum basic p<em>K</em><sub>a</sub>&nbsp;to&nbsp;<code>-5</code>, maximum acidic p<em>K</em><sub>a</sub>&nbsp;to&nbsp;<code>15</code>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc mols.sdf -i ID pka -a 3 -b 3 -i -5 -x 15&nbsp;</pre> 
+         </div>
+        </div></li>
+       <li><p>Charge calculation for molecules in the&nbsp;<code>mols.sdf</code>&nbsp;file, writes results to the standard output in MRV format, charge values displayed in atom labels:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc -M charge mols.sdf&nbsp;</pre> 
+         </div>
+        </div></li>
+       <li><p>The same with output to the&nbsp;<code>molcharges.mrv</code>&nbsp;file to be created in the same directory, displaying the results in MarvinView:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc -M -o molcharges.mrv charge mols.sdf
+
+mview molcharges.mrv</pre> 
+         </div>
+        </div></li>
+       <li><p>Log<em>P</em>&nbsp;calculation with both result types (atomic increments and overal molecule) and user defined SDF tag name, piping the result to MarvinView:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc -S mols.sdf -t LOGP_BOTH logp -t increments,logP | mview -&nbsp;</pre> 
+         </div>
+        </div>
+        <div class="confluence-information-macro confluence-information-macro-warning"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>Such piping does not work on Windows OS.</p>
+         </div> 
+        </div> <p>By setting the&nbsp;<code>Table/Show Fields</code>&nbsp;option in MarvinView the SDF file tags will be shown in the table cells and in this way the charge values can be seen.<br /><br /></p></li>
+       <li><p>Elemental analysis (all result types), output in table form, molecule ID-s taken from the&nbsp;<code>ID</code>&nbsp;tag of the input SDF file, output written to text file&nbsp;<code>elemanal.txt</code>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc -o elemanal.txt -i ID elemanal mols.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>A similar example with input taken from&nbsp;<code>mols.smiles</code>&nbsp;and output written as SDF to&nbsp;<code>elemanal.sdf</code>&nbsp;with&nbsp;<code>ELEMANAL</code>&nbsp;tag name:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc -S -t ELEMANAL -o elemanal.sdf elemanal mols.smiles</pre> 
+         </div>
+        </div></li>
+       <li><p>Writting molecular mass, log<em>P</em>&nbsp;and log<em>D</em>&nbsp;at pH&nbsp;<code>6.4</code>&nbsp;in the same table:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc mass logP logD -H 6.4 mols.smiles</pre> 
+         </div>
+        </div></li>
+       <li><p>Calculating some topological data:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc ringCount ringAtomCount ringBondCount mols.smiles</pre> 
+         </div>
+        </div></li>
+      </ol> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

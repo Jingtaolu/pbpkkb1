@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<meta NAME="author" CONTENT="Judit Papp">
+<link REL="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+
+<TITLE>MarvinSpace demo</TITLE>
+
+</HEAD>
+
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H1>MarvinSpace Plugin Example</H1>
+
+
+<applet codebase="../../marvinbeans/lib"
+code="chemaxon/marvin/space/gui/PluginApplet" width=800 height=400
+archive="MarvinBeans.jar,jogl.jar,jextexp.jar">
+<param name="molecule" value="[H]C(=O)C([H])([H])C([H])([H])C([H])([H])[H]"/>
+<param name="propertyText" value="logP = 5"/>
+<param name="resultValue" value="0.10,0.12,-0.31,0.00,0.03,0.03,-0.05,0.03,0.03,-0.06,0.02,0.02,0.02,"/>
+</applet>
+
+<!--
+<applet codebase="../../marvinbeans/lib"
+code="chemaxon/marvin/space/gui/PluginApplet" width=800 height=800
+archive="MarvinBeans.jar,jogl.jar,jextexp.jar">
+<param name="molSeparator" value="|"/>
+<param name="molecules" value="CCC|C=C"/>
+<param name="resultValues" value="0,0,0,0,0,0,0,0,0,0,0;0,1,2,1,0,5"/>
+</applet>
+-->
+
+<hr>
+<p>
+<center>
+<font size="-2" face="helvetica">
+
+Copyright &copy; 2004-2015
+<a href="http://www.chemaxon.com">ChemAxon Ltd.</a>
+&nbsp;&nbsp;&nbsp;All rights reserved.
+</font>
+</center>
+
+</BODY>
+</HTML>

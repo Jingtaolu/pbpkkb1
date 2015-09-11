@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Resonance Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Resonance Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Resonance Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956702 {padding: 0px;}
+div.rbtoc1439200956702 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956702 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956702"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#ResonancePlugin-Introduction">Introduction</a></li> 
+          <li><a href="#ResonancePlugin-Options">Options</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="ResonancePlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The Resonance Plugin generates all resonance structures of a molecule. The major contributors of the resonance structures can be calculated separately.</p>
+      <p>As an example see the<a href="#ResonancePlugin-fig.1"> two structures below</a>: the major resonance contributors of diazomethane, while the <a href="#ResonancePlugin-fig.2">structure below them</a> is its canonical form.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="ResonancePlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584140/29098631.png" data-image-src="attachments/12584140/29098631.png" data-unresolved-comment-count="0" data-linked-resource-id="29098631" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="resonance.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584140" data-linked-resource-container-version="13" /></span></p>
+      <p>Fig. 1 Calculated resonance structures of diazomethane</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="ResonancePlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584140/29098632.png" data-image-src="attachments/12584140/29098632.png" data-unresolved-comment-count="0" data-linked-resource-id="29098632" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="canonical_resonance.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584140" data-linked-resource-container-version="13" /></span></p>
+      <p>Fig. 2 Canonical resonance structure of diazomethane</p>
+      <h1 id="ResonancePlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>The following options can be adjusted in the&nbsp;<em><a href="#ResonancePlugin-fig.3">Resonance Options</a></em>&nbsp;panel:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Max. number of structure:</strong>&nbsp;maximize the number of structures to display (decrease calculation time).</li>
+       <li><strong>Take canonical form:</strong>&nbsp;displays the canonical structure of the molecule.</li>
+       <li><strong>Take major contributors:</strong>&nbsp;selects the most relevant structures.</li>
+       <li><strong>Single fragment mode :</strong>&nbsp;if checked (default), the results are displayed in separate windows; otherwise the calculation handles unlinked molecules together and the results appear in the same window.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="ResonancePlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584140/29098630.png" data-image-src="attachments/12584140/29098630.png" data-unresolved-comment-count="0" data-linked-resource-id="29098630" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="resonance_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584140" data-linked-resource-container-version="13" /></span></p>
+      <p>Fig. 3 &nbsp;Resonance Options window</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Concurrent plugin API usage</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Concurrent plugin API usage </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This page gives you a walk-through on how to use the Concurrent plugin API:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200959882 {padding: 0px;}
+div.rbtoc1439200959882 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200959882 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200959882"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#ConcurrentpluginAPIusage-Introduction">Introduction</a></li> 
+          <li><a href="#ConcurrentpluginAPIusage-Examples">Examples</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="ConcurrentpluginAPIusage-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <div>
+       <p><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/package-summary.html" style="text-decoration: underline;" class="external-link" rel="nofollow">ChemAxon's concurrent framework</a>&nbsp;is based on the&nbsp;<a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/package-summary.html" style="text-decoration: underline;" class="external-link" rel="nofollow">Java 5.0&nbsp;<code>java.util.concurrent</code>&nbsp;API</a>.</p>
+       <p>There are three examples which show code samples making use of ChemAxon's concurrent framework. The common code is written using&nbsp;<a href="http://www.chemaxon.com/marvin/examples/plugin-concurrent/ConcurrentPluginApplication.java.txt" style="text-decoration: underline;" class="external-link" rel="nofollow">ConcurrentPluginApplication</a>: it starts a&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/ConcurrentProcessor.html" style="text-decoration: underline;" class="external-link" rel="nofollow">ConcurrentProcessor</a>&nbsp;with a specified&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/InputProducer.html" style="text-decoration: underline;" class="external-link" rel="nofollow">InputProducer</a>&nbsp;and&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/WorkUnitFactory.html" style="text-decoration: underline;" class="external-link" rel="nofollow">WorkUnitFactory</a>. The&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/InputProducer.html" style="text-decoration: underline;" class="external-link" rel="nofollow">InputProducer</a>&nbsp;is supposed to produce the plugin inputs: the input molecules and possibly the plugin objects which perform the calculation. The&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/WorkUnit.html" style="text-decoration: underline;" class="external-link" rel="nofollow">WorkUnit</a>&nbsp;objects produced by the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/WorkUnitFactory.html" style="text-decoration: underline;" class="external-link" rel="nofollow">WorkUnitFactory</a>&nbsp;are run concurrently by the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/ConcurrentProcessor.html" style="text-decoration: underline;" class="external-link" rel="nofollow">ConcurrentProcessor</a>&nbsp;and are supposed to execute the plugin calculation (the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#run()" style="text-decoration: underline;" class="external-link" rel="nofollow">CalculatorPlugin.run()</a>&nbsp;method). Finally, the results are collected in&nbsp;<code>ConcurrentPluginApplication.consume(Object result)</code>&nbsp;in the main thread. It is important to process the results in a single thread so that the order of the results be the same as the order of the input molecules.</p>
+       <p>&nbsp;</p>
+       <h1 id="ConcurrentpluginAPIusage-Examples">Examples</h1>
+       <p>&nbsp;</p>
+       <p>Our examples show different ways to provide the inputs and outputs for the concurrent processor. Input molecules are read from&nbsp;<code>System.in</code>&nbsp;if the molecule file is omitted.&nbsp;The following API is used:</p>
+       <ul style="margin-left: 20.0px;">
+        <li>Marvin specific API in&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/concurrent/marvin/package-summary.html" style="text-decoration: underline;" class="external-link" rel="nofollow">chemaxon.util.concurrent.marvin</a></li>
+        <li>Plugin specific API in&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/concurrent/package-summary.html" style="text-decoration: underline;" class="external-link" rel="nofollow">chemaxon.marvin.plugin.concurrent</a></li>
+       </ul>
+       <p>In the following examples we use the&nbsp;<span><a href="attachments/13828411/29098671.smiles" data-linked-resource-id="29098671" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="test.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828411" data-linked-resource-container-version="13">test.smiles</a></span>&nbsp;input file:<br />&nbsp;</p>
+       <div class="table-wrap">
+        <table class="confluenceTable">
+         <tbody>
+          <tr>
+           <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828411/29098670.png" data-image-src="attachments/13828411/29098670.png" data-unresolved-comment-count="0" data-linked-resource-id="29098670" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="test.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828411" data-linked-resource-container-version="13" /></span></td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p>&nbsp;</p>
+       <ul style="margin-left: 20.0px;">
+        <li><p><a href="attachments/13828411/29098672.java" data-linked-resource-id="29098672" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logDPluginApplication.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828411" data-linked-resource-container-version="13">logDPluginApplication</a>&nbsp;is a simple application showing concurrent logD calculation. The input is the molecule, the output is the logD value at a given pH (the default pH is&nbsp;<code>7.4</code>).&nbsp;<br /><br /><em>Usage</em>:</p><pre>java logDPluginApplication [pH] [molFile]&nbsp;</pre><p><em>Example:<br /><br /></em></p>
+         <div class="code panel pdl" style="border-width: 1px;">
+          <div class="codeContent panelContent pdl"> 
+           <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">java logDPluginApplication 5.2 test.smiles</pre> 
+          </div>
+         </div><p><br /><br /></p></li>
+        <li><a href="attachments/13828411/29098673.java" data-linked-resource-id="29098673" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKaPluginApplication.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828411" data-linked-resource-container-version="13">pKaPluginApplication</a>&nbsp;shows concurrent pKa calculation. The input is the molecule, the output is a result record storing the given number of strongest pKa values (or all, if this number is omitted).<p><em>Usage:</em></p><p>java pKaPluginApplication [count] [molFile]&nbsp;</p><p><em>Example:</em></p>
+         <div class="code panel pdl" style="border-width: 1px;">
+          <div class="codeContent panelContent pdl"> 
+           <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">java pKaPluginApplication 2 test.smiles&nbsp;</pre> 
+          </div>
+         </div><p><br /><br /></p></li>
+        <li><a href="attachments/13828411/29098674.java" data-linked-resource-id="29098674" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="TautomerizationPluginApplication.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828411" data-linked-resource-container-version="13">TautomerizationPluginApplication</a>&nbsp;shows concurrent tautomer generation. This example is more complex since the result may be a huge molecule array (with several thousand molecules). Therefore we do not store the result in memory. Instead, we use the plugin object itself as result object, which generates the tautomers on-the-fly. We face the problem of reusing the plugin objects: it would be too much overhead to create a new plugin for each input molecule. We have to fetch all results from the plugin before we can start the next computation using the same plugin object, therefore the work unit returns the plugin object as calculation result, as well as gets the plugin object to work with from the input producer together with the input molecule. The&nbsp;<code>consume(Object result)</code>&nbsp;(in the main thread) gets the tautomers from the plugin and writes the tautomer with minimal log<em>D</em>. Finally, it returns the plugin object for reuse to the input producer.<p>The input is the plugin object together with the molecule, the output is the plugin object. The application writes the tautomer with minimal log<em>D</em>. The number of plugin objects to be generated initially can be specified (<code>10</code>&nbsp;if omitted).</p><p><em>Usage:<br /><br /></em> java TautomerizationPluginApplication [pluginCount] [molFile] <br /><span style="line-height: 1.4285715;"><br /><em>Example:</em> <br /></span></p>
+         <div class="code panel pdl" style="border-width: 1px;">
+          <div class="codeContent panelContent pdl"> 
+           <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">java TautomerizationPluginApplication 16 test.smiles</pre> 
+          </div>
+         </div></li>
+       </ul>
+       <p>&nbsp;</p>
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

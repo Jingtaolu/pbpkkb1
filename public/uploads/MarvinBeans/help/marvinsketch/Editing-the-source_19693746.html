@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Editing the source</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Editing the source </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>MarvinSketch enables you to view and manipulate the source of&nbsp; any supported file formats.</p>
+      <p>Molecules can be changed by editing their source in the <strong>Source</strong> window ( <strong>Edit &gt; Source</strong>&nbsp;menu option).</p>
+      <p>&nbsp;</p>
+      <p>To change format of source, simply select the desired one from the&nbsp;<strong class="buttonName">View</strong>&nbsp;menu.</p>
+      <p>If there are multiple molecules on the canvas, checking&nbsp;<strong>View as multiple molecules</strong>&nbsp;in the&nbsp;<strong class="buttonName">View</strong>&nbsp;menu leads to each molecule appearing in a separate block in the source.</p>
+      <p>This feature works only, if the selected format is able to handle multiple structures.</p>
+      <p>&nbsp;</p>
+      <p>To reload the molecule into canvas (including any changes you may have made), select&nbsp;<strong class="buttonName">File &gt; Import As</strong>.</p>
+      <p>If the automatic format recognition detects a file format (checking it by a priority list), it will be offered in the <strong>Select Import Mode</strong> field (<strong>Import as Recognized</strong>, indicating the file type in brackets).</p>
+      <p>If the structure is associated to a file type of higher priority than your choice, choose the <strong>Import As</strong> option to set the file format.</p>
+      <p style="margin-left: 30.0px;"><br />For example, you want to import the seryl-asparagine dipeptide:</p>
+      <ol>
+       <li style="list-style-type: none;background-image: none;">
+        <ol>
+         <li>write &quot;SN&quot; in the <strong>Source</strong></li>
+         <li>select<strong> Import</strong>. The automatic option detects it as SMILES, but if you select the<strong> Import As</strong> option, and then the <strong>'Peptide Sequence</strong>' from the list, it will be imported correctly.</li>
+        </ol></li>
+      </ol>
+      <p><br />In addition, there are some cases when the automatic recognition cannot detect the file format, even though the entered text is correct. In this case the <strong>Import As Recognized</strong> option is disabled and you have to choose the format from the list of the <strong>Import As</strong> option.</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

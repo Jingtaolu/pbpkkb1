@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Charge Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Charge Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Charge Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200955470 {padding: 0px;}
+div.rbtoc1439200955470 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200955470 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200955470"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#ChargePlugin-Introduction">Introduction</a></li> 
+          <li><a href="#ChargePlugin-Options">Options</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="ChargePlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The partial charge distribution determines many physico-chemical properties of a molecule, such as ionization constants, reactivity and pharmacophore pattern.</p>
+      <p>The Charge Plugin is able to compute the partial charge value of each atom. Total charge is calculated from sigma and pi charge components, and any of these three charge values can be displayed. To have more information on how the plugin calculates partial charge, see the following reference&nbsp;<a href="Calculation-of-partial-charge-distribution_13338342.html">material on charge calculation</a>.&nbsp;</p>
+      <p>The results of the charge calculation are shown in a <a href="#ChargePlugin-fig.1">new window</a>. If more molecules are present on the sketching canvas (in MarvinSketch), all molecules appear in one single field in 2D.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="ChargePlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583859/29098586.png" data-image-src="attachments/12583859/29098586.png" data-unresolved-comment-count="0" data-linked-resource-id="29098586" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="charge.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583859" data-linked-resource-container-version="27" /></span></p>
+      <p>Fig. 1 Calculated charges displayed in MarvinSketch</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">On charge units and display</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Charge is expressed in atomic unit [e]. The numbers in brackets refer to the charge sums of implicit hydrogen atoms, and displayed only if the &quot;Charges of implicit hydrogens&quot; option is switched on in the<em>&nbsp;Charge Options</em>&nbsp;panel.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>If the <em><a href="#ChargePlugin-fig.3">Display in MarvinSpace</a></em> checkbox was checked, the results appear in seperate fields on the canvas (see <a href="#ChargePlugin-fig.2">example</a> below), but 3D operations (zooming, rotating etc.) are enabled.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="ChargePlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583859/29098587.png" data-image-src="attachments/12583859/29098587.png" data-unresolved-comment-count="0" data-linked-resource-id="29098587" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="charge_mspace.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583859" data-linked-resource-container-version="27" /></span></p>
+      <p>Fig. 2 Calculated charges displayed in 3D</p>
+      <p>&nbsp;</p>
+      <h1 id="ChargePlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>In the&nbsp;<em><a href="#ChargePlugin-fig.3">Charge Options</a></em>&nbsp;panel you can set the following options:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:</strong>&nbsp;setting the number of decimal places for displaying the result.</li>
+       <li><strong>Type:</strong>&nbsp;setting type of the calculus: total charge, sigma charge or pi charge components.</li>
+       <li><strong>Charges of implicit hydrogens:</strong>&nbsp;gives you in detail the increments of the charge by the implicit hydrogens.</li>
+       <li><strong>Take resonant structures:</strong>&nbsp;the average of the charge of the resonant structures will be calculated.</li>
+       <li><strong>Take major microspecies/ at pH:</strong>&nbsp;the charge of the major microspecies present at the given pH.</li>
+       <li><strong>Display in MarvinSpace</strong>: the result window opens as 3D MarvinSpace viewer (see <a href="#ChargePlugin-fig.2">example</a> above). If unchecked, the results will be shown on a 2D picture (see <a href="#ChargePlugin-fig.1">example</a> above).<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="ChargePlugin-fig.3"></span>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/12583859/29099372.png" data-image-src="attachments/12583859/29099372.png" data-unresolved-comment-count="0" data-linked-resource-id="29099372" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="charge_panel2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583859" data-linked-resource-container-version="27" /></span></p>
+      <p>Fig. 3 Charge Options panel</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

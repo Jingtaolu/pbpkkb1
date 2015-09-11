@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : MarvinView Other parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : MarvinView Other parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><code>copyAsFormat</code></td>
+          <td class="confluenceTd">Default clipboard format by Copy As action.</td>
+          <td class="confluenceTd">platform dependent</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a rel="nofollow"></a>copyOpts</code></td>
+          <td class="confluenceTd">Enabled output formats at copy command To specify more formats, enumerate them in a comma separated list.
+           <ul>
+            <li><code>text</code> - Copy As Text</li>
+            <li><code>bitmap</code> - Copy As Bitmap Image</li>
+            <li><code>emf</code> - Copy As Vector Graphical Image (EMF)</li>
+           </ul></td>
+          <td class="confluenceTd">platform dependent</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>debug</code></td>
+          <td class="confluenceTd">Debug mode. Possible values: 0, 1, 2.</td>
+          <td class="confluenceTd"><code>0</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a rel="nofollow"></a>defaultSaveFormat</code></td>
+          <td class="confluenceTd">Determines the default chemical file format in the Save As dialog.</td>
+          <td class="confluenceTd"><code>mrv</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a><span class="confluence-anchor-link" id="MarvinViewOtherparameters-drag"></span>draggable</code></td>
+          <td class="confluenceTd">Allows (true) or denies (false) mouse dragged events in cells.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewOtherparameters-ed"></span>editable</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Modes: display only (0) or editable (1, 2). If <code>editable=2</code>, then doubleclick launches MarvinSketch (instead of a viewer window).</td>
+          <td class="confluenceTd"><code>0</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><code><span class="confluence-anchor-link" id="MarvinViewOtherparameters-esc"></span>escapeChar</code></td>
+          <td class="confluenceTd">Escape character to use for parsing the values of <a href="MarvinView-Applet-only-parameters_25987119.html#MarvinViewAppletonlyparameters-mol">mol</a> and <a href="The-celli-and-celli_j-parameters_25987113.html">cell</a> parameters.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>importEnabled</code></td>
+          <td class="confluenceTd">Allow or forbid molecule import. If this parameter is false, paste function is disabled in MarvinView, also <code>Import</code> option is disabled in the Molecule Source window. (Use <a href="#MarvinViewOtherparameters-ed">editable</a> parameter to forbid the editing of the molecules.)</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>molFormat</code></td>
+          <td class="confluenceTd">Default file format: <code>mol</code>, <code>csmol</code>, <code>smiles</code>, <code>cxsmiles</code>, <code>cml</code>, <code>pdb</code>, <code>pov</code>, <code>sybyl</code>, or <code>xyz</code>.</td>
+          <td class="confluenceTd"><code>mol</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>navmode</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Mouse drag action.
+           <ul>
+            <li><code>translate</code> - move the structure</li>
+            <li><code>zoom</code> - change magnification</li>
+            <li><code>rotZ</code> - rotate in the screen's plane</li>
+            <li><code>rot3d</code> - 3D rotation</li>
+           </ul></td>
+          <td class="confluenceTd"><code>rotZ</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>selectable</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Use <code>selectable=false</code> to forbid molecule selection with mouse click.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a name="sketchHelp" rel="nofollow"></a>sketchHelp</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Sketcher help contents.</td>
+          <td class="confluenceTd"><code>chemaxon/marvin/help<br /> /sketch-index.html</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a name="sketchQuickHelp" rel="nofollow"></a>sketchQuickHelp</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Sketcher quick help.</td>
+          <td class="confluenceTd"><code>chemaxon/marvin/help<br /> /sketch.html</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a rel="nofollow"></a>namingWebServiceURL</code></td>
+          <td class="confluenceTd">Specifies the URL of a name recognition and import service for the name import to use.</td>
+          <td class="confluenceTd"><code>empty</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ParameterPanel>
+    <Precision Key="precision" Label="Precision">
+	<Dependencies>
+	    <Item Key="display" Range="data"/>
+	</Dependencies>
+    </Precision>
+    <MultipleSelection Key="display" Label="Display">
+	<Choice Value="selection" Text="Selection" Selected="true"/>
+	<Choice Value="data" Text="Data" Selected="true"/>
+    </MultipleSelection>
+    <Boolean Key="showIndexMap" Label="Show original atom indexes" Value="true">
+        <Dependencies>
+	    <Item Key="display" Range="selection"/>
+	</Dependencies>
+    </Boolean>
+</ParameterPanel>

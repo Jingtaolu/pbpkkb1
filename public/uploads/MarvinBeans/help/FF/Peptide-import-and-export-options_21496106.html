@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Peptide import and export options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Peptide import and export options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Peptideimportandexportoptions-Importoptions">Import options</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>--peptide &lt;string&gt;</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class="confluenceTd"><p>The <strong>string</strong> is a valid one or three letter sequence.</p><p><em>Example</em>:</p>
+               <ul>
+                <li><p>convert a one-letter sequence to a molfile:</p>
+                 <div class="code panel pdl" style="border-width: 1px;">
+                  <div class="codeContent panelContent pdl"> 
+                   <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert --peptide FFKMLL mol -o peptide.mol</pre> 
+                  </div>
+                 </div></li>
+               </ul></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <p><a href="21496092.html">Sequences (peptide, DNA, RNA)</a></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Peptideimportandexportoptions-"><a class="anchor" name="import" rel="nofollow"></a></h2>
+          <h2 id="Peptideimportandexportoptions-Exportoptions"><a class="anchor" name="export" rel="nofollow"></a>Export options</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>peptide:3</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class="confluenceTd"><p>Using this option the output will be a three-letter sequence.</p><p><em>Examples</em>:</p>
+               <ul>
+                <li><p>convert SMILES representation to a three-letter sequence</p>
+                 <div class="code panel pdl" style="border-width: 1px;">
+                  <div class="codeContent panelContent pdl"> 
+                   <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert peptide:3 -s &quot;[H]NCC(=O)NC(C)C(=O)NCC(O)=O&quot;</pre> 
+                  </div>
+                 </div></li>
+                <li><p>convert one-letter sequence to a three-letter sequence</p>
+                 <div class="code panel pdl" style="border-width: 1px;">
+                  <div class="codeContent panelContent pdl"> 
+                   <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert --peptide GAG peptide:3</pre> 
+                  </div>
+                 </div></li>
+               </ul></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>peptide:1</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class="confluenceTd"><p>One-letter peptide sequence option.</p><p><em>Example</em>:</p>
+               <ul>
+                <li><p>convert the SMILES string to a one-letter sequence</p>
+                 <div class="code panel pdl" style="border-width: 1px;">
+                  <div class="codeContent panelContent pdl"> 
+                   <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert peptide:1 -s &quot;[H]NCC(=O)NC(C)C(=O)NCC(O)=O&quot;</pre> 
+                  </div>
+                 </div></li>
+               </ul></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <h3 id="Peptideimportandexportoptions-.1"><a class="anchor" name="custom_aas" rel="nofollow"></a></h3>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

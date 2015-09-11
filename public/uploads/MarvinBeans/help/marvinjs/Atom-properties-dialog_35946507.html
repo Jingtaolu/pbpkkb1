@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Atom properties dialog</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Atom properties dialog </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>In the Atom properties dialog you can set the values of atomic charges, isotopes, monovalent radicals, enhanced stereo specifications, atom maps, aliases in the Basic Tab and&nbsp;query properties in the Advanced Panel. &nbsp;</p>
+          <p>Atom properties&nbsp;dialog window is available from the<strong>&nbsp;</strong>pop-up menu&nbsp;after a right-click on the atom.</p>
+          <div class="panel" style="background-color: white;border-color: #ff9900;border-width: 1px;">
+           <div class="panelContent" style="background-color: white;"> 
+            <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" />&nbsp;<strong>Set atom properties for several atoms at once</strong></p>
+            <p>In the dialog only the properties which are permitted for every selected atom type are available.</p>
+            <p>If the selected atoms have attached&nbsp;previously defined properties,&nbsp;you can delete them by inactivating their input field<em> via</em> the&nbsp;<strong>&quot;Padlock&quot;</strong>&nbsp;icon.</p>
+            <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/23692062/35948234.png" data-image-src="attachments/23692062/35948234.png" data-unresolved-comment-count="0" data-linked-resource-id="35948234" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-30 10:18:47.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="23692062" data-linked-resource-container-version="24" /></span> <a href="Video-Tutorials_23692062.html#VideoTutorials-moreAtomProperties">See how to set atom properties for more than one atom here.</a></p> 
+           </div>
+          </div>
+          <p>The appearance of this dialog depends on the context. You can see the summary of the available properties below:<span class="confluence-anchor-link" id="Atompropertiesdialog-contextAtomProperties"></span></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh"><p>Context&nbsp;(Change to)</p></th>
+              <th class="confluenceTh">Type</th>
+              <th class="confluenceTh">Alias</th>
+              <th class="confluenceTh">Isotope</th>
+              <th class="confluenceTh">Charge</th>
+              <th class="confluenceTh">Radical</th>
+              <th class="confluenceTh">Enhanced Stereo</th>
+              <th class="confluenceTh">Map</th>
+              <th class="confluenceTh">Additional properties</th>
+              <th colspan="1" class="confluenceTh"><a href="#Atompropertiesdialog-advanedPanel">Advanced Panel</a></th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>Element</strong></td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">Atom</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green" style="text-align: center;">+</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>Query</strong></td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">Atom</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green" style="text-align: center;">+</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>R-group</strong></td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">R</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" colspan="1" data-highlight-colour="red" style="text-align: center;">-</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong><a href="#Atompropertiesdialog-listNOTlistProperties">List/NOT list</a></strong></td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">List type</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">Elements</td>
+              <td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green" style="text-align: center;">+</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>Pseudo</strong></td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">Pseudo</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green" style="text-align: center;">+</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong><a href="#Atompropertiesdialog-homologyGroupProperties">Homology Group</a></strong></td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">Group</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">(Group) Display</td>
+              <td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green" style="text-align: center;">+</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>Abbreviation</strong></td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-green confluenceTd" data-highlight-colour="green" style="text-align: center;">+</td>
+              <td class="highlight-red confluenceTd" data-highlight-colour="red" style="text-align: center;">-</td>
+              <td class="highlight-red confluenceTd" colspan="1" data-highlight-colour="red" style="text-align: center;">-</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="Atompropertiesdialog-basicAtomPropertiesBasicTab"><span class="confluence-anchor-link" id="Atompropertiesdialog-basicAtomProperties"></span>Basic Tab</h3>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946507/35946509.png" data-image-src="attachments/35946507/35946509.png" data-unresolved-comment-count="0" data-linked-resource-id="35946509" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-20 12:5:39.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946507" data-linked-resource-container-version="43" /></span></p>
+          <p>&nbsp;</p>
+          <p><strong>Possible values&nbsp;</strong></p>
+          <p><strong>Atom:</strong>&nbsp;the chemical symbol of the element (the atom number appears automatically next to the text field).<br /><span>In case of hydrogen isotopes (deuterium and tritium), their specific atomic symbols&nbsp;(D and T)&nbsp; can be used as well.</span></p>
+          <p><strong>Alias: </strong>a&nbsp;text (a&nbsp;label to an atom) &nbsp;Please, note that the other properties (except query atom properties) will be hidden, however this information is preserved.</p>
+          <p><strong>Isotope: </strong>a positive&nbsp;integer</p>
+          <p><strong>Charge:</strong> (+)&nbsp;or ( - ), and an integer (other numbers will be rounded to an integer)</p>
+          <p><strong>Radical:</strong> none, monovalent</p>
+          <p><strong>Ehanced stereo:</strong> Off (default), Absolute, And, Or. In the latter two cases&nbsp;a number should accompany the identifier. If you leave the number field empty, number 1 will be associated with the group identifier automatically.</p>
+          <p><strong>Map:</strong> integer</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h3 id="Atompropertiesdialog-advanedPanelAdvancedTab"><span class="confluence-anchor-link" id="Atompropertiesdialog-advanedPanel"></span>Advanced Tab</h3>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946507/35946560.png" data-image-src="attachments/35946507/35946560.png" data-unresolved-comment-count="0" data-linked-resource-id="35946560" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-23 14:57:43.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946507" data-linked-resource-container-version="43" /></span></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Property name and notation</th>
+              <th class="confluenceTh">Property</th>
+              <th colspan="1" class="confluenceTh">Possible Values</th>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><p style="text-align: center;">Total H (H)&nbsp;</p></td>
+              <td colspan="1" class="confluenceTd"><p>Total number of hydrogen substituents.</p></td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><p style="text-align: center;">Implicit&nbsp;H (h)&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+              <td colspan="1" class="confluenceTd">Number of implicit hydrogen substituents.</td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Bond orders (v)</td>
+              <td colspan="1" class="confluenceTd">Total bond order. (Some cases it is referred as valence.)</td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Connections (X)</td>
+              <td colspan="1" class="confluenceTd">Number of substituents including hydrogens.</td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Ring count (R)</td>
+              <td colspan="1" class="confluenceTd">Number of rings the atom is a member of<br />&nbsp;</td>
+              <td colspan="1" class="confluenceTd">0-254<br /><span>R (&gt;0)</span>&nbsp;</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Smallest ring size (r)&nbsp;</td>
+              <td colspan="1" class="confluenceTd">Size of the smallest ring the atom is a member of.</td>
+              <td colspan="1" class="confluenceTd">3-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Ring bond (rb)</td>
+              <td colspan="1" class="confluenceTd"><p>Number of ring bonds next to the atom</p><p>&nbsp;</p></td>
+              <td colspan="1" class="confluenceTd"><p>0-254<br />rb0, rb2 - rb3: exact ring bond count;<br />rb4: 4 or more ring bonds.</p><span>&quot;as drawn&quot; (rb*)</span>&nbsp;</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Substitutions (s)</td>
+              <td colspan="1" class="confluenceTd"><p>Substitution count: the number of non-hydrogen substituents plus number of isotopic hydrogen substituents.</p><p>&nbsp;</p></td>
+              <td colspan="1" class="confluenceTd">0-254<br /><span style="line-height: 1.4285715;">s0 - s5: exact substitution count<br /></span><span style="line-height: 1.4285715;">s6: 6 or more substitutions&nbsp;</span><span style="line-height: 1.4285715;"><br /></span><span>&quot;as drawn&quot; (s*)</span>&nbsp;</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Unsaturated (u)&nbsp;&nbsp;</td>
+              <td colspan="1" class="confluenceTd">Unsaturated atom: atom that has double, triple or aromatic bond.</td>
+              <td colspan="1" class="confluenceTd">Unsaturated (u)</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><span>Aromatcity (a/A)</span></td>
+              <td colspan="1" class="confluenceTd"><span>It defines whether the atom has at least one aromatic bond (a) or only aliphatic (A) bonds.</span></td>
+              <td colspan="1" class="confluenceTd"><span>Aromatic (a)</span><br /><span>Aliphatic (A</span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="Atompropertiesdialog-DialogofAtompropertieswhenadditionalpropertiesavailable">Dialog of Atom properties when additional properties available&nbsp;</h3>
+          <h3 id="Atompropertiesdialog-listNOTlistProperties1.List/NOTlist"><span class="confluence-anchor-link" id="Atompropertiesdialog-listNOTlistProperties"></span>&nbsp;1.&nbsp;<span style="line-height: 1.5;">List/NOT list</span></h3>
+          <h3 style="text-align: left;" id="Atompropertiesdialog-"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/35946507/35947899.png" data-image-src="attachments/35946507/35947899.png" data-unresolved-comment-count="0" data-linked-resource-id="35947899" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-22 14:16:48.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946507" data-linked-resource-container-version="43" /></span></h3>
+          <h3 style="text-align: left;" id="Atompropertiesdialog-homologyGroupProperties2.Homologygroup"><span class="confluence-anchor-link" id="Atompropertiesdialog-homologyGroupProperties"></span>&nbsp;2.&nbsp;Homology group</h3>
+          <h3 id="Atompropertiesdialog-.1"><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946507/35946559.png" data-image-src="attachments/35946507/35946559.png" data-unresolved-comment-count="0" data-linked-resource-id="35946559" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-23 14:43:56.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946507" data-linked-resource-container-version="43" /></span></h3>
+          <h3 id="Atompropertiesdialog-ListoftheavailableHomologygroupsandtheiraliasesinMarvinJS">List of the available Homology groups and their aliases in Marvin JS</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Homology Group</th>
+              <th style="text-align: center;" class="confluenceTh">Alias</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Actinide</td>
+              <td style="text-align: center;" class="confluenceTd">ACT</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">AlkaliMetal&nbsp;</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">AMX</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Alkenyl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">CHE</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Alkyl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">CHK</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Alkynyl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">CHY</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Any group</td>
+              <td style="text-align: center;" class="confluenceTd">XX</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">AnyAtom</td>
+              <td style="text-align: center;" class="confluenceTd">-</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Carboalicyclyl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">CYC</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Carboaryl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">ARY</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">CarbonTree</td>
+              <td class="confluenceTd">acyclicCarbon</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Cyclyl</td>
+              <td style="text-align: center;" class="confluenceTd">anyring</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">FusedHeterocyclyl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">HEF</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Haloalkyl</td>
+              <td style="text-align: center;" class="confluenceTd">-</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Halogen</td>
+              <td style="text-align: center;" class="confluenceTd">HAL</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd">Heterocyclyl</td>
+              <td colspan="1" class="confluenceTd">Heterocycle</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Heteromonoalicyclyl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">HET</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Heteromonoaryl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">HEA</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">HeteroSubstitutedAlkyl&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">HSA</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Hydroxyalkyl</td>
+              <td style="text-align: center;" class="confluenceTd">-</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Lanthanide&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">LAN</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Metal&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">MX</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">OtherMetal&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">A35</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Protecting</td>
+              <td style="text-align: center;" class="confluenceTd">PRT</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">RingSegment</td>
+              <td style="text-align: center;" class="confluenceTd">-</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">TransitionMetal&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">TRM</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Unknown group&nbsp;</td>
+              <td style="text-align: center;" class="confluenceTd">UNK</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <h2 id="Atompropertiesdialog-Relatedpages">Related pages</h2>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Atom_34701334.html">Atom drawing</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Bond-properties-dialog_35226732.html">Bond properties dialog</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: right;"><a href="Dialogs_34702276.html">... back to Dialogs</a></p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Gaussian input/output format</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Gaussian input/output format </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Gaussianinput/outputformat-Gaussianoutput(importonly)"><a class="anchor" name="gout-format" rel="nofollow"></a>Gaussian output (import only)</h2>
+          <p>Marvin provides a basic functionality for importing the text output (lige) files produced by<br /> Gaussian. Marvin imports the molecular structure stored in Gaussian output files including <br /> the following data:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">Description         Imported into property:
+Title               &quot;Gaussian_titleline&quot;
+          		    The title line is checked for the existance of a
+              		SMILES representation of the structure
+Command line(s)     &quot;Gaussian_commandline&quot;
+Energy              &quot;Energy&quot; and &quot;Energy_unit&quot; to &quot;Hartree&quot;
+           		    As Gaussian may report the system's total energy,
+                    in case of special jobs the stored value should be
+                    validated before further use</pre> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>gjf, gjfz, gout</strong></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Gaussianinput/outputformat-Gaussianinput(exportonly)">Gaussian input (export only)</h2>
+          <p>Marvin provides a basic functionality to export into Gaussian input (gjf) and Gaussian Z-matrix input (gjfz) formats. The general description of the format is too complicated, therefore the import functionality is not available yet.</p>
+          <p>&quot;Gaussian_titleline&quot; and &quot;Gaussian_commandline&quot; properties can overwrite the defaults. The total charge of the molecule is determined by the charged atoms in the molecule.</p>
+          <h2 id="Gaussianinput/outputformat-Reference">Reference</h2>
+          <ul>
+           <li><a href="http://www.gaussian.com" class="external-link" rel="nofollow">http://www.gaussian.com</a></li>
+          </ul>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

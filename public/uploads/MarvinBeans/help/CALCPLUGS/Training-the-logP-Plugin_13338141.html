@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Training the logP Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Training the logP Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to train the log<em>P</em></span><sub>&nbsp;</sub><span>Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200958541 {padding: 0px;}
+div.rbtoc1439200958541 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200958541 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200958541"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#TrainingthelogPPlugin-Introduction">Introduction &nbsp;</a></li> 
+          <li><a href="#TrainingthelogPPlugin-Trainingsteps">Training steps &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#TrainingthelogPPlugin-Preparingtheinputfile">Preparing the input file&nbsp;</a></li> 
+            <li><a href="#TrainingthelogPPlugin-Creatingthetraininglibrary">Creating the training library</a></li> 
+            <li><a href="#TrainingthelogPPlugin-Applyingthetraininglibrary">Applying the training library</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#TrainingthelogPPlugin-MarvinSketch">MarvinSketch</a></li> 
+              <li><a href="#TrainingthelogPPlugin-Cxcalc">Cxcalc</a></li> 
+              <li><a href="#TrainingthelogPPlugin-ChemicalTerms">Chemical Terms</a></li> 
+              <li><a href="#TrainingthelogPPlugin-InstantJChem">Instant JChem &nbsp;</a></li> 
+             </ul> </li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="TrainingthelogPPlugin-Introduction"><br />Introduction<br />&nbsp;</h1>
+      <p>If you think your experimental data could improve the performance of the default log<em>P</em>&nbsp;calculator, you can take advantage of the supervised log<em>P</em>&nbsp;learning method that is built into the logP calculator.</p>
+      <p>If you create a local log<em>P</em>&nbsp;model, the scope of the log<em>P</em>&nbsp;calculator will be limited. It means that the calculated log<em>P</em>&nbsp;will only provide reasonable prediction for a few types of structures. Practically only those types of structures will be predicted correctly which were introduced to the training set during the teaching process. For example, if the training set contains only certain types of hydrocarbon but no other functional groups are present in the training set, the predicted log<em>P</em>&nbsp;of any amine-like molecule will not be accurate.</p>
+      <p>Therefore you need to be aware that a more robust general log<em>P</em>&nbsp;model requires a large, diverse training set with thousands of structures. You can generate a log<em>P</em>&nbsp;training library via <a href="cxcalc-calculator-functions_13338228.html">cxcalc calculator functions</a> or <a href="https://docs.chemaxon.com/display/instantjchem">Instant JChem</a> as well.<br /><br /></p>
+      <h1 id="TrainingthelogPPlugin-Trainingsteps">Training steps<br />&nbsp;</h1>
+      <h2 id="TrainingthelogPPlugin-Preparingtheinputfile">Preparing the input file&nbsp;</h2>
+      <p>&nbsp;</p>
+      <p>As the first step of the training you have to&nbsp;create a training set&nbsp;from your experimental data. The training set should have a format which supports saving molecular properties (<a href="https://docs.chemaxon.com/display/FF">SDF</a> or<a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=14943131"> MRV</a>).&nbsp;This can be easily done by using the graphical user interface of Instant JChem. This training set must contain the following items:</p>
+      <ul>
+       <li>structure</li>
+       <li>logP values in a property field named LOGP&nbsp;</li>
+      </ul>
+      <p>See the following bit of an <a href="#TrainingthelogPPlugin-fig.1">example file</a>&nbsp;as an example (<a href="attachments/13338141/35946835.sdf" data-linked-resource-id="35946835" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logP_trainingset.sdf" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13338141" data-linked-resource-container-version="59">logP_trainingset.sdf</a>):</p>
+      <p>&nbsp;<span class="confluence-anchor-link" id="TrainingthelogPPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="400" src="attachments/13338141/29099550.png" data-image-src="attachments/13338141/29099550.png" data-unresolved-comment-count="0" data-linked-resource-id="29099550" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logp_data.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338141" data-linked-resource-container-version="59" /></span></p>
+      <p>Fig. 1 Example file used for training&nbsp;<br />&nbsp;</p>
+      <h2 id="TrainingthelogPPlugin-Creatingthetraininglibrary"><br />Creating the training library</h2>
+      <p>&nbsp;</p>
+      <p>Then you have to run the training algorithm which creates a log<em>P&nbsp;</em>&nbsp;training library from your pre-compiled set.&nbsp;Execute the following command from command line:<br />&nbsp;</p>
+      <pre>cxtrain logp -t LOGP -i [library name] -a [training file] </pre>
+      <p><em><br />Example</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxtrain logp -t LOGP -i mylogp -a logP_trainingset.sdf </pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The created&nbsp;log<em>P&nbsp;</em>training library <em>mylogp&nbsp;</em>can be used via <a href="https://docs.chemaxon.com/display/marvinsketch">MarvinSketch</a>,<a href="cxcalc-command-line-tool_12584204.html"> cxcalc</a>, or <a href="https://docs.chemaxon.com/display/chemicalterms">Chemical Terms</a>.<br /><br /></p>
+      <h2 id="TrainingthelogPPlugin-Applyingthetraininglibrary">Applying the training library</h2>
+      <p>&nbsp;</p>
+      <h3 id="TrainingthelogPPlugin-MarvinSketch">MarvinSketch</h3>
+      <p>&nbsp;</p>
+      <div>
+       To 
+       <a href="#TrainingthelogPPlugin-fig.2">apply the pre-generated training library</a> 
+       <em>mylogp</em>&nbsp;in MarvinSketch, do the following steps:
+      </div>
+      <ul>
+       <li>Choose MarvinSketch menu&nbsp;<em>Tools &gt; Partitioning &gt; logP</em>.</li>
+       <li>Select the&nbsp;<em>User defined</em>&nbsp;method to activate the training option.</li>
+       <li>If you have created multiple training sets, choose one from the dropdown list below the checkbox.<br />&nbsp;</li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="TrainingthelogPPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/13338141/37322941.png" data-image-src="attachments/13338141/37322941.png" data-unresolved-comment-count="0" data-linked-resource-id="37322941" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-5-28 10:55:8.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338141" data-linked-resource-container-version="59" /></span></p>
+      <p>Fig. 2 The log<em>P</em> options window showing how to apply the training library<br /><br /></p>
+      <h3 id="TrainingthelogPPlugin-Cxcalc">Cxcalc<br /><br /></h3>
+      <p>To apply your log<em>P&nbsp;</em>dataset use the&nbsp;<em>--trainingid</em> and the <em>&nbsp;--method</em> parameter:<br />&nbsp;</p>
+      <pre>cxcalc logp <code>--method user --trainingid </code>[library name] [input file/string]<br />&nbsp;</pre>
+      <p><em>Example</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc logp --method user --trainingid mylogp &quot;CC(C)CCO&quot;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><em>Result</em></p>
+      <pre>id      logP</pre>
+      <pre>1       1,13<br />&nbsp;</pre>
+      <p>Without training the result is:</p>
+      <pre>id      logP</pre>
+      <pre>1       1,09<br /><br /></pre>
+      <h3 id="TrainingthelogPPlugin-ChemicalTerms">Chemical Terms</h3>
+      <pre>&nbsp;</pre>
+      <p>Chemical Terms are available from Chemical Terms Evaluator or from Instant JChem.&nbsp;The <em style="line-height: 1.4285715;">method</em>&nbsp;and&nbsp;<em style="line-height: 1.4285715;">trainingid &nbsp;</em>parameters can be&nbsp;used in Chemical Terms Evaluator as well:<br />&nbsp;</p>
+      <pre>evaluate -e &quot;logp('method:user trainingid:[library name]')&quot; &quot;[input file/string]&quot;<br />&nbsp;</pre>
+      <p><em>Example</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;logp('method:user trainingid:mylogp')&quot; &quot;CC(C)CCO&quot;&nbsp;</pre> 
+       </div>
+      </div>
+      <h3 id="TrainingthelogPPlugin-InstantJChem"><br />Instant JChem<br />&nbsp;</h3>
+      <p>You can also apply your log<em>P&nbsp;</em>training library via Chemical Terms in Instant JChem.&nbsp;</p>
+      <ul>
+       <li>Choose the 'New Chemical Terms Field icon' on the panel on the right side.</li>
+       <li>Type the chemical term into the window, use the parameters method and trainingid. Do not forget to adjust the Name, the Type and the DB Column Name.<br />&nbsp;</li>
+      </ul>
+      <p><em>Example&nbsp;</em></p>
+      <p>The <a href="#TrainingthelogPPlugin-fig.3">following figure</a> presents the usage of log<em>P&nbsp;</em>training in the 'New Chemical terms' window. The expression&nbsp;<br />&nbsp;</p>
+      <p><code>logP('method:user&nbsp;trainingid:mylogp')<br />&nbsp;</code></p>
+      <p>defines that the plugin use the user defined log<em>P&nbsp;</em>training library <em>myplogp</em>.</p>
+      <p><span class="confluence-anchor-link" id="TrainingthelogPPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338141/29099578.png" data-image-src="attachments/13338141/29099578.png" data-unresolved-comment-count="0" data-linked-resource-id="29099578" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logP_usage_IJC.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338141" data-linked-resource-container-version="59" /></span></p>
+      <p>Fig. 3 Using Chemical Terms function for training in Instant JChem</p>
+      <p>&nbsp;</p>
+      <p>Part of the results of this calculation is presented <a href="#TrainingthelogPPlugin-fig.4">below</a>. You can see the difference between the untrained (column <em>LogP</em>) and trained (column<em> trained LogP</em>)&nbsp;values.<br /><br /><span class="confluence-anchor-link" id="TrainingthelogPPlugin-fig.4"></span>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338141/29099579.png" data-image-src="attachments/13338141/29099579.png" data-unresolved-comment-count="0" data-linked-resource-id="29099579" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logP_table_IJC.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338141" data-linked-resource-container-version="59" /></span></p>
+      <p>Fig. 4 JChem table showing the untrained and trained log<em>P</em> values</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

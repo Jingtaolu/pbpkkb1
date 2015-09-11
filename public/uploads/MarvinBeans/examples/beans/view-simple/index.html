@@ -1,0 +1,57 @@
+<html>
+<head>
+    <script type="text/javascript" src="../../sh_main.js"></script>
+    <script type="text/javascript" src="../../sh_java.js"></script>
+    <link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+ <title>MarvinView Simple Bean Example</title>
+ </head>
+<body onload="sh_highlightDocument();">
+ <h1>MarvinView Simple Bean Example</h1>
+
+ <p>This example shows how to create the MViewPane JavaBean component
+ and embed it in a Swing Container component.</p>
+
+ <p>By default, MViewPane has one single cell into which a molecule can
+ be set by different ways:</p>
+ <ul>
+     <li>Loaded from file or URL</li>
+     <li>Pasted or Dropped from other applications</li>
+     <li>Molecule object set directly via API</li>
+     <li>Molecule String representation set via API</li>
+ </ul>
+
+ <p>This example demonstrates loading molecules from files by creating a File > Open
+ menu.</p>
+
+ <center><img src="viewsimple.png" width="400" height="400"></center><br>
+
+ <p>This image is a snapshot of <a href="ViewSimple.java.html"><code>ViewSimple.java</code></a> in use.
+ The major part of this code is shown below.</p>
+
+ <p>
+ Creating and embedding the single-cell MViewPane component in the JPanel:</p>
+ <pre class="sh_java">
+ public class ViewSimple extends JPanel {
+     public ViewSimple() {
+         viewPane = new MViewPane();
+         setLayout(new BorderLayout());
+         add(viewPane, BorderLayout.CENTER);
+     }
+ }
+ </pre>
+
+ <p>Setting a <code>java.io.File</code> to the single cell having the index 0 without format options:</p>
+ <pre class="sh_java">
+     viewPane.<a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html#setM(int, java.io.File, java.lang.String)">setM</a>(0, fileChooser.getSelectedFile(), null);
+ </pre>
+
+ <p>In case a multi-molecule file is opened with this method, it is considered to be an animation,
+ or molecular dynamics simulation, and the structures will be shown one after another.<br>
+However it is more common to have multi-molecule files containing molecules without
+such a relation. These molecules are typically shown in a table.<br>
+The <a href="../view-table/index.html">View Table</a> example shows how to create
+a table with multiple cells.</p>
+
+ </body>
+</html>

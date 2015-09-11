@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : MarvinSketch</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : MarvinSketch </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Structure Checker is integrated into Marvin Sketch and helps drawing chemically correct structures. Molecules are validated during the drawing process and detected structural issues are highlighted. Possible solutions are also offered that can be selected interactively by the user.&nbsp;</p>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>On this page:</p>
+        <p><a href="#MarvinSketch-set">Setting Structure Checker configuration</a></p>
+        <ul>
+         <li><a href="#MarvinSketch-view">Viewing the default checker list</a></li>
+         <li><a href="#MarvinSketch-order">Checking order</a></li>
+         <li><a href="#MarvinSketch-addandremove">Add and remove checker items</a></li>
+         <li><a href="#MarvinSketch-saveandload">Save and load checker configuration</a></li>
+         <li><a href="#MarvinSketch-external">External checkers</a></li>
+         <li><a href="#MarvinSketch-invalid">Invalid checkers</a></li>
+        </ul>
+        <p><a href="#MarvinSketch-start">Starting Structure Checker</a></p>
+        <ul>
+         <li><a href="#MarvinSketch-recheck">Rechecking the structure</a></li>
+         <li><a href="#MarvinSketch-automatic">Automatic structure checking</a></li>
+        </ul> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h3 id="MarvinSketch-setSettingStructureCheckerConfiguration"><span class="confluence-anchor-link" id="MarvinSketch-set"></span>Setting Structure Checker Configuration</h3>
+      <h4 id="MarvinSketch-viewViewingthedefaultcheckerlist"><span class="confluence-anchor-link" id="MarvinSketch-view"></span>Viewing the default checker list</h4>
+      <p>Before you start using&nbsp;Structure Checker&nbsp;in MarvinSketch, consult the list of available checkers in the Preferences dialog (<strong>Edit</strong>&nbsp;&gt;<strong>Preferences</strong>&nbsp;&gt;&nbsp;<strong>Checkers</strong>&nbsp;tab).</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029028/10191606.png" data-image-src="attachments/10029028/10191606.png" data-unresolved-comment-count="0" data-linked-resource-id="10191606" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="default_checker_list.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span> <br />The&nbsp;<strong>default list</strong>&nbsp;contains checkers in alphabetical order.<br />Two types of checkers are listed and are distinguished by the additional 'error' tag and by different icons:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="error checker" height="24" width="24" src="attachments/10029028/29098432.png" data-image-src="attachments/10029028/29098432.png" data-unresolved-comment-count="0" data-linked-resource-id="29098432" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="defaultcheck.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;<strong>Error detecting checkers</strong>: Error checkers are looking for chemically wrong molecule parts (e.g., valence errors, overlapping atoms);</li>
+       <li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="feature checker" height="24" width="24" src="attachments/10029028/29098434.png" data-image-src="attachments/10029028/29098434.png" data-unresolved-comment-count="0" data-linked-resource-id="29098434" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="defaultfeaturecheck.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;<strong>Feature detecting checkers</strong>: Feature checkers searches the selected molecule characteristics which in the specific structures are not considered as an error (e.g., query properties).</li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);">Click on the name of the checker to see additional options and select the needed options by clicking the tick box.</span></p>
+      <p>&nbsp;</p>
+      <h4 id="MarvinSketch-orderCheckingorder"><span class="confluence-anchor-link" id="MarvinSketch-order"></span>Checking order</h4>
+      <p>Some molecule properties might change after fixing an issue. You can define a checking sequence by moving up or down the list elements. The order of the checkers may be important in case you run a&nbsp;<strong>Fix All</strong>&nbsp;action.<br />In order to&nbsp;<strong>change the sequence of the checker items</strong>, select the checker from the list and click on the up&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="up" height="24" width="24" src="attachments/10029028/29098442.png" data-image-src="attachments/10029028/29098442.png" data-unresolved-comment-count="0" data-linked-resource-id="29098442" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="up.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;or down&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="down" height="24" width="24" src="attachments/10029028/29098435.png" data-image-src="attachments/10029028/29098435.png" data-unresolved-comment-count="0" data-linked-resource-id="29098435" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="down.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;icon on the right side of the dialog window.</p>
+      <p>&nbsp;</p>
+      <h4 id="MarvinSketch-addandremoveAddandremovecheckeritems"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="MarvinSketch-addandremove"></span>Add and remove checker items</h4>
+      <p>To&nbsp;<strong>discard items</strong>&nbsp;from the checking sequence, select the checker and click on the&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="remove" height="24" width="24" src="attachments/10029028/29098440.png" data-image-src="attachments/10029028/29098440.png" data-unresolved-comment-count="0" data-linked-resource-id="29098440" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="remove.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;button.<br />For&nbsp;<strong>adding new elements</strong>&nbsp;to the list, click on the&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="add" height="24" width="24" src="attachments/10029028/29098429.png" data-image-src="attachments/10029028/29098429.png" data-unresolved-comment-count="0" data-linked-resource-id="29098429" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="add.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;button and select the relevant checker.</p>
+      <p>&nbsp;</p>
+      <h4 id="MarvinSketch-saveandloadSaveandloadcheckerconfiguration"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="MarvinSketch-saveandload"></span>Save and load checker configuration</h4>
+      <p>Different checking lists might be needed for different compound families. To make checking simpler, you can&nbsp;<strong>save your checking list&nbsp;</strong>to your computer and open it again if you are editing the same molecule type.</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Click the&nbsp;<strong>Save</strong>&nbsp;button&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="save" src="plugins/servlet/confluence/placeholder/unknown-attachment" title="save.png" /></span>&nbsp;to save your set checker configuration.</li>
+       <li>Click the&nbsp;<strong>Load</strong>&nbsp;button&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="open" height="24" width="24" src="attachments/10029028/29098438.png" data-image-src="attachments/10029028/29098438.png" data-unresolved-comment-count="0" data-linked-resource-id="29098438" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="open.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;to open a saved configuration list from file.</li>
+       <li>You can also load remote checker configuration from URL&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="url" height="24" width="24" src="attachments/10029028/29098445.png" data-image-src="attachments/10029028/29098445.png" data-unresolved-comment-count="0" data-linked-resource-id="29098445" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="url.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>. Unless you save this configuration to your computer, the loaded checker configuration cannot be modified.</li>
+       <li>You can integrate custom,&nbsp;<a href="#MarvinSketch-external">external checkers</a>&nbsp;or fixers to the list of available checkers&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="url" height="24" width="24" src="attachments/10029028/29098431.png" data-image-src="attachments/10029028/29098431.png" data-unresolved-comment-count="0" data-linked-resource-id="29098431" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="configure.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>.</li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);">You can see the path of currently applied configuration file at the bottom of the window.</span></p>
+      <p>&nbsp;</p>
+      <h4 id="MarvinSketch-externalExternalcheckers"><a rel="nofollow"></a> <span class="confluence-anchor-link" id="MarvinSketch-external"></span>External checkers</h4>
+      <p>Custom checker and fixer implementations can be integrated into the list of available checkers. To learn about the details, visit <a href="Custom-Checkers-and-Fixers_25989294.html">Custom Checkers and Fixers</a>.</p>
+      <p>After you have finished adding external checkers and fixers, click on&nbsp;<strong>OK</strong>; the newly added checkers will appear among the factory checkers. These external checkers/fixers will now also be available in Structure Checker Application and in all other applications using Structure Checker. When the external checker/fixer uses&nbsp;<code>actionStringToken</code>&nbsp;annotation, the checker can be referenced on the defined name in&nbsp;<code>structurechecker</code>&nbsp;command-line and in Chemical Terms applications as well.&nbsp;<br />See how to&nbsp;<a href="#MarvinSketch-addandremove">Add checker(s) to checker configuration</a>.</p>
+      <h4 id="MarvinSketch-invalidInvalidcheckers"><span class="confluence-anchor-link" id="MarvinSketch-invalid"></span>Invalid checkers</h4>
+      <p><em>Structure Checker</em>&nbsp;configuration files may contain erroneous checker(s), i.e., Invalid Checker(s).&nbsp;<br /> <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="invalid checker" height="438" width="644" src="attachments/10029028/29098441.png" data-image-src="attachments/10029028/29098441.png" data-unresolved-comment-count="0" data-linked-resource-id="29098441" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="invalid_checker.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span> <br />If the imported configuration file contains invalid checker(s), a warning message will appear informing the user about the issue.&nbsp;<br />Remove the invalid checker(s) from the list to accept the proper configuration.</p>
+      <h3 id="MarvinSketch-startStartingStructureChecker"><a class="anchor" rel="nofollow"></a> <span class="confluence-anchor-link" id="MarvinSketch-start"></span>Starting Structure Checker</h3>
+      <p>You can open&nbsp;<em>Structure Checker</em>&nbsp;at any stage of your work with Marvin Sketch by</p>
+      <ul>
+       <li>&nbsp;clicking on the&nbsp;<strong>Check structure</strong>&nbsp;icon&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="defaultcheck" height="24" width="24" src="attachments/10029028/29098432.png" data-image-src="attachments/10029028/29098432.png" data-unresolved-comment-count="0" data-linked-resource-id="29098432" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="defaultcheck.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;in the toolbar</li>
+       <li>selecting <strong>Check Structure</strong> in the <strong>Structure</strong> menu</li>
+       <li>left-clicking the&nbsp;<strong>Checker</strong>&nbsp;button in the statusbar</li>
+       <li>using shortcut <strong>Ctrl+R</strong>.</li>
+      </ul>
+      <p><span style="line-height: 1.4285715;">A Structure Checker window will appear next to the MarvinSketch window. The molecule regions found by&nbsp;</span> <em style="line-height: 1.4285715;">Structure Checker</em> <span style="line-height: 1.4285715;">&nbsp;are highlighted on the canvas with a light red color. If you click on any checker message, the affected area changes color to darker red. If you move the cursor over one of the affected region, the appropriate checker message is highlighted in the checker list.</span></p>
+      <p><span style="line-height: 1.4285715;">&nbsp;</span> <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="750" src="attachments/10029028/28016697.jpg" data-image-src="attachments/10029028/28016697.jpg" data-unresolved-comment-count="0" data-linked-resource-id="28016697" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="str_checker.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span></p>
+      <h4 id="MarvinSketch-recheckRecheckingthestructure"><span class="confluence-anchor-link" id="MarvinSketch-recheck"></span>Rechecking the structure</h4>
+      <p>After you have changed the structure (including accepting a fix), the checker will offer re-checking: click on the&nbsp;<strong>Check structure again</strong>in the&nbsp;<strong>Structure Checker</strong>&nbsp;window.</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" alt="re-check" src="attachments/10029028/29098430.png" data-image-src="attachments/10029028/29098430.png" data-unresolved-comment-count="0" data-linked-resource-id="29098430" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="checkerwindow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span></p>
+      <p>&nbsp;</p>
+      <p>Another option is to turn on automatic re-checking: click the&nbsp;<strong>Enable automatic checking</strong>&nbsp;at the bottom of the text. At any point you can allow&nbsp;<em>Structure Checker</em>&nbsp;to fix the issues one by one or every of them by a single click.</p>
+      <h4 id="MarvinSketch-automaticAutomaticstructurechecking"><span class="confluence-anchor-link" id="MarvinSketch-automatic"></span>Automatic structure checking</h4>
+      <p>Turn on&nbsp;<strong>Automatic Check</strong>&nbsp;to follow every drawing step you make by a quick check. This option is switched on in the&nbsp;<strong>Structure</strong>&nbsp;menu or right-clicking the&nbsp;<strong>Checker</strong>&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="inactive checker on statusbar" height="16" width="16" src="attachments/10029028/29098446.png" data-image-src="attachments/10029028/29098446.png" data-unresolved-comment-count="0" data-linked-resource-id="29098446" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="statusbar-checker-disabled.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;icon on the status bar which then becomes colored.</p>
+      <ul style="margin-left: 20.0px;">
+       <li>In case of an error, a red exclamation mark appears&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="found error report on statusbar" height="16" width="16" src="attachments/10029028/29098448.png" data-image-src="attachments/10029028/29098448.png" data-unresolved-comment-count="0" data-linked-resource-id="29098448" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="statusbar-checker-error.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>. Left-clicking on this icon opens the&nbsp;<strong>Structure Checker</strong>&nbsp;window, where all the warnings are listed.</li>
+       <li>While the molecules are scanned for checker issues, a yellow question mark&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="checking in progress" height="16" width="16" src="attachments/10029028/29098451.png" data-image-src="attachments/10029028/29098451.png" data-unresolved-comment-count="0" data-linked-resource-id="29098451" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="statusbar-checker-progress.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;appears on the status bar.</li>
+       <li>If the molecule is correct, a green check mark&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="active checker on statusbar" height="18" width="18" src="attachments/10029028/29098447.png" data-image-src="attachments/10029028/29098447.png" data-unresolved-comment-count="0" data-linked-resource-id="29098447" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="statusbar-checker-enabled.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029028" data-linked-resource-container-version="35" /></span>&nbsp;appears in the Checker icon on the status bar.</li>
+      </ul> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

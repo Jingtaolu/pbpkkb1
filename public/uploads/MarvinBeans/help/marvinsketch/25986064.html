@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Moving&amp;Rotating</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Moving&amp;Rotating </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>You can move or rotate a selected structure.</p>
+          <p>Select the part of the structure you wish to move and to</p>
+          <p>&nbsp;</p>
+          <p style="margin-left: 30.0px;"><strong>Move the selection:</strong></p>
+          <ol>
+           <li>Move the mouse pointer toward the center of the selected structure until a blue rectangle appears.(You can also use the <strong>Space</strong> key to change between transformation modes.)</li>
+           <li>Translate the selection by dragging the mouse.</li>
+          </ol>
+          <p>&nbsp;</p>
+          <p style="margin-left: 30.0px;"><strong>Rotate the selection:</strong></p>
+          <ol>
+           <li>Move the mouse pointer toward the outline of the molecule until a blue gear appears.(You can also use the <strong>Space</strong> key to change between transformation modes.)</li>
+           <li>Rotate the selection by dragging the mouse.</li>
+          </ol>
+          <p style="margin-left: 30.0px;">&nbsp;</p>
+          <p style="margin-left: 30.0px;"><strong>Rotate the selection in 3D:</strong></p>
+          <p style="margin-left: 30.0px;">Rotation in 3D of the following structural parts is possible</p>
+          <ul>
+           <li>all compounds on the canvas,</li>
+           <li>selected fragments,</li>
+           <li>selected groups.</li>
+          </ul>
+          <p style="margin-left: 30.0px;">Rotation of all compunds on the canvas in 3D can be accomplished by the <strong>View &gt; Mouse mode &gt; Rotate in 3D</strong>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25986577/29099662.png" data-image-src="attachments/25986577/29099662.png" data-unresolved-comment-count="0" data-linked-resource-id="29099662" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate-mode24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25986577" data-linked-resource-container-version="13" /></span> menu option.<br /> The axis of the 3D rotation for selected objects can be determined in the<strong> Edit &gt; Transform &gt; Rotate in 3D</strong> menu (or from the contextual menu) by choosing from the following list:</p>
+          <ul>
+           <li>Around an arbitrary axis defined by two atoms: in this case you are asked to select the atoms prior to the rotation.</li>
+           <li>Around x axis: horizontal axis in the plane of the canvas</li>
+           <li>Around y axis: vertical axis in the plane of the canvas</li>
+           <li>Around z axis: axis perpendicular to the plane of the canvas</li>
+           <li>Free 3D rotation: the rotation follows the movement of the mouse (click&amp;drag).</li>
+           <li>(Note: 3D rotation mode until version 5.3.x: pressing the<strong> Space</strong> key 3 times initiates the free 3D rotation.)</li>
+           <li>Group Rotate: available only for a selected group in a molecule. The connecting bond(s) is recognized between the selected and unselected parts of the structure and selects the rotation axis accordingly.</li>
+          </ul>
+          <p style="margin-left: 30.0px;">The rotations are visualized by the fog effect: parts of the molecule behind the canvas are of lighter colour than the parts on the canvas. To see best the 3D view, use white background (<strong>View &gt; Colors &gt; White Background</strong>).</p>
+          <p>&nbsp;</p>
+          <p style="margin-left: 30.0px;"><strong>Customized tool: 3D plane:</strong></p>
+          <ol>
+           <li class="_mce_tagged_br">Select 3 atoms in the molecule.</li>
+           <li class="_mce_tagged_br">Click the 3D Plane button or select <strong>Edit &gt; Transformation &gt; 3D Plane</strong>.&nbsp;</li>
+          </ol>
+          <p style="margin-left: 30.0px;">The selected 3 atoms will lie in the plane of the canvas. The coordinates are changed, not only the view of the structure</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Currently 3D coordinates of brackets (e.g. monomer, component type groups) are not correctly updated when rotating the molecule in 3D mode.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

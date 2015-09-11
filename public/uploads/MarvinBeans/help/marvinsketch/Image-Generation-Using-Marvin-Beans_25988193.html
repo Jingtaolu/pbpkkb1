@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Image Generation Using Marvin Beans</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Image Generation Using Marvin Beans </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201037666 {padding: 0px;}
+div.rbtoc1439201037666 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201037666 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201037666"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#ImageGenerationUsingMarvinBeans-SystemRequirement">System Requirement</a></li> 
+              <li><a href="#ImageGenerationUsingMarvinBeans-Installation">Installation</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#ImageGenerationUsingMarvinBeans-Troubleshoot">Troubleshoot</a></li> 
+               </ul> </li> 
+              <li><a href="#ImageGenerationUsingMarvinBeans-Examples">Examples</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>The examples below demonstrate how to integrate the Marvin Beans API into JSP pages to generate images from molecule sources.</p>
+          <p>We provide only tryout for each example (see &quot;online&quot; link by the example). If you would like to install them to your server, see the &quot;Installation&quot; section.</p>
+          <h2 id="ImageGenerationUsingMarvinBeans-SystemRequirement"><a class="anchor" name="sysrequirement" rel="nofollow"></a>System Requirement</h2>
+          <p>Since the examples are JSP examples, you need a web server that implements <a href="http://java.sun.com/products/jsp/" class="external-link" rel="nofollow">Java Server Pages technology</a>. We recommend <a href="http://tomcat.apache.org" class="external-link" rel="nofollow">Apache Tomcat</a> to use. Tomcat needs a <a href="http://java.sun.com/javase/downloads/index.jsp" class="external-link" rel="nofollow">Sun's JDK</a> to compile and run JSP code. Since Marvin Beans API requires at least Java 1.5, the JDK that Tomcat uses has to be 1.5 or later version.</p>
+          <p>On client side, you need only a web browser to access the web server and open the JSP pages. In a few examples, MarvinSketch or MarvinView applets are also referred to draw query or display result. To be able to run applet, you need a Java capable browser (most of the browser support it) and a Java Plugin. Read more about it in the System requirement of MarvinView/Sketch applet: <a href="System-Requirements-for-Marvin_16122110.html">System requirements</a>.</p>
+          <p>Examples load the applet from the ChemAxon site. Of course, you can modify your local copy of JSP examples to get applet from your own site.</p>
+          <h2 id="ImageGenerationUsingMarvinBeans-Installation"><a class="anchor" name="installation" rel="nofollow"></a>Installation</h2>
+          <ol>
+           <li>Install Apache Tomcat. (Of course the examples also run under other servlet servers. In this document we demonstrates installation with a 4.1 version of Apache Tomcat under Linux that we placed into the <code>/opt/apache-tomcat</code> directory.) Refers to its manual how to do it.</li>
+           <li>Download the Marvin Beans package and extract it somewhere. (You can use also the JChem package since it also includes the Marvin Beans API.)</li>
+           <li>Copy all jar files (files with <code>.jar</code> extension) of the <strong>lib</strong> directory of Marvin Beans (or JChem) package into the <strong>shared/lib</strong> directory of Tomcat.<pre>cd $HOME/marvinbeans/lib
+cp *.jar /opt/apache-tomcat/shared/lib/</pre></li>
+           <li>Create the <strong>marvin</strong> directory where default JSP examples are situated under your Tomcat: <strong>webapps/examples/jsp/marvin</strong>.<pre>cd /opt/apache-tomcat/webapps/examples/jsp
+mkdir marvin</pre></li>
+           <li>Copy all files from the <strong>examples/beans/image-generation</strong> directory of Marvin Beans to previously created directory (<code>webapps/examples/jsp/marvin/</code>).<pre>cp $HOME/marvinbeans/examples/beans/image-generation/* /opt/apache-tomcat/webapps/examples/jsp/marvin/</pre></li>
+           <li>Modify <code>show_image3.jsp</code> and <code>show_image4.jsp</code> to refer to that directory in the path to caffeine.smi. In this case the new path is <code>/opt/apache-tomcat/webapps/examples/jsp/marvin/caffeine.smi</code>.</li>
+           <li>Start Tomcat (or restart it if it is already running).</li>
+          </ol>
+          <p>The installation is completed. To test everything works fine, open the following URL in your web browser.</p>
+          <pre>http://localhost:8080/examples/jsp/marvin/show_image1.html</pre>
+          <p>If you would like to access it from a different machine, substitute the <code>localhost</code> domain with the IP address or domain name of the web server.</p>
+          <h4 id="ImageGenerationUsingMarvinBeans-Troubleshoot">Troubleshoot</h4>
+          <p>If the example does not display when you open the above URL in the browser, the problem may be in the configuration. Probably, you have copied jars into the wrong directory. Check the error log of Tomcat: <strong>logs/catalina.out</strong>. In this case, you will find the following error message there:</p>
+          <pre>Error compiling file: /opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java     [javac] Compiling 1 source file
+
+/opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java:9: package chemaxon.formats does not exist
+import chemaxon.formats.MolImporter;
+                        ^
+/opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java:10: package chemaxon.struc does not exist
+import chemaxon.struc.Molecule;
+                      ^
+/opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java:67: cannot find symbol
+symbol  : class Molecule
+location: class org.apache.jsp.generate_image_jsp
+    Molecule mol = null;
+    ^
+/opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java:71: cannot find symbol
+symbol  : class MolImporter
+location: class org.apache.jsp.generate_image_jsp
+        MolImporter mi = new MolImporter(f,&quot;&quot;);
+        ^
+/opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java:71: cannot find symbol
+symbol  : class MolImporter
+location: class org.apache.jsp.generate_image_jsp
+        MolImporter mi = new MolImporter(f,&quot;&quot;);
+                             ^
+/opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java:75: cannot find symbol
+symbol  : variable MolImporter
+location: class org.apache.jsp.generate_image_jsp
+        mol = MolImporter.importMol(molstring);
+              ^
+6 errors
+
+Info: Compile: javaFileName=/opt/apache-tomcat/work/Standalone/localhost/examples/jsp/marvin/generate_image_jsp.java
+    classpath=/opt/apache-tomcat/webapps/examples/WEB-INF/classes/:/opt/apache-tomcat/webapps/examples/WEB-INF/classes/:/opt/apache-tomcat/shared/classes/:/opt/apache-tomcat/common/classes/:/opt/apache-tomcat/common/lib/ant-launcher.jar:/opt/apache-tomcat/common/lib/jasper-runtime.jar:/opt/apache-tomcat/common/lib/commons-collections-3.2.jar:/opt/apache-tomcat/common/lib/jasper-compiler.jar:/opt/apache-tomcat/common/lib/ant.jar:/opt/apache-tomcat/common/lib/naming-factory.jar:/opt/apache-tomcat/common/lib/commons-logging-api-1.1.1.jar:/opt/apache-tomcat/common/lib/servlet.jar:/opt/apache-tomcat/common/lib/naming-resources.jar:/opt/apache-tomcat/common/lib/naming-common.jar
+     cp=/opt/apache-tomcat/webapps/examples/WEB-INF/classes
+     cp=/opt/apache-tomcat/webapps/examples/WEB-INF/classes
+     cp=/opt/apache-tomcat/shared/classes
+     cp=/opt/apache-tomcat/common/classes
+     cp=/opt/apache-tomcat/common/lib/ant-launcher.jar
+     cp=/opt/apache-tomcat/common/lib/jasper-runtime.jar
+     cp=/opt/apache-tomcat/common/lib/commons-collections-3.2.jar
+     cp=/opt/apache-tomcat/common/lib/jasper-compiler.jar
+     cp=/opt/apache-tomcat/common/lib/ant.jar
+     cp=/opt/apache-tomcat/common/lib/naming-factory.jar
+     cp=/opt/apache-tomcat/common/lib/commons-logging-api-1.1.1.jar
+     cp=/opt/apache-tomcat/common/lib/servlet.jar
+     cp=/opt/apache-tomcat/common/lib/naming-resources.jar
+     cp=/opt/apache-tomcat/common/lib/naming-common.jar
+     work dir=/opt/apache-tomcat/work/Standalone/localhost/examples
+    srcDir=/opt/apache-tomcat/work/Standalone/localhost/examples
+    include=jsp/marvin/generate_image_jsp.java
+Exception compiling Compile failed; see the compiler error output for details.</pre>
+          <p>Check the <strong>shared/lib</strong> folder of your Tomcat whether Marvin Beans jars are available there. If not, complete it. If yes, please consult with the manual of the Tomcat why it can not load classes from these jar.</p>
+          <h2 id="ImageGenerationUsingMarvinBeans-Examples"><a class="anchor" name="examples" rel="nofollow"></a>Examples</h2>
+          <p>The following examples send a structure to a JSP script that generates an image and displays it in the web browser.</p>
+          <div>
+           <ul>
+            <li>Using the <code>POST</code> method for sending a SMILES string and the image format.<br /><pre>http://localhost:8080/examples/jsp/marvin/show_image1.html</pre>(<a href="http://www.chemaxon.com/marvin/examples/beans/image-generation/show_image1.html.txt" class="external-link" rel="nofollow">source</a> | <a href="http://www.chemaxon.com/test/image-generation/show_image1.html" class="external-link" rel="nofollow">online version</a>)</li>
+            <li>Using the <code>GET</code> method and URL encoding for sending a SMILES string and the image format.<br /><pre>http://localhost:8080/examples/jsp/marvin/show_image2.jsp</pre>(<a href="http://www.chemaxon.com/marvin/examples/beans/image-generation/show_image2.jsp.txt" class="external-link" rel="nofollow">source</a> | <a href="http://www.chemaxon.com/test/image-generation/show_image2.jsp" class="external-link" rel="nofollow">online version</a>)</li>
+            <li>Using the <code>GET</code> method and URL encoding for sending the name of the file (containing the structure) and the image format.<br /><pre>http://localhost:8080/examples/jsp/marvin/show_image3.jsp</pre>(<a href="http://www.chemaxon.com/marvin/examples/beans/image-generation/show_image3.jsp.txt" class="external-link" rel="nofollow">source</a>) | <a href="http://www.chemaxon.com/test/image-generation/show_image3.jsp" class="external-link" rel="nofollow">online version</a>)</li>
+            <li>Modification of the previous example: By clicking the image, the linking molecule will be displayed in a viewer applet.<br /><pre>http://localhost:8080/example/jsp/marvin/show_image4.jsp</pre>(<a href="http://www.chemaxon.com/marvin/examples/beans/image-generation/show_image4.jsp.txt" class="external-link" rel="nofollow">source</a> | <a href="http://www.chemaxon.com/test/image-generation/show_image4.jsp" class="external-link" rel="nofollow">online version</a>)</li>
+            <li>Several images on one page. By clicking on an image, the choosen structure will be displayed in a viewer applet.<pre>http://localhost:8080/examples/jsp/marvin/show_image5.jsp</pre>(<a href="http://www.chemaxon.com/marvin/examples/beans/image-generation/show_image5.jsp.txt" class="external-link" rel="nofollow">source</a> | <a href="http://www.chemaxon.com/test/image-generation/show_image5.jsp" class="external-link" rel="nofollow">online version</a>)</li>
+           </ul>Please also see:
+           <ul>
+            <li><a href="http://www.chemaxon.com/marvin/help/formats/formats.html" class="external-link" rel="nofollow">http://www.chemaxon.com/marvin/help/formats.html</a></li>
+            <li><a href="http://www.chemaxon.com/marvin/help/formats/images-doc.html" class="external-link" rel="nofollow">http://www.chemaxon.com/marvin/help/formats/images-doc.html</a></li>
+           </ul>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

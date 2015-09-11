@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Evaluator and JChem Cartridge Examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Evaluator and JChem Cartridge Examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h3 id="EvaluatorandJChemCartridgeExamples-andexamples(moleculecontext)"><a href="Chemical-Terms-Evaluator_13829045.html">Chemical Terms Evaluator</a>&nbsp;and&nbsp;<a href="JChem-Cartridge_13829047.html">JChem Cartridge</a>&nbsp;examples (<a href="Input-Contexts_14943067.html#InputContexts-molecule_context">molecule context</a>)</h3>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>The examples are divided into three groups:</p>
+        <p><a href="#EvaluatorandJChemCartridgeExamples-structure_based_calculations">Structure-based calculations (plugin calculations)</a></p>
+        <p><a href="#EvaluatorandJChemCartridgeExamples-functions">Functions</a></p>
+        <p><a href="#EvaluatorandJChemCartridgeExamples-matching_conditions">Matching conitions</a></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="EvaluatorandJChemCartridgeExamples-structure_based_calculationsStructurebasedcalculations(plugincalculations)"><span class="confluence-anchor-link" id="EvaluatorandJChemCartridgeExamples-structure_based_calculations"></span>Structure based calculations (plugin calculations)<br />&nbsp;</h1>
+      <p>Plugin references provide access to ChemAxon's calculator plugins. These calculations equip our expressions with chemical meaning.</p>
+      <ol>
+       <li><p><span style="line-height: 1.4285715;">The physiological microspecies at pH&nbsp;</span><code style="line-height: 1.4285715;">7.4</code><span style="line-height: 1.4285715;">&nbsp;of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">microspecies(&quot;7.4&quot;)</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The partial charges on atoms&nbsp;</span><code style="line-height: 1.4285715;">0</code><span style="line-height: 1.4285715;">,&nbsp;</span><code style="line-height: 1.4285715;">2</code><span style="line-height: 1.4285715;">&nbsp;and&nbsp;</span><code style="line-height: 1.4285715;">3</code><span style="line-height: 1.4285715;">&nbsp;(0-based) of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(0, 2, 3)</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The same with taking the physiological microspecies at pH&nbsp;</span><code style="line-height: 1.4285715;">7.4</code><span style="line-height: 1.4285715;">:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(0, 2, 3, &quot;7.4&quot;)</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">Checking whether the partial charge on atom&nbsp;</span><code style="line-height: 1.4285715;">0</code><span style="line-height: 1.4285715;">&nbsp;in the input molecule is greater than or equal to this charge value in the physiological microspecies at pH&nbsp;</span><code style="line-height: 1.4285715;">7.4</code><span style="line-height: 1.4285715;">:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(0) &gt; charge(0, &quot;7.4&quot;)</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The significant pKa&nbsp;value (acidic or basic) on atom&nbsp;</span><code style="line-height: 1.4285715;">9</code><span style="line-height: 1.4285715;">&nbsp;(0-based) of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pka(9)</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The acidic pKa&nbsp;value on atom&nbsp;</span><code style="line-height: 1.4285715;">9</code><span style="line-height: 1.4285715;">&nbsp;(0-based) of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pka(&quot;acidic&quot;, 9)</pre> 
+         </div>
+        </div>
+        <div class="confluence-information-macro confluence-information-macro-note"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>Note that if the pKa&nbsp;type &quot;acidic&quot; or &quot;basic&quot; is omitted (as in the previous example), then the more significant value is returned, while specifically the &quot;acidic&quot; (or &quot;basic&quot;) pKa&nbsp;value is returned if the type is specified.</p>
+         </div> 
+        </div> </li>
+       <li><p><span style="line-height: 1.4285715;">The strongest acidic pKa&nbsp;value of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pka(&quot;acidic&quot;, &quot;1&quot;)</pre> 
+         </div>
+        </div>
+        <div class="confluence-information-macro confluence-information-macro-note"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p><span>Note the difference in the last two examples: in pKa&nbsp;calculation a number denotes the atom index while a number in quotation marks denotes the strength order:&nbsp;</span><code>9</code><span>&nbsp;in the previous example refers to atom&nbsp;</span><code>9</code><span>&nbsp;while&nbsp;</span><code>&quot;1&quot;</code><span>&nbsp;in the above example refers to the strongest acidic pKa&nbsp;value (</span><code>&quot;2&quot;</code><span>&nbsp;refers to the second strongest value, etc.).</span></p>
+         </div> 
+        </div> </li>
+       <li><p><span style="line-height: 1.4285715;">The logP&nbsp;value of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logp()</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The logD&nbsp;value at&nbsp;</span><code style="line-height: 1.4285715;">pH=7.4</code><span style="line-height: 1.4285715;">&nbsp;of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logd(&quot;7.4&quot;)</pre> 
+         </div>
+        </div>
+        <div class="confluence-information-macro confluence-information-macro-note"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>Note that in logD&nbsp;calculation the pH value should be enclosed in quotation marks.</p>
+         </div> 
+        </div> </li>
+       <li><p><span style="line-height: 1.4285715;">Check the difference between logD&nbsp;values at two different pH-s:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logd(&quot;7.4&quot;) - logd(&quot;3.8&quot;) &gt; 0.5</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The mass of the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">mass()</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The number of H bond acceptor atoms in the input molecule:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">acceptorCount()</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">The same with taking the physiological microspecies at pH&nbsp;</span><code style="line-height: 1.4285715;">7.4</code><span style="line-height: 1.4285715;">:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">acceptorCount(&quot;7.4&quot;)</pre> 
+         </div>
+        </div></li>
+       <li><p><span style="line-height: 1.4285715;">Checking the difference of the two above:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">acceptorCount(&quot;7.4&quot;) - acceptorCount() &gt; 1</pre> 
+         </div>
+        </div></li>
+      </ol>
+      <h1 id="EvaluatorandJChemCartridgeExamples-functionsFunctions"><span class="confluence-anchor-link" id="EvaluatorandJChemCartridgeExamples-functions"></span>Functions<br />&nbsp;</h1>
+      <p>There are different types of functions provided by ChemAxon:</p>
+      <ol style="margin-left: 20.0px;">
+       <li><strong>general purpose functions</strong>: simple array utility functions, such as minimum, maximum, sum or number of array elements and an array element sorter function</li>
+       <li><strong>atomic functions</strong>: functions referring to an input atom, such as the atom property query function of which queries atom properties (e.g. hydrogen count) or the containment function that checks whether an atom index is contained in an atom index array</li>
+       <li><strong>molecular functions</strong>: functions that calculate molecular properties, but do not fit into the structure based calculations section (e.g.&nbsp;<code>isQuery</code>&nbsp;function)</li>
+       <li><strong>evaluator functions</strong>: functions containing an inner expression string as parameter - evaluate this expression for each atom in an&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-atom_context">atom context</a>, examples include a filtering function that takes a boolean expression and returns atoms satisfying it and min-max functions which evaluate the inner expression for all atoms in the context, return the minimum or maximum value or the corresponding atom index</li>
+      </ol>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">1.&nbsp;The minimum of the partial charge values on atoms&nbsp;<code>7</code>,&nbsp;<code>8</code>&nbsp;and&nbsp;<code>9</code>&nbsp;(0-based) of the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">min(charge(7), charge(8), charge(9))</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">2. The hydrogen count on atom&nbsp;<code>2</code>&nbsp;(0-based) of the input molecule:</p>
+      <p>&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">hcount(2)</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">3. The valence of atom&nbsp;<code>2</code>&nbsp;of the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">valence(2) </pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">4. The atom indices corresponding to positive partial charges in the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">filter(&quot;charge() &gt; 0&quot;)</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">5. The number of atoms with positive partial charge in the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">count(filter(&quot;charge() &gt; 0&quot;)) </pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">6. The positive partial charges in the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(filter(&quot;charge() &gt; 0&quot;))</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">7. The same but sorted in ascending order:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">sortAsc(charge(filter(&quot;charge() &gt; 0&quot;)))</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">8. Indices of atoms having partial charge at least&nbsp;<code>0.4</code>&nbsp;in the major microspecies at&nbsp;<code>pH=7.4</code>:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">filter(&quot;charge('7.4') &gt;= 0.4&quot;)</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">9. The partial charge values on these atoms in the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(filter(&quot;charge('7.4') &gt;= 0.4&quot;))</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">10. The minimum acidic pKa&nbsp;value on hetero atoms with a single hydrogen:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">min(pka(filter(&quot;match('[!#6!#1;H1]')&quot;), &quot;acidic&quot;))</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">11. Checking whether there is a hetero atom with acidic pKa&nbsp;value less than&nbsp;<code>0.75</code>:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">min(pka(filter(&quot;match('[!#6!#1;H1]')&quot;), &quot;acidic&quot;)) &lt; 0.75</pre> 
+       </div>
+      </div>
+      <p style="margin-left: 30.0px;">12. Indices of atoms with the two strongest basic pKa&nbsp;values:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">maxAtom(&quot;pka('basic')&quot;, 2)</pre> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note, that expression strings can be enclosed by either double or single quotes, in case of nested strings these can be used alternated.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>However, some UNIX shells interpret single quotes and therefore single quotes are hard to use in command line input - the file input solves this problem, or else single double quotes can be replaced by escaped inner double quotes:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">maxAtom(&quot;pka(\&quot;basic\&quot;)&quot;, 2)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">13. The corresponding pKa&nbsp;values:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">maxValue(&quot;pka('basic')&quot;, 2)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">14. Testing whether the partial charge on the atom with the strongest basic pKa&nbsp;value exceeds the partial charge on the atom with the second strongest basic pKavalue:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">x = maxAtom(&quot;pka('basic')&quot;, 2);
+charge(x[0]) &gt; charge(x[1])</pre> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note, that in the current version the above expression cannot be evaluated if there are less than two basic pKa&nbsp;values in the input molecule.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">15. The basic pKa&nbsp;values for atoms with positive charge, sorted in descending order:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">sortDesc(pka(&quot;basic&quot;, filter(&quot;charge() &gt; 0&quot;)))</pre> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note, that in the current version&nbsp;<code>NaN</code>&nbsp;(meaning that there is no valid pKa&nbsp;for the given atom) values are put to the end of the array after sorting.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">16. Checking whether there is a sufficiently large difference between the two strongest basic pKa&nbsp;values of the previous example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">x = sortDesc(pka(&quot;basic&quot;, filter(&quot;charge() &gt; 0&quot;)));
+x[0] - x[1] &gt; 1.5</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">17. The hydrogen count for each atom in the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">eval(&quot;hcount()&quot;)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">18. The number of hydrogens in the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">sum(eval(&quot;hcount()&quot;))</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">19. Dissimilarity between the benzene ring and the input molecule using pharmacophore fingerprint as molecular descriptor with Tanimoto (default) metric:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">refmol = &quot;c1ccccc1&quot;;
+dissimilarity(&quot;PF&quot;, refmol) </pre> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note:&nbsp;<code>dissimilarity</code>&nbsp;function is not available in Marvin; it can be used only if JChem software package is installed.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">20. The same using Euclidean metric:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">refmol = &quot;c1ccccc1&quot;;
+dissimilarity(&quot;PF:Euclidean&quot;, refmol) </pre> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note:&nbsp;<code>dissimilarity</code>&nbsp;function is not available in Marvin; it can be used only if JChem software package is installed.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">21. The partial charge on the two atoms out of&nbsp;<code>1, 6, 8</code>&nbsp;(0-based atom indices) having the first and second biggest hydrogen counts (<a href="Input-Contexts_14943067.html#InputContexts-molecule_context">molecule context</a>):</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">x = array(1, 6, 8);
+y = maxAtom(x, &quot;hcount()&quot;, 2);
+charge(y)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">22. Checking whether atom&nbsp;<code>6</code>&nbsp;(0-based atom index) has the first or second smallest partial charge among atoms&nbsp;<code>1, 6, 8, 10, 12</code>&nbsp;(<a href="Input-Contexts_14943067.html#InputContexts-molecule_context">molecule context</a>):</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">x = array(1, 6, 8, 10, 12);
+y = minAtom(x, &quot;charge()&quot;, 2);
+in(6, y)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="EvaluatorandJChemCartridgeExamples-matching_conditionsMatchingconditions"><span class="confluence-anchor-link" id="EvaluatorandJChemCartridgeExamples-matching_conditions"></span>Matching conditions<br />&nbsp;</h1>
+      <p><span style="line-height: 1.5625;">There are three options to reference&nbsp;</span><a href="https://docs.chemaxon.com/display/jchembase/Search+types">substructure search</a><span style="line-height: 1.5625;">&nbsp;from our expressions:&nbsp;</span><code style="line-height: 1.5625;">match</code><span style="line-height: 1.5625;">&nbsp;function returns a&nbsp;</span><code style="line-height: 1.5625;">true / false</code><span style="line-height: 1.5625;">&nbsp;answer while&nbsp;</span><code style="line-height: 1.5625;">matchCount</code><span style="line-height: 1.5625;">&nbsp;and&nbsp;</span><code style="line-height: 1.5625;">disjointMatchCount</code><span style="line-height: 1.5625;">&nbsp;functions return the number of search hits.</span></p>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note:&nbsp;match,&nbsp;matchCount&nbsp;and&nbsp;disjointMatchCount&nbsp;functions are not available in Marvin, they can be used only if JChem software package is installed.</p>
+       </div> 
+      </div> 
+      <p><span style="line-height: 1.5625;"><br /></span></p>
+      <p>&nbsp;</p>
+      <ol>
+       <li>A simple molecule matching test taking the input molecule as target:</li>
+      </ol>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(&quot;C1CCOCC1&quot;)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">2. Atom matching with target atom being atom&nbsp;<code>2</code>&nbsp;(0-based) of the input molecule and query atom set being all query atoms:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(2, &quot;C1CCOCC1&quot;)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">3. Atom matching with target atom being atom&nbsp;<code>2</code>&nbsp;(0-based) of the input molecule, and query atom set being both query carbon atoms attached to the oxygen:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(2, &quot;C1C[C:1]O[C:2]C1&quot;, 1, 2)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">4. The same with referencing the query by molecule file path:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(2, &quot;mols/query.mol&quot;, 1, 2)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">5. The same with referencing the query by molecule ID&nbsp;<code>nitro</code>&nbsp;as a predefined molecule constant:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(2, nitro, 1, 2)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">6. The sum of &quot;C=O&quot; and &quot;CO&quot; groups in the input molecule:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">matchCount(&quot;C=O&quot;) + matchCount(&quot;CO&quot;)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p style="margin-left: 30.0px;">7. A more complex condition checking whether the input molecule contains sulfur and whether there are at least&nbsp;<code>6</code>&nbsp;&quot;C=O&quot; and &quot;CO&quot; groups in the input molecule alltogether:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">&nbsp;match(&quot;S&quot;) &amp;&amp; (matchCount(&quot;C=O&quot;) + matchCount(&quot;CO&quot;) &gt;= 6)</pre> 
+       </div>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

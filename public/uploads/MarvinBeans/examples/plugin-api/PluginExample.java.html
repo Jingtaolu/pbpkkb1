@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>source file</title>
+<link rel="stylesheet" href="../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> */</span>
+
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">IOException</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">calculations</span><span class="symbol">.</span><span class="normal">MajorMicrospeciesPlugin</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">calculations</span><span class="symbol">.</span><span class="normal">TPSAPlugin</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">calculations</span><span class="symbol">.</span><span class="normal">logDPlugin</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">calculations</span><span class="symbol">.</span><span class="normal">IUPACNamingPlugin</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">plugin</span><span class="symbol">.</span><span class="normal">PluginException</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">struc</span><span class="symbol">.</span><span class="normal">Molecule</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolExporter</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolImporter</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * In this example MajorMicrospeciesPlugin is used to generate the major</span>
+<span class="comment"> * microspecies at pH 7.4,TPSAPlugin to calculate the polar surface areas,</span>
+<span class="comment"> * loDPlugin to to calculate the logD values, and IUPACNamingPlugin to </span>
+<span class="comment"> * generate the names of molecules read from a molfile. The results of the </span>
+<span class="comment"> * calculations are written to an SDfile, the molecules in the file are the </span>
+<span class="comment"> * major microspecies of the input molecules, IUPAC names, surface area </span>
+<span class="comment"> * values and logD values are saved in SDF property fields.</span>
+<span class="comment"> * </span>
+<span class="comment"> * </span><span class="keyword">&lt;p&gt;</span><span class="comment">Usage:</span>
+<span class="comment"> * </span><span class="keyword">&lt;pre&gt;</span><span class="comment">   java PluginExample [molFile]</span><span class="keyword">&lt;/pre&gt;</span>
+<span class="comment"> * </span>
+<span class="comment"> * For the detailed description of this example, please visit</span>
+<span class="comment"> * </span><span class="url">http://www.chemaxon.com/marvin/examples/plugin/index.html</span><span class="comment">#example1</span>
+<span class="comment"> * </span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.0.4 04/22/2008</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment"> Marvin 5.0.4</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment"> Zsolt Mohacsi</span>
+<span class="comment"> */</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> </span><span class="classname">PluginExample</span><span class="normal"> </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    </span><span class="comment">// instantiate the plugin objects</span>
+<span class="normal">	    MajorMicrospeciesPlugin mmsPlugin </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MajorMicrospeciesPlugin</span><span class="symbol">();</span>
+<span class="normal">	    TPSAPlugin tpsaPlugin </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">TPSAPlugin</span><span class="symbol">();</span>
+<span class="normal">	    logDPlugin logDPlugin </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">logDPlugin</span><span class="symbol">();</span><span class="normal"> </span>
+<span class="normal">	    IUPACNamingPlugin iupacNamingPlugin </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">IUPACNamingPlugin</span><span class="symbol">();</span>
+
+<span class="normal">	    </span><span class="comment">// set the parameters for the calculations</span>
+<span class="normal">	    </span><span class="comment">// MajorMicrospeciesPlugin parameters</span>
+<span class="normal">	    mmsPlugin</span><span class="symbol">.</span><span class="function">setpH</span><span class="symbol">(</span><span class="number">7.4</span><span class="symbol">);</span><span class="normal"> </span><span class="comment">// major microspecies generation at pH = 7.4</span>
+<span class="normal">	    </span><span class="comment">// TPSAPlugin parameters</span>
+<span class="normal">	    tpsaPlugin</span><span class="symbol">.</span><span class="function">setpH</span><span class="symbol">(</span><span class="number">7.4</span><span class="symbol">);</span><span class="normal"> </span><span class="comment">// surface area calculation at pH = 7.4</span>
+<span class="normal">	    </span><span class="comment">// logDPlugin parameters</span>
+<span class="normal">	    </span><span class="comment">// set the Cl- and Na+/K+ concentration</span>
+<span class="normal">	    logDPlugin</span><span class="symbol">.</span><span class="function">setCloridIonConcentration</span><span class="symbol">(</span><span class="number">0.15</span><span class="symbol">);</span>
+<span class="normal">	    logDPlugin</span><span class="symbol">.</span><span class="function">setNaKIonConcentration</span><span class="symbol">(</span><span class="number">0.15</span><span class="symbol">);</span>
+<span class="normal">	    </span><span class="comment">// set the pH range and pH step size</span>
+<span class="normal">	    logDPlugin</span><span class="symbol">.</span><span class="function">setpHLower</span><span class="symbol">(</span><span class="number">5.4</span><span class="symbol">);</span>
+<span class="normal">	    logDPlugin</span><span class="symbol">.</span><span class="function">setpHUpper</span><span class="symbol">(</span><span class="number">9.4</span><span class="symbol">);</span>
+<span class="normal">	    logDPlugin</span><span class="symbol">.</span><span class="function">setpHStep</span><span class="symbol">(</span><span class="number">2.0</span><span class="symbol">);</span>
+<span class="normal">	    </span><span class="comment">// (there are no parameters to set for IUPACNamingPlugin) </span>
+<span class="normal">	    </span>
+<span class="normal">	    </span><span class="comment">// create a MolExporter for writing the result molecules</span>
+<span class="normal">	    MolExporter exporter </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolExporter</span><span class="symbol">(</span><span class="normal">System</span><span class="symbol">.</span><span class="normal">out</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"sdf"</span><span class="symbol">);</span>
+<span class="normal">	    </span>
+<span class="normal">	    </span><span class="comment">// read the input molecules and perform the calculations</span>
+<span class="normal">	    MolImporter importer </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolImporter</span><span class="symbol">(</span><span class="normal">args</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">]);</span>
+<span class="normal">	    Molecule mol</span><span class="symbol">;</span>
+<span class="normal">	    </span><span class="keyword">while</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">mol </span><span class="symbol">=</span><span class="normal"> importer</span><span class="symbol">.</span><span class="function">read</span><span class="symbol">())</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+
+<span class="normal">	        </span><span class="comment">// Perform major microspecies, polar surface area and logD </span>
+<span class="normal">	        </span><span class="comment">// calulations</span>
+<span class="normal">	        </span>
+<span class="normal">	        </span><span class="comment">// set the input molecule for MajorMicrospeciesPlugin,</span>
+<span class="normal">	        </span><span class="comment">// TPSAPlugin and logDPlugin</span>
+<span class="normal">	        mmsPlugin</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="normal">mol</span><span class="symbol">);</span>
+<span class="normal">	        tpsaPlugin</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="normal">mol</span><span class="symbol">);</span>
+<span class="normal">	        logDPlugin</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="normal">mol</span><span class="symbol">);</span>
+<span class="normal">	        </span>
+<span class="normal">	        </span><span class="comment">// run the major microspecies, TPSA and logD calculations</span>
+<span class="normal">	        mmsPlugin</span><span class="symbol">.</span><span class="function">run</span><span class="symbol">();</span>
+<span class="normal">	        tpsaPlugin</span><span class="symbol">.</span><span class="function">run</span><span class="symbol">();</span>
+<span class="normal">	        logDPlugin</span><span class="symbol">.</span><span class="function">run</span><span class="symbol">();</span>
+
+<span class="normal">	        </span><span class="comment">// get the results of the calculations</span>
+<span class="normal">	        </span><span class="comment">// get the result of the major microspecies calculation</span>
+<span class="normal">	        Molecule majorms </span><span class="symbol">=</span><span class="normal"> mmsPlugin</span><span class="symbol">.</span><span class="function">getMajorMicrospecies</span><span class="symbol">();</span>
+<span class="normal">	        </span>
+<span class="normal">	        </span><span class="comment">// get the result of the polar surface area calculation</span>
+<span class="normal">	        </span><span class="type">double</span><span class="normal"> surfaceArea </span><span class="symbol">=</span><span class="normal"> tpsaPlugin</span><span class="symbol">.</span><span class="function">getSurfaceArea</span><span class="symbol">();</span>
+
+<span class="normal">	        </span><span class="comment">// get the results of the logD calculation</span>
+<span class="normal">	        </span><span class="comment">// get the pH values </span>
+<span class="normal">	        </span><span class="type">double</span><span class="symbol">[]</span><span class="normal"> pHs </span><span class="symbol">=</span><span class="normal"> logDPlugin</span><span class="symbol">.</span><span class="function">getpHs</span><span class="symbol">();</span>
+<span class="normal">	        </span><span class="comment">// get the logD values</span>
+<span class="normal">	        </span><span class="type">double</span><span class="symbol">[]</span><span class="normal"> logDs </span><span class="symbol">=</span><span class="normal"> logDPlugin</span><span class="symbol">.</span><span class="function">getlogDs</span><span class="symbol">();</span>
+<span class="normal">	        </span>
+<span class="normal">	        </span><span class="comment">// Generate the IUPAC name of the major microspecies</span>
+<span class="normal">	        </span><span class="comment">// generated by the MajorMicrospeciesPlugin.</span>
+
+<span class="normal">	        </span><span class="comment">// set majorms as input molecule for IUPACNamingPlugin </span>
+<span class="normal">	        iupacNamingPlugin</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="normal">majorms</span><span class="symbol">);</span>
+
+<span class="normal">	        </span><span class="comment">// run the IUPACNamingPlugin </span>
+<span class="normal">	        iupacNamingPlugin</span><span class="symbol">.</span><span class="function">run</span><span class="symbol">();</span>
+
+<span class="normal">	        </span><span class="comment">// get the preferred IUPAC name</span>
+<span class="normal">	        String name </span><span class="symbol">=</span><span class="normal"> iupacNamingPlugin</span><span class="symbol">.</span><span class="function">getPreferredIUPACName</span><span class="symbol">();</span>
+<span class="normal">	        </span>
+<span class="normal">	        </span><span class="comment">// Format and display the results</span>
+
+<span class="normal">	        </span><span class="comment">// store the pH - logD pairs in a string in format</span>
+<span class="normal">	        </span><span class="comment">// "[pH1]:logD1 [pH2]:logD2 ..."  </span>
+<span class="normal">	        String logDresult </span><span class="symbol">=</span><span class="normal"> </span><span class="string">""</span><span class="symbol">;</span>
+<span class="normal">	        </span><span class="keyword">for</span><span class="normal"> </span><span class="symbol">(</span><span class="type">int</span><span class="normal"> i </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span><span class="normal"> i </span><span class="symbol">&lt;</span><span class="normal"> pHs</span><span class="symbol">.</span><span class="normal">length</span><span class="symbol">;</span><span class="normal"> i</span><span class="symbol">++)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    	</span><span class="type">double</span><span class="normal"> pH </span><span class="symbol">=</span><span class="normal"> pHs</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">];</span>
+<span class="normal">	    	</span><span class="type">double</span><span class="normal"> logD </span><span class="symbol">=</span><span class="normal"> logDs</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">];</span>
+<span class="normal">	    	logD </span><span class="symbol">=</span><span class="normal"> Math</span><span class="symbol">.</span><span class="function">rint</span><span class="symbol">(</span><span class="normal">logD </span><span class="symbol">*</span><span class="normal"> </span><span class="number">100</span><span class="symbol">)/</span><span class="number">100</span><span class="symbol">;</span><span class="normal"> </span><span class="comment">// round</span>
+<span class="normal">	    	logDresult </span><span class="symbol">+=</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"["</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> pH </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"]:"</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> logD </span><span class="symbol">+</span><span class="normal"> </span><span class="string">" "</span><span class="symbol">);</span>
+<span class="normal">	        </span><span class="cbracket">}</span>
+
+<span class="normal">	        </span><span class="comment">// write the result molecules (the major microspecies at  </span>
+<span class="normal">	        </span><span class="comment">// pH 7.4) with other results in SDF fields</span>
+<span class="normal">	        majorms</span><span class="symbol">.</span><span class="function">setProperty</span><span class="symbol">(</span><span class="string">"NAME"</span><span class="symbol">,</span><span class="normal"> name</span><span class="symbol">);</span>
+<span class="normal">	        majorms</span><span class="symbol">.</span><span class="function">setProperty</span><span class="symbol">(</span><span class="string">"TPSA at pH 7.4"</span><span class="symbol">,</span><span class="normal"> </span>
+<span class="normal">	    	    Double</span><span class="symbol">.</span><span class="function">valueOf</span><span class="symbol">(</span><span class="normal">surfaceArea</span><span class="symbol">).</span><span class="function">toString</span><span class="symbol">());</span>
+<span class="normal">	        majorms</span><span class="symbol">.</span><span class="function">setProperty</span><span class="symbol">(</span><span class="string">"logD ([pH]:value)"</span><span class="symbol">,</span><span class="normal"> logDresult</span><span class="symbol">);</span>
+<span class="normal">	        exporter</span><span class="symbol">.</span><span class="function">write</span><span class="symbol">(</span><span class="normal">majorms</span><span class="symbol">);</span>
+<span class="normal">	    </span><span class="cbracket">}</span>
+<span class="normal">	    importer</span><span class="symbol">.</span><span class="function">close</span><span class="symbol">();</span>
+<span class="normal">	    exporter</span><span class="symbol">.</span><span class="function">close</span><span class="symbol">();</span>
+<span class="normal">	</span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">IOException e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"I/O error has occurred."</span><span class="symbol">);</span>
+<span class="normal">	    e</span><span class="symbol">.</span><span class="function">printStackTrace</span><span class="symbol">();</span>
+<span class="normal">	</span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">PluginException e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"Plugin processing or calculation error."</span><span class="symbol">);</span>
+<span class="normal">	    e</span><span class="symbol">.</span><span class="function">printStackTrace</span><span class="symbol">();</span>
+<span class="normal">	</span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

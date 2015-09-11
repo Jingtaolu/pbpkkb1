@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : XML-RPC</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : XML-RPC </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>XML-RPC Service uses the standard XML-RPC protocol to access remote calculations. The XML for the request is automatically generated from the provided attributes and arguments, and the response is parsed to unwrap the result of service call.</p>
+      <h5 id="XML-RPC-CallingXML-RPCServicefromAPI">Calling XML-RPC Service from API</h5>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">   &nbsp;XMLRPCServiceDescriptor descriptor = new XMLRPCServiceDescriptor();
+    descriptor.setURL(&quot;http://sample.server.net/xmlrpc&quot;);
+    descriptor.setMethodName(&quot;SampleService.countAtoms&quot;);
+    
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;&quot;));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;&quot;));
+
+    Object result = null;
+    try {
+        result = descriptor.getServiceHandler().callService(descriptor, &quot;C1CCNCCC1&quot;, &quot;C&quot;);
+    } catch (ServiceException e) {
+        System.err.println(&quot;Service call failed.&quot;);
+    }
+    System.out.println(&quot;Synchronized call returned: &quot; + String.valueOf(result));
+
+    
+    descriptor.getServiceHandler().callService(descriptor, new AsyncCallback&lt;Integer&gt;() {
+
+        @Override
+        public void onSuccess(Integer result) {
+            System.out.println(&quot;Asynchronous call returned: &quot; + result);
+        }
+
+        @Override
+        public void onFailure(ServiceException caught) {
+            System.err.println(&quot;Asynchronous call failed.&quot;);
+        }
+        
+    }, &quot;C1CCNCCC1&quot;, &quot;C&quot;);
+		</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre>    </pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

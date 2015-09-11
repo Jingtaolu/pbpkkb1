@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Creating a Configuration</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Creating a Configuration </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>You can build your configuration using the Configure Checkers window of Structure Checker:</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="760" src="attachments/10029254/10191603.png" data-image-src="attachments/10029254/10191603.png" data-unresolved-comment-count="0" data-linked-resource-id="10191603" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="configure_actions_layout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></p>
+      <p style="text-align: center;"><em>Layout of the Configure Checkers window</em></p>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>You will find information on this page about</p>
+        <ul>
+         <li><a href="#CreatingaConfiguration-browse">browsing the checker list</a></li>
+         <li><a href="#CreatingaConfiguration-add">adding checkers to the configuration</a></li>
+         <li><a href="#CreatingaConfiguration-remove">removing checkers from the configuration</a></li>
+         <li><a href="#CreatingaConfiguration-change">changing the sequence of the checkers</a></li>
+         <li><a href="#CreatingaConfiguration-adjust">adjusting fixers</a></li>
+         <li><a href="#CreatingaConfiguration-import">importing a configuration</a></li>
+         <li><a href="#CreatingaConfiguration-export">exporting a configuration</a></li>
+        </ul> 
+       </div>
+      </div>
+      <h4 id="CreatingaConfiguration-browseBrowsingthecheckerlist"><span class="confluence-anchor-link" id="CreatingaConfiguration-browse"></span>Browsing the checker list</h4>
+      <p>On the left panel of the Configure Actions window, the&nbsp;<strong>available checkers</strong>&nbsp;are listed in alphabetical order.&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029254/11370497.png" data-image-src="attachments/10029254/11370497.png" data-unresolved-comment-count="0" data-linked-resource-id="11370497" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="available_checkers.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></p>
+      <p>You can use the&nbsp;<strong>right-side scroll bar</strong>&nbsp;for browsing this list. Alternatively, a<strong>&nbsp;search box</strong>&nbsp;is also provided where you can type keywords.</p>
+      <p><span style="background-color: transparent;line-height: 1.4285715;">Two types of checkers are listed and are distinguished by different icons:</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="error checker" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/images/msketch/defaultcheck.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/images/msketch/defaultcheck.png" /></span>&nbsp;<strong>Error detecting checkers</strong>: Error checkers are looking for chemically wrong molecule parts (e.g., valence errors, overlapping atoms);</li>
+       <li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="feature checker" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/images/msketch/defaultfeaturecheck.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/images/msketch/defaultfeaturecheck.png" /></span>&nbsp;<strong>Feature detecting checkers</strong>: Feature checkers search for selected molecular characteristics that are generally not considered as errors (e.g., query properties). This checker can be rather regarded as a warning that there is an unpreferred representation in the structure.</li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);">Click on the name of the checker to see its description in the information panel.</span></p>
+      <h4 id="CreatingaConfiguration-"><span style="color: rgb(54,54,54);"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029254/11370499.png" data-image-src="attachments/10029254/11370499.png" data-unresolved-comment-count="0" data-linked-resource-id="11370499" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="additional options.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></span></h4>
+      <h4 id="CreatingaConfiguration-addAddingcheckerstotheconfiguration"><span style="color: rgb(54,54,54);"><span class="confluence-anchor-link" id="CreatingaConfiguration-add"></span>Adding checkers to the configuration</span></h4>
+      <p><span style="color: rgb(54,54,54);">The right part of the Configure Checkers window displays the Configuration panel. This panel shows the checkers included in the<strong>&nbsp;Structure Checker configuration</strong>.&nbsp;</span></p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029254/11370500.png" data-image-src="attachments/10029254/11370500.png" data-unresolved-comment-count="0" data-linked-resource-id="11370500" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="checker_configuration.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></p>
+      <p>&nbsp;</p>
+      <p>This list is empty by default but a selected checker can be easily moved to the Structure Checker configuration by pressing the <strong>Add</strong>&nbsp;configuration designing button situated in the middle.</p>
+      <h4 id="CreatingaConfiguration-removeRemovingcheckersfromtheconfiguration"><span class="confluence-anchor-link" id="CreatingaConfiguration-remove"></span>Removing checkers from the configuration</h4>
+      <p>A selected checker can be deleted from the configuration by pressing the <strong>Remove</strong> button. To clear the whole configuration list, press <strong>Remove All</strong>.</p>
+      <h4 id="CreatingaConfiguration-changeChangingthesequenceofthecheckers"><span class="confluence-anchor-link" id="CreatingaConfiguration-change"></span>Changing the sequence of the checkers</h4>
+      <p>Checkers are executed one-by-one in a preset order defined in the configuration list. To change this order, select a checker in the list and use the<strong> right-side arrows</strong> to move it up or down.</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029254/11370501.png" data-image-src="attachments/10029254/11370501.png" data-unresolved-comment-count="0" data-linked-resource-id="11370501" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="changing_the_order.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></p>
+      <h4 id="CreatingaConfiguration-adjustAdjustingfixers"><span class="confluence-anchor-link" id="CreatingaConfiguration-adjust"></span>Adjusting fixers</h4>
+      <p>If you click on a checker that was already moved to the Configuration panel, fixer options appear in the information panel that can be tuned according to user needs.</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029254/11370502.png" data-image-src="attachments/10029254/11370502.png" data-unresolved-comment-count="0" data-linked-resource-id="11370502" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="fixer_adjust1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029254/11370503.png" data-image-src="attachments/10029254/11370503.png" data-unresolved-comment-count="0" data-linked-resource-id="11370503" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="adjust_fixer2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></p>
+      <h4 id="CreatingaConfiguration-importImportingaconfiguration"><span class="confluence-anchor-link" id="CreatingaConfiguration-import"></span>Importing a configuration</h4>
+      <p>Predefined configurations can also be loaded by clicking the<strong> Import</strong> button.&nbsp;</p>
+      <p>Select the Structure Checker configuration file you would like to use and press <strong>Open</strong>. The set of checkers will be loaded to the Configuration panel.</p>
+      <p>You can also provide your xml configuration file via a web address if you press&nbsp;<strong>URL</strong>. Enter the URL in the<em>&nbsp;</em>window and click&nbsp;<strong>OK</strong>.</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/10029254/11370507.png" data-image-src="attachments/10029254/11370507.png" data-unresolved-comment-count="0" data-linked-resource-id="11370507" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="URL_import.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029254" data-linked-resource-container-version="49" /></span></p>
+      <p>This option enables the use of the same Structure Checker configuration by multiple users. However, configuration data cannot be edited and further customized.</p>
+      <h4 id="CreatingaConfiguration-exportExportingaconfiguration"><span class="confluence-anchor-link" id="CreatingaConfiguration-export"></span>Exporting a configuration</h4>
+      <p>A created configuration can be saved in xml format by the<strong> Export</strong> button.&nbsp;</p>
+      <p>Browse the location of the file, specify its name and press <strong>Save</strong>.</p>
+      <p>You can also copy the actionstring representation of the created configuration to your clipboard by clicking on the&nbsp;<strong>Copy</strong>&nbsp;button.You can use this text with e.g. the Structure Checker command-line tool&nbsp;or Cartridge.</p>
+      <p>Once you have set up your configuration, you are ready to start your structure checking process!</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

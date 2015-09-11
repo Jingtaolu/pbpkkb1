@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Polar Surface Area Plugin (2D)</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Polar Surface Area Plugin (2D) </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Polar Surface Area (2D) Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956493 {padding: 0px;}
+div.rbtoc1439200956493 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956493 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956493"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#PolarSurfaceAreaPlugin(2D)-Introduction">Introduction</a></li> 
+          <li><a href="#PolarSurfaceAreaPlugin(2D)-Options">Options</a></li> 
+          <li><a href="#PolarSurfaceAreaPlugin(2D)-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="PolarSurfaceAreaPlugin(2D)-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Polar Surface Area (PSA) is formed by polarized atoms of a molecule. It is a descriptor that shows good correlation with passive molecular transport through membranes, and allows estimation of transport properties of drugs. Estimation of Topoligical Polar Surface Area (TPSA) is based on the method described in&nbsp;<a href="#PolarSurfaceAreaPlugin(2D)-ertl">Ertl et al.</a>&nbsp;The method gives results that are practically identical with the 3D PSA, while calculating TPSA is approximately 100 times faster. This method is more suitable for fast bioavailability screening of large virtual libraries. The TPSA value can be calculated both for the neutral form of the molecule and for the major microspecies at a given pH.</p>
+      <p>The Polar Surface Area Plugin (2D)<strong>&nbsp;</strong>calculates the descriptor described above.&nbsp;The result appears in a <a href="#PolarSurfaceAreaPlugin(2D)-fig.1">separate window</a>. If several structures were drawn, navigation is possible with a scroll bar.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="PolarSurfaceAreaPlugin(2D)-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584161/29098610.png" data-image-src="attachments/12584161/29098610.png" data-unresolved-comment-count="0" data-linked-resource-id="29098610" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="tpsa2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584161" data-linked-resource-container-version="18" /></span></p>
+      <p>Fig. 1 Result window of the plugin with the displayed microspecies</p>
+      <p>&nbsp;</p>
+      <h1 id="PolarSurfaceAreaPlugin(2D)-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>The following options can be set on the<a href="#PolarSurfaceAreaPlugin(2D)-fig.2">&nbsp;<em>Polar Surface Area (2D) Options</em>&nbsp;</a>window:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:&nbsp;</strong>setting the number of decimal places with which the result values are given.</li>
+       <li><strong>Exclude sulfur atoms from calculation:&nbsp;</strong>if set, S atoms are not taken into account during calculation.</li>
+       <li><strong>Exclude phosphorus atoms from calculation:</strong>&nbsp;if set, P atoms are not taken into account during calculation.&nbsp;<strong>&nbsp;</strong></li>
+       <li><strong>Take major microspecies at pH:</strong>&nbsp;calculates the polar surface area for the major microspecies present at the given pH.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="PolarSurfaceAreaPlugin(2D)-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584161/29098605.png" data-image-src="attachments/12584161/29098605.png" data-unresolved-comment-count="0" data-linked-resource-id="29098605" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="polar_surface_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584161" data-linked-resource-container-version="18" /></span></p>
+      <p>Fig. 2 Options of the plugin</p>
+      <p>&nbsp;</p>
+      <h1 id="PolarSurfaceAreaPlugin(2D)-References">References</h1>
+      <ol>
+       <li><a class="text" name="ref4" style="text-decoration: underline;" rel="nofollow"></a><span class="confluence-anchor-link" id="PolarSurfaceAreaPlugin(2D)-ertl"></span>Ertl, P., Rohde, B., Selzer, P.,&nbsp;<em>J. Med. Chem.</em>,&nbsp;<strong>2000,</strong>&nbsp;<em>43,</em>&nbsp;pp. 3714-3717;&nbsp;<a href="http://dx.doi.org/10.1021/jm000942e" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+      </ol> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

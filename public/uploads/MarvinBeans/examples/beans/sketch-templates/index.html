@@ -1,0 +1,61 @@
+<html>
+<head>
+    <script type="text/javascript" src="../../sh_main.js"></script>
+    <script type="text/javascript" src="../../sh_java.js"></script>
+    <link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+<title>MarvinSketch Structure Templates Example</title>
+</head>
+<body onload="sh_highlightDocument();">
+<h1>MarvinSketch Structure Templates Example</h1>
+
+<h4>How to work with structure templates</h4>
+<p>The <a href="../../../help/sketch/sketch-basic.html#templates">Templates</a> paragraph of the MarvinSketch User's Guide contains the basic description of templates, template groups and of their usage.</p>
+
+<p>The <a href="../../../help/developer/templates.html">Developer's Guide</a> describes the ways of working with templates and template groups.</p>
+
+<h4><a class="anchor" name="customize">Customizing Structure Templates</a></h4>
+<p>
+By default, MarvinSketch contains 12 template groups, as described in the Developer's Guide.
+The Generic and My Templates groups automatically appear on the Advanced Templates toolbar
+for easier access. In this example, the My Templates group contains one molecule, benzene.</p>
+<p>The goal of this example is to customize the template structures of MarvinSketch in the following way:
+<ul>
+<li>Generic and Rings template groups are set to visible on the toolbar</li>
+<li>Two wedge bonds are defined in the Extra Templates group, which will also be visible on the toolbar</li>
+<li>A new template group, Conformers is defined consisting of 6 structures</li>
+</ul>
+<p>The result of this customization can be seen on the picture below.
+The Conformers and My Templates template groups are not visible on the toolbar in this case.</p>
+
+<center><img src="sketch_templates.png" width="638" height="643"/></center><br>
+
+<p>The code below is taken from <a href="SketchTemplates.java.html"><code>SketchTemplates.java</code></a>,
+    where the structure templates are customized using the
+    <a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MarvinPane.html#setParams(java.lang.String)"><code>setParams</code></a> method of
+    the <a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html"><code>MSketchPane</code></a> class.
+Currently this is the only way of defining template groups.<br>
+In the example, the characters <b>*</b> and <b>:</b> are used as delimiters.</p>
+<pre class="sh_java">    sketchPane.setParams(
+        UserSettings.TOOLBAR_TEMPLATES+"0=*Generic*chemaxon/marvin/templates/generic.t\n"+
+        UserSettings.TOOLBAR_TEMPLATES+"1=*Rings*chemaxon/marvin/templates/rings.t\n"+
+        UserSettings.EXTRA_TEMPLATES+"=chemaxon/marvin/templates/wedgebonds.t\n"+
+        UserSettings.TEMPLATES+"11=:Conformers:chemaxon/marvin/templates/conformers.t\n");
+</pre>
+<p>Using the <a href="../../../help/developer/sketchman.html#parameters.ttmpls">ttmpls</a> parameter,
+Generic and Rings template groups will appear on the toolbar beside the structures
+defined by <a href="../../../help/developer/sketchman.html#parameters.xtmpls">xtmpls</a>. <br>
+The new template group called Conformers is defined with the <a href="../../../help/developer/sketchman.html#parameters.tmpls">tmpls</a>
+parameter, which makes it
+available in the <a href="../../../help/sketch/gui/dialogs.html#template_library">Template Library</a>.</p>
+<center><img src="sketch_templates2.png" width="488" height="350"></center>
+
+<p>In this example we have used the <a href="wedgebonds.t.txt">wedgebonds.t</a> and <a href="conformers.t.txt">conformers.t</a>
+compressed SDfiles. Note that currently template files can only be in SDfiles or compressed SDfiles
+formats with .t extension.</p>
+<p>
+The same example is available as an <a href="../../applets/sketch/templates.html">applet example</a>,
+showing the usage and effect of using these parameters in applets.
+</p>
+</body>
+</html>

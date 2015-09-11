@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : The layout parameter</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : The layout parameter </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The <code>layout</code> and <code>layoutH</code> parameters are in the following format: &quot;<em>:rows:cols:type:k:l:h:w:anchor:fill:[weighty:[weightx:]]type:k:l:...</em>&quot;, where <em>:</em> is the field separator, <em>rows</em> is the number of rows in the cell, <em>cols</em> is the number of columns, <em>type</em> is the type of the component in row <em>k</em>, column <em>l</em> of the current cell, <em>h</em> is the height of the component (rows), <em>w</em> is the width (columns).<br /> The <em>anchor</em> parameter determines where to place the component if its size is smaller than its display area. It the component size is larger than the size of its text label, then anchor also sets the label alignment. Possible values: <code>c</code> (center), <code>n</code> (north), <code>s</code> (south), <code>e</code> (east), <code>w</code> (west), <code>ne</code> (northeast), etc. <br /> The <em>fill</em> parameter determines how to resize the component if its size is smaller then its display area. Possible values: <code>n</code> (none), <code>h</code> (horizontal), <code>v</code> (vertical) or <code>b</code> (both). <br /> The <em>weights</em> are nonnegative integers, zero by default. They determine how to distribute space. If all the weights are zero, all the components clump together in the center of the applet.</p>
+      <p><small> If you are familiar with Java, you might have noticed that <em>anchor</em>, <em>fill</em>, <em>weightx</em> and <em>weighty</em> have the same names as the fields of the <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/awt/GridBagConstraints.html" class="external-link" rel="nofollow">GridBagConstraints</a> class. The reason is that MarvinView uses the <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/awt/GridBagLayout.html" class="external-link" rel="nofollow">GridBagLayout</a> class to determine the places and sizes of the components. </small></p>
+      <p>Component types: <code>M</code> (molecule), <code>L</code> (label), <code>B</code> (button), <code>C</code> (checkbox), <code>T</code> (text field) and <em>I</em> (image).</p>
+      <p>Example:</p>
+      <blockquote>
+       <pre>&lt;param name=&quot;layout&quot; value=&quot;:4:3:
+M:0:0:4:1:c:n:
+L:0:2:1:1:c:n:0:10:
+L:1:2:1:1:c:n:0:10:
+C:0:1:1:1:c:n:
+C:1:1:1:1:c:n:
+C:2:1:1:1:c:n:
+B:3:1:1:1:c:n:10&quot;&gt;
+</pre>
+      </blockquote> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

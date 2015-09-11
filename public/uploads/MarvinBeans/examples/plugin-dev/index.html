@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta NAME="author" CONTENT="Nora Mate">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Custom Calculator Plugin implementation</title>
+</head>
+<body>
+
+<h1>Custom Calculator Plugin implementation</h1>
+
+<h2>Table of Contents</h2>
+<ul>
+    <li><a href="#components">The components</a></li>
+    <li><a href="#beans">Marvin Beans</a></li>
+    <li><a href="#applets">Marvin Applets</a></li>
+</ul>
+
+<h2><a name="components" class="anchor">The components</a></h2>
+<p><a href="SelectionPlugin.java.txt"><b>SelectionPlugin</b></a> is a simple 
+<a href="../../help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html" target="_blank">CalculatorPlugin</a> 
+descendant class written as an example for custom plugin implementation.</p>
+<p><a href="SelectionPluginDisplay.java.txt"><b>SelectionPluginDisplay</b></a> is the corresponding 
+<a href="../../help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html" target="_blank">CalculatorPluginDisplay</a>
+descendant class. This latter is not mandatory for a custom plugin: for most plugins 
+the default implementation is appropriate, provided that the plugin implements 
+<a href="../../help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#getResultMolecule()" target="_blank">getResultMolecule()</a>
+such that it returns a molecule object with atomic results set in 
+<a href="../../help/developer/beans/api/chemaxon/struc/MolAtom.html#setExtraLabel(java.lang.String)" target="_blank">atom extra labels</a>
+and molecular results in  
+<a href="../../help/developer/beans/api/chemaxon/struc/Molecule.html#setProperty(java.lang.String, java.lang.String)" target="_blank">molecule properties</a>. <a href="SelectionPluginDisplay.java.txt">SelectionPluginDisplay</a> gives an example to modify the
+default molecule view display: it adds a text area with some data.</p>
+<p><a href="SelectionPluginTest.java.txt"><b>SelectionPluginTest</b></a> is the test sketcher application 
+that shows how to insert the plugin administration into your code in case when you want to use a customized 
+GUI for plugin invocation instead of or in addition to the built-in Tools menu.</p>
+<center><div class="lenia">&nbsp;</div></center>
+
+<h2><a name="beans">Marvin Beans</a></h2>
+<h3>Integrate the plugin into MarvinSketch / MarvinView</h3>
+<p>To integrate the SelectionPlugin into MarvinSketch / MarvinView you need to accomplish the following steps
+(you should also perform similar tasks if you have your own plugin):</p>
+
+<ol>
+<p><li>Create the plugin JAR with manifest <a href="SelectionPlugin.txt">SelectionPlugin.txt</a>:
+<pre>jar cmf SelectionPlugin.txt SelectionPlugin.jar SelectionPlugin.class SelectionPluginDisplay.class xjars/SelectionPluginParameters.xml
+</pre></p>
+<p><li>Copy the plugin JAR into the <code>plugins</code> directory
+(if the <code>plugins</code> directory does not exist, create it in the home directory of Marvin Beans):
+<pre>cp SelectionPlugin.jar MarvinBeans/plugins		(Linux / UNIX)
+copy SelectionPlugin.jar MarvinBeans\plugins		(Windows)
+</pre></p>
+<p><li>Edit the <code>MarvinBeans/plugins/plugins.properties</code> file. Add this line to the file 
+(see <a href=../../help/developer/plugins.html#config>configuration file description</a>):
+<pre>plugin_999=$$SelectionPlugin.jar$Selection$S$$
+</pre>  
+</ol>
+
+<p>Run MarvinSketch / MarvinView. You can run the example plugin by selecting <code>Selection</code> from the Tools menu.</p>
+
+<h3>Run the test application</h3>
+<p>The test application can be started by running the run.sh script (Linux / Unix) or the RUN.BAT batch file 
+(Windows).</p>
+
+<h2><a name="applets" class="anchor">Marvin Applets</a></h2>
+
+<h3>Integrate the plugin into MarvinSketch / MarvinView applet</h3>
+
+<h4>Compilation</h4>
+<p>Use JAR files from Marvin Applets package for compilation of the new plugin.
+Since Marvin applets classes are compiled with 1.5 compatible compiler, additional code has to compile with 1.5 compatible JDK. 
+To provide compatibility, set the <strong>source</strong> and the <strong>target</strong> attributes to <strong>1.5</strong>.
+<pre>javac -source 1.5 -target 1.5 -classpath "marvin/jmarvin.jar:marvin/sjars/Plugin.jar:marvin/sjars/PluginGUI.jar" SelectionPlugin.java SelectionPluginDisplay.java</pre>
+
+<h4>Create JAR file</h4>
+<p>Marvin applets accept custom plugins from certain location: <code>marvin/plugin/extensions.jar</code>. Therefore, wrap resources for your plugin into <strong>extensions.jar</strong>. 
+In this example, <strong>SelectionPlugin.txt</strong> is the manifest file for the JAR file.</p>
+<pre>jar cmf SelectionPlugin.txt extensions.jar *.class xjars/SelectionPluginParameters.xml</pre>
+<p>The JAR files that Marvin applets load have to be signed.</p>
+<pre>jarsigner -keystore "&lt;keystorepath&gt;" -storepass &lt;password&gt; extensions.jar &lt;alias&gt;</pre>
+In the above statement, the &lt;keystorepath&gt; is the location of the keystore file where your signing key is stored. The &lt;password&gt; gives the password for the keystore. 
+The &lt;alias&gt; is the alias of the certification key in the keystore.
+
+<h4>Installation</h4>
+<p>Copy the JAR file into the <strong>marvin/plugins</strong> directory.</p>
+<pre>cp extensions.jar marvin/plugins/.</pre>
+<p>Create your own instance of <strong>plugins.properties</strong> in the <strong>marvin/plugins</strong> directory. 
+This properties file describes the structure of the <strong>Tools</strong> menu in MarvinSketch / MarvinView. 
+If this file exists, it overwrites the default "Tools" menu. 
+There is a template for plugins.properties (plugins.properties.sample.txt) in this directory. 
+Just make a copy about it, and edit it.</p> 
+<pre>cp marvin/plugins/plugins.properties.sample.txt marvin/plugins/plugins.properties</pre>
+<p>To assign your plugin to ChemAxon plugins, gave the following line to this file. The header of the properties file describes the syntax.</p>
+<pre>plugin999=$SelectionPlugin$extensions.jar$Selection$Slc$Other$S</pre>
+<p>Now, you are ready. In MarvinSketch / MarvinView applet the new plugin will display in the <strong>Tools/Other</strong> menu.</p>
+</body>
+</html>

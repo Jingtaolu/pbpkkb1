@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : MarvinView Applet only parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : MarvinView Applet only parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewAppletonlyparameters-mol"></span>mol</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>The URL of the molecule file or the file itself (inline) in any supported structure format such as MDL mol, compressed mol, SMILES, SMARTS, etc format.<br /> For multiline values of this parameter, it is recommended to specify <a href="MarvinView-Other-parameters_25987121.html#MarvinViewOtherparameters-esc">escapChar</a>=&quot;\&quot; and replace or precede each newline occurring in the string with &quot;\n&quot;. The escape character should also be escaped as &quot;\\&quot;.<br /> The file format and/or import options can be specified if one of the following forms is used:<br /> &quot;file{options}&quot;,<br /> &quot;file{MULTISET,options}&quot;,<br /> &quot;file{format:}&quot;,<br /> &quot;file{format:options}&quot;, or<br /> &quot;file{format:MULTISET,options}&quot;.<br /> If the MULTISET option is specified, then a multi-molecule file is read into one molecule object containing multiple atom sets.<br /> Examples: &quot;foo.xyz{f1.4C4}&quot;, &quot;foo.xyz.gz{gzip:xyz:MULTISET,f1.4C4}&quot;</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span style="text-decoration: line-through;">preload</span></code></td>
+          <td class="confluenceTd">Deprecated</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>cacheMols</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Store loaded molecules in an internal cache (<code>true</code> or <code>false</code>).</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>loadMols</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Comma-separated list of molfiles to preload. Useful for caching molecules in JavaScript &quot;slideshows&quot;.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>molChanged0<br />molChanged1<br />molChanged2<br />...</code></td>
+          <td class="confluenceTd"><a name="molChanged0" rel="nofollow"></a>Evaluates a JavaScript code when the molecule is loaded or changed in the specified cell. The number in the parameter name determines the cell index. If no molecule table, use <em>molChanged0</em> to refer to the molecule. The parameter value should be a JavaScript code. E.g.:<pre>    &lt;param name=&quot;molChanged0&quot; value=&quot;alert('First molecule is modified')&quot;&gt;
+    </pre></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewAppletonlyparameters-listen"></span>listenpropertychange</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Enable/disable property change event listener of the applet. If the listener is enabled the applet will call the <strong>propertyChange(prop)</strong> JavaScript method. The code snippet below demonstrates the handling of property change events in JavaScript. Note: If the MAYSCRIPT option is not specified, JavaScript can not be evaluated from the applet.<pre>     function propertyChange(prop) {
+        if(document.eventform != null) {
+            var s = document.eventform.txt.value;
+            document.eventform.txt.value = s + &quot;\n&quot; + prop;
+        }
+     }
+
+     mview_mayscript=true;
+     mview_begin(&quot;marvin&quot;,400,300);
+     mview_param(&quot;listenpropertychange&quot;,&quot;true&quot;);
+     mview_end();
+     </pre>Live applet example: MarvinView example<a rel="nofollow"> -</a><a class="external-link" href="http://www.chemaxon.com/marvin/examples/applets/view/listeners.html" rel="nofollow"> Listening for events in applets</a> <br /> If you also specify the &quot;appletid&quot; parameter, its value will appearin the name of the property as prefix (e.g.: &quot;firstapplet.mol&quot;).</td>
+          <td class="confluenceTd">false</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a>appletid</code></td>
+          <td class="confluenceTd">Identify applet in property change event notifications to JavaScript. Use this parameter with&nbsp;<a href="#MarvinViewAppletonlyparameters-listen"><code>listenpropertychange</code></a>&nbsp; when more than one applet are located on the same web page. It helps to identify which applet sent the notification.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a>listenmouseevent</code></td>
+          <td class="confluenceTd">Enable/disable mouse event listener of the applet. If the listener is enabled the applet will call the <strong>mouseEvent(evt)</strong> JavaScript method.<br /> The code snippet below demonstrates the handling of mouse events in JavaScript. Note: If the MAYSCRIPT option is not specified, JavaScript can not be evaluated from the applet.<pre>    function mouseEvent(evt) {
+        var s = document.mouseform.txt.value;
+        s = s + evt + &quot;\n&quot;;
+        document.mouseform.txt.value = s;
+    }
+
+     mview_mayscript=true;
+     mview_begin(&quot;marvin&quot;,400,300);
+     mview_param(&quot;listenmouseevent&quot;,&quot;true&quot;);
+     mview_end();
+     </pre>Live applet example: MarvinView example<a rel="nofollow"> -</a><a class="external-link" href="http://www.chemaxon.com/marvin/examples/applets/view/listeners.html" rel="nofollow"> Listening for events in applets</a></td>
+          <td class="confluenceTd">false</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a name="skin" rel="nofollow"></a>skin</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Change the component's Look &amp; Feel (only in SWING applet). If you do not specify this parameter, Marvin will use the default LookAndFeel style. <br />This parameter value is the name of the new LookAndFeel class.</td>
+          <td class="confluenceTd"><code>javax.swing.plaf<br /> .metal<br /> .MetalLookAndFeel</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a name="splashScreenImage" rel="nofollow"></a>splashScreenImage</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Change the component's Splash Screen displayed at startup. If you do not specify this parameter, Marvin will use its default splash screen. <br />This parameter value is the relative path of the image, specify relatively to the CODEBASE<br /> Note: Animated gif files can be displayed badly(flashing, or too fast animation)</td>
+          <td class="confluenceTd"><code>null</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><a class="text" name="license" rel="nofollow"></a><code>license</code></td>
+          <td class="confluenceTd">Sets the contents of a pre-read license file to the license manager to read and validate licenses from.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><a class="text" name="licenseFile" rel="nofollow"></a><code>licenseFile</code></td>
+          <td class="confluenceTd">Sets the license file location to the license manager to read and validate licenses from.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><a class="text" name="onError" rel="nofollow"></a><code>onError</code></td>
+          <td class="confluenceTd">A string containing a javascript code, that has to be run by the applet, if it has a failure at initialization.<br /> The %s wildcard can be used to include the error message given by the applet inside the javascript code.<br /> If used with <code>alertError</code> also set to true, the alert window will be shown first, and after the user has pressed the OK button on the alert will the given code run.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><a class="text" name="alertError" rel="nofollow"></a><code>alertError</code></td>
+          <td class="confluenceTd">If this parameter is set to true, the applet will show a javascript alert window with an error message, if there was a problem in the initialization process of the applet.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><a class="text" name="legacy_lifecycle" rel="nofollow"></a><code>legacy_lifecycle</code></td>
+          <td class="confluenceTd">The &quot;legacy_lifecycle&quot; is a general Java applet parameter. If its value is true, it helps avoid destroying the applet when you leaves the applet page. If you use &quot;marvin.js&quot;, it sets its value to true automatically unless you specify its value explicitly. By the way, the defalut value of this parameter in Java is false. See the discussion about it on the <a href="http://www.chemaxon.com/forum/ftopic4945.html" class="external-link" rel="nofollow">forum</a>.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a name="viewHelp" rel="nofollow"></a>viewHelp</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Viewer help contents. Accepts relative URL to the applet codebase or any absolute URL.</td>
+          <td class="confluenceTd"><span style="color: rgb(255,0,255);">&nbsp;</span>chemaxon/marvin/help/view-index.html</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a name="viewQuickHelp" rel="nofollow"></a>viewQuickHelp</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Viewer quick help. Accepts relative URL to the applet codebase or any absolute URL.</td>
+          <td class="confluenceTd"><span style="color: rgb(255,0,255);">&nbsp;</span>chemaxon/marvin/help/view.html</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

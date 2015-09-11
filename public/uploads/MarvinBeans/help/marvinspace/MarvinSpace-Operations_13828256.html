@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : MarvinSpace Operations</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : MarvinSpace Operations </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><strong>How to navigate</strong>
+           <ul style="margin-left: 20.0px;">
+            <li><strong>Rotate</strong>&nbsp;the view in the active cell by pressing the&nbsp;<strong>left</strong>&nbsp;mouse button and drag the mouse.</li>
+            <li><strong>Zoom</strong>&nbsp;by dragging while pressing the&nbsp;<strong>middle</strong>&nbsp;button or by&nbsp;<strong>left-dragging</strong>&nbsp;while the&nbsp;<strong>Alt</strong>&nbsp;button is pressed.</li>
+            <li><strong>Translate</strong>&nbsp;by holding down the&nbsp;<strong>right</strong>&nbsp;mouse button and dragging or by&nbsp;<strong>left-dragging</strong>&nbsp;while the&nbsp;<strong>Shift</strong>&nbsp;button is pressed.</li>
+            <li>Bring up the&nbsp;<strong>Popup Menu</strong>&nbsp;by clicking with the right mouse button.</li>
+            <li>Set the center of transformation by&nbsp;<strong>middle click</strong>&nbsp;on a component</li>
+            <li><p>If there are more cells, activate a cell by clicking it once. The active cell has a red border, and navigation will perform in the active cell.</p>
+             <div class="confluence-information-macro confluence-information-macro-information"> 
+              <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+              <div class="confluence-information-macro-body">
+               <p><span> Starting navigation in an inactive cell activates the cell.</span></p>
+              </div> 
+             </div> 
+             <div class="confluence-information-macro confluence-information-macro-information"> 
+              <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+              <div class="confluence-information-macro-body">
+               <span style="line-height: 1.4285715;"> Navigation will take effect in every cell when&nbsp;</span>
+               <strong style="line-height: 1.4285715;">Synchron mode</strong>
+               <span style="line-height: 1.4285715;">&nbsp;is checked in the Layout menu.</span>
+              </div> 
+             </div> </li>
+            <li>Navigation keys can be changed by selecting the Display -&gt;Options menu and selecting the&nbsp;<strong>Controls tab</strong>&nbsp;on the appering dialog.</li>
+            <li>Zoom can also be inverted by the Options dialog, so that dragging the mouse up will take the view farther instead of bringing it closer.</li>
+           </ul><p><strong style="line-height: 1.4285715;">How to use the Selection Panel</strong></p>
+           <ul style="margin-left: 20.0px;">
+            <li>Hiding and showing components can be done quickly by clicking on their image in the Selection Panel.</li>
+            <li>Further display settings can be accessed by right clicking on a node.</li>
+           </ul><p><strong style="line-height: 1.4285715;">How to use Drag &amp; Drop</strong></p>
+           <ul style="margin-left: 20.0px;">
+            <li>Molecules can be moved from MarvinSpace to other applications if the Selection Panel is available. Clicking on a molecule node of the Selection Panel and holding down the mouse button allows dragging.</li>
+            <li>Molecules from other applications can be dropped to MarvinSpace.</li>
+           </ul></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><strong>How to use monitors</strong>
+           <ul style="margin-left: 20.0px;">
+            <li><strong>Measure distance</strong>&nbsp;by clicking the first icon on the Toolbar, and selecting two components afterwards.</li>
+            <li><strong>Measure angle</strong>&nbsp;by clicking the second icon on the Toolbar, and selecting three components afterwards.</li>
+            <li><strong>Measure dihedral</strong>&nbsp;by clicking the third icon on the Toolbar, and selecting four components afterwards.</li>
+            <li>To measure again the buttons on the Toolbar have to be pressed again.</li>
+            <li>Selected components will loose selection after pressing any of the measure buttons.<br /><br /></li>
+           </ul><strong>How to change dihedral</strong>
+           <ol>
+            <li>Measure the dihedral</li>
+            <li>Click on the green arrowed circle of the appearing dihedral monitor</li>
+            <li>Press and hold down the&nbsp;<strong>Ctrl</strong>&nbsp;button while left-dragging the mouse<br /><br /></li>
+           </ol><strong>How to use controls (translate, rotate, resize)</strong>
+           <ol>
+            <li>Select e.g. a small molecule in the Selection Panel: click on it with the left mouse button</li>
+            <li>Click the right button to get the Popup Menu</li>
+            <li>Choose the first item,&nbsp;<strong>Select</strong>, so that atoms of the selected structure become highlighted</li>
+            <li>Now press the&nbsp;<strong>Translate</strong>&nbsp;control button in the toolbar</li>
+            <li>Drag the selected object: hold down the left mouse button plus press the&nbsp;<strong>Ctrl</strong>&nbsp;(control) key on the keyboard and move the mouse</li>
+           </ol>
+           <blockquote>
+            <strong>Rotate</strong>&nbsp;and&nbsp;
+            <strong>Resize</strong>&nbsp;can be used the same way. Note that each controls may not be allowed to each components, for example a molecule cannot be resized, or a molecular surface cannot be translated or rotated without translating or rotating the molecule itself.
+           </blockquote><p><a name="zoomtopocket" rel="nofollow"></a></p><p><strong><span class="confluence-anchor-link" id="MarvinSpaceOperations-zoomtopocket"></span>How to restict the view to a binding pocket</strong></p>
+           <blockquote>
+            There are several ways to do that:
+           </blockquote>
+           <ul style="margin-left: 20.0px;">
+            <li>The easiest when you have a macromolecule loaded that has one ligand, just bring up the Popup Menu, and select the&nbsp;<strong>Zoom to pocket </strong>option.</li>
+            <li>You can do this manually with lots of other options to customize:
+             <ol>
+              <li>Choose a ligand on the Selection Panel, and bring up its Popup Menu</li>
+              <li>The&nbsp;<strong>Select neighborhood</strong>&nbsp;will have every component that is closer to the ligand than 2 Angstroms to be selected.</li>
+              <li>Polymers have the option in their Popup Menu to&nbsp;<strong>Extend the selection to residues</strong></li>
+              <li>Now you may wish to select or deselect components manually</li>
+              <li>Bring up the main Popup Menu by right clicking on the canvas</li>
+              <li>Select either the&nbsp;<strong>Hide unselected components</strong>&nbsp;or the&nbsp;<strong>Fade unselected components</strong>&nbsp;option.</li>
+             </ol></li>
+           </ul><p><strong style="line-height: 1.4285715;">How to create molecular surface of a binding pocket</strong></p>
+           <ol>
+            <li>Restrict the view to the binding pocket</li>
+            <li>Create the molecular surface by the Show Surface menu in the main Menu Bar</li>
+            <li>Select the molecular surface through its Popup Menu in the Selection Panel, and a bounding box will appear</li>
+            <li>Select the&nbsp;<strong>Resize</strong>&nbsp;control option in the ToolBar</li>
+            <li>The bounding box can be considered as six clipping planes, and the resize control will change the size of the bounding box</li>
+            <li>The bounding box can also be translated with the&nbsp;<strong>Translate</strong>&nbsp;control option.</li>
+           </ol></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Events fired by the JavaBean</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Events fired by the JavaBean </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>To handle the property change events of <code>MViewPane</code>, the <code>java.beans.PropertyChangeListener</code> interface must be implemented.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Property name</th>
+          <th class="confluenceTh">Type</th>
+          <th class="confluenceTh">Meaning</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;mols#&quot;</code></td>
+          <td class="confluenceTd"><code>Molecule[]</code></td>
+          <td class="confluenceTd">Molecule(s) changed in the specified cell (# = 0, ..., n-1).</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;implicitH&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-imp">Imlpicit Hydrogen display style</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;explicitH&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd">Explicit Hydrogen display style changed.<br /> <code>true</code>: show explicit H atoms<br /> <code>false</code>: hide explicit H atoms</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;navmode&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd">Drag action changed.<br /> <code>translate</code>: Translate, <code>zoom</code>: Zoom, <code>rotZ</code>: Rotate, <code>rot3d</code>: Rotate in 3D</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;tabScale&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Display-parameters_25987099.html#MarvinViewDisplayparameters-tab">Magnification for molecule cells</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;winScale&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Display-parameters_25987099.html#MarvinViewDisplayparameters-win">Zoom window magnification</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;colorScheme&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-color">Color scheme</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;rendering&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><span class="confluence-link"><a href="MarvinView-3D-and-animation_25987105.html#MarvinView3Dandanimation-render">Rendering style</a></span> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;wireThickness&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-3D-and-animation_25987105.html#MarvinView3Dandanimation-wire">Wire thickness</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;stickThickness&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-3D-and-animation_25987105.html#MarvinView3Dandanimation-stick">Sticks diameter</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;ballRadius&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-3D-and-animation_25987105.html#MarvinView3Dandanimation-ball">Ball radius</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;grinv&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-grin">Graph invariants</a> displayed/not displayed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;downWedge&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-down">Down wedge bond orientation</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;animFPS&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-3D-and-animation_25987105.html#MarvinView3Dandanimation-anim">Animation frame rate</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;animDelay&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-3D-and-animation_25987105.html#MarvinView3Dandanimation-delay">Animation repeat delay</a> Animation repeat delay changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;animSync&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="MarvinView-3D-and-animation_25987105.html#MarvinView3Dandanimation-sync">Animation synchronization</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;invisibleSets&quot;</code></td>
+          <td class="confluenceTd"><code>Long</code></td>
+          <td class="confluenceTd">Visibility of atom sets changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;atomNumbersVisible&quot;</code></td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Deprecated</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;atomNumberingType&quot;</code></td>
+          <td class="confluenceTd"><code>Integer</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-atom">Visibility of atom numbers</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;valencePropertyVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-valence">Visibility of valence properties</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;ligandErrorVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-ligand">Visibility of ligand error</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;atomMappingVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Structure-display-parameters_25987101.html#MarvinViewStructuredisplayparameters-map">Visibility of atom mapping</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;popupMenusEnabled&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd">Popup menus are enabled/disabled.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;detachable&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="MarvinView-Display-parameters_25987099.html#MarvinViewDisplayparameters-detach">Detachability of viewer</a> is changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;selectedIndex&quot;</code></td>
+          <td class="confluenceTd"><code>Integer</code></td>
+          <td class="confluenceTd">The <a href="MarvinView-Display-parameters_25987099.html#MarvinViewDisplayparameters-select">selected cell</a> is changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;atomMarked&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd">An atom is selected on one of the canvases. The value contains the cell index and the atom index separated with a comma.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;draggable&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd">The <a href="MarvinView-Other-parameters_25987121.html#MarvinViewOtherparameters-drag">draggable</a> property is changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;windowOpened&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd">A new MarvinView or MarvinSketch window is opened from the viewer. If a sketcher is opened the value contains sketchInView#cellindex#, when a viewer is opened, the value contains viewframe#cellindex, where #cellindex is the index of the opened cell in the viewer firing the event.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;windowClosed&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd">An MarvinView or MarvinSketch window that was opened from the viewer is being closed. If a sketcher was opened the value contains sketchInView#cellindex#, when a viewer wass opened, the value contains viewframe#cellindex, where #cellindex is the index of the opened cell in the viewer firing the event.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;sketchInView&quot;</code></td>
+          <td class="confluenceTd"><code>MSketchPane</code></td>
+          <td class="confluenceTd">This event is being fired when a sketcher gets opened from the viewer, or such a sketcher is closing. At open the newValue contains a reference for the opening sketcher, when closing, the newValue is null, and the oldValue contains the reference for the sketcher</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Since the behaviour of buttons and checkboxes in molecule <a href="The-celli-and-celli_j-parameters_25987113.html">cells</a> are similar as <em>javax.swing.AbstractButton</em> objects, they can fire <em>java.awt.event.ActionEvent</em>s and <em>java.awt.event.ItemEvent</em>s.</p>
+      <p>&nbsp;</p>
+      <hr /> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

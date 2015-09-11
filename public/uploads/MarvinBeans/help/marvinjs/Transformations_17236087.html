@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Transformations</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Transformations </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="Transformations-dragDraggingstructures"><span class="confluence-anchor-link" id="Transformations-drag"></span>Dragging structures</h2>
+      <p>After selecting them, whole molecules or fragments (parts of molecules) can be moved on the canvas. When you hover the cursor over the selected structure, the cursor &quot;move&quot; cursor will appear indicating that the highlighted part can be dragged on the canvas. If you select a whole molecule, it will be translated without any modifications, but when the selection contains only a fragment, the molecule will be distorted due to the changes in bond lengths and bond angles. Note that the positions of the atoms within the selected fragment are fixed, so only the bonds between the selected and non-selected part of the molecule will be distorted.</p>
+      <h2 id="Transformations-rotate2DRotatingin2D"><span class="confluence-anchor-link" id="Transformations-rotate2D"></span>Rotating in 2D</h2>
+      <p>When a structure was been selected, it can be rotated around its center in two dimensions.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400124.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400124.png" data-unresolved-comment-count="0" data-linked-resource-id="17400124" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_1b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span><br class="atl-forced-newline" />The pink circle with a dot is the center of the selected area (pivot point). The molecule can be rotated around this point by clicking on the green dot and dragging the cursor on the canvas. During dragging, you can see the angle of rotation near this green dot. By default, rotation is done in 6&deg; increments. For continuous rotation hold the &quot;<strong>Shift</strong>&quot; button while rotating.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400125.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400125.png" data-unresolved-comment-count="0" data-linked-resource-id="17400125" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_2b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span><br class="atl-forced-newline" />When a whole molecule is selected, the original center of rotation can be relocated by dragging. In this case, if the new rotation center is too close to its original position, it will be snapped back to it. However, pressing the&nbsp;<strong>&quot;Shift&quot;</strong>&nbsp;key while dragging the center of rotation allows it to be as close to its original place as you wish. Moving the center lets you rotate the molecule around any point of the canvas. The image of the starting structure remains displayed in grey during rotation.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400126.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400126.png" data-unresolved-comment-count="0" data-linked-resource-id="17400126" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_3b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span><br class="atl-forced-newline" />When a selected part is only a fragment which connects to the rest of the molecule with one bond only, you cannot move the pivot point (which is gray in this case). In such cases the rotation center will be that atom of the selected fragment which connects to the non-selected part of the structure.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400127.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400127.png" data-unresolved-comment-count="0" data-linked-resource-id="17400127" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate2d_4b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span>&nbsp;</p>
+      <h2 id="Transformations-rotate3DRotatingin3D"><span class="confluence-anchor-link" id="Transformations-rotate3D"></span>Rotating in 3D</h2>
+      <p><span>Structures on the canvas can be rotated in three dimensions. Please note that during 3D rotation, every molecule you have on the canvas will be rotated and their coordinates will change accordingly.&nbsp;</span></p>
+      <p><span>Select&nbsp;the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-rotate3D">3D rotate</a></strong>&nbsp;button on the&nbsp;<strong>Tools</strong>&nbsp;toolbar.&nbsp;Clicking on the canvas results that the molecule starts rotating automatically&nbsp;in 3D on the canvas. You can stop the rotating by clicking on the canvas again.</span></p>
+      <p><span>If you want to rotate the molecules in 3D manually</span><span>, drag the cursor over the canvas. While rotating, you can see the current angle of rotation around the vertical (y-) and horizontal (x-) axis next to the cursor, as well as on the two axis at the edges of the canvas.</span></p>
+      <p><span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/19759109.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/19759109.png" data-unresolved-comment-count="0" data-linked-resource-id="19759109" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate3d_1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span></span></p>
+      <p><span><span>If you hold down the&nbsp;</span><strong>&quot;Shift&quot;</strong><span>&nbsp;key while rotating, you can rotate the structure around the vertical or horizontal axis only, depending on the main direction of dragging (</span><em>i.e.</em><span>, if you move the cursor from left to right, the structure will be rotated around the y-axis, while if you drag the cursor up and down, the molecules will be rotated around the x-axis).</span></span></p>
+      <h2 id="Transformations-mirrorMirroringstructures"><span class="confluence-anchor-link" id="Transformations-mirror"></span>Mirroring structures</h2>
+      <p>Molecules or fragments can be mirrored either horizontally or vertically using the&nbsp;<strong>Mirror Horizontally</strong>&nbsp;or&nbsp;<strong>Mirror Vertically</strong>&nbsp;options in the&nbsp;<strong><a href="Context-Menus_17236082.html#ContextMenus-selectionPopup">pop-up menu</a></strong>. For mirroring, you should select the molecule or fragment concerned, right-click inside the selected area, and select the appropriate menu option. Mirroring is possible only for whole, unattached molecules or for fragments which connect with no more than one bond to the unselected part of the structure. In any other case, the mirror options remain inactive.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236087/17400128.png?effects=border-simple,blur-border" data-image-src="attachments/17236087/17400128.png" data-unresolved-comment-count="0" data-linked-resource-id="17400128" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mirror.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236087" data-linked-resource-container-version="6" /></span><br class="atl-forced-newline" />Finally, it has to be mentioned that the rules of undoing/redoing are the same for every kind of transformation: an event begins with pressing down the mouse button and ends with releasing it. The whole action between these two points can be undone or set back in one step.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

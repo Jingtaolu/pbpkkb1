@@ -1,0 +1,78 @@
+<h1>xxxxx</h1>
+<p>xxxxxxx</p>
+
+<%=@ranked_chemical%>
+
+<%=@pbpkmodels_a_h_ordered%>
+
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+
+<%@tanimoto_rank.each do |a| %>
+    <%if @pbpkmodels_chemical.include? a[0] %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Chemical</th>
+    <th>Simiarity Index</th>
+    <th>Simiarity Rank</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+      <tr>
+        <td><%= a[0] %></td>
+        <td><%= a[1].round(4) %></td>
+        <td><%= @tanimoto_rank.index(a)+1 %></td>
+      </tr>
+   </tbody>
+</table>
+        <br/>
+
+    <%model=@pbpkmodels_all.select { |b| b["chemical"] == a[0]} %>
+    <table align="center">
+      <thead>
+      <tr>
+        <th>Chemical</th>
+        <th>Model Type</th>
+        <th>Species Strain</th>
+        <th>Gender</th>
+        <th>Development Stage</th>
+        <th>Routes of Administration</th>
+        <th>Number of Compartments</th>
+        <th>Organ Compartmentse</th>
+        <th>PMID</th>
+      </tr>
+      </thead>
+
+
+      <%model.each do |ccc| %>
+     <tbody>
+      <tr>
+        <td><%= ccc["chemical"] %></td>
+        <td><%= ccc["model_type"] %></td>
+        <td><%= ccc["species_strain"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+        <td><%= ccc["gender"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+        <td><%= ccc["development_stage"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+        <td><%= ccc["routes_of_administration"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+        <td><%= ccc["number_of_compartments"] %></td>
+        <td><%= ccc["organ_compartments"].gsub(/"/, "").gsub(/,/, ", ") %></td>
+        <td><%= ccc["pmid"] %></td>
+    </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+        <br/>
+        <br/>
+
+    <% end %>
+<% end %>

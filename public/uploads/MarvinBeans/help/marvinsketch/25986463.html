@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Structural repeating unit (SRU) polymers</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Structural repeating unit (SRU) polymers </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>You can use the structural repeating unit group type (SRU) to draw a polymer where the structure-based representation is known.</p>
+      <p>Each SRU S-group has two or more dedicated bonds, called crossing bonds, which cross the brackets. The crossing bonds of an SRU show how the repeating units may connect in several ways to each other within the polymer.</p>
+      <p>Depending on the number of crossing bonds and brackets we differentiate the following polymers and connectivities within the polymer:</p>
+      <ul>
+       <li>Polymers with two crossing bonds. If the polymer has one crossing bond on each bracket of the SRU there are three possibilities for the repeating pattern:
+        <ul>
+         <li>head-to-tail</li>
+         <li>head-to-head</li>
+         <li>either/unknown</li>
+        </ul><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25986463/26281185.png" data-image-src="attachments/25986463/26281185.png" data-unresolved-comment-count="0" data-linked-resource-id="26281185" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="polymer2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25986463" data-linked-resource-container-version="6" /></span></p></li>
+      </ul>
+      <ul>
+       <li>Ladder-Type Polymers. Polymers with paired brackets and with two crossing bonds on each bracket are called ladder-type polymers. <br />Here it must be specified how the two crossing bonds on each bracket connect to the corresponding bonds of the adjoining repeating units.<br />Additionally to the head-to-tail, head-to-head connectivity information there is flip information to specify whether the repeating unit flips around the polymer backbone when it connects to the adjoining SRU.<br />These types of information are handled only in case of brackets with exactly two crossing bonds on both side (head and tail side). We differentiate the following polymer connectivities:
+        <ul>
+         <li>head-to-tail with no flip</li>
+         <li>head-to-tail with flip</li>
+         <li>head-to-head with no flip</li>
+         <li>head-to-head with flip</li>
+         <li>either/unknown</li>
+        </ul><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25986463/26281186.png" data-image-src="attachments/25986463/26281186.png" data-unresolved-comment-count="0" data-linked-resource-id="26281186" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="polymer3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25986463" data-linked-resource-container-version="6" /></span></p></li>
+       <li>Polymers with three or more brackets.<br />&nbsp;If the polymer has three or more bonds with a separated bracket on each bond, the polymer always has the either/unknown repeating pattern.<br /><br /></li>
+      </ul>
+      <p>The end groups of polymers are often unknown or unspecified which are represented by star atoms (*).</p>
+      <p>The modified (mod), grafted (grf) and crosslinked (xl) form of a structural repeating unit can be drawn as well.</p>
+      <h4 id="Structuralrepeatingunit(SRU)polymers-Howtodrawaladder-typepolymer">How to draw a ladder-type polymer</h4>
+      <ol>
+       <li>Draw the structure that forms the polymer.</li>
+       <li>Click the <strong>Group</strong> tool on the toolbar, and select the structure. Leave out the atoms that should be replaced by &quot;*&quot; (star atoms).</li>
+       <li>In the <strong>&quot;Create Group</strong>&quot; dialog window choose the &quot;<strong>SRU polymer</strong>&quot; type from the &quot;<strong>Type</strong>&quot; list.</li>
+       <li>Set the polymer repeat pattern if necessary.</li>
+       <li>Click OK. The star atoms (&quot;*&quot;) will be added automatically.</li>
+       <li>To create a bracket that crosses two bonds select the two brackets each crossing a bond and click&nbsp;<strong>Merge Brackets</strong>&nbsp;in the contextual menu.</li>
+      </ol> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

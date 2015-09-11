@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Property change events</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Property change events </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>To handle the property change events of <code>MSketchPane</code>, the <code>java.beans.PropertyChangeListener</code> interface must be implemented.</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Property name</th>
+          <th class="confluenceTh">Type</th>
+          <th class="confluenceTh">Meaning</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;mol&quot;</code></td>
+          <td class="confluenceTd"><code>Molecule</code></td>
+          <td class="confluenceTd">The molecule is replaced or altered.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;file&quot;</code></td>
+          <td class="confluenceTd"><code>java.io.File</code></td>
+          <td class="confluenceTd">Molecule file changed from File/Open or File/Save As.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;implicitH&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-iH">Implicit Hydrogen display</a> style changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;explicitH&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd">Explicit Hydrogen display style changed.<br /> <code>true</code>: show explicit H atoms<br /> <code>false</code>: hide explicit H atoms</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;colorScheme&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-color">Color scheme</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;autoscale&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="Display-parameters_25985397.html#Displayparameters-auto">Autoscale</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;rendering&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-render">Rendering style</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;wireThickness&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><span class="confluence-link">&nbsp;</span><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-wire"><span class="confluence-link"><span class="confluence-link">Wire thickness</span></span> </a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;stickThickness&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-st">Sticks diameter</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;ballRadius&quot;</code></td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><span class="confluence-link"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-ball">Ball radius</a></span> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;grinvVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-grin">Graph invariants</a> displayed/not displayed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;downWedge&quot;</code></td>
+          <td class="confluenceTd"><code>String</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-down">Down wedge bond orientation</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;objectAtPointer&quot;</code></td>
+          <td class="confluenceTd"><code>Object</code></td>
+          <td class="confluenceTd">The MolAtom or MolBond object at the mouse pointer.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;invisibleSets&quot;</code></td>
+          <td class="confluenceTd"><code>Long</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-sk">Visibility of atom sets</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;</code><s><code>atomNumbersVisible</code></s>&quot;</td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Deprecated</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;atomNumberingType&quot;</code></td>
+          <td class="confluenceTd">Integer</td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-atom">Visibility of atom numbers</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;valencePropertyVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-vp">Visibility of valence properties</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;ligandErrorVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-ligand">Visibility of ligand error</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;atomMappingVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-map">Visibility of atom mapping</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;popupMenusEnabled&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd">Popup menus are enabled/disabled.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;valenceErrorVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-valence">Visibility of valence errors</a> changed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>&quot;reactionErrorVisible&quot;</code></td>
+          <td class="confluenceTd"><code>Boolean</code></td>
+          <td class="confluenceTd"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-reaction">Visibility of reaction errors</a> changed.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">    sketchPane.addPropertyChangeListener(this);
+    ...
+
+public void propertyChange(PropertyChangeEvent ev) {
+    String name = ev.getPropertyName();
+    if(&quot;file&quot;.equals(name)) {
+	File f = (File)ev.getNewValue();
+	if(f != null) {
+	    setTitle(&quot;MarvinSketch: &quot;+f.getName());
+	}	    
+    }
+}</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre> </pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

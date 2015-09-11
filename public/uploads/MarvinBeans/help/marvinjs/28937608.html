@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Select/Move/Delete</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Select/Move/Delete </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="Select/Move/Delete-Select">Select</h2>
+      <ul>
+       <li>Click on the black triangle on the lower right corner of the&nbsp;<a href="Toolbars_17236081.html#Toolbars-selection"><strong>Rectangle&nbsp;</strong><strong>Selection</strong></a><strong>&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="24" src="attachments/28937608/29099684.png" data-image-src="attachments/28937608/29099684.png" data-unresolved-comment-count="0" data-linked-resource-id="29099684" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-8-8 14:16:16.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28937608" data-linked-resource-container-version="9" /></span>&nbsp;</strong>button to see the <strong>options</strong> of Selection.
+        <ul>
+         <li><strong style="line-height: 1.4285715;">Rectangle selection&nbsp;<strong><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="25" src="attachments/28937608/29099684.png" data-image-src="attachments/28937608/29099684.png" data-unresolved-comment-count="0" data-linked-resource-id="29099684" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-8-8 14:16:16.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28937608" data-linked-resource-container-version="9" /></span></strong></strong><span style="line-height: 1.4285715;">: Provides easy selection when the fragments can be drawn around with a rectangle. Hold the mouse button down while selecting; release the mouse when you are ready.</span></li>
+         <li><strong style="line-height: 1.4285715;">Freehand Selection</strong>&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="26" src="attachments/28937608/29099685.png" data-image-src="attachments/28937608/29099685.png" data-unresolved-comment-count="0" data-linked-resource-id="29099685" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-8-8 14:37:51.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28937608" data-linked-resource-container-version="9" /></span>: Push down the mouse button and move the mouse pointer around the fragment you would like to select then release the mouse button.<br /><span style="line-height: 1.4285715;"><br /></span></li>
+        </ul></li>
+       <li>To select an<strong>&nbsp;atom</strong>,&nbsp;<strong>bond</strong>&nbsp;or<strong>&nbsp;group,&nbsp;</strong>click&nbsp;or select it (<strong>Rectangle&nbsp;</strong><strong>Selection</strong>&nbsp;or&nbsp;<strong>Freehand Selection tool</strong>).</li>
+       <li>To select a&nbsp;<strong>structure</strong>&nbsp;you can&nbsp;double-click&nbsp;on one atom or a bond of it in&nbsp;<strong>Selection</strong>&nbsp;(both<strong>&nbsp;Rectangle&nbsp;</strong>or<strong>&nbsp;Freehand</strong>) mode.</li>
+       <li>To unselect,&nbsp;click&nbsp;on an empty place of the canvas.</li>
+      </ul>
+      <h2 id="Select/Move/Delete-Moveonthecanvas">Move on the canvas</h2>
+      <ul>
+       <li style="list-style-type: none;background-image: none;">
+        <ul>
+         <li>One <strong>atom</strong>, or <strong>bond</strong>:&nbsp;
+          <ul>
+           <li>Drag it on the canvas while one of the&nbsp;<strong style="line-height: 1.4285715;">Selection</strong>&nbsp;tools is active.</li>
+          </ul></li>
+        </ul></li>
+      </ul>
+      <ul>
+       <li style="list-style-type: none;background-image: none;">
+        <ul>
+         <li>A <strong>selection</strong>
+          <ul>
+           <li><span style="line-height: 1.4285715;">After selection (double click or </span><strong style="line-height: 1.4285715;">Selection</strong><span style="line-height: 1.4285715;"> tool), move the </span><strong style="line-height: 1.4285715;">molecule</strong><span style="line-height: 1.4285715;"> by dragging one of its atom. (</span><a href="Transformations_17236087.html#Transformations-drag">See details here.</a><span style="line-height: 1.4285715;">)</span></li>
+           <li>After selection, drag&nbsp;the<strong> graphical&nbsp;object&nbsp;</strong>by its line.</li>
+          </ul></li>
+        </ul></li>
+      </ul>
+      <h2 id="Select/Move/Delete-Delete">Delete</h2>
+      <ul>
+       <li><span style="line-height: 1.4285715;">To delete&nbsp;an </span><strong style="line-height: 1.4285715;">atom</strong><span style="line-height: 1.4285715;"> or a</span><strong style="line-height: 1.4285715;"> bond</strong><span style="line-height: 1.4285715;"> click the </span><strong style="line-height: 1.4285715;"><a href="Toolbars_17236081.html#Toolbars-delete">Delete</a>&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="27" src="attachments/28937608/29099688.png" data-image-src="attachments/28937608/29099688.png" data-unresolved-comment-count="0" data-linked-resource-id="29099688" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-8-8 15:22:43.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28937608" data-linked-resource-container-version="9" /></span>&nbsp;</strong><span style="line-height: 1.4285715;">button on the </span><a href="Toolbars_17236081.html#Toolbars-toolsToolbar"><strong>Tools</strong>&nbsp;toolbar</a><span style="line-height: 1.4285715;">&nbsp;then click on the atom or bond, or by dragging you can select the structure you would like to erase.</span></li>
+       <li>You can delete a previously selected area by clicking on the <strong>Delete</strong>&nbsp;button&nbsp;<strong><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="27" src="attachments/28937608/29099688.png" data-image-src="attachments/28937608/29099688.png" data-unresolved-comment-count="0" data-linked-resource-id="29099688" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-8-8 15:22:43.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28937608" data-linked-resource-container-version="9" /></span></strong>&nbsp;or by pressing the&nbsp;<code>Delete</code>&nbsp;keyboard button.</li>
+      </ul>
+      <p style="margin-left: 30.0px;">&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

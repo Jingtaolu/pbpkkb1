@@ -1,0 +1,47 @@
+<h1>Fileup#tanimoto</h1>
+<p>Find me in app/views/fileup/tanimoto.html.erb
+  <%=@ttttt %>
+</p>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Tanimoto Index</th>
+    <th>pubchemfp2</th>
+    <th>pubchemfp3</th>
+    <th>pubchemfp4</th>
+    <th>pubchemfp5</th>
+    <th>pubchemfp6</th>
+    <th>pubchemfp7</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+
+
+  <tbody>
+  <% @ttt1.each do |chemical1| %>
+      <tr>
+        <td><%= chemical1[:name] %></td>
+        <td><%= chemical1[:simi] %></td>
+        <td><%= chemical1[:pubchemfp1] %></td>
+        <td><%= chemical1[:pubchemfp2] %></td>
+        <td><%= chemical1[:pubchemfp3] %></td>
+        <td><%= chemical1[:pubchemfp4] %></td>
+        <td><%= chemical1[:pubchemfp5] %></td>
+        <td><%= chemical1[:pubchemfp6] %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+

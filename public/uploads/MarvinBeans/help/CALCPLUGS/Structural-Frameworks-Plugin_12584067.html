@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Structural Frameworks Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Structural Frameworks Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Structural Frameworks Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956858 {padding: 0px;}
+div.rbtoc1439200956858 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956858 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956858"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#StructuralFrameworksPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#StructuralFrameworksPlugin-Options">Options</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="StructuralFrameworksPlugin-Introduction"><span style="color: rgb(51,51,51);">Introduction</span></h1>
+      <p><span style="color: rgb(51,51,51);"><br /></span></p>
+      <p><span style="color: rgb(51,51,51);">The Structural Frameworks Plugin calculates Bemis-Murcko frameworks and other structure-based reduced representations for the input molecule.&nbsp;</span></p>
+      <p><span style="color: rgb(51,51,51);">The framework is displayed in a <a href="#StructuralFrameworksPlugin-fig.1">result window</a>.<br />&nbsp;</span></p>
+      <p><span class="confluence-anchor-link" id="StructuralFrameworksPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584067/29098619.png" data-image-src="attachments/12584067/29098619.png" data-unresolved-comment-count="0" data-linked-resource-id="29098619" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="framework.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584067" data-linked-resource-container-version="22" /></span></p>
+      <p>Fig.1 Calculated structural framework displayed in the result window</p>
+      <p>&nbsp;</p>
+      <h1 id="StructuralFrameworksPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>The framework to be calculated can be selected from the&nbsp;<em>Framework type</em>&nbsp;tab on the&nbsp;<em><a href="#StructuralFrameworksPlugin-fig.2">Structural frameworks Options</a></em>&nbsp;panel. This can be:</p>
+      <ul>
+       <li><strong>Bemis-Murcko framework:&nbsp;</strong>Bemis-Murcko framework is calculated by removing side chains from the input and generalizing atom/bond types. If&nbsp;<strong>Keep single atom for non-empty acyclic structures&nbsp;</strong>option is selected, acyclic inputs are not erased completely, but&nbsp;are represented by a single node.</li>
+       <li><strong>Maximum common substructure:</strong>&nbsp;calculates MCS for every pairs of input fragments. The input must contain at least two disconnected fragments.</li>
+       <li><strong>Largest ring:</strong>&nbsp;returns the largest SSSR ring of the input.</li>
+       <li><strong>All fused ring systems:</strong>&nbsp;returns the fused ring systems of the input</li>
+       <li><strong>Largest fused ring system:</strong>&nbsp;returns the largest the fused ring systems of the input</li>
+       <li><strong>Smallest set of the smallest rings (SSSR):</strong>&nbsp;returns the SSSR rings of the input.</li>
+       <li><strong>Complete set of the smallest rings (CSSR):</strong>&nbsp;returns the CSSR rings of the input.</li>
+       <li><strong>Only pre/post process, no framework reduction:&nbsp;</strong>this option can be used to examine the optional pre- or postprocess functionality. Selecting this option will skip any framework reduction/fragmentation.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="StructuralFrameworksPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584067/29099416.png" data-image-src="attachments/12584067/29099416.png" data-unresolved-comment-count="0" data-linked-resource-id="29099416" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="framework_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584067" data-linked-resource-container-version="22" /></span></p>
+      <p>Fig. 2 Framwork Type tab of the Structural frameworks Options panel</p>
+      <p>&nbsp;</p>
+      <p>The&nbsp;<em><a href="#StructuralFrameworksPlugin-fig.3">Advanced Settings</a></em>&nbsp;tab shows options for fine tuning the calculation. These settings are:</p>
+      <p><em>Input preprocess</em>&nbsp;steps are executed before the framework calculation:</p>
+      <ul>
+       <li><strong>Process only the largest fragment of the input structure</strong>: if selected then the largest fragment will be processed in the following steps</li>
+       <li><strong>Prune input</strong>&nbsp;the input structure will be generalized by changing all atom types to carbon, all bond types to single and removing all stereo/wedge bond flags</li>
+       <li><strong>Add explicit hydrogens</strong>&nbsp;will invoke hydrogenize on the input</li>
+       <li><strong>Remove explicit hydrogens</strong>&nbsp;will invoke dehydrogenize on the input</li>
+      </ul>
+      <p><em>Output postprocess</em>&nbsp;steps are executed after the framework calculation:</p>
+      <ul>
+       <li><strong>Prune results</strong>&nbsp;will generalize the resulting framework after the calculations</li>
+       <li><strong>Return only the largest fragment of the result</strong>&nbsp;will keep only the largest resulting fragment</li>
+       <li><strong>Remove topologically equivalent output fragments</strong>&nbsp;will remove duplicated result fragments<br /><br /></li>
+      </ul>
+      <div class="confluence-information-macro confluence-information-macro-warning"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Redundant or non-applicable options will be dinamically disabled based on the selected framework type or other calculations, e.g. if Bemis-Murcko framework is to be calculated, the input is generalized, so <em>Prune input/output</em> is disabled in any cases.&nbsp;</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="StructuralFrameworksPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584067/29099417.png" data-image-src="attachments/12584067/29099417.png" data-unresolved-comment-count="0" data-linked-resource-id="29099417" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="framework_panel2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584067" data-linked-resource-container-version="22" /></span></p>
+      <p>Fig. 3 Advanced Settings tab of the Structural frameworks Options panel</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

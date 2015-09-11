@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Dialogs</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Dialogs </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="Dialogs-SummaryofthedialogsandtheirfunctionsinMarvinJS.">Summary of the dialogs and their functions in Marvin JS.&nbsp;</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Name</th>
+              <th class="confluenceTh">What can you do via the dialog?</th>
+              <th class="confluenceTh">Available from / by...</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="Abbreviated-groups-dialog_35226674.html">Abbreviated groups dialog</a></td>
+              <td class="confluenceTd">Choose abbreviation</td>
+              <td class="confluenceTd"><a href="Abbreviated-group_34701338.html">Abbreviated group button</a><br /><strong><code>Space</code></strong> keyboard shortcut&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="Atom-properties-dialog_35946507.html">Atom properties dialog</a></td>
+              <td class="confluenceTd">Change atom type<br />Set chemical atom properties<br />Set atom query properties&nbsp;</td>
+              <td class="confluenceTd"><a href="Atom-Context-menu_34702188.html">Atom context menu&nbsp;</a></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="Bond-properties-dialog_35226732.html">Bond properties dialog</a></td>
+              <td class="confluenceTd">Change bond type<br />Set topology<br />Set reacting center&nbsp;</td>
+              <td class="confluenceTd"><span>&nbsp;</span><a href="Bond-Context-menu_34702190.html"><span>Bond context menu</span><span>&nbsp;</span></a><span>&nbsp;</span></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Export-dialog_34702304.html">Export dialog</a></td>
+              <td colspan="1" class="confluenceTd">Choose exported file format<br />Check the text formatted source&nbsp;</td>
+              <td colspan="1" class="confluenceTd"><a href="Export_33293361.html">Export button</a><br /><strong><code>Ctrl+S</code> </strong>keyboard shortcut &nbsp;</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Import-dialog_34702280.html">Import dialog</a></td>
+              <td colspan="1" class="confluenceTd">Browse for files to import<br />Paste text source to open&nbsp;</td>
+              <td colspan="1" class="confluenceTd">Import button<br /><code><strong>Ctrl+O</strong> </code><span>keyboard shortcut &nbsp;</span></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Periodic-table-dialog_35226387.html">Periodic table dialog</a></td>
+              <td colspan="1" class="confluenceTd">Choose atom from the Periodic table<br />Set List/NOT list elements&nbsp;</td>
+              <td colspan="1" class="confluenceTd"><a href="Periodic-table_34079134.html">Periodic table button</a></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Pseudo-atom-dialog_35226670.html">Pseudo atom dialog</a></td>
+              <td colspan="1" class="confluenceTd">Add pseudo atom title</td>
+              <td colspan="1" class="confluenceTd"><a href="Query-Atoms..._34079139.html">Pseudo atom button</a> (at query atom combo box)</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Group-Generics-dialog_35226672.html">Reaxys Group Generics dialog</a></td>
+              <td colspan="1" class="confluenceTd">Add <span>Reaxys Group Generics</span></td>
+              <td colspan="1" class="confluenceTd"><span>Reaxys Group Generics button</span></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Repeating-group-dialog_35226720.html">Repeating group dialog</a></td>
+              <td colspan="1" class="confluenceTd"><p>Choose the repetition pattern<br />Add the repetition count<br />(Create Link node, Repeating unit, SRU)</p></td>
+              <td colspan="1" class="confluenceTd"><span><a href="Repeating-Group_35226179.html">Repeating group button</a></span></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="R-group-dialog_35226716.html">R-group dialog</a></td>
+              <td colspan="1" class="confluenceTd">Change the R-group number<br />Set auto numbering ON/OFF&nbsp;</td>
+              <td colspan="1" class="confluenceTd">Clicking on R-group label<br /><span>Clicking on R-group definition label</span></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Set-box-color-dialog_35226709.html">Set box color dialog</a></td>
+              <td colspan="1" class="confluenceTd">Set line color<br />Set background color&nbsp;</td>
+              <td colspan="1" class="confluenceTd"><a href="Graphical-Objects-Context-menu_34702196.html">Graphical object context menu</a></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="Text-dialog_35947773.html">Text dialog</a></td>
+              <td colspan="1" class="confluenceTd">Create text<br />Add symbols<br />Format text&nbsp;</td>
+              <td colspan="1" class="confluenceTd">Clicking on the canvas with active <a href="Text_35947760.html">Text tool</a></td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><a href="View-Settings-dialog_35226318.html">View settings dialog</a></td>
+              <td colspan="1" class="confluenceTd">Change display settings</td>
+              <td colspan="1" class="confluenceTd"><a href="View-settings_33293644.html">View settings button</a></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <h2 id="Dialogs-Relatedpages">Related pages</h2>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="New-Toolbars_34702264.html">Toolbars</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="New-Context-menus_34702175.html">Context menus</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: right;"><a href="Editor-Overview_33293342.html">... back to Editor Overview</a></p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

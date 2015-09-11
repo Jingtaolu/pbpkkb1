@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Reaction Processing</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Reaction Processing </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>A simple reaction scheme is usually too general to describe all of the chemical prerequisites of a successfull reaction. Chemical Terms language decribes the associated chemical knowledge that enables chemists to restrict reaction processing according to expectations.</p>
+      <h1 id="ReactionProcessing-Esterification">Esterification<br />&nbsp;</h1>
+      <p>Acid-catalyzed condensation of an alcohol and a carboxylic acid yields an ester.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828660/14123049.png" data-image-src="attachments/13828660/14123049.png" data-unresolved-comment-count="0" data-linked-resource-id="14123049" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="esterification.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828660" data-linked-resource-container-version="26" /></span></p>
+      <p>However, amines and thiols can react with carboxylic acids as well. Chemical Terms language can be used to exclude molecules with amine or thiol functional groups from the list of reactants.</p>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>match(reactant(1), amine) OR</p>
+        <p>match(reactant(1), thiol)</p> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note that reactant(1) refers to the second reactant here (alcohol component), as we use 0-based counting in chemical reactions.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h1 id="ReactionProcessing-Friedel-Craftsacylation">Friedel-Crafts acylation</h1>
+      <p>&nbsp;</p>
+      <p>Acylation of aromatic compounds by means of acyl halides in the presence of Lewis acids.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828660/14123050.png" data-image-src="attachments/13828660/14123050.png" data-unresolved-comment-count="0" data-linked-resource-id="14123050" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Friedel_Crafts2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828660" data-linked-resource-container-version="26" /></span></p>
+      <p>The electrophilic substitution takes place on the aromatic carbon atom with the lowest localization energy having an attached electrophile in the transition state. By means of Chemical Terms this rule is formulated as follows:</p>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>-energyE(ratom(1))</p> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Similarly to molecules, individual reactant atoms can also be referred.with Chemical Terms. Here, ratom(1) denotes to the carbon atom of the aromatic ring that takes part in the substituiton.</p>
+       </div> 
+      </div> 
+      <p><br />Aromatic carbons having similar localization energies to the lowest one (within a tolerance range) are included. Thus, brombenzene is substituted in both ortho and para positions.</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="406" src="attachments/13828660/14123051.png" data-image-src="attachments/13828660/14123051.png" data-unresolved-comment-count="0" data-linked-resource-id="14123051" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Friedel_Crafts3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828660" data-linked-resource-container-version="26" /></span></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

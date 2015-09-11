@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Clipboard formats configuration</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Clipboard formats configuration </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201033497 {padding: 0px;}
+div.rbtoc1439201033497 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201033497 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201033497"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#Clipboardformatsconfiguration-Availableformatkeysinthepropertyfile,andthecorrespondingformats:">Available format keys in the property file, and the corresponding formats:</a></li> 
+              <li><a href="#Clipboardformatsconfiguration-Availableconfigurablepropertiesforallformatsandtheirmeanings:">Available configurable properties for all formats and their meanings:</a></li> 
+              <li><a href="#Clipboardformatsconfiguration-Otheravailableoptions:">Other available options:</a></li> 
+              <li><a href="#Clipboardformatsconfiguration-Thedefaultconfigurationfile">The default configuration file</a></li> 
+              <li><a href="#Clipboardformatsconfiguration-Furtherformatcouplings">Further format couplings</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p><span style="color: rgb(51,51,51);">Using this configuration the copy/paste operations available in the applet can be controlled: the formats available for copy or paste can be manipulated, or the corresponding resources can be preloaded.</span></p>
+          <p>For example, the copy or paste of specific file formats can be forced to be immediately available after the start of the applet, so instead of loading the underlying architecture on demand, the required resources are loaded during the applet initialization time.<br /> In addition, the formats available on the clipboard after a simple copy operation can be configured, as well as the list of formats available in the Copy As dialog.</p>
+          <p>The configuration is available through a Java properties file which has to be placed to the APPLET_CODEBASE/chemaxon/marvin/datatransfer.properties file or MarvinSketch_installation_directory/chemaxon/marvin/datatransfer.properties file. If this file is available in the applet codebase, the configuration will take effect.</p>
+          <p>This properties file contains settings for format keys. The property name format is as follows: <code>formatkey.configuration.setting.id</code>, so for example, if somebody wants to disable the png format on the copy as dialog, then the <code>png.use.dialog</code> key has to be set to false.</p>
+          <h3 id="Clipboardformatsconfiguration-Availableformatkeysinthepropertyfile,andthecorrespondingformats:"><span style="color: rgb(0,0,0);">Available format keys in the property file, and the corresponding formats:</span></h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Format key</th>
+              <th class="confluenceTh">The corresponding format</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">mrv</td>
+              <td class="confluenceTd">Marvin Document Format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">skc</td>
+              <td class="confluenceTd">IsisDraw Sketch file format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">cdx</td>
+              <td class="confluenceTd">ChemDraw Sketch file format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">mol</td>
+              <td class="confluenceTd">MDL MOLfile format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">rxn</td>
+              <td class="confluenceTd">MDL RXNfile format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">smiles</td>
+              <td class="confluenceTd">Daylight SMILES format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">smarts</td>
+              <td class="confluenceTd">Daylight SMARTS format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">cxsmiles</td>
+              <td class="confluenceTd">Chemaxon extended SMILES format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">cxsmarts</td>
+              <td class="confluenceTd">Chemaxon extended SMARTS format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">name</td>
+              <td class="confluenceTd">IUPAC name format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">trad_name</td>
+              <td class="confluenceTd">Traditional name format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">inchi</td>
+              <td class="confluenceTd">IUPAC InChI format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">inchikey</td>
+              <td class="confluenceTd">IUPAC InChIKey format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">string</td>
+              <td class="confluenceTd">Molecule source, containing the actual file format of the molecule object</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">emf</td>
+              <td class="confluenceTd">Enchanced Metafile picture format (available only on windows platforms)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">jpg</td>
+              <td class="confluenceTd">JPG image format</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">png</td>
+              <td class="confluenceTd">PNG image format</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="Clipboardformatsconfiguration-Availableconfigurablepropertiesforallformatsandtheirmeanings:">Available configurable properties for all formats and their meanings:</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Parameter name</th>
+              <th class="confluenceTh">Valid values</th>
+              <th class="confluenceTh">Meaning</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">name</td>
+              <td class="confluenceTd">can be any String</td>
+              <td class="confluenceTd">This will be displayed in the Copy As dialog to represent the format.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">disabled</td>
+              <td class="confluenceTd">true/false</td>
+              <td class="confluenceTd">If set to false, then the format won't be available at all.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">preload.copy</td>
+              <td class="confluenceTd">true/false</td>
+              <td class="confluenceTd">If set to true, then the classes needed for copying in the specified format will be preloaded at applet initialization.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">preload.paste</td>
+              <td class="confluenceTd">true/false</td>
+              <td class="confluenceTd">If set to true, then the classes needed for pasting in the specified format will be preloaded at applet initialization.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">preload</td>
+              <td class="confluenceTd">true/false</td>
+              <td class="confluenceTd">If set to true, then the classes needed for copying or pasting in the specified format will be preloaded at applet initialization.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">use.default</td>
+              <td class="confluenceTd">true/false</td>
+              <td class="confluenceTd">If set to true, then the molecule will be placed to the clipboard by a simple copy operation in the specified format.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">use.dialog</td>
+              <td class="confluenceTd">true/false</td>
+              <td class="confluenceTd">If set to false, then the specified format won't be available in the Copy As dialog.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>By default, none of the formats are preloaded, all of them are configured as they worked before.</p>
+          <h3 id="Clipboardformatsconfiguration-Otheravailableoptions:">Other available options:</h3>
+          <p>The following keys are not related to the formats, and should be used as they are:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Property name</th>
+              <th class="confluenceTh">Valid values</th>
+              <th class="confluenceTh">Meaning</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">ole.enabled</td>
+              <td class="confluenceTd">true/false</td>
+              <td class="confluenceTd">If Microsoft OLE object copy should be disabled then set to false.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">ole.name</td>
+              <td class="confluenceTd">can be any String</td>
+              <td class="confluenceTd">This will be displayed in the Copy as dialog to represent the Microsoft OLE object format.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">separator</td>
+              <td class="confluenceTd">a comma separated list of format keys.</td>
+              <td class="confluenceTd">After the enumerated formats a separator will be placed in the copy as dialog.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="Clipboardformatsconfiguration-Thedefaultconfigurationfile"><span style="color: rgb(0,0,0);">The default configuration file</span></h3>
+          <p>&nbsp;</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">#define where to place separator in the copy as dialog.
+#comma separated list, separators will be placed after the listed formats
+separator = string
+
+#OLE related settings. Note: OLE is usable only on Windows platforms.
+ole.name = Marvin Object (OLE)
+ole.enabled = true
+
+#structure formats
+mrv.name = Marvin Document (MRV)
+mrv.disabled = false
+mrv.preload.copy = false
+mrv.preload.paste = false
+mrv.use.default = true
+mrv.use.dialog = true
+
+skc.name = ISIS (Symyx) file (SKC)
+skc.disabled = false
+skc.preload = false
+skc.use.default = true
+skc.use.dialog = true
+
+cdx.name = ChemDraw file (CDX)
+cdx.disabled = false
+cdx.preload = false
+cdx.use.default = true
+cdx.use.dialog = true
+
+mol.name = MDL MOLfile
+mol.disabled = false
+mol.preload.copy = false
+mol.preload.paste = false
+mol.use.default = true
+mol.use.dialog = true
+
+rxn.name = MDL RXNfile
+rxn.disabled = false
+rxn.preload.copy = false
+rxn.preload.paste = false
+rxn.use.default = true
+rxn.use.dialog = true
+
+smiles.name = Daylight SMILES
+smiles.disabled = false
+smiles.preload.copy = false
+smiles.preload.paste = false
+smiles.use.default = false
+smiles.use.dialog = true
+
+smarts.name = Daylight SMARTS
+smarts.disabled = false
+smarts.preload.copy = false
+smarts.preload.paste = false
+smarts.use.default = false
+smarts.use.dialog = true
+
+cxsmiles.name = ChemAxon SMILES (CXSMILES)
+cxsmiles.disabled = false
+cxsmiles.preload.copy = false
+cxsmiles.preload.paste = false
+cxsmiles.use.default = false
+cxsmiles.use.dialog = true
+
+cxsmarts.name = ChemAxon SMARTS (CXSMILES)
+cxsmarts.disabled = false
+cxsmarts.preload.copy = false
+cxsmarts.preload.paste = false
+cxsmarts.use.default = false
+cxsmarts.use.dialog = true
+
+name.name = Name
+name.disabled = false
+name.preload.copy = false
+name.preload.paste = false
+name.use.default = false
+name.use.dialog = true
+
+inchi.name = InChI
+inchi.disabled = false
+inchi.preload = false
+inchi.use.default = false
+inchi.use.dialog = true
+
+inchikey.name = InChIKey
+inchikey.disabled = false
+inchikey.preload = false
+inchikey.use.default = false
+inchikey.use.dialog = true
+
+string.name = Molecule Source (Plain Text)
+string.disabled = false
+string.preload = false
+string.use.default = true
+string.use.dialog = true
+
+#image formats
+#emf supported only on Windows platforms
+emf.name = EMF Image
+emf.disabled = false
+emf.preload = false
+emf.use.default = true
+emf.use.dialog = true
+
+#default copy contains these formats because Java Image Flavor is used in default copy.
+jpg.name = JPG Image
+jpg.disabled = false
+jpg.preload = false
+jpg.use.default = false
+jpg.use.dialog = true
+
+png.name = PNG Image
+png.disabled = false
+png.preload = false
+png.use.default = false
+png.use.dialog = true</pre> 
+           </div>
+          </div>
+          <p>&nbsp;</p>
+          <h3 id="Clipboardformatsconfiguration-Furtherformatcouplings">Further format couplings</h3>
+          <p>Please consider this information also while changing the configuration.</p>
+          <ul>
+           <li>If OLE is enabled, then the OLE data will contain the mrv, the mol or rxn file, and the emf image also.</li>
+           <li>Default copy places image data to the clipboard, in java image format. If you want to disable this behaviour you have to set the <code>jimage.use.default</code> property to false.</li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

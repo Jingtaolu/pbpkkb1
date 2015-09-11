@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head> 
+  <meta name="description" content="Aromaticity Detection in Marvin" /> 
+  <meta name="keywords" content="aromatic, Java, Marvin" /> 
+  <meta name="author" content="Andras Volford" /> 
+  <link rel="stylesheet" type="text/css" href="../marvinmanuals.css" title="Style" /> 
+  <title>Aromaticity Detection in Marvin</title> 
+ </head> 
+ <body> 
+  <h1>Aromaticity Detection</h1> 
+  <h2>Which molecules are aromatic?</h2> 
+  <p> An aromatic molecule is one in which electrons form a continuous pi cloud above and below the circular arrangements of atoms. In one representation these atoms are connected by alternating single and double bonds. Another representation is that of the circular pi bond, in which the electron density is evenly distributed through a pi bond above and below the ring. The circulating pi electrons in an aromatic molecule generate significant local magnetic fields that can be detected by NMR techniques. Aromatic molecules typically display enhanced chemical stability, compared to similar non-aromatic molecules. </p> 
+  <p><a name="huckelrule"></a> This commonly seen model of aromatic rings was developed by Friedrich August Kekul&eacute; von Stradonitz and was first explained in quantum mechanical terms by Linus Pauling in the 1930s. In 1931, Erich H&uuml;ckel devised the &quot;4n+2&quot; pi electron rule, valid for planar molecules with a single ring. Molecules having 4n+2 pi electrons (n &gt;= 0) are expected to be aromatic. </p> 
+  <h2> Methods </h2> 
+  <p> Three types of transformation to aromatic representation are implemented in Marvin, all of them are based on the H&uuml;ckel's 4n+2 rule. </p> 
+  <p> All transformation methods work only in structures which are in non-aromatic representation. If the molecules are in partially aromatic form (containing any aromatic bond) the transformation method may fail. None of the methods can recognize homoaromatic systems. </p> 
+  <blockquote> 
+   <h3><a class="anchor" name="basic">Basic aromaticity detection</a> </h3> 
+   <p> Process: locate the ring atoms in the molecule connected with single and double bonds respectively, sum the number of pi-electrons and if the H&uuml;ckel's rule is valid, then the ring is aromatic. Ring systems are also checked. </p> 
+   <p> There are some exceptions: </p> 
+   <ul> 
+    <li>Where the double and single bonds are not sequential but the ring is aromatic. In this case the atom between single bonds has an orbit which takes part in the aromatic system. (Relevant atoms: N, O, P, S, As and Se when they can donate a free electron-pair to the aromatic system and B when it can donate a molecule orbit without additional electron.) </li>
+    <li>Rings with less than 5 members are not aromatic. </li>
+   </ul> 
+   <h3><a class="anchor" name="daylight_arom">General aromaticity detection</a> </h3> 
+   <p> The method is the same as used by Daylight.<br /> Locate the ring atoms in the molecule connected with single and double bonds respectively, sum the number of pi-electrons and if H&uuml;ckel's rule is valid, then the ring is aromatic. Ring systems are also checked. The atoms at the generated ring system may not form a continuous ring like in benzo[de]chromene (SMILES: O1C=CC2=CC=CC3=CC=CC1=C23) where all atoms of the molecule are in the ring system generated from the three 6 membered ring. </p> 
+   <p> There are some exceptions: </p> 
+   <ul> 
+    <li>Oxygen and sulfur can share a pair of pi-electrons. </li>
+    <li>Nitrogen can also share a pair of pi-electrons, if it has three ligands, otherwise the sp2 nitrogen shares just one electron (as in pyridine). </li>
+    <li>An exocyclic double bond to an electronegative atom takes out one shared pi-electron from the cycle, as in 2-pyridone or coumarin. </li>
+   </ul> 
+   <h3><a class="anchor" name="loose">Loose aromaticity detection</a> </h3> 
+   <p> The following ring systems are interpreted as aromatic:<br /> </p>
+   <ul> 
+    <li> Five-membered rings such as the structures shown below:<br /> (Where: A = any atom except hydrogen, Q = any atom except H or C)<br /> <img src="14.png" alt="five-membered1" /> <img src="15.png" alt="five-membered2" /> </li>
+    <li> Six-membered rings that can be drawn as alternating single and double bonds:<br /> <img src="16.png" alt="benzene" /> <img src="17.png" alt="pyridine" /> <img src="18.png" alt="naphtalene" /> <img src="19.png" alt="phentanthrene" /> </li>
+    <li> Perimeter bonds in azulenes:<br /> <img src="20.png" alt="azulene" /> </li>
+   </ul> 
+   <h3><a class="anchor" name="ambig">Ambiguous aromaticity detection</a> </h3> 
+   <p> This type of aromatization checks 5-membered rings with bond pattern similar to pyrrole and having A, AH, Q, QH, atom list (with ambiguous atom types) or not list at the N position (with the two single bonds). In that particular ring, the bonds are replaced by &quot;single or aromatic&quot; and &quot;double or aromatic&quot; bonds. In case of 5-membered ring fusion with aromatic rings, the aromatic ring is aromatized first. </p> 
+   <p>Examples:</p> 
+   <table border="0" cellspacing="0" cellpadding="5" class="grid"> 
+    <tbody>
+     <tr> 
+      <td align="center">Molecule in aliphatic form</td> 
+      <td align="center">Query aromatization</td> 
+     </tr> 
+     <tr> 
+      <td align="center"><img src="29.png" alt="example1" /></td> 
+      <td align="center"><img src="30.png" alt="example1 with query aromatization" /></td> 
+     </tr> 
+     <tr> 
+      <td align="center"><img src="31.png" alt="example2" /></td> 
+      <td align="center"><img src="32.png" alt="example2 with query aromatization" /></td> 
+     </tr> 
+     <tr> 
+      <td align="center"><img src="33.png" alt="example3" /></td> 
+      <td align="center"><img src="34.png" alt="example3 with query aromatization" /></td> 
+     </tr> 
+    </tbody>
+   </table> 
+  </blockquote> 
+  <h2>Differences between the Basic and General methods</h2> 
+  <p> The two method approach the question differently. The general method tries to incorporate mesomeric, tautomeric rearrangement, as in 2-pyridone, while the basic method does not. In the basic method the external double bond breaks the formation of aromatic ring. </p> 
+  <p> The 2-pirydone is aromatic due to its mesomeric rearrangement:<br /> <img src="pyridone_mesomer.png" alt="pyridone mesomer" /> </p> 
+  <p> The following molecules will give different results depending upon the method applied. </p> 
+  <table border="0" cellspacing="0" cellpadding="5" class="grid"> 
+   <!--<TR>
+<TH>Molecule in aliphatic form</TH>
+<TH>Basic aromatization</TH>
+<TH>General aromatization</TH>
+</TR>--> 
+   <!--1,2-dihydropyridin-2-one--> 
+   <tbody>
+    <tr> 
+     <td align="center">Molecule in aliphatic form</td> 
+     <td align="center">Basic aromatization</td> 
+     <td align="center">General aromatization</td> 
+    </tr> 
+    <tr>
+     <td colspan="3" align="center"><b>IUPAC name: </b>pyridin-2(1H)-one</td>
+    </tr> 
+    <tr> 
+     <td><img src="1.png" alt="pyridone" /></td> 
+     <td><img src="1.png" alt="pyridone with ChemAxon aromatization" /></td> 
+     <td><img src="1_d.png" alt="pyridone with Daylight aromatization" /></td> 
+    </tr> 
+    <tr>
+     <td colspan="3" align="center"><b>IUPAC name: </b>2-thioxo-2,3-dihydropyrimidin-4(1H)-one</td>
+    </tr> 
+    <tr> 
+     <td><img src="2.png" alt="smi 2" /></td> 
+     <td><img src="2.png" alt=" with ChemAxon aromatization" /></td> 
+     <td><img src="2_d.png" alt=" with Daylight aromatization" /></td> 
+    </tr> 
+    <tr>
+     <td colspan="3" align="center"><b>IUPAC name: </b>2,4-dihydro-3H-1,2,4-triazol-3-thione</td>
+    </tr> 
+    <tr> 
+     <td><img src="3.png" alt="smi 3" /></td> 
+     <td><img src="3.png" alt=" with ChemAxon aromatization" /></td> 
+     <td><img src="3_d.png" alt=" with Daylight aromatization" /></td> 
+    </tr> 
+    <tr>
+     <td colspan="3" align="center"><b>IUPAC name: </b>9H-xanthen-9-one</td>
+    </tr> 
+    <tr> 
+     <td><img src="4.png" alt="smi 4" /></td> 
+     <td><img src="4_c.png" alt=" with ChemAxon aromatization" /></td> 
+     <td><img src="4_d.png" alt=" with Daylight aromatization" /></td> 
+    </tr> 
+    <tr>
+     <td colspan="3" align="center"><b>IUPAC name: </b>5-thioxo-1,2,4-triazolidin-3-one</td>
+    </tr> 
+    <tr> 
+     <td><img src="5.png" alt="smi 5" /></td> 
+     <td><img src="5.png" alt=" with ChemAxon aromatization" /></td> 
+     <td><img src="5_d.png" alt=" with Daylight aromatization" /></td> 
+    </tr> 
+    <tr>
+     <td colspan="3" align="center"><b>IUPAC name: </b>imidazo[1,5-a]pyridine-3(2H)-thione</td>
+    </tr> 
+    <tr> 
+     <td><img src="6.png" alt="smi 6" /></td> 
+     <td><img src="6.png" alt=" with ChemAxon aromatization" /></td> 
+     <td><img src="6_d.png" alt=" with Daylight aromatization" /></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <h2><a class="anchor" name="queryArom">Aromatization of query structures</a></h2> 
+  <h3><a class="anchor" name="queryAtoms">Structures with Query atoms</a></h3> 
+  <p> A query structure which defines one or more molecules with atom lists or query atoms in one query structure is converted to aromatic form if any of the defined structures can be aromatized. Link nodes, R-atoms and query bonds are not aromatized. If these features are used, the use of single/aromatic or double/aromatic bond types is recommended for each of the ring bonds in order to ensure matching to aromatic systems. </p>
+  <table border="0" cellspacing="0" cellpadding="5" class="grid"> 
+   <tbody>
+    <tr> 
+     <td align="center">Query structure</td> 
+     <td align="center">Aromatized</td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="7.png" alt="smi 7" /></td> 
+     <td align="center"><img src="../images/yes.png" alt="yes" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="8.png" alt="smi 8" /></td> 
+     <td align="center"><img src="../images/yes.png" alt="yes" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="9.png" alt="smi 9" /></td> 
+     <td align="center"><img src="../images/yes.png" alt="yes" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="10.png" alt="smi 10" /></td> 
+     <td align="center"><img src="../images/yes.png" alt="yes" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="11.png" alt="smi 11" /></td> 
+     <td align="center"><img src="../images/yes.png" alt="yes" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="12.png" alt="smi 12" /></td> 
+     <td align="center"><img src="../images/yes.png" alt="yes" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="13.png" alt="smi 13" /></td> 
+     <td align="center"><img src="../images/no.png" alt="no" /></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <h3><a class="anchor" name="queryAtoms">Structures with Query bonds</a></h3> 
+  <p> Structures with query bonds are aromatized only in <a href="#daylight_arom">General aromaticity</a> detection mode.<br /> Query structures with single_or_aromatic, double_or_aromatic or ANY bond are aromatized if the ring or ring system containing the query bond can be aromatized supposing the query bond as aromatic. In this case the single and double bonds are converted to single_or_aromatic and double_or_aromatic bonds respectively.<br /> Structures with query bonds may contain atoms with improper valence due to mixed aromatic-Kekule representation. These structures are accepted and aromatized as they are just an incomplete representation of an otherwise aromatic ring. </p>
+  <table border="0" cellspacing="0" cellpadding="5" class="grid"> 
+   <tbody>
+    <tr> 
+     <td align="center">Query structure</td> 
+     <td align="center">Aromatized form</td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="21.png" alt="[#6]1~[#6]C=CC=C1" /></td> 
+     <td align="center"><img src="22.png" alt="query aromatized" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="27.png" alt="*~1~*-*~*~*~*~1" /></td> 
+     <td align="center"><img src="28.png" alt="query aromatized" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="23.png" alt="mixed aromatic-Kekule representation 1" /></td> 
+     <td align="center"><img src="24.png" alt="query aromatized" /></td> 
+    </tr> 
+    <tr> 
+     <td align="center"><img src="25.png" alt="mixed aromatic-Kekule representation 2" /></td> 
+     <td align="center"><img src="26.png" alt="query aromatized" /></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <h2>Aromatization error detection</h2> Possible aromatization errors may be detected with the use of Structure Checker. 
+  <a href="../structurechecker/checker.html">Guide to Aromaticity Error Checker.</a> 
+  <h2>Dearomatization</h2> The general dearomatization method works as follows: 
+  <ul> 
+   <li> Locate the aromatic electron fog. </li> 
+   <li> Locate special bonds, that should be single (<i>e.g.</i> all the bonds around a trivalent nitrogen should be single). </li> 
+   <li> Place alternating single and double bonds instead of aromatic ones. </li> 
+   <li> This method does not check by default if H&uuml;ckel's rule is valid. Molconvert has <a href="../formats/basic-export-opts.html">options</a>, that check the validity of H&uuml;ckel's rule: 
+    <ul> 
+     <li> &quot;huckel&quot;: checks the validity of H&uuml;ckel's rule, if not valid dearomatization isn't carried out, but no error message is sent. </li>
+     <li> &quot;huckel_ex&quot;: if H&uuml;ckel's rule is not valid, the program terminates with an error message. </li>
+    </ul> </li> 
+  </ul> 
+  <br /> 
+  <h2>References</h2> 
+  <table border="0" cellspacing="0" cellpadding="5"> 
+   <tbody>
+    <tr valign="TOP"> 
+     <td>[1]</td> 
+     <td><a href="http://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html#AROM" target="_top">http://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html</a></td> 
+    </tr> 
+    <tr valign="TOP"> 
+     <td>[2]</td> 
+     <td><a href="http://www.chemaxon.com/forum/ftopic319.html" target="_top">Open discussion forum about aromatic forms</a></td> 
+    </tr> 
+    <tr valign="TOP"> 
+     <td>[3]</td> 
+     <td><a href="http://accelrys.com/products/informatics/cheminformatics/ctfile-formats/no-fee.php" target="_top">MDL's Enhanced Stereochemical Representation</a></td> 
+    </tr> 
+   </tbody>
+  </table>   
+ </body>
+</html>

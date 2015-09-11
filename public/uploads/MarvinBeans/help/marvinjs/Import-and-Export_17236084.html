@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Import and Export</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Import and Export </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="ImportandExport-importImportingaStructure"><span class="confluence-anchor-link" id="ImportandExport-import"></span>Importing a Structure</h2>
+      <p>Marvin JS handles MDL Molfiles V2000 (.mol extension) and ChemAxon Marvin Documents (.mrv extension) as input files. However, other file types (SMILES, ChemAxon Extended SMILES, SMARTS, ChemAxon Extended SMARTS, InChI, IUPAC Name, Common and Drug Name, Corporate Identifier, CML, MDL Molfile V3000, MDL SDfile, ChemAxon Compressed Molfile, ChemAxon Compressed SDfile, and XYZ) can also be imported if the appropriate webservice is available.</p>
+      <p>In Marvin JS you can Import your file in several ways.</p>
+      <p><strong>Drag &amp;Drop</strong></p>
+      <p>You can open your file by choosing a molecule file in your file system, and dragging it over and drop it onto the Marvin JS canvas.</p>
+      <p><strong>Import Menu</strong><br />When you press the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-import">Import</a></strong><span style="color: rgb(0,0,255);">&nbsp;</span>&nbsp;button on the&nbsp;<strong>General</strong>&nbsp;toolbar to open the&nbsp;<strong>Import</strong>&nbsp;pop-up window. (The dialog can be opened by pressing the &quot;<strong>Ctrl+O</strong>&quot; keyboard shortcut, too.)</p>
+      <p>You can import your file from your file system by pushing the <strong>Choose File</strong> button or by pasting its source into the <strong>Paste source</strong> text field.</p>
+      <div class="panel" style="border-color: gray;border-style: solid;border-width: 1px;">
+       <div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: gray;">
+        <b>Technical details</b>
+       </div>
+       <div class="panelContent"> 
+        <p>Import by <strong>Paste source</strong> function:</p>
+        <p>Open the structure file with a text editor (<em style="line-height: 1.4285715;">e.g.</em>, Notepad), select all, and copy the file contents to the clipboard then paste it into the input area. Above the text field you can select the appropriate file format from a drop-down list, or you can choose the <strong>auto recognize </strong>option. Finally, pressing the &quot;Import&quot; button loads the structure on the canvas.</p> 
+       </div>
+      </div>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236084/29099422.png?effects=border-simple,blur-border" data-image-src="attachments/17236084/29099422.png" data-unresolved-comment-count="0" data-linked-resource-id="29099422" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Import.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236084" data-linked-resource-container-version="27" /></span></p>
+      <h2 id="ImportandExport-exportExport"><span><span class="confluence-anchor-link" id="ImportandExport-export"></span>Export</span></h2>
+      <h3 id="ImportandExport-ExportaStructure"><span>Export a Structure</span></h3>
+      <p>A structure can be saved either in ChemAxon Marvin Document format or in MDL Molfile V2000 format. In order to export in other file formats (SMILES, ChemAxon Extended SMILES, SMARTS, ChemAxon Extended SMARTS, InChI, InChIKey, IUPAC Name, CML, MDL Molfile V3000, MDL SDfile, ChemAxon Compressed Molfile, ChemAxon Compressed SDfile, XYZ, CDX, and SKC) the appropriate webservice has to be available.<br />To save the structures on the canvas, click on the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-export">Export</a></strong>&nbsp;button on the&nbsp;<strong>General</strong>&nbsp;toolbar which opens the <strong>Export</strong>&nbsp;dialog window. Alternatively, you can use the &quot;<strong>Ctrl+S</strong>&quot; keyboard shortcut as well. In this window you can see the canvas contents in the default ChemAxon Marvin Document (MRV) format. The structure file format can be changed by selecting an option from the drop-down list of supported file formats. To save that to a file, push the&nbsp;<strong>Download</strong>&nbsp;button at the bottom of the dialog window, click on the created link, and save the file with the preferred name and route. Alternatively, you can paste the structure source into a text editor and save it from there. In case of CDX and SKC file formats, only the first option can be carried out.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236084/29099424.png?effects=border-simple,blur-border" data-image-src="attachments/17236084/29099424.png" data-unresolved-comment-count="0" data-linked-resource-id="29099424" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Export.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236084" data-linked-resource-container-version="27" /></span></p>
+      <h3 id="ImportandExport-saveAsImageSavingasImage"><span class="confluence-anchor-link" id="ImportandExport-saveAsImage"></span>Saving as Image</h3>
+      <p>In order to save an image of the structure in Marvin JS, select Image Tab in the <strong>Export</strong>&nbsp;dialog. The supported image formats are PNG and JPEG. You can also set&nbsp;display options, detailed <a href="Display-Options_17236089.html">here</a><span style="color: rgb(0,0,0);">,</span>&nbsp;determine the color of the image background (transparent or white), and set the width and height of the image.<span style="color: rgb(7,113,121);">&nbsp;</span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

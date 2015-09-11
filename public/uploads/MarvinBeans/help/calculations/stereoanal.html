@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Stereo Analysis - calculating stereo descriptors</title>
+<link rel="stylesheet" type="text/css" href="../marvinmanuals.css">
+</head>
+<body>
+<h1>Stereo Analysis - calculating stereo descriptors</h1>
+
+<p>Stereochemistry involves the study of the relative spatial arrangement of atoms and their transformations.
+Stereochemistry defines different isomerisms that describe the molecule's behaviour in the space. 
+These covers the entire space of organic molecules. We do not give further details on stereochemistry here, instead 
+we refer to Marvin's stereochemistry summary: 
+</p>
+
+<p>
+http://www.chemaxon.com/marvin/help/sci/stereo-doc.html
+</p>
+
+<p>
+It can be important to determine a molecule's stereochemical behaviour. This can be achieved by calculating stereochemical
+descriptors for the molecule.
+</p>
+
+<p>ChemAxon's stereo analysis module is able to calculate stereochemical descriptors for a molecule, giving an analysis in terms of the stereochemical properties.
+</p>
+
+
+<p>The stereo analysis functionality is built in different ChemAxon products.</p>
+
+<h3>Stereo analysis with <i>cxcalc</i> </h3>
+
+The solubility predictor is integrated into the <i>cxcalc</i> command line tool. The command syntax is 
+
+<p>
+<code>cxcalc [general options] [input files/strings] stereoanalysis [stereoanalysis options] [input files/strings]
+</code>
+</p>
+
+where the stereoanalysis options are the following:
+
+<pre>
+<code>
+stereoanalysis options: 
+    -h  --help           this help message
+    -T  --type           stereo descriptor type  [tetrahedral | cistrans |
+                         axial | atrop] (default: not set)
+</code>
+</pre>
+
+Some examples on how to use the stereo analysis module via <i>cxcalc</i>:
+
+<ul>
+
+<li>Calculating tetrahedral stereo descriptors for the following molecule:
+
+<p>
+<table>
+	<tr>
+		<td><img src="stereoanal_files/sa1.png" width="75" height="75"></td>
+	</tr>
+</table>
+</p>
+
+<p><code>cxcalc stereoanalysis "[H][C@](Cl)(Br)I"</code></p>
+
+<p>
+The output shows the calculated tetrahedral stereo descriptors:
+<code>
+<pre>
+TETRAHEDRAL [1] - [0, 2, 3, 4] : EVEN
+</pre>
+</code>
+</p>
+
+</li>
+
+<li>Calculating cis-trans stereo descriptors:
+
+<p>
+<table>
+	<tr>
+		<td><img src="stereoanal_files/sa2.png" width="150" height="75"></td>
+	</tr>
+</table>
+</p>
+<p><code>cxcalc stereoanalysis "Cl/C=C\C=C\Cl"</code></p>
+
+<p>
+The output shows the calculated cis-trans stereo descriptors:
+<code>
+<pre>CISTRANS [1, 2] - [0, 3] : CIS
+CISTRANS [3, 4] - [2, 5] : TRANS
+</pre>
+</code>
+</p>
+
+</li> 
+
+<li>Calculating axial stereo descriptors for a molecule:
+
+<p>
+<table>
+	<tr>
+		<td><img src="stereoanal_files/sa3.png" width="150" height="75"></td>
+	</tr>
+</table>
+</p>
+
+<p><code>cxcalc stereoanalysis CC=C=CC</code></p>
+
+<p>
+The output shows the calculated axial stereo descriptors:
+<code>
+<pre>AXIAL [1, 3] - [0, 4] : WIGGLY
+</pre>
+</code>
+</p>
+
+</li>
+
+<li>Calculating atrop stereo descriptor for a molecule:
+
+<p>
+<table>
+	<tr>
+		<td><img src="stereoanal_files/sa4.png" width="200" height="100"></td>
+	</tr>
+</table>
+</p>
+
+<p><code>cxcalc stereoanalysis "CCC1=C(C(C)=CC=C1)C1=CC=CC=C1C"</code></p>
+
+<p>
+The output shows the calculated atrop stereo descriptors:
+<code>
+<pre>ATROP [3, 9] - [4, 2, 14, 10] : UNKNOWN
+</pre>
+</code>
+</p>
+
+</li>
+
+<li>Calculating all stereo descriptors for a molecule with different stereo features:
+
+<p>
+<table>
+	<tr>
+		<td><img src="stereoanal_files/sa5.png" width="200" height="100"></td>
+	</tr>
+</table>
+</p>
+
+<p><code>cxcalc stereoanalysis "ClC(Br)C1CCCC(C1)/C=C/Cl"</code></p>
+<p>
+The output shows the calculated stereo descriptors:
+<code>
+<pre>CISTRANS [9, 10] - [7, 11] : TRANS
+TETRAHEDRAL [3] - [1, 4, 8] : UNKNOWN
+TETRAHEDRAL [1] - [0, 2, 3] : UNKNOWN
+TETRAHEDRAL [7] - [6, 8, 9] : UNKNOWN
+</pre>
+</code>
+</p>
+
+</li>
+
+<li>Listing just the cis-trans stereo descriptors for the previous molecule:
+<p><code>cxcalc stereoanalysis -T cistrans "ClC(Br)C1CCCC(C1)/C=C/Cl"</code></p>
+
+<p>
+The output is:
+<code>
+<pre>CISTRANS [9, 10] - [7, 11] : TRANS
+</pre>
+</code>
+</p>
+
+</li>
+
+
+
+
+
+
+</ul>
+
+<h3>Stereo analysis with ChemAxon's Chemical Terms</h3>
+
+The stereo analysis module is also integrated into ChemAxon's Chemical Terms language. 
+The stereo descriptors can be calculated by two different functions in Chemical Terms:
+
+<ul>
+     <li><b>stereoanalysis()</b>: calculates and returns the stereo descriptors for the input molecule.</li>
+     <li><b>stereoanalysis(T)</b>: calculates and returns the stereo descriptor of type T.</li>
+</ul>
+
+The following examples show how the functions above can be used with the Chemical Terms evaluator
+command line tool:
+
+<ul>
+
+<li>Calculating tetrahedral stereo descriptors for the molecule given above:
+<p><code>evaluate -e "stereoanalysis('tetrahedral')" molecule.smiles</code></p>
+</li>
+
+
+<li>Calculating all stereo descriptors for the molecule:
+<p><code>evaluate -e "stereoanalysis()" molecule.smiles</code></p>
+</li> 
+
+</body>
+</html>

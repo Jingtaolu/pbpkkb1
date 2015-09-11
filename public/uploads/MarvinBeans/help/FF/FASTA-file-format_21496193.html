@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : FASTA file format</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : FASTA file format </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="FASTAfileformat-Import">Import</h1>
+          <p>Marvin import the FASTA files if the comment line of it starts with a '&gt;' character. If the sequence type is not specified, Marvin will try to guess it from the comment header and from the sequence.</p>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>fasta</strong></p> 
+           </div>
+          </div>
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <p><a href="FASTA-import-options_21496196.html">FASTA import options</a></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="FASTAfileformat-DNA,RNA">DNA, RNA</h2>
+          <p><a class="anchor" name="dna" rel="nofollow"></a> We import the following codes.</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh"><strong> Nucleic Acid Code</strong></th>
+              <th class="confluenceTh">Meaning</th>
+              <th class="confluenceTh">Mnemonic</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> A</strong></td>
+              <td class="confluenceTd">A</td>
+              <td class="confluenceTd">Adenine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> C</strong></td>
+              <td class="confluenceTd">C</td>
+              <td class="confluenceTd">Cytosine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> G</strong></td>
+              <td class="confluenceTd">G</td>
+              <td class="confluenceTd">Guanine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> U</strong></td>
+              <td class="confluenceTd">U</td>
+              <td class="confluenceTd">Uracil (only in RNA)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> T</strong></td>
+              <td class="confluenceTd">U</td>
+              <td class="confluenceTd">Timin (only in DNA)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> R</strong></td>
+              <td class="confluenceTd">A or G</td>
+              <td class="confluenceTd">puRine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> Y</strong></td>
+              <td class="confluenceTd">C, T or U</td>
+              <td class="confluenceTd">pYrimidines</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> K</strong></td>
+              <td class="confluenceTd">G, T or U</td>
+              <td class="confluenceTd">bases which are Ketones</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> M</strong></td>
+              <td class="confluenceTd">A or C</td>
+              <td class="confluenceTd">bases with aMino groups</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> S</strong></td>
+              <td class="confluenceTd">C or G</td>
+              <td class="confluenceTd">Strong interaction</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> W</strong></td>
+              <td class="confluenceTd">A, T or U</td>
+              <td class="confluenceTd">Weak interaction</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> B</strong></td>
+              <td class="confluenceTd">not A (i.e. C, G, T or U)</td>
+              <td class="confluenceTd">B comes after A</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> D</strong></td>
+              <td class="confluenceTd">not C (i.e. A, G, T or U)</td>
+              <td class="confluenceTd">D comes after C</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> H</strong></td>
+              <td class="confluenceTd">not G (i.e., A, C, T or U)</td>
+              <td class="confluenceTd">H comes after G</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> V</strong></td>
+              <td class="confluenceTd">neither T nor U (i.e. A, C or G)</td>
+              <td class="confluenceTd">V comes after U</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> N</strong></td>
+              <td class="confluenceTd">A C G T U</td>
+              <td class="confluenceTd">aNy</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> X</strong></td>
+              <td class="confluenceTd">masked</td>
+              <td class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong> -</strong></td>
+              <td class="confluenceTd">gap of indeterminate length</td>
+              <td class="confluenceTd">&nbsp;</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p><a class="anchor" name="dna" rel="nofollow"></a>Ambigous nucleosides are represented with a labeled pseudoatom.</p>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>fasta:dna, fasta:rna</strong></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="FASTAfileformat-Peptide">Peptide</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh"><strong> Code</strong></th>
+              <th class="confluenceTh"><strong> Aminoacid</strong></th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">A</td>
+              <td class="confluenceTd">Alanine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">B</td>
+              <td class="confluenceTd">Aspartic acid or Asparagine <br />(represented with an atom list in side-chain)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">C</td>
+              <td class="confluenceTd">Cysteine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">D</td>
+              <td class="confluenceTd">Aspartic acid</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">E</td>
+              <td class="confluenceTd">Glutamic acid</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">F</td>
+              <td class="confluenceTd">Phenylalanine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">G</td>
+              <td class="confluenceTd">Glycine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">H</td>
+              <td class="confluenceTd">Histidine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">I</td>
+              <td class="confluenceTd">Isoleucine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">K</td>
+              <td class="confluenceTd">Lysine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">L</td>
+              <td class="confluenceTd">Leucine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">M</td>
+              <td class="confluenceTd">Methionine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">N</td>
+              <td class="confluenceTd">Asparagine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">O</td>
+              <td class="confluenceTd">Pyrrolysine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">P</td>
+              <td class="confluenceTd">Proline</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Q</td>
+              <td class="confluenceTd">Glutamine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">R</td>
+              <td class="confluenceTd">Arginine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">S</td>
+              <td class="confluenceTd">Serine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">T</td>
+              <td class="confluenceTd">Threonine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">U</td>
+              <td class="confluenceTd">Selenocysteine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">V</td>
+              <td class="confluenceTd">Valine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">W</td>
+              <td class="confluenceTd">Tryptophan</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Y</td>
+              <td class="confluenceTd">Tyrosine</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Z</td>
+              <td class="confluenceTd">Glutamic acid or Glutamine<br /> (represented with an atom list in side-chain)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">X</td>
+              <td class="confluenceTd">any <br />(represented with an X pseudo atom at the α-Carbon atom side chain)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">*</td>
+              <td class="confluenceTd">translation stop <br /> (ignored)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">-</td>
+              <td class="confluenceTd">gap of indeterminate length<br /> (ignored)</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>:<strong> fasta:peptide</strong></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="FASTAfileformat-Export"><a class="anchor" name="import" rel="nofollow"></a> Export</h1>
+          <p>Not supported yet.</p>
+          <h2 id="FASTAfileformat-Reference">Reference</h2>
+          <ul>
+           <li><a href="http://fasta.bioch.virginia.edu/fasta_www2/fasta_list2.shtml" class="external-link" rel="nofollow">FASTA home</a></li>
+           <li><a href="http://en.wikipedia.org/wiki/FASTA_format" class="external-link" rel="nofollow">http://en.wikipedia.org/wiki/FASTA_format</a></li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Polarizability Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Polarizability Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Polarizability Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200955847 {padding: 0px;}
+div.rbtoc1439200955847 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200955847 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200955847"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#PolarizabilityPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#PolarizabilityPlugin-Options">Options</a></li> 
+          <li><a href="#PolarizabilityPlugin-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="PolarizabilityPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Polarizability is the relative tendency of an electron cloud (a charge distribution) of a molecule to be distorted by an external electric field. The more stable an ionized (charged) site is the more polarizable its vicinity is. This is why atomic polarizability is an important factor in the determination of p<em>K</em><sub>a</sub>and why it is considered in our p<em>K</em><sub>a</sub>&nbsp;Plugin. Atomic polarizability is altered by partial charges of atoms.&nbsp;The&nbsp;Polarizability Plugin&nbsp;is able to calculate the atomic and molecular polarizability values.</p>
+      <p>We use two methods to calculate polarizability: one of the calculations is based on the&nbsp;atomic parameters in<a href="#PolarizabilityPlugin-refmiller">&nbsp;Miller et al.</a>, while the other is based on the parameters in <a href="#PolarizabilityPlugin-refjensen">Jensen et al.</a></p>
+      <p>The calculation result appears in a new (<a href="#PolarizabilityPlugin-fig.1">2D display</a> or <a href="#PolarizabilityPlugin-fig.2">3D display</a>) window, displaying on each atom its polarizability contribution (its dimension is &Aring;<sup>3</sup>) .</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="PolarizabilityPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="350" src="attachments/12583873/29098591.png" data-image-src="attachments/12583873/29098591.png" data-unresolved-comment-count="0" data-linked-resource-id="29098591" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="polarizability.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583873" data-linked-resource-container-version="24" /></span></p>
+      <p>Fig. 1 Displayed atomic polarizability values in 2D</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="PolarizabilityPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="700" src="attachments/12583873/29098592.png" data-image-src="attachments/12583873/29098592.png" data-unresolved-comment-count="0" data-linked-resource-id="29098592" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="polarizability_mspace.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583873" data-linked-resource-container-version="24" /></span></p>
+      <p>Fig. 2 Displayed atomic polarizability values in 3D</p>
+      <h1 id="PolarizabilityPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>In the&nbsp;<em><a href="#PolarizabilityPlugin-fig.3">Polarizability Options</a></em>&nbsp;panel you can set the following options:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:</strong>&nbsp;setting the number of decimal places with which the result value is given.</li>
+       <li><strong>Type:</strong>&nbsp;setting type of the calculation (molecular or atomic polarizability)</li>
+       <li><strong>Take 3D geometry (Thole):</strong>&nbsp;calculates the polarization tensor values.</li>
+       <li><strong>Take major microspecies:</strong>&nbsp;the polarizability of major microspecies at the given pH is calculated<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="PolarizabilityPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/12583873/29099375.png" data-image-src="attachments/12583873/29099375.png" data-unresolved-comment-count="0" data-linked-resource-id="29099375" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="polar_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583873" data-linked-resource-container-version="24" /></span></p>
+      <p>Fig. 3 Polariizability Options panel</p>
+      <h1 id="PolarizabilityPlugin-References"><strong style="line-height: 1.4285715;"><br /></strong>References</h1>
+      <ol>
+       <li><span style="line-height: 1.4285715;"><span class="confluence-anchor-link" id="PolarizabilityPlugin-refmiller"></span>Miller, K. J.; Savchik, J. A.,&nbsp;</span><em style="line-height: 1.4285715;">J. Am. Chem. Soc.</em><span style="line-height: 1.4285715;">,&nbsp;</span><strong style="line-height: 1.4285715;">1979</strong><span style="line-height: 1.4285715;">,&nbsp;</span><em style="line-height: 1.4285715;">101</em><span style="line-height: 1.4285715;">, 7206-7213;&nbsp;</span><a href="http://dx.doi.org/10.1021/ja00518a014" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a>&nbsp;</li>
+       <li><span style="line-height: 1.4285715;"><span class="confluence-anchor-link" id="PolarizabilityPlugin-refjensen"></span>Jensen, L.; &Aring;strand, P.-O.; Osted, A.; Kongsted, J.; Mikkelsen, K.V.&nbsp;</span><em style="line-height: 1.4285715;">J. Chem. Phys.</em><span style="line-height: 1.4285715;">,&nbsp;</span><strong style="line-height: 1.4285715;">2002</strong><span style="line-height: 1.4285715;">,&nbsp;</span><em style="line-height: 1.4285715;">116</em><span style="line-height: 1.4285715;">, 4001-4010;&nbsp;</span><a href="http://dx.doi.org/10.1063/1.1433747" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+      </ol>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

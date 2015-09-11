@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Document to Structure : History of Changes</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Document to Structure : History of Changes </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h1 id="HistoryofChanges-HistoryofChanges">History of Changes</h1>
+      <p>You might want to also see the&nbsp;<a href="https://docs.chemaxon.com/display/n2s/History+of+Changes">changes in Name to Structure</a>, since they also affect Document to Structure.</p>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.07.20">Document to Structure 15.07.20</h2>
+      <h3 id="HistoryofChanges-Improvements">Improvements</h3>
+      <ul>
+       <li>The detection of asian names is improved in some documents.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.06.29">Document to Structure 15.06.29</h2>
+      <h3 id="HistoryofChanges-Bugfixes">Bug fixes</h3>
+      <ul>
+       <li>Processing of scanned PDFs (using OCR - Optical Character Recognition) was failing on Mac OS X.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.06.01">Document to Structure 15.06.01</h2>
+      <h3 id="HistoryofChanges-Improvements.1">Improvements</h3>
+      <ul>
+       <li>Names that contain extra spaces (for instance because of OCR or new lines without a - character before the break) are now better supported.</li>
+       <li>Patent PDFs provided by LexisNexis's Univentio can now be processed using the built in OCR text instead of doing the OCR again, leading to about 10 times faster processing. This was already working for older Univentio PDFs but is now also supported for recent ones.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.05.25">Document to Structure 15.05.25</h2>
+      <h3 id="HistoryofChanges-Improvements.2">Improvements</h3>
+      <ul>
+       <li>Improvements in OCR error correction.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.05.18">Document to Structure 15.05.18</h2>
+      <h3 id="HistoryofChanges-Improvements.3">Improvements</h3>
+      <ul>
+       <li>Significant improvements are included in OCR error correction, especially for patents based on scanned images.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.05.04">Document to Structure 15.05.04</h2>
+      <h3 id="HistoryofChanges-Newfeatures">New features</h3>
+      <ul>
+       <li>Exemplified compound numbers are now extracted automatically when they are mentioned directly before the IUPAC name.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Improvements.4">Improvements</h3>
+      <ul>
+       <li>Improved detection of asian names in documents.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumentAnnotator15.04.20">Document Annotator 15.04.20</h2>
+      <h3 id="HistoryofChanges-Bugfixes.1">Bug fixes</h3>
+      <ul>
+       <li>Some TIFF images failed to be processed.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.03.09">Document to Structure 15.03.09</h2>
+      <h3 id="HistoryofChanges-Bugfixes.2">Bug fixes</h3>
+      <ul>
+       <li>Certain &quot;custom&quot; image types in PDFs failed to be processed by OSR tools.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.02.23">Document to Structure 15.02.23</h2>
+      <h3 id="HistoryofChanges-Newfeatures.1">New features</h3>
+      <ul>
+       <li>The location of OSR tools can now be specified by using Java system properties: chemaxon.naming.clide.path, chemaxon.naming.osra.path and chemaxon.naming.imago.path. These take precedence over the environment variables (CLIDE, OSRA and IMAGO), which are also supported.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Improvements.5">Improvements</h3>
+      <ul>
+       <li>The detection of Japanese names in documents has been improved.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.01.26">Document to Structure 15.01.26</h2>
+      <h3 id="HistoryofChanges-Improvements.6">Improvements</h3>
+      <ul>
+       <li>In the output of Optical Structure Recognizers, some non-standard labels such as X2 are now interpreted as R-groups. Those structures also become representable as SMILES.</li>
+       <li>Some aliases detected by Optical Structure Recognition programs are expanded to the corresponding chemical group.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.01.19">Document to Structure 15.01.19</h2>
+      <h3 id="HistoryofChanges-Improvements.7">Improvements</h3>
+      <ul>
+       <li>Encrypted documents are now reported with a clearer message and a specific single exception: chemaxon.naming.document.EncryptedDocumentException</li>
+      </ul>
+      <h3 id="HistoryofChanges-Bugfixes.3">Bug fixes</h3>
+      <ul>
+       <li>Failure to start OCR could lead to multiple entries in the log.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.01.12">Document to Structure 15.01.12</h2>
+      <h3 id="HistoryofChanges-Bugfixes.4">Bug fixes</h3>
+      <ul>
+       <li>A failure in writing temporary images to disk lead to duplicate entries in the log.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure15.01.05">Document to Structure 15.01.05</h2>
+      <h3 id="HistoryofChanges-Improvements.8">Improvements</h3>
+      <ul>
+       <li>Unknown format options now lead to a failure instead of being ignored.</li>
+       <li>Numbers in subscript and superscript HTML and XML tags (&lt;sub&gt; and &lt;sup&gt;) are now interpreted.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Bugfixes.5">Bug fixes</h3>
+      <ul>
+       <li>Japanese and Chinese names were not recognized in documents when followed by a fullwidth number inside brackets.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure14.12.15">Document to Structure 14.12.15</h2>
+      <h3 id="HistoryofChanges-Bugfixes.6">Bug fixes</h3>
+      <ul>
+       <li>Assignee metadata was not extracted from some recent USPTO XML patents.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure14.12.01">Document to Structure 14.12.01</h2>
+      <h3 id="HistoryofChanges-Improvements.9">Improvements</h3>
+      <ul>
+       <li>Numeric character entities in metadata of XML documents are now decoded.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure14.11.24">Document to Structure 14.11.24</h2>
+      <h3 id="HistoryofChanges-Bugfixes.7">Bug fixes</h3>
+      <ul>
+       <li>Some SMILES-like words containing &quot;Br&quot; or &quot;Cl&quot; were wrongly detected as SMILES.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure14.11.17">Document to Structure 14.11.17</h2>
+      <h3 id="HistoryofChanges-NewFeature">New Feature</h3>
+      <ul>
+       <li>The structures recognized by OSR tools (CLiDE and OSRA) are now represented in a uniform way, for instance using real R-group atoms instead of just aliases.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Bugfixes.8">Bug fixes</h3>
+      <ul>
+       <li>Some OLE structures embedded by JChem for Office were extracted as empty structures.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure14.09.29">Document to Structure 14.09.29</h2>
+      <h3 id="HistoryofChanges-Bugfixes.9">Bug fixes</h3>
+      <ul>
+       <li>A failure to process some Powerpoint documents was fixed.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure14.09.22">Document to Structure 14.09.22</h2>
+      <h3 id="HistoryofChanges-Improvements.10">Improvements</h3>
+      <ul>
+       <li>Logging messages are improved to facilitate investigating problematic documents.</li>
+      </ul>
+      <h2 id="HistoryofChanges-DocumenttoStructure14.09.15">Document to Structure 14.09.15</h2>
+      <h3 id="HistoryofChanges-Improvements.11">Improvements</h3>
+      <ul>
+       <li>Detection of Chinese chemical names in documents was improved.</li>
+       <li>Names (especially Chinese) are better detected in XML patent files from IFI Claims.</li>
+      </ul>
+      <h2 id="HistoryofChanges-September8th,2014:DocumenttoStructure14.09.08">September 8th, 2014: Document to Structure 14.09.08</h2>
+      <h3 id="HistoryofChanges-Bugfixes.10">Bug fixes</h3>
+      <ul>
+       <li>The molecule name extracted from Chinese and Japanese documents was in a few cases not the actual name but another close-by word.</li>
+       <li>Some invalid structures were generated from some chinese and japanese documents with unusual character combinations.</li>
+      </ul>
+      <h2 id="HistoryofChanges-September1st,2014:DocumenttoStructure14.09.01">September 1st, 2014: Document to Structure 14.09.01</h2>
+      <h3 id="HistoryofChanges-NewFeaturesandImprovements">New Features and Improvements</h3>
+      <ul>
+       <li>The embedded OCR information in PDFs from the TotalPatent system (by LexisNexis) is now detected and used automatically. This leads to massively faster processing for such PDFs, from 10 to 30 times faster!</li>
+      </ul>
+      <h2 id="HistoryofChanges-August25th,2014:DocumenttoStructure14.8.25">August 25th, 2014: Document to Structure 14.8.25</h2>
+      <h3 id="HistoryofChanges-NewFeaturesandImprovements.1">New Features and Improvements</h3>
+      <ul>
+       <li>Names split between two paragraphs can now be detected and converted to structure. While ideally this situation should not occur in proper semantic documents, it does occur in automatically generated ones, for instance in patent documents distributed by patent providers.</li>
+       <li>The context field can now include text from a previous paragraph. This is useful in particular in patents, where this sometimes includes the example number.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Bugfixes.11">Bug fixes</h3>
+      <ul>
+       <li>Google patent PDFs were only processed until page 20.</li>
+      </ul>
+      <h2 id="HistoryofChanges-August18th,2014:DocumenttoStructure14.8.18">August 18th, 2014: Document to Structure 14.8.18</h2>
+      <h3 id="HistoryofChanges-Bugfixes.12">Bug fixes</h3>
+      <ul>
+       <li>Processing an HTML file with CLiDE enabled failed when an image contained no structure.</li>
+      </ul>
+      <h2 id="HistoryofChanges-August4th,2014:DocumenttoStructure14.8.4">August 4th, 2014: Document to Structure 14.8.4</h2>
+      <h3 id="HistoryofChanges-NewFeaturesandImprovements.2">New Features and Improvements</h3>
+      <ul>
+       <li>Added the osrResolution=N option to specify the resolution in DPI of images processed by OSRA. This is only needed for single image files, not for images inside PDF, Office or HTML documents.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Bugfixes.13">Bug fixes</h3>
+      <ul>
+       <li>The character encoding of HTML5 documents was not detected automatically.</li>
+      </ul>
+      <h2 id="HistoryofChanges-July7th,2014:DocumenttoStructure14.7.7">July 7th, 2014: Document to Structure 14.7.7</h2>
+      <h3 id="HistoryofChanges-NewFeaturesandImprovements.3">New Features and Improvements</h3>
+      <ul>
+       <li>Chinese and Japanese name are better detected in documents.</li>
+       <li>Optical Structure Recognition is now performed on images referenced in HTML documents. This is supported when the image is accessible as a file (relatively to the HTML document file), and when the image is represented by a data URI.</li>
+       <li>The BMP image format is now supported for calling Optical Structure Recognition tools using the document to structure API.</li>
+       <li>The ending position of the names in text documents (HTML, XML, TXT) is now also included in the properties of returned structures.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Bugfixes.14">Bug fixes</h3>
+      <ul>
+       <li>Some embedded structures in Powerpoint documents were not extracted.</li>
+      </ul>
+      <h2 id="HistoryofChanges-April18th,2014:DocumenttoStructure6.3.0">April 18th, 2014: Document to Structure 6.3.0</h2>
+      <h3 id="HistoryofChanges-NewFeaturesandImprovements.4">New Features and Improvements</h3>
+      <ul>
+       <li>OSRA 2.0 is supported.</li>
+       <li>A format option has been introduced allowing the user to select an optical structure recognition tool: CLiDE, OSRA or Imago when more than one is installed on the computer. For instance, <code> <span class="pearl-hilighted-word" style="color: black;background: rgb(255,255,102);">d2s</span>:osra</code> will request OSRA to be used.</li>
+      </ul>
+      <h3 id="HistoryofChanges-Bugfixes.15">Bug fixes</h3>
+      <ul>
+       <li>The encoding of HTML files was not always detected from the META tag.</li>
+       <li>When the extraction of OLE embedded structures from Office documents was disabled using the <code> <span class="pearl-hilighted-word" style="color: black;background: rgb(255,255,102);">d2s</span>:-ole</code> format option, the optical structure recognition of images was disabled as well.</li>
+       <li>The character position field of structures was sometimes higher by a few characters when extracted from HTML documents with CRLF (\r\n) line endings.</li>
+       <li>The CLiDE optical structure recognition tool was not automatically detected on 64 bit versions of Windows.</li>
+       <li>When using OSRA, some structures with implicit hydrogens were wrongly filtered out.</li>
+       <li>After processing only a part of an HTML document, the processing of the next HTML document could give some incorrect results.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

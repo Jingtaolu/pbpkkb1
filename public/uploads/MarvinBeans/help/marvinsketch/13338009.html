@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Copy-Paste and Drag&amp;Drop</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Copy-Paste and Drag&amp;Drop </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>The cut, copy, and paste operations work in the bean and application versions of Marvin, and also in the applets.</p>
+          <p>However, because of security reasons, the untrusted (unsigned) applets perform these operations using a local clipboard inside the JVM process.</p>
+          <p>The non-applet versions of Marvin and the signed Marvin applets are allowed to use the system clipboard.</p>
+          <h2 id="Copy-PasteandDrag&amp;Drop-Copy,CopyAs...,CopyasSmiles"><a class="anchor" name="where_available" rel="nofollow"></a>Copy, Copy As..., Copy as Smiles</h2>
+          <p>Marvin has three commands to place objects on the clipboard: <code>Copy</code>, <code>Copy As...</code> and <code>Copy as Smiles</code>.</p>
+          <ul>
+           <li>&nbsp;<strong>Copy</strong> command: the structure is copied to the clipboard in a couple of formats.<br />The molecule always will be there in <strong>mrv</strong>, <strong>MDL Molfile</strong> and <strong>DayLight SMILES</strong> formats.<br />The other formats (like <em>Plain Text</em> or <em>Bitmap Image</em>) are optional. See the table in the <a href="#Copy-PasteandDrag&amp;Drop-clip">Clipboard formats</a> section about supported options and default settings.</li>
+           <li><strong>Copy As...</strong> command: a dialog is displayed to select in which format the molecule will be placed to the clipboard.</li>
+           <li><p><strong>Copy as Smiles</strong> command: the Smiles string of the structure is copied to the clipboard in <code>String</code> and <code>Plain Text</code> formats.</p></li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            Any file format of Marvin can be copied to the clipboard as 
+            <code>String</code>&nbsp; or 
+            <code>Plain Text</code>. choosing 
+            <strong>Edit-&gt;Source</strong>.
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Copy-PasteandDrag&amp;Drop-clipClipboardformats"><a class="anchor" rel="nofollow"></a><span class="confluence-anchor-link" id="Copy-PasteandDrag&amp;Drop-clip"></span>Clipboard formats</h2>
+          <p>Marvin can place more than one clipboard objects on the clipboard, each represents the same molecule in different format. Copy from Marvin supports the following representations:</p>
+          <ul>
+           <li><strong>Marvin Document (mrv)</strong>: Marvin's own format. Only Marvin can paste it.</li>
+           <li><strong>MDL Molfile</strong>: a popular molecule description format. A lot of chemical drawing tool can paste it like Marvin, ChemDraw, etc.</li>
+           <li><strong>Daylight SMILES</strong>: wide range molecule format. Several chemical editor can paste it. In a few editor, SMILES can not be pasted directly. E.g. ChemDraw uses the &quot;Paste Special/SMILES&quot; option to copy SMILES from the clipboard.</li>
+           <li><strong>Daylight SMARTS</strong>: a chemical format for specifying substructural patterns in molecules. Compared to SMILES, SMARTS is a more general notation thanks to its use of extended sets of atomic and bond symbols and logical operators, which make SMARTS a useful tool in substructure searching.</li>
+           <li><strong>Plain Text (molecule source)</strong>: To be able to copy the molecule source into text editors or into other application that do not support chemical formats.</li>
+           <li><strong>Bitmap Image</strong>: To paste molecule image into presentations or into documents.</li>
+           <li><strong>Vector Graphical Image (EMF)</strong>: The vector graphics is scalable unlike bitmap image. It can be pasted into MS-Office documents or into other applications that support Enhanced MetaFile format.</li>
+           <li><strong>OLE object</strong>: To copy a Marvin OLE object into MS-Office. This format is available under Windows. To be able to paste it into an MS-Office document, marvinOLEServer.exe registration is required. (Marvin installer does it automatically or you can register it manually in Marvin applications through the <em>Edit/Preferences/OLEServer</em> menu.) You can read more about OLE support in <a href="file:///D:/work/svn_head/Marvin/help/marvinoleserver.html" class="external-link" rel="nofollow">Marvin OLE User's Guide</a>.</li>
+           <li><strong>Portable document format (PDF) </strong> which contains vector graphical image. It is the default format in MacOSX.</li>
+          </ul>
+          <p>A couple of formats are not available on a few platforms.</p>
+          <h4 id="Copy-PasteandDrag&amp;Drop-Settingcopyformatoptions"><a class="anchor" name="setCopyOpts" rel="nofollow"></a>Setting copy format options</h4>
+          <p>You can also apply or deny the accessibility of one or more copy formats. You can set it by the following ways:</p>
+          <ul>
+           <li>From the Marvin Beans API: <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/common/UserSettings.html#setCopyOpts%28java.lang.String%29" class="external-link" rel="nofollow">UserSettings.setCopyOpts(String)</a></li>
+          </ul>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd">
+               <div class="table-wrap">
+                <table class="confluenceTable">
+                 <tbody>
+                  <tr>
+                   <th class="confluenceTh">Format</th>
+                   <th class="confluenceTh">Windows</th>
+                   <th class="confluenceTh">Mac OS X</th>
+                   <th class="confluenceTh">Linux</th>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">Marvin Document (mrv)</td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">MDL Molfile</td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">Daylight SMILES</td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">Plain Text (molecule source)</td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">Bitmap Image</td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">Vector Graphical Image (EMF)</td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">OLE object</td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+                   <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+                  </tr>
+                 </tbody>
+                </table>
+               </div></td>
+              <td class="confluenceTd">&nbsp;</td>
+              <td class="confluenceTd">
+               <div class="table-wrap">
+                <table class="confluenceTable">
+                 <tbody>
+                  <tr>
+                   <th class="confluenceTh"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></th>
+                   <td class="confluenceTd">supported</td>
+                  </tr>
+                  <tr>
+                   <th class="confluenceTh"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></th>
+                   <td class="confluenceTd">not supported</td>
+                  </tr>
+                  <tr>
+                   <th class="confluenceTh"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /></th>
+                   <td class="confluenceTd">selected as default</td>
+                  </tr>
+                 </tbody>
+                </table>
+               </div></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>When the <strong>content of the clipboard</strong> is pasted into an application (and it is available in more than one format), the application retrieves data in the most descriptive format.</p>
+          <h3 id="Copy-PasteandDrag&amp;Drop-MicrosoftOffice">Microsoft Office</h3>
+          <p>Most versions of Microsoft Office prefer pasting <strong>image</strong> instead of <strong>text</strong> if the content of the clipboard is available in both formats. But there are a few ones that paste text as default. In that case, you should use &quot;Paste As Special&quot; option in MS-Office to paste it as image but it can be unconfortable to someone. The workaround can be the restriction of the text copy from Marvin. That is the reason why text copy is disabled in the default settings of Marvin (on a couple of platforms). <br /> In that case, we recommend <strong>Copy As...</strong> or <strong>Copy as SMILES</strong> to paste text into MS-Word and in other editors. Another solution can be to change the default options of the <strong>Copy</strong> command (see <a href="file:///D:/work/svn_head/Marvin/help/datatransfer.html#setCopyOpts" class="external-link" rel="nofollow">above</a> how to do it).</p>
+          <p>If we compare <strong>Bitmap</strong> and <strong>Vector Graphical Image</strong> formats, the situation is the same as in the previous case (text vs. image). Most of the applications prefer bitmap image although they can accept vector graphical images as an Enhanced MetaFile (EMF), like MS-Word. Since vector graphics are scalable unlike bitmap images, EMF is chosen as default from image formats (where it is supported).</p>
+          <h2 id="Copy-PasteandDrag&amp;Drop-DatatransferbetweenMarvinandotherchemicaldrawingtools">Data transfer between Marvin and other chemical drawing tools</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd">
+               <div class="table-wrap">
+                <table class="confluenceTable">
+                 <tbody>
+                  <tr>
+                   <th class="confluenceTh">&nbsp;</th>
+                   <th class="confluenceTh">Windows<sup>1</sup></th>
+                   <th class="confluenceTh">Macintosh OS X<sup>4</sup></th>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">ISISDraw<sup>2</sup></td>
+                   <td class="confluenceTd">Copy &amp; Paste</td>
+                   <td class="confluenceTd">Copy &amp; Paste</td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">ChemDraw</td>
+                   <td class="confluenceTd">Copy &amp; Paste</td>
+                   <td class="confluenceTd">Copy &amp; Paste</td>
+                  </tr>
+                  <tr>
+                   <td class="confluenceTd">ChemDraw Plugin</td>
+                   <td class="confluenceTd">Copy &amp; Paste</td>
+                   <td class="confluenceTd">Paste</td>
+                  </tr>
+                 </tbody>
+                </table>
+               </div></td>
+              <td class="confluenceTd">&nbsp;</td>
+              <td class="confluenceTd"><p><strong>Copy</strong>: copy a structure from the application into Marvin<br /> <strong>Paste</strong>: copy a structure from Marvin into the application</p></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p><small>1: On windows in Java 1.2-1.3.1, the &lt;Java home directory&gt;/jre/lib/flavormap.properties file must be edited: <code>MDLCT=chemical/x-mdl-Molfile</code></small></p>
+          <p><small>2: In case of ISISDraw the following option must be checked: <em>Option -&gt; Settings -&gt; General -&gt; Copy Mol/Rxnfile to the Clipboard</em></small></p>
+          <p><small>3: <em>Copy as SMILES</em> works</small></p>
+          <p><small>4: In OS X, since Java 1.4, data transfer in chemical formats does not work. In that case, molecule can be pasted only as image or text into chemical drawing tools. Copy from an application to Marvin works if the application can place data as Plain Text to the clipboard.</small></p>
+          <h2 id="Copy-PasteandDrag&amp;Drop-DatatransferbetweenMarvinandotherapplications">Data transfer between Marvin and other applications</h2>
+          <p>Marvin can paste SMILES strings, MDL MolFiles, etc. from a text editor as molecules.</p>
+          <p>X Window System: most text editors (xedit, emacs, gvim, etc.) do not transfer data to the X clipboard, so Marvin is unable to communicate with them. Copy&amp;Paste works with the following editors and other programs:</p>
+          <ul>
+           <li><strong>GNOME programs</strong>: gedit, gnotepad+ (gnp), gxedit, etc.</li>
+           <li><strong>Motif programs</strong>: asWedit, nedit, Netscape, etc.</li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-note"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            With the xclipboard program, you can test whether your favorite editor uses the X clipboard or not. &nbsp;
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

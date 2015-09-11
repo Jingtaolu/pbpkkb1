@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Document to Structure : Configuring OSR tools for Document to Structure</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Document to Structure : Configuring OSR tools for Document to Structure </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Follow the instructions below in order to convert images to structures using Document to Structure, using one of the supported tools.</p>
+      <h2 id="ConfiguringOSRtoolsforDocumenttoStructure-CLiDE">CLiDE</h2>
+      <p>To use CLiDE with d2s, you need a specific license. Please contact <a href="mailto:sales@chemaxon.com" class="external-link" rel="nofollow">sales@chemaxon.com</a>&nbsp;to obtain it.</p>
+      <p>On Windows, CLiDE will be used automatically after installation, without further configuration.</p>
+      <p>On Linux and Mac OS X, you can install CLiDE batch to any directory. To make it usable by d2s, you should only make sure that either clide-batch.sh is in your <code>$PATH</code>, or that you create a symbolic link from <code>$HOME/.chemaxon/naming/clide-batch.sh</code> to the installed copy of CLiDE, using this command:</p>
+      <pre>ln -s /&lt;clide-directory&gt;/clide-batch.sh $HOME/.chemaxon/naming/clide-batch.sh</pre>
+      <p>Alternatively, on all platforms, if the <code>CLIDE</code> environment variable is set, it will be used to find the CLiDE installation directory.</p>
+      <p>Please note that you need to activate your license before CLiDE works from d2s. Please follow the instructions provided by Keymodule to do so.</p>
+      <h2 id="ConfiguringOSRtoolsforDocumenttoStructure-OSRA">OSRA</h2>
+      <p>To use OSRA with d2s, you first need to <a href="http://cactus.nci.nih.gov/osra/" class="external-link" rel="nofollow">download and install OSRA</a>.</p>
+      <p>On Windows, OSRA will be used automatically after installation, without further configuration.</p>
+      <p>On Linux and Mac OS X, you can install OSRA to any directory. To make it usable by d2s, you should only make that the <code>osra</code> command is in your <code>$PATH</code>.</p>
+      <p>Alternatively, on all platforms, if the <code>OSRA</code> environment variable is set, it will be used to find OSRA. The <code>OSRA</code> variable can either refer to the directory containing the <code>osra</code> command, or to the command itself.</p>
+      <h2 id="ConfiguringOSRtoolsforDocumenttoStructure-Imago">Imago</h2>
+      <p>To use Imago, you need to <a href="http://ggasoftware.com/download/imago#commandline-utility-imagoconsole" class="external-link" rel="nofollow">download the command line utility</a> from GGA's website. You should then unzip the downloaded file either to a directory on the <code>PATH</code>, or inside the ChemAxon naming directory:</p>
+      <ul>
+       <li>On Windows: <code>C:\Users\&lt;USER&gt;\chemaxon\naming\imago_console.exe</code></li>
+       <li>On Linux and Mac OS X: <code>$HOME/.chemaxon/naming/imago_console</code></li>
+      </ul>
+      <p>Alternatively, on all platforms, if the <code>IMAGO</code> environment variable is set, it will be used to find Imago. The <code>IMAGO</code> variable can either refer to the directory containing the <code>imago_console</code> command, or to the command itself. &nbsp; &nbsp; &nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

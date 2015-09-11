@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Installation guide to jnlp examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Installation guide to jnlp examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Below we will describe how you can create jnlp examples for Marvin Beans.</p>
+      <p>Firstly, take a brief view of the content of the <em>jnlp</em> directory.</p>
+      <ul>
+       <li><a href="attachments/25988219/26281325.txt" data-linked-resource-id="26281325" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Msketch.jnlp.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="25988219" data-linked-resource-container-version="3">msketch.jnlp.txt </a>- Template for a simple MarvinSketch jnlp example.</li>
+       <li><a href="attachments/25988219/26281326.txt" data-linked-resource-id="26281326" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Mview.jnlp.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="25988219" data-linked-resource-container-version="3">mview.jnlp.txt</a> - Template for a simple MarvinView jnlp example.</li>
+       <li><a href="attachments/25988219/26281328.gif" data-linked-resource-id="26281328" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="msketch64.gif" data-nice-type="Image" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="25988219" data-linked-resource-container-version="3">msketch64.gif</a> - Icon to the MarvinSketch jnlp example</li>
+       <li><a href="attachments/25988219/26281329.gif" data-linked-resource-id="26281329" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mview64.gif" data-nice-type="Image" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="25988219" data-linked-resource-container-version="3">mview64.gif</a> - Icon to the MarvinView jnlp example</li>
+      </ul>
+      <p>Step by step instruction to configure the above examples for running.</p>
+      <ol>
+       <li>Firstly, you need a web server (e.g. <a href="http://tomcat.apache.org/" class="external-link" rel="nofollow">Tomcat</a>) that will hosts the jnlp examples.</li>
+       <li>Install Marvin Beans package to the host where the web server is located.</li>
+       <li>Check that the web server can access Marvin Beans directory. (If not, please consult with the web server's manual about howto set it.)</li>
+       <li>In the <em>jnlp</em> sub directory of the Marvin Beans directory, take a copy about each file that ends with <em>.jnlp.txt</em>. The new name have to be the same than the old one without the <em>.txt</em> postfix.<pre>cp msketch.jnlp.txt msketch.jnlp
+cp mview.jnlp.txt mview.jnlp</pre></li>
+       <li>Modify the absolute references in the jnlp files. Each occurance of<pre>http://www.chemaxon.com/marvin</pre>substitute to the URL of the Marvin Beans directory. (E.g.: <em><span class="nolink">http://www.myhost.com/marvinbeans</span></em> )</li>
+      </ol>
+      <p>Now the configuration is ready (on server side). To run the example, type the URL of the jnlp example in your browser.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

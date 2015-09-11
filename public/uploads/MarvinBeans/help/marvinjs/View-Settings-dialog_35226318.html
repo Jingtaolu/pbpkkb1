@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : View Settings dialog</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : View Settings dialog </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>In the View Settings dialog window you can set the display properties of the structures on the canvas.</p>
+          <p><span class="confluence-anchor-link" id="ViewSettingsdialog-viewSettingsVisibility"></span></p>
+          <p>&nbsp;<span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/33293644/33391195.png" data-image-src="attachments/33293644/33391195.png" data-unresolved-comment-count="0" data-linked-resource-id="33391195" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-1-30 14:28:24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span><strong style="line-height: 1.4285715;"><br />Show chiral flag:</strong>&nbsp;The visibility of the &quot;Absolute&quot; chiral flag can be turned on/off.</p>
+          <p><strong>Show valence errors:</strong>&nbsp;Marking of atoms with incorrect valence can be turned on/off.</p>
+          <p><strong>Show lone pairs:</strong>&nbsp;The visibility of the lone pairs can be turned on/off.</p>
+          <p><strong>Index atoms:</strong>&nbsp;When checked, the atom indices (the order of the atoms put on the canvas) are displayed.</p>
+          <p><strong>Show atom maps:&nbsp;</strong>When this function is active, atom map is visible.</p>
+          <p><strong>Use CPK colors:</strong>&nbsp;When checked, the atoms are displayed colored according to the Corey-Pauling-Koltun convention. The two halves of a bond between two atoms will receive the color of the atom they are connected to.</p>
+          <p><strong>Show carbon labels:</strong>&nbsp;When checked, the carbon atom labels become visible.</p>
+          <p><strong><br /></strong></p>
+          <p>&nbsp;</p>
+          <p><strong><span class="confluence-anchor-link" id="ViewSettingsdialog-implicitH"></span>Implicit H:</strong>&nbsp;To display the automatically added necessary hydrogens on atoms, an option from the drop-down list in the&nbsp;<strong>View Settings</strong>&nbsp;window should be chosen. These options are the following:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><p style="text-align: center;">Off</p></td>
+              <td class="confluenceTd"><p style="text-align: center;">Disable implicit hydrogens on every atom.</p></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><p style="text-align: center;">Hetero</p></td>
+              <td class="confluenceTd"><p style="text-align: center;">Display implicit hydrogens on hetero atoms.</p></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><p style="text-align: center;">Hetero and Terminal</p></td>
+              <td class="confluenceTd"><p style="text-align: center;">Display implicit hydrogens on hetero atoms and terminal carbons. (Default setting)</p></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><p style="text-align: center;">All</p></td>
+              <td class="confluenceTd"><p style="text-align: center;">Display implicit hydrogens on every atom</p></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p><strong>Display:</strong>&nbsp;You can choose between four display options:&nbsp;<strong>&nbsp;wireframe</strong><em><strong>,</strong></em>&nbsp;<em><strong>ball and stick,&nbsp;<em><strong>stick,&nbsp;</strong></em>spacefill</strong></em>. (See examples below.)</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <thead>
+             <tr>
+              <th colspan="1" class="confluenceTh">
+               <div class="tablesorter-header-inner">
+                &nbsp;
+               </div></th>
+              <th class="confluenceTh">
+               <div class="tablesorter-header-inner">
+                2D
+               </div></th>
+              <th class="confluenceTh">
+               <div class="tablesorter-header-inner">
+                3D
+               </div></th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh"><strong><span class="confluence-anchor-link">&nbsp;</span>Wireframe</strong></th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391199.png" data-image-src="attachments/33293644/33391199.png" data-unresolved-comment-count="0" data-linked-resource-id="33391199" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="wireframe.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391198.png" data-image-src="attachments/33293644/33391198.png" data-unresolved-comment-count="0" data-linked-resource-id="33391198" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="wireframe3D.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+             </tr>
+             <tr>
+              <th colspan="1" class="confluenceTh"><strong><span class="confluence-anchor-link">&nbsp;</span>Ball and Stick</strong></th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391203.png" data-image-src="attachments/33293644/33391203.png" data-unresolved-comment-count="0" data-linked-resource-id="33391203" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Ball&amp;stick.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391204.png" data-image-src="attachments/33293644/33391204.png" data-unresolved-comment-count="0" data-linked-resource-id="33391204" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Ball&amp;stick3D.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+             </tr>
+             <tr>
+              <th colspan="1" class="confluenceTh"><strong><span class="confluence-anchor-link">&nbsp;</span>Stick</strong></th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391201.png" data-image-src="attachments/33293644/33391201.png" data-unresolved-comment-count="0" data-linked-resource-id="33391201" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Stick.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391206.png" data-image-src="attachments/33293644/33391206.png" data-unresolved-comment-count="0" data-linked-resource-id="33391206" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Stick3D.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+             </tr>
+             <tr>
+              <th colspan="1" class="confluenceTh"><strong><span class="confluence-anchor-link">&nbsp;</span>Spacefill</strong></th>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391205.png" data-image-src="attachments/33293644/33391205.png" data-unresolved-comment-count="0" data-linked-resource-id="33391205" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Spacefill.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/33293644/33391200.png" data-image-src="attachments/33293644/33391200.png" data-unresolved-comment-count="0" data-linked-resource-id="33391200" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Spacefill3D.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="33293644" data-linked-resource-container-version="11" /></span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h2 id="ViewSettingsdialog-Relatedpages">Related pages</h2>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

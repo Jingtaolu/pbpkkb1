@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : CML</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : CML </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>Marvin is capable of importing and exporting files in the Chemical Markup Language. Special atom types are lost during export.</p>
+          <h2 id="CML-Import">Import</h2>
+          <p>The following CML2 standard tags are recognized:</p>
+          <ul>
+           <li><p><strong>&lt;cml&gt;</strong><br />Children:</p>
+            <ul>
+             <li><p><strong><a href="#CML-molecule">&lt;molecule&gt;</a></strong></p></li>
+             <li><p><a href="#CML-react"><strong>&lt;reaction&gt;</strong></a></p></li>
+            </ul></li>
+           <li><p><a name="molecule" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="CML-molecule"></span>&lt;molecule&gt;</strong><br />Attributes:</p>
+            <ul>
+             <li><p><em>title</em></p></li>
+            </ul><p>Children:</p></li>
+          </ul>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>cml</strong></p>
+            <p><em>Extension</em>: <strong>.cml</strong></p> 
+           </div>
+          </div>
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <p><a href="CML-Export-Options_19694311.html">CML Export Options</a>&nbsp;</p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li><p><strong>&lt;propertyList&gt;<span class="confluence-anchor-link" id="CML-propertyList"></span></strong></p>
+              <ul>
+               <li><p><strong>&lt;property</strong> dictRef=&quot;<em>name</em>&quot; title=&quot;<em>name</em>&quot;<strong>&gt;</strong> - A property.</p>
+                <ul>
+                 <li><p><strong>&lt;scalar</strong> [dataType=&quot;<em>dataType</em>&quot;]<strong>&gt;</strong><em>value</em><strong>&lt;/scalar&gt;</strong> - Supported data types: &quot;string&quot; (default), &quot;boolean&quot;, &quot;integer&quot;, &quot;double&quot;, &quot;ENTITY&quot; (for special property classes).</p></li>
+                 <li><p><strong>&lt;array</strong> dataType=&quot;<em>dataType</em>&quot; [delimiter=&quot;<em>delimiter</em>&quot;]<strong>&gt;</strong><em>list of values</em><strong>&lt;/array&gt;</strong> - Currently, only the &quot;integer&quot; data type is supported. The default delimiter is the space character.</p></li>
+                </ul></li>
+              </ul></li>
+             <li><strong>&lt;property&gt;</strong></li>
+             <li><p><strong>&lt;atomArray&gt;</strong><br />Attributes:</p>
+              <ul>
+               <li><p><em>atomID</em>, <em>elementType</em>, <em>x2</em>, <em>y2</em>, <em>x3</em>, <em>y3</em>, <em>z3</em>, <em>formalCharge</em>, <em>hydrogenCount</em>, <em>isotope</em></p></li>
+              </ul><p>Children:</p>
+              <ul>
+               <li><p><strong>&lt;atom&gt;</strong><br />Attributes:</p>
+                <ul>
+                 <li><p><em>id</em>, <em>elementType</em>, <em>x2</em>, <em>y2</em>, <em>x3</em>, <em>y3</em>, <em>z3</em>, <em>formalCharge</em>, <em>hydrogenCount</em>, <em>isotope</em></p></li>
+                </ul></li>
+              </ul></li>
+             <li><p><strong>&lt;bondArray&gt;</strong><br />Attributes:</p>
+              <ul>
+               <li><p><em>atomRefs1</em>, <em>atomRefs2</em>, <em>order</em></p></li>
+              </ul><p>Children:</p>
+              <ul>
+               <li><p><strong>&lt;bond</strong> atomRefs2=&quot;<em>a1</em><em>a2</em>&quot; order=&quot;<em>order</em>&quot; <strong>&gt;</strong><br />The atom references <em>a1</em> and <em>a2</em> must be valid atom ids. The <em>order</em> value can be &quot;1&quot;, &quot;S&quot; (single), &quot;2&quot;, &quot;D&quot; (double), &quot;3&quot;, &quot;T&quot; (triple) or &quot;A&quot; (aromatic).<br />Children:</p>
+                <ul>
+                 <li><p><strong>&lt;bondStereo</strong>&gt;<em>value</em><strong>&lt;/bondStereo&gt;</strong></p>
+                  <ul>
+                   <li><p>Value can be &quot;W&quot; (wedge - up), &quot;H&quot; (hatch - down), &quot;C&quot; (cis) or &quot;T&quot; (trans)</p></li>
+                  </ul></li>
+                 <li><p><strong>&lt;bondStereo</strong> convention=&quot;<em>convention</em>&quot; conventionValue=&quot;<em>value</em>&quot; <strong>/&gt;</strong></p>
+                  <div class="table-wrap">
+                   <table class="confluenceTable">
+                    <tbody>
+                     <tr>
+                      <th class="confluenceTh"><p>convention</p></th>
+                      <th class="confluenceTh"><p>conventionValue</p></th>
+                      <th class="confluenceTh"><p>meaning</p></th>
+                     </tr>
+                     <tr>
+                      <td class="confluenceTd"><p>MDL</p></td>
+                      <td class="confluenceTd"><p>1</p></td>
+                      <td class="confluenceTd"><p>up</p></td>
+                     </tr>
+                     <tr>
+                      <td class="confluenceTd"><p>MDL</p></td>
+                      <td class="confluenceTd"><p>6</p></td>
+                      <td class="confluenceTd"><p>down</p></td>
+                     </tr>
+                     <tr>
+                      <td class="confluenceTd"><p>MDL</p></td>
+                      <td class="confluenceTd"><p>4</p></td>
+                      <td class="confluenceTd"><p>either</p></td>
+                     </tr>
+                     <tr>
+                      <td class="confluenceTd"><p>MDL</p></td>
+                      <td class="confluenceTd"><p>3</p></td>
+                      <td class="confluenceTd"><p>cis or trans</p></td>
+                     </tr>
+                     <tr>
+                      <td class="confluenceTd"><p>ChemAxon</p></td>
+                      <td class="confluenceTd"><p>CTUnspec</p></td>
+                      <td class="confluenceTd"><p>cis/trans or unspecified</p></td>
+                     </tr>
+                    </tbody>
+                   </table>
+                  </div></li>
+                </ul><p>A &lt;bond&gt; tag is recognized at import even if the bondArray container is not present.</p></li>
+              </ul></li>
+            </ul></li>
+           <li><p><strong><span class="confluence-anchor-link" id="CML-reaction"></span>&lt;reaction&gt;</strong><br />Attributes:</p>
+            <ul>
+             <li><p><em>title</em></p></li>
+            </ul><p>Children:</p>
+            <ul>
+             <li><p><strong>&lt;reactantList&gt;</strong></p>
+              <ul>
+               <li><p><strong>&lt;molecule&gt;</strong></p></li>
+              </ul></li>
+             <li><p><strong>&lt;productList&gt;</strong></p>
+              <ul>
+               <li><p><strong>&lt;molecule&gt;</strong></p></li>
+              </ul></li>
+             <li><p><strong><a href="#CML-propertyList">&lt;propertyList&gt;</a></strong> - Reaction properties</p></li>
+            </ul></li>
+          </ul>
+          <h2 id="CML-CMLinotherprograms:">CML in other programs:</h2>
+          <ul>
+           <li><p><em>JChemPaint</em> (last version tested: 1.9.8) and Marvin imports each other's CML files.</p></li>
+           <li><p><em>Jmol</em> 8 imports CML files exported by Marvin that contain 3D structures. Jmol is a 3D viewer that does not import bonds but calculates them from atomic distances. This means that bonds are not imported correctly if the molecule is 2D.</p></li>
+          </ul>
+          <h2 id="CML-References"><a name="references" rel="nofollow"></a>References</h2>
+          <ul>
+           <li><p><a href="http://cml.sourceforge.net/" class="external-link" rel="nofollow">cml.sourceforge.net — OpenSource Site for CML</a></p></li>
+           <li><p><a href="http://cml.sourceforge.net/schema/" class="external-link" rel="nofollow">cml.sourceforge.net/schema/ — Schemas and documentation</a></p></li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

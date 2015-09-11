@@ -1,0 +1,146 @@
+<html>
+<head>
+    <script type="text/javascript" src="../../sh_main.js"></script>
+    <script type="text/javascript" src="../../sh_java.js"></script>
+    <link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+ <title>MarvinView Table View Example</title>
+ </head>
+<body onload="sh_highlightDocument();">
+ <h1>MarvinView Table View Example</h1>
+<p>
+This example demonstrates the creation of scrollable molecule tables.<br>
+A mechanism by which molecules are loaded dynamically and cached automatically is also shown.
+This makes it possible that input files are supported with arbitrary size.</p>
+
+<p>The result is shown with an example input below:</p>
+ <center><img src="table.png" width="581" height="480"></center><br>
+
+<h4>Specifying the input</h4>
+<p>
+To allow dynamic loading and caching the input of the viewer must be an implementation of
+<code><a href="../../../help/developer/beans/api/chemaxon/marvin/io/MDocSource.html">MDocSource</a></code>.
+ You can either use an existing implementation like
+<code><a href="../../../help/developer/beans/api/chemaxon/formats/MolImporter.html">MolImporter</a></code>
+or
+<code><a href="../../../help/developer/beans/api/chemaxon/marvin/io/ArrayMDocSource.html">ArrayMDocSource</a></code>,
+or you can create a custom implementation.</p>
+<p>In the current example, the input is a molecule file hence
+it is convenient to use 
+<code><a href="../../../help/developer/beans/api/chemaxon/formats/MolImporter.html">MolImporter</a></code>:</p>
+<pre class="sh_java">
+    static MDocSource createDocSource(String fname) {
+        try {
+            return new MolImporter(fname);
+        } catch(FileNotFoundException ex) {
+            System.err.println("File " + fname+" not found");
+        } catch(MolFormatException ex) {
+            System.err.println("File " + fname
+                    + " is corrupted or not a structure file.\n"
+                    + ex.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error reading file " + fname+"\n");
+        }
+        return null;
+    }
+</pre>
+
+<h4>Creating the GUI</h4>
+
+The creation of the GUI must be performed in the event dispatch thread.
+<pre class="sh_java">
+    // Swing components should be created, queried, and manipulated on
+    // the event-dispatching thread according to Sun's recommendations.
+    EventQueue.invokeLater( new Runnable() {
+        public void run() {
+            createAndShowGUI(docSource, fileName);
+        }
+    });
+</pre>
+It consists of the following steps:
+<ol>
+<li>The creation of an
+    <code><a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html">MViewPane</a></code>
+    object:
+<pre class="sh_java">
+    MViewPane viewPane = new MViewPane();
+    viewPane.setBorderWidth(1);
+    viewPane.setBackground(Color.LIGHT_GRAY);
+    viewPane.setMolbg(Color.WHITE);
+</pre>
+    </li>
+<li>Adding the <code>viewPane</code> and a menubar to a JFrame:
+<pre class="sh_java">
+    JFrame win = new JFrame();
+    JMenuBar menubar = new JMenuBar();
+    win.setJMenuBar(menubar);
+    win.setTitle("MarvinView Table Layout Example");
+    win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    win.getContentPane().setLayout(new GridLayout(1, 1));
+    win.getContentPane().add(viewPane);
+</pre>
+    </li>
+<li>The creation of a
+    <code><a href="../../../help/developer/beans/api/chemaxon/marvin/view/swing/TableSupport.html">TableSupport</a></code>
+    object is performed with the first
+    <code>MViewPane.<a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html#getTableSupport()">getTableSupport()</a></code>
+    call:
+<pre class="sh_java">
+    TableSupport tableSupport = viewPane.getTableSupport();
+</pre>
+    </li>
+<li>Adding Table menu items using
+    <code>TableSupport.<a href="../../../help/developer/beans/api/chemaxon/marvin/view/swing/TableSupport.html#makeTableMenu(java.awt.Container)">makeTableMenu</a></code>:
+<pre class="sh_java">
+    JMenu menu;
+    tableSupport.makeTableMenu(menu = new JMenu("Table"));
+    menu.setMnemonic('t');
+    menubar.add(menu);
+</pre>
+    </li>
+<li>Optional table settings using the
+<code><a href="../../../help/developer/beans/api/chemaxon/marvin/view/swing/TableOptions.html">TableOptions</a></code>
+    class:
+<pre class="sh_java">
+    TableOptions tblopts = tableSupport.getTableOptions();
+    // tblopts.setViewHandlerType(TableOptions.VH_GRIDBAG);
+    tblopts.setMaxRows(5);
+    tblopts.setMaxCols(5);
+</pre>
+<li>Making the window visible.
+<pre class="sh_java">
+    win.pack();
+    win.setLocationRelativeTo(null);
+    win.setVisible(true);
+</pre>
+    </li>
+<li>Starting molecule table visualization using
+    <code>TableSupport.<a href="../../../help/developer/beans/api/chemaxon/marvin/view/swing/TableSupport.html#start(chemaxon.marvin.io.MDocSource, java.lang.String)">start</a>(docSource, inputName)</code>,
+    where <code>docSource</code> is the input document source
+    (see the previous section) and inputName is a string describing the input, for example name of the input file
+    &mdash; its function is to make error messages more specific.
+<pre class="sh_java">
+    tableSupport.start(docSource, inputName);
+</pre>
+    </li>
+</ol>
+
+<h4>Changing the background of molecule ID fields</h4>
+
+The Example menu contains a "Highlight" menu which demonstrates
+the highlighting of a record by changing the background color of its ID field.
+<p>
+The color of the ID field is changed using
+viewPane.<a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html#setRecordIDBackground(int, java.awt.Color)">setRecordIDBackground</a>
+and <a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html#setRecordIDForeground(int, java.awt.Color)">setRecordIDForeground</a>:
+<pre class="sh_java">
+    int selected = viewPane.getSelectedIndex();
+    viewPane.setRecordIDBackground(selected, SystemColor.textHighlight);
+    viewPane.setRecordIDForeground(selected, SystemColor.textHighlightText);
+</pre>
+
+<p>
+Source code: <a href="ViewTable.java.html"><code>ViewTable.java</code></a>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Molecular Surface Area Plugin (3D)</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Molecular Surface Area Plugin (3D) </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Molecular Surface Area (3D) Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956415 {padding: 0px;}
+div.rbtoc1439200956415 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956415 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956415"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#MolecularSurfaceAreaPlugin(3D)-Introduction">Introduction</a></li> 
+          <li><a href="#MolecularSurfaceAreaPlugin(3D)-Options">Options</a></li> 
+          <li><a href="#MolecularSurfaceAreaPlugin(3D)-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="MolecularSurfaceAreaPlugin(3D)-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>There are two types of available molecular surface area calculations, van der Waals (vdW) and solvent accessible (SA). The calculation method is based on&nbsp;<a href="#MolecularSurfaceAreaPlugin(3D)-ferrara">Ferrara et al.</a></p>
+      <p>The result window contains the area and the molecule in 3D view. The left window shows the<a href="#MolecularSurfaceAreaPlugin(3D)-fig.1"> vdW surface</a>, while the right one the <a href="#MolecularSurfaceAreaPlugin(3D)-fig.2">SASA</a>.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="MolecularSurfaceAreaPlugin(3D)-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584169/29098611.png" data-image-src="attachments/12584169/29098611.png" data-unresolved-comment-count="0" data-linked-resource-id="29098611" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="msa1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584169" data-linked-resource-container-version="21" /></span></p>
+      <p>Fig. 1 &nbsp;Van der Waals surface area calculation results</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="MolecularSurfaceAreaPlugin(3D)-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584169/29098612.png" data-image-src="attachments/12584169/29098612.png" data-unresolved-comment-count="0" data-linked-resource-id="29098612" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="msa2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584169" data-linked-resource-container-version="21" /></span></p>
+      <p>Fig. 2 Solvent-accessible surface area calculation results</p>
+      <p>&nbsp;</p>
+      <h1 id="MolecularSurfaceAreaPlugin(3D)-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>The calculation and the display options can be set in the&nbsp;<em><a href="#MolecularSurfaceAreaPlugin(3D)-fig.3">Molecular Surface Area (3D) Options</a></em>&nbsp;panel:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:&nbsp;</strong>sets the number of decimal places for the result values.</li>
+       <li><strong>Surface Area</strong>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Van der Waals:</strong>&nbsp;calculates the van der Waals surface of the molecule (in &Aring;<sup>2</sup>).</li>
+         <li><strong>Solvent Accessible:</strong>&nbsp;calculates the solvent accessible surface of the molecule (in &Aring;<sup>2</sup>).</li>
+        </ul></li>
+       <li><strong>Solvent radius:</strong>&nbsp;sets the radius of the solvent molecule (by default water, 1.4 &Aring;).</li>
+       <li><strong>Show surface area increments:</strong>&nbsp;if set, atomic increments are shown.</li>
+       <li><strong>Take major microspecies at pH:</strong>&nbsp;the surface area of the major microspecies present at the given pH is calculated.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="MolecularSurfaceAreaPlugin(3D)-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584169/29099409.png" data-image-src="attachments/12584169/29099409.png" data-unresolved-comment-count="0" data-linked-resource-id="29099409" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mol_surf_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584169" data-linked-resource-container-version="21" /></span><br />&nbsp;Fig. 3 Options panel<br /><br /><br /></p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The values indicated in the text field of <a href="#MolecularSurfaceAreaPlugin(3D)-fig.2">solvent accessible surface area calculation</a> are the following (all in &Aring;<sup>2</sup>):</p>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>ASA:</strong>&nbsp;solvent accessible surface area calculated using the radius of the solvent (1.4 &Aring; for the water molecule)</li>
+         <li><strong>ASA+:</strong>&nbsp;solvent accessible surface area of all atoms with positive partial charge (strictly greater than 0)</li>
+         <li><strong>ASA-:</strong>&nbsp;solvent accessible surface area of all atoms with negative partial charge (strictly less than 0)</li>
+         <li><strong>ASA_H:</strong>&nbsp;solvent accessible surface area of all hydrophobic (|q<sub>i</sub>|&lt;0.125) atoms (|q<sub>i</sub>| is the absolute value of the partial charge of the atom)</li>
+         <li><strong>ASA_P:</strong>&nbsp;solvent accessible surface area of all polar (|q<sub>i</sub>|&gt;0.125) atoms (|q<sub>i</sub>| is the absolute value of the partial charge of the atom)</li>
+        </ul>
+       </div> 
+      </div> 
+      <p><strong><br /></strong></p>
+      <h1 id="MolecularSurfaceAreaPlugin(3D)-References">References</h1>
+      <ol>
+       <li><a class="external-link" href="http://www.chemaxon.com/marvin/help/calculations/geometrygroup.html#ref6" name="ref6" style="text-decoration: underline;" rel="nofollow"></a><span class="confluence-anchor-link" id="MolecularSurfaceAreaPlugin(3D)-ferrara"></span>Ferrara, P,. Apostolakis J., Caflisch A.,&nbsp;<em>Proteins</em>&nbsp;<strong>2002,</strong>&nbsp;<em>46,</em>&nbsp;24-33;&nbsp;<a href="http://dx.doi.org/10.1002/prot.10001" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+      </ol>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

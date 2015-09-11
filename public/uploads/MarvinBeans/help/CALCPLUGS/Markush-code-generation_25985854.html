@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Markush code generation</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Markush code generation </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>A special ID number can be generated for each library member. In this case every structure gets its own unique tag (molecule property), which can be saved in the structure file (in .mrv and .sdf formats) named as 'Markush Code'. This ID is visible in the plugin result window as well.</p>
+      <p>It gives the following information:</p>
+      <ul>
+       <li><strong>Ri(n):x</strong>&nbsp;R-group number i (at atom nr. n) is the ligand containing the atom numbered x (which is the smallest number in that fragment but not neccessarily the attachment point)</li>
+       <li><strong>Custom reagent codes:</strong>&nbsp;instead of atom index numbers, custom reagent codes (e.g. company identifiers) can also be used. Add attached data to R-group members with name 'reagent'. These reagent codes will appear in the enumerated structures both in the Markush code and in the generated molecule structures. (See example below)</li>
+       <li><strong>ID tag name</strong>&nbsp;the name you specified in the options panel (in this example Test1). If a tag with this name is attached to the Markush molecule, its value will be used.</li>
+       <li><strong>Ln:x</strong>&nbsp;link node on atom nr. n in the variation nr. x (in this example 1 or two methylene groups are inserted).</li>
+       <li><strong>Bn-m:x</strong>&nbsp;bond between atoms n and m is nr. x in the bond list (referring to the bond type)</li>
+       <li><strong>PVn-m:x-y</strong>&nbsp;position variation bond between n and m (multicenter numbered) occured between atoms x and y</li>
+       <li><strong>An:x</strong>&nbsp;atom nr. n is nr. x from the atom list</li>
+      </ul>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25395224/25559066.png" data-image-src="attachments/25395224/25559066.png" data-unresolved-comment-count="0" data-linked-resource-id="25559066" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markush17.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25395224" data-linked-resource-container-version="25" /></span></p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

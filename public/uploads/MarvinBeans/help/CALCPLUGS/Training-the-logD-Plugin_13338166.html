@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Training the logD Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Training the logD Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives you a walk-through on how to train the log<em>D</em><sub>&nbsp;</sub>Plugin</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200958380 {padding: 0px;}
+div.rbtoc1439200958380 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200958380 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200958380"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#TrainingthelogDPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#TrainingthelogDPlugin-Applyingthetraininglibraries">Applying the training libraries&nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#TrainingthelogDPlugin-MarvinSketch">MarvinSketch&nbsp;</a></li> 
+            <li><a href="#TrainingthelogDPlugin-Cxcalc">Cxcalc</a></li> 
+            <li><a href="#TrainingthelogDPlugin-ChemicalTerms">Chemical Terms</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="TrainingthelogDPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>If you think your experimental data could improve the performance of the default log<em>D</em>&nbsp;calculator, you can take advantage of the supervised log<em>D</em>&nbsp;learning method that is built into the calculator.</p>
+      <p>The log<em>D</em>&nbsp;method can be trained by applying existing p<em>K</em><sub>a</sub>&nbsp;and log<em>P</em>&nbsp;training libraries. For detailed information on training p<em>K</em><sub>a</sub>&nbsp;and log<em>P&nbsp;</em>plugins, see the corresponding&nbsp;<a href="Training-the-pKa-Plugin_13338106.html">p<em>K</em><sub>a</sub></a>&nbsp;and&nbsp;<a href="Training-the-logP-Plugin_13338141.html">log<em>P</em></a>&nbsp;training manuals.&nbsp;</p>
+      <p>&nbsp;</p>
+      <h1 id="TrainingthelogDPlugin-Applyingthetraininglibraries">Applying the training libraries&nbsp;</h1>
+      <h2 id="TrainingthelogDPlugin-MarvinSketch"><br />MarvinSketch&nbsp;</h2>
+      <p>&nbsp;</p>
+      <p>To apply the pre-generated training library in MarvinSketch, see the following steps:</p>
+      <ul>
+       <li>Choose&nbsp;<em><a href="#TrainingthelogDPlugin-fig.1">Calculations &gt; Partitioning &gt; logD</a><strong class="buttonName">&nbsp;</strong></em>in MarvinSketch.</li>
+       <li>Select the&nbsp;<em>User defined</em>&nbsp;training method.</li>
+       <li>If you have many log<em>P</em>&nbsp;training sets, you can select the one you want to use for training from the&nbsp;<em>logP&nbsp;training ID</em>&nbsp;dropdown list.</li>
+       <li>If you have many p<em>K</em><sub>a</sub>&nbsp;correction libraries, you can select the one that you want to use for training by enabling the<em>&nbsp;Use pK<sub>a&nbsp;</sub>correction library</em>&nbsp;option, and choosing the library from the dropdown list.</li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="TrainingthelogDPlugin-fig.1"></span></p>
+      <h5 id="TrainingthelogDPlugin-"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/13338166/37322950.png" data-image-src="attachments/13338166/37322950.png" data-unresolved-comment-count="0" data-linked-resource-id="37322950" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-5-28 10:59:25.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338166" data-linked-resource-container-version="34" /></span></h5>
+      <p>Fig. 1 &nbsp;Applying log<em>P</em> and pK<sub>a</sub> training libraries for log<em>D</em> training</p>
+      <h3 id="TrainingthelogDPlugin-Testresults">Test results</h3>
+      <pre>Trained value :</pre>
+      <pre>pH	logD</pre>
+      <pre>7.40	-0.34</pre>
+      <pre>Untrained value :</pre>
+      <pre>pH	logD</pre>
+      <pre>7.40	-0.08</pre>
+      <p>&nbsp;</p>
+      <h2 id="TrainingthelogDPlugin-Cxcalc">Cxcalc</h2>
+      <p>&nbsp;</p>
+      <p>To apply your p<em>K</em><sub>a&nbsp;</sub>correction library to train the log<em>D&nbsp;</em>method with cxcalc, use the&nbsp;<em>&nbsp;</em><em>--pkacorrectionlibrary</em>&nbsp;option :</p>
+      <p>&nbsp;</p>
+      <pre>cxcalc logd <code>--method [method] --pkacorrectionlibrary</code> [library name] [input file/string]</pre>
+      <p>&nbsp;</p>
+      <p>To apply your log<em>P&nbsp;</em>dataset to train the log<em>D&nbsp;</em>method, use the&nbsp;&nbsp;<em>--method</em>&nbsp;main option, combined with the&nbsp;&nbsp;<em>--logptrainingid</em>&nbsp;secondary option :</p>
+      <p>&nbsp;</p>
+      <pre>cxcalc logd <code>--method [method] --logptrainingid</code> [library name] [input file/string]</pre>
+      <h3 id="TrainingthelogDPlugin-Example"><strong>Example</strong></h3>
+      <p><strong><br /></strong></p>
+      <p><em>Trained calculation</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc logd --method user --pkacorrectionlibrary mypka_1 --logptrainingid mylogp_1 --pH 7.4 &quot;CC1=NC2=C(N1)C(O)=NC(N)=N2&quot;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><em>Untrained calculation</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc logd --pH 7.4 &quot;CC1=NC2=C(N1)C(O)=NC(N)=N2&quot;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h4 id="TrainingthelogDPlugin-Testresults.1">Test results</h4>
+      <p>&nbsp;</p>
+      <pre>Trained value :</pre>
+      <pre>id	logD[pH=7.4]</pre>
+      <pre>1	-0.34</pre>
+      <pre>Untrained value :</pre>
+      <p><code>id logD[pH=7.4]</code></p>
+      <pre>1	-0.08</pre>
+      <p>&nbsp;</p>
+      <h2 id="TrainingthelogDPlugin-ChemicalTerms">Chemical Terms</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(0,0,0);">Chemical Terms are available from<a href="https://docs.chemaxon.com/display/products/Chemical+Terms"> Chemical Terms Evaluator</a> or from <a href="https://docs.chemaxon.com/display/instantjchem">Instant JChem</a>.</span></p>
+      <h3 id="TrainingthelogDPlugin-Evaluator"><span style="color: rgb(0,0,0);">Evaluator</span></h3>
+      <p><span style="color: rgb(0,0,0);"><br /></span></p>
+      <p>The&nbsp;<em>pkacorrectionlibrary</em>&nbsp;and&nbsp;<em>logptrainingid</em>&nbsp;parameters can be applied as Chemical Terms parameters as well. For example:<em>&nbsp;</em></p>
+      <p><em><br /></em></p>
+      <pre>evaluate -e &quot;logd('method:[method] pkacorrectionlibrary:[library name] logptrainingid:[id]')&quot; [input file/string]</pre>
+      <p>&nbsp;</p>
+      <h4 id="TrainingthelogDPlugin-Example.1">Example</h4>
+      <p>&nbsp;</p>
+      <p><em>Trained calculation</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;logd('method:user pkacorrectionlibrary:mypkalib_1 logptrainingid:mylogp_1 pH:7.4')&quot; &quot;CC1=NC2=C(N1)C(O)=NC(N)=N2&quot; (trained)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><em>Untrained calculation</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;logd('pH:7.4')&quot; &quot;CC1=NC2=C(N1)C(O)=NC(N)=N2&quot;</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <h4 id="TrainingthelogDPlugin-Testresults.2">Test results</h4>
+      <p>&nbsp;</p>
+      <p>Trained value :</p>
+      <p><code>7.4;-0.34</code></p>
+      <pre>Untrained value :</pre>
+      <pre>7.4;-0.08</pre>
+      <h3 id="TrainingthelogDPlugin-InstantJChem">Instant JChem</h3>
+      <p>&nbsp;</p>
+      <p>You can also apply your p<em>K</em><sub>a</sub>&nbsp;and log<em>P&nbsp;</em>training libraries via Chemical Terms in&nbsp;Instant JChem as well.&nbsp;</p>
+      <ul>
+       <li>Choose the 'New Chemical Terms Field' icon on the panel on the right side.</li>
+       <li>Type the chemical term into the window, use the&nbsp;<code>method</code>,&nbsp;<code>pkacorrectionlibrary</code>&nbsp;and&nbsp;<code>logptrainingid</code>&nbsp;parameters. Do not forget to specify the&nbsp;<em>Name</em>, the&nbsp;<em>Type</em>&nbsp;and the&nbsp;<em>DB Column Name</em>&nbsp;parameters.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <h4 id="TrainingthelogDPlugin-Example.2">Example</h4>
+      <p><strong><br /></strong></p>
+      <p>The following snapshot shows the training of log<em>D&nbsp;</em>in the <a href="#TrainingthelogDPlugin-fig.2">New Chemical terms window</a>. The expression</p>
+      <p>&nbsp;</p>
+      <pre><code>logd('method:user pkacorrectionlibrary:mypkalib logptrainingid:mylogp', '7.4')</code></pre>
+      <p>&nbsp;</p>
+      <p>defines that the plugin use the<em> mypkalib</em> p<em>K</em><sub>a&nbsp;</sub>correction library, the <em>mylogp</em> log<em>P&nbsp;</em>training library at pH 7.4.</p>
+      <p><span class="confluence-anchor-link" id="TrainingthelogDPlugin-fig.2"></span><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/13338166/37322931.jpg" data-image-src="attachments/13338166/37322931.jpg" data-unresolved-comment-count="0" data-linked-resource-id="37322931" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="IJC_LogD_ChemTerms_training_options.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338166" data-linked-resource-container-version="34" /></span></p>
+      <p>Fig. 2 Log<em>D</em> training using Chemical Terms in Instant JChem</p>
+      <p>&nbsp;</p>
+      <p>Part of the result table is presented <a href="#TrainingthelogDPlugin-fig.3">below</a>. You can see the difference between the untrained (column <em>LogD_pH7.4</em>) and the trained (column <em>logD_pH7.4_trained_pKa_logD)&nbsp;</em>values.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="TrainingthelogDPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/13338166/37322930.jpg" data-image-src="attachments/13338166/37322930.jpg" data-unresolved-comment-count="0" data-linked-resource-id="37322930" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="IJC_LogD_ChemTerms_trained_results.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338166" data-linked-resource-container-version="34" /></span></p>
+      <p>Fig. 3 JChem table showing the trained and untrained log<em>D&nbsp;</em>values&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

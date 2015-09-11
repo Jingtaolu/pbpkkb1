@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Stereo Analysis - calculating stereo descriptors</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Stereo Analysis - calculating stereo descriptors </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Stereo Analysis module:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200954869 {padding: 0px;}
+div.rbtoc1439200954869 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200954869 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200954869"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#StereoAnalysis-calculatingstereodescriptors-Introduction">Introduction</a></li> 
+          <li><a href="#StereoAnalysis-calculatingstereodescriptors-Usage">Usage&nbsp;&nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#StereoAnalysis-calculatingstereodescriptors-Stereoanalysiswithcxcalc">Stereo analysis with&nbsp;cxcalc</a></li> 
+            <li><a href="#StereoAnalysis-calculatingstereodescriptors-StereoanalysiswithChemicalTerms">Stereo analysis with Chemical Terms &nbsp;</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="StereoAnalysis-calculatingstereodescriptors-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Stereochemistry involves the study of the relative spatial arrangement of atoms and their transformations. Stereochemistry defines different isomerisms that describe the molecule's behaviour in the space. These cover the entire space of organic molecules. We do not give further details on stereochemistry here, instead we refer to <a href="https://docs.chemaxon.com/display/marvinsketch/Stereochemistry+MS">Marvin's stereochemistry summary</a>.</p>
+      <p>It can be important to determine a molecule's stereochemical behaviour. This can be achieved by calculating stereochemical descriptors for the molecule.</p>
+      <p>ChemAxon's stereo analysis module is able to calculate stereochemical descriptors for a molecule, giving an analysis in terms of the stereochemical properties.</p>
+      <p>&nbsp;</p>
+      <h1 id="StereoAnalysis-calculatingstereodescriptors-Usage">Usage&nbsp;&nbsp;<br /><br /></h1>
+      <p>The stereo analysis functionality is built in different ChemAxon products.</p>
+      <h2 id="StereoAnalysis-calculatingstereodescriptors-Stereoanalysiswithcxcalc">Stereo analysis with&nbsp;<em>cxcalc</em></h2>
+      <p><span>The solubility predictor is integrated into the&nbsp;</span><em>cxcalc</em><span>&nbsp;command line tool. The command syntax is<br /></span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc [general options] [input files/strings] stereoanalysis [stereoanalysis options] [input files/strings]</pre> 
+       </div>
+      </div>
+      <p>where the <em>stereoanalysis options</em> are the following:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">stereoanalysis options: 
+    -h  --help           this help message
+    -T  --type           stereo descriptor type  [tetrahedral | cistrans |
+                         axial | atrop] (default: not set)</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <p><span>Some examples on how to use the stereo analysis module via&nbsp;</span><em>cxcalc</em><span>:</span></p>
+      <ul>
+       <li>Calculating tetrahedral stereo descriptors for the following molecule:<p><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="200" src="attachments/28935775/29098740.png" data-image-src="attachments/28935775/29098740.png" data-unresolved-comment-count="0" data-linked-resource-id="29098740" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sa1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935775" data-linked-resource-container-version="53" /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc stereoanalysis &quot;[H][C@](Cl)(Br)I&quot;</pre> 
+         </div>
+        </div><p>&nbsp;</p><p>The output shows the calculated tetrahedral stereo descriptors:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">TETRAHEDRAL [1] - [4, 3, 2, 0] : S</pre> 
+         </div>
+        </div><p>&nbsp;</p><p>&nbsp;</p></li>
+       <li><p>Calculating cis-trans stereo descriptors:<br /><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/28935775/29098741.png" data-image-src="attachments/28935775/29098741.png" data-unresolved-comment-count="0" data-linked-resource-id="29098741" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sa2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935775" data-linked-resource-container-version="53" /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc stereoanalysis &quot;Cl/C=C\C=C\Cl&quot;</pre> 
+         </div>
+        </div><p><br />The output shows the calculated tetrahedral stereo descriptors:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">CISTRANS [1, 2] - [0, 3] : Z&nbsp;
+CISTRANS [3, 4] - [2, 5] : E</pre> 
+         </div>
+        </div><p><br /><br /></p></li>
+       <li><p>Calculating axial stereo descriptors for a molecule:<br /><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/28935775/29098742.png" data-image-src="attachments/28935775/29098742.png" data-unresolved-comment-count="0" data-linked-resource-id="29098742" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sa3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935775" data-linked-resource-container-version="53" /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc stereoanalysis CC=C=CC</pre> 
+         </div>
+        </div><p>&nbsp;</p><p>The output shows the calculated axial stereo descriptors:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">AXIAL [1, 3] - [0, 4] : WIGGLY</pre> 
+         </div>
+        </div><pre><code>
+</code></pre><p>&nbsp;</p></li>
+       <li>Calculating atrop stereo descriptor for a molecule:<br /><br /><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/28935775/29098743.png" data-image-src="attachments/28935775/29098743.png" data-unresolved-comment-count="0" data-linked-resource-id="29098743" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sa4.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935775" data-linked-resource-container-version="53" /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc stereoanalysis &quot;CCC1=C(C(C)=CC=C1)C1=CC=CC=C1C&quot;</pre> 
+         </div>
+        </div><p><span style="font-family: monospace;line-height: 1.4285715;"><br /></span></p><p>The output shows the calculated atrop stereo descriptors:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">ATROP [3, 9] - [4, 2, 14, 10] : UNKNOWN</pre> 
+         </div>
+        </div><p><br /><br /></p></li>
+       <li><p>Calculating all stereo descriptors for a molecule with different stereo features:<br /><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="attachments/28935775/29098744.png" data-image-src="attachments/28935775/29098744.png" data-unresolved-comment-count="0" data-linked-resource-id="29098744" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sa5.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935775" data-linked-resource-container-version="53" /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc stereoanalysis &quot;ClC(Br)C1CCCC(C1)/C=C/Cl&quot;</pre> 
+         </div>
+        </div><p><span style="font-family: monospace;line-height: 1.4285715;"><br /></span></p><p>The output shows the calculated stereo descriptors:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">TETRAHEDRAL [7] - [9, 8, 6] : UNKNOWN
+TETRAHEDRAL [3] - [1, 8, 4] : UNKNOWN
+TETRAHEDRAL [1] - [2, 0, 3] : UNKNOWN
+CISTRANS [9, 10] - [7, 11] : E</pre> 
+         </div>
+        </div><p><br /><br /></p></li>
+       <li><p>Listing just the cis-trans stereo descriptors for the previous molecule:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc stereoanalysis -T cistrans &quot;ClC(Br)C1CCCC(C1)/C=C/Cl&quot;</pre> 
+         </div>
+        </div><p><br />The output is:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">CISTRANS [9, 10] - [7, 11] : E</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <h2 id="StereoAnalysis-calculatingstereodescriptors-StereoanalysiswithChemicalTerms">Stereo analysis with Chemical Terms<br />&nbsp;</h2>
+      <p><span>The stereo analysis module is also integrated into ChemAxon's Chemical Terms language. The stereo descriptors can be calculated by two different functions in Chemical Terms:</span></p>
+      <ul>
+       <li><strong>stereoanalysis()</strong>: calculates and returns the stereo descriptors for the input molecule.</li>
+       <li><strong>stereoanalysis(T)</strong>: calculates and returns the specified stereo centers.&nbsp;<em>T </em>can be any stereo function defined in the <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/com/chemaxon/calculations/stereoanal/StereoAnalysis.html#method_summary" class="external-link" rel="nofollow">API</a>.<br />&nbsp;</li>
+      </ul>
+      <p><span>The following examples show how the functions above can be used with the Chemical Terms evaluator command line tool:</span></p>
+      <ul>
+       <li><p>Calculating all stereo descriptors for geldanamycin:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;stereoanalysis()&quot; geldanamycin</pre> 
+         </div>
+        </div><p><br />The output is:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">TETRAHEDRAL [26] - [27, 23, 31] : S
+CISTRANS [18, 20] - [16, 19, 21] : E
+TETRAHEDRAL [36] - [37, 2, 34] : R
+TETRAHEDRAL [4] - [3, 6, 5] : R
+CISTRANS [21, 22] - [20, 23] : Z
+TETRAHEDRAL [34] - [36, 33, 35] : S
+TETRAHEDRAL [23] - [24, 26, 22] : S
+TETRAHEDRAL [2] - [1, 36, 3] : S
+CISTRANS [31, 33] - [26, 32, 34] : E</pre> 
+         </div>
+        </div><p><br /><br /></p></li>
+       <li><p>Calculating only tetrahedral stereo centers for the same molecule:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> evaluate -e &quot;stereoanalysis('tetrahedralStereoCenters')&quot; geldanamycin</pre> 
+         </div>
+        </div><p><br />The output is:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">2;4;23;26;34;36</pre> 
+         </div>
+        </div><p><br /><br /></p></li>
+       <li><p>Calculating the number of unknown, resolved, tetrahedral stereocenters for the following molecule with the <em>count()</em> function:<br /><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="200" src="attachments/28935775/31522824.png" data-image-src="attachments/28935775/31522824.png" data-unresolved-comment-count="0" data-linked-resource-id="31522824" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="stereo_CT.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935775" data-linked-resource-container-version="53" /></span>&nbsp;<br /><br /></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;count(stereoanalysis('unknownResolvedStereoCenters'))&quot; &quot;C[C@@H]1OP(O)(=O)O[C@@H](C)C1C |o1:7,r|&quot;</pre> 
+         </div>
+        </div><p><br /><br /></p></li>
+       <li><p>Finding only the carbon tetrahedral stereocenters can be done using the&nbsp;<em>filter()</em> function for the same molecule:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;filter(stereoanalysis('tetrahedralStereoCenters'), \&quot;match('C')\&quot;)&quot; &quot;C[C@@H]1OP(O)(=O)O[C@@H](C)C1C |o1:7,r|&quot;</pre> 
+         </div>
+        </div></li>
+      </ul> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

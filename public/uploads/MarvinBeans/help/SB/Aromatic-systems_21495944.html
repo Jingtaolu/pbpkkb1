@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Scientific Background : Aromatic systems</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Scientific Background : Aromatic systems </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h3 id="Aromaticsystems-AromaticSystems">Aromatic Systems</h3>
+      <p>Valence calculator provides two ways to check the valence of an atom having aromatic bonds:</p>
+      <ul>
+       <li><strong>Local Aromatic Valence Calculator</strong>&nbsp;uses only the bond and ligand information of the considered atom to do valence calculations. Hence, this method is faster, but often chemically incorrect.</li>
+       <li><strong>Global Aromatic Valence Calculator</strong>&nbsp;examine the whole aromatic ring system to calculate the valence of one of its atoms. This method is, therefore, slower but chemically more reliable.&nbsp;<em>We recommend the usage of this method, when the not the speed but the chemical reliablity of the valence calculations are important.</em></li>
+      </ul>
+      <h4 id="Aromaticsystems-LocalAromaticValenceCalculator">Local Aromatic Valence Calculator</h4>
+      <p>Aromatic atoms are sorted into four groups,&nbsp;<em>i.e.</em>&nbsp;boron-like, carbon-like, nitrogen-like and oxygen-like atoms according to their behavior.</p>
+      <p><strong>Boron-like atoms</strong></p>
+      <ul>
+       <li><em>Boron-like atoms:</em>&nbsp;B, C<sup>+</sup></li>
+       <li>Valence can not be calculated exactly.</li>
+       <li>One aromatic bond:
+        <ul>
+         <li>Accepted with two implicit hydrogens.</li>
+         <li>Accepted with one single bond.</li>
+         <li>Accepted with one single bond and one other single bond or one radical or one implicit hydrogen or one attachment point.</li>
+         <li>Accepted with one double bond.</li>
+        </ul></li>
+       <li>Two aromatic bonds:
+        <ul>
+         <li>Accepted with no other bond, one single bond, one implicit hydrogen or one radical or one attachment point.</li>
+        </ul></li>
+       <li>Three aromatic bonds:
+        <ul>
+         <li>Accepted with no other bonds, implicit hydrogens, radical or attachment point.</li>
+        </ul></li>
+      </ul>
+      <p><strong>Carbon-like atoms</strong></p>
+      <ul>
+       <li><em>Carbon-like atoms:</em>&nbsp;B<sup>-</sup>, C, N<sup>+</sup>, P<sup>+</sup></li>
+       <li>Valence can be calculated exactly.</li>
+       <li>One aromatic bond:
+        <ul>
+         <li>Accepted with two implicit hydrogens.</li>
+         <li>Accepted with one single bond.</li>
+         <li>Accepted with one single bond and one other single bond or one double bond or one radical or one implicit hydrogen or one attachment point.</li>
+         <li>Accepted with one double bond.</li>
+         <li>Accepted with one double bond and one radical or one implicit hydrogen or one attachment point.</li>
+        </ul></li>
+       <li>Two aromatic bonds:
+        <ul>
+         <li>Accepted with no other bond, one single bond, one implicit hydrogen or one radical or one attachment point.</li>
+        </ul></li>
+       <li>Three aromatic bonds:
+        <ul>
+         <li>Accepted with no other bond, implicit hydrogen, radical or attachment point.</li>
+        </ul></li>
+      </ul>
+      <p><strong>Nitrogen-like atoms</strong></p>
+      <ul>
+       <li><em>Nitrogen-like atoms:</em>&nbsp;C<sup>-</sup>, N , P, O<sup>+</sup>, S<sup>+</sup></li>
+       <li>Valence can not be calculated exactly.</li>
+       <li>One aromatic bond:
+        <ul>
+         <li>Accepted with two implicit hydrogens.</li>
+         <li>Accepted with one single bond.</li>
+         <li>Accepted with one single bond and one other single bond or one radical or one implicit hydrogen or one attachment point.</li>
+         <li>Accepted with one double bond.</li>
+        </ul></li>
+       <li>Two aromatic bonds:
+        <ul>
+         <li>Accepted with no other bond, one single bond, one implicit hydrogen or one radical or one attachment point.</li>
+        </ul></li>
+       <li>Three aromatic bonds:
+        <ul>
+         <li>Accepted with no other bond, implicit hydrogen, radical or attachment point.</li>
+        </ul></li>
+      </ul>
+      <p><strong>Oxygen-like atoms</strong></p>
+      <ul>
+       <li><em>Oxygen-like atoms:</em>&nbsp;N<sup>-</sup>, P<sup>-</sup>, O, S</li>
+       <li>Valence can be calculated exactly.</li>
+       <li>One aromatic bond:
+        <ul>
+         <li>Accepted with zero implicit hydrogens.</li>
+         <li>Accepted with one single bond.</li>
+        </ul></li>
+       <li>Two aromatic bonds:
+        <ul>
+         <li>Accepted with no other bond, implicit hydrogen, radical or attachment point.</li>
+        </ul></li>
+       <li>Three aromatic bonds:
+        <ul>
+         <li>Not acceptable.</li>
+        </ul></li>
+      </ul>
+      <p><strong>Exocyclic double bonds</strong></p>
+      <p>When an atom two aromatic bonds, it may have a double bond with specific ligand:</p>
+      <ul>
+       <li>Carbon: C, N, P, O, S atoms are possible ligand atoms.</li>
+       <li>Nitrogen, Phosphorous, Sulfur: Only O is possible ligand atom.</li>
+       <li>Nitrogen and Phosphorous with 1+ charge: Any atom can be ligand.</li>
+      </ul>
+      <h4 id="Aromaticsystems-GlobalAromaticValenceCalculator">Global Aromatic Valence Calculator</h4>
+      <p>Global Aromatic Valence Calculator is not yet implemented. There is a calculation that takes single aromatic rings into account and thus it's slower than the local aromatic calculation. It can be reached through MoleculeGraph.setValenceCheckOptions method.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

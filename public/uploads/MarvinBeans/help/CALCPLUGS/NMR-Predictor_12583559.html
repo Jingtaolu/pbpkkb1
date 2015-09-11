@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : NMR Predictor</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : NMR Predictor </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives a walk-through on how to use the NMR Predictor:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200954314 {padding: 0px;}
+div.rbtoc1439200954314 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200954314 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200954314"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#NMRPredictor-Introduction">Introduction</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#NMRPredictor-NMRPredictorQuickHelp">NMR Predictor QuickHelp</a></li> 
+           </ul> </li> 
+          <li><a href="#NMRPredictor-NMRPredictor">NMR Predictor</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#NMRPredictor-Overview">Overview &nbsp;</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#NMRPredictor-Chemicalfeatures">Chemical features</a></li> 
+              <li><a href="#NMRPredictor-GUIfeatures">GUI features</a></li> 
+             </ul> </li> 
+            <li><a href="#NMRPredictor-Usage">Usage</a></li> 
+            <li><a href="#NMRPredictor-Menusystem">Menu system</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#NMRPredictor-filemenuFilemenu">File menu</a></li> 
+              <li><a href="#NMRPredictor-editmenuEditmenu">Edit menu &nbsp;</a></li> 
+              <li><a href="#NMRPredictor-optionsmenuOptionsmenu">Options menu</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#NMRPredictor-Examples">Examples&nbsp; &nbsp;</a></li> 
+               </ul> </li> 
+              <li><a href="#NMRPredictor-viewmenuViewmenu">View menu</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#NMRPredictor-Examples.1">Examples&nbsp; &nbsp;</a></li> 
+               </ul> </li> 
+              <li><a href="#NMRPredictor-helpmenuHelpmenu">Help menu</a></li> 
+             </ul> </li> 
+            <li><a href="#NMRPredictor-Toolbar">Toolbar &nbsp;</a></li> 
+            <li><a href="#NMRPredictor-Panels">Panels</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#NMRPredictor-mviewpanelMoleculeViewPanel">Molecule View Panel</a></li> 
+              <li><a href="#NMRPredictor-tablechemshiftTableofChemicalShifts">Table of Chemical Shifts</a></li> 
+              <li><a href="#NMRPredictor-NMRSpectrumPreviewPanel">NMR Spectrum Preview Panel</a></li> 
+              <li><a href="#NMRPredictor-NMRSpectrumDisplayPanel">NMR Spectrum Display Panel</a></li> 
+             </ul> </li> 
+            <li><a href="#NMRPredictor-NMRPredictionpop-upmenu">NMR Prediction pop-up menu</a></li> 
+           </ul> </li> 
+          <li><a href="#NMRPredictor-NMRSpectrumViewer">NMR Spectrum Viewer</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#NMRPredictor-viewermenuMenusystem">Menu system</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#NMRPredictor-Filemenu">File menu</a></li> 
+              <li><a href="#NMRPredictor-Viewmenu">View menu</a></li> 
+              <li><a href="#NMRPredictor-Help">Help</a></li> 
+             </ul> </li> 
+            <li><a href="#NMRPredictor-viewertbToolbar">Toolbar</a></li> 
+            <li><a href="#NMRPredictor-viewerpanelsPanels">Panels</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#NMRPredictor-SpectrumViewPanel">Spectrum View Panel &nbsp;</a></li> 
+              <li><a href="#NMRPredictor-SpectrumDisplayPanel">Spectrum Display Panel</a></li> 
+             </ul> </li> 
+            <li><a href="#NMRPredictor-viewerstbarStatusbar">Status bar</a></li> 
+            <li><a href="#NMRPredictor-NMRSpectrumViewerPop-upMenu">NMR Spectrum Viewer Pop-up Menu</a></li> 
+           </ul> </li> 
+          <li><a href="#NMRPredictor-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="NMRPredictor-Introduction"><span style="color: rgb(54,54,54);">Introduction</span></h1>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p><span style="color: rgb(54,54,54);">Predicting the NMR spectrum for a chemical compound can play an important role in structure validation and elucidation.&nbsp;</span><span style="color: rgb(54,54,54);">The NMR Predictor&nbsp;is a standalone tool that can predict both&nbsp;</span><sup>1</sup><span style="color: rgb(54,54,54);">H and&nbsp;</span><sup>13</sup><span style="color: rgb(54,54,54);">C NMR spectra of organic compounds.</span></p>
+      <p>&nbsp;</p>
+      <h2 id="NMRPredictor-NMRPredictorQuickHelp">NMR Predictor QuickHelp</h2>
+      <p>&nbsp;</p>
+      <p>The <a href="#NMRPredictor-quickhelp">picture below</a> gives a quick overview on the capabilities of ChemAxon's NMR Predictor.</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-quickhelp"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100094.png" data-image-src="attachments/12583559/29100094.png" data-unresolved-comment-count="0" data-linked-resource-id="29100094" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick_help.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 1 NMR Predictor QuickHelp</p>
+      <h1 id="NMRPredictor-NMRPredictor"><br />NMR Predictor</h1>
+      <h2 id="NMRPredictor-Overview">Overview<br />&nbsp;</h2>
+      <p>The NMR Predictor application is able to predict NMR spectra for standard organic molecules containing the most frequent atoms (molecules containing H, C, N, O, F, Cl, Br, I, P, S, Si, Se, B, Sn, Ge, Te and As atoms).&nbsp;The chemical shifts are estimated by a mixed HOSE- and linear model based on a topological description scheme and are in relation to the chemical shift of tetramethylsilane (<em>δ</em>(TMS)=0 ppm).&nbsp;<sup>13</sup>C and&nbsp;<sup>1</sup>H chemical shift training data were retrieved for training from the&nbsp;<a href="http://www.nmrshiftdb.org/" style="text-decoration: underline;" class="external-link" rel="nofollow">NMRShift Database</a>. You can read more about the NMR chemical shift model description here.</p>
+      <p>&nbsp;</p>
+      <p>The NMR Predictor is integrated into MarvinSketch (you can reach it under the&nbsp;<em><a href="#NMRPredictor-nmrmenu">Calculations&nbsp;&gt; NMR</a></em>&nbsp;menu), and contains three components to discover NMR spectra of molecules.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-nmrmenu"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100095.png" data-image-src="attachments/12583559/29100095.png" data-unresolved-comment-count="0" data-linked-resource-id="29100095" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_00.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 2 The&nbsp;<em>Calculations&nbsp;&gt; NMR&nbsp;</em>menu in MarvinSketch and its three components&nbsp;</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>NMR prediction is also accessible via&nbsp;<a href="cxcalc-command-line-tool_12584204.html">cxcalc</a><strong>. </strong>To get started with the NMR Predictor via cxcalc, use the</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc nmr -h&nbsp;</pre> 
+         </div>
+        </div>
+        <p>command.</p>
+       </div> 
+      </div> 
+      <h3 id="NMRPredictor-Chemicalfeatures"><br />Chemical features<br /><br /></h3>
+      <p>The NMR Predictor has the following basic features:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Prediction of&nbsp;<sup>13</sup>C&nbsp;and&nbsp;<sup>1</sup>H&nbsp;NMR&nbsp;chemical shifts</li>
+       <li>Spin-spin couplings&nbsp;are taken into account according to the first order approximation</li>
+       <li>H-H, H-F and C-F couplings&nbsp;are considered during NMR spectrum calculation</li>
+       <li>Diastereotopic protons&nbsp;are differentiated</li>
+       <li>NMR Spectrum Viewer&nbsp;is able to display NMR spectra in JCAMP-DX format.</li>
+      </ul>
+      <h3 id="NMRPredictor-GUIfeatures"><br />GUI features<br /><br /></h3>
+      <p>The NMR Predictor graphical user interface (GUI) has the following features:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Export&nbsp;predicted spectrum to&nbsp;MOL file</li>
+       <li>Export&nbsp;predicted spectrum to JCAMP-DX file and/or&nbsp;import JCAMP-DX&nbsp;(*.jdx) reference spectrum</li>
+       <li>Create&nbsp;PDF file as a report&nbsp;of your prediction, containing molecule structure, predicted spectrum, and related tables</li>
+       <li>Detached&nbsp;<em>Copy to clipboard</em>&nbsp;action for all predictor panels and tables is available</li>
+       <li>Update&nbsp;molecule from MarvinSketch;</li>
+       <li>Toggle between decoupled and&nbsp;coupled NMR spectrum</li>
+       <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100096.png" data-image-src="attachments/12583559/29100096.png" data-unresolved-comment-count="0" data-linked-resource-id="29100096" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hnmr_icon.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;Toggle between explicit and&nbsp;implicit hydrogen display</li>
+       <li>Select NMR&nbsp;prediction frequency&nbsp;from a predetermined list</li>
+       <li>Add&nbsp;common organic&nbsp;solvent peaks&nbsp;to predicted spectrum</li>
+       <li>Add tautomer peaks&nbsp;to predicted spectrum</li>
+       <li>Restore&nbsp;default NMR predictor&nbsp;settings, e.g. prediction frequency, display and view options</li>
+       <li>Display&nbsp;realistic&nbsp;or&nbsp;line&nbsp;NMR spectra</li>
+       <li>Add&nbsp;atom indices or chemical shift values to signals as&nbsp;spectrum labels</li>
+       <li>Display spectrum scale in&nbsp;ppm&nbsp;or&nbsp;Hz&nbsp;units</li>
+       <li>Show&nbsp;integral curve&nbsp;to assign value to NMR spectrum signals</li>
+       <li>Display&nbsp;legend&nbsp;on spectrum display panel</li>
+       <li>Show local maximum values of reference spectrum</li>
+       <li>Personalize the&nbsp;color management&nbsp;of NMR Predictor</li>
+       <li>Set&nbsp;chart&nbsp;color&nbsp;uniquely</li>
+       <li>When you click on a peak on spectrum display panel or on an atom on molecule preview panel, selection will move to and zoom in on the selected signal</li>
+       <li>Choose multiplet selection mode:&nbsp;individual selection&nbsp;in case of overlapping multiplets is available</li>
+       <li>Use&nbsp;various modes of zoom in&nbsp;on spectrum</li>
+       <li>Find spectrum and molecule structure related information in&nbsp;Atom,&nbsp;Multiplet, and&nbsp;Coupling&nbsp;tables</li>
+       <li>Show atom indices on molecule structure corresponding to the different multiplets<br /><br /></li>
+      </ul>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Atoms of the input molecule and multiplets of the NMR spectrum are linked together. Upon selection of an atom the corresponding multiplet is highlighted and vice versa. A single NMR prediction is allowed to contain more molecules.</p>
+       </div> 
+      </div> 
+      <h2 id="NMRPredictor-Usage"><br />Usage<br /><br /></h2>
+      <p>You can predict&nbsp;<sup>13</sup>C NMR and&nbsp;<sup>1</sup>H NMR spectra of organic molecules drawn in MarvinSketch using the <em>Calculations &gt; NMR&nbsp;</em>menu:</p>
+      <ol>
+       <li>Draw molecule in MarvinSketch.</li>
+       <li>Go to&nbsp;<em>Calculations</em>&nbsp;&gt;&nbsp;<em>NMR</em>&nbsp;&gt; and choose
+        <ul style="margin-left: 20.0px;">
+         <li><em>CNMR Prediction</em>&nbsp;to discover the predicted&nbsp;<sup>13</sup>C NMR spectrum of the molecule, or</li>
+         <li><em>HNMR Prediction</em>&nbsp;to discover the predicted&nbsp;<sup>1</sup>H NMR spectrum of the molecule.<br />&nbsp;</li>
+        </ul></li>
+       <li>The predicted spectrum will open in&nbsp;CNMR Prediction&nbsp;window if you chose&nbsp;<em>CNMR Prediction</em>, and in&nbsp;<a href="#NMRPredictor-nmrpredwind">HNMR Prediction&nbsp;window</a> if you chose&nbsp;<em>HNMR Prediction</em>, respectively.<br />&nbsp;</li>
+      </ol>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><span style="color: rgb(54,54,54);">You can predict both spectra of the molecule in question, which will appear in separate windows.</span></p>
+       </div> 
+      </div> 
+      <p><br /><span class="confluence-anchor-link" id="NMRPredictor-nmrpredwind"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="900" src="attachments/12583559/29100098.jpg" data-image-src="attachments/12583559/29100098.jpg" data-unresolved-comment-count="0" data-linked-resource-id="29100098" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_01.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 3 HNMR Prediction result window and its parts</p>
+      <p>&nbsp;</p>
+      <p>Both NMR Prediction windows consist of a menu, toolbar, and four panels. The name of the window is displayed at the top left corner. At the bottom left corner of the status bar general information on the NMR prediction is shown, i.e. nucleus, measurement unit and prediction frequency. At the bottom right corner the coordinates of mouse cursor position on the NMR Spectrum Display Panel are shown.<br />&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Menu elements and panels of both&nbsp;<sup>13</sup>C and&nbsp;<sup>1</sup>H NMR Prediction windows are discussed together. Differences will be marked by the appropriate icon (<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100097.png" data-image-src="attachments/12583559/29100097.png" data-unresolved-comment-count="0" data-linked-resource-id="29100097" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="cnmr_icon.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span> for&nbsp;CNMR Prediction,&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100096.png" data-image-src="attachments/12583559/29100096.png" data-unresolved-comment-count="0" data-linked-resource-id="29100096" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hnmr_icon.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span> for&nbsp;HNMR Prediction).</p>
+       </div> 
+      </div> 
+      <h2 id="NMRPredictor-Menusystem">Menu system</h2>
+      <p>&nbsp;</p>
+      <p>The menu system contains&nbsp;<a href="#NMRPredictor-filemenu">File</a>,&nbsp;<a href="#NMRPredictor-editmenu">Edit</a>,&nbsp;<a href="#NMRPredictor-optionsmenu">Options</a>,&nbsp;<a href="#NMRPredictor-viewmenu">View</a>&nbsp;and&nbsp;<a href="#NMRPredictor-helpmenu">Help</a>&nbsp;menus.</p>
+      <p>&nbsp;</p>
+      <h3 id="NMRPredictor-filemenuFilemenu"><span class="confluence-anchor-link" id="NMRPredictor-filemenu"></span>File menu</h3>
+      <p>&nbsp;</p>
+      <p>The File menu can be used to export spectra to files; to import spectrum of JCAMP-DX file format and superimpose it on predicted NMR spectrum; to remove the imported spectrum and to close the NMR Prediction result window.</p>
+      <ul style="margin-left: 20.0px;">
+       <li><a class="anchor" rel="nofollow"></a><em>File &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100103.png" data-image-src="attachments/12583559/29100103.png" data-unresolved-comment-count="0" data-linked-resource-id="29100103" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_pdf.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;Export to PDF...</em>: exports the molecule structure, predicted spectrum (full), and related tables to PDF file. You can select&nbsp;<em>Keep view settings</em>&nbsp;option on the export dialog panel to keep the actual view of spectrum during export.</li>
+       <li><em>File &gt;&nbsp;Export to JCAMP-DX...</em>: exports predicted spectrum to JCAMP-DX (jdx) file format.</li>
+       <li><em>File &gt;&nbsp;Export to Molfile...</em>: exports predicted spectrum to MOL format. You can export the predicted spectrum data to SDF file format. The SDF file will contain&nbsp;<em>structure</em>&nbsp;and&nbsp;<em>NMR Spectrum</em>&nbsp;fields. The&nbsp;<em>NMR Spectrum</em>&nbsp;field contains the relevant atom number (AN), value of chemical shift (v<em>δ</em>), unit of chemical shift (u<em>δ</em>), and multiplicity of the signal (M) in the following format:<br /><br /><p>v<em>δ</em>1;u<em>δ</em>1,M1;AN1|v<em>δ</em>2;u<em>δ</em>2,M2;AN2|...|v<em>δ</em>i;u<em>δ</em>i,Mi;ANi.<br />&nbsp;</p></li>
+       <li><em>File &gt;&nbsp;Import from JCAMP-DX</em>: imports a spectrum in JCAMP-DX format. The imported spectrum will be superimposed on the predicted NMR spectrum.</li>
+       <li><em>File &gt;&nbsp;Remove Imported Spectrum</em>: removes previously imported JCAMP-DX spectrum from&nbsp;<em>NMR Spectrum Display Panel.</em></li>
+       <li><em>File &gt;&nbsp;Exit</em>: closes NMR Prediction window.</li>
+      </ul>
+      <h3 id="NMRPredictor-editmenuEditmenu"><br /><br /><span class="confluence-anchor-link" id="NMRPredictor-editmenu"></span>Edit menu<br />&nbsp;</h3>
+      <p>The Edit menu can be used to copy specific panels to clipboard and to update the molecule from MarvinSketch. You can also apply the right-click of your mouse on the proper panel to copy it to the clipboard.</p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>Edit &gt;&nbsp;Copy Spectrum</em>: copies the actual view of Spectrum Display Panel to the clipboard.</li>
+       <li><em>Edit &gt;&nbsp;Copy Spectrum Preview</em>: copies the actual view of Spectrum Preview Panel to the clipboard.</li>
+       <li><em>Edit &gt;&nbsp;Copy Molecule</em>: copies the actual view of Molecule View Panel to the clipboard.</li>
+       <li><em>Edit &gt;&nbsp;Copy Multiplet Table</em>: copies Multiple Table to the clipboard.</li>
+       <li><em>Edit &gt;&nbsp;Copy Atom Table</em>: copies Atom Table to the clipboard.</li>
+       <li><em>Edit &gt;&nbsp;Copy Coupling Table</em>: copies Coupling Table to the clipboard.</li>
+       <li><em>Edit &gt;&nbsp;Update Molecule</em>: updates molecule on Molecule View Panel and the whole prediction at the same time. You can switch back to MarvinSketch window without closing NMR Prediction window; modify the molecule or draw a new molecule of which NMR spectrum you wish to predict. Switch back to NMR Prediction window and either select Update Molecule or click on the Update button on Molecule View Panel to refresh NMR prediction.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <h3 id="NMRPredictor-optionsmenuOptionsmenu"><span class="confluence-anchor-link" id="NMRPredictor-optionsmenu"></span>Options menu</h3>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">The Options menu can be used to set optional NMR prediction settings:</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>Options &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100114.png" data-image-src="attachments/12583559/29100114.png" data-unresolved-comment-count="0" data-linked-resource-id="29100114" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_couple.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Spin-Spin Coupling</em>: prediction considers spin-spin coupling; the result is splitting of signals into multiplets according to the interaction between two nuclei.</li>
+       <li><em>Options &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100096.png" data-image-src="attachments/12583559/29100096.png" data-unresolved-comment-count="0" data-linked-resource-id="29100096" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hnmr_icon.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Implicit Hydrogen Mode</em>: hydrogens are displayed only on hetero and terminal atoms.<br />Note&nbsp;If you switch off this mode:
+        <ul style="margin-left: 20.0px;">
+         <li>all hydrogens will be visible on&nbsp;Molecule View Panel;</li>
+         <li>atoms will be re-numbered on all corresponding panels;</li>
+         <li>coupling table will be filled in with relevant data.<br />&nbsp;</li>
+        </ul></li>
+       <li><em>Options &gt;&nbsp;NMR Prediction Frequency</em>: sets the frequency of the NMR prediction. Select prediction frequency from the predetermined list. Prediction frequency influences the fine structure of the spectrum.</li>
+       <li><em>Options &gt;&nbsp;Add Solvent Peaks...</em>: Adds NMR signal(s) of selected common organic solvent(s) to the predicted spectrum. Select solvents from the predetermined list and click OK. The signal(s) of selected solvent(s) will be added to the predicted spectrum. When spectrum labels are displayed, you can see the name of the solvent attached to the corresponding signal. We used the NMR shift data of common organic solvents in CDCl<sub>3</sub>&nbsp;collected by&nbsp;<a href="#NMRPredictor-gottlieb">Gottlieb et al</a>.</li>
+       <li><em>Options &gt;&nbsp;Select Tautomers...</em>: opens a dialog where tautomers of the relevant molecule are displayed. The major tautomer is automatically selected. The values of tautomer distributions are obtained from MarvinSketch's Dominant tautomer distribution calculation. You can select altogether 8 tautomers to add their signal(s) to the predicted spectrum. Check the upper right check box of the appropriate tautomer. The distribution of each tautomer has to be set before proceeding. When spectrum labels are displayed, the corresponding signals of the active tautomer can be seen on Spectrum Display Panel, while the tautomer peaks are signed according to their symbols.</li>
+       <li><em>Options &gt;&nbsp;Clear Tautomers</em>: removes all selected tautomer peaks from predicted spectrum.</li>
+       <li><em>Options &gt;&nbsp;Reset Default Settings</em>: resets zoom and the default Options, Color, and View settings of NMR predictor. This is for<br />
+        <ul style="margin-left: 20.0px;">
+         <li>CNMR Predictor:
+          <ul style="margin-left: 20.0px;">
+           <li>NMR Prediction Frequency: 500 [125] MHz</li>
+           <li>Spectrum Display: Realistic Spectrum</li>
+           <li>Spectrum Labels: Chemical Shifts</li>
+           <li>Measurement Unit: ppm</li>
+           <li>Zoom Follows Selection: On</li>
+          </ul></li>
+         <li>HNMR Predictor:
+          <ul style="margin-left: 20.0px;">
+           <li>Spin-Spin Coupling: On</li>
+           <li>Implicit Hydrogen Mode: On</li>
+           <li>NMR Prediction Frequency: 500 MHz</li>
+           <li>Spectrum Display: Realistic Spectrum</li>
+           <li>Spectrum Labels: Chemical Shifts</li>
+           <li>Measurement Unit: ppm</li>
+           <li>Integral Curve: On</li>
+           <li>Zoom Follows Selection: On<br />&nbsp;</li>
+          </ul></li>
+        </ul></li>
+      </ul>
+      <h4 id="NMRPredictor-Examples">Examples&nbsp;<br />&nbsp;</h4>
+      <p><em>Example #1&nbsp;</em><br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-spinspincoup"></span>Toggle&nbsp;Spin-Spin Coupling: choose&nbsp;<em>Options &gt; Spin-Spin Coupling</em></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100115.png" data-image-src="attachments/12583559/29100115.png" data-unresolved-comment-count="0" data-linked-resource-id="29100115" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="proton_coupling.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 4 Spin-Spin coupling option effect on the prediction results</p>
+      <p>&nbsp;</p>
+      <p><em>Example #2&nbsp;</em></p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-implicith"></span>Toggle&nbsp;Implicit Hydrogen Mode: choose&nbsp;<em>Options &gt; Implicit Hydrogen Mode</em></p>
+      <p>Change default setting to:&nbsp;<em>View&nbsp;&gt;&nbsp;Spectrum Labels&nbsp;&gt;&nbsp;Atom Numbers</em>; Zoom in on the certain spectrum region.<br />&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100116.png" data-image-src="attachments/12583559/29100116.png" data-unresolved-comment-count="0" data-linked-resource-id="29100116" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="implicith_crop.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 5 Implicit Hydrogen Mode effect on the prediction</p>
+      <h3 id="NMRPredictor-viewmenuViewmenu"><br /><br /><span class="confluence-anchor-link" id="NMRPredictor-viewmenu"></span>View menu</h3>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">It is to select different display options related to the predicted spectrum and the molecule structure:</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><a class="anchor" rel="nofollow"></a><em>View &gt;&nbsp;Spectrum Display</em>:
+        <ul style="margin-left: 20.0px;">
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474241.png" data-image-src="attachments/12583559/30474241.png" data-unresolved-comment-count="0" data-linked-resource-id="30474241" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_realistic.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<strong>Realistic Spectrum</strong>: displays predicted spectrum in a realistic way.</li>
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474242.png" data-image-src="attachments/12583559/30474242.png" data-unresolved-comment-count="0" data-linked-resource-id="30474242" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_line.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<strong>Line Spectrum</strong>: predicted chemical shifts are presented by distinct lines with proper intensity.</li>
+        </ul></li>
+       <li><a class="anchor" rel="nofollow"></a><em>View &gt;&nbsp;Spectrum Labels</em>: In order to assign signals and relevant atoms more easily, you can display the atom numbers or the chemical shift values of each signal on the NMR Spectrum Display an Molecule View Panels. Select:
+        <ul style="margin-left: 20.0px;">
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474243.png" data-image-src="attachments/12583559/30474243.png" data-unresolved-comment-count="0" data-linked-resource-id="30474243" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="peak_number.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<strong>Atom Numbers</strong>&nbsp;to see atoms assigned to each signal and to display atom numbers on&nbsp;Molecule View Panel&nbsp;as well.</li>
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474243.png" data-image-src="attachments/12583559/30474243.png" data-unresolved-comment-count="0" data-linked-resource-id="30474243" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="peak_number.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<strong>Chemical Shifts</strong>&nbsp;to see the exact chemical shift value of NMR signals on the&nbsp;NMR Spectrum Display Panel.</li>
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474245.png" data-image-src="attachments/12583559/30474245.png" data-unresolved-comment-count="0" data-linked-resource-id="30474245" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="peak_none.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;None&nbsp;to remove spectrum labels.<br /><br /></li>
+        </ul>Note&nbsp;that you can display only one type of label at a time.<br />&nbsp;</li>
+       <li><a class="anchor" rel="nofollow"></a><em>View &gt;&nbsp;Measurement Unit</em>: the chemical shift of tetramethylsilane (TMS) is set to zero, and all other chemical shifts are predicted relative to it. The unit of display can be:
+        <ul style="margin-left: 20.0px;">
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474246.png" data-image-src="attachments/12583559/30474246.png" data-unresolved-comment-count="0" data-linked-resource-id="30474246" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_hz.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;Hz&nbsp;or</li>
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474247.png" data-image-src="attachments/12583559/30474247.png" data-unresolved-comment-count="0" data-linked-resource-id="30474247" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_ppm.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;ppm.</li>
+        </ul></li>
+       <li><p><a class="anchor" rel="nofollow"><span style="color: rgb(0,0,0);"><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474248.png" data-image-src="attachments/12583559/30474248.png" data-unresolved-comment-count="0" data-linked-resource-id="30474248" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_integral.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;Integral Curve</em>: displays integral curve on spectrum. Default setting is on</span>.</a></p></li>
+      </ul>
+      <ul>
+       <li><em>&nbsp;View &gt;&nbsp;Display Legend</em>: displays legend on Spectrum Display Panel. The legend contains information on different functions of Spectrum Display Panel.</li>
+       <li><em>View &gt;&nbsp;Reference Spectrum</em>: It is an imported JCAMP-DX NMR spectrum that can be superimposed on the predicted NMR spectrum.
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Display Shifts</strong>: If the imported JCAMP-DX file has &quot;PEAKTABLE&quot; property, the chemical shifts of the imported spectrum can be displayed.</li>
+         <li><strong>None</strong>: Remove chemical shift labels of the reference spectrum.&nbsp;<em style="line-height: 1.4285715;">View &gt;&nbsp;Set Colors...</em>: you can customize the color of the predicted spectrum, reference spectrum and selection.</li>
+        </ul></li>
+      </ul>
+      <ul style="margin-left: 20.0px;">
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474249.png" data-image-src="attachments/12583559/30474249.png" data-unresolved-comment-count="0" data-linked-resource-id="30474249" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_zoomfs.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Zoom Follows Selection</em>: If you select an exact atom on Molecule View Panel, or a signal on NMR Spectrum Display Panel, the appropriate signal is centered and zoomed in on&nbsp;<strong>NMR Spectrum Display Panel</strong>.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474250.png" data-image-src="attachments/12583559/30474250.png" data-unresolved-comment-count="0" data-linked-resource-id="30474250" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_selectim.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Select Individual Multiplets</em>: In case of overlapping multiplets, this option enables highlighting individual multiplets.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474251.png" data-image-src="attachments/12583559/30474251.png" data-unresolved-comment-count="0" data-linked-resource-id="30474251" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Horizontal Zoom In</em>: zooms in on spectrum in X-axis direction.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474252.png" data-image-src="attachments/12583559/30474252.png" data-unresolved-comment-count="0" data-linked-resource-id="30474252" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Horizontal Zoom Out</em>: zooms out of spectrum in X-axis direction.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474253.png" data-image-src="attachments/12583559/30474253.png" data-unresolved-comment-count="0" data-linked-resource-id="30474253" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Vertical Zoom In</em>: zooms in on spectrum in Y-axis direction.&nbsp;Note that the bottom of the selection window is fixed.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474254.png" data-image-src="attachments/12583559/30474254.png" data-unresolved-comment-count="0" data-linked-resource-id="30474254" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Vertical Zoom Out</em>: zooms out of spectrum in Y-axis direction. Note that the bottom of the selection window is fixed.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474255.png" data-image-src="attachments/12583559/30474255.png" data-unresolved-comment-count="0" data-linked-resource-id="30474255" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="resetzoom.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Reset Zoom</em>: displays the whole spectrum in both directions.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474256.png" data-image-src="attachments/12583559/30474256.png" data-unresolved-comment-count="0" data-linked-resource-id="30474256" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="scale_up.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Scale Up Reference</em>: increases intensity of imported reference spectrum. Active when reference spectrum is imported.</li>
+       <li><p><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474257.png" data-image-src="attachments/12583559/30474257.png" data-unresolved-comment-count="0" data-linked-resource-id="30474257" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="scale_down.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Scale Down Reference</em>: decreases intensity of imported reference spectrum. Active when reference spectrum is imported.<br />&nbsp;</p></li>
+      </ul>
+      <h4 id="NMRPredictor-Examples.1">Examples&nbsp;<br />&nbsp;</h4>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-individualmp"></span>Selecting individual multiplets</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474258.png" data-image-src="attachments/12583559/30474258.png" data-unresolved-comment-count="0" data-linked-resource-id="30474258" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="individualmp_crop.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 6 Selecting individual multiplets</p>
+      <p>&nbsp;</p>
+      <h3 id="NMRPredictor-helpmenuHelpmenu"><span class="confluence-anchor-link" id="NMRPredictor-helpmenu"></span>Help menu</h3>
+      <p>&nbsp;</p>
+      <div>
+       There are two menu points that can help you get started with the NMR Predictor:
+      </div>
+      <ul style="margin-left: 20.0px;">
+       <li><p><em>Help &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474259.png" data-image-src="attachments/12583559/30474259.png" data-unresolved-comment-count="0" data-linked-resource-id="30474259" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="help.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>Quick Help</em></p></li>
+       <li><em>Help &gt;&nbsp;Help Contents</em></li>
+      </ul>
+      <h2 id="NMRPredictor-Toolbar">Toolbar<br />&nbsp;</h2>
+      <p>You can use toolbar elements to access selected NMR Predictor menu items:</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-toolbarelements"></span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td colspan="2" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474260.png" data-image-src="attachments/12583559/30474260.png" data-unresolved-comment-count="0" data-linked-resource-id="30474260" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_toolbar.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100103.png" data-image-src="attachments/12583559/29100103.png" data-unresolved-comment-count="0" data-linked-resource-id="29100103" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_pdf.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Export to PDF...</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474262.png" data-image-src="attachments/12583559/30474262.png" data-unresolved-comment-count="0" data-linked-resource-id="30474262" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_specdisplay.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Spectrum Display</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474263.png" data-image-src="attachments/12583559/30474263.png" data-unresolved-comment-count="0" data-linked-resource-id="30474263" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_labeldisplay.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Spectrum Labels</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/29100114.png" data-image-src="attachments/12583559/29100114.png" data-unresolved-comment-count="0" data-linked-resource-id="29100114" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_couple.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Spin-Spin Coupling</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474248.png" data-image-src="attachments/12583559/30474248.png" data-unresolved-comment-count="0" data-linked-resource-id="30474248" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_integral.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Integral Curve</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474266.png" data-image-src="attachments/12583559/30474266.png" data-unresolved-comment-count="0" data-linked-resource-id="30474266" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_unit.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Measurement Unit</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474249.png" data-image-src="attachments/12583559/30474249.png" data-unresolved-comment-count="0" data-linked-resource-id="30474249" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_zoomfs.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Zoom Follows Selection</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474250.png" data-image-src="attachments/12583559/30474250.png" data-unresolved-comment-count="0" data-linked-resource-id="30474250" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_selectim.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Select Individual Multiplets</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474251.png" data-image-src="attachments/12583559/30474251.png" data-unresolved-comment-count="0" data-linked-resource-id="30474251" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Horizontal Zoom In</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474252.png" data-image-src="attachments/12583559/30474252.png" data-unresolved-comment-count="0" data-linked-resource-id="30474252" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Horizontal Zoom Out</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474253.png" data-image-src="attachments/12583559/30474253.png" data-unresolved-comment-count="0" data-linked-resource-id="30474253" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Vertical Zoom In</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474254.png" data-image-src="attachments/12583559/30474254.png" data-unresolved-comment-count="0" data-linked-resource-id="30474254" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Vertical Zoom Out</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474255.png" data-image-src="attachments/12583559/30474255.png" data-unresolved-comment-count="0" data-linked-resource-id="30474255" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="resetzoom.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Reset Zoom</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474256.png" data-image-src="attachments/12583559/30474256.png" data-unresolved-comment-count="0" data-linked-resource-id="30474256" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="scale_up.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Scale Up Reference</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474257.png" data-image-src="attachments/12583559/30474257.png" data-unresolved-comment-count="0" data-linked-resource-id="30474257" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="scale_down.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Scale Down Reference</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474259.png" data-image-src="attachments/12583559/30474259.png" data-unresolved-comment-count="0" data-linked-resource-id="30474259" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="help.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Quick Help</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 7 Toolbar elements of the NMR Predictor</p>
+      <h2 id="NMRPredictor-Panels"><br />Panels</h2>
+      <p><span style="line-height: 1.25;">&nbsp;</span></p>
+      <p>NMR Prediction window contains the&nbsp;Molecule View Panel<strong>,&nbsp;</strong>the&nbsp;Table of Chemical Shifts, the&nbsp;NMR Spectrum Preview Panel&nbsp;and the&nbsp;NMR Spectrum Display Panel&nbsp;to present the predicted spectrum and to display selected features.<br /><br /></p>
+      <h3 id="NMRPredictor-mviewpanelMoleculeViewPanel"><span class="confluence-anchor-link" id="NMRPredictor-mviewpanel"></span>Molecule View Panel</h3>
+      <p>&nbsp;</p>
+      <p>The Molecule View Panel displays the molecule that has to be drawn in MarvinSketch. Using the <em>Ctrl</em> button while the cursor is located in this panel, the view of molecule can be controlled:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>Ctrl+Mouse</em> scroll button zooms in/out on to the molecule</li>
+       <li><em>Ctrl+Mouse</em> dragging moves the molecule</li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);">If you select&nbsp;</span><em>View</em><span style="color: rgb(54,54,54);">&nbsp;&gt;&nbsp;</span><em>Spectrum Labels</em><span style="color: rgb(54,54,54);">&nbsp;&gt;&nbsp;</span><em>Atom Numbers</em><span style="color: rgb(54,54,54);">, atom numbers will appear on both the&nbsp;</span><em>Molecule View Panel</em><span style="color: rgb(54,54,54);">&nbsp;and the&nbsp;</span><em>NMR Spectrum Display Panel</em><span style="color: rgb(54,54,54);">.</span><br /><span style="color: rgb(54,54,54);">If you select&nbsp;</span><em>View</em><span style="color: rgb(54,54,54);">&nbsp;&gt;&nbsp;</span><em>Spectrum Labels</em><span style="color: rgb(54,54,54);">&nbsp;&gt;&nbsp;</span><em>Chemical Shifts</em><span style="color: rgb(54,54,54);">, chemical shift values of predicted multiplets will appear on both the&nbsp;</span><em>Molecule View Panel<strong>&nbsp;</strong></em><span style="color: rgb(54,54,54);">and the&nbsp;</span><em>NMR Spectrum Display Panel</em>.<br /><span style="color: rgb(54,54,54);">If you have added tautomers to the predicted spectrum via the <em>Select Tautomers...</em> option, the layout of Molecule View Panel will change: the active tautomer is displayed on the panel. To go to the next/previous tautomer, click on the arrows next to the molecule. </span></p>
+      <p><span style="color: rgb(54,54,54);">In the <a href="#NMRPredictor-fig.8">picture below</a> symbols T1, T2, ..., T</span><sub>n</sub><span style="color: rgb(54,54,54);">, mark the selected tautomers. Hover over to see tautomer structure in a pop-up window. Click on the symbol to make it active.&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;<span class="confluence-anchor-link" id="NMRPredictor-fig.8"></span></span><br /><span style="color: rgb(54,54,54);"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474282.png" data-image-src="attachments/12583559/30474282.png" data-unresolved-comment-count="0" data-linked-resource-id="30474282" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="moleculeviewpanel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);"><br />Fig. 8 &nbsp;Molecule View Panel with tautomer windows</span></p>
+      <p>&nbsp;</p>
+      <p>Click on the&nbsp;<em>Update</em>&nbsp;button after you have made any modifications on molecular structure in MarvinSketch and you want to predict the NMR spectrum of the new molecule. The effect&nbsp;is equal to using the&nbsp;<em>Edit</em>&nbsp;&gt;&nbsp;<em>Update Molecule </em>action.</p>
+      <p>&nbsp;</p>
+      <h3 id="NMRPredictor-tablechemshiftTableofChemicalShifts"><span class="confluence-anchor-link" id="NMRPredictor-tablechemshift"></span>Table of Chemical Shifts<br /><br /></h3>
+      <p>The following tabs are available on this panel:&nbsp;<em><a href="#NMRPredictor-multiinf">Multiplet information</a></em>,&nbsp;<em><a href="#NMRPredictor-atominfo">Atom information</a></em>&nbsp;and&nbsp;<em><a href="#NMRPredictor-coupling">Coupling information</a></em>&nbsp;tabs.Table on all tabs contains data of the predicted spectrum in Multiplet or Atom point of view. Coupling table contains the calculated coupling constants when the <em>Spin-Spin coupling</em> option is selected.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-multiinf"></span></p>
+      <p>Multiplet information table has six columns, namely: Atom numbers, Chemical shift, Net intensity, Intensity pattern, Multiplet information, and Quality. You can sort data according to these columns.</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Atom numbers</strong>&nbsp;are the numbers displayed on the molecule structure and are assigned automatically.</li>
+       <li><strong>Chemical shift</strong>&nbsp;values are displayed in the selected Measurement Unit.</li>
+       <li><strong>Net intensity</strong>&nbsp;is the integration value of the relevant signal.</li>
+       <li><strong>Intensity pattern</strong>&nbsp;describes the relative intensity of the multiplet elements.</li>
+       <li><strong>Multiplet information</strong>&nbsp;is the conventional one letter abbreviation of multiplicity, e.g.:&nbsp;<strong>s</strong>&nbsp;- singlet;&nbsp;<strong>d</strong>&nbsp;- doublet;&nbsp;<strong>t</strong>&nbsp;- triplet; ...</li>
+       <li><strong>Quality</strong>&nbsp;defines the prediction quality according to our validation method. Definitions: good, medium, rough.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-atominfo"></span>&nbsp;</p>
+      <p>Atom information<strong>&nbsp;</strong>table has five columns, namely: Atom number, Chemical shift, Net intensity, Multiplet information, and Quality.</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Atom numbers</strong>&nbsp;are the numbers displayed on the molecule structure and are assigned automatically.</li>
+       <li><strong>Chemical shift</strong>&nbsp;values are displayed in the selected Measurement Unit.</li>
+       <li><strong>Net intensity</strong>&nbsp;is the integration value of the relevant signal.</li>
+       <li><strong>Multiplet information</strong>&nbsp;is the conventional one letter abbreviation of multiplicity, e.g.:&nbsp;<strong>s</strong>&nbsp;- singlet;&nbsp;<strong>d</strong>&nbsp;- doublet;&nbsp;<strong>t</strong>&nbsp;- triplet; ...</li>
+       <li><strong>Quality</strong>&nbsp;defines the prediction quality according to our validation method. Definitions: good, medium, rough.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-coupling"></span>&nbsp;</p>
+      <p>Coupling information table has four columns, namely: Atom 1, Atom 2, Value, and Quality.</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Atom 1</strong>&nbsp;and&nbsp;<strong>Atom 2</strong>&nbsp;are the number of atoms that the coupling constant is connected to.</li>
+       <li><strong>The value</strong>&nbsp;of the coupling constant is displayed in Hz.</li>
+       <li><strong>Quality</strong>&nbsp;defines the prediction quality according to our validation method. Definitions: good, medium, rough.</li>
+      </ul>
+      <h3 id="NMRPredictor-NMRSpectrumPreviewPanel">NMR Spectrum Preview Panel</h3>
+      <p>&nbsp;</p>
+      <p>The NMR Spectrum Preview Panel displays the whole predicted spectrum.&nbsp;You can zoom in and out on spectrum by using your mouse, toolbar zoom items or&nbsp;menu items:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>If you want to zoom in on specific region of the spectrum, use&nbsp;<em>left-click and drag</em>&nbsp;on&nbsp;NMR Spectrum Preview Panel. The background of the selected region will turn to white, while unselected region of the spectrum will turn to grey.</li>
+       <li>You can move the selection window by left-clicking into the middle of the selection window; hold mouse button while moving the selection, and release button to place it.</li>
+       <li>You can resize the selection window if you grab-and-drag its yellow side frames (except bottom frame).</li>
+      </ul>
+      <h3 id="NMRPredictor-NMRSpectrumDisplayPanel">NMR Spectrum Display Panel</h3>
+      <p>&nbsp;</p>
+      <p>The NMR Spectrum Display Panel displays the appropriate zoom region of the spectrum of the molecule presented on Molecule View Panel.&nbsp;Move your mouse pointer over the&nbsp;NMR Spectrum Display Panel&nbsp;and use mouse-wheel to zoom in and out on NMR spectrum along the X-axis.</p>
+      <p>Using Ctrl+mouse-wheel will zoom in and out on NMR spectrum along the Y-axis.&nbsp;</p>
+      <p>If you have added tautomers to the <a href="#NMRPredictor-fig.">predicted spectrum</a> via <em>Select Tautomers...</em> option and&nbsp;<em>Spectrum Labels</em>&nbsp;are on, the inactive tautomer signals are marked according to their symbols (T1, T2, ...).</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-fig.9"></span></p>
+      <p><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474283.png" data-image-src="attachments/12583559/30474283.png" data-unresolved-comment-count="0" data-linked-resource-id="30474283" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sdp_tautomer.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 9 NMR Spectrum Display Panel with tautomers</p>
+      <h2 id="NMRPredictor-NMRPredictionpop-upmenu"><br />NMR Prediction pop-up menu</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474284.png" data-image-src="attachments/12583559/30474284.png" data-unresolved-comment-count="0" data-linked-resource-id="30474284" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="copyto_nmrpredict.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;</span></p>
+      <p>Fig. 10 NMR Prediction pop-up menu</p>
+      <p>&nbsp;</p>
+      <p>Right-clicking on any panel pops up a menu with the following element:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Copy to clipboard</strong>: the panel in question will be copied to the clipboard.</li>
+      </ul>
+      <h1 id="NMRPredictor-NMRSpectrumViewer"><br />NMR Spectrum Viewer</h1>
+      <p>&nbsp;</p>
+      <p>The <a href="#NMRPredictor-specviewer">NMR Spectrum Viewer</a> is part of the&nbsp;NMR Calculation&nbsp;group. It is able to display Nuclear Magnetic Resonance spectra saved in JCAMP-DX format (*.jdx). The opened spectrum can be zoomed in, exported to PDF, or simply copy-pasted as an image.&nbsp;The&nbsp;NMR Spectrum Viewer&nbsp;window consists of a&nbsp;<a href="#NMRPredictor-viewermenu">menu</a>,<a href="#NMRPredictor-viewertb">&nbsp;toolbar</a>,&nbsp;<a href="#NMRPredictor-viewerpanels">two panels</a>, and a&nbsp;<a href="#NMRPredictor-viewerstbar">status bar</a>.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-specviewer"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474293.png" data-image-src="attachments/12583559/30474293.png" data-unresolved-comment-count="0" data-linked-resource-id="30474293" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmrview.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 11 The NMR Spectrum Viewer&nbsp;</p>
+      <p>&nbsp;</p>
+      <h2 id="NMRPredictor-viewermenuMenusystem"><span class="confluence-anchor-link" id="NMRPredictor-viewermenu"></span>Menu system</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">The Menu contains&nbsp;</span><em>File</em><span style="color: rgb(54,54,54);">,&nbsp;</span><em>View</em><span style="color: rgb(54,54,54);">, and&nbsp;</span><em>Help</em><span style="color: rgb(54,54,54);">&nbsp;items.<br />&nbsp;</span></p>
+      <h3 id="NMRPredictor-Filemenu">File menu</h3>
+      <ul style="margin-left: 20.0px;">
+       <li><em>File &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474297.png" data-image-src="attachments/12583559/30474297.png" data-unresolved-comment-count="0" data-linked-resource-id="30474297" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="open.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<a class="anchor" rel="nofollow"></a>Import from JCAMP-DX...</em>: opens an NMR Spectrum in JCAMP-DX format to display it in NMR Spectrum Viewer. Clicking on this menu item will launch the&nbsp;<em>Open</em>&nbsp;dialog window. Select an NMR spectrum in JCAMP-DX format and click on&nbsp;<em>Open</em>.</li>
+       <li><em>File &gt;&nbsp;Exit</em>: closes the application.</li>
+      </ul>
+      <h3 id="NMRPredictor-Viewmenu">View menu</h3>
+      <ul style="margin-left: 20.0px;">
+       <li><em>View &gt;&nbsp;<a class="anchor" rel="nofollow"></a>Measurement Unit:</em>&nbsp;displays NMR spectrum in one of the following units:
+        <ul style="margin-left: 20.0px;">
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474246.png" data-image-src="attachments/12583559/30474246.png" data-unresolved-comment-count="0" data-linked-resource-id="30474246" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_hz.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<strong>Hz</strong>&nbsp;or;</li>
+         <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474247.png" data-image-src="attachments/12583559/30474247.png" data-unresolved-comment-count="0" data-linked-resource-id="30474247" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_ppm.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<strong>ppm</strong>.</li>
+        </ul></li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474300.png" data-image-src="attachments/12583559/30474300.png" data-unresolved-comment-count="0" data-linked-resource-id="30474300" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="peak_shift.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<a class="anchor" rel="nofollow"></a>Display Local Maximum Places:</em> NMR Spectrum Viewer can display local maximum places as spectrum labels when the JCAMP-DX file contains&nbsp;<code>PEAKTABLE</code>&nbsp;information.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474251.png" data-image-src="attachments/12583559/30474251.png" data-unresolved-comment-count="0" data-linked-resource-id="30474251" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<a class="anchor" rel="nofollow"></a>Horizontal Zoom In:</em>&nbsp;zooms in on NMR Spectrum along the X-axis.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474252.png" data-image-src="attachments/12583559/30474252.png" data-unresolved-comment-count="0" data-linked-resource-id="30474252" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<a class="anchor" rel="nofollow"></a>Horizontal Zoom Out:</em>&nbsp;zooms out on NMR Spectrum along the X-axis.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474253.png" data-image-src="attachments/12583559/30474253.png" data-unresolved-comment-count="0" data-linked-resource-id="30474253" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<a class="anchor" rel="nofollow"></a>Vertical Zoom In:</em>&nbsp;zooms in on the NMR Spectrum along the Y-axis.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474254.png" data-image-src="attachments/12583559/30474254.png" data-unresolved-comment-count="0" data-linked-resource-id="30474254" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<a class="anchor" rel="nofollow"></a>Vertical Zoom Out:</em>&nbsp;zooms out on the NMR Spectrum along the Y-axis.</li>
+       <li><em>View &gt;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474255.png" data-image-src="attachments/12583559/30474255.png" data-unresolved-comment-count="0" data-linked-resource-id="30474255" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="resetzoom.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<a class="anchor" rel="nofollow"></a>Reset Zoom:</em>&nbsp;restores the spectrum zooming to full spectrum view.</li>
+      </ul>
+      <h3 id="NMRPredictor-Help">Help</h3>
+      <ul style="margin-left: 20.0px;">
+       <li><em>Help &gt;&nbsp;Help Contents:</em>&nbsp;opens the help page in your browser.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <h2 id="NMRPredictor-viewertbToolbar"><span class="confluence-anchor-link" id="NMRPredictor-viewertb"></span>Toolbar</h2>
+      <p>&nbsp;</p>
+      <p>You can use<a href="#NMRPredictor-tbelements"> toolbar elements</a> to access selected NMR Spectrum Viewer menu items.</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-tbelements"></span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td colspan="2" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474306.png" data-image-src="attachments/12583559/30474306.png" data-unresolved-comment-count="0" data-linked-resource-id="30474306" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmrview_toolbar.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474297.png" data-image-src="attachments/12583559/30474297.png" data-unresolved-comment-count="0" data-linked-resource-id="30474297" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="open.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Import from JCAMP-DX...</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474300.png" data-image-src="attachments/12583559/30474300.png" data-unresolved-comment-count="0" data-linked-resource-id="30474300" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="peak_shift.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Display Local Maximum Places</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474266.png" data-image-src="attachments/12583559/30474266.png" data-unresolved-comment-count="0" data-linked-resource-id="30474266" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_unit.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Measurement Unit</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474251.png" data-image-src="attachments/12583559/30474251.png" data-unresolved-comment-count="0" data-linked-resource-id="30474251" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Horizontal Zoom In</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474252.png" data-image-src="attachments/12583559/30474252.png" data-unresolved-comment-count="0" data-linked-resource-id="30474252" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="h_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Horizontal Zoom Out</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474253.png" data-image-src="attachments/12583559/30474253.png" data-unresolved-comment-count="0" data-linked-resource-id="30474253" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Vertical Zoom In</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474254.png" data-image-src="attachments/12583559/30474254.png" data-unresolved-comment-count="0" data-linked-resource-id="30474254" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="v_zoomout.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Vertical Zoom Out</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474255.png" data-image-src="attachments/12583559/30474255.png" data-unresolved-comment-count="0" data-linked-resource-id="30474255" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="resetzoom.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></td>
+          <td class="confluenceTd">Reset Zoom</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 12 Toolbar elements</p>
+      <h2 id="NMRPredictor-viewerpanelsPanels"><span class="confluence-anchor-link" id="NMRPredictor-viewerpanels"></span>Panels</h2>
+      <p>&nbsp;</p>
+      <p>Panels can be copied separately as images by right-clicking on the appropriate panel and selecting&nbsp;<em>Copy to clipboard</em>&nbsp;action.<br />&nbsp;</p>
+      <h3 id="NMRPredictor-SpectrumViewPanel">Spectrum View Panel<br />&nbsp;</h3>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-specviewpanel"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474309.png" data-image-src="attachments/12583559/30474309.png" data-unresolved-comment-count="0" data-linked-resource-id="30474309" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="svpanel2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474310.png" data-image-src="attachments/12583559/30474310.png" data-unresolved-comment-count="0" data-linked-resource-id="30474310" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="svpanel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 13 The Spectrum View Panel</p>
+      <p>&nbsp;</p>
+      <p>The<a href="#NMRPredictor-specviewpanel"> Spectrum View Panel </a>displays the whole imported spectrum.</p>
+      <ul style="margin-left: 20.0px;">
+       <li>If you want to zoom in on specific region of the spectrum, use&nbsp;<em>left-click and drag</em>&nbsp;or&nbsp;<em>ctrl + left-click and drag</em>&nbsp;on the NMR Spectrum Preview Panel. The background of the selected region will be highlighted in white, while unselected region of the spectrum will turn to grey.</li>
+       <li>You can move the selection window by left-clicking into the middle of the selection; hold mouse button while moving the selection, and release button to place it.</li>
+       <li>You can resize the selection window if you grab-and-drag the yellow side frame around the highlighted area.&nbsp;</li>
+      </ul>
+      <h3 id="NMRPredictor-SpectrumDisplayPanel"><br />Spectrum Display Panel</h3>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-specdisppanel"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474311.png" data-image-src="attachments/12583559/30474311.png" data-unresolved-comment-count="0" data-linked-resource-id="30474311" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sdpanel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 14 The Spectrum Display Panel</p>
+      <p>&nbsp;</p>
+      <p>The Spectrum Display Panel displays the appropriate zoom region of the spectrum. Move your mouse pointer over the&nbsp;<em>NMR Spectrum Display Panel</em>&nbsp;and use mouse-wheel to zoom in and out horizontally,<em> Ctrl+mouse-wheel</em> to zoom in and out verically on the NMR spectrum.</p>
+      <p>&nbsp;</p>
+      <h2 id="NMRPredictor-viewerstbarStatusbar"><span class="confluence-anchor-link" id="NMRPredictor-viewerstbar"></span>Status bar</h2>
+      <p>&nbsp;</p>
+      <p>The <a href="#NMRPredictor-statusbar">status bar</a> of NMR Spectrum Viewer displays the X and Y coordinates of mouse cursor position, and the following data get stored in the opened in a JCAMP-DX file:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Nucleus;</li>
+       <li>Frequency,</li>
+       <li>Owner;</li>
+       <li>File.</li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-statusbar"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474314.png" data-image-src="attachments/12583559/30474314.png" data-unresolved-comment-count="0" data-linked-resource-id="30474314" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_statusbar.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span></p>
+      <p>Fig. 15 The NMR Viewer status bar</p>
+      <p>&nbsp;</p>
+      <h2 id="NMRPredictor-NMRSpectrumViewerPop-upMenu"><a class="anchor" rel="nofollow"></a>NMR Spectrum Viewer Pop-up Menu</h2>
+      <p><span class="confluence-anchor-link" id="NMRPredictor-viewercptocb"></span></p>
+      <p><span style="color: rgb(54,54,54);"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583559/30474312.png" data-image-src="attachments/12583559/30474312.png" data-unresolved-comment-count="0" data-linked-resource-id="30474312" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="copyto_nmrviewer.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583559" data-linked-resource-container-version="114" /></span>&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Fig. 15 Copy to clipboard action in the NMR Spectrum Viewer panel</span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p>Right-clicking on any panel pops up a <a href="#NMRPredictor-viewercptocb">menu</a> with the following element:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Copy to clipboard</strong>: The panel in question will be copied to the clipboard.</li>
+      </ul>
+      <h1 id="NMRPredictor-References"><br />References</h1>
+      <p><a class="anchor" rel="nofollow"></a><span style="color: rgb(54,54,54);"><span class="confluence-anchor-link" id="NMRPredictor-gottlieb"></span>Gottlieb, H.E.; Kotlyar, V.; Nudelman, A.&nbsp;</span><em>J. Org. Chem.</em><span style="color: rgb(54,54,54);">,&nbsp;</span><strong>1997</strong><span style="color: rgb(54,54,54);">,&nbsp;</span><em>62</em><span style="color: rgb(54,54,54);">, 7612-7515;&nbsp;</span><a href="http://pubs.acs.org/doi/abs/10.1021/jo971176v" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

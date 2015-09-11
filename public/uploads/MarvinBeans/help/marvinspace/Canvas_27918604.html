@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Canvas</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Canvas </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The canvas (or scene) is the image area that displays the molecular structures in 3D. This is also an area that accepts mouse input events, like mouse motion and mouse button clicks. These events are processed by the canvas and it reacts to them in a predefined manner (though the default behaviour can be&nbsp;<a href="Controls_28934470.html">changed easily</a>).</p>
+      <h5 id="Canvas-evandacEventsandactions"><a class="anchor" name="eventsandactions" rel="nofollow"></a><span class="confluence-anchor-link" id="Canvas-evandac"></span>Events and actions</h5>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><strong>Event</strong></th>
+          <th class="confluenceTh"><strong>Action</strong></th>
+          <th class="confluenceTh">Description</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Mouse movement + Left button</strong></td>
+          <td class="confluenceTd"><strong>Rotate</strong></td>
+          <td class="confluenceTd">Rotates the content of the scene (or the current cell in multiple cell view mode) about the two axes in the plane of the screen. If, however, mouse is moved outside the rotation sphere&nbsp;the scene is rotated around the third axis that is perpendicular to the screen.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Mouse movement + Left button + Shift key</strong>&nbsp;or&nbsp;<strong>Mouse movement + Right button</strong></td>
+          <td class="confluenceTd"><strong>Move</strong></td>
+          <td class="confluenceTd">Moves the scene left-right and up-down.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Mouse movement + Middle button</strong></td>
+          <td class="confluenceTd"><strong>Zoom</strong></td>
+          <td class="confluenceTd">Move the scene closer to or further from the viewer, depending on the direction of mouse motion.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Mouse wheel</strong></td>
+          <td class="confluenceTd"><strong>Clipping</strong></td>
+          <td class="confluenceTd">Gradually removes parts of the structures that are near to the viewer's eyes.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Middle button click</strong></td>
+          <td class="confluenceTd"><strong>Center</strong></td>
+          <td class="confluenceTd">Defines origin of the scene. The new origin (look at point) is the point where the mouse pointer was pointing at the click event.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

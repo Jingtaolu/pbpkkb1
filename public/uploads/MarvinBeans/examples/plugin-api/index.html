@@ -1,0 +1,293 @@
+<html>
+<head>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Using Calculator Plugins via Java API</title>
+</head>
+<body>
+<h1>Using Calculator Plugins via Java API</h1>
+
+<h2>Contents</h2>
+<ul>
+	<li><a href="#intro">Introduction</a></li>
+	<li><a href="#usingtheapi">Using Calculator Plugins via API</a></li>
+	<li><a href="#apiusageexamples">API usage examples</a></li>
+</ul>
+
+<h2><a name="intro">Introduction</a></h2>
+
+Calculator Plugins are modules of ChemAxon's Marvin and JChem cheminformatics platforms which calculate
+physico-chemical and descriptive properties from chemical structures. They can be accessed through a number of
+interfaces: from Marvin GUI, command line, API or via ChemAxon's Chemical Terms language.
+
+
+<h2><a name="usingtheapi"></a>Using Calculator Plugins via API</h2>
+
+<p>The aim of the examples below is to show how to work with Calculator Plugins via Java API.
+
+<h3><a name="elementalanalyserpluginexample"></a>Steps when using Calculator Plugins via API</h3>
+
+In this example <a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html">
+<code>ElementalAnalyserPlugin</code></a> is used to demonstrate the usage of the Calculator Plugin API step-by-step.
+These steps are common to all types of Calculator Plugins.
+
+<h4>Instantiate the plugin object</h4>
+
+Calculator Plugin classes are placed in the <a href="../../help/developer/beans/api/chemaxon/marvin/calculations/package-summary.html">
+<code>chemaxon.marvin.calculations</code></a> package.
+
+<pre><strong>    import chemaxon.marvin.calculations.ElementalAnalyserPlugin;</strong></pre>
+
+Instantiate a new <code>ElementalAnalyserPlugin</code> object with its default constructor.
+
+<pre><strong>    ElementalAnalyserPlugin plugin = new ElementalAnalyserPlugin();</strong></pre>
+
+
+<h4>Set the parameters of the calculation</h4>
+
+After creating the <code>ElementalAnalyserPlugin</code> object the parameters of the calculation can be set with plugin
+specific setter methods. The precision of the results can be set with the
+<a href="../../help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#setDoublePrecision(int)">
+<code>setDoublePrecision(int)</code></a> method.
+
+<pre><strong>    plugin.setDoublePrecision(2);</strong></pre>
+
+
+<h4>Set the input molecule</h4>
+
+All calculator plugins take a molecule (a  <a href="../../help/developer/beans/api/chemaxon/struc/Molecule.html">
+<code>Molecule</code></a> object) as input, and perform the calculation on one molecule at a time. The input molecule
+can be set with the
+<a href="../../help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#setMolecule(chemaxon.struc.Molecule)">
+<code>setMolecule(Molecule)</code></a> method.
+
+<pre><strong>    plugin.setMolecule(mol);</strong></pre>
+
+<h4>Run the calculation</h4>
+
+To run the calculation the
+<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#run()"><code>run()</code></a>
+method of the plugin should be called.
+
+<pre><strong>    plugin.run();</strong></pre>
+
+<h4>Get the results</h4>
+
+It is plugin specific how results of the calculation can be retrieved. <code>ElementalAnalyserPlugin</code> can return
+several kinds of results, some of these are:
+
+<ul>
+<li> mass and exact mass
+<pre><strong>    double mass = plugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#getMass()">getMass()</a>;
+    double exactMass = plugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#getExactMass()">getExactMass()</a>;</strong></pre>
+</li>
+<li> count of atoms and count of all atoms
+<pre><strong>     // the number of all atoms in the molecule
+    int atomCount = plugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#getAllAtomCount()">getAllAtomCount()</a>;
+    // carbon atom count
+    int countOfC = plugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#getAtomCount(int)">getAtomCount(6)</a>;
+    // carbon-14 isotope count
+    int countOfC14 = plugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#getAtomCount(int, int)">getAtomCount(6, 14)</a>;</strong></pre>
+</li>
+<li> formula
+<pre><strong>    String formula = plugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#getFormula()">getFormula()</a>;</strong></pre>
+</li>
+<li> composition
+<pre><strong>    String composition = plugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#getComposition()">getComposition()</a>;</strong></pre>
+</li>
+</ul>
+
+<p>In the file <a href="ElementalAnalyserPluginExample.java.html"><code>ElementalAnalyserPluginExample.java</code></a> a complete
+code example can be found which uses the code parts above (<a href="ElementalAnalyserPluginExample.java">download source</a>).
+It reads input molecules from a file given as command line parameter and displays the results.
+
+<p>The input file <a href="example_mols.sdf">example_mols.sdf</a> contains a few chemical structures shown below.
+
+<p><a name="example_mols.sdf"></a><table align="center" border="0" cellspacing="0" cellpadding="5"
+id="grid"><caption><small><b><a href="example_mols.sdf">example_mols.sdf</a></b></small></caption>
+<tr><td><img border="0" src="example_mols.png"></td></tr>
+</table>
+
+<p>To compile the <a href="ElementalAnalyserPluginExample.java.html"><code>ElementalAnalyserPluginExample.java</code></a>
+ example <code>MarvinBeans.jar</code> has to be referenced in the <code>CLASSPATH</code>. After compiling the example can
+ be run from command line.
+
+<p>Usage:
+<pre>  java ElementalAnalyserPluginExample [molFile]</pre>
+
+<p>Example:
+<pre>  java ElementalAnalyserPluginExample example_mols.sdf</pre>
+
+<p>The output is:
+
+<pre>CC(=O)OC(CC(O)=O)C[N+](C)(C)C
+  formula: C9H18NO4, mass: 204.2435, exact mass: 204.123583069
+  number of atoms (32): C (9), C-14 (0)
+  composition: C (52.93%), H (8.88%), N (6.86%), O (31.33%)
+
+OC1[14CH]=CC=C(C1O)C(O)=O
+  formula: C7H8O4, mass: 158.1286, exact mass: 158.045500732
+  number of atoms (19): C (7), C-14 (1)
+  composition: C (54.43%), H (5.1%), O (40.47%)
+
+NCC(=O)COP(O)(O)=O
+  formula: C3H8NO5P, mass: 169.0731, exact mass: 169.014008883
+  number of atoms (18): C (3), C-14 (0)
+  composition: C (21.31%), H (4.77%), N (8.28%), O (47.32%), P (18.32%)
+
+CCN1[14CH]=[NH+]C2=C(N)[NH+]=[14CH]N=[14C]12
+  formula: C7H11N5, mass: 171.1734, exact mass: 171.111171341
+  number of atoms (23): C (7), C-14 (3)
+  composition: C (52.61%), H (6.48%), N (40.91%)</pre>
+
+<h3><a name="example1"></a>Using multiple plugins, writing the results to SDF fields</h3>
+
+<p>In the second example <a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html">
+<code>MajorMicrospeciesPlugin</code></a> is used to generate the major microspecies at pH 7.4,
+<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/TPSAPlugin.html"><code>TPSAPlugin</code></a>
+to calculate the polar surface areas,
+<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html"><code>logDPlugin</code></a>
+to calculate the logD values, and
+<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html"><code>IUPACNamingPlugin</code></a>
+to generate the names of molecules read from a molfile. The results of the calculations are written to an SDFile, the
+molecules in the file are the major microspecies of the input molecules, IUPAC names, surface area values and logD
+values are saved in SDF property fields.
+
+<p>The main steps in this example are the same as in the previous one, only the methods used for parameter settings
+and the methods used for getting the results are different.
+
+<h4>Setting parameters and getting the results for MajorMicrospeciesPlugin</h4>
+
+<p>For setting the parameters method <code>setpH(double)</code> is used. Major microspecies at the specified pH will be generated.
+
+<pre><strong>    mmsPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html#setpH(double)">setpH(7.4)</a>; // major microspecies generation at pH = 7.4</strong></pre>
+
+<p>For getting the results method <code>getMajorMicrospecies()</code> is used. It returns a <code>Molecule</code> object.
+
+<pre><strong>    Molecule majorms = mmsPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html#getMajorMicrospecies()">getMajorMicrospecies()</a>;</strong></pre>
+
+<h4>Setting parameters and getting the results for TPSAPlugin</h4>
+
+<p>For setting the parameters method <code>setpH(double)</code> is used.
+
+<pre><strong>    tpsaPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesAccessorPlugin.html#setpH(double)">setpH(7.4)</a>; // surface area calculation at pH = 7.4</strong></pre>
+
+<p>For getting the results method <code>getSurfaceArea()</code> is used.
+
+<pre><strong>    double surfaceArea = tpsaPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesAccessorPlugin.html#getSurfaceArea()">getSurfaceArea()</a>;</strong></pre>
+
+<h4>Setting parameters and getting the results for logDPlugin</h4>
+
+<p>There are quite a few parameters that can be set for logD calculation. These are: Cl<sup>-</sup> ion concentration,
+Na<sup>+</sup>/K<sup>+</sup> ion concentration, pH (for calculating logD at a single pH value), pH lower limit, pH
+upper limit, and pH step size.
+
+<pre><strong>    // set the Cl- and Na+/K+ concentration
+    logDPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html#setCloridIonConcentration(double)">setCloridIonConcentration(0.15)</a>;
+    logDPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html#setNaKIonConcentration(double)">setNaKIonConcentration(0.15)</a>;
+    // set the pH range and pH step size
+    logDPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html#setpHLower(double)">setpHLower(5.4)</a>;
+    logDPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html#setpHUpper(double)">setpHUpper(9.4)</a>;
+    logDPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html#setpHStep(double)">setpHStep(2.0)</a>;</strong></pre>
+
+<p>The results of the logD calculation are returned by the method <code>getlogDs()</code>, the pH values are returned by
+the method <code>getpHs()</code>. Both methods return a double array (<code>double[]</code>), the logD array contains the
+logD values for corresponding  pH-s in the pH array.
+
+<pre><strong>    double[] pHs = logDPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html#getpHs()">getpHs()</a>;
+    double[] logDs = logDPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html#getlogDs()">getlogDs()</a>;</strong></pre>
+
+<h4>Getting the results for IUPACNamingPlugin</h4>
+
+<p>For getting the results method <code>getPreferredIUPACName()</code> is used, it returns the preferred IUPAC name.
+<code>IUPACNamingPlugin</code> has also the method <a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html#getTraditionalName()">
+<code>getTraditionalName()</code></a> to return the traditional name of the molecule.
+
+<pre><strong>    String name = iupacNamingPlugin.<a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html#getPreferredIUPACName()">getPreferredIUPACName()</a>;</strong></pre>
+
+<p>The complete code example can be found in the file <a href="PluginExample.java.html"><code>PluginExample.java</code></a>
+(<a href="PluginExample.java">download source</a>). After compiling the example can be run from command line.
+
+<p>Usage:
+<pre>java PluginExample [molFile]</pre>
+
+<p>Example:
+<pre>java PluginExample <a href="example_mols.sdf">example_mols.sdf</a> > results.sdf</pre>
+
+<p>The result is written to the <a href="results.sdf">results.sdf</a> file.
+
+<p><p><a name="results.sdf"></a><table align="center" border="0" cellspacing="0" cellpadding="5"
+id="grid"><caption><small><b><a href="results.sdf">results.sdf</a></b></small></caption>
+<tr><td><img border="0" src="results.png"></td></tr>
+</table>
+
+<p>The above examples can also be run by <code>run.sh</code> shell script (Linux/UNIX) or <code>RUN.BAT</code> batch file (Windows).</p>
+
+<h3><a name="apiusageexamples"></a>API usage examples</h3>
+
+Plugin API usage examples can be found in the apidoc headers of the plugin classes.
+
+<ul>
+	<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html">ElementalAnalyserPlugin</a>
+	<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html">IUPACNamingPlugin</a>
+	<li>Protonation
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/pKaPlugin.html">pKaPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html">MajorMicrospeciesPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IsoelectricPointPlugin.html">IsoelectricPointPlugin</a>
+	</ul>
+	<li>Partitioning
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logPPlugin.html">logPPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html">logDPlugin</a>
+	</ul>
+	<li>Charge
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ChargePlugin.html">ChargePlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IonChargePlugin.html">IonChargePlugin</a>
+	<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/PolarizabilityPlugin.html">PolarizabilityPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/OrbitalElectronegativityPlugin.html">OrbitalElectronegativityPlugin</a>
+	</ul>
+	<li>Isomers
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/TautomerizationPlugin.html">TautomerizationPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/StereoisomerPlugin.html">StereoisomerPlugin</a>
+	</ul>
+	<li>Conformation
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ConformerPlugin.html">ConformerPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MolecularDynamicsPlugin.html">MolecularDynamicsPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/AlignmentPlugin.html">AlignmentPlugin</a>
+	</ul>
+	<li>Geometry
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/TopologyAnalyserPlugin.html">TopologyAnalyserPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/GeometryPlugin.html">GeometryPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/TPSAPlugin.html">TPSAPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MSAPlugin.html">MSAPlugin</a>
+	</ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/EnumerationPlugin.html">EnumerationPlugin</a>
+	<li>Other
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/HuckelAnalysisPlugin.html">HuckelAnalysisPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/RefractivityPlugin.html">RefractivityPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/HBDAPlugin.html">HBDAPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ResonancePlugin.html">ResonancePlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/StructuralFrameworksPlugin.html">StructuralFrameworksPlugin</a>
+	</ul>
+</ul>
+
+<p><b>Note:</b> To run the Calculator Plugins license keys issued by ChemAxon are required (only <code>ElemantalAnalyserPlugin</code>,
+<code>TPSAPlugin</code> and some calculations of the <code>TopologyAnalyserPlugin</code> do not require a license key to run). To obtain a
+license key please <a><script type="text/javascript">
+	<!--
+	document.write('<a href="mailto:');
+	document.write('sales');
+	document.write('@');
+	document.write('chemaxon');
+	document.write('.com" class="address-bold"');
+	document.write('>email our sales team');
+    -->
+</script></a> or contact our head office.
+
+</body>
+</html>

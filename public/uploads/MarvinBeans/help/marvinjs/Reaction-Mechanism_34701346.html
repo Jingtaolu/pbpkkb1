@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Reaction Mechanism</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Reaction Mechanism </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>For describing the movement of electrons in the elementary reaction steps of a complex mechanism in Marvin JS, you can choose between two types of electron flow arrows:&nbsp;<strong style="line-height: 1.4285715;">Single (<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="16" src="attachments/17236095/17400105.png" data-image-src="attachments/17236095/17400105.png" data-unresolved-comment-count="0" data-linked-resource-id="17400105" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="single_eflow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236095" data-linked-resource-container-version="77" /></span>)&nbsp;</strong>or<strong style="line-height: 1.4285715;">&nbsp;</strong><strong style="line-height: 1.4285715;"><strong>Double (<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="16" src="attachments/17236095/17400106.png" data-image-src="attachments/17236095/17400106.png" data-unresolved-comment-count="0" data-linked-resource-id="17400106" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="double_eflow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236095" data-linked-resource-container-version="77" /></span>)</strong></strong>.&nbsp;The former arrow type is for visualizing single electron movement, while the latter is for displaying the movement of electron pairs.</p>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <span>As a chemically intelligent editor, Marvin JS does not allow drawing more than one single electron flow arrow per electron (</span>
+            <em>i.e.</em>
+            <span>, one single arrow from a radical and no more than two single arrows from a lone pair), as well as no more than one double electron flow arrow per lone pair.</span>
+           </div> 
+          </div> 
+          <h2 id="ReactionMechanism-Howtodrawanelectronflowarrow">How to draw an electron flow arrow</h2>
+          <p>&nbsp;<span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701346/35947548.png" data-image-src="attachments/34701346/35947548.png" data-unresolved-comment-count="0" data-linked-resource-id="35947548" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-13 14:52:29.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span></p>
+          <p><strong><br /></strong></p>
+          <p><strong>How to draw an electron flow arrow from an atom to an atom<br /></strong>Select the preferred type of electron flow arrow button from the&nbsp;<strong>Tools</strong>&nbsp;toolbar.<br />Drag the electron flow arrow from the electron(s) to the target atom or bond. A grey feedback of the arrow appears.&nbsp;</p>&nbsp;
+          <p></p>
+          <p>&nbsp;</p>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            The default setting is the incipient bond, but after creation you can
+            <strong> <a href="#ReactionMechanism-fromIncipient">change it</a></strong> anytime.
+           </div> 
+          </div> 
+          <p>&nbsp;</p>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="600" src="attachments/34701346/35947578.png" data-image-src="attachments/34701346/35947578.png" data-unresolved-comment-count="0" data-linked-resource-id="35947578" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-13 16:45:1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span></p>
+          <p>&nbsp;</p>
+          <p><strong><br /></strong></p>
+          <p><strong>How to magnify the radical/lone pair<br /></strong>If the radical is too small to click on, after selecting the electron flow arrow tool, you can click on its atom to magnify them. When you drag from the radical (or lone pair), the zoom level changes back to the original state.</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701346/35947596.png" data-image-src="attachments/34701346/35947596.png" data-unresolved-comment-count="0" data-linked-resource-id="35947596" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-13 18:29:39.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span></p>
+          <p>&nbsp;</p>
+          <p><strong>How to draw an electron flow arrow from an atom to a bond<br /></strong>The source atom should have at least one explicitly displayed radical or lone pair from which the arrow can be dragged.<br />The endpoint of the arrow will be the midpoint of the target bond.<br />In this case, incipient bond type is unavailable.</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <span>A bond can be the target of an electron flow arrow only if it is adjacent to the source atom.</span>
+           </div> 
+          </div> 
+          <p>&nbsp;</p>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701346/35947581.png" data-image-src="attachments/34701346/35947581.png" data-unresolved-comment-count="0" data-linked-resource-id="35947581" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-13 16:59:59.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span></p>
+          <p><strong style="line-height: 1.4285715;"><br /></strong></p>
+          <p><strong style="line-height: 1.4285715;">Electron flow arrow from bond to bond<br /></strong>Drag from the source bond to the target bond. &nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <span>Drawing an electron flow arrow from one bond to another is only possible if these two bonds have an atom in common.</span>
+           </div> 
+          </div> 
+          <p><span class="confluence-anchor-link" id="ReactionMechanism-bondFormation"></span></p>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701346/35947617.png" data-image-src="attachments/34701346/35947617.png" data-unresolved-comment-count="0" data-linked-resource-id="35947617" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-14 12:28:11.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span></p>
+          <p><strong style="line-height: 1.4285715;"><br />How to indicate a bond formation in Marvin JS<br /></strong>Drag with the electron flow arrow tool from the original bond to the atom which will belong to the newly formed bond.<br />The incipient bond will appear from one atom of the bond to the atom. (You can change which atom would be connected with the incipient bond by clicking on the arrow repeatedly.)<br />In order to add the other electron flow arrow,&nbsp;draw a single electron flow arrow from this radical to the atom on the other end of the incipient bond.</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <div class="panel" style="background-color: white;border-color: #ff9900;border-style: solid;border-width: 1px;">
+           <div class="panelContent" style="background-color: white;"> 
+            <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /><strong> Restrictions of the creation of a curved arrow</strong></p>
+            <p style="margin-left: 30.0px;">Single electron flow arrows can start from:</p>
+            <ul>
+             <li style="list-style-type: none;background-image: none;">
+              <ul>
+               <li>a radical electron</li>
+               <li>a lone pair</li>
+               <li>a bond</li>
+              </ul></li>
+            </ul>
+            <p style="margin-left: 30.0px;">Double arrows can start from:</p>
+            <ul>
+             <li style="list-style-type: none;background-image: none;">
+              <ul>
+               <li>a lone pair</li>
+               <li>a bond</li>
+              </ul></li>
+            </ul>
+            <p style="margin-left: 30.0px;">An arrow can end:</p>
+            <ul>
+             <li style="list-style-type: none;background-image: none;">
+              <ul>
+               <li>on an atom</li>
+               <li>on a bond; or</li>
+               <li>on an incipient bond between two atoms which do not have a common existing bond.</li>
+              </ul></li>
+            </ul> 
+           </div>
+          </div>
+          <p>&nbsp;</p>
+          <h2 id="ReactionMechanism-editElFlowArrowHowtoedittheelectronflowarrows"><span class="confluence-anchor-link" id="ReactionMechanism-editElFlowArrow"></span>How to edit the electron flow arrows</h2>
+          <h5 id="ReactionMechanism-fromIncipientFromincipientbondtonormalelectronflowarrow"><span class="confluence-anchor-link" id="ReactionMechanism-fromIncipient"></span>From incipient bond to normal electron flow arrow</h5>
+          <p><strong><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701346/35947677.png" data-image-src="attachments/34701346/35947677.png" data-unresolved-comment-count="0" data-linked-resource-id="35947677" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-14 20:20:39.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span><br />How to change the arrow target&nbsp;</strong><br />Click on the arrow.<br />The arrow changes back and forth from incipient to normal arrow.&nbsp;</p>
+          <h5 id="ReactionMechanism-"><span><br /></span></h5>
+          <p><span><br /></span></p>
+          <h5 id="ReactionMechanism-howChangeIncipientChangingthesourceatomofanincipientbond"><span class="confluence-anchor-link" id="ReactionMechanism-howChangeIncipient"></span>Changing the source atom of an incipient bond</h5>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701346/35947638.png" data-image-src="attachments/34701346/35947638.png" data-unresolved-comment-count="0" data-linked-resource-id="35947638" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-14 14:57:13.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span></p>
+          <p><strong style="line-height: 1.4285715;"><br />How to change the orientation of the electron flow arrow<br /></strong>To change the origin of the electron click on the arrow.&nbsp;<br />When you want to draw a single electron flow arrow pointing to an atom instead, click on it again.&nbsp;<br />&nbsp;For the third click, the arrow head jumps back to its original position.&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701346/35947681.png" data-image-src="attachments/34701346/35947681.png" data-unresolved-comment-count="0" data-linked-resource-id="35947681" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-14 20:43:40.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span></p>
+          <p><strong><br /></strong></p>
+          <p><strong>How to resize of the electron flow arrow<br /></strong>Choose one of the electron flow arrow tools or the selection tools, then drag the electron flow arrow to change the arc of the curve. The new arrow will be shown in black, and the old one is greyed out.</p>
+          <p>&nbsp;</p>
+          <h5 id="ReactionMechanism-.1"><span><br /></span></h5>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-left" width="130" src="attachments/34701346/35947683.png" data-image-src="attachments/34701346/35947683.png" data-unresolved-comment-count="0" data-linked-resource-id="35947683" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-14 20:57:41.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701346" data-linked-resource-container-version="59" /></span><strong><br /></strong></p>
+          <p><strong><br /></strong></p>
+          <p><strong>How to change the position of the curved arrow<br />&nbsp;</strong>Choose one of the electron flow arrow tools or the selection tools, then drag the electron flow arrow to the desired position. The new arrow will be shown in black, and the old one is greyed out.</p>
+          <p><span>&nbsp;</span></p>
+          <p><span><br /></span></p>
+          <h5 id="ReactionMechanism-Selection"><span>Selection</span></h5>
+          <p><span>Electron flow arrows can be selected either by clicking on them with the&nbsp;</span><strong>Rectangle</strong><span>&nbsp;or the&nbsp;</span><strong>Freehand selection</strong><span>&nbsp;tool being active, or by dragging over them with one of the selection tools. In the latter case, you can only select the electron flow arrow without its source and target atom or bond if you use the&nbsp;<strong>Freehand selection&nbsp;</strong>tool; while using&nbsp;<strong>Rectangle selection</strong>, the arrow can only be selected with its source and target.</span></p>
+          <h2 id="ReactionMechanism-Howtodeleteelectronflowarrows">How to delete electron flow arrows</h2>
+          <p>Deleting electron flow arrows can be accomplished in the same way as with other objects: using either the&nbsp;<strong>Delete</strong>&nbsp;toolbar button or the the&nbsp;<code><strong>Delete</strong></code>&nbsp;keyboard button.</p>
+          <p>Please, note that an electron flow arrow is automatically deleted if its source or target atom is deleted or changed, as well as when one of the atoms belonging to its source or target bond is deleted or changed (incipient bonds included as well).</p>
+          <p><span><br /></span></p>
+          <h2 id="ReactionMechanism-Relatedpages">Related pages</h2>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Electron-flow-arrow..._34078853.html">Electron flow arrow...</a></p>
+          <p style="text-align: center;"><a href="View-Settings-dialog_35226318.html">View Settings dialog</a></p>
+          <p style="text-align: center;"><a href="Reaction-Mechanism_34701346.html">Reaction Mechanism</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Reaction-mechanisms-in-Marvin-JS_35947752.html">Reaction mechanisms in Marvin JS</a></p>
+          <p style="text-align: center;"><a href="Reactions-in-Marvin-JS_34704877.html">Reactions in Marvin JS</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: right;">&nbsp;</p>
+          <p style="text-align: right;">&nbsp;</p>
+          <p style="text-align: right;"><a href="Drawing-features_34701332.html">... back to Drawing features page</a></p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

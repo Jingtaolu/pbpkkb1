@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Calculation of partial charge distribution</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Calculation of partial charge distribution </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This material describes the concepts behind our partial charge distribution calculation:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200960937 {padding: 0px;}
+div.rbtoc1439200960937 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200960937 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200960937"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#Calculationofpartialchargedistribution-Introduction">Introduction</a></li> 
+          <li><a href="#Calculationofpartialchargedistribution-Conceptoforbitalelectronegativity">Concept of orbital electronegativity</a></li> 
+          <li><a href="#Calculationofpartialchargedistribution-Examples">Examples</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#Calculationofpartialchargedistribution-Example#1">Example #1 &nbsp;</a></li> 
+            <li><a href="#Calculationofpartialchargedistribution-Example#2">Example #2</a></li> 
+            <li><a href="#Calculationofpartialchargedistribution-Example#3">Example #3 &nbsp;</a></li> 
+            <li><a href="#Calculationofpartialchargedistribution-Example#4">Example #4</a></li> 
+           </ul> </li> 
+          <li><a href="#Calculationofpartialchargedistribution-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="Calculationofpartialchargedistribution-Introduction">Introduction<br /><br /></h1>
+      <p>Chemical bonds between atoms within a molecule consist of one or more electron pairs distributed among the connected atoms. Bonding electrons are not equally distributed among the atoms that have different electronegativity. Forming a chemical bond can be formally described with the&nbsp;following three steps:<br /><br /></p>
+      <ol>
+       <li><em>&nbsp;Initial state</em><br /><br />In this case we can speak about partial charge of atoms. We will give the definition of partial charge intuitively rather than exactly. A simple definition of partial charge starts from a basic two-atom model in which atoms A and B have different electron structures. In the&nbsp;<a href="#Calculationofpartialchargedistribution-fig.1">figure below</a>, the &quot;boundary&quot; of the valence shell is denoted with blue and green solid lines. This boundary is chosen to create a fixed control volume with a definite probability (near to 100%) of finding all electrons belonging to the atom on the inside.<br /><br /><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.1"></span><br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099676.png" data-image-src="attachments/13338342/29099676.png" data-unresolved-comment-count="0" data-linked-resource-id="29099676" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="AB_atoms1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span>&nbsp;<br />Fig. 1 Initial state of two different atoms<br /><br /><br /></li>
+       <li><em>Intermediate state<br /><br /></em>In the&nbsp;<a href="#Calculationofpartialchargedistribution-fig.2">intermediate state</a>&nbsp;the nuclear distance of A and B decreases. As they draw closer to each other, each of their electron clouds is polarized to a different degree. Although the electrons of both A and B have partially moved outside of the control volume, this effect is greater in atom B being the more polarizable atom. The more polarizable an atom is, the more electrons will flow out of its control volume so that the atom will become more positive relative to its initial state.<br /><br /><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.2"></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099677.png" data-image-src="attachments/13338342/29099677.png" data-unresolved-comment-count="0" data-linked-resource-id="29099677" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="AB_atoms2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span><br />Fig. 2 Intermediate state of two different atoms<br /><br /><br /><br /></li>
+       <li><em>Final state<br /><br /></em>In the&nbsp;<a href="#Calculationofpartialchargedistribution-fig.3">final state</a>&nbsp;the two atoms reach the equilibrium nuclear distance and the two electron clouds overlap. Using the control volumes and electron clouds in the figure, atom B becomes more positively charged and atom A becomes more negatively charged relative to their initial states. In this way, partial charge of an atom in the molecule is measured as a charge flow out of or into the atom's control volume.<br /><br /><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.3"></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099678.png" data-image-src="attachments/13338342/29099678.png" data-unresolved-comment-count="0" data-linked-resource-id="29099678" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="AB_atoms3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span><br />Fig. 3 Final state of the two different atoms</li>
+      </ol>
+      <p>&nbsp;</p>
+      <h1 id="Calculationofpartialchargedistribution-Conceptoforbitalelectronegativity">Concept of orbital electronegativity</h1>
+      <p>&nbsp;</p>
+      <p>Partial charge distribution of the molecule is governed by the orbital electronegativity of the atoms contained in the molecule.&nbsp;The definition of orbital electronegativity of atoms in molecules was first given by&nbsp;<a href="#Calculationofpartialchargedistribution-mulliken">Mulliken</a>&nbsp;by the following equation:<br />&nbsp;</p>
+      <p><em>χ<sub>ν</sub>&nbsp;= 0.5*(I<sub>ν</sub>+E<sub>ν</sub>)<br />&nbsp;</em></p>
+      <p>where:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>χ<sub>ν</sub>&nbsp;is the orbital electronegativity of the atom.</li>
+       <li><em>I</em><sub>ν</sub>&nbsp;is the ionization potential of the atom.</li>
+       <li><em>E</em><sub>ν</sub>&nbsp;is the electron affinity of the atom.<br />&nbsp;</li>
+      </ul>
+      <p>The orbital electronegativity of the molecule depends on the hybrid state and partial charge of the atom, see references of&nbsp;<a href="#Calculationofpartialchargedistribution-mcweeny">Mcweeny&nbsp;</a>and&nbsp;<a href="#Calculationofpartialchargedistribution-dewar">Dewar</a>. Electronegativity is a quadratic function of partial charge given by the following equation:<br />&nbsp;</p>
+      <p><em>χ<sub>ν</sub>&nbsp;=&nbsp;a+bq+cq</em><sup><em>2</em><br />&nbsp;</sup></p>
+      <p>where:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>q</em>&nbsp;is the partial charge on the atom;</li>
+       <li><em>a</em>,&nbsp;<em>b</em>, and&nbsp;<em>c</em>&nbsp;are coefficients determined from&nbsp;<em>I</em><sub>ν</sub>&nbsp;and&nbsp;<em>E</em><sub>ν</sub>.<br />&nbsp;</li>
+      </ul>
+      <p>Orbital electronegativity and subsequently&nbsp;partial charge&nbsp;distribution of any molecule is calculated iteratively.</p>
+      <p>&nbsp;</p>
+      <h1 id="Calculationofpartialchargedistribution-Examples">Examples<br /><br /></h1>
+      <p>Here are some examples for partial charge calculation.</p>
+      <p>&nbsp;</p>
+      <h2 id="Calculationofpartialchargedistribution-Example#1">Example #1<br />&nbsp;</h2>
+      <p>In benzene every carbon atom has the same electronegativity. This is why the partial charge distribution is identical among the carbon atoms. The total partial charge of the hydrogen atoms has the same magnitude with opposite sign. The&nbsp;π&nbsp;partial charge is zero for all atoms in the benzene. In our model, the total charge is composed of two independent components - the π&nbsp;and σ&nbsp;partial charges, which are determined by the π&nbsp;and σ&nbsp;bonds, respectively.</p>
+      <p>Total charge and&nbsp;π&nbsp;charge distribution of benzene can be seen below.</p>
+      <p><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099679.png" data-image-src="attachments/13338342/29099679.png" data-unresolved-comment-count="0" data-linked-resource-id="29099679" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ben_sig.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span>&nbsp;&nbsp; &nbsp;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099680.png" data-image-src="attachments/13338342/29099680.png" data-unresolved-comment-count="0" data-linked-resource-id="29099680" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ben_pi.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span><br /><br />Fig. 1 Total charge and&nbsp;π charge distribution of the benzene molecule</p>
+      <h2 id="Calculationofpartialchargedistribution-Example#2">Example #2</h2>
+      <p>&nbsp;</p>
+      <p>In ring substituted benzene, the partial charge distribution helps to predict the reactivity of the carbon atoms that are members of the ring. If the substitute is electron-donating, the partial charge increases in the&nbsp;<em>ortho</em>&nbsp;and&nbsp;<em>para</em>&nbsp;positions of the aromatic ring. If the substitute is electron-withdrawing, partial charge decreases in the&nbsp;<em>ortho</em>&nbsp;and&nbsp;<em>para</em>&nbsp;positions.<br /><br />The figure below shows that the total partial charge reaches a maximum at the&nbsp;<em>meta</em>&nbsp;position relative to the other aromatic atoms due to the electron-withdrawing effect of methoxycarbonyl group.</p>
+      <p><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099681.png" data-image-src="attachments/13338342/29099681.png" data-unresolved-comment-count="0" data-linked-resource-id="29099681" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="MeAC_ben.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span></p>
+      <p>Fig. 2 Partial charge distribution of ring substituted benzene</p>
+      <p>&nbsp;</p>
+      <p>Since the amine group is electron releasing, the total partial charge reaches a maximum (relative to the other aromatic positions) at&nbsp;<em>ortho</em>&nbsp;and&nbsp;<em>para</em>&nbsp;positions.</p>
+      <p><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099682.png" data-image-src="attachments/13338342/29099682.png" data-unresolved-comment-count="0" data-linked-resource-id="29099682" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="anil.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span></p>
+      <p>Fig. 3 Partial charge distribution of benzamine</p>
+      <p>&nbsp;</p>
+      <h2 id="Calculationofpartialchargedistribution-Example#3"><span style="color: rgb(61,61,61);">Example #3<br />&nbsp;</span></h2>
+      <p>The effects of substitution in five membered aromatic rings can also be described with resonance structures.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.4"></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099683.png" data-image-src="attachments/13338342/29099683.png" data-unresolved-comment-count="0" data-linked-resource-id="29099683" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="FM_ring.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span></p>
+      <p>&nbsp;</p>
+      <p>Fig. 4 Resonance structures describing the substitution in five-membered rings</p>
+      <p>&nbsp;</p>
+      <p>Let Y stand for a methoxycarbonyl group and let X represent nitrogen. The calculated partial charge distributions of methyl 1H-pyrrole-2-carboxylate and pyrrole are <a href="#Calculationofpartialchargedistribution-fig.5">given below</a>. The size of each red spot represents the accumulated excess positive charge. From resonance structures we would expect positive partial charge to increase at positions 1, 3 and 5. This expected distribution agrees with the calculated ones.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.5"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099686.png" data-image-src="attachments/13338342/29099686.png" data-unresolved-comment-count="0" data-linked-resource-id="29099686" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="FM_res.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span></p>
+      <p>Fig. 5 Partial charge distributions of methyl 1H-pyrrole-2-carboxylate and pyrrole</p>
+      <p>&nbsp;</p>
+      <h2 id="Calculationofpartialchargedistribution-Example#4"><a rel="nofollow"></a>Example #4</h2>
+      <p>&nbsp;</p>
+      <p>Hydrocarbons usually have weak acidic character. Carbon atoms have different partial charges and ability to delocalize excess negative charge after the loss of a proton. The more positive partial charge accumulated on the carbon atom, the more acidic its character.</p>
+      <p><span>From partial charge calculations, we find that all the carbon atoms have negative partial charge except for the one indicated by a red arrow. The most acidic carbon atom at the<a href="#Calculationofpartialchargedistribution-fig.6"> tip of red arrow</a> has partial charge of +0.0285 electron unit. This result agrees with the published result, see&nbsp;</span><a href="#Calculationofpartialchargedistribution-stewart">Stewart et al.</a></p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-fig.6"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338342/29099687.png" data-image-src="attachments/13338342/29099687.png" data-unresolved-comment-count="0" data-linked-resource-id="29099687" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="CH.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338342" data-linked-resource-container-version="38" /></span></p>
+      <p>Fig. 6 Weak acidic carbon atoms in hydrocarbon molecule</p>
+      <p>&nbsp;</p>
+      <h1 id="Calculationofpartialchargedistribution-References">References</h1>
+      <ol>
+       <li><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-mulliken"></span>Mulliken, R.S.,&nbsp;<em>J. Chem. Phys.</em>,&nbsp;<strong>1934</strong>,&nbsp;<em>2</em>, 782;&nbsp;<a href="http://dx.doi.org/10.1063/1.1749394" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><a rel="nofollow"></a><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-mcweeny"></span>McWeeny, R.,&nbsp;<em>Coulson's Valence</em>, Oxford University Press,&nbsp;<strong>1979</strong></li>
+       <li><a rel="nofollow"></a><span class="confluence-anchor-link" id="Calculationofpartialchargedistribution-dewar"></span>Dewar, M.J.S.,&nbsp;<em>The Molecular Orbital Theory of Organic Chemistry</em>, McGraw-Hill, and Inc.,&nbsp;<strong>1969</strong></li>
+      </ol>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><br /><br /><br /><br /></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

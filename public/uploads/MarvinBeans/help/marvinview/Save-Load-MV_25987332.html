@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Save Load MV</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Save Load MV </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/13336630/13402199.png" data-image-src="https://docs.chemaxon.com/download/attachments/13336630/preferences6.png?version=1&amp;modificationDate=1385465932000&amp;api=v2" /></span>&nbsp;</p>
+      <ul>
+       <li><strong>Default location:</strong>&nbsp;the folder from which to load or to save molecules may be set by the user.
+        <ul>
+         <li>Startup directory: the folder where the command to start the application was given.</li>
+         <li>Last location: the last folder used for opening or saving a structure.</li>
+         <li>Custom working directory: a user-defined folder. If a molecule is loaded from another folder, then the file's location will be offered for saving.</li>
+        </ul></li>
+       <li><strong>Save/Load settings</strong>
+        <ul>
+         <li><strong>Save/Load GUI settings (.MRV, .PDF format)</strong>&nbsp;allows storing and loading of display options like background color, font type, stereo labels, atom indices&nbsp;<em>etc.</em>&nbsp;in addition to the chemical structure itself. This option can only be used with <a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=14943131">MRV</a> and <a href="https://docs.chemaxon.com/display/FF/PDF">PDF</a> formats.</li>
+         <li><strong>Save/Load zoom factor (.MRV format)</strong>&nbsp;stores and loads the zooming scale of the structures. This option can only be used with the <a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=14943131">MRV format</a>.<a class="external-link" rel="nofollow"><br /></a></li>
+         <li><strong>Zoom to scaffold on load (Sketch only):</strong>&nbsp;sets the zooming scale to 'Scaffold' if the loaded file contains defined R-groups, so the R-group definitions might not be seen on the canvas without scrolling. The 'Zoom level' drop-down list on the General Toolbar is supplemented with 'Scaffold' and 'R1, R2, R3...' only when there are defined R-group(s). Without R-group definitions the zooming scale for the loaded structure(s) will not be modified, the last zooming scale will be used.<br />When this option is switched off in the 'Preferences' menu then MarvinSketch opens the new file with the last zoom level.<br />This option is currently relevant only in MarvinSketch.</li>
+        </ul></li>
+       <li><strong>Recent file entries</strong>&nbsp;defines the number of files in the Recent files list in the File menu, with values between 1 and 10.</li>
+       <li><strong>Image import service URL</strong>&nbsp;URL of a server on which a chemical structure recognition program runs can be given.</li>
+       <li><strong>Name import service URL</strong>&nbsp;URL of a server on which a chemical name recognition program runs can be given.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

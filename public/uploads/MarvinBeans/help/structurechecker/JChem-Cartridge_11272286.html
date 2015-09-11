@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : JChem Cartridge</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : JChem Cartridge </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h4 id="JChemCartridge-SettingexternalcheckersinJChemCartridge">Setting external checkers in JChem Cartridge</h4>
+      <p>In order to enable external checker usage in JChem Cartridge, the following line should be included to the&nbsp; jchem/cartridge/conf/jcart.properties file:</p>
+      <pre>sysprop.chemaxon.structurechecker.factory.ExternalCheckerFixerConfiguration=&lt;path-to-externalcheckersfixers.xml&gt;</pre>
+      <p>The provided xml file contains the configuration of the external checkers and fixers to be used.</p>
+      <p>To create this configuration xml, use&nbsp;<a href="MarvinSketch_10029028.html#MarvinSketch-external">Marvin Sketch</a>&nbsp;or the&nbsp;<a href="Creating-a-Configuration_10029254.html#CreatingaConfiguration-external">Structure Checker Application</a>&nbsp;as described.</p>
+      <h4 id="JChemCartridge-UsingexternalcheckersinJChemCartridge">Using external checkers in JChem Cartridge</h4>
+      <p>The external checkers and fixers can be used with the<a href="http://www.chemaxon.com/jchem/doc/dev/cartridge/cartapi.html#jc_evaluate_x" class="external-link" rel="nofollow"> jc_evaluate_x</a> Cartridge operator by the&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/Functions+by+Categories">check and fix&nbsp;Chemical Terms functions</a>.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

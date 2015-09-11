@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Color Type Submenu</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Color Type Submenu </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>In the Color Type Submenu the following options are available:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><strong>Ligand</strong></th>
+          <th class="confluenceTh">Description</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Constant</strong></td>
+          <td class="confluenceTd">Depending on draw type atoms and bonds or all are painted the same color which by default is gold.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>CPK</strong></td>
+          <td class="confluenceTd">Atoms are colored according to the&nbsp;CPK coloring schema&nbsp;in which the atom color depends on the atom type.&nbsp;<br />If bonds are also displayed then these are colored as the two atoms that they connect.<br />Note, that the colors of the most frequent atoms can be changed in the&nbsp;<a href="Options-Menu_27918670.html">Options dialog</a>.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><strong>MacroMolecule</strong></th>
+          <th class="confluenceTh">Description</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Constant</strong></td>
+          <td class="confluenceTd">Depending on draw type atoms and bonds or all are painted gray.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>CPK</strong></td>
+          <td class="confluenceTd">Atoms are colored according to the&nbsp;CPK coloring schema&nbsp;in which the atom color depends on the atom type.&nbsp;<br />Bonds displayed are colored by the colors of the two atoms that they connect.<br />Note, that the colors of the most frequent atoms can be changed in the&nbsp;Options Dialog.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Residue</strong></td>
+          <td class="confluenceTd">Atoms and bonds are colored according to the residue (amino acid or nucleic acid) type.&nbsp;<br />Note, that the colors schema can be changed in the&nbsp;Options Dialog.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Chain</strong></td>
+          <td class="confluenceTd">Atoms and bonds that are in the same chain (in a protein or in a nucleic acid) are colored the same, while different chains are colored by different colors.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Secondary structure</strong></td>
+          <td class="confluenceTd">Atoms and bonds are colored according to the secondary structure type.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Rainbow</strong></td>
+          <td class="confluenceTd">That is coloring by the increasing index of the carbon alpha atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>B-factor</strong></td>
+          <td class="confluenceTd">Means coloring by the temperature factor, where colors are coming from a blue to yellow color palette.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><strong>Water</strong>&nbsp;molecules and&nbsp;<strong>Ions</strong>&nbsp;can be colored by constant or by CPK colors.</p>
+      <p>In case of&nbsp;<strong>surfaces</strong>&nbsp;the types introduced for macromolecules are available, and an eighth option can also be selected:&nbsp;<strong>Electrostatic potential</strong>&nbsp;that calculates electrostatic potential value for surface points and colors the surface according to the current value at a given surface point. By default negative potential is colored by blue while positive potential values are represented by red. The intensity of colors varies according to the absolute value of the electrostatic potential. The color palette can be changed for example to rainbow and blue to green colors. The coloring can&nbsp;<a href="Display-tools_28934479.html">can be dynamically adjusted</a>&nbsp;independently for negative and for positive values.</p>
+      <p>The&nbsp;<strong>Secondary Structures</strong>&nbsp;can be colored as MacroMolecules except the CPK coloring.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

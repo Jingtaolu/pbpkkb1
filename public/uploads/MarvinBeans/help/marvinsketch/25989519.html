@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Changing the default Look &amp; Feel</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Changing the default Look &amp; Feel </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span class="confluence-anchor-link">&nbsp;</span>The default Look&amp;Feel (skin) can be changed by editing the marvin.properties file (in the user's home/chemaxon directory) and inserting/changing the &quot;skin=...&quot; line to the following:</p>
+      <ul>
+       <li><strong><a name="metal" rel="nofollow"></a>Metal Look&amp;Feel</strong> <br /> skin=javax.swing.plaf.metal.MetalLookAndFeel</li>
+       <li><strong><a name="nimbus" rel="nofollow"></a>Nimbus Look&amp;Feel</strong> <br /> skin=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel</li>
+       <li><strong><a name="motif" rel="nofollow"></a>CDE/Motif Look&amp;Feel</strong> <br /> skin=com.sun.java.swing.plaf.motif.MotifLookAndFeel</li>
+       <li><strong><a name="windows-" rel="nofollow"></a>Windows Look&amp;Feel</strong> <br /> (Default on Windows, can be deleted) skin=com.sun.java.swing.plaf.windows.WindowsLookAndFeel</li>
+       <li><strong><a name="windows-classic" rel="nofollow"></a>Windows Classic Look&amp;Feel</strong> <br /> skin=com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel</li>
+       <li><strong><a name="jgoodies-xp" rel="nofollow"></a>Jgoodies Plastic XP Look&amp;Feel</strong> <br /> skin=com.jgoodies.looks.plastic.PlasticXPLookAndFeel</li>
+       <li><strong><a name="jgoodies" rel="nofollow"></a>Jgoodies Plastic Look&amp;Feel</strong> <br /> skin=com.jgoodies.looks.plastic.PlasticLookAndFeel</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

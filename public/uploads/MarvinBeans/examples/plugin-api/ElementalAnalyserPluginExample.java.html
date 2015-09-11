@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>source file</title>
+<link rel="stylesheet" href="../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> */</span>
+
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">IOException</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">calculations</span><span class="symbol">.</span><span class="normal">ElementalAnalyserPlugin</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">plugin</span><span class="symbol">.</span><span class="normal">PluginException</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">struc</span><span class="symbol">.</span><span class="normal">Molecule</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolImporter</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * This example shows how to work with Calculator Plugins via Java API.</span>
+<span class="comment"> * </span>
+<span class="comment"> * </span><span class="keyword">&lt;p&gt;</span><span class="comment">Usage:</span>
+<span class="comment"> * </span><span class="keyword">&lt;pre&gt;</span><span class="comment">   java ElementalAnalyserPluginExample [molFile]</span><span class="keyword">&lt;/pre&gt;</span>
+<span class="comment"> * </span>
+<span class="comment"> * For the detailed description of this example, please visit</span>
+<span class="comment"> * </span><span class="url">http://www.chemaxon.com/marvin/examples/plugin/index.html</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.0.4 04/22/2008</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment">   Marvin 5.0.4</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Zsolt Mohacsi</span>
+<span class="comment"> */</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> </span><span class="classname">ElementalAnalyserPluginExample</span><span class="normal"> </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    </span><span class="comment">// instantiate the plugin object</span>
+<span class="normal">	    ElementalAnalyserPlugin plugin </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">ElementalAnalyserPlugin</span><span class="symbol">();</span>
+
+<span class="normal">	    </span><span class="comment">// set the parameters for the calculation (plugin specific))</span>
+<span class="normal">	    plugin</span><span class="symbol">.</span><span class="function">setDoublePrecision</span><span class="symbol">(</span><span class="number">2</span><span class="symbol">);</span>
+
+<span class="normal">	    </span><span class="comment">// read the input molecules and perform the calculations</span>
+<span class="normal">	    MolImporter importer </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolImporter</span><span class="symbol">(</span><span class="normal">args</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">]);</span>
+<span class="normal">	    Molecule mol</span><span class="symbol">;</span>
+<span class="normal">	    </span><span class="keyword">while</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">mol </span><span class="symbol">=</span><span class="normal"> importer</span><span class="symbol">.</span><span class="function">read</span><span class="symbol">())</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+
+<span class="normal">	        </span><span class="comment">// set the input molecule</span>
+<span class="normal">	        plugin</span><span class="symbol">.</span><span class="function">setMolecule</span><span class="symbol">(</span><span class="normal">mol</span><span class="symbol">);</span>
+
+<span class="normal">	        </span><span class="comment">// run the calculation</span>
+<span class="normal">	        plugin</span><span class="symbol">.</span><span class="function">run</span><span class="symbol">();</span>
+
+<span class="normal">	        </span><span class="comment">// get the results (plugin specific)</span>
+<span class="normal">	        </span><span class="comment">// mass and exact mass</span>
+<span class="normal">	        </span><span class="type">double</span><span class="normal"> mass </span><span class="symbol">=</span><span class="normal"> plugin</span><span class="symbol">.</span><span class="function">getMass</span><span class="symbol">();</span>
+<span class="normal">	        </span><span class="type">double</span><span class="normal"> exactMass </span><span class="symbol">=</span><span class="normal"> plugin</span><span class="symbol">.</span><span class="function">getExactMass</span><span class="symbol">();</span>
+<span class="normal">	        </span><span class="comment">// the number of all atoms in the molecule</span>
+<span class="normal">	        </span><span class="type">int</span><span class="normal"> atomCount </span><span class="symbol">=</span><span class="normal"> plugin</span><span class="symbol">.</span><span class="function">getAllAtomCount</span><span class="symbol">();</span>
+<span class="normal">	        </span><span class="comment">// carbon atom count</span>
+<span class="normal">	        </span><span class="type">int</span><span class="normal"> countOfC </span><span class="symbol">=</span><span class="normal"> plugin</span><span class="symbol">.</span><span class="function">getAtomCount</span><span class="symbol">(</span><span class="number">6</span><span class="symbol">);</span><span class="normal"> </span>
+<span class="normal">	        </span><span class="comment">// carbon-14 isotope count</span>
+<span class="normal">	        </span><span class="type">int</span><span class="normal"> countOfC14 </span><span class="symbol">=</span><span class="normal"> plugin</span><span class="symbol">.</span><span class="function">getAtomCount</span><span class="symbol">(</span><span class="number">6</span><span class="symbol">,</span><span class="normal"> </span><span class="number">14</span><span class="symbol">);</span>
+<span class="normal">	        </span><span class="comment">// formula</span>
+<span class="normal">	        String formula </span><span class="symbol">=</span><span class="normal"> plugin</span><span class="symbol">.</span><span class="function">getFormula</span><span class="symbol">();</span>
+<span class="normal">	        </span><span class="comment">// composition</span>
+<span class="normal">	        String composition </span><span class="symbol">=</span><span class="normal"> plugin</span><span class="symbol">.</span><span class="function">getComposition</span><span class="symbol">();</span><span class="normal"> </span>
+
+<span class="normal">	        </span><span class="comment">// display the results</span>
+<span class="normal">	        System</span><span class="symbol">.</span><span class="normal">out</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="normal">mol</span><span class="symbol">.</span><span class="function">toFormat</span><span class="symbol">(</span><span class="string">"smiles"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"</span><span class="specialchar">\n</span><span class="string">  formula: "</span>
+<span class="normal">	    	    </span><span class="symbol">+</span><span class="normal"> formula </span><span class="symbol">+</span><span class="normal"> </span><span class="string">", mass: "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> mass </span><span class="symbol">+</span><span class="normal"> </span><span class="string">", exact mass: "</span>
+<span class="normal">	    	    </span><span class="symbol">+</span><span class="normal"> exactMass </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"</span><span class="specialchar">\n</span><span class="string">  number of atoms ("</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> atomCount</span>
+<span class="normal">	    	    </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"): C ("</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> countOfC </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"), C-14 ("</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> countOfC14 </span><span class="symbol">+</span><span class="normal"> </span><span class="string">")"</span>
+<span class="normal">	    	    </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"</span><span class="specialchar">\n</span><span class="string">  composition: "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> composition </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">);</span>
+<span class="normal">	    </span><span class="cbracket">}</span>
+<span class="normal">	    importer</span><span class="symbol">.</span><span class="function">close</span><span class="symbol">();</span>
+<span class="normal">	</span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">IOException e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"I/O error has occurred."</span><span class="symbol">);</span>
+<span class="normal">	    e</span><span class="symbol">.</span><span class="function">printStackTrace</span><span class="symbol">();</span>
+<span class="normal">	</span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">PluginException e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"Plugin processing or calculation error."</span><span class="symbol">);</span>
+<span class="normal">	    e</span><span class="symbol">.</span><span class="function">printStackTrace</span><span class="symbol">();</span>
+<span class="normal">	</span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

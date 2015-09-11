@@ -1,0 +1,147 @@
+<html>
+<head>
+    <script type="text/javascript" src="../../sh_main.js"></script>
+    <script type="text/javascript" src="../../sh_java.js"></script>
+    <link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+ <title>MarvinView JFileChooser Example</title>
+ </head>
+ <body onload="sh_highlightDocument();">
+ <h1>MarvinView JFileChooser Example</h1>
+
+<p> This section demonstrates the possible integrations of Marvin to Swing components
+    in a practical example.
+</p>
+<p> In this example we use Marvin as a custom accessory component of a file chooser
+    to provide preview to molecule files. In case the currently selected item in the
+    list of the file chooser is a structure file that Marvin can import, the accessory
+    component displays a thumbnail sketch of the molecule rendered by Marvin. Otherwise,
+    the accessory component is empty.
+</p>
+<p> The file chooser with this custom accessory component is shown in the image below:</p>
+
+<center><img src="open.png" width="673" height="561"></center><br>
+
+ <p>The following text about creating custom accessory components is quoted from
+     the <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/filechooser.html">Java Tutorials</a>:
+</p>
+ <hr>
+ Any object that inherits from the JComponent class can be an accessory component. The component should have a preferred size that looks good in the file chooser.
+ The file chooser fires a property change event when the user selects an item in the list. A program with an accessory component must register to receive these events to update the accessory component whenever the selection changes.
+<hr>
+
+<p> The following paragraphs describe the major steps of setting up the accessory component.</p>
+
+<h4> Creating and setting up the renderer</h4>
+<p> The MolPrinter class is applied to render the molecules. In case the molecule
+    coordinates are not given in the structure file, the 2D coordinates are automatically computed.
+</p>
+
+<pre class="sh_java">
+    private static class MoleculeRenderer extends JComponent {
+        private MolPrinter mPrinter = new MolPrinter();
+
+        public void setMolecule(Molecule molecule) {
+        // Passing the current molecule to MolPrinter.
+        mPrinter.setMol(molecule);
+    }
+
+    public void paintComponent(Graphics g) {
+        // It is very important to set the scale factor of MolPrinter,
+        // otherwise the molecule will not appear.
+        // The scale factor is computed by MolPrinter from
+        // the current size.
+        mPrinter.setScale(mPrinter.maxScale(getSize()));
+        mPrinter.paint(g, new Rectangle(getSize()));
+    }
+}
+
+</pre>
+
+ <h4>Following file selection changes</h4>
+ <p>To update the preview of the molecule in case the user selects a different file, the accessory
+component has to react to file selection change events with the help of a property change listener.
+     In the example the <code>SimpleJFileChooserAccessory</code> object itself serves as the
+     <code>java.beans.PropertyChangeListener</code> for the specific
+     <code>JFileChooser.SELECTED_FILE_CHANGED_PROPERTY</code> property of the file chooser.
+</p>
+
+ <pre class="sh_java">
+     public SimpleJFileChooserAccessory(JFileChooser fileChooser) {
+         molImporter = new MolImporter();
+         renderer = new MoleculeRenderer();
+         ...
+             fileChooser.addPropertyChangeListener(
+                     JFileChooser.SELECTED_FILE_CHANGED_PROPERTY, this);
+     }
+
+     //This method handles file selection change events.
+     public void propertyChange(PropertyChangeEvent evt) {
+         File selection = (File)(evt.getNewValue());
+         if(selection != null) {
+             try {
+                 //Passes the selected molecule file to the importer,
+                 //or the first molecule in case of a multi-molecule file.
+                 molImporter.setFileName(selection.getAbsolutePath());
+                 //Passes the molecule from the importer to the renderer.
+                 setMolecule();
+             } catch (IOException exception) {
+                 renderer.setMolecule(new Molecule());
+             }
+         }
+     }
+
+     //Passes the molecule from the importer to the renderer.
+     private void setMolecule() {
+         try {
+             renderer.setMolecule(
+                     molImporter.nextDoc().getPrimaryMolecule());
+             renderer.repaint();
+         } catch (IOException exception) {
+             renderer.setMolecule(new Molecule());
+         }
+     }
+
+ </pre>
+
+<h4>Assigning the custom accessory component to the file chooser</h4>
+<p>
+    The example calls the setAccessory method to establish an instance of the
+    <code>SimpleJFileChooserAccessory</code> class, as the chooser's accessory component:
+</p>
+
+ <pre class="sh_java">
+     SimpleJFileChooserAccessory accessory =
+             new SimpleJFileChooserAccessory(fileChooser);
+     //Adding the accessory instance to file chooser.
+     fileChooser.setAccessory(accessory);
+
+ </pre>
+ Sample code: <a href="SimpleJFileChooserAccessory.java.html"><code>SimpleJFileChooserAccessory.java</code></a>
+
+<h4>Advanced preview of multi-molecule files </h4>
+<p>Aside from a simple previewer, the accessory component can be set up to offer
+the possibility of browsing inside multi-molecule files without actually opening them.</p>
+
+ <p>The following image shows the advanced accessory component:</p>
+ <center><img src="open2.png" width="547" height="353"></center><br>
+
+<p>In this advanced example there are two additional buttons inside the custom
+    accessory component that enables browsing inside multi-molecule files.</p>
+
+<p>The management of the two buttons are not described in detail, only the parts closely related to Marvin,
+    but the <a href="JFileChooserAccessory.java.html">full source code</a> is available.</p>
+
+ <p>MolImporter refers to each individual molecule in a multi-molecule file by its
+     index (position in file, starting from 0) and provides a method to position
+     to a molecule specified by its index.</p>
+
+ <pre class="sh_java">
+     molImporter.seekRecord(position, null);
+ </pre>
+
+ <p>The second argument is an optional progress monitor object which is omitted here.</p>
+ <p>The custom file chooser accessory shown in this section is already used in several
+     ChemAxon applications and proven to be useful.</p>
+ </body>
+</html>

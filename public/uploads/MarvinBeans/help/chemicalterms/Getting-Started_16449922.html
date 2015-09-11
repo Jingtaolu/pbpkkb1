@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Getting Started</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Getting Started </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This page is a quick-start guide that helps you get started with the&nbsp;Chemical Terms&nbsp;language:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200967853 {padding: 0px;}
+div.rbtoc1439200967853 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200967853 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200967853"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#GettingStarted-calculationsUseChemicalTermsforcalculations">Use Chemical Terms for calculations &nbsp;</a></li> 
+          <li><a href="#GettingStarted-filterDefinefilters">Define filters &nbsp;</a></li> 
+          <li><a href="#GettingStarted-linkLinkdifferentexpressions">Link different expressions &nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="GettingStarted-calculationsUseChemicalTermsforcalculations"><br /><span class="confluence-anchor-link" id="GettingStarted-calculations"></span>Use Chemical Terms for calculations<br />&nbsp;</h1>
+      <p>Let's see how to calculate some basic properties of aspririn.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828716/14123053.png" data-image-src="attachments/13828716/14123053.png" data-unresolved-comment-count="0" data-linked-resource-id="14123053" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="aspirin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828716" data-linked-resource-container-version="14" /></span></p>
+      <p><br />The applied Chemical Terms expressions are as follows:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">mass</pre> 
+       </div>
+      </div>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">logP</pre> 
+       </div>
+      </div>
+      <p>These calculations return <em style="line-height: 1.4285715;">180.16</em> and <em style="line-height: 1.4285715;">1.24</em> as mass and logP of aspirin, respectively.</p>
+      <h1 id="GettingStarted-filterDefinefilters"><br /><span class="confluence-anchor-link" id="GettingStarted-filter"></span>Define filters<br />&nbsp;</h1>
+      <p>The Chemical Terms expressions can also be used to filter molecules for which the investigated properties can be calculated prior to filtering.</p>
+      <p>We list here two simple rules. The first one defines that the mass of the compounds should be less than 500, whereas the second one states that the logP should be not greater than 5.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">mass&lt;=500
+</pre> 
+       </div>
+      </div>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">logP&lt;=5</pre> 
+       </div>
+      </div>
+      <p>Accordingly, mathematical symbols like greater than, less than can be applied&nbsp;conventionally&nbsp;in Chemical Terms.</p>
+      <h1 id="GettingStarted-linkLinkdifferentexpressions"><span style="color: rgb(0,0,0);"><br /><span class="confluence-anchor-link" id="GettingStarted-link"></span>Link different expressions<br />&nbsp;</span></h1>
+      <p>The defined filtering conditions may be linked by logical operators.</p>
+      <p>For example, to specify that the&nbsp;<span style="color: rgb(0,0,0);">calculated log P of a compound is between -0.4 and 5.6 and the molecular weight is between 160 and 480, the following expression should be formulated:</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">logP&gt;=-0.4 AND logP&lt;=5.6&nbsp;
+AND mass&gt;=160 AND mass&lt;=480</pre> 
+       </div>
+      </div>
+      <p><span style="color: rgb(0,0,0);">Both properties should be included twice as two conditions were defined for each property. </span></p>
+      <p><span style="color: rgb(0,0,0);">Other logical operators such as OR, NOT can be used analogous to AND.</span></p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

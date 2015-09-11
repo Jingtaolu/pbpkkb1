@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Manage Marvin services</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Manage Marvin services </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Configure services in MarvinSketch preferences with provided graphical user interface. The preferences tab offers all available service implementation with editor support. For custom service implementations or alternative editors, user-defined mapping can be used by placing a file named <code>servicedescriptoreditormapping.xml</code> to the user's ChemAxon directory - usually located in user home as .chemaxon or ChemAxon, depending on operating system. The file should be valid to the following XSD schema:</p>
+      <pre>	
+		</pre>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+	&lt;xs:schema elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+	&lt;xs:attribute name=&quot;class&quot; type=&quot;xs:string&quot; /&gt;
+	&lt;xs:attribute name=&quot;editor&quot; type=&quot;xs:string&quot; /&gt;
+	&lt;xs:complexType name=&quot;descriptorType&quot;&gt;
+	  &lt;xs:attribute ref=&quot;class&quot; /&gt;
+	  &lt;xs:attribute ref=&quot;editor&quot; /&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:element name=&quot;DescriptorEditorMapping&quot;&gt;
+	  &lt;xs:complexType&gt;
+	    &lt;xs:sequence&gt;
+	      &lt;xs:element name=&quot;Descriptor&quot; type=&quot;descriptorType&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+	    &lt;/xs:sequence&gt;
+	  &lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	&lt;/xs:schema&gt;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The <code>code</code> attribute is the class name of the <code>ServiceDescriptor</code> implementation, and the <code>editor</code> attribute is the class name of the <code>ServiceDescriptorEditor</code> implementation.</p>
+      <p>Services saved by MarvinSketch are available by their names in cxcalc and as Chemical Terms function. Arguments also can be referred by their names set at the editor. Please note that the built-in editor has type restrictions that can be avoided by direct access of the Marvin Services API. The most important types such as <code>MDocument</code>, <code>Molecule</code>, <code>String</code>, <code>Integer</code>, <code>Long</code>, <code>Double</code>, <code>Float</code> and <code>Boolean</code> are available.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

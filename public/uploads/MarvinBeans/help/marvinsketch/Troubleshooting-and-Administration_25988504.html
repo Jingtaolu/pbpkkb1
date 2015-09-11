@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Troubleshooting and Administration</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Troubleshooting and Administration </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h4 id="TroubleshootingandAdministration-MarvinOLEdoesnotstartorstoppingwithfailure">Marvin OLE does not start or stopping with failure</h4>
+      <ul>
+       <ul>
+        If the component cannot be launched by inserting into Office applications or the object cannot be copied onto the clipboard from Marvin Beans or from Marvin Editor component, then it hints an installation/uninstallation problem or a mismatch in the running mode. The first thing we recommend to check is the RunningMode flag in the registry. HKEY_LOCAL_MACHINE\SOFTWARE\ChemAxon\MarvinOLE
+        <li>This registry key is accessible only for administrators.</li>
+       </ul>
+      </ul>
+      <p><code>HKEY_LOCAL_MACHINE\SOFTWARE\ChemAxon\MarvinOLE\Settings\RunningMode</code></p>
+      <ul>
+       <ul>
+        is decimal value numbering from 1.
+        <ul>
+         <li>RunningMode key is deleted! - Marvin OLE will be running in .NET mode by default.</li>
+         <li>Java Mode (1) - Marvin OLE is running in Java mode.</li>
+         <li>.NET mode (2) - Marvin OLE is running in .NET mode even if Java mode was installed.</li>
+         <li>Data transfer mode (3) - Marvin OLE is running without GUI. (Not recommended)</li>
+        </ul>If RunningMode is set to Java (1), Marvin OLE will search for the Java infrastructure, the Marvin Beans. To be able to find it, the following registry path should contain the referenced Marvin Beans isntallation folder and its version:
+        <li><code>KEY_LOCAL_MACHINE\SOFTWARE\ChemAxon\MarvinOLE\ReferenceFolders</code></li>
+        <li>e.g. <code>C:/Program Files/ChemAxon/MarvinBeans/lib 5.4.0.0</code></li>If it is not there, Marvin OLE cannot be launched in Java mode.
+        <li>In this case the administrator should either make correction in the referential folder by adding the correct path with '/' slash, or should delete the whole ReferenceFolders regsitry key, and delete(change) the RunningMode key to .NET (2).</li>
+        <li>This is the common problem, which might occur especially with early version of installers like 5.3.x series.</li>
+        <li>If Oracle Java environment damaged or no jvm installed locally providing jni bridge it is recommended for the adminsitrator to change the registry accordingly to .NET version or to repair the Java environment.<h4 id="TroubleshootingandAdministration-MarvinOLEworkswithoutproblembutdoesnotdisplaythemoleculeafterediting">Marvin OLE works without problem but does not display the molecule after editing</h4></li>
+        <li>In this case either the user should find a JNI invocation error in the Marvin OLE log, and check running mode (see above) or the EMF generator component has a problem and then its log file contains hints of the origin of the problem.</li>
+        <li>The whole Marvin OLE needs to be reinstalled.</li>This case generally could happen when the user wants to install two different ChemAxon products with two different major versions. e.g. IJC 5.3.x and Marvin Beans or JChem for Excel 5.4.x.
+       </ul>
+      </ul>
+      <h4 id="TroubleshootingandAdministration-MarvinOLEeditorisdisplayednotinthedesirededitingmode">Marvin OLE editor is displayed not in the desired editing mode</h4>
+      <ul>
+       <ul>
+        <ul>
+         <li>For simple troubleshooting please run the StandaloneModeOff.reg/StandaloneModeOn.reg accordingly.</li>
+         <li>If the desired mode is standalone editing mode (Marvin OLE is displayed in a separate window end it even runs in-placed) then it is worth running StandaloneModeOff.reg first and StandaloneModeOn.reg afterwards again to clear up the registry.</li>
+         <li>Adminsitrator wants to set the Standalone Mode globally for all users but on some users machines it is still in in-palce editing mode. In this case it is worth checking if the user has overriden any global settings by a local one here: HKEY_CURRENT_USER\Software\ChemAxon\MarvinOLE\Settings\StandaloneMode. If this key contains 0 value, it means that the user has choosen the in-palce mode explicitly. The key either should be deleted or needs to be set to 1 for eliminating the problem.</li>
+        </ul>
+       </ul>
+      </ul>
+      <div class="lenia">
+       &nbsp;
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

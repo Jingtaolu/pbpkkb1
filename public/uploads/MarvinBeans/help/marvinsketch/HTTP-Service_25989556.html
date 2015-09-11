@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : HTTP Service</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : HTTP Service </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/13336710/13402254.png" data-image-src="https://docs.chemaxon.com/download/attachments/13336710/preferences5_3.png?version=1&amp;modificationDate=1385479215000&amp;api=v2" /></span></p>
+      <p>&nbsp;</p>
+      <ul>
+       <li><strong>Service URL</strong>: Type the URL address of the appropriate service;</li>
+       <li><strong>Call method</strong>:
+        <ul>
+         <li><strong>GET</strong>: Use HTTP GET request method to call the service;</li>
+         <li><strong>POST</strong>: Use HTTP POST request method to call the service;</li>
+        </ul></li>
+       <li>Fill in the required fields:
+        <ul>
+         <li><strong>Type</strong>: Type of the parameter; supported parameter types are: <code>Integer</code>, <code>String</code>, <code>Double</code>, <code>Boolean</code>;</li>
+         <li><strong>Name</strong>: Name of the parameter; parameters can be referred by this name later;</li>
+         <li><strong>Evaluation</strong>: Specify how the parameters are passed to the service. Select from the drop-down list:
+          <ul>
+           <li>Molecule format: Input molecule is converted to specified format and the resulting string is passed to the service as parameter;</li>
+           <li>Chemical Terms: Evaluate the given <a href="https://docs.chemaxon.com/display/chemicalterms" rel="nofollow">Chemical Terms</a> expression on the input molecule and pass the evaluation result to the service as parameter;</li>
+           <li>Manual: The value of the parameter is read from the <strong>Value</strong> field.</li>
+          </ul></li>
+         <li><strong>Value</strong>: Set a default value for the input parameter (in case of Manual evaluation) or set the parameters for evaluation. Value can be overwritten on the calculation info panel.</li>
+        </ul></li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

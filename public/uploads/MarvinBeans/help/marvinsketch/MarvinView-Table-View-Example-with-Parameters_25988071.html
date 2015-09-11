@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : MarvinView Table View Example with Parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : MarvinView Table View Example with Parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The aim in this example is to introduce the basic molecule table visualisation technique: the table layout of MarvinView. The example is simplified in order to focus on key elements.</p>
+      <h4 id="MarvinViewTableViewExamplewithParameters-Elementsoftablelayout">Elements of table layout</h4>
+      <p>The MarvinView table layout is implemented by the <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html" class="external-link" rel="nofollow">MViewPane</a></code> class. It defines the table as a grid of individual cells arranged in a given number of rows and columns.<br /> Molecules along with related data are placed in the cells. Not all cells are necessarily visible: the number of visible rows as well as the number of visible columns can be specified independently.<br /> These basic properties of the table can be defined with a parameter String that is passed to the <code>setParam</code> method of the <code>MViewPane</code> class.</p>
+      <pre class="sh_java sh_sourceCode">    viewPane<span class="sh_symbol">.</span><span class="sh_function">setParams</span><span class="sh_symbol">(</span>
+            <span class="sh_comment">// set total row count</span>
+            <span class="sh_string">&quot;rows=&quot;</span><span class="sh_symbol">+</span>totalRows<span class="sh_symbol">+</span><span class="sh_string">&quot;</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span>
+            <span class="sh_comment">// set visible row count</span>
+            <span class="sh_symbol">+</span> <span class="sh_string">&quot;visibleRows=&quot;</span><span class="sh_symbol">+</span>visibleRowCount<span class="sh_symbol">+</span><span class="sh_string">&quot;</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span>
+            <span class="sh_comment">// set column count</span>
+            <span class="sh_symbol">+</span> <span class="sh_string">&quot;cols=&quot;</span><span class="sh_symbol">+</span>visibleColumnCount<span class="sh_symbol">+</span><span class="sh_string">&quot;</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span>
+            <span class="sh_comment">// visible column count</span>
+            <span class="sh_symbol">+</span> <span class="sh_string">&quot;visibleCols=&quot;</span><span class="sh_symbol">+</span>visibleColumnCount<span class="sh_symbol">+</span><span class="sh_string">&quot;</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span>
+    <span class="sh_symbol">);</span>
+
+</pre>
+      <p>Each cell is divided further and they have they own layout, which, however, is uniform for all cells in the table. This cell level customizability is useful when numerical and textual data are also displayed along with the molecular structure. <br /> For the sake of ease the display of such data is not detailed in this example, each cell has a label and a molecule drawing underneath the label.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988071/29098573.png" data-image-src="attachments/25988071/29098573.png" data-unresolved-comment-count="0" data-linked-resource-id="29098573" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="cell.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988071" data-linked-resource-container-version="4" /></span></p>
+      <p>This cell layout is defined by a compact parameter String notation:</p>
+      <pre class="sh_java sh_sourceCode">     <span class="sh_string">&quot;layout=:2:1:L:0:0:1:1:c:n:0:1:M:1:0:1:1:c:b:1:1</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span>
+       <span class="sh_comment">// 2:1 -&gt; 2 rows and 1 columns per cell;</span>
+       <span class="sh_comment">// L:0:0:1:1:c:n:0:1 -&gt; first row and col (0:0:1:1) of the</span>
+       <span class="sh_comment">// cell is a label (L), centered (c) ...</span>
+       <span class="sh_comment">// M:1:0:1:1:c:b:1:1 -&gt; second row in the first (and only)</span>
+       <span class="sh_comment">// column is a molecule (M), centered (c) ...</span>
+     <span class="sh_symbol">+</span> <span class="sh_string">&quot;param=:L:10b:M:200:200</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span>
+       <span class="sh_comment">// L:10b -&gt; label is displayed in 10pt bold font</span>
+       <span class="sh_comment">// M:200:200 -&gt; molecule is displayed in a 200x200 pixels area</span>
+
+ </pre>
+      <p>The detailed description of the parameters (layout constraints) is not part of this example, one can simply accept that in most layouts <code>&quot;c:n:0:1&quot;</code> provides natural behaviour for the labels, while <code>&quot;c:b:1:1&quot;</code> makes the molecule drawings behave according to typical user expectations.</p>
+      <p>The table view is implemented by the <code>java.awt.GridBagLayout</code> class, and its parameters are counterparts of parameters in the <code>GridBagLayout</code> class and some further parameters are passed to the <code>java.awt.GridBagConstraints</code> class. Detailed description of the molecule table layout is provided in the<span style="color: rgb(0,51,102);"><a href="https://docs.chemaxon.com/display/marvinview/Molecule+tables"> Marvin Developer's Guide.</a></span></p>
+      <h4 id="MarvinViewTableViewExamplewithParameters-Settingmolecules">Setting molecules</h4>
+      <p>Molecules to be displayed in the table are assigned directly to table cells. Cells are numbered from 0, starting in the top left corner from left to right and from top to bottom.</p>
+      <pre class="sh_java sh_sourceCode">        viewPane<span class="sh_symbol">.</span><span class="sh_function">setM</span><span class="sh_symbol">(</span>cellIndex<span class="sh_symbol">,</span> molecule<span class="sh_symbol">);</span>
+</pre>
+      <p>The corresponding label is set similarly:</p>
+      <pre class="sh_java sh_sourceCode">        viewPane<span class="sh_symbol">.</span><span class="sh_function">setL</span><span class="sh_symbol">(</span>cellIndex<span class="sh_symbol">,</span> Integer<span class="sh_symbol">.</span><span class="sh_function">toString</span><span class="sh_symbol">(</span>cellIndex<span class="sh_number">+1</span><span class="sh_symbol">));</span>
+ </pre>
+      <p>Note, that users prefer numbering starting from 1, thus the label of cell <code>cellIndex</code> is <code>cellIndex + 1</code>.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988071/29098574.png" data-image-src="attachments/25988071/29098574.png" data-unresolved-comment-count="0" data-linked-resource-id="29098574" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="view.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988071" data-linked-resource-container-version="4" /></span><br /> Source code:<a href="attachments/25988071/26281310.java" data-linked-resource-id="26281310" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ViewTableParams.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="25988071" data-linked-resource-container-version="4">ViewTableParams.java</a><a href="http://www.chemaxon.com/marvin/examples/beans/view-table-params/ViewTableParams.java.html" class="external-link" rel="nofollow"></a></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

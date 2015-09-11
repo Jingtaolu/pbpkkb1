@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Basic Calculations</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Basic Calculations </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>Here we show how to calculate basic properties of molecules using Chemical Terms. The generation of the following three properties will be demonstrated:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200968713 {padding: 0px;}
+div.rbtoc1439200968713 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200968713 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200968713"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#BasicCalculations-nameNaming">Naming &nbsp;</a></li> 
+          <li><a href="#BasicCalculations-partitioningPartitioning">Partitioning &nbsp;</a></li> 
+          <li><a href="#BasicCalculations-chargeCharge">Charge &nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="BasicCalculations-nameNaming"><span class="confluence-anchor-link" id="BasicCalculations-name"></span>Naming<br />&nbsp;</h1>
+      <p>We generate the names of this molecule:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828716/14123053.png" data-image-src="attachments/13828716/14123053.png" data-unresolved-comment-count="0" data-linked-resource-id="14123053" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="aspirin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828716" data-linked-resource-container-version="14" /></span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">name()</pre> 
+       </div>
+      </div>
+      <p><br />This function returns the preferred IUPAC name of the molecule:&nbsp;<em>2-(acetyloxy)benzoic acid</em>.<br />&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">traditionalName()</pre> 
+       </div>
+      </div>
+      <p>According to this function, our example molecule is the well-known&nbsp;<em>aspirin</em>.</p>
+      <h1 id="BasicCalculations-partitioningPartitioning"><br /><span class="confluence-anchor-link" id="BasicCalculations-partitioning"></span>Partitioning<br />&nbsp;</h1>
+      <p>We calculate the logP and logD of this molecule:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828942/14123073.png" data-image-src="attachments/13828942/14123073.png" data-unresolved-comment-count="0" data-linked-resource-id="14123073" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="captopril.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828942" data-linked-resource-container-version="8" /></span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">logP()</pre> 
+       </div>
+      </div>
+      <p><br />The calculation returns&nbsp;<em>0.73</em>&nbsp;as the logP of the input molecule.</p>
+      <p>Then we calculate the logD on physiological pH:<br />&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">logD('7.4')</pre> 
+       </div>
+      </div>
+      <p>The result is<em>&nbsp;-2.42</em>.</p>
+      <h1 id="BasicCalculations-chargeCharge"><span class="confluence-anchor-link" id="BasicCalculations-charge"></span>Charge<br />&nbsp;</h1>
+      <p><span style="color: rgb(0,0,0);">We compute charge for each atom in the given molecule:</span></p>
+      <p><span style="color: rgb(0,0,0);"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828707/14123052.png" data-image-src="attachments/13828707/14123052.png" data-unresolved-comment-count="0" data-linked-resource-id="14123052" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="dibrom-benzene.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828707" data-linked-resource-container-version="14" /></span><br /></span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">charge()</pre> 
+       </div>
+      </div>
+      <p>The calculation returns the following numbers:&nbsp;<em>0; -0.15; -0.15; -0.15; -0.15; -0.15; 0; -0.15</em></p>
+      <hr />
+      <p><em><br /></em></p>
+      <p><em><br /></em></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

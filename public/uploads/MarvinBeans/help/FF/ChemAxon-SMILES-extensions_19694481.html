@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : ChemAxon SMILES extensions</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : ChemAxon SMILES extensions </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h1 id="ChemAxonSMILESextensions-SMILES/SMARTSwithadditionalinformation"><a class="anchor" name="smiles_with_info" rel="nofollow"></a>SMILES/SMARTS with additional information</h1>
+      <p>Information stored after the SMILES string separated by space or tab character are treated as molecule field. (According to the SMILES definition they can be ignored or used as comment.) More molecule fields can be stored after the first one but they should be separated by tab character (to allow space in the data field). The newline and tab characters are escaped during export. By default the first additional information is the <em>molecule name</em>. However, the molecule name is never considered as a field, it is a <a href="https://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#getName%28%29" class="external-link" rel="nofollow">special property</a> of the molecule. After that more informations can be stored as fields in <em>field_1</em>, <em>field_2</em>, etc. The default behavior can be overridden by import <a href="SMILES-and-SMARTS-import-and-export-options_19694473.html#SMILESandSMARTSimportandexportoptions-optionF">option f</a>, eg: import option &quot;fid,flogP&quot; imports the first field as &quot;id&quot; and the next one as &quot;pKa&quot;.</p>
+      <h5 id="ChemAxonSMILESextensions-Example">Example</h5>
+      <p>Smiles file containing the following line (note the separator characters are tabs):</p>
+      <pre>CC ethane   1   1.35
+</pre>
+      <p>By default imported as a methane molecule with <em>molecule name</em>: ethane, with data <em>field_1</em>: 1 and data <em>field_2</em>: 1.35. <br /> With import option &quot;fname,fid,flogP&quot; it is imported as a methane molecule with <em>molecule name</em>: ethane, with <em>id</em>: 1 and <em>logP</em>: 1.35.</p>
+      <h2 id="ChemAxonSMILESextensions-SMILES/SMARTSfileswithheader"><a class="anchor" name="smiles_header" rel="nofollow"></a>SMILES/SMARTS files with header</h2>
+      <p>As SMILES format does not support to save additional information stored in the molecule, Chemaxon adds a header line to the smiles file, if the export of these additional information is requested by <a rel="nofollow">T</a> option. <br /> The header files starts with the '#' character followed by the file format string &quot;SMILES&quot; or &quot;SMARTS&quot; and the field names separated by tab characters. The lines followed by the header contains the smiles/smarts string and the field data separated by tab characters.</p>
+      <h5 id="ChemAxonSMILESextensions-Examples">Examples</h5>
+      <p>Smiles file (1.smi) containing the following line (note the separator characters are tabs):</p>
+      <pre>CC ethane   1   1.35
+</pre>
+      <ul>
+       <li><p>Exported to smiles format (molconvert smiles 1.smi):</p><pre>CC</pre></li>
+      </ul>
+      <ul>
+       <li>Exported to smiles format with export<a href="SMILES-and-SMARTS-import-and-export-options_19694473.html#SMILESandSMARTSimportandexportoptions-optionT"> option T</a>* (molconvert smiles:T\* 1.smi) results in:<br /><pre>#SMILES name    field_1 field_2
+CC      ethane  1       1.35</pre></li>
+      </ul>
+      <ul>
+       <li>With import option &quot;fname,fid,flogP&quot; and export option <a href="SMILES-and-SMARTS-import-and-export-options_19694473.html#SMILESandSMARTSimportandexportoptions-optionT">T</a>* (molconvert smiles:T\* &quot;1.smi{fname,fid,flogP}&quot;) results in:<br /><pre>#SMILES name    id      logP
+CC      ethane  1       1.35</pre></li>
+      </ul>
+      <pre>&nbsp;</pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

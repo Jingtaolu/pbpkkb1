@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Macromolecular parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Macromolecular parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Possible values</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.DrawType</code></td>
+          <td class="confluenceTd">Draw type of all macromolecules on the scene</td>
+          <td class="confluenceTd"><code>&quot;Wire&quot;, &quot;Stick&quot;, &quot;Ball&quot;, &quot;BallAndStick&quot;, &quot;StickAndBall&quot;, &quot;BallAndWire&quot;, &quot;WireAndBall&quot;, &quot;Spacefill&quot;</code></td>
+          <td class="confluenceTd"><code>Wire</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.ColorType</code></td>
+          <td class="confluenceTd">Color type of all macromolecules on the scene</td>
+          <td class="confluenceTd"><code>&quot;Constant&quot;, &quot;CPK&quot;, &quot;Residue&quot;, &quot;Chain&quot;, &quot;Rainbow&quot;, &quot;B-factor&quot;, &quot;Secondary Structure&quot;</code></td>
+          <td class="confluenceTd"><code>CPK</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.Quality</code></td>
+          <td class="confluenceTd">Quality of all macromolecules on the scene</td>
+          <td class="confluenceTd"><code>&quot;High&quot;, &quot;Medium&quot;, &quot;Low&quot;</code></td>
+          <td class="confluenceTd"><code>Medium</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.Hydrogens</code></td>
+          <td class="confluenceTd">Hydrogens of macromolecules are displayed or not. Note that hydrogens are not calculated for macromolecules.</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.LonePairs</code></td>
+          <td class="confluenceTd">Lone pairs of macromolecules are displayed or not.</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.BallRadius</code></td>
+          <td class="confluenceTd">Radius of displayed balls in angstroms</td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><code>0.4</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.BondRadius</code></td>
+          <td class="confluenceTd">Radius of bond cylinders in ball&amp;stick mode in angstroms</td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><code>0.1</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.StickRadius</code></td>
+          <td class="confluenceTd">Radius of bond cylinders in stick mode in angstroms</td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><code>0.15</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.LineWidth</code></td>
+          <td class="confluenceTd">Width of displayed lines in wire mode in pixels</td>
+          <td class="confluenceTd"><code>Double</code></td>
+          <td class="confluenceTd"><code>2</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.BondDistance</code></td>
+          <td class="confluenceTd">Gap between two lines/sticks representing a double bond. It is determined as a percentage of Bond radius.</td>
+          <td class="confluenceTd"><code>Integer</code></td>
+          <td class="confluenceTd"><code>100</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.BondWidth</code></td>
+          <td class="confluenceTd">Thickness of line/stick representing a double bond. It is expressed relative to the thickness of a single bond.</td>
+          <td class="confluenceTd"><code>Integer</code></td>
+          <td class="confluenceTd"><code>50</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.SmoothStickStyle</code></td>
+          <td class="confluenceTd">Smooth, shaded display of two colored bonds</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.ScaledBalls</code></td>
+          <td class="confluenceTd">Are balls scaled according to vdW radius or have uniform size in ball mode or not</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.DisplayBondOrder</code></td>
+          <td class="confluenceTd">Double, aromatic bonds are displayed differently from single bonds or not</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>MacroMolecule.Color</code></td>
+          <td class="confluenceTd">The color used in constant color mode</td>
+          <td class="confluenceTd"><code>java.awt.Color</code></td>
+          <td class="confluenceTd"><code>#bebebe </code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

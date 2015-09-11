@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Generate3D</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Generate3D </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span style="color: rgb(54,54,54);">This page demonstrates the usage and the theory behind Generate3D:</span></p>
+        <p><span style="color: rgb(54,54,54);"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200961195 {padding: 0px;}
+div.rbtoc1439200961195 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200961195 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></span></p>
+        <div class="toc-macro rbtoc1439200961195"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#Generate3D-Introduction">Introduction</a></li> 
+          <li><a href="#Generate3D-WhereisGenerate3Davailable?">Where is Generate3D available ?</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#Generate3D-MarvinSketch">MarvinSketch</a></li> 
+            <li><a href="#Generate3D-Molconvert">Molconvert</a></li> 
+            <li><a href="#Generate3D-MarvinBeansAPI">MarvinBeans API &nbsp;</a></li> 
+            <li><a href="#Generate3D-ChemicalTerms">Chemical Terms &nbsp;</a></li> 
+            <li><a href="#Generate3D-Standardizer">Standardizer</a></li> 
+           </ul> </li> 
+          <li><a href="#Generate3D-Conformergenerationandanalysis">Conformer generation and analysis&nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#Generate3D-ConformerPlugin">Conformer Plugin</a></li> 
+            <li><a href="#Generate3D-cxcalc">cxcalc</a></li> 
+            <li><a href="#Generate3D-molconvert">molconvert</a></li> 
+            <li><a href="#Generate3D-InstantJChem">Instant JChem</a></li> 
+            <li><a href="#Generate3D-ChemAxonworkflowtools">ChemAxon workflow tools</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#Generate3D-KNIME">KNIME &nbsp;</a></li> 
+              <li><a href="#Generate3D-PipelinePilot">Pipeline Pilot &nbsp;</a></li> 
+             </ul> </li> 
+           </ul> </li> 
+          <li><a href="#Generate3D-Theorybehindcoordinate/conformergeneration">Theory behind coordinate/conformer generation</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#Generate3D-Structurebuildingprocess">Structure building process</a></li> 
+            <li><a href="#Generate3D-Geometryoptimization">Geometry optimization</a></li> 
+            <li><a href="#Generate3D-Conformergenerationoptions">Conformer generation options &nbsp;</a></li> 
+           </ul> </li> 
+          <li><a href="#Generate3D-References">References</a></li> 
+         </ul> 
+        </div>
+        <br />
+        <p></p> 
+       </div>
+      </div>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <h1 id="Generate3D-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">Generate3D is ChemAxon's module for 3D coordinate/conformer generation and analysis.</span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <h1 id="Generate3D-WhereisGenerate3Davailable?"><span style="color: rgb(54,54,54);">Where is Generate3D available ?</span></h1>
+      <h2 id="Generate3D-MarvinSketch"><span style="color: rgb(54,54,54);">MarvinSketch</span></h2>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p>Generate3D can be reached as Clean3D under&nbsp;<em style="line-height: 1.4285715;">Structure &gt; Clean3D</em>&nbsp;on the MarvinSketch GUI. You can draw or import your molecule directly onto the canvas, and Clean3D generates 3D coordinates for the structure. <em style="line-height: 1.4285715;">Ctrl + 3</em> serves as a shortcut for the same functionality on the canvas. The generated 3D structure can be rotated on the canvas after pressing the F7 shortcut.</p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p>To get more information on the usage of Clean3D in Marvin, see&nbsp;<a href="https://docs.chemaxon.com/display/standardizer/Clean+3D">the corresponding part</a>&nbsp;of the user manual.</p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p>Five cleaning methods are supported in Marvin; each represents a different chemical use case scenario:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><p><em>Fine Build</em>:&nbsp;this generates 3D coordinates taking into account the implicit hydrogens of the initial stucture; the hydrogens however are not presented in the final 3D structure.&nbsp;</p></li>
+       <li><p><em>Fine with Hydrogenize</em>: the same as the Fine Build, but it also returns explicit hydrogens in the final 3D structure.</p></li>
+       <li><p><em>Fast Build</em>: this build uses a different, but in some cases faster method to generate coordinates than Fine Build. The justification of this method is the need for a rough 3D structure that is not necessarily valid chemically, but can be built fast. If fast clean fails, fine clean is used instead, and any generated structure is returned.</p></li>
+       <li><p><em>Build or Optimize:</em> this&nbsp;build generates 3D coordinates for non-3D structures, otherwise it runs Dreiding a geometry optimization based on the Dreiding force-field starting from the initial structure.</p></li>
+       <li><p><em>Optimize:&nbsp;</em>this only runs a Dreiding force field based geometry optimization starting from the initial stucture.<br />&nbsp;</p></li>
+      </ul>
+      <p>These methods are available as options under&nbsp;<em>Structure &gt; Clean3D &gt; Cleaning Method</em>.</p>
+      <p>&nbsp;</p>
+      <h2 id="Generate3D-Molconvert">Molconvert</h2>
+      <p>&nbsp;</p>
+      <p>The functionality of Generate3D is also available in the molconvert command line tool. This enables the user to sequentially generate 3D coordinates for many initial structures.</p>
+      <p>Use the&nbsp;&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:options inputfile</pre> 
+       </div>
+      </div>
+      <p><br />command to batch-process your inputfile. To get a full list of options you can set within molconvert, use the</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> molconvert -H3D </pre> 
+       </div>
+      </div>
+      <p><br />command.</p>
+      <p>&nbsp;</p>
+      <p>Some 3D coordinate generation examples:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><p>Cleaning a molecule given as a SMILES string, and exporting the 3D structure to MOL:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:c3 mol -s &quot;C1CC3C(C1)C4C2CC2CC34&quot; -o struct3d.mol</pre> 
+         </div>
+        </div><p>This gives the same result as the option&nbsp;<code>S{fine}</code>.<br /><br /></p></li>
+       <li><p>Cleaning a library of molecules stored in SDF, skipping the ones that already have 3D coordinates:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:c31 mol library.sdf -o cleanedlib.mol&nbsp;</pre> 
+         </div>
+        </div></li>
+       <li><p>Generating fine 3D geometry for a molecule given as a SMILES string, using MMFF94 force field optimization, with strict convergence criterion on the gradient:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:S{fine}[mmff94]L{3} mol -s &quot;CC(CCC)CCCCl&quot; -o struct3d.mol&nbsp;</pre> 
+         </div>
+        </div></li>
+       <li><p>Generating 3D coordinates for a library of molecules in SDF, using the fine method and a time limit of 6000 seconds pre-set by the user. We also want to store the MMFF94 energies for each molecule as an SDF property:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:S{fine}[mmff94][timelimit]{6000}[E] mol library.sdf -o cleanedlib.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Generating 3D coordinates for a molecule given as a SMILES string, while adding explicit hydrogens and using very strict optimization criterion:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:S{fine}[prehydrogenize][o]{1}{3} mol -s &quot;CCCCC(CCC)C&quot; -o struct3d.mol</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <h2 id="Generate3D-MarvinBeansAPI">MarvinBeans API<br />&nbsp;</h2>
+      <p><span style="color: rgb(54,54,54);">The Generate3D component can also be used via the Marvin Beans API. The options of molconvert can also be set through the API, using the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/common/UserSettings.html#setClean3dOpts%28java.lang.String%29" style="text-decoration: underline;" class="external-link" rel="nofollow">setClean3dOptions</a>&nbsp;method.<br /><br /></span></p>
+      <h2 id="Generate3D-ChemicalTerms"><span style="color: rgb(54,54,54);">Chemical Terms<br />&nbsp;</span></h2>
+      <p>One can also use ChemAxon's Chemical Terms to generate 3D structures in the following ways:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>In JChem for Excel the 3D cleaning functionality is available through the <a href="#Generate3D-fig.21"><em>JC3DCleanStructure</em> function</a>. For more information on this feature, see the&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/JChem+for+Excel">corresponding part</a>&nbsp;of the JChem for Excel manual.</li>
+       <li>The <em>molconvert</em> Chemical Terms function is capable of generating 3D coordinates for the initial structure, and returning it in a given format string. See the&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms">description</a>&nbsp;of the function in the the manual.<br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="Generate3D-fig.21"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338400/16285697.jpg" data-image-src="attachments/13338400/16285697.jpg" data-unresolved-comment-count="0" data-linked-resource-id="16285697" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="JC4XL_Clean3D_function.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338400" data-linked-resource-container-version="57" /></span></p>
+      <p>Fig. 1 Generating 3D coordinates in JChem for Excel using the JC3DCleanStructure function</p>
+      <p>&nbsp;</p>
+      <h2 id="Generate3D-Standardizer">Standardizer</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">In Standardizer the <a href="#Generate3D-fig.2">3D cleaning functionality</a> is available through the <em>clean:3</em> action. For more information on this feature, see the&nbsp;</span><a href="https://docs.chemaxon.com/display/standardizer/Standardizer">corresponding part</a><span style="color: rgb(54,54,54);">&nbsp;of the Standardizer manual.</span></p>
+      <p><span style="color: rgb(54,54,54);"><span class="confluence-anchor-link" id="Generate3D-fig.2"></span><br /></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="715" src="attachments/13338400/16285698.jpg" data-image-src="attachments/13338400/16285698.jpg" data-unresolved-comment-count="0" data-linked-resource-id="16285698" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Standardizer_Clean3D.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338400" data-linked-resource-container-version="57" /></span></p>
+      <p>Fig. 2 Standardizer clean3D function</p>
+      <p>&nbsp;</p>
+      <h1 id="Generate3D-Conformergenerationandanalysis"><span style="color: rgb(54,54,54);">Conformer generation and analysis&nbsp;</span></h1>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">Generate3D is also used for generating conformers for a given initial structure. Conformer generation is available in three different ways.</span></span></p>
+      <h2 id="Generate3D-ConformerPlugin"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">Conformer Plugin</span></span></h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">Conformers Plugin is a calculator plugin of ChemAxon that offers the conformer generation functionality in MarvinSketch. The plugin can be reached under&nbsp;<em>Calculations &gt; Conformation &gt; Conformers.</em></span></p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">&nbsp;</span></span></p>
+      <p><span style="color: rgb(54,54,54);">The documentation of the plugin, with all of its options, can be found&nbsp;</span><a href="https://docs.chemaxon.com/display/CALCPLUGS/Conformer+Plugin" rel="nofollow">here</a><span style="color: rgb(54,54,54);">.</span></p>
+      <h2 id="Generate3D-cxcalc"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">cxcalc</span></span></h2>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><br /></span></span></p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">The conformer generation and analysis functionality of the conformer plugin can also be reached via ChemAxon's command line calculator&nbsp;</span><em>cxcalc</em><span style="color: rgb(54,54,54);">. The same options can be used as with molconvert. For details see the&nbsp;</span><a href="cxcalc-calculator-functions_13338228.html">corresponding part</a><span style="color: rgb(54,54,54);">&nbsp;of the manual.</span></span></span></p>
+      <h2 id="Generate3D-molconvert"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">molconvert</span></span></span></h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">Molconvert offers a fully customizable way to generate conformers. The conformer generation and analysis functionality of Generate3D can be invoked using the&nbsp;</span><em>-3:[ca]{v1}{v2}</em><span style="color: rgb(54,54,54);">&nbsp;option. The two parameter values&nbsp;</span><em>v1, v2</em><span style="color: rgb(54,54,54);">&nbsp;sets the number of generated and stored conformers, respectively. The conformers are stored as molecular properties.</span></p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">&nbsp;</span></span></span></p>
+      <p>Some conformer generation examples with molconvert :</p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">&nbsp;</span></span></span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><p>Without any count parameters, a warning is given, and only one conformer is generated and reported:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:[ca] -s &quot;CCC(CC)CCCCl&quot; -o conf3d.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Setting the number of the generated and stored conformers to 10:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:[ca]{10} sdf -s &quot;CCC(CC)CCCCl&quot; -o conf3d.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Generating&nbsp;<em>at least</em>&nbsp;5 conformers, reporting&nbsp;<em>at most</em>&nbsp;10 of them:</p>
+        <div class="confluence-information-macro confluence-information-macro-information"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>Note that if the number of reported conformers is smaller than that of the generated conformers, a warning is given, and the former is set to the latter.</p>
+         </div> 
+        </div> 
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:[ca]{5}{10} sdf -s &quot;CCC(CC)CCCCl&quot; -o conf3d.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Invoking sophisticated low-energy conformer prediction, using MMFF94 force field:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">&nbsp;molconvert -3:[hyperfine][mmff94] sdf -s &quot;CCC(CC)CCCCl&quot; -o conf3d.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Generating and reporting conformers with customized conformer RMSD diversity criterion&nbsp;<em>0.05</em>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">molconvert -3:[ca]{5}{20}[diversity]{0.05} sdf -s &quot;CCC(CC)CC&quot; -o conf3d.sdf</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><br /></span></span></span></p>
+      <h2 id="Generate3D-InstantJChem"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">Instant JChem</span></span></h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">The conformer generation and analysis functionality can also be reached via the Chemical Terms conformation evaluation functions. A list of these functions and some examples of their usage are available in the&nbsp;</span><a href="https://docs.chemaxon.com/display/chemicalterms" rel="nofollow">corresponding part</a><span style="color: rgb(54,54,54);">&nbsp;of the Chemical Terms manual.</span></span></span></p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><br /></span></span></span></p>
+      <h2 id="Generate3D-ChemAxonworkflowtools">ChemAxon workflow tools</h2>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">Workflow management systems were designed to easily compose and execute complex computational tasks, such as data mining, data processing, or statistical analysis. In order to handle the more specific needs of chemistry informatics within this clean and straightforward framework, ChemAxon technology has been implemented into three major scientific workflow management systems: KNIME, Pipeline Pilot, and Inforsense.</span></p>
+      <h3 id="Generate3D-KNIME"><span style="color: rgb(0,0,0);">KNIME<br />&nbsp;</span></h3>
+      <p><span style="color: rgb(54,54,54);">JChem Extensions offers a set of KNIME nodes with which the user can easily build their own workflows for handling chemical data. KNIME also enables users to integrate their own softwares and other tools. Among JChem Extensions there are <a href="#Generate3D-fig.3">nodes</a> that can perform 3D coordinate generation, conformer generation and analysis. To have more information on building chemical workflows using KNIME, see the&nbsp;</span><a href="https://docs.chemaxon.com/display/chemicalterms/KNIME">ChemAxon KNIME workflow manual</a><span style="color: rgb(54,54,54);">.<br /></span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;<span class="confluence-anchor-link" id="Generate3D-fig.3"></span></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338400/16285699.jpg" data-image-src="attachments/13338400/16285699.jpg" data-unresolved-comment-count="0" data-linked-resource-id="16285699" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="KNIME_Conformers.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338400" data-linked-resource-container-version="57" /></span></p>
+      <p>Fig. 3 KNIME conformer generation node</p>
+      <p>&nbsp;</p>
+      <h3 id="Generate3D-PipelinePilot">Pipeline Pilot<br />&nbsp;</h3>
+      <p><span style="color: rgb(54,54,54);">Currently, about 16 different ChemAxon tools are available in Pipeline Pilot, another chemical informatics platform. Among these there are components also for 3D coordinate generation, conformer generation and analysis. To have more informations on building chemical workflows using Pipeline Pilot, see the&nbsp;</span><a href="https://docs.chemaxon.com/display/standardizer/Pipeline+Pilot">ChemAxon Pipeline Pilot workflow manual</a><span style="color: rgb(54,54,54);">.</span></p>
+      <p><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);"><br /></span></span></p>
+      <h1 id="Generate3D-Theorybehindcoordinate/conformergeneration"><span style="color: rgb(54,54,54);"><span style="color: rgb(54,54,54);">Theory behind coordinate/conformer generation</span></span></h1>
+      <h2 id="Generate3D-Structurebuildingprocess"><span style="color: rgb(0,0,0);">Structure building process</span></h2>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p>The algorithm behind 3D coordinate generation uses a divide-and-conquer approach.&nbsp;<span style="line-height: 1.4285715;">First, the initial structure is split into small fragments. Then the fragments are organized into a build tree using their original connectivity information.&nbsp;</span><span style="line-height: 1.4285715;">The tree is built in a way to represent the connectivity of the fragments before the split. Each node stores a fragment: the leaves of the tree store the small fragments, while non-leaf nodes store fragments obtained from the fusion of smaller ones at lower levels.&nbsp;</span><span style="line-height: 1.4285715;">The coordinate and conformer generation is done in a command-driven fashion. Every node can be instructed to generate 3D coordinates or conformers for the represented fragment. Leaves do this in an atom-by-atom manner, determining energetically favourable, multiple-atom displacements. Other nodes - including the root - proceeds by exploring the conformational space of fused conformers that were generated by the children of the node. If no more conformers can be generated at a given node, a new conformer from a child is returned, and the fusion process restarts.</span></p>
+      <h2 id="Generate3D-Geometryoptimization"><span style="color: rgb(0,0,0);">Geometry optimization</span></h2>
+      <p>&nbsp;</p>
+      <p>Conformers from the fusion process are optimized when required before passing to a higher level node in the build tree. This happens when the rigid fuse results in high energy conformation (due to e.g. strained bond/angle, atom proximity or clash). Conformers generated for the initial structure (represented by the root node in the build tree) are also optimized. The building process uses a proprietary extended version of the Dreiding force field. Optionally an additional MMFF94 based optimization and energy calculation can be run on these final structures.</p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <h2 id="Generate3D-Conformergenerationoptions"><span style="color: rgb(0,0,0);">Conformer generation options<br />&nbsp;</span></h2>
+      <p>Diversity for the conformer generation can be pre-set using the&nbsp;<em>diversity limit</em>&nbsp;option. Two conformers having greater root-mean-square-deviation (RMSD) than the limit are considered different.&nbsp;<span style="line-height: 1.4285715;">Generated conformers can reside in invalid local minimum on the potential energy surface after geometry optimization. This can be eliminated by a&nbsp;</span><em style="line-height: 1.4285715;">hyperfine</em><span style="line-height: 1.4285715;">&nbsp;post-processing step: every conformer is passed through short, low-temperature molecular dynamic runs, followed by a strict geometry optimization.</span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p>For details on the algorithm behind Generate3D, see the references below.</p>
+      <p>&nbsp;</p>
+      <h1 id="Generate3D-References"><a name="references" rel="nofollow"></a>References</h1>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <ol>
+       <li>ChemAxon article:&nbsp;<a href="http://www.chemaxon.com/publication/molecules-from-the-minkowski-space-an-approach-to-building-3d-molecular-structures/" style="text-decoration: underline;" class="external-link" rel="nofollow">Molecules from the Minkowski space: an approach to building 3D molecular structures</a></li>
+       <li>ChemAxon poster:&nbsp;<a href="http://www.chemaxon.com/library/3d-structure-prediction-and-conformational-analysis/" style="text-decoration: underline;" class="external-link" rel="nofollow">3D structure prediction and conformational analysis</a></li>
+       <li>ChemAxon poster:&nbsp;<a href="http://www.chemaxon.com/ugm-archive/2007-ugm-presentations-library/2007-posters-exhibited/advanced-automatic-generation-of-3d-molecular-structures-2/" style="text-decoration: underline;" class="external-link" rel="nofollow">Advanced automatic generation of 3D molecular structures</a></li>
+      </ol>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

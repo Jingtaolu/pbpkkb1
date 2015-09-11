@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Stereochemistry-Marvin JS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Stereochemistry-Marvin JS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Both optical isomerism and geometric isomers can be determined in Marvin JS. In order to assign the&nbsp;<strong><em>R</em></strong>&nbsp;or&nbsp;<strong><em>S</em></strong>&nbsp;label to a chiral center and the&nbsp;<strong><em>E</em></strong>&nbsp;or&nbsp;<strong><em>Z</em></strong>&nbsp;label to a double bond, the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-calcStereo">Calculate stereo</a></strong>&nbsp;button of the&nbsp;<strong>General</strong>&nbsp;toolbar should be used. The&nbsp;<strong><em>R/S</em></strong>&nbsp;and&nbsp;<strong><em>E/Z</em></strong>&nbsp;labels are determined&nbsp;<em>via</em>&nbsp;webservice.</p>
+      <p>Marvin JS also supports the <a href="Query-Structures_17236093.html#QueryStructures-enhancedStereo">enhanced stereo representation</a> for displaying the information we have about the absolute or relative configuration of the chiral centers in a molecule.</p>
+      <h2 id="Stereochemistry-MarvinJS-optIsomerOpticalisomerism"><span class="confluence-anchor-link" id="Stereochemistry-MarvinJS-optIsomer"></span>Optical isomerism</h2>
+      <p>Optical isomers of a molecule differ in the configuration of their chiral atoms (<em>e.g.</em>, a carbon atom with four different substituents). Absolute configuration of a chiral center can be marked by&nbsp;<strong><em>R</em></strong>&nbsp;or&nbsp;<strong><em>S</em></strong>&nbsp;stereo labels. If a carbon atom has four different substituents (or three different substituents and an implicit hydrogens) and at least one of them connects to the chiral carbon with a wedge bond, the&nbsp;<strong><em>R</em></strong>&nbsp;or&nbsp;<strong><em>S</em></strong>&nbsp;label can be calculated using the Cahn-Ingold-Prelog priority rules (CIP convention).<br />Molecules with one chiral center have two optical isomers (enantiomers) which are the mirror images of each other, but they are not superposable. Enantiomers differ in the absolute configuration of each of their chiral centers.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236092/17400146.png" data-image-src="attachments/17236092/17400146.png" data-unresolved-comment-count="0" data-linked-resource-id="17400146" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="stereo_1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236092" data-linked-resource-container-version="6" /></span>&nbsp;</p>
+      <h2 id="Stereochemistry-MarvinJS-geomIsomerGeometricisomerism"><span class="confluence-anchor-link" id="Stereochemistry-MarvinJS-geomIsomer"></span>Geometric isomerism</h2>
+      <p>The reason behind geometric isomerism of alkenes is that rotation around double bonds is hindered, so the position of the double bond substituents is fixed relative to each other. When both double bonded carbon atoms have two different substituents, we can distinguish two non-identical geometric isomers, which are denoted by&nbsp;<strong><em>E</em></strong>&nbsp;and&nbsp;<strong><em>Z</em></strong>&nbsp;labels, respectively. These stereo labels are calculated by determining the priority of the four substituents using the CIP convention. If the higher ranked substituents are on the same side of the double, the molecule is the&nbsp;<strong><em>Z</em></strong>&nbsp;isomers, while the&nbsp;<strong><em>E</em></strong>&nbsp;isomer has the higher ranked groups on opposite sides of the double bond.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236092/17400145.png" data-image-src="attachments/17236092/17400145.png" data-unresolved-comment-count="0" data-linked-resource-id="17400145" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="stereo_2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236092" data-linked-resource-container-version="6" /></span>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

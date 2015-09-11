@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : MRV Export Options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : MRV Export Options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h1 id="MRVExportOptions-ExportOptions">Export Options</h1>
+      <p>The MRV has all the export options that <a href="CML-Export-Options_19694311.html">CML</a> has, except option ':A' (in MRV the usage of array format for the description of atoms is decided automatically upon the content of the molecule). In addition, MRV has a further export option:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <colgroup>
+         <col /> 
+         <col /> 
+        </colgroup>
+        <tbody>
+         <tr>
+          <th colspan="1" class="confluenceTh">Codename</th>
+          <th colspan="1" class="confluenceTh">Explanation</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><strong>S</strong></p></td>
+          <td class="confluenceTd"><p>Save selection. If set then the MRV output will contain which atoms and graphical objects are in selected state.</p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h2 id="MRVExportOptions-Examples">Examples</h2>
+      <ul>
+       <li><p>Exported without options:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot;?&gt;&lt;cml&gt;
+&lt;MDocument&gt;&lt;MChemicalStruct&gt;&lt;molecule title=&quot;Ethane&quot; molID=&quot;m1&quot;&gt;&lt;atomArray atomID=&quot;a1 a2&quot; elementType=&quot;C C&quot; x2=&quot;0.0 0.0&quot; y2=&quot;0.0 1.54&quot;&gt;	&lt;/atomArray&gt;&lt;bondArray&gt;&lt;bond atomRefs2=&quot;a1 a2&quot; order=&quot;1&quot;&gt;&lt;/bond&gt;&lt;/bondArray&gt;&lt;/molecule&gt;&lt;/MChemicalStruct&gt;&lt;MRectangle id=&quot;o2&quot;&gt;&lt;MPoint x=&quot;-6.599999904632568&quot; y=&quot;1.7050000429153442&quot;&gt;&lt;/MPoint&gt;&lt;MPoint x=&quot;-2.640000104904175&quot; y=&quot;1.7050000429153442&quot;&gt;&lt;/MPoint&gt;&lt;MPoint x=&quot;-2.640000104904175&quot; y=&quot;-0.16500000655651093&quot;&gt;&lt;/MPoint&gt;&lt;MPoint x=&quot;-6.599999904632568&quot; y=&quot;-0.16500000655651093&quot;&gt;&lt;/MPoint&gt;&lt;/MRectangle&gt;&lt;/MDocument&gt;
+&lt;/cml&gt;
+
+</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <div>
+       <div class="syntaxhighlighter nogutter  xml">
+        <ul>
+         <li><p>Exported with option &quot;P&quot;</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot;?&gt;
+	&lt;cml&gt;
+	&lt;MDocument&gt;
+	  &lt;MChemicalStruct&gt;
+	    &lt;molecule title=&quot;Ethane&quot; molID=&quot;m1&quot;&gt;
+	      &lt;atomArray atomID=&quot;a1 a2&quot; elementType=&quot;C C&quot; x2=&quot;0.0 0.0&quot; y2=&quot;0.0 1.54&quot;/&gt;
+	      &lt;bondArray&gt;
+	        &lt;bond atomRefs2=&quot;a1 a2&quot; order=&quot;1&quot;/&gt;
+	      &lt;/bondArray&gt;
+	    &lt;/molecule&gt;
+	  &lt;/MChemicalStruct&gt;
+	  &lt;MRectangle id=&quot;o2&quot;&gt;
+	    &lt;MPoint x=&quot;-6.599999904632568&quot; y=&quot;1.7050000429153442&quot;/&gt;
+	    &lt;MPoint x=&quot;-2.640000104904175&quot; y=&quot;1.7050000429153442&quot;/&gt;
+	    &lt;MPoint x=&quot;-2.640000104904175&quot; y=&quot;-0.16500000655651093&quot;/&gt;
+	    &lt;MPoint x=&quot;-6.599999904632568&quot; y=&quot;-0.16500000655651093&quot;/&gt;
+	  &lt;/MRectangle&gt;
+	&lt;/MDocument&gt;
+	&lt;/cml&gt;</pre> 
+           </div>
+          </div></li>
+        </ul>
+       </div>
+      </div>
+      <ul>
+       <li><p>Exported with options &quot;SP&quot;</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;?xml version=&quot;1.0&quot;?&gt;
+	&lt;cml&gt;
+	&lt;MDocument&gt;
+	  &lt;MChemicalStruct&gt;
+	    &lt;molecule title=&quot;Ethane&quot; molID=&quot;m1&quot;&gt;
+	      &lt;atomArray atomID=&quot;a1 a2&quot; elementType=&quot;C C&quot; isSelected=&quot;true true&quot; x2=&quot;0.0 0.0&quot; y2=&quot;0.0 1.54&quot;/&gt;
+	      &lt;bondArray&gt;
+	        &lt;bond atomRefs2=&quot;a1 a2&quot; order=&quot;1&quot;/&gt;
+	      &lt;/bondArray&gt;
+	    &lt;/molecule&gt;
+	  &lt;/MChemicalStruct&gt;
+	  &lt;MRectangle id=&quot;o2&quot; isSelected=&quot;true&quot;&gt;
+	    &lt;MPoint x=&quot;-6.599999904632568&quot; y=&quot;1.7050000429153442&quot;/&gt;
+	    &lt;MPoint x=&quot;-2.640000104904175&quot; y=&quot;1.7050000429153442&quot;/&gt;
+	    &lt;MPoint x=&quot;-2.640000104904175&quot; y=&quot;-0.16500000655651093&quot;/&gt;
+	    &lt;MPoint x=&quot;-6.599999904632568&quot; y=&quot;-0.16500000655651093&quot;/&gt;
+	  &lt;/MRectangle&gt;
+	&lt;/MDocument&gt;
+	&lt;/cml&gt;</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <pre class="noprint">	
+</pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

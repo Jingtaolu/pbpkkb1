@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Properties</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Properties </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Properties-atomPropertiesAtomProperties"><span class="confluence-anchor-link" id="Properties-atomProperties"></span>Atom Properties</h2>
+          <p>Marvin JS supports the display of atomic charges, isotopes, radicals, enhanced stereo specifications, and atom maps and <a href="#Properties-atomQueryProperties">query properties</a> as atom properties. All of these attributes can be set in the&nbsp;Atom properties&nbsp;dialog window available from the<strong>&nbsp;<a href="Context-Menus_17236082.html#ContextMenus-atomPopup">pop-up menu</a></strong>&nbsp;after a right-click on the atom.</p>
+          <p><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="Display of basic atom properties" width="700" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236088/32702825.png?effects=border-simple,blur-border" data-image-src="attachments/17236088/32702825.png" data-unresolved-comment-count="0" data-linked-resource-id="32702825" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Atom properties display.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236088" data-linked-resource-container-version="73" title="Display of basic atom properties" /></span></p>
+          <p><span class="confluence-anchor-link" id="Properties-atomDialog"></span>The<strong> dialog</strong> provides <strong>Basic options</strong> for changing atom type, setting new atomic symbols, or defining properties of atoms; and <strong>Advanced options</strong>&nbsp;for set query properties.</p>
+          <p><span style="line-height: 1.4285715;">These properties can be set for several atoms at the same time, by selecting the atoms in question and then opening the&nbsp;</span><strong style="line-height: 1.4285715;">Atom properties</strong><span style="line-height: 1.4285715;">&nbsp;dialog from the context menu. In this case, only those properties are editable which are permitted for every selected atom type, and the same changes will be applied to every selected atom. If one or more of the selected atoms has/have attached&nbsp;previously defined properties,&nbsp;you can delete them by inactivating their input field. To achieve the inactivation you just need to click on the&nbsp;the respective&nbsp;</span><strong style="line-height: 1.4285715;">&quot;Padlock&quot;</strong><span style="line-height: 1.4285715;">&nbsp;icon.</span></p>
+          <h3 id="Properties-Basicoptions">Basic options</h3>
+          <p>You can choose from the following atom types: Element,&nbsp;<a href="Toolbars_17236081.html#Toolbars-queryAtoms">Query</a><span style="color: rgb(0,0,255);">,</span><span style="color: rgb(0,0,255);">&nbsp;</span><a href="Query-Structures_17236093.html#QueryStructures-Rgroups">R-group</a><span style="color: rgb(0,0,255);">,&nbsp;</span><a href="Query-Structures_17236093.html#QueryStructures-atomList">List/NOT list</a>, Pseudo, or&nbsp;<a href="Query-Structures_17236093.html#QueryStructures-homologyGroups">Homology Group</a><span style="color: rgb(0,0,255);">.</span>&nbsp;Choosing any of these types, only the relevant property fields appear on the dialog. For example, in case of a pseudo atom, there are three properties available: pseudo, charge, and enhanced stereo.</p>
+          <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="Basic atom properties" width="700" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236088/32702828.png?effects=border-simple,blur-border" data-image-src="attachments/17236088/32702828.png" data-unresolved-comment-count="0" data-linked-resource-id="32702828" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Basic atom property.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236088" data-linked-resource-container-version="73" title="Basic atom properties" /></span><br /><br /></p>
+          <p><span class="confluence-anchor-link" id="Properties-radical"></span></p>
+          <ul>
+           <li><span class="confluence-anchor-link">&nbsp;<span class="confluence-anchor-link" id="Properties-alias"></span></span>If you define an <strong>&quot;Alias&quot;</strong>&nbsp;for an atom, the label given in the textbox will replace the standard atomic symbol on the canvas, but the atom type remains unchanged. With the exception of enhanced stereo notations and map numbers, atom properties are not displayed when an atom alias is used; however, they preserve their previously defined values and can be modified later.</li>
+           <li>The enhanced stereo notations (Off, Absolute, And, Or) can be added to chiral atoms (marked with wedge bonds) individually in order to assign them to stereogenic groups. The default value is the &quot;Off&quot; identifier, while in case of &quot;Or&quot; and &quot;And&quot; groups a number should accompany the identifier. If you leave the number field empty, number 1 will be associated with the group identifier automatically.&nbsp;<a href="Query-Structures_17236093.html#QueryStructures-enhancedStereo">Learn more about enhanced stereo specifications in Marvin J</a><a href="Query-Structures_17236093.html#QueryStructures-enhancedStereo">S</a>.</li>
+           <li>In case of hydrogen isotopes (deuterium and tritium), their specific atomic symbols can be used (D and T, respectively), or they can be displayed as&nbsp;<sup>2</sup>H or&nbsp;<sup>3</sup>H, too.</li>
+           <li>Note that atomic charges can be modified using the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-incrCharge">Increase Charge/Decrease Charge</a></strong>&nbsp;buttons on the&nbsp;<strong>Tools</strong>&nbsp;toolbar, too.</li>
+          </ul>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="Properties-atomQueryPropertiesAdvancedoptions-AtomQueryProperties"><span class="confluence-anchor-link" id="Properties-atomQueryProperties"></span>Advanced options -&nbsp;Atom Query Properties</h3>
+          <p>Atom query properties can help the search in a databases specifying the chemical environment of the atom in question. &nbsp;If you want to set atom query properties in Marvin JS, choose the <strong>&quot;Advanced&quot;</strong> Tab in the&nbsp;<strong>Atom properties</strong> dialog window. The frequently used properties are also available from the Query atoms combo-box, or via the &quot;<code><strong>.</strong></code>&quot; keyboard shortcut.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-equal" data-layout="two-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="Atom query properties" width="700" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236088/32702826.png?effects=border-simple,blur-border" data-image-src="attachments/17236088/32702826.png" data-unresolved-comment-count="0" data-linked-resource-id="32702826" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Atom query property_new.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236088" data-linked-resource-container-version="73" title="Atom query properties" /></span></p>
+          <p>You can get quick access for these properties by choosing query prop. button on the Atom toolbar or pressing<code><strong> .</strong> </code>keyboard shortcut.</p>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/17236088/38404493.png" data-image-src="attachments/17236088/38404493.png" data-unresolved-comment-count="0" data-linked-resource-id="38404493" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-8-7 13:31:58.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236088" data-linked-resource-container-version="73" /></span></p>
+          <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/17236088/38404492.png" data-image-src="attachments/17236088/38404492.png" data-unresolved-comment-count="0" data-linked-resource-id="38404492" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-8-7 13:28:42.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236088" data-linked-resource-container-version="73" /></span></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Property name and notation</th>
+              <th class="confluenceTh">Property</th>
+              <th colspan="1" class="confluenceTh">Possible Values</th>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><p style="text-align: center;">Total H (H)&nbsp;</p></td>
+              <td colspan="1" class="confluenceTd"><p>Total number of hydrogen substituents.</p></td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><p style="text-align: center;">Implicit&nbsp;H (h)&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+              <td colspan="1" class="confluenceTd">Number of implicit hydrogen substituents.</td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Bond orders (v)</td>
+              <td colspan="1" class="confluenceTd">Total bond order. (Some cases it is referred as valence.)</td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Connections (X)</td>
+              <td colspan="1" class="confluenceTd">Number of substituents including hydrogens.</td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Ring count (R)</td>
+              <td colspan="1" class="confluenceTd">Number of rings the atom is a member of<br />&nbsp;</td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Smallest ring size (r)&nbsp;</td>
+              <td colspan="1" class="confluenceTd">Size of the smallest ring the atom is a member of.</td>
+              <td colspan="1" class="confluenceTd">3-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Ring bond (rb)</td>
+              <td colspan="1" class="confluenceTd"><p>Number of ring bonds next to the atom</p><p>rb0, rb2 - rb3: exact ring bond count;</p><p>rb4: 4 or more ring bonds.</p></td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Substitutions (s)</td>
+              <td colspan="1" class="confluenceTd"><p>Substitution count: the number of non-hydrogen substituents plus number of isotopic hydrogen substituents.</p><p>s0 - s5: exact substitution count</p><p>s6: 6 or more substitutions&nbsp;</p></td>
+              <td colspan="1" class="confluenceTd">0-254</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Unsaturated (u)&nbsp;&nbsp;</td>
+              <td colspan="1" class="confluenceTd">Unsaturated atom: atom that has double, triple or aromatic bond.</td>
+              <td colspan="1" class="confluenceTd">Unsaturated (u)</td>
+             </tr>
+             <tr>
+              <td colspan="1" style="text-align: center;" class="confluenceTd">Aromatcity (a/A)</td>
+              <td colspan="1" class="confluenceTd"><p>It defines whether the atom has at least one aromatic bond (a) or only aliphatic (A) bonds.</p></td>
+              <td colspan="1" class="confluenceTd">Aromatic (a)<br />Aliphatic (A)</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p>Special values:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td colspan="1" class="confluenceTd">R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ring membership (whether atom is part of a ring or not).</td>
+              <td colspan="1" class="confluenceTd">R (&gt;0)</td>
+             </tr>
+             <tr style="margin-left: 30.0px;">
+              <td colspan="1" class="confluenceTd">rb*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ring bond count as drawn (No extra ring bonds.)</td>
+              <td colspan="1" class="confluenceTd">&quot;as drawn&quot; (rb*)</td>
+             </tr>
+             <tr style="margin-left: 30.0px;">
+              <td colspan="1" class="confluenceTd">s*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Substitution as drawn (No extra non-hydrogen and no extra isotopic hydrogens.)</td>
+              <td colspan="1" class="confluenceTd">&quot;as drawn&quot; (s*)</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Please, note that since &quot;D&quot; is equivalent with &quot;s&quot;, &quot;D&quot; values will be imported as &quot;s&quot; values</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Properties-bondPropBondProperties"><span class="confluence-anchor-link" id="Properties-bondProp"></span>Bond Properties</h2>
+          <p>You can add extra properties to the bonds of your molecules by using the&nbsp;<strong>Bond properties</strong>&nbsp;dialog window. It is available in the&nbsp;<strong>Bond properties</strong>&nbsp;context menu, which can be invoked by right clicking on a bond.</p>
+          <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="Bond properties" width="700" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236088/32702831.png?effects=border-simple,blur-border" data-image-src="attachments/17236088/32702831.png" data-unresolved-comment-count="0" data-linked-resource-id="32702831" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Bond properties.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236088" data-linked-resource-container-version="73" title="Bond properties" /></span></p>
+          <p>The dialog provides options for changing bond type, setting the topology (<strong>in chain</strong>,&nbsp;<strong>in ring</strong>) or the reacting center (<strong>center</strong>,&nbsp;<strong>make or break</strong>,&nbsp;<strong>change</strong>,&nbsp;<strong>make and change</strong>,&nbsp;<strong>not center</strong>).</p>
+          <p>In the case of the latter two properties, the&nbsp;<strong>undefined</strong>&nbsp;option is the default value.</p>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>You can also set the type of the bond from the <a href="Toolbars_17236081.html#Toolbars-bonds">Tools Toolbar</a> or <a href="Keyboard-Shortcuts_17236097.html#KeyboardShortcuts-ksBond">Keyboard Shortcuts</a>.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

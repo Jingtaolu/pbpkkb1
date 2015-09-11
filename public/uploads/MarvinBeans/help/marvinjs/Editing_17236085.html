@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Editing</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Editing </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="Editing-selectAndDeleteSelectandDelete"><span class="confluence-anchor-link" id="Editing-selectAndDelete"></span>Select and Delete</h2>
+      <h3 id="Editing-selectionSelection"><span class="confluence-anchor-link" id="Editing-selection"></span>Selection</h3>
+      <p>Clicking on the lower right corner of the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-selection">Selection</a></strong><span style="color: rgb(0,0,255);">&nbsp;</span>&nbsp;button of the&nbsp;<strong>Tools</strong>&nbsp;toolbar you can choose between two options:&nbsp;<span>Rectangle Selection(<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="25" src="attachments/17236085/17400130.png" data-image-src="attachments/17236085/17400130.png" data-unresolved-comment-count="0" data-linked-resource-id="17400130" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rectangle_selection.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236085" data-linked-resource-container-version="11" /></span> )&nbsp;<span>Freehand Selection (<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="25" src="attachments/17236085/17400131.png" data-image-src="attachments/17236085/17400131.png" data-unresolved-comment-count="0" data-linked-resource-id="17400131" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="freehand_selection.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236085" data-linked-resource-container-version="11" /></span> ).</span></span></p>
+      <p><span style="line-height: 1.4285715;">With Rectangle Selection, you can select an area in rectangle mode while with Freehand Selection the area swept by the red line will be selected.</span><span style="line-height: 1.4285715;">Using either selection mode, an atom or a bond can be selected by clicking on it. Please note that in this case the bond gets selected along with the connected atoms. If you want to select a bond without its atoms, you have to choose Freehand Selection, and select the middle of the bond. Alternatively, press the &quot;</span><strong style="line-height: 1.4285715;">Ctrl</strong><span style="line-height: 1.4285715;">&quot; button and click on the bond, while either selection tool is active.</span></p>
+      <p>The background of atoms and bonds will become green when they are selected. In either selection mode, hovering over an atom or a bond, its background becomes green. When you click on this background, the green highlight gets lighter indicating that this part got selected.&nbsp;<br />Whole molecules can be selected by double-clicking on them. The result is the same as it would be using Rectangle Selection. Whole structures, fragments of molecules, or even several molecules can be selected at the same time.</p>
+      <ul>
+       <li>Separate parts of a molecule or even different molecules can be selected at the same time if the &quot;<strong>Shift</strong>&quot; button is pressed during selection.</li>
+       <li>The &quot;<strong>Ctrl+A</strong>&quot; keyboard shortcut can also be used to select the whole content of the canvas.</li>
+      </ul>
+      <p>To clear the selection, you can press the &quot;<strong>Esc</strong>&quot; button, or simply click on a blank area on the canvas. If there is not any selection on the canvas, pressing the &quot;<strong>Esc</strong>&quot; button activates the Rectangle Selection tool.</p>
+      <div class="panel" style="background-color: SmokeWhite;border-width: 1px;">
+       <div class="panelContent" style="background-color: SmokeWhite;"> 
+        <h5 id="Editing-Youcanmovetheselectedstructuresonthecanvasbypushingdowntheleft-mousebuttononagreenhighlightedatomorbond,anddraggingtotherequiredposition."><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> You can move the selected structures on the canvas by pushing down the left-mouse button on a green highlighted atom or bond, and dragging to the required position.</h5> 
+       </div>
+      </div>
+      <h3 id="Editing-deleteDelete"><span class="confluence-anchor-link" id="Editing-delete"></span>Delete</h3>
+      <p>Once you have made a selection (atom, bond, fragment, or a whole molecule), you can delete it either by clicking on the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-delete">Delete</a></strong><span style="color: rgb(0,0,255);">&nbsp;</span>&nbsp;button on the&nbsp;<strong>Tools</strong>&nbsp;toolbar or pressing the &quot;<strong>Del</strong>&quot; button on the keyboard.<br />Selecting the&nbsp;<strong>Delete</strong>&nbsp;tool and clicking on an atom or a bond erases said atom or bond. In case of deleting a bond, its atoms will not disappear from the canvas. On the other hand, if you erase an atom, its bonds are also deleted.<br />The&nbsp;<strong>Delete</strong>&nbsp;button also works as a rectangle selection tool: click on the button and select the parts you want to erase (the selected parts are highlighted in red). When you release the left mouse button, the highlighted parts will be erased.<br />Erasing objects is also available from the contextual menu after a right-click on the atom, bond or the selected item you want to delete.<br />You can clear the whole canvas with one click using the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-clear">Clear</a></strong>&nbsp;button on the&nbsp;<strong>General</strong>&nbsp;toolbar or pressing the &quot;<strong>Ctrl+Del</strong>&quot; keyboard shortcut.</p>
+      <h2 id="Editing-cutCopyPasteCut,Copy,andPasteOptions"><span class="confluence-anchor-link" id="Editing-cutCopyPaste"></span>Cut, Copy, and Paste Options</h2>
+      <p>To copy a molecule or a fragment you have to select it first. The&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-cut">Cut</a></strong>&nbsp;and&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-copy">Copy</a>&nbsp;</strong>buttons on the&nbsp;<strong>General</strong>&nbsp;toolbar or in the contextual menu place the content of the selected area on a virtual clipboard. Please note that the copy-paste function is available only within the application. The content of the clipboard can be imported to the canvas with the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-paste">Paste</a></strong>&nbsp;button on the&nbsp;<strong>General</strong>&nbsp;toolbar. Their conventional shortcuts, &quot;<strong>Ctrl+X</strong>&quot;, &quot;<strong>Ctrl+C</strong>&quot;, and &quot;<strong>Ctrl+V</strong>&quot; can be used, too.</p>
+      <p>Pressing the&nbsp;<strong>&quot;Ctrl&quot;</strong>&nbsp;button and hovering the cursor over a selected area, you can move a copy of the selected structure by dragging it. When you do this, a &quot;+&quot; sign appears beside the cursor. A copy of the selected structure is placed on the canvas when you release the left button. Note that the original object remains selected, so it can be multiplied several times.</p>
+      <p>Direct copy-paste between Marvin JS and other applications is available in MRV and MDL Molfile (V2000 only) formats. If the extended functionalities provided by JChem Webservices are also available then structures can be pasted on the Marvin JS canvas in any of the supported text-based file formats (such as SMILES, Name, InChi...). Please note that copying content to the clipboard from Marvin JS is possible only&nbsp;<em>via</em>&nbsp;the Ctrl+C keyboard shortcut. This action always copies the structure in MDL Molfile (V2000) format. Similarly, if you want to paste chemical structures from the clipboard onto the Marvin JS canvas, you have to use the Ctrl+V shortcut.</p>
+      <p>If you use Marvin JS with a Firefox browser, please note, that copy-paste between Marvin JS and another applications works only with Firefox 22.0 and with newer versions.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

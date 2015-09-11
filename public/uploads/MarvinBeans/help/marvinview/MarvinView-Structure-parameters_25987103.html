@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : MarvinView Structure parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : MarvinView Structure parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a> atomSet0.1 ... atomSet0.63<br />atomSet1.1 ... atomSet1.63<br />...</code></td>
+          <td class="confluenceTd">Atom sets. Comma separated list of atom indices (0, ..., <em>n</em>-1). An atom in molecule cell number <em>N</em> will be in set <em>M</em> if its number appears in the atomSet<em>N</em>.<em>M</em> list. By default, all atoms are in set 0.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a> atomSetColor0<br />...<br />atomSetColor63</code></td>
+          <td class="confluenceTd">Atom set color in hexa.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>bondSet0.1 ... bondSet0.63<br />bondSet1.1 ... bondSet1.63<br />...</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Bond sets. Comma separated list of atom index pairs in <em>i</em>-<em>j</em> format, where <em>i</em>, <em>j</em> = 0, ..., <em>n</em>-1. A bond in molecule cell number <em>N</em> will be in set <em>M</em> if the corresponding atom pair appears in the bondSet<em>N</em>.<em>M</em> list. By default, all bonds are in set 0.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>bondSetColor1<br />...<br />bondSetColor63</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Bond set color in hexa.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewStructureparameters-2D"></span>clean2dOpts</code></td>
+          <td class="confluenceTd">Options for 2D cleaning (0D-&gt;2D) See <a href="https://docs.chemaxon.com/display/SR/Cleaning+options">base 2D cleaning options</a></td>
+          <td class="confluenceTd"><code>&nbsp;</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewStructureparameters-3D"></span>clean3dOpts</code></td>
+          <td class="confluenceTd">Options for 3D cleaning (0D-&gt;3D) See <a href="https://docs.chemaxon.com/display/SR/Cleaning+options">base 3D cleaning options</a></td>
+          <td class="confluenceTd"><code>&nbsp;</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewStructureparameters-dim"></span>cleanDim</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Number of space dimensions for cleaning.
+           <ul>
+            <li><code>2</code> - two-dimensional cleaning</li>
+            <li><code>3</code> - three-dimensional cleaning</li>
+           </ul>See also: <a href="#MarvinViewStructureparameters-opts">cleanOpts</a>, <a href="#MarvinViewStructureparameters-imp">importConv</a>.</td>
+          <td class="confluenceTd"><code>2</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewStructureparameters-opts"></span>cleanOpts</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Options for 2D or 3D cleaning.<br /> <code>cleanOpts</code> accepts the same parameter values as <a href="#MarvinViewStructureparameters-2D">clean2dOpts</a> or <a href="#MarvinViewStructureparameters-3D">clean3dOpts</a> depending on the cleaning dimension (<a href="#MarvinViewStructureparameters-dim">cleanDim</a>).</td>
+          <td class="confluenceTd"><code>&nbsp;</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinViewStructureparameters-imp"></span>importConv</code></td>
+          <td class="confluenceTd"><p><a rel="nofollow"></a>Conversion(s) after molecule loading. Currently the following options are implemented:</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd">&quot;a&quot; or &quot;+a&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td class="confluenceTd"><a href="https://docs.chemaxon.com/display/SB/Methods#Methods-generalAromatization">General</a> aromatization</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;a_bas&quot; or &quot;+a_bas&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td class="confluenceTd"><a href="https://docs.chemaxon.com/display/SB/Methods#Methods-basicAromatization">Basic</a> aromatization</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;-a&quot;</td>
+               <td class="confluenceTd">dearomatization</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;H&quot; or &quot;+H&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td class="confluenceTd">add explicit H atoms</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;-H&quot;</td>
+               <td class="confluenceTd">remove explicit H atoms</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;c&quot;</td>
+               <td class="confluenceTd">automatic cleaning</td>
+              </tr>
+             </tbody>
+            </table>
+           </div></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>setColoringEnabled</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Atom/bond set coloring.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

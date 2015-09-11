@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Other parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Other parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>escapeChar</code></td>
+          <td class="confluenceTd">Escape character to use for parsing the value of the <a href="Applet-only-parameters_25985395.html#Appletonlyparameters-mol">mol</a> parameter.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>abbrevgroups</code></td>
+          <td class="confluenceTd">Replacing the built-in abbreviated group collection with a custom one. The parameter value is the location of the file containing the custom abbreviated groups. The location should be relative to the applet codebase.<br /> Live applet example:<a href="http://www.chemaxon.com/marvin/examples/applets/sketch/abbrevgroups.html" class="external-link" rel="nofollow"> MarvinSketch Example - Abbreviated groups</a>&nbsp;</td>
+          <td class="confluenceTd"><span style="color: rgb(51,51,51);"> <code>chemaxon/marvin<br /> /templates<br /> /default.abbrevgroup</code> </span></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><pre>autoCheckStructure</pre></td>
+          <td colspan="1" class="confluenceTd"><p>&nbsp;Enables (<code>true</code>) or disables (<code>false</code>) automatic structure check. To take effect, set <code>statusBar</code> parameter to true as well.</p></td>
+          <td colspan="1" class="confluenceTd"><pre>&nbsp;false</pre></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>customAbbrevgroups</code></td>
+          <td class="confluenceTd">You can add further abbreviations for the default.abbrevgroup contents with the contets of the files that can be specified with the help of this parameter. The parameter has to contain the path of the file relatively to the codebase.<br /> It is possible to define more than one file, the separator character can be a comma(,) or a pipe(|) character.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>abbrevgroupsAllowed</code></td>
+          <td class="confluenceTd">Enables/disables the usage of abbreviated groups. If the function is disabled, typing with the keyboard over the canvas will only allow changing atom and bond types.<br /> Live applet example: <a href="http://www.chemaxon.com/marvin/examples/applets/sketch/studentexam/index.html" class="external-link" rel="nofollow">MarvinSketch Example - Student Examination</a> <span style="color: rgb(255,0,255);">&nbsp;</span></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code> <span class="confluence-anchor-link" id="Otherparameters-userAbbrevAllowed"></span>userAbbrevGroupsAllowed</code></td>
+          <td class="confluenceTd">Enables/disables the usage of user defined abbreviated groups.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>defaultSaveFormat</code></td>
+          <td class="confluenceTd">Sets the default chemical file format in the Save As dialog.</td>
+          <td class="confluenceTd"><code>mrv</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>debug</code></td>
+          <td class="confluenceTd">Debug mode. Possible values: 0, 1, 2.</td>
+          <td class="confluenceTd"><code>0</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code> <span class="confluence-anchor-link" id="Otherparameters-menuconfig"></span>menuconfig</code></td>
+          <td class="confluenceTd">Specifies an alternative menu customization file location instead of the default <code>.chemaxon/{MarvinSketch_version}/customization.xml</code> (Unix) or <code>chemaxon/{MarvinSketch_version}/customziation.xml</code> (Windows) file under the user's home. Please note that if this parameter is used, the <a href="Display-parameters_25985397.html#Displayparameters-custom">customizationEnabled</a> parameter is automatically set to false.<br /> If you use applet, the value of this parameter has to be an URL. It can be relative to the applet codebase (e.g. examples/applets/sketch/myconfig.xml). The applet codebase gives the location of the marvin directory on the server (e.g.: <span class="nolink"> <span class="nolink">http://www.myserver.com/marvin</span> </span>). Of course, the config file can be located on an other server, in this case you have to give the absolute URL of the config file (e.g.: <span class="nolink"> <span class="nolink">http://www.otherserver.com/marvin-config/myconfig.xml</span> </span>).</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>mergedst</code></td>
+          <td class="confluenceTd">Merge distance of atoms in C-C bond length units.</td>
+          <td class="confluenceTd"><code>0.1</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>molFormat</code></td>
+          <td class="confluenceTd">Default file format: <code>mol</code>, <code>csmol</code>, <code>smiles</code>, <code>cxsmiles</code>, <code>cml</code>, <code>pdb</code>, <code>pov</code>, <code>sybyl</code>, or <code>xyz</code>.</td>
+          <td class="confluenceTd"><code>mol</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>shortcuts</code></td>
+          <td class="confluenceTd">Specifies an alternative shortcut customization file location instead of the default <code>.chemaxon/{MarvinSketch_version}/shortcuts.xml</code> (Unix) or <code>chemaxon/{MarvinSketch_version}/shortcuts.xml</code> (Windows) file under the user's home. Please note that if this parameter is used, the&nbsp;<a href="Display-parameters_25985397.html#Displayparameters-custom">customizationEnabled</a> parameter is defaults to false.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="symbols" rel="nofollow"></a> <code>symbols</code></td>
+          <td class="confluenceTd">Comma-separated list of symbols that will be always shown in the Insert Symbol popup. The symbols must be specified as font family name/Unicode code point pairs: <code> <a href="http://fontnamecodepoint" class="external-link" rel="nofollow">fontname:codepoint</a> </code>. Fonts can be physical or logical. The logical fonts supported by the JRE: <code>Serif</code>, <code>SansSerif</code>, <code>Monospaced</code>, <code>Dialog</code>, and <code>DialogInput</code>.<br /> Example (Δ,?): <code>&quot;SansSerif:U+0394,SanSerif:U+212B&quot;</code></td>
+          <td class="confluenceTd"><code>&nbsp;</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>toolbarFloatable</code></td>
+          <td class="confluenceTd">Setting this parameter to <code>false</code> makes the toolbars immovable.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>undo</code></td>
+          <td class="confluenceTd">Maximum number of undo operations.</td>
+          <td class="confluenceTd"><code>50</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="viewHelp" rel="nofollow"></a> <code>viewHelp</code></td>
+          <td class="confluenceTd"><a href="https://docs.chemaxon.com/display/marvinview/MarvinView+Home">MarvinView help contents</a>.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="viewQuickHelp" rel="nofollow"></a> <code>viewQuickHelp</code></td>
+          <td class="confluenceTd"><a href="https://docs.chemaxon.com/display/marvinview/Getting+started">MarvinView Getting started</a>.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>disablePluginsLookup</code></td>
+          <td class="confluenceTd">Set this to true if you want to disable the lookup for plugins.properties. To load plugins.properties form a location to enable the Tools menu, define the location of the file with toolfiles parameter.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>defaultDatatransferPolicy</code></td>
+          <td class="confluenceTd">Set this to true if you want to disable the search of datatransfer.properties in the codebase, and use the default configuration (mostly suitable for every use case).</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>defaultTool</code></td>
+          <td class="confluenceTd">Sets the initial editing mode in the sketcher.
+           <ul>
+            <li><code>atom:atomNumber</code> - Atom drawing mode. Additional flags must be used to specify the element type. Example: <code>&quot;atom:6&quot;</code> (carbon atom)</li>
+            <li><code>bond:bondType</code> - Bond drawing mode. Additional flags must be used to specify the bond type. Example: <code>&quot;bond:1&quot;</code> (single bond)</li>
+            <li><code>select</code> - Rectangle selection</li>
+            <li><code>lassoSelect</code> - Lasso selection</li>
+            <li><code>structureSelect</code> - Structure selection</li>
+            <li><code>erase</code> - Delete mode</li>
+            <li><code>bold</code> - Changes the selected bond to Bold.</li>
+            <li><code>chain</code> - Chain drawing mode</li>
+            <li><code>electronFlow1</code> - Electron Flow (with one electron) drawing mode</li>
+            <li><code>electronFlow2</code> - Electron Flow (with two electron) drawing mode</li>
+            <li><code>reactionArrow</code> - Reaction Arrow drawing mode</li>
+            <li><code>retrosyntheticArrow</code> - Retrosynthetic Arrow drawing mode</li>
+            <li><code>resonanceArrow</code> - Resonance Arrow drawing mode</li>
+            <li><code>equilibriumArrow</code> - Equilibrium Arrow drawing mode</li>
+            <li><code>increaseCharge</code> - Increases the charge of the selected atom</li>
+            <li><code>decreaseCharge</code> - Decreases the charge of the selected atom</li>
+            <li><code>assignAtom</code> - Assigner tool for selecting atom pairs to enable 3D Directed Merge</li>
+            <li><code>switchRadical</code> - Tool for switching the number of radical electrons</li>
+            <li><code>radicalOff</code> - Tool for setting the number of radical electrons of the atom to 0</li>
+            <li><code>monovalentRadical</code> - Tool for setting the number of radical electrons of the atom to 1</li>
+            <li><code>increaseLonePairs</code> - Tool for increasing the number of lone pairs of the atom by one</li>
+           </ul></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>disabledGroupTypesOnUI</code></td>
+          <td class="confluenceTd">Disable the availability of certain S-group types available at Group Creation/Edit Dialog. (Structure&gt;Group menu, or Contextual menu&gt;Group menupoint.)<br /> The parameter should be a comma separated list of group types that should be disabled.<br /> Note: R-groups can not be disabled in this way.<br />
+           <ul>
+            <li><code>superatomGroup</code> - Superatom (abbreviation)</li>
+            <li><code>rangeGroup</code> - Repeating unit with repetition ranges(e.g. 2,4-6)</li>
+            <li><code>multipleGroup</code> - Multiple group (e.g. 3)</li>
+            <li><code>orderedMixtureGroup</code> - Ordered mixture (f)</li>
+            <li><code>unorderedMixtureGroup</code> - Unordered mixture (mix)</li>
+            <li><code>merGroup</code> - Mer (mer)</li>
+            <li><code>monomerGroup</code> - Monomer (mon)</li>
+            <li><code>graftGroup</code> - Graft (grf)</li>
+            <li><code>modificationGroup</code> - Modification (mod)</li>
+            <li><code>crosslinkGroup</code> - Crosslink (xl)</li>
+            <li><code>genericGroup</code> - Generic ()</li>
+            <li><code>componentGroup</code> - Component (c)</li>
+            <li><code>sruGroup</code> - SRU polymer(n)</li>
+            <li><code>copolymerGroup</code> - Copolymer (co)</li>
+            <li><code>randomCopolymerGroup</code> - Copolymer, random (ran)</li>
+            <li><code>blockCopolymerGroup</code> - Copolymer, block (blk)</li>
+            <li><code>alternatingCopolymerGroup</code> - Copolymer, alternating (alt)</li>
+            <li><code>anypolymerGroup</code> - Anypolymer (anyp)</li>
+           </ul></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>disableSpecialNodes</code></td>
+          <td class="confluenceTd">Set this to true if you want to disable special nodes on the Advanced tab of the Periodic Table dialog.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>imageImportServiceURL</code></td>
+          <td class="confluenceTd">Specifies the URL of an image import service for the applet to use.</td>
+          <td class="confluenceTd"><code>empty</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>namingWebServiceURL</code></td>
+          <td class="confluenceTd">Specifies the URL of a name recognition and import service for the name import to use.</td>
+          <td class="confluenceTd"><code>empty</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>zoomToScaffoldOnLoad</code></td>
+          <td class="confluenceTd">Zooms to the scaffold of RG Molecules.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Applet example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;applet CODE=MSketch WIDTH=480 HEIGHT=400&gt;
+
+&lt;param NAME=&quot;background&quot; VALUE=&quot;#cccccc&gt;
+
+&lt;param NAME=&quot;molbg&quot; VALUE=&quot;#ffffff&quot;&gt;
+
+&lt;param NAME=&quot;implicitH&quot; VALUE=&quot;hetero&quot;&gt;
+
+&lt;/applet&gt;</pre> 
+       </div>
+      </div>
+      <p>Bean example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">MSketchPane sketchPane = new MSketchPane();
+
+sketchPane.setParams(
+
+	&quot;background=#cccccc\n&quot;+
+
+	&quot;molbg=#ffffff\n&quot;+
+
+	&quot;implicitH=hetero\n&quot;);</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

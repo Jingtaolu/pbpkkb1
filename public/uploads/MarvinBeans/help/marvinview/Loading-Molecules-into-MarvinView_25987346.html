@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Loading Molecules into MarvinView</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Loading Molecules into MarvinView </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="LoadingMoleculesintoMarvinView-load"><span class="confluence-anchor-link" id="LoadingMoleculesintoMarvinView-load"></span></h2>
+      <p>MarvinView can open molecule files saved in any of the&nbsp;<a href="https://docs.chemaxon.com/display/FF">supported formats</a>&nbsp;for viewing.</p>
+      <p>Choose&nbsp;<strong>File &gt; Open...</strong>&nbsp;and browse for the file in the&nbsp;<strong>Open file</strong>&nbsp;dialog.<br />Tick the&nbsp;<strong>Show preview</strong>&nbsp;checkbox to see the contents of the file (molecules, reactions, queries).</p>
+      <p>A single item is dispalyed in the preview window; the text field at the bottom shows the index of the current structure and the number of structures in the file.</p>
+      <p>When a multiple structure file is selected (<em>e.g.</em>, MRV or SDF), the navigation buttons become active. Their functions are: go to first, go to previous, go to next, go to last. Note that the preview window allows you only to check the file content, but not to select the molecules you would like to open. For this purpose, the&nbsp;<strong>Select</strong>&nbsp;text box has to be used, where you can write the serial numbers of the molecules to open. The numbers have to be separated either by commas or by a dash. (Clicking on the&nbsp;<strong>Info</strong>&nbsp;button in this row will give you tips for specifying the desired molecules.) Leaving this textbox empty means that every molecule in the file will be loaded into MarvinView. Currently this is the default behavior of file loading in Marvin.</p>
+      <p><br />Importing image files containing chemical structures is also possible with the help of OSRA (since version 5.3.0). Please&nbsp;<a href="https://docs.chemaxon.com/display/FF/Image+Import+in+Marvin">consult this page for details</a>.</p>
+      <p>The supported image formats are: bmp, png, jpg, gif, svg, and tif. Furthermore, you can import chemical structures from ps and pdf files, too.</p>
+      <p>&nbsp;</p>
+      <p>In order to open an image file go to the&nbsp;<strong>File &gt; Open...</strong>&nbsp;menu and select&nbsp;<strong>All Files</strong>&nbsp;from the list of&nbsp;<strong>Files of Type</strong>.<br />You can also take advantage of the&nbsp;<span> <a href="https://confluence.chemaxon.com/x/mYXL" class="external-link" rel="nofollow"> <span>Cut/Copy/Paste and Drag &amp; Drop Functionality</span> </a> </span>&nbsp;of Marvin to move a molecule from another chemical drawing application into MarvinView.<a name="save" rel="nofollow"></a></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

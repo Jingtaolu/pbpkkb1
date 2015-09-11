@@ -1,0 +1,85 @@
+
+<br/><br/><br/>
+<b><i> Query Compound </i></b><br/><br/>
+<% if !@CSID.nil?%>
+    <%="ChemSpider CSID_____"%>
+    <%=@CSID%>
+<%end%>
+<% if !@PUBCHEM_COMPOUND_CID.nil?%>
+    <%="Pubchem CID_____"%>
+    <%=@PUBCHEM_COMPOUND_CID%>
+<%end%>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Structure_______
+<div style="margin-left:400px;margin-top:-78px" >
+  <img src="/uploads/chemstruct.jpeg"  height="150" width="150">
+</div>
+
+<br/><br/><br/>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+<div >
+  <h1 style="margin-left:5px;">
+    <font size="7">
+    Tanimoto Index
+    <br/>
+    <br/>
+      <br/>
+      <br/>
+     </font>
+    <font size="5">
+      Tanimoto Index = A&#183;B / ( A&#183;A + B&#183;B - A&#183;B )
+      <br/>
+    </font>
+  </h1>
+  <p style="margin-left:5px;">
+   <br/>
+
+Where:<br/>
+    A is the vector of the fingerprint values for query compound<br/>
+    B is the vector of the fingerprint values for a single PBPKKB compound<br/>
+    Tanimoto indexis a fraction between 0 and 1, representing the similarity between A and B.<br/>
+A&#183;B is the dot product of vector A and vector B: &Sigma; Ai&#215;Bi<br/>
+
+  </p>
+</div>
+
+<div style="margin-left:500px;margin-top:33px" >
+<%= form_tag "/pbpkmodels/show_models", :method => 'get' do %>
+    <p>
+      <%= submit_tag "Display PBPKKB Models", :name => nil %>
+      </font>
+    </p>
+<% end %>
+</div>
+
+  <div style="margin-top:-32px" >
+<table>
+  <thead>
+  <tr>
+    <th>PBBK Chemical</th>
+    <th>Tanimoto Index</th>
+    <th>rank</th>
+  </tr>
+  </thead>
+
+
+
+  <tbody>
+  <%@tanimoto_rank.each do |chemical1| %>
+      <tr>
+        <td><%= chemical1[0] %></td>
+        <td><%= chemical1[1].round(4) %></td>
+        <td><%= @tanimoto_rank.index(chemical1)+1 %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+  </div>

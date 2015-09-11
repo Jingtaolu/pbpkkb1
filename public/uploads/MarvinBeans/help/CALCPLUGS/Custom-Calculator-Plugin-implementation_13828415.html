@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Custom Calculator Plugin implementation</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Custom Calculator Plugin implementation </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h1 id="CustomCalculatorPluginimplementation-"><a class="anchor" name="components" rel="nofollow"></a></h1>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This pages gives you a walk-through on how to build a custom plugin implemenation:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200960007 {padding: 0px;}
+div.rbtoc1439200960007 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200960007 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200960007"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#CustomCalculatorPluginimplementation-Introduction">Introduction</a></li> 
+          <li><a href="#CustomCalculatorPluginimplementation-Examples">Examples</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#CustomCalculatorPluginimplementation-MarvinBeans">Marvin Beans &nbsp;</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#CustomCalculatorPluginimplementation-IntegratethepluginintoMarvinSketch/MarvinView">Integrate the plugin into MarvinSketch / MarvinView</a></li> 
+              <li><a href="#CustomCalculatorPluginimplementation-Runthetestapplication">Run the test application &nbsp;</a></li> 
+             </ul> </li> 
+            <li><a href="#CustomCalculatorPluginimplementation-MarvinApplets">Marvin Applets &nbsp;</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#CustomCalculatorPluginimplementation-IntegratethepluginintoMarvinSketch/MarvinViewapplet">Integrate the plugin into MarvinSketch / MarvinView applet &nbsp;</a></li> 
+             </ul> </li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="CustomCalculatorPluginimplementation-Introduction"><br />Introduction</h1>
+      <p>&nbsp;</p>
+      <p><a href="attachments/13828415/29098675.java" data-linked-resource-id="29098675" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="SelectionPlugin.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828415" data-linked-resource-container-version="34"><span>SelectionPlugin</span></a>&nbsp;is a simple<u>&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow">CalculatorPlugin</a>&nbsp;</u>descendant class written as an example for custom plugin implementation.</p>
+      <p><a href="attachments/13828415/29098676.java" data-linked-resource-id="29098676" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="SelectionPluginDisplay.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828415" data-linked-resource-container-version="34"><span>SelectionPluginDisplay</span></a>&nbsp;is the corresponding&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPluginDisplay.html" style="text-decoration: underline;" class="external-link" rel="nofollow">CalculatorPluginDisplay</a>&nbsp;descendant class. This latter is not mandatory for a custom plugin: for most plugins the default implementation is enough, provided that the plugin implements&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#getResultMolecule()" style="text-decoration: underline;" class="external-link" rel="nofollow">getResultMolecule()</a>&nbsp;in a way that it returns a molecule object with atomic results set in&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html#setExtraLabel(java.lang.String)" style="text-decoration: underline;" class="external-link" rel="nofollow">atom extra labels</a>&nbsp;and molecular results in&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#setProperty(java.lang.String, java.lang.String)" style="text-decoration: underline;" class="external-link" rel="nofollow">molecule properties</a>.&nbsp;SelectionPluginDisplay&nbsp;gives an example to modify the default molecule view display: it adds a text area with some data.</p>
+      <p><a href="attachments/13828415/29098677.java" data-linked-resource-id="29098677" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="SelectionPluginTest.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828415" data-linked-resource-container-version="34"><span>SelectionPluginTest</span></a>&nbsp;is the test sketcher application that shows how to insert the plugin administration into your code in case when you want to use a customized GUI for plugin invocation instead of or in addition to the built-in <em>Tools</em> menu.&nbsp;</p>
+      <p>&nbsp;</p>
+      <h1 class="lenia" id="CustomCalculatorPluginimplementation-Examples"><span style="color: rgb(0,0,0);">Examples</span></h1>
+      <h2 class="lenia" id="CustomCalculatorPluginimplementation-MarvinBeans"><span style="color: rgb(0,0,0);">Marvin Beans<br />&nbsp;</span></h2>
+      <h3 id="CustomCalculatorPluginimplementation-IntegratethepluginintoMarvinSketch/MarvinView"><span style="color: rgb(0,0,0);">Integrate the plugin into MarvinSketch / MarvinView</span></h3>
+      <p><span style="color: rgb(0,0,0);"><br /></span></p>
+      <p>To integrate the SelectionPlugin into MarvinSketch/MarvinView, you need to do the following steps (you should also perform similar tasks if you have your own plugin):</p>
+      <ol style="margin-left: 20.0px;">
+       <li><p>Create the plugin JAR with manifest&nbsp;<a href="attachments/13828415/29098678.txt" data-linked-resource-id="29098678" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="SelectionPlugin.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828415" data-linked-resource-container-version="34">SelectionPlugin.txt</a>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jar cmf SelectionPlugin.txt SelectionPlugin.jar SelectionPlugin.class SelectionPluginDisplay.class xjars/SelectionPluginParameters.xml</pre> 
+         </div>
+        </div></li>
+       <li><p>Copy the plugin JAR into the&nbsp;<code>plugins</code>&nbsp;directory (if the&nbsp;<code>plugins</code>&nbsp;directory does not exist, create it in the home directory of Marvin Beans):</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cp SelectionPlugin.jar MarvinBeans/plugins		(Linux / UNIX)
+copy SelectionPlugin.jar MarvinBeans\plugins		(Windows)</pre> 
+         </div>
+        </div></li>
+       <li><p>Edit the&nbsp;<code>MarvinBeans/plugins/plugins.properties</code>&nbsp;file. Add this line to the file:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">plugin_999=$$SelectionPlugin.jar$Selection$S$$</pre> 
+         </div>
+        </div></li>
+      </ol>
+      <p>Run MarvinSketch/MarvinView. You can run the example plugin by selecting&nbsp;<code>Selection</code>&nbsp;from the Tools menu.</p>
+      <h3 id="CustomCalculatorPluginimplementation-Runthetestapplication">Run the test application<br />&nbsp;</h3>
+      <p>The test application can be started by running the run.sh script (Linux / Unix) or the RUN.BAT batch file (Windows).</p>
+      <h2 id="CustomCalculatorPluginimplementation-MarvinApplets"><a class="anchor" name="applets" rel="nofollow"></a>Marvin Applets<br />&nbsp;</h2>
+      <h3 id="CustomCalculatorPluginimplementation-IntegratethepluginintoMarvinSketch/MarvinViewapplet">Integrate the plugin into MarvinSketch / MarvinView applet<br />&nbsp;</h3>
+      <h4 id="CustomCalculatorPluginimplementation-Compilation">Compilation<br />&nbsp;</h4>
+      <p>Use JAR files from Marvin Applets package for compilation of the new plugin. Since Marvin applets classes are compiled with 1.5 compatible compiler, additional code has to be compatible with 1.5 compatible JDK. To provide compatibility, set the&nbsp;<span>source</span>&nbsp;and the&nbsp;<span>target</span>&nbsp;attributes to&nbsp;<span>1.5</span>.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">javac -source 1.5 -target 1.5 -classpath &quot;marvin/jmarvin.jar:marvin/sjars/Plugin.jar:marvin/sjars/PluginGUI.jar&quot; SelectionPlugin.java SelectionPluginDisplay.java</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <h4 id="CustomCalculatorPluginimplementation-CreateJARfile">Create JAR file<br />&nbsp;</h4>
+      <p>Marvin applets accept custom plugins from certain location:&nbsp;<code>marvin/plugin/extensions.jar</code>. Therefore, wrap resources for your plugin into<span>extensions.jar</span>. In this example,&nbsp;<span>SelectionPlugin.txt</span>&nbsp;is the manifest file for the JAR file.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jar cmf SelectionPlugin.txt extensions.jar *.class xjars/SelectionPluginParameters.xml</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The JAR files that Marvin applets load have to be signed.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jarsigner -keystore &quot;&lt;keystorepath&gt;&quot; -storepass &lt;password&gt; extensions.jar &lt;alias&gt;</pre> 
+       </div>
+      </div>
+      <p><br />In the above statement, the &lt;keystorepath&gt; is the location of the keystore file where your signing key is stored. The &lt;password&gt; gives the password for the keystore. The &lt;alias&gt; is the alias of the certification key in the keystore.</p>
+      <h4 id="CustomCalculatorPluginimplementation-Installation"><br />Installation<br />&nbsp;</h4>
+      <p>Copy the JAR file into the&nbsp;<span>marvin/plugins</span>&nbsp;directory.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cp extensions.jar marvin/plugins/.</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>Create your own instance of&nbsp;<span>plugins.properties</span>&nbsp;in the&nbsp;<span>marvin/plugins</span>&nbsp;directory. This properties file describes the structure of the&nbsp;<em>Tools</em>&nbsp;menu in MarvinSketch / MarvinView. If this file exists, it overwrites the default &quot;Tools&quot; menu. There is a template for plugins.properties (plugins.properties.sample.txt) in this directory. Just make a copy about it, and edit it.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cp marvin/plugins/plugins.properties.sample.txt marvin/plugins/plugins.properties</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>To assign your plugin to ChemAxon plugins, gave the following line to this file. The header of the properties file describes the syntax:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">plugin999=$SelectionPlugin$extensions.jar$Selection$Slc$Other$S</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <p>Now, you are ready. In MarvinSketch/MarvinView applet the new plugin will display in the&nbsp;<em>Tools/Other</em>&nbsp;menu.</p>
+      <div class="documentation_helpsection">
+       <p>&nbsp;</p>
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

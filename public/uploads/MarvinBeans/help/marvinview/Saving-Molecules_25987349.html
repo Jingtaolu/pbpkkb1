@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Saving Molecules</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Saving Molecules </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="SavingMolecules-save"><span class="confluence-anchor-link" id="SavingMolecules-save"></span></h2>
+          <p>First and foremost, MarvinView is designed for viewing molecules and for changing their display properties.</p>
+          <p>However, you also have some possibilities for editing, and you can also save your molecules in any of the&nbsp;<a href="https://docs.chemaxon.com/display/FF">supported structure file formats</a>.</p>
+          <p>&nbsp;</p>
+          <p>In case your have multiple chemical objects you would like to save, you should use the&nbsp;<strong>File &gt; Save All...</strong>&nbsp;menu option.<br />In the dialog window used for saving, a&nbsp;<strong>Saving method</strong>&nbsp;tab can be opened with the help of the&nbsp;<strong>Advanced</strong>&nbsp;checkbox.</p>
+          <p>The first half of the tab offers the following choices:</p>
+          <ul>
+           <li><strong>All structures SEPARATELY:</strong>&nbsp;Saves all structures separately in a single file.<br />This is the deafult behavior of saving. Without opening the&nbsp;<strong>Saving method</strong>&nbsp;tab, this option will be applied.</li>
+           <li><strong>Into SEPARATE FILES:</strong>&nbsp;Saves each structure to a separate file.<br />In this option, the numbering of molecule files begins with the molecule in the upper left corner.</li>
+          </ul>
+          <p>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338386/13402274.png" data-image-src="attachments/13338386/13402274.png" data-unresolved-comment-count="0" data-linked-resource-id="13402274" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="save_view.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338386" data-linked-resource-container-version="10" /></span>&nbsp;</p>
+          <p>The first option remains inactive unless the chosen file type supports multimolecule files (such as MRV or SDF). Similarly, for one molecule only files these options are disabled.<br />When the given parameters for saving (filename, format, and route) are the same as for an already existing file, the outcome will be determined by the other two radio buttons of the dialog window.</p>
+          <p>If you select the&nbsp;<strong>Overwrite file</strong>&nbsp;option, the original contents of the file will be replaced.</p>
+          <p>However, selecting the&nbsp;<strong>Append to end of file</strong>&nbsp;radio button will add the new structures to the original file, so its contents will be preserved.</p>
+          <p>In the first case, a new dialog window will be displayed, where you can reinforce or change your decision about overwriting the file.</p>
+          <p>If the chosen file format does not support multiple structures, the&nbsp;<strong>Overwrite</strong>&nbsp;option is applied automatically.</p>
+          <p>&nbsp;</p>
+          <p>You can create a new file from a subset of molecules selected from a larger file. Choosing the&nbsp;<strong>File &gt; Save Selection...</strong>&nbsp;menu point opens a dialog window where you can specify the molecules you want to save in the new file.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>If you have selected a molecule previously in your MarvinView table only the selected molecule will be saved in the new file.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>MarvinView allows you to save an image of a selected molecule in the Viewer. When you have selected a molecule, go to&nbsp;<strong>File &gt; Save As Image...</strong>. You can select from JPEG, PNG, SVG, EPS, TIF, BMP, and EMF image file formats.</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

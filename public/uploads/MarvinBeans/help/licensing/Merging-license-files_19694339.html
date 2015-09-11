@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Licensing : Merging license files</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Licensing : Merging license files </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="Merginglicensefiles-MergingLicenseFiles">Merging License Files</h2>
+      <p>Since the default licenses are stored in a&nbsp;<em>single file</em>&nbsp;named&nbsp;<code>license.cxl</code>&nbsp;located in the user's home directory, it is sometimes necessary to merge license files to a single file.</p>
+      <p>Let's see this typical example: The user has an Annual license file, and starts evaluating another product. In this case the user receives another license file containing the evaluation licenses.<br />In this case the user simply&nbsp;<a href="Installing-to-desktops_19694293.html">installs</a>&nbsp;the new license file, and it is automatically merged with the existing license file.</p>
+      <p>However if this user uses the products on a server or is a reseller, the Desktop installation is not suitable.</p>
+      <h3 id="Merginglicensefiles-Mergingthelicensefileswithacommandlinetool"><a class="anchor" name="merge_cmd" rel="nofollow"></a>Merging the license files with a command line tool</h3>
+      <p>License files can be merged with the&nbsp;<code>license</code>&nbsp;command line script.</p>
+      <p>Usage:</p>
+      <pre>    license -m <em>source_license_file1.cxl</em>
+               <em>source_license_file2.cxl</em>
+               <strong>result_license_file.cxl</strong>
+</pre>
+      <h3 id="Merginglicensefiles-Onlinemergingofthelicensefiles"><a class="anchor" name="merge_jsp" rel="nofollow"></a>Online merging of the license files</h3>
+      <p>Online license merging is available at:&nbsp;<a href="http://www.chemaxon.com/my-chemaxon/license-merger/" style="text-decoration: underline;" class="external-link" rel="nofollow">http://www.chemaxon.com/my-chemaxon/license-merger/</a></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694339/19759242.png" data-image-src="attachments/19694339/19759242.png" data-unresolved-comment-count="0" data-linked-resource-id="19759242" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="merge.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694339" data-linked-resource-container-version="3" /></span><br /><span style="color: rgb(51,51,51);">&nbsp;</span></p>
+      <ol>
+       <li>Use the Browse buttons to locate two license files to be merged (referred as source files).</li>
+       <li>Specify the name of the output file. It is recommended to keep it&nbsp;<code>license.cxl</code>, because it is the default name of the automatically recognized license file.</li>
+       <li>Press the Merge button.</li>
+       <li>A dialog appears with which you can specify a location for the result (referred as output file).</li>
+      </ol>
+      <h3 id="Merginglicensefiles-Manualmergingofthelicensefiles"><a class="anchor" name="merge_manual" rel="nofollow"></a>Manual merging of the license files</h3>
+      <p><strong>Warning: Manual merging of the license files can destroy them, be cautious with this method, and always create a backup first.</strong></p>
+      <p>The reason of this warning is due to potential encoding problems some text editors may cause. The license files are distibuted in UTF-8 encoding, and this is specified in the license file itself. Some of the text editors are unable to save the license file with UTF-8 encoding, but they use a different encoding, e.g. UTF-16, however they do not change the UTF-8 specification in the license file.</p>
+      <p><em>For manual merging, Notepad, or other UTF-8 compliant text editor is suggested.</em><br />Encoding problems were experienced with WordPad.</p>
+      <p>Manual editing the license files is otherwise straightforward if you are familiar with XML files.</p>
+      <p><span style="color: rgb(51,51,51);">Structure of a license file:</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;!--PLEASE DO NOT MODIFY THIS FILE AND BE AWARE THAT THE FILE CONTAINS CONFIDENTIAL INFORMATION.--&gt;
+    &lt;ChemAxon&gt;
+        &lt;License&gt;
+        &lt;/License&gt;
+        &lt;License&gt;
+        &lt;/License&gt;
+    &lt;/ChemAxon&gt;
+</pre> 
+       </div>
+      </div>
+      <p>Copy whole&nbsp;<code>&lt;License&gt;</code>&nbsp;blocks from one license file, and paste them in another license file, inside the&nbsp;<code>&lt;ChemAxon&gt;</code>&nbsp;block.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

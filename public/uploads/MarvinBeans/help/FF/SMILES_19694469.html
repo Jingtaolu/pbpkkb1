@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : SMILES</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : SMILES </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>Marvin imports and exports SMILES strings with the following specification rules:</p>
+          <h2 id="SMILES-Atoms">Atoms</h2>
+          <ul>
+           <li>Atoms are represented by their atomic symbols.</li>
+           <li>Isotopic specifications are indicated by preceding the atomic symbol.</li>
+           <li>Any atom but not hydrogen is represented with '*'.</li>
+           <li>'[Z]' symbols are imported as R-group attachment points. The attachment orders are ascending with atom indexes. Exporting R-group attachment points is possible in <a href="19694483.html">ChemAxon Extended SMILES (CXSMILES)</a>.</li>
+           <li>Since radicals are not stored in SMILES format, they are calculated during SMILES import for atoms that tend to have radicals. It is done in the case when no implicit Hydrogens can be added because of the SMILES definition and the valence of the atom has to be corrected. E.g. for the SMILES string [Cl] no Hydrogens are allowed (because of the brackets), thus Chlorine is imported with a monovalent radical. No radicals are added to metals, for them a valence property is set if their valence differs from the usual. E.g. [AsH2] is imported with valence property 2 and two implicit Hydrogen atoms, since its usual valence would be different (it would be 3). <br /> No radicals are added to the following atoms:
+            <ul>
+             <li>Helium(He), Lithium(Li), Neon(Ne) and Sodium(Na)</li>
+             <li>All atoms above Chlorine(Cl) except Bromine(Br) and Iodine(I).</li>
+            </ul>Radicals are stored in<a href="19694483.html"> ChemAxon Extended SMILES (CXSMILES)</a> format, for cases when the radical would be lost is SMILES, please, use CXMSILES.</li>
+          </ul>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>smiles<br /></strong></p> 
+           </div>
+          </div>
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><strong>See also:</strong></p>
+            <ul>
+             <li><a href="SMARTS_19694471.html">SMARTS</a></li>
+             <li><a href="SMILES-and-SMARTS-import-and-export-options_19694473.html">SMILES and SMARTS import and export options</a></li>
+             <li><a href="CXSMILES-and-CXSMARTS-import-and-export-options_19694486.html">CXSMILES and CXSMARTS import and export options</a></li>
+            </ul> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="SMILES-Bonds">Bonds</h2>
+          <ul>
+           <li>Single, double, triple, and aromatic bonds are represented by the symbols -, =, #, and :, respectively.</li>
+           <li>Single and aromatic bonds may be omitted.</li>
+           <li>Branches are specified by enclosing them in parentheses. The implicit connection to a parenthesized expression (a branch) is to the left.</li>
+           <li>Cyclic structures are represented by breaking one single (or aromatic) bond in each ring and the missing bond is denoted by connection placeholder numbers</li>
+          </ul>
+          <h2 id="SMILES-Disconnectedstructures:">Disconnected structures:</h2>
+          <ul>
+           <li>Disconnected compounds are written as individual structures separated by a period.</li>
+          </ul>
+          <h2 id="SMILES-Isomericspecification">Isomeric specification</h2>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li>Configuration around double bonds is specified by &quot;directional bonds&quot;: / and \.</li>
+             <li>Configuration around tetrahedral centers may be indicated by a simplified chiral specification (<a href="#SMILES-parity">parity</a>) @ or @@.</li>
+            </ul></li>
+          </ul>
+          <h2 id="SMILES-Stereochemistry">Stereochemistry</h2>
+          <ul>
+           <li><span class="confluence-anchor-link" id="SMILES-parity"></span><a href="https://docs.chemaxon.com/display/SB/Parity">Parity</a> is a general type of chirality specification based on the local chirality.<br /><strong>Cis-trans isomerism</strong><br /> The default stereoisomers in small rings (size &lt; 8) are <em>cis</em>, which are not written explicitly. <br /> See import <a href="SMILES-and-SMARTS-import-and-export-options_19694473.html#SMILESandSMARTSimportandexportoptions-optionC">option <strong>c</strong></a> <a rel="nofollow"></a> to override this feature.</li>
+          </ul>
+          <h2 id="SMILES-Reactions">Reactions</h2>
+          <ul>
+           <li>syntax: <em>reactant(s)</em>&gt;<em>agent(s)</em>&gt;<em>product(s)</em>, where<br /><em>reactants</em> = <em>reactant1</em>&nbsp;.&nbsp;<em>reactant2</em>.<em>....</em><br /><em>agents</em> = <em>agent1</em>.<em>agent2</em>&nbsp;.&nbsp;<em>....</em><br /><em>products</em> = <em>product1</em>.<em>product2</em>&nbsp;.&nbsp;<em>...</em><br /><p><strong>Agents</strong> are molecular structures that do not take part in the chemical reaction, but are added to the reaction equation for informative purpose only.</p><p>All of the above sections are optional. For example:</p>
+            <ul>
+             <li>a reaction with no agents: <em>reactant(s)</em>&gt;&gt;<em>product(s)</em></li>
+             <li>a reaction with no agents and no products (mainly used in reaction search): <em>reactant(s)</em>&gt;&gt;</li>
+             <li>a reaction with no agents and no reactants (mainly used in reaction search): &gt;&gt;<em>product(s)</em></li>
+            </ul></li>
+           <li>atom maps</li>
+          </ul>
+          <h2 id="SMILES-UniqueSMILES">Unique SMILES</h2>
+          <p>The &quot;unique&quot; name can be sometimes misleading when dealing with compounds with stereo centres.</p>
+          <p><strong>Daylight's <a href="http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html" class="external-link" rel="nofollow"> SMILES specification</a> (3.1.SMILES Specification Rules)</strong> defines generic, unique, isomeric and absolute SMILES as:</p>
+          <ol>
+           <li><em>generic SMILES</em>: representing a molecule (there can be many different representations)</li>
+           <li><em>unique SMILES</em>: generated from generic SMILES by a certain algorithm <a href="#SMILES-reference">[1]</a>.</li>
+           <li><em>isomeric SMILES</em>: string with information about isotopism, configuration around double bonds and chirality</li>
+           <li><em>absolute SMILES</em>: unique SMILES with isomeric information - in Marvin during graph canonicalization the isomeric information is also considered as an atom invariant</li>
+          </ol>
+          <p>The name <em>canonical SMILES</em> is used for absolute or unique SMILES depending whether the string contains isomeric information or not (both strings are &quot;canonicalized&quot; where the atom/bond order is unambigous).</p>
+          <p><strong>Marvin</strong> generates always canonical SMILES with isomerism info if it is possible to find out from the input file. The molecule graph is always canonicalized using the algorithm in article <a rel="nofollow">[1]</a> but it is not guaranteed to give absolute SMILES for all isomeric structures. The unique SMILES generation (<a href="SMILES-and-SMARTS-import-and-export-options_19694473.html#SMILESandSMARTSimportandexportoptions-uniqueOption">option <strong>u</strong></a>) currently uses an approximation to make the SMILES string as <strong>absolute</strong> (unique for isomeric structures) as possible. In this case the form of any aromatic compound is aromatized before SMILES export. For correct exact (perfect) structure searching <a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/sss/search/MolSearch.html" class="external-link" rel="nofollow">MolSearch</a> and <a href="http://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/jchem/db/JChemSearch.html" class="external-link" rel="nofollow">JChemSearch</a> classes of <a href="https://docs.chemaxon.com/display/jchembase/Structure+Searching">JChem Base</a> or the <a href="https://docs.chemaxon.com/display/jchemcartridge/Cartridge+API">jc_equals</a> SQL operator of the <a href="https://docs.chemaxon.com/display/jchemcartridge/JChem+Cartridge+for+Oracle">JChem Cartridge</a> are suggested. <br /> The initial ranks of atoms for the canonicalization are calculated using the following atom invariants:</p>
+          <ol>
+           <li>number of connections</li>
+           <li>sum of non-H bond orders (single=1, double=2, triple=3, aromatic=1.5, any=0)</li>
+           <li>atomic number (list=110, any atom=112)</li>
+           <li>sign of charge: 0 for nonnegative, 1 for negative charge</li>
+           <li>formal charge</li>
+           <li>number of attached hydrogens</li>
+           <li>isotope mass number</li>
+          </ol>
+          <p>See ref. <a href="#SMILES-reference">[1]</a> for details.<br /> With <a href="SMILES-and-SMARTS-import-and-export-options_19694473.html#SMILESandSMARTSimportandexportoptions-uniqueOption">option <strong>u</strong></a> it is possible to include chirality into graph invariants. This option must be used with care since for molecules with numerous chirality centres the canonicalization can be very CPU demanding <a href="#SMILES-reference">[2]</a>.<br /> SMILES canonicalization <u>algorithm is not generic</u>, it depends on the software package, so it is most useful to compare SMILES strings within a software package.</p>
+          <h2 id="SMILES-NotsupportedSMILESfeatures:">Not supported SMILES features:</h2>
+          <ul>
+           <li>Branch specified if there is no atom to the left.</li>
+           <li>General chiral specification: Allene like, Square-planar, Trigonal-bipyramidal, Octahedral.</li>
+          </ul>
+          <h2 id="SMILES-referenceReference"><a class="anchor" name="references" rel="nofollow"></a><span class="confluence-anchor-link" id="SMILES-reference"></span>Reference</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd">[1]</td>
+              <td class="confluenceTd"><em>SMILES 2. Algorithm for Generation of Unique SMILES Notation</em>; D. Weininger, A. Weininger, J. L. Weininger; J. Chem. Inf. Comput. Sci. <strong>1989</strong>, 29, 97-101</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="chiralgrinv" rel="nofollow"></a>[2]</td>
+              <td class="confluenceTd"><a href="http://www.mdpi.org/molecules/papers/61100915/61100915.htm" class="external-link" rel="nofollow"> <em>A New Effective Algorithm for the Unambiguous Identification of the Stereochemical Characteristics of Compounds During Their Registration in Databases</em></a>; T. Cieplak and J.L. Wisniewski; Molecules <strong>2001</strong>, 6, 915-926</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p>™: SMILES, SMARTS, and SMIRKS are trademarks of Daylight Chemical Information Systems.</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

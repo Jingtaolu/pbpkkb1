@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Install and Uninstall</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Install and Uninstall </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h4 id="InstallandUninstall-Installation">Installation</h4>
+      <p>The OLE server is bundled in JChem_NET_API installer, when JChem_NET_API is installed it automatically register OLE server too. Administrator privileges are required for the installation since the installer writes the Windows registry. OLE server does not require the presence of Marvin Beans package. If it is not available it uses the .NET version of MarvinSketch (that is also part of the JChem_NET_API as the OLE server OLE server). If Marvin Beans package has been installed, OLE server prefers the Java based Marvin by editing OLE objects.</p>
+      <p>When you install Java based Marvin Beans package, the installer strores a reference in the Windows registry about the location of the MarvinSketch application. OLE server check this reference when try to look-up it.</p>
+      <p>The Marvin Beans installer also includes the JChem_NET_API.msi file and launch it automatically during the installation process. It means that you do not have to download or register any extra resources to setup OLE server since installer does it automatically.</p>
+      <p>If you do not use Marvin Beans installer but you need both Marvin and OLE server, you have to do the followings:</p>
+      <ul>
+       <li>Download marvinbeans-VERSION.zip and JChem_NET_API-VERSION.msi.</li>
+       <li>Unwrap the marvinbeans-VERSION.zip.</li>
+       <li>Launch the downloaded JChem_NET_API installer in administrator mode.</li>
+       <li>Run installole.bat in administrator mode with the following parameters from the <code>lib</code> folder of the Marvin Beans package to register the location of Marvin Beans package for the OLE server.<pre>installole.bat /c &quot;MARVINHOME\lib&quot; MARVIN_VERSION</pre>where MARVINHOME is the absolute path of target directory where Marvin has been installed to and MARVIN_VERSION is the version id of Marvin release. E.g.:<pre>installole.bat /c &quot;C:\Program Files\ChemAxon\MarvinBeans\lib&quot; 5.3.4</pre></li>
+      </ul>
+      <p>If installation has been successful, you will find OLE Server resource in the<br /> <code>C:\Program Files\ChemAxon\Shared\MarvinOLE</code> folder.</p>
+      <h4 id="InstallandUninstall-Uninstallation">Uninstallation</h4>
+      <p>When you uninstall JChem_NET_API, OLE server is also unregistered and the C:\Program Files\ChemAxon\Shared folder is also deleted (where OLE server resources was stored).</p>
+      <p>In this case, Marvin OLE support will not be available for Marvin.</p>
+      <p>When you uninstall Marvin Beans package, JChem_NET_API uninstaller is also invoked unless other products still keep reference to it.</p>
+      <p>Of course, uninstallation also requests administration privileges.</p>
+      <h4 id="InstallandUninstall-Administratorprivileges">Administrator privileges</h4>
+      <p><strong>Windows 2000/XP:</strong> Most users have got administrator privileges in default (unless the system administrator restricts it). If you have got full control on your machine (install anything freely), you have administrator rights. In this case, installer/uninstaller will run definitely with admin privileges.</p>
+      <p><strong>Windows Vista:</strong> Vista security policy is more strict than earlier Windows versions. If a user has got administrator rights, it does not mean that he can run everything with these privileges. In default, all programs run without extra rights. To run a program with administrator privileges, you have to select <strong>Run As Administrator</strong> by launching (right-click on the icon of the application and choose <code>Run As Administrator</code> option). After selecting this option, Vista will ask for confirmation to run the application with high privileges, click <strong>Allow</strong>. The application will run in admin mode.</p>
+      <p>Although ChemAxon installer/uninstaller does not require admin rights, it detects the highest running level and tries to run in administrator mode automatically (if it is possible). If the installer has got the proper rights, it does registration/unregistration of OLE server in the background during the (un)installation process.</p>
+      <div class="lenia">
+       &nbsp;
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

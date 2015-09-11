@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : pKa Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : pKa Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the p<em>K</em><sub>a &nbsp;</sub>Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200954542 {padding: 0px;}
+div.rbtoc1439200954542 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200954542 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200954542"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#pKaPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#pKaPlugin-Options">Options</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#pKaPlugin-GeneralOptions">General Options</a></li> 
+            <li><a href="#pKaPlugin-DisplayOptions">Display Options</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="pKaPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Most molecules contain some specific functional groups likely to lose or gain proton(s) under specific circumstances. Each equilibrium between the protonated and deprotonated forms of the molecule can be described with a constant value called p<em>K</em><sub>a</sub>.&nbsp;The&nbsp;p<em>K</em><sub>a &nbsp;</sub>Plugin&nbsp;calculates the p<em style="line-height: 1.4285715;">K</em><sub>a</sub>&nbsp;values of the molecule based on its partial charge distribution.&nbsp;</p>
+      <p>Calculation results are shown in a<a href="#pKaPlugin-fig.1"> result window</a> with the p<em>K</em><sub>a </sub>values displayed next to the corresponding functional group in a red &amp; blue representation. For the explanation about the&nbsp;red &amp; blue colour representation&nbsp;read&nbsp;<a href="13338394.html">this document</a>.&nbsp;When the&nbsp;<a href="#pKaPlugin-fig.3"><em>Show distribution chart</em>&nbsp;option</a> is enabled, the distribution of the major microspecies is also displayed in a separate chart.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="pKaPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="400" src="attachments/12583095/29099451.png" data-image-src="attachments/12583095/29099451.png" data-unresolved-comment-count="0" data-linked-resource-id="29099451" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKa_2small.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583095" data-linked-resource-container-version="83" /></span></p>
+      <p>Fig. 1&nbsp;p<em>K</em><sub>a&nbsp;</sub>Plugin window showing the calculated&nbsp;p<em>K</em><sub>a&nbsp;</sub>values and the logarithm of the microspecies distribution</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="pKaPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="400" src="attachments/12583095/29099452.png" data-image-src="attachments/12583095/29099452.png" data-unresolved-comment-count="0" data-linked-resource-id="29099452" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKa_small.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583095" data-linked-resource-container-version="83" /></span></p>
+      <p>Fig. 2&nbsp;p<em>K</em><sub>a&nbsp;</sub>Plugin winidow showing the calculated&nbsp;p<em>K</em><sub>a&nbsp;</sub>values with the microspecies distribution</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">On species distribution</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>If there are 8 or less ionizable atoms in the molecule, microspecies distribution is displayed on the chart. Otherwise macrospecies distribution is shown.&nbsp;Images of microspecies are displayed only on the microspecies distribution chart.On macrospecies distribution chart the formal charges of the macrospecies are shown.&nbsp;Hovering the mouse on one of the microspecies images, the corresponding coordinates appear on the chart curve.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h1 id="pKaPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <h2 id="pKaPlugin-GeneralOptions">General Options</h2>
+      <p>&nbsp;</p>
+      <p>The <em><a href="#pKaPlugin-fig.3">General&nbsp;Options</a></em>&nbsp;tab offers the following calculation options to set:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Mode:</strong>&nbsp;micro, macro: micro and macro acidic dissociation constants.&nbsp;<a href="https://docs.chemaxon.com/display/CALCPLUGS/pKa+calculation#pKacalculation-Multiproticmolecules" rel="nofollow">Read details here.</a></li>
+       <li><strong>Acid/base prefix:</strong>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>static:</strong>&nbsp;submitted ionic forms are converted to their neutral forms (adding or removing protons) and their p<em>K</em><sub>a</sub>&nbsp;is calculated.</li>
+         <li><strong>dynamic:</strong>&nbsp;the p<em>K</em><sub>a</sub>&nbsp;of ionic forms are calculated, not their conjugated acids or bases.</li>
+        </ul></li>
+       <li><strong>Min basic p<em>K</em><sub>a</sub>:</strong>&nbsp;widens the calculation range because weak bases will have lower p<em>K</em><sub>a</sub>&nbsp;values than the default -10.</li>
+       <li><strong>Max acidic p<em>K</em><sub>a</sub>:</strong>&nbsp;widens the calculation range because weak acids will have higher p<em>K</em><sub>a</sub>&nbsp;values than the default 20.</li>
+       <li><strong>Temperature:</strong>&nbsp;setting the temperature in Kelvin.</li>
+       <li><strong>Correction library</strong>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Use correction library:</strong>&nbsp;check this box to use a file with experimental data for the calculation. See the&nbsp;<a href="Training-the-pKa-Plugin_13338106.html">detailed guide for training data setup.</a></li>
+        </ul></li>
+       <li><strong><a href="#pKaPlugin-considertau">Consider tautomerization</a>:</strong>&nbsp;checking this option, the most feasible tautomer and resonance structures are considered as subject of the pKa calculation.</li>
+       <li><strong>Show distribution chart:</strong>&nbsp;checking this box, you will have microspecies/macrospecies distribution as function of pH calculated and displayed. Go to&nbsp;<em>Display Options</em> tab&nbsp;for further settings of the distribution chart. Unchecking this box, only the p<em>K</em><sub>a</sub>&nbsp;of the drawn molecule will be calculated.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="pKaPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583095/29099453.png" data-image-src="attachments/12583095/29099453.png" data-unresolved-comment-count="0" data-linked-resource-id="29099453" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKaoptions.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583095" data-linked-resource-container-version="83" /></span></p>
+      <p>Fig. 3 General Options tab in the&nbsp;p<em>K</em><sub>a&nbsp;</sub>Options window</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="pKaPlugin-considertau"></span></p>
+      <p>Calculating with the option&nbsp;<em>Consider tautomerization/resonance</em>&nbsp;gives the same p<em>K</em><sub>a&nbsp;</sub>values for different tautomers.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="pKaPlugin-fig.4"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583095/29099454.png" data-image-src="attachments/12583095/29099454.png" data-unresolved-comment-count="0" data-linked-resource-id="29099454" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="majortautomer_pka.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583095" data-linked-resource-container-version="83" /></span></p>
+      <p>Fig. 4 Calculation results from different tautomers shows that using the Consider tautomerization/resonance option gives the same&nbsp;p<em>K</em><sub>a&nbsp;</sub>values for&nbsp;different tautomers</p>
+      <p>&nbsp;</p>
+      <h2 id="pKaPlugin-DisplayOptions">Display Options</h2>
+      <p>&nbsp;</p>
+      <p>The<a href="#pKaPlugin-fig.5"> Display Options</a> tab&nbsp;offers the following display options to set:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:</strong>&nbsp;setting the number of decimal places for the result.</li>
+       <li><strong>Distribution chart:</strong>&nbsp;you can set the range of displaying the microspecies distribution diagram.
+        <ul style="margin-left: 20.0px;">
+         <li><strong>pH lower limit</strong></li>
+         <li><strong>pH upper limit</strong></li>
+         <li><strong>pH step size</strong></li>
+        </ul></li>
+       <li><strong>Show log[%] - pH distribution:</strong>&nbsp;if checked, the common logarithm of microspecies/macrospecies distribution is calculated and displayed as a function of pH.
+        <ul style="margin-left: 20.0px;">
+         <li><strong>log[%] - pH distribution lower limit:</strong>&nbsp;you can set the lower value of the Y axis ranging from -35 to zero.<br /><br /></li>
+        </ul></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="pKaPlugin-fig.5"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583095/29099455.png" data-image-src="attachments/12583095/29099455.png" data-unresolved-comment-count="0" data-linked-resource-id="29099455" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKaoptions2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583095" data-linked-resource-container-version="83" /></span></p>
+      <p>Fig. 5 Display Options in the&nbsp;p<em>K</em><sub>a&nbsp;</sub>Options window</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

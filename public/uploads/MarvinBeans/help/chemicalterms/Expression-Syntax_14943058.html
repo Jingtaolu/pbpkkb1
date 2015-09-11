@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Expression Syntax</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Expression Syntax </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Expression strings consist of an arbitrary number of <strong>initial&nbsp;assignments</strong>&nbsp;followed by a <strong>last subexpression</strong> that provides the evaluation result.</p>
+      <p>An&nbsp;<a name="assignment" rel="nofollow"></a>assignment&nbsp;sets a variable to the evaluation result of a subexpression. This variable can later be used to reference this result.&nbsp;The assignment syntax is:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">&lt;identifier&gt; = &lt;subexpression&gt;;</pre> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Note the ending ';' character.
+       </div> 
+      </div> 
+      <h1 id="ExpressionSyntax-Examplesforassignments"><br />Examples for assignments<br /><br /></h1>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">x = 2;
+y = x + 8;
+z = f(x,y) + g(x,y);</pre> 
+       </div>
+      </div>
+      <p><span style="color: rgb(54,54,54);">where&nbsp;</span><code>f</code><span style="color: rgb(54,54,54);">&nbsp;and&nbsp;</span><code>g</code><span style="color: rgb(54,54,54);">&nbsp;are&nbsp;</span>predefined functions<span style="color: rgb(54,54,54);">.</span></p>
+      <p>An expression is an optional sequence of assignments followed by a subexpression providing the evaluation result:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">&lt;identifier1&gt; = &lt;subexpression1&gt;;
+&lt;identifier2&gt; = &lt;subexpression2&gt;;
+...
+&lt;identifierN&gt; = &lt;subexpressionN&gt;;
+&lt;result subexpression&gt;</pre> 
+       </div>
+      </div>
+      <p><span style="color: rgb(54,54,54);">where&nbsp;</span><code style="line-height: 1.4285715;">N</code><span style="color: rgb(54,54,54);">&nbsp;can also be zero in which case the expression coincides with the result subexpression.</span></p>
+      <p>Here is an example with assignments:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">a = f(2,3);
+b = g(4,5);
+x = a + b;
+x*x</pre> 
+       </div>
+      </div>
+      <p><span style="line-height: 1.4285715;">Here is the same without assignments:</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">(f(2,3) + g(4,5))*(f(2,3) + g(4,5))</pre> 
+       </div>
+      </div>
+      <p><span style="line-height: 1.4285715;">Assignments increase efficiency if the same evaluation result is used more than once since inline repetition of a subexpression results in multiple evaluation. Assignments can also be used to increase readability. However, in most cases, when the expression is simple, assignments are not needed. Note, that whitespace characters (new-line, tab, space) are skipped when parsing the expression string, so whitespace characters can be freely used for increasing readability.</span></p>
+      <p>The following examples demonstrate the expression syntax with very simple subexpressions.&nbsp;</p>
+      <h1 id="ExpressionSyntax-Furtherexamples"><span style="color: rgb(54,54,54);"><br />Further examples&nbsp;<br /><br /></span></h1>
+      <ol style="margin-left: 20.0px;">
+       <li><p>A simple expression:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">3+2</pre> 
+         </div>
+        </div></li>
+       <li><p>Using assignments:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">x = 2;
+y = 3;
+x + y</pre> 
+         </div>
+        </div></li>
+       <li><p>A more complicated one:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">x = 2;
+y = 3;
+z = 8*(x + y);
+t = 6*x*y;
+z + t</pre> 
+         </div>
+        </div></li>
+       <li><p>When the same value is used more than once:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">x = (3 + 4)*8 + 16;
+y = 3*x;
+z = x + 20;
+5*(y + 8) + 4*z</pre> 
+         </div>
+        </div><p>Examples with chemical meaning are shown later for&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/Evaluator+and+JChem+Cartridge+Examples#EvaluatorandJChemCartridgeExamples-matching_conditions" rel="nofollow">matching conditions</a>,&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/Evaluator+and+JChem+Cartridge+Examples#EvaluatorandJChemCartridgeExamples-structure_based_calculations" rel="nofollow">chemical calculations</a>&nbsp;and&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/Evaluator+and+JChem+Cartridge+Examples#EvaluatorandJChemCartridgeExamples-functions" rel="nofollow">chemical and general purpose functions</a>.</p><p>&nbsp;</p></li>
+      </ol> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

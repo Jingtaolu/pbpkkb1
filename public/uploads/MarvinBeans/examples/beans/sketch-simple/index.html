@@ -1,0 +1,94 @@
+<html>
+<head>
+<script type="text/javascript" src="../../sh_main.js"></script>
+<script type="text/javascript" src="../../sh_java.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+
+<title>MarvinSketch Simple Bean Example</title>
+</head>
+<body onload="sh_highlightDocument();">
+<h1>MarvinSketch Simple Bean Example</h1>
+
+<p>In this example MarvinSketch is used as a JavaBean component. The actual JavaBean
+class is called <a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html">MSketchPane</a>.
+</p>
+<p>The main goal of the example is to show how to create and embed the MarvinSketch
+bean in a JPanel with some additional functionalities such as getting and setting molecules.</p>
+
+<p>A GUI component is created in the example which consists of three major parts:</p>
+<ul>
+    <li>a MarvinSketch bean,</li>
+    <li>a text area representing the molecule contained by the bean as String (e.g. Smiles),</li>
+    <li>and some additional components to synchronize the content of the bean with
+the text area.</li>
+</ul>
+<p>The String representation of the molecule is called the <em>source of
+the molecule</em> or simply <em>source</em>.</p>
+
+<p>The image below shows the component that is created:</p>
+<img src="beans.png" width="837" height="512">
+
+<p>There are two major operations, <em>export</em> and <em>import</em>. When the Export button is pressed,
+the source of the current molecule will be set in the text area.
+The format of the molecule source is determined by the state of a format chooser combo box.
+Pressing the import button makes the bean read a molecule by converting the string
+content of the text area to a molecule.</p>
+
+<p>The component has 3 working modes:</p>
+<ol>
+<li>The Auto-Exporter mode automatically exports the molecule on every molecule modification.
+The source of the molecule is continuously updated upon sketching the molecule.
+This is solved by using a property change listener, because the MarvinSketch bean
+fires a property change event every time the molecule is changed.</li>
+<li>The Auto-Import mode updates the molecule when the text is changed in the text
+area using a document change listener.
+Note, that in case the text area contains an invalid molecule string,
+an error message appears. This can be prevented for example by adding a Timer
+to the text area so that the molecule is refreshed only when typing is complete.
+We do not intend to use this mechanism in this example.</li>
+<li>In the Manual mode no auto-synchronization is performed.</li>
+</ol>
+
+<p>The following paragraphs demonstrate the major parts of the <a href="SketchSimple.java.html">
+<code>SketchSimple.java</code></a> code.</p> 
+
+<h4>Creating the JavaBean</h4>
+Creating the JavaBean component is very easy. With a single line of code it
+is ready and can simply added to any Swing container.
+<pre class="sh_java"><strong>   sketchPane = new <a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html#MSketchPane()">MSketchPane()</a>;
+</strong></pre>
+The complexity rises at using the parameters of the bean since there are many of them.
+The following examples will show the ones that are the most frequently used.
+
+<h4>Getting the source of the current molecule</h4>
+The following method exports the current molecule being visible on the MarvinSketch
+canvas in the desired format.
+<pre class="sh_java">
+    String molS = <strong>sketchPane.<a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html#getMol(java.lang.String)">getMol</a>(</strong>format<strong>);</strong>
+</pre>
+
+<h4>Setting the current molecule from source</h4>
+The content of the MarvinSketch canvas can be changed by setting a molecule.
+This replaces the current molecule by discarding it, and it can only be retrieved 
+using the Undo command. If the format is not set explicitly, MSketchPane
+automatically detects the format of the molecule being set in the String representation.
+<pre class="sh_java">
+    <strong>sketchPane.<a href="../../../help/developer/beans/api/chemaxon/marvin/beans/MSketchPane.html#setMol(java.lang.String)">setMol</a>(</strong>molS<strong>);</strong>
+</pre>
+
+<h4>Adding a property change listener to follow molecule changes</h4>
+<p>The MarvinSketch bean fires a <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/beans/PropertyChangeEvent.html"><code>java.beans.PropertyChangeEvent</code></a>
+every time the molecule is modified or replaced, which can be handled by using a <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/beans/PropertyChangeListener.html"><code>java.beans.PropertyChangeListener</code></a>.</p>
+<pre class="sh_java">
+    <strong>sketchPane.addPropertyChangeListener(<a href="../../../help/developer/sketchman.html#propchanges.mol">"mol"</a>, new PropertyChangeListener()</strong> {
+        public void propertyChange(PropertyChangeEvent evt) {
+            if(behavior == EXPORTER) {
+                exportActionPerformed();
+            }
+        }
+    });
+</pre>
+
+</body>
+</html>

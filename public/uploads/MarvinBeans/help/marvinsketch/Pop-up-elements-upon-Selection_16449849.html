@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Pop-up elements upon Selection</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Pop-up elements upon Selection </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">
+           <div class="tablesorter-header-inner">
+            Menu Item
+           </div></th>
+          <th class="confluenceTh">
+           <div class="tablesorter-header-inner">
+            Description
+           </div></th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Add/Remove Explicit Hydrogens</td>
+          <td class="confluenceTd">Switches explicit H atoms to implicit ones and vica versa. Explicit hydrogens are displayed with atoms joining its neighbor while implicit hydrogens are displayed by atom symbols only.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Add/Remove Map Atoms</td>
+          <td class="confluenceTd">Adding atom maps is an automatic assignment of map numbers to all selected atoms of a reaction by using the automapper tool.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Add/Remove Data</td>
+          <td class="confluenceTd">Attach/Remove data like stoichiometry coefficient to the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Add/Remove Absolute Stereo (CHIRAL)</td>
+          <td class="confluenceTd">Sets/Removes chiral flag for the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Add Multi-Center</td>
+          <td class="confluenceTd">Add a multi-center attachment point representing a group of atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Add Position Variation Bond</td>
+          <td class="confluenceTd">Create a variable point of attachment to represent a connection point to a group of atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Link Node</td>
+          <td class="confluenceTd">Specifies query structures containing rings or chains of variable size.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">R-Logic</td>
+          <td class="confluenceTd">Allows setting additional R-group conditions such as occurrence, rest H and if-then expressions to R-groups in the R-logic dialog.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p><a href="Edit-Menu-MS_16122201.html">Transformation</a> &gt; Drag Selection</p></td>
+          <td class="confluenceTd"><p>The selected part of the molecule can be moved by dragging the mark box with your mouse or with the proper arrow keys.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Transformation &gt; Rotate in 2D</p></td>
+          <td class="confluenceTd">The selection can be rotated in the plane of the canvas with changing coordinates.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Transformation &gt; <a href="Edit-Menu-MS_16122201.html">Rotate in 3D</a></p></td>
+          <td class="confluenceTd">The selected part of the molecule will be rotated according to the chosen rotation mode.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Transformation &gt; Switch Transformation (space)</p></td>
+          <td class="confluenceTd">You can switch between dragging or 3D rotating the selected molecular parts by hitting the space bar.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Transformation &gt; Flip</p></td>
+          <td class="confluenceTd"><p>Flips the structure on the canvas. The submenu allows you to choose horizontally or vertically.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Transformation &gt; Mirror</p></td>
+          <td class="confluenceTd"><p>Flips the object horizontally, inverting tetrahedral stereochemistry. The submenu allows you to choose horizontally or vertically.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Transformation &gt; Invert</p></td>
+          <td class="confluenceTd">Reflects the selected fragment(s) through the geometric or arbitrary center.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Format</p></td>
+          <td class="confluenceTd"><p>Change atom and bond drawing properties.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Add To My Templates</p></td>
+          <td class="confluenceTd"><p>Adds the selected structure to the <strong>My Templates</strong> group located in the <strong>Template Library</strong> and on the <strong>Advanced Templates Toolbar</strong>.</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Atom Label Editor</td>
+          <td colspan="1" class="confluenceTd">Allows changing the atom label on the canvas. Atom labe&nbsp; properties can be on the appearing toolbar.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

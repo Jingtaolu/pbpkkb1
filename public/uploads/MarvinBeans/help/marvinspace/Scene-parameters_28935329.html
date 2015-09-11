@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Scene parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Scene parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Possible values</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Quality</code></td>
+          <td class="confluenceTd">Rendering quality of the components</td>
+          <td class="confluenceTd"><code>&quot;High&quot;, &quot;Medium&quot;, &quot;Low&quot;</code></td>
+          <td class="confluenceTd"><code>Medium</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Background.Color</code></td>
+          <td class="confluenceTd">Color of the scene, the same color applies to all cells</td>
+          <td class="confluenceTd"><code>java.awt.Color</code>&nbsp;value as<code>String</code></td>
+          <td class="confluenceTd"><code>#000000</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Background.Transparent</code></td>
+          <td class="confluenceTd">Transparent background affects image saving, i.e. save image with or without background color</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Background.Smooth</code></td>
+          <td class="confluenceTd">Smooth backgound means that the background color will be a linearly interpolated to a brighter color</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Depthcue</code></td>
+          <td class="confluenceTd">Enable/disable depth cue (fog) effect</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Depthcue.Near</code></td>
+          <td class="confluenceTd">Start position of fog relative to the view point</td>
+          <td class="confluenceTd"><code>Integer</code>&nbsp;value as&nbsp;<code>String</code></td>
+          <td class="confluenceTd"><code>0</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Depthcue.Far</code></td>
+          <td class="confluenceTd">End position of fog relative to the view point</td>
+          <td class="confluenceTd"><code>Integer</code>&nbsp;value as&nbsp;<code>String</code></td>
+          <td class="confluenceTd"><code>40</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Clipping.Near</code></td>
+          <td class="confluenceTd">Position of the near clipping plane</td>
+          <td class="confluenceTd"><code>Float</code>&nbsp;value as&nbsp;<code>String</code></td>
+          <td class="confluenceTd"><code>-59.9</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>Clipping.Far</code></td>
+          <td class="confluenceTd">Position of the far clipping plane</td>
+          <td class="confluenceTd"><code>Float</code>&nbsp;value as&nbsp;<code>String</code></td>
+          <td class="confluenceTd"><code>450</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SynchronousMode</code></td>
+          <td class="confluenceTd">Synchronous navigation (rotate, zoom, shift) in all cells</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><p><code>false</code></p><p>&nbsp;</p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

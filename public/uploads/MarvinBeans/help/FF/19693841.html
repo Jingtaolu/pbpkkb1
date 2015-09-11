@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : MDL MOLfiles, RGfiles, SDfiles, Rxnfiles, RDfiles formats</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : MDL MOLfiles, RGfiles, SDfiles, Rxnfiles, RDfiles formats </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar"> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><strong>On this page:</strong></p>
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200974401 {padding: 0px;}
+div.rbtoc1439200974401 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200974401 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439200974401"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-molMOLV2000files">MOL V2000 files</a></li> 
+              <li><a href="#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-ExtendedMOLfiles(V3000)">Extended MOLfiles (V3000)</a></li> 
+              <li><a href="#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rxnReactionfiles(V2000)">Reaction files (V2000)</a></li> 
+              <li><a href="#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-Extendedreactionfiles(V3000)">Extended reaction files (V3000)</a></li> 
+              <li><a href="#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-sdfSDFiles">SD Files</a></li> 
+              <li><a href="#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rgfRGFiles">RG Files</a></li> 
+             </ul> 
+            </div>
+            <p></p>
+            <p><strong>See also</strong>:</p>
+            <ul>
+             <li><a href="Chemaxon-specific-information-in-MDL-MOL-files_19693843.html">Chemaxon specific information in MDL MOL files</a></li>
+             <li><a href="MOL-file-compression_16450008.html">MOL file compression</a></li>
+             <li><a href="MDL-MOL-Import-and-Export-Options_19693845.html">MDL MOL Import and Export Options</a></li>
+            </ul> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h1 id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-molMOLV2000files"><span class="confluence-anchor-link" id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-mol"></span>MOL V2000 files</h1>
+          <div class="sectionColumnWrapper">
+           <div class="sectionMacro">
+            <div class="sectionMacroRow">
+             <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+              <ul>
+               <li><em>Atom block:</em>
+                <ul>
+                 <li>x, y, z coordinates</li>
+                 <li>atom type:
+                  <ul>
+                   <li><sub>1</sub>H, <sub>2</sub>He, <sub>3</sub>Li, ..., <sub>103</sub>Lr,</li>
+                   <li>atom list and exclusive list L,</li>
+                   <li>&quot;any&quot; atoms A, Q, *,</li>
+                   <li>lonely pair LP</li>
+                   <li>R-Group, R or R<em>N</em>, where <em>N</em> &gt; 0 integer. Before version 5.9, R, without number, was written as R#</li>
+                  </ul></li>
+                 <li>charge</li>
+                 <li>stereo care box</li>
+                 <li>valence</li>
+                 <li>atom-atom mapping (for reactions)</li>
+                 <li>inversion/retention flag (for reactions)</li>
+                </ul></li>
+              </ul>
+             </div>
+             <div class="columnMacro" style="width:30%;min-width:30%;max-width:30%;">
+              <div class="panel" style="border-width: 1px;">
+               <div class="panelContent"> 
+                <p><em>Codename:</em> <strong>mol</strong></p>
+                <p><em>Extension:</em> <strong>.mol</strong></p> 
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          <ul>
+           <li><em>Bond block:</em>
+            <ul>
+             <li>bond type: 1, 2, 3, aromatic, &quot;any&quot;, &quot;single or double&quot;, &quot;single or aromatic&quot;, &quot;double or aromatic&quot; or &quot;hydrogen&quot;</li>
+             <li>bond stereo information: up or down</li>
+             <li>bond topology: ring or chain</li>
+            </ul></li>
+           <li><em>Properties block:</em>
+            <ul>
+             <li><code>M ALS</code> - atom list and exclusive list</li>
+             <li><code>M APO</code> - Rgroup attachment point</li>
+             <li><code>M CHG</code> - charge</li>
+             <li><code>M RAD</code> - radical</li>
+             <li><code>M ISO</code> - isotope mass numbers</li>
+             <li><code>M RGP</code> - Rgroup labels on root structure</li>
+             <li><code>M LOG</code> - Rgroup logic</li>
+             <li><code>M LIN</code> - link nodes</li>
+             <li><code>M SUB</code> - substitution count query property (s)</li>
+             <li><code>M UNS</code> - unsaturated atom query property (u)</li>
+             <li><code>M RBC</code> - ring bond count query property (rb)</li>
+             <li><code>M STY</code> - Sgroup type</li>
+             <li><code>M SST</code> - Sgroup subtype</li>
+             <li><code>M SCN</code> - Sgroup connectivity (head-to-head, head-to-tail or either/unknown)</li>
+             <li><code>M SAL</code> - atoms that define the Sgroup</li>
+             <li><code>M SPA</code> - multiple group parent atom list (paradigmatic repeating unit atoms)</li>
+             <li><code>M SBL</code> - Sgroup's crossing bonds</li>
+             <li><code>M SMT</code> - Sgroup label</li>
+             <li><code>M SPL</code> - Sgroup parent list</li>
+             <li><code>M SDS EXP</code> - Sgroup expansion</li>
+             <li><code>M SDT</code> - Data sgroup field description</li>
+             <li><code>M SDD</code> - Data sgroup display information</li>
+             <li><code>M SCD</code> - Data sgroup data</li>
+             <li><code>M SED</code> - Data sgroup data end of line</li>
+             <li><code>M SNC</code> - Sgroup component numbers</li>
+             <li><code>M CRS</code> - Sgroup correspondence</li>
+             <li><code>M SDI</code> - display coordinates in each S-group bracket</li>
+             <li><code>M SBT</code> - the displayed S-group bracket style</li>
+             <li><code>M SAP</code> - the S-group attachment point information</li>
+             <li><code>M MRV SMA</code> - SMARTS H, X, R, r, a, A properties (Marvin extension)</li>
+             <li><code>A </code> - Atom alias</li>
+             <li><code>V </code> - Atom value</li>
+            </ul></li>
+          </ul>
+          <h1 id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-ExtendedMOLfiles(V3000)"><a class="text" name="molV3" rel="nofollow"></a>Extended MOLfiles (V3000)</h1>
+          <div class="sectionColumnWrapper">
+           <div class="sectionMacro">
+            <div class="sectionMacroRow">
+             <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+              <p>If the number of atoms or bonds exceeds 999, in case of reactions with Rgroups or when there is enhanced stereo in the molecule&nbsp;the extended format is used. In an extended MOLfile, the following properties and features are supported:</p>
+              <ul>
+               <li><em>Atom block:</em>
+                <ul>
+                 <li>x, y, z coordinates</li>
+                 <li>atom type:
+                  <ul>
+                   <li><sub>1</sub>H, <sub>2</sub>He, <sub>3</sub>Li, ..., <sub>103</sub>Lr,</li>
+                   <li>&quot;any&quot; atoms A, Q, *,</li>
+                   <li>lonely pair LP</li>
+                  </ul></li>
+                 <li>atom-atom mapping (for reactions)</li>
+                 <li>inversion/retention flag (INVRET)</li>
+                 <li><code>CHG</code> - charge</li>
+                 <li><code>RAD</code> - radical</li>
+                 <li><code>CFG</code> - parity</li>
+                 <li><code>VAL</code> - valence</li>
+                 <li><code>MASS</code> - isotope mass number</li>
+                 <li><code>HCOUNT</code> - number of implicit hydrogens</li>
+                 <li><code>STBOX</code> - stereo care box</li>
+                 <li><code>INVRET</code> - inversion/retention flag</li>
+                 <li><code>ATTCHPT</code> - R-group attachment point</li>
+                 <li><code>RGROUPS</code> - R-groups that comprise this R# atom</li>
+                 <li><code>SUBST</code> - Substitution count query property (s)</li>
+                 <li><code>UNSAT</code> - Unsaturated atom query property (u)</li>
+                 <li><code>RBCNT</code> - Ring bond count query property<br /> <strong>Restriction:</strong> only one R-group can comprise an atom in Marvin</li>
+                </ul></li>
+              </ul>
+             </div>
+             <div class="columnMacro" style="width:30%;min-width:30%;max-width:30%;">
+              <div class="panel" style="border-width: 1px;">
+               <div class="panelContent"> 
+                <p><em>Codename:</em> <strong>mol:V3</strong></p>
+                <p><em>Extension:</em> <strong>.mol</strong></p> 
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          <ul>
+           <li><em>Bond block:</em>
+            <ul>
+             <li>bond type: 1, 2, 3, aromatic, &quot;any&quot;, &quot;single or double&quot;, &quot;single or aromatic&quot;, &quot;double or aromatic&quot;</li>
+             <li><code>CFG</code> - bond stereo configuration: up or down</li>
+             <li><code>TOPO</code> - bond topology: ring or chain</li>
+             <li><code>STBOX</code> - stereo care box</li>
+            </ul></li>
+           <li><code>LINKNODE</code> - Link nodes.</li>
+           <li class="confluence-link"><em>Sgroup block:</em>
+            <ul>
+             <li><code>ATOMS</code> - atoms that define the Sgroup</li>
+             <li><code>PATOMS</code> - multiple group parent atom list (paradigmatic repeating unit atoms)</li>
+             <li><code>XBONDS</code> - crossing bonds</li>
+             <li><code>MULT</code> - multiple group multiplier</li>
+             <li><code>CONNECT</code> - connectivity (head-to-head, head-to-tail or either/unknown)</li>
+             <li><code>LABEL</code> - display label</li>
+             <li><code>PARENT</code> - parent Sgroup</li>
+             <li><code>ESTATE</code> - expanded state</li>
+             <li><code>FIELDNAME</code> - data Sgroup field name</li>
+             <li><code>FIELDINFO</code> - data Sgroup field information (type and units)</li>
+             <li><code>FIELDDISP</code> - data Sgroup field display information</li>
+             <li><code>QUERYTYPE</code> - data Sgroup program query code</li>
+             <li><code>QUERYOP</code> - data Sgroup query operator</li>
+             <li><code>FIELDDATA</code> - data Sgroup field value</li>
+             <li><code>BRKXYZ</code> - display coordinates in each S-group bracket</li>
+             <li><code>BRKTYP</code> - the displayed S-group bracket style</li>
+             <li><code>COMPNO</code> - Sgroup component numbers</li>
+             <li><code>CBONDS</code> - Sgroup's crossing bonds</li>
+             <li><code>XBHEAD, XBCORR</code> - Sgroup correspondence</li>
+             <li><code>SUBTYPE</code> - Sgroup subtype</li>
+             <li><code>CLASS</code> - Sgroup class; AA: amino acid</li>
+             <li><code>CSTATE</code> - Sgroup contracted state</li>
+             <li><code>ESTATE</code> - Sgroup expanded state</li>
+             <li><code>SAP</code> - the S-group attachment point information</li>
+            </ul><em>Collection block:</em><br /> <a href="https://docs.chemaxon.com/display/SB/Stereochemistry#Stereochemistry-enhancedStereo">Enhanced stereo </a>features, see also the <a href="MDL-MOL-Import-and-Export-Options_19693845.html#MDLMOLImportandExportOptions-ec"><span class="confluence-link">V3ec</span></a> and <span class="confluence-link">&nbsp;</span><a href="MDL-MOL-Import-and-Export-Options_19693845.html#MDLMOLImportandExportOptions-ea"><span class="confluence-link">V3ea</span> </a> export options.
+            <ul>
+             <li><code>MDLV30/STEABS</code> - ABSOLUTE stereochemical group</li>
+             <li><code>MDLV30/STEREL</code> - OR stereochemical group</li>
+             <li><code>MDLV30/STERAC</code> - AND stereochemical group</li>
+            </ul>Atom highlighting.
+            <ul>
+             <li><code>MDLV30/HILITE</code> - Highlighted atoms and bonds, currently as represented as atom/bond set 1. (This feature is experimental and import only!)</li>
+            </ul></li>
+           <li><em>Rgroup blocks</em> with <code>RLOGIC</code> entries</li>
+           <li><em>Template block</em> (import only)</li>
+          </ul>
+          <h1 id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rxnReactionfiles(V2000)"><a class="text" name="rxnV2" rel="nofollow"></a><span class="confluence-anchor-link" id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rxn"></span>Reaction files (V2000)</h1>
+          <div class="sectionColumnWrapper">
+           <div class="sectionMacro">
+            <div class="sectionMacroRow">
+             <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+              <p>A reaction file consists of a REACTANT block, a PRODUCT block, and (optionally) an AGENT block. Reaction files containing reaction agents are non-standard.</p>
+              <p>Each block starts with 'Molecule or Reaction Identifier'. The form of a molecule identifier must be one of the following:</p>
+             </div>
+             <div class="columnMacro" style="width:30%;min-width:30%;max-width:30%;">
+              <div class="panel" style="border-width: 1px;">
+               <div class="panelContent"> 
+                <p><em>Codename:</em> <strong>rxn</strong></p>
+                <p><em>Extension:</em> <strong>.rxn</strong></p> 
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          <pre>$MFMT $MIREG <em>N</em>
+$MFMT $MEREG <em>N</em>
+$MIREG <em>N</em>
+$MEREG <em>N</em>.
+</pre>
+          <p>Here <code>$MFMT</code> means that a molecule is given in a molfile format, <code>$MIREG <em>N</em></code> is the internal and <code>$MEREG <em>N</em></code> is the external registry number of the molecule. Similarly, the identifier has the following form,</p>
+          <pre>$RFMT $RIREG <em>N</em>
+$RFMT $REREG <em>N</em>
+$RIREG <em>N</em>
+$REREG <em>N</em>.
+</pre>
+          <p>Here <code>$RFMT</code> means that a reaction is given in a rxnfile format, <code>$RIREG <em>N</em></code> is internal and <code>$REREG <em>N</em></code> is the external registry number of the reaction.</p>
+          <p>A <strong>reaction agent</strong> is a molecule structure that does not take part in the chemical reaction, but is added to the reaction equation for informative purpose only. Agents are normally displayed graphically above the reaction arrow, added to the reaction file after the reactants and the products. The number of agents is displayed in the file header (after the number of reactants and the number of products) if it is non-zero. Reaction files containing agents are non-standard.</p>
+          <h1 id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-Extendedreactionfiles(V3000)"><a class="text" name="rxnV3" rel="nofollow"></a>Extended reaction files (V3000)</h1>
+          <div class="sectionColumnWrapper">
+           <div class="sectionMacro">
+            <div class="sectionMacroRow">
+             <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+              This format is used automatically if a reaction includes Rgroups and/or the number of atoms or bonds exceeds 999. An extended reaction file consists of a REACTANT block, a PRODUCT block, (optionally) an AGENT block, and (optionally) RGROUP blocks.
+             </div>
+             <div class="columnMacro" style="width:30%;min-width:30%;max-width:30%;">
+              <div class="panel" style="border-width: 1px;">
+               <div class="panelContent"> 
+                <p><em>Codename:</em> <strong>rxn:V3</strong></p>
+                <p><em>Extension:</em> <strong>.rxn</strong></p> 
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          <h1 id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-sdfSDFiles"><span class="confluence-anchor-link" id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-sdf"></span>SD Files</h1>
+          <div class="sectionColumnWrapper">
+           <div class="sectionMacro">
+            <div class="sectionMacroRow">
+             <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+              <p>In SDfiles read by marvin, the <em>name</em> field is special, it overrides the molecule name specified in the molfile part.</p>
+              <p><em><strong>Incompatibility note:</strong></em>&nbsp; The MDL definition declares the maximal line length for molecule properties in 200 characters. We ignore this limit.</p>
+             </div>
+             <div class="columnMacro" style="width:30%;min-width:30%;max-width:30%;">
+              <div class="panel" style="border-width: 1px;">
+               <div class="panelContent"> 
+                <p><em>Codename:</em> <strong>.sdf</strong></p>
+                <p><em>Extension:</em> <strong>.sdf</strong></p> 
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          <h1 id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rgfRGFiles"><span class="confluence-anchor-link" id="MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rgf"></span>RG Files</h1>
+          <div class="sectionColumnWrapper">
+           <div class="sectionMacro">
+            <div class="sectionMacroRow">
+             <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+              <p>A special feature of Marvin RGfiles is that they can contain a reaction as the root structure. This feature is non-standard, such mixed RG/Rxnfiles can only be imported by Marvin.</p>
+             </div>
+             <div class="columnMacro" style="width:30%;min-width:30%;max-width:30%;">
+              <div class="panel" style="border-width: 1px;">
+               <div class="panelContent"> 
+                <p><em>Codename:</em> <strong>rgf</strong></p>
+                <p><em>Extension:</em> <strong>.rgf</strong></p> 
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

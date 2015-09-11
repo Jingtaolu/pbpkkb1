@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Naming : Naming Developer's Guide</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Naming : Naming Developer's Guide </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201005710 {padding: 0px;}
+div.rbtoc1439201005710 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201005710 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+      <div class="toc-macro rbtoc1439201005710"> 
+       <ul class="toc-indentation"> 
+        <li><a href="#NamingDeveloper'sGuide-Introduction">Introduction</a></li> 
+        <li><a href="#NamingDeveloper'sGuide-Structuretonameconversion">Structure to name conversion</a></li> 
+        <li><a href="#NamingDeveloper'sGuide-Nametostructureconversion">Name to structure conversion</a></li> 
+       </ul> 
+      </div>
+      <p></p>
+      <h2 id="NamingDeveloper'sGuide-Introduction">Introduction</h2>
+      <p>ChemAxon's naming toolkit generates names from chemical structures (structure to name, s2n) and converts IUPAC, trivial, drug, CAS names to chemical structures (name to structure, n2s).</p>
+      <h2 id="NamingDeveloper'sGuide-Structuretonameconversion"><a name="s2n" rel="nofollow"></a>Structure to name conversion</h2>
+      <p>Using the API for generating the name of a molecule:</p>
+      <pre>Molecule m = ...;
+String name = m.toFormat(&quot;name&quot;);
+String traditionalName = m.toFormat(&quot;name:t&quot;);
+</pre>
+      <p>See <a href="https://docs.chemaxon.com/display/s2n/User%27s+Guide">user's documentation of s2n</a> here.</p>
+      <h2 id="NamingDeveloper'sGuide-Nametostructureconversion"><a name="n2s" rel="nofollow"></a>Name to structure conversion</h2>
+      <p>Using the API to convert a name to a structure:</p>
+      <pre>String input = &quot;2,3-dimethylbenzoic acid&quot;;
+Molecule m = MolImporter.importMol(input, &quot;name&quot;);
+</pre>
+      <p>It is possible to register your own plugins to extend name to structure, for instance to lookup compound IDs in a database. This is documented in the <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/naming/NameConverters.html" class="external-link" rel="nofollow">NameConverters</a> class.</p>
+      <p>See <a href="16449637.html">user's documentation of n2s</a> here. &nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

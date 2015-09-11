@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Drawing Chemical Structures</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Drawing Chemical Structures </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="DrawingChemicalStructures-drawAtomDrawingatoms"><span class="confluence-anchor-link" id="DrawingChemicalStructures-drawAtom"></span>Drawing atoms</h2>
+      <p>You can choose from several options to draw a new atom or to modify an already existing one:</p>
+      <ul>
+       <li>An atom can be inserted by using one of the most frequently used atom&nbsp;<a href="Toolbars_17236081.html#Toolbars-freqAtoms">buttons</a>&nbsp;on the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-atomsToolbar">Atoms</a></strong>&nbsp;toolbar. The chosen atom appears on the tip of the cursor and you can place it on the canvas with a left-click.</li>
+       <li>Any of the known elements can be selected from the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-periodicTableButton">Periodic Table</a><span style="color: rgb(0,0,255);">&nbsp;</span></strong>, the button of which you can find on the&nbsp;<strong>Atoms</strong>&nbsp;toolbar. Choosing an element, its atomic symbol will appear on the tip of the cursor and you can place it on the canvas several times. At the same time, the <strong><a href="Toolbars_17236081.html#Toolbars-periodicTable">Periodic Table</a></strong> window closes automatically.</li>
+       <li>Atoms can be placed on the canvas using the keyboard. By typing an atomic symbol, it will appear on the tip of the cursor, and can be placed on the canvas with a left-click or pressing <code><strong>Enter</strong></code>. Although they are not listed in the Periodic Table, deuterium and tritium symbols (D and T, respectively) can also be used this way.</li>
+       <li>When a non-metallic atom is placed on the canvas, it will be automatically completed with implicit hydrogens according to the free valences of the atom. Display of implicit hydrogens depends on the current option in the&nbsp;<strong><a href="Display-Options_17236089.html#DisplayOptions-structureDisplay">View Settings</a></strong>&nbsp;dialog box. Metallic elements are exceptions to this rule, they are added to canvas in zero oxidation state.</li>
+       <li>Atoms on the canvas can be replaced using either of the above mentioned methods. If you select several atoms at the same time, you can change them simultaneously using either the keyboard or the Periodic System.</li>
+       <li>Instead of standard atomic symbols, you can use any label for atoms by defining an&nbsp;<a href="Properties_17236088.html#Properties-alias">atom alias</a><span style="color: rgb(0,0,255);">&nbsp;</span>&nbsp;in the&nbsp;<strong><a href="Properties_17236088.html#Properties-atomProperties">Atom Properties</a></strong><span style="color: rgb(0,0,255);">&nbsp;</span>dialog.</li>
+       <li><a href="Toolbars_17236081.html#Toolbars-queryAtoms">Query atoms</a>&nbsp;can be part of molecules (query structures) as well. To use these atoms, select their combo button on the&nbsp;<strong>Atoms</strong>&nbsp;toolbar.&nbsp;<a href="Query-Structures_17236093.html#QueryStructures-pseudo">Pseudo atoms</a>, which stand for an &quot;Any&quot; type query atom, can also be created through this button: click on the &quot;question mark&quot; in the query atom list and define the label you want to use with your pseudo atom in the dialog then close the dialog with the &quot;OK&quot; button and click on the atom you want to change into a pseudo atom. Note that pseudo atoms can be defined in the&nbsp;<a href="Properties_17236088.html#Properties-atomProperties">Atom properties</a>&nbsp;dialog, too. A special class of pseudo atoms are the&nbsp;<a href="Query-Structures_17236093.html#QueryStructures-homologyGroups">Homology Groups</a>, which are also available from the&nbsp;<strong>Atom properties</strong>&nbsp;dialog.</li>
+      </ul>
+      <h2 id="DrawingChemicalStructures-drawBondDrawingbonds"><span style="color: rgb(7,113,121);"><span style="color: rgb(0,0,0);"><span class="confluence-anchor-link" id="DrawingChemicalStructures-drawBond"></span>Drawing bonds</span></span></h2>
+      <ul>
+       <li>To create a chemical bond between two atoms on the canvas&nbsp;<a href="Toolbars_17236081.html#Toolbars-bonds">select the appropriate bond type</a><span style="color: rgb(0,0,255);">&nbsp;</span>&nbsp;using the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-bondsButton">Bonds</a></strong>&nbsp;combo button on the&nbsp;<strong>Tools</strong>&nbsp;toolbar, click on one of the two atoms, and drag the bond to the other atom.</li>
+       <li>Selecting a bond type and clicking or dragging the cursor on the canvas will create a new bond with the default length and with carbon atoms on both ends.</li>
+       <li>When a bond tool is active and the cursor is over an atom, a grey colored image of a bond in the selected type will appear, ended by a carbon atom. Pressing the&nbsp;<strong><code>Shift</code></strong>&nbsp;key will change the bond direction. Click on the atom will place the bond in this position. You can also draw a new bond by dragging from an already existing atom. Just like in the previous case, the length of the bond is the default value, and a carbon atom is on its other end.</li>
+       <li>Bond type can be changed by selecting the new bond type from the toolbar and clicking on the bond on the canvas. The bond type can be selected by typing the appropriate&nbsp;<a href="Toolbars_17236081.html#Toolbars-bonds">shortcut</a>, too. If the cursor is over the canvas, typing a shortcut will select the appropriate bond mode (the&nbsp;Bonds&nbsp;button is activated). However, if the cursor is over an existing bond, typing a shortcut will modify the type of the given bond only. In this case the selected mode (the active button) will not change.</li>
+       <li>Note that repeated clicking on a bond will change its type depending on the currently active bond type. If the selected bond type is Single, successive clicks on a bond will change its type from single to double and&nbsp;<em>vice versa</em>. If Double bond type is selected, successive clicks on a bond will alternate its type between Double and Triple. Clicking on a directed bond (Single Up, Single Down, Single Up or Down, or Coordinate bond) will change the bond direction.</li>
+       <li>Drawing molecules can be made much faster by using the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-freehand">Drawing</a></strong>&nbsp;tool of the&nbsp;<strong>Bonds</strong>&nbsp;combo button. With this feature, you can create the framework of complex structures without releasing the mouse button. When you draw a bond, grey dots appear indicating potential directions for the next bond. In the default case, these dots are the vertices of a hexagon while they will be rearranged into a pentagon if you press down the <strong><code>Shift</code></strong>&nbsp;key. Dragging the cursor towards one of these dots, you can add a new bond to your molecule. While drawing a molecule, you can change the type of the last atom by typing a new atomic symbol. Clicking on a bond when the&nbsp;<strong>Drawing</strong>&nbsp;tool is active will change the bond type according to the Single-Double-Triple sequence.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236086/17400132.png" data-image-src="attachments/17236086/17400132.png" data-unresolved-comment-count="0" data-linked-resource-id="17400132" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="drawing1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236086/17400133.png" data-image-src="attachments/17236086/17400133.png" data-unresolved-comment-count="0" data-linked-resource-id="17400133" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="drawing2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236086/17400134.png" data-image-src="attachments/17236086/17400134.png" data-unresolved-comment-count="0" data-linked-resource-id="17400134" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="drawing3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span></p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <ul>
+       <li>When more than one bonds are selected in a structure, selecting a new bond type will change every selected bond.<br /><br /></li>
+      </ul>
+      <h2 id="DrawingChemicalStructures-drawMoleculeDrawingamolecule"><span class="confluence-anchor-link" id="DrawingChemicalStructures-drawMolecule"></span>Drawing a molecule</h2>
+      <ul>
+       <li>Molecules can be created by connecting atoms with different chemical bonds or with the use of templates from the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-templateToolbar">Templates</a></strong>&nbsp;toolbar.</li>
+       <li>You can create alkyl or conjugated hydrocarbon chains of arbitrary length using the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-chain">Chain</a></strong>&nbsp;button on the&nbsp;<strong>Tools</strong>&nbsp;toolbar. A chain can be created as a new molecule or it can start from an already existing atom on the canvas. After selecting the button you can draw the alkyl chain by dragging or clicking repeatedly on the starting atom. The length of the chain is shown on the tip of the cursor. During drawing, the new chain can be rotated around its starting atom to the desired orientation by dragging. You can create a conjugated polyene chain by pressing the <code><strong>Ctrl</strong></code>&nbsp;button when chain-drawing.</li>
+      </ul>
+      <h3 id="DrawingChemicalStructures-MarvinJSsupportsdifferentsubstructuregroup(S-group)types:">Marvin JS&nbsp;supports&nbsp;<a href="Substructure-Groups_17236091.html">different&nbsp;substructure group (S-group)</a><span style="color: rgb(0,0,255);">&nbsp;</span>types:</h3>
+      <ul>
+       <li><strong>Generic S-groups</strong>&nbsp;can be used in chemical structures,&nbsp;<em>e.g.,</em>&nbsp;for visualizing solvent molecules or other compounds in a complex structure.</li>
+       <li>Predefined&nbsp;<strong>abbreviated groups</strong>&nbsp;can also assist you to create complex molecular structures. For selecting an abbreviated group, use the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-abbrevGroup">Abbreviated Groups</a></strong>&nbsp;button of the&nbsp;<strong>Tools</strong>&nbsp;toolbar. When a group abbreviation has been selected from the list of the appearing dialog box, you can decide whether to place it on the canvas in contracted or in expanded form. For the latter option set the&nbsp;<strong>Expand</strong>&nbsp;checkbox in the dialog. Closing the dialog with the &quot;OK&quot; button will place the group on the tip of the cursor, from where you can put it on the canvas with a left-click (connect it to an already existing structure or start a new molecule).&nbsp;<a href="Substructure-Groups_17236091.html#SubstructureGroups-abbrevGroups">Learn more about abbreviated groups and their handling.</a><span style="color: rgb(0,0,255);">&nbsp;</span></li>
+      </ul>
+      <h3 id="DrawingChemicalStructures-mergeMergingstructures"><span><span class="confluence-anchor-link" id="DrawingChemicalStructures-merge"></span>Merging structures</span></h3>
+      <p>In Marvin JS&nbsp;you can also merge separate fragments. Merging is helpful if you want to create ring systems (spiro, fused, or bridged ring systems: one, two, or more than two atoms in common, respectively) or to connect chain-like substructures. For merging two structures, one of them should be selected. When you hover the cursor over the selected fragment, the cursor will change to &quot;move&quot; type (crossed arrows) indicating that the fragment can be moved. Dragging the selected fragment until one or more of its atoms overlap with the &quot;host&quot; molecule atoms will merge the two structures.<br />Templates can also be merged with a molecule on the canvas. Choose a template from the and drag it close to the atoms of the existing structure. When the distance between them has become sufficiently small, the possible merging points will be indicated by purple circles. Release the mouse button will put the template in the merged position.</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><strong>Spiro ring system</strong></td>
+          <td style="text-align: center;" class="confluenceTd"><strong>Fused ring system</strong></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236086/17400136.png" data-image-src="attachments/17236086/17400136.png" data-unresolved-comment-count="0" data-linked-resource-id="17400136" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="merge2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span></td>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236086/17400135.png" data-image-src="attachments/17236086/17400135.png" data-unresolved-comment-count="0" data-linked-resource-id="17400135" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="merge1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h3 id="DrawingChemicalStructures-sproutDrawSproutdrawing"><span><span class="confluence-anchor-link" id="DrawingChemicalStructures-sproutDraw"></span>Sprout drawing</span></h3>
+      <p>Single atoms can be connected to non-terminal atoms in a &quot;sprouted&quot; position. Select an atom symbol, hover the cursor over the atom to which you want to attach the new atom, and press the&nbsp;<code><strong>Shift</strong></code>&nbsp;key to see the result of sprouting. Click on the non-terminal atom to attach the new atom to it.</p>
+      <p><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236086/17400141.png?effects=border-simple,blur-border" data-image-src="attachments/17236086/17400141.png" data-unresolved-comment-count="0" data-linked-resource-id="17400141" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sprout5.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span></p>
+      <p><br class="atl-forced-newline" />Templates can be connected to an atom with a single bond: select the template from the&nbsp;<strong>Templates</strong>&nbsp;toolbar and push the left mouse button on the desired atom to see a grey colored image of the template showing its would-be position. Drag the template closer to the atom if you want the template attach without a bond, and drag with the mouse away from the atom if you want the template sprouting from the atom. By dragging the template you can rotate the template around its attachment point. Releasing the mouse button will connect the template to the atom with a single bond(: one of the implicit hydrogens of the atom will be replaced by the template) or without a bond.&nbsp;</p>
+      <p><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236086/29097986.png?effects=border-simple,blur-border" data-image-src="attachments/17236086/29097986.png" data-unresolved-comment-count="0" data-linked-resource-id="29097986" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-8 11:13:38.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236086/29097987.png?effects=border-simple,blur-border" data-image-src="attachments/17236086/29097987.png" data-unresolved-comment-count="0" data-linked-resource-id="29097987" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-8 11:14:56.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236086/29097988.png?effects=border-simple,blur-border" data-image-src="attachments/17236086/29097988.png" data-unresolved-comment-count="0" data-linked-resource-id="29097988" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-8 11:16:2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span><br /><br class="atl-forced-newline" /><span class="confluence-anchor-link" id="DrawingChemicalStructures-attachTemplate"></span>A template can be attached to an already existing bond which is about the same length as the template's bond: clicking on the bond connects the template to the selected bond. The template is rotated automatically in order to fit the chosen bond perfectly.</p>
+      <ul>
+       <li>The side of the bond to place a template can be altered by dragging the template to the appropriate side.</li>
+       <li>When you press the left mouse button over a bond, pushing the&nbsp;<code><strong>Space</strong></code>&nbsp;key will rotate the template, so you can alter the orientation of it easily.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236086/29097992.png?effects=border-simple,blur-border" data-image-src="attachments/17236086/29097992.png" data-unresolved-comment-count="0" data-linked-resource-id="29097992" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-8 11:55:0.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236086" data-linked-resource-container-version="17" /></span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

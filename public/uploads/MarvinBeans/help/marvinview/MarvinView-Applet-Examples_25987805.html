@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : MarvinView Applet Examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : MarvinView Applet Examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201063825 {padding: 0px;}
+div.rbtoc1439201063825 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201063825 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201063825"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#MarvinViewAppletExamples-Viewingamolecule">Viewing a molecule</a></li> 
+              <li><a href="#MarvinViewAppletExamples-Moleculetables">Molecule tables</a></li> 
+              <li><a href="#MarvinViewAppletExamples-ConfiguringMarvinView">Configuring MarvinView</a></li> 
+              <li><a href="#MarvinViewAppletExamples-Manipulatingtablecontents">Manipulating table contents</a></li> 
+              <li><a href="#MarvinViewAppletExamples-Japanesecharactersupport">Japanese character support</a></li> 
+              <li><a href="#MarvinViewAppletExamples-Listeningforeventsinapplets">Listening for events in applets</a></li> 
+              <li><a href="#MarvinViewAppletExamples-Molecularpropertycalculations">Molecular property calculations</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="MarvinViewAppletExamples-Viewingamolecule">Viewing a molecule</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr style="margin-left: 60.0px;">
+              <td style="margin-left: 120.0px;" class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/embed.html" class="external-link" rel="nofollow">Embedding MarvinView applet in HTML pages</a></td>
+              <td style="margin-left: 90.0px;text-align: center;" class="confluenceTd">The basic ways of creating Marvin Applets and embedding them in HTML pages</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="MarvinViewAppletExamples-Moleculetables">Molecule tables</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/sdtable.html" class="external-link" rel="nofollow">Loading molecules from an SD file to a molecule table</a></td>
+              <td class="confluenceTd">The simplest way of visualizing multi-molecule files in tabular format.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/transfering.html" class="external-link" rel="nofollow">Editing the structures of the molecule table with MarvinSketch</a></td>
+              <td class="confluenceTd">Altering the structures of the molecule table with MarvinSketch, and transferring them back to the table.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/advancedtable.html" class="external-link" rel="nofollow">Creating an advanced molecule table</a></td>
+              <td class="confluenceTd">Individual setting of the contents of each cells.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/advancedcomponents.html" class="external-link" rel="nofollow">Adding advanced components to molecule tables</a></td>
+              <td class="confluenceTd">Placing labels, images in the table as additional components beside the molecules.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/advancedlayout.html" class="external-link" rel="nofollow">Fine-tuning the layout</a></td>
+              <td class="confluenceTd">Polishing the layout of the advanced components (labels, images) inside the cells.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/javascripting.html" class="external-link" rel="nofollow">JavaScripting, CGI scripting using buttons and checkboxes</a></td>
+              <td class="confluenceTd">Some more advanced components to place in the cells beside the molecules: buttons and checkboxes that trigger events.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="MarvinViewAppletExamples-ConfiguringMarvinView">Configuring MarvinView</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/configure1.html" class="external-link" rel="nofollow">Compression, color, magnification, atom size, hydrogen labels</a></td>
+              <td class="confluenceTd">Customizing some of the basic display settings.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/configure2.html" class="external-link" rel="nofollow">Background colors, 3D, rotation</a></td>
+              <td class="confluenceTd">Setting up a molecule table in 3D view using automated rotation.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/configure3.html" class="external-link" rel="nofollow">3D Viewer setting</a></td>
+              <td class="confluenceTd">The 3D settings, automatic rotation and related options in focus.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">&nbsp;<a href="http://www.chemaxon.com/marvin/examples/applets/view/configure4.html" class="external-link" rel="nofollow">XYZ animations</a></td>
+              <td class="confluenceTd">Creating a table where 3D motion of molecules is simulated and the animation of the cells is synchronized.<a href="http://www.chemaxon.com/marvin/examples/applets/view/stereoconfig.html" class="external-link" rel="nofollow">Display stereo configurations</a></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/stereoconfig.html" class="external-link" rel="nofollow">Display stereo configurations</a></td>
+              <td class="confluenceTd">Demonstrating options to visualize chirality and E/Z isomer information of molecules.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="MarvinViewAppletExamples-Manipulatingtablecontents">Manipulating table contents</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/editable.html" class="external-link" rel="nofollow">Editable table</a></td>
+              <td class="confluenceTd">Using JavaScript to retrieve data to and from the applet.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/atomcoloring.html" class="external-link" rel="nofollow">Atom coloring</a></td>
+              <td class="confluenceTd">Highlighting a subset of atoms with a custom color.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/colorsets.html" class="external-link" rel="nofollow">Coloring atom and bond sets</a></td>
+              <td class="confluenceTd">Highlighting pre-defined sets of atoms and/or bonds using JavaScript.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="MarvinViewAppletExamples-Japanesecharactersupport">Japanese character support</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/japanese.html" class="external-link" rel="nofollow">Japanese character support</a></td>
+              <td class="confluenceTd">East-Asian character support demonstrated by direct usage of Japanese characters as parameter values.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="MarvinViewAppletExamples-Listeningforeventsinapplets">Listening for events in applets</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/listeners.html" class="external-link" rel="nofollow">Listening for events in applets</a></td>
+              <td class="confluenceTd">Handling PropertyChange and MouseEvent events fired by the applets.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="MarvinViewAppletExamples-Molecularpropertycalculations">Molecular property calculations</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><a href="http://www.chemaxon.com/marvin/examples/applets/view/chemicalterms.html" class="external-link" rel="nofollow">Molecular property calculations with Chemical Terms</a></td>
+              <td class="confluenceTd">Accessing and evaluating <a href="https://docs.chemaxon.com/display/chemicalterms">Chemical Terms</a> expressions using JavaScript.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

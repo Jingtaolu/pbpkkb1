@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinView Table View Example</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">MViewPane</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">MDocSource</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">view</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">TableSupport</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">view</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">TableOptions</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolImporter</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolFormatException</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="symbol">*</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="symbol">*</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">event</span><span class="symbol">.</span><span class="normal">ActionListener</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">event</span><span class="symbol">.</span><span class="normal">ActionEvent</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">FileNotFoundException</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">IOException</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">util</span><span class="symbol">.</span><span class="normal">ArrayList</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * Displays a multiple-molecule file in MarvinView.</span>
+<span class="comment"> * </span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Peter Csizmadia</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.2.1, 04/14/2009</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment">   Marvin 5.2, 02/15/2009</span>
+<span class="comment"> </span><span class="comment">*/</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> ViewTable </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Takes one command line argument, the name of the input file.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="keyword">final</span><span class="normal"> String fileName </span><span class="symbol">=</span><span class="normal"> args</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">]</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="keyword">final</span><span class="normal"> MDocSource docSource </span><span class="symbol">=</span><span class="normal"> </span><span class="function">createDocSource</span><span class="symbol">(</span><span class="normal">fileName</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="keyword">if</span><span class="symbol">(</span><span class="normal">docSource </span><span class="symbol">!</span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    </span><span class="comment">//</span><span class="comment"> Swing components should be created, queried, and manipulated</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> on the event-dispatching thread</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> according to Sun's recommendations.</span>
+<span class="normal">	    EventQueue</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">		</span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">		    </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="normal">docSource</span><span class="symbol">,</span><span class="normal"> fileName</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">		</span><span class="cbracket">}</span>
+<span class="normal">	    </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Creates a document source for the given filename.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> fname    the filename</span>
+<span class="comment">     * </span><span class="type">@return</span><span class="comment"> the document source or null if it could not be created</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">static</span><span class="normal"> MDocSource </span><span class="function">createDocSource</span><span class="symbol">(</span><span class="normal">String fname</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    </span><span class="keyword">return</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolImporter</span><span class="symbol">(</span><span class="normal">fname</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="symbol">(</span><span class="normal">FileNotFoundException ex</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"File "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> fname</span><span class="symbol">+</span><span class="string">" not found"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="symbol">(</span><span class="normal">MolFormatException ex</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"File "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> fname</span>
+<span class="normal">		    </span><span class="symbol">+</span><span class="normal"> </span><span class="string">" is corrupted or not a structure file.\n"</span>
+<span class="normal">		    </span><span class="symbol">+</span><span class="normal"> ex</span><span class="symbol">.</span><span class="function">getMessage</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="cbracket">}</span><span class="normal"> </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">IOException e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	    System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"Error reading file "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> fname</span><span class="symbol">+</span><span class="string">"\n"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="cbracket">}</span>
+<span class="normal">	</span><span class="keyword">return</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Creates and shows the viewer table.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> docSource    the document source</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> inputName    input filename</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="normal">MDocSource docSource</span><span class="symbol">,</span><span class="normal"> String inputName</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Create and initialize the MarvinView bean.</span>
+<span class="normal">	MViewPane viewPane </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MViewPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setBorderWidth</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setBackground</span><span class="symbol">(</span><span class="normal">Color</span><span class="symbol">.</span><span class="normal">LIGHT_GRAY</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setMolbg</span><span class="symbol">(</span><span class="normal">Color</span><span class="symbol">.</span><span class="normal">WHITE</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Create and initialize the application window.</span>
+<span class="normal">	JFrame win </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFrame</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	JMenuBar menubar </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenuBar</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">setJMenuBar</span><span class="symbol">(</span><span class="normal">menubar</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">setTitle</span><span class="symbol">(</span><span class="string">"MarvinView Table Layout Example"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">setDefaultCloseOperation</span><span class="symbol">(</span><span class="normal">JFrame</span><span class="symbol">.</span><span class="normal">EXIT_ON_CLOSE</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">GridLayout</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">viewPane</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> The first viewPane.getTableSupport() call creates the table</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> support object. This call should _precede_ win.pack() because</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> the existence of the table support influences the preferred size</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> of the viewPane component.</span>
+<span class="normal">	TableSupport tableSupport </span><span class="symbol">=</span><span class="normal"> viewPane</span><span class="symbol">.</span><span class="function">getTableSupport</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Create a Menu for the Table options. (Optional.)</span>
+<span class="normal">	JMenu menu</span><span class="symbol">;</span>
+<span class="normal">	tableSupport</span><span class="symbol">.</span><span class="function">makeTableMenu</span><span class="symbol">(</span><span class="normal">menu </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenu</span><span class="symbol">(</span><span class="string">"Table"</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	menu</span><span class="symbol">.</span><span class="function">setMnemonic</span><span class="symbol">(</span><span class="string">'t'</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	menubar</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">menu</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="function">makeHighlightMenu</span><span class="symbol">(</span><span class="normal">menu </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenu</span><span class="symbol">(</span><span class="string">"Highlight"</span><span class="symbol">)</span><span class="symbol">,</span><span class="normal"> viewPane</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	menu</span><span class="symbol">.</span><span class="function">setMnemonic</span><span class="symbol">(</span><span class="string">'h'</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	menubar</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">menu</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Optional table settings.</span>
+<span class="normal">	TableOptions tblopts </span><span class="symbol">=</span><span class="normal"> tableSupport</span><span class="symbol">.</span><span class="function">getTableOptions</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> tblopts.setViewHandlerType(TableOptions.VH_GRIDBAG);</span>
+<span class="normal">	tblopts</span><span class="symbol">.</span><span class="function">setMaxRows</span><span class="symbol">(</span><span class="number">5</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	tblopts</span><span class="symbol">.</span><span class="function">setMaxCols</span><span class="symbol">(</span><span class="number">5</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Pack the window, set its location and make it visible.</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">pack</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">setLocationRelativeTo</span><span class="symbol">(</span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">	win</span><span class="symbol">.</span><span class="function">setVisible</span><span class="symbol">(</span><span class="keyword">true</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Start loading the molecules.</span>
+<span class="normal">	tableSupport</span><span class="symbol">.</span><span class="function">start</span><span class="symbol">(</span><span class="normal">docSource</span><span class="symbol">,</span><span class="normal"> inputName</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">makeHighlightMenu</span><span class="symbol">(</span><span class="normal">JMenu menu</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">final</span><span class="normal"> MViewPane viewPane</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">final</span><span class="normal"> ArrayList</span><span class="symbol">&lt;</span><span class="normal">Integer</span><span class="symbol">&gt;</span><span class="normal"> highlightedCells </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> ArrayList</span><span class="symbol">&lt;</span><span class="normal">Integer</span><span class="symbol">&gt;</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        JMenuItem highlightMenuItem</span><span class="symbol">,</span><span class="normal"> clearMenuItem</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="comment">//</span>
+<span class="normal">	</span><span class="comment">//</span><span class="comment"> Example for setting the background color of the molecule ID field.</span>
+<span class="normal">	</span><span class="comment">//</span>
+<span class="normal">        highlightMenuItem </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenuItem</span><span class="symbol">(</span><span class="string">"Highlight selected cell"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        menu</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">highlightMenuItem</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        highlightMenuItem</span><span class="symbol">.</span><span class="function">addActionListener</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">ActionListener</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">actionPerformed</span><span class="symbol">(</span><span class="normal">ActionEvent ev</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="type">int</span><span class="normal"> selected </span><span class="symbol">=</span><span class="normal"> viewPane</span><span class="symbol">.</span><span class="function">getSelectedIndex</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="keyword">if</span><span class="symbol">(</span><span class="symbol">!</span><span class="normal">highlightedCells</span><span class="symbol">.</span><span class="function">contains</span><span class="symbol">(</span><span class="normal">selected</span><span class="symbol">)</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                    highlightedCells</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">selected</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                    viewPane</span><span class="symbol">.</span><span class="function">setRecordIDBackground</span><span class="symbol">(</span><span class="normal">selected</span><span class="symbol">,</span>
+<span class="normal">                            SystemColor</span><span class="symbol">.</span><span class="normal">textHighlight</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                    viewPane</span><span class="symbol">.</span><span class="function">setRecordIDForeground</span><span class="symbol">(</span><span class="normal">selected</span><span class="symbol">,</span>
+<span class="normal">                            SystemColor</span><span class="symbol">.</span><span class="normal">textHighlightText</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="cbracket">}</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        clearMenuItem </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JMenuItem</span><span class="symbol">(</span><span class="string">"Remove highlight from cells"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        menu</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">clearMenuItem</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        clearMenuItem</span><span class="symbol">.</span><span class="function">addActionListener</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">ActionListener</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">actionPerformed</span><span class="symbol">(</span><span class="normal">ActionEvent ev</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="keyword">for</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> i </span><span class="symbol">:</span><span class="normal"> highlightedCells</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                    viewPane</span><span class="symbol">.</span><span class="function">setRecordIDBackground</span><span class="symbol">(</span><span class="normal">i</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                    viewPane</span><span class="symbol">.</span><span class="function">setRecordIDForeground</span><span class="symbol">(</span><span class="normal">i</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                </span><span class="cbracket">}</span>
+<span class="normal">                highlightedCells</span><span class="symbol">.</span><span class="function">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

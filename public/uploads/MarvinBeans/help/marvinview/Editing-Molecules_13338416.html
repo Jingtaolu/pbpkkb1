@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Editing Molecules</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Editing Molecules </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>MarvinView is intended to be used mainly to display molecules. However, there is a limited set of functionality available to edit the molecule while you view it.</p>
+      <p>To make major changes to the molecule, it can be opened in either a MarvinSketch window or a Source window and once the alterations have been made,&nbsp; it can be imported back into the Viewer.</p>
+      <h3 id="EditingMolecules-EditingOptionsinMarvinView">Editing Options in MarvinView</h3>
+      <p>Marvin allows you to clean your molecule in either 2D or 3D. This will recalculate the coordinates of the atoms and bonds to the most appropriate location, based on the type of cleaning you select.</p>
+      <p>You can set cleaning options via the&nbsp;<strong> <span> <a href="Structure-Menu-MV_25987295.html"> <span>Structure &gt; Clean</span> </a></span></strong>submenu or from the pop-up menu.&nbsp;<br />You can toggle the display of rings as aromatic using the<strong> <span> <a href="Structure-Menu-MV_25987295.html"> <span>Structure &gt; Aromatic Form</span> </a> </span>&nbsp;</strong>submenu.&nbsp;<br />Using the<strong><span><span class="confluence-link"> Advanced </span> </span> </strong>submenu from the <strong><a href="View-Menu-MV_25987291.html">View menu</a>&nbsp;</strong>or from the pop-up menu, you can toggle the display of options such as atom numbers, map numbers, and lone pairs.</p>
+      <h3 id="EditingMolecules-EditinginMarvinSketch">Editing in MarvinSketch</h3>
+      <p>MarvinView allows you to launch a MarvinSketch window for editing the current molecule. By selecting&nbsp;<strong> <span> <span>Edit &gt; Structure</span> </span> </strong>, the molecule will be opened in MarvinSketch. While you are editing the molecule in the sketcher, you will be unable to use the viewer. When you use the&nbsp;<strong>Transfer</strong> button of the sketcher window, you will be able to use the viewer again and all changes you have made in the sketcher will appear in the viewer.</p>
+      <h3 id="EditingMolecules-EditingSource">Editing Source</h3>
+      <p>Choosing<strong> <span> <a href="Edit-Menu-MV_25987288.html"> <span>Source</span> </a> </span> </strong>from the<span>&nbsp;</span><span style="color: rgb(0,0,0);"><strong>Edit</strong>&nbsp;<strong>menu</strong> </span> (in the menubar or pop-up menu) opens the Edit Source Window.&nbsp;<span>&nbsp;</span>The Source window opens the file for the current molecule as text. You can view and edit the molecule file in any of the supported formats (SMILES, Molfile, XYZ, <em>etc.</em>).&nbsp;<br />You can alter a molecule by directly editing its source in the Source window. You can view and edit the source in any of the supported file formats. To change format, simply select the desired one from the&nbsp;<strong>Format</strong>&nbsp;menu. To reload the molecule described by the text in this window on the MarvinView canvas (including any changes you may have made), select&nbsp;<strong>File &gt; Import</strong>. This will close the Source window.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

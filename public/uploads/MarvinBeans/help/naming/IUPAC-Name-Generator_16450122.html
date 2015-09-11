@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Naming : IUPAC Name Generator</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Naming : IUPAC Name Generator </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="IUPACNameGenerator-API">API</h2>
+      <p><span style="color: rgb(54,54,54);">Marvin provides an API so that names can also be generated from Java programs. Given a&nbsp;</span><code>chemaxon.stuc.Molecule</code><span style="color: rgb(54,54,54);">&nbsp;object&nbsp;</span><code>m</code><span style="color: rgb(54,54,54);">, its name can be computed by using:</span></p>
+      <pre>String name = m.toFormat(&quot;name&quot;);</pre>
+      <h3 id="IUPACNameGenerator-Options">Options</h3>
+      <h4 id="IUPACNameGenerator-Nomenclatureoptions">Nomenclature options</h4>
+      <p><span style="color: rgb(54,54,54);">It is possible to use a format option to chose a nomenclature style:</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><code>i</code>&nbsp;(default) uses the IUPAC rules for prefered names;</li>
+       <li><code>t</code>&nbsp;uses a more traditional style.</li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);">For instance, to generate traditional names, use the following:</span></p>
+      <pre>&nbsp;String tradionalName = m.toFormat(&quot;name:t&quot;);</pre>
+      <h4 id="IUPACNameGenerator-Timeout">Timeout</h4>
+      <p>By default, naming computation will timeout after a certain number of seconds. This is used to ensure batch naming terminates in a reasonable time, even in the presence of very complicated structures that would take too long to name or of bugs in the naming program. If you experience timeouts, you can set a higher custom timeout value to try to get the naming to succeed. Alternatively, you can also reduce the timeout to avoid slowing down the batch naming process. The timeout can be set as an export option, with the format&nbsp;name:timeout=N, where&nbsp;N&nbsp;is the timeout value, expressed in seconds.</p>
+      <p>For instance, to compute the name of a molecule during up to 5 seconds, use:</p>
+      <pre>try { String name = m.toFormat(&quot;name:timeout=5&quot;); ... } catch (IUPACNamer.TimeoutError e) { ... } &nbsp;</pre>
+      <h2 id="IUPACNameGenerator-Generalinformation">General information</h2>
+      <p><span style="color: rgb(54,54,54);">For general information about the IUPAC name generator, see the&nbsp;</span><a href="https://docs.chemaxon.com/display/s2n/User%27s+Guide">user documentation</a><span style="color: rgb(54,54,54);">.</span></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

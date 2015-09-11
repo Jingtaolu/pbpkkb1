@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Substructure Groups MS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Substructure Groups MS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p></p>
+            <ul>
+             <li><a href="25986384.html">Abbreviated (superatom) groups</a></li>
+             <li><a href="Polymers_25986388.html">Polymers</a>
+              <ul>
+               <li><a href="Structure-based-representation-of-polymers_25986393.html">Structure-based representation of polymers</a></li>
+               <li><a href="Source-based-representation-of-polymers_25986390.html">Source-based representation of polymers</a></li>
+               <li><a href="How-to-draw-polymers_28938396.html">How to draw polymers</a></li>
+              </ul></li>
+             <li><a href="Unordered-Mixtures-and-Ordered-Mixtures_25986418.html">Unordered Mixtures and Ordered Mixtures</a></li>
+             <li><a href="Charge-of-the-group_25988478.html">Charge of the group</a></li>
+            </ul>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="SubstructureGroupsMS-HowtoCreateGroups">How to Create Groups</h2>
+          <p><strong>Create Group</strong> button</p>
+          <ul>
+           <li>Select the molecule or a part of the molecule. Click the <strong>Create Group</strong> button in the <strong><a href="Tools-Toolbar_16122176.html">Tools toolbar</a></strong>and edit the group properties in the dialog window.</li>
+           <li>Click the <strong>Create Group</strong> button in the <strong><a href="Tools-Toolbar_16122176.html">Tools toolbar</a></strong> then select the group atoms and bonds. Upon releasing the mouse button, the Group dialog pops up.<br /><br /></li>
+          </ul>
+          <p>Alternatively the <strong>Create Group dialog</strong> can be reached using</p>
+          <ul>
+           <li><strong>Command shortcut</strong>: <strong>Ctrl-G</strong></li>
+           <li><strong>Contextual menu</strong>: (since version 5.3) right-click on the group, select <strong>Group</strong> option from the <strong>contextual menu</strong> and the Create group dialog opens.</li>
+           <li><strong>Structure&lt;Group&lt;Group</strong> submenu<br /><br /></li>
+          </ul>
+          <p><strong>Group types</strong>:</p>
+          <ul>
+           <li><a href="Source-based-representation-of-polymers_25986390.html">Monomer (mon)</a></li>
+           <li>Multiple group (e.g. 3)</li>
+           <li><a href="Unordered-Mixtures-and-Ordered-Mixtures_25986418.html">Ordered mixture (f)</a></li>
+           <li><a href="Repeating-units-with-repetition-ranges---Frequency-variation_25986468.html">Repeating unit with repetition range (e.g 2,4-6)</a></li>
+           <li><a href="Query-structures_14942812.html">R-group</a></li>
+           <li><a href="25986463.html">SRU polymer ( n)</a></li>
+           <li><a href="25986384.html">Superatom (abbreviation</a></li>
+           <li><a href="Unordered-Mixtures-and-Ordered-Mixtures_25986418.html">Unordered mixture (mix)</a></li>
+          </ul>
+          <p>&nbsp;</p>
+          <p>In the dropdown list of the group type only those types can be selected which are enabled for the actual selection in the molecule.</p>
+          <p>To enable all types: go to <strong>Edit &gt; Preferences &gt; Structure</strong> tab and uncheck the '<strong>Validate S-groups at creation</strong>' box.</p>
+          <p><br />Enabling/disabling a group type depends on:</p>
+          <ul>
+           <li>the number of crossing bonds</li>
+           <li>the embedding of groups into each other: several conditions are checked here for the group to be created
+            <ul>
+             <li>whether it can be embedded into the groups which would contain it,&nbsp;<br />e.g. polymer S-groups can not be embedded into multiple S-groups</li>
+             <li>whether it can embed all the groups which would be contained by it,&nbsp;<br />e.g. structural repeating unit S-groups (SRU) can not embed monomers</li>
+             <li>whether it can be embedded directly into the group which would be its direct embedder,&nbsp;<br />e.g. component S-groups can be directly embedded only into ordered or unordered mixtures</li>
+             <li>whether it can directly embed the groups which would be embedded by it directly,&nbsp;<br />e.g. mixtures can directly embed only components.</li>
+            </ul></li>
+           <li>Expandable S-groups are not allowed to be embedded into each other.</li>
+          </ul>
+          <p>Since those group types which are allowed only for whole fragments (mixtures, components and monomers) are always extended to whole fragments, thus these types are allowed even if only fragment parts where selected, if they are correct when extended to the whole fragment.&nbsp;<br />Extension to whole fragment is not allowed if the group type is changed by editing an existing group: in this case mixtures (etc.) are not allowed for fragment parts.</p>
+          <p>&nbsp;</p>
+          <br />
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

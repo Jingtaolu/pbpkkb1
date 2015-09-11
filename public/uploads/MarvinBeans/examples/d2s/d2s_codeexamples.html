@@ -1,0 +1,329 @@
+<html>
+<head>
+    <meta NAME="author" CONTENT="Andras Stracz, Eufrozina Hoffmann" />
+    <script type="text/javascript" src="/marvin/examples/sh_main.js"></script>
+    <script type="text/javascript" src="/marvin/examples/sh_java.js"></script>
+    <link rel="stylesheet" type="text/css" href="/marvin/examples/sh_nedit.css" />
+	<link rel="stylesheet" type="text/css" href="/marvin/marvinmanuals.css" />
+    <title>Document to Structure Code Examples</title>
+</head>
+<body onload="sh_highlightDocument();">
+
+<h1>Document to Structure Code Examples</h1>
+
+
+<h2>Table of Contents</h2>
+<ol>
+    <li><a href="#structures_intext">Finding structures in text</a></li>
+    <li><a href="#structures_webpage">Finding structures in a live webpage</a></li>
+    <li><a href="#structures_inPDF">Finding structures in a PDF document</a></li>
+    <li><a href="#highlighting">Highlighting recognized structures in a webpage</a></li>
+    <li><a href="#saving_infile">Saving results in SDF or MRV file format</a></li>
+    <li><a href="#inJChemTable">Storing results in a JChem structure table</a></li>
+    <li><a href="#increasing_speed">Increasing processing speed by multithreading</a></li>
+</ol>
+
+
+<h2><a class="anchor" NAME="structures_intext">1. Finding structures in text</a></h2>
+<p>In the first example, we use <code>DocumentExtractor</code>'s <code>processPlainText()</code> method to process a string. The result is a list of <code>Hit</code> objects that contain:</p>
+
+<ul>
+    <li><code>text</code>, the string fragment that was recognized;</li>
+    <li><code>position</code>, the character index where this text is found;</li>
+    <li><code>structure</code>, a <code>Molecule</code> instance containing the recognized structure.</li>
+</ul>
+<pre class="sh_java">...
+
+String test = "Aspirin:" +
+"Aspirin is the brandname of acetylsalicylic acid (ASA)." +
+"It has many uses, but is most commonly used as a pain killer, " +
+"or used to reduce fever or inflammation.";
+
+//process the string and get the results
+DocumentExtractor x = new DocumentExtractor();
+x.processPlainText(new StringReader(test));
+List&lt;Hit&gt; hits = x.getHits();
+ 
+//print out the recognized names
+for (Hit hit : hits) {
+    System.out.println(hit.structure.getName());
+}
+
+...</pre>
+
+<p>Resources:</p>
+<ul>
+    <li>Example code: Demo1.java in the <a href="d2sguide.zip">zip</a> file</li>
+    <li><a href="/marvin/help/developer/beans/api/chemaxon/naming/DocumentExtractor.html">DocumentExtractor class API docs</a></li>
+</ul>
+
+
+<h2><a class="anchor" NAME="structures_webpage">2. Finding structures in a live webpage</a></h2>
+<p>In this section, the first example is extended with functionality to download a live webpage and process it using <code>DocumentExtractor</code>'s <code>processHTML()</code> method.</p>
+
+<p>Loading a URL is done using the Apache HttpClient, a more basic solution might use the <code>java.net.HttpURLConnection</code> class. The returned string can be passed to <code>DocumentExtractor</code> using a <code>StringReader</code>.</p>
+
+<pre class="sh_java">...
+
+private static String loadURL(String url) throws Exception {
+   
+    HttpClient httpclient = new DefaultHttpClient();
+    try {
+        HttpGet httpget = new HttpGet(url);
+
+        ResponseHandler&lt;String&gt; responseHandler =
+          new BasicResponseHandler();
+        String responseBody = httpclient.execute(
+          httpget, responseHandler);
+        return responseBody;
+
+    } finally {
+        httpclient.getConnectionManager().shutdown();
+    }
+}
+
+...</pre>
+
+<p>Resources:</p>
+<ul>
+    <li>Example code: Demo2.java and httpclient JAR files in the <a href="d2sguide.zip">zip</a> file</li>
+    <li><a href="http://hc.apache.org/">Apache HttpClient</a></li>
+</ul>
+
+
+<h2><a class="anchor" NAME="structures_inPDF">3. Finding structures in a PDF document</a></h2>
+<p>Document to Structure is able to extract structures from PDF files since version 5.4. This supports only text-based PDF files. If <a href="/marvin/help/formats/imageimport.html#osra">OSRA</a> is installed, graphical repesentations of chemical structures are also processed. To retrieve the text content of a file, Apache PDFBox is used. </p>
+<p>In this section, the former example has been modified to process a PDF file.</p>
+<p>Instead of passing a <code>Reader</code> with the content to process, the <code>readPDF()</code> static method has to be use to create a <code>DocumentExtractor</code> instance that automatically reads the text from the document. After this, the <code>processPlainText()</code> method is called.</p>
+
+<p>The returned <code>Hit</code> objects contain the page number where the hit was found. This can be accessed with the <code>getPageNumber()</code> method.</p>
+
+<pre class="sh_java">...
+
+FileInputStream pdf = null;
+try {
+    pdf = new FileInputStream("test.pdf");
+    DocumentExtractor x = DocumentExtractor.readPDF(pdf);
+    x.processPlainText();
+    List&lt;Hit&gt; hits = x.getHits();        
+
+    //show where each structure was found
+    for (Hit hit : hits) {
+    System.out.println(hit.text +
+      " found on page " + hit.getPageNumber());
+    }
+   
+} finally {
+    if (pdf != null) {
+        pdf.close();
+    }
+}
+
+...</pre>
+
+<p>Resources:</p>
+<ul>
+    <li>Example code: Demo3.java and httpclient JAR files in the <a href="d2sguide.zip">zip</a> file</li>
+    <li><a href="http://pdfbox.apache.org/">Apache PDFBox</a></li>
+</ul>
+
+
+<h2><a class="anchor" NAME="highlighting">4. Highlighting recognized structures in a webpage</a></h2>
+<p>A good way to display the results of processing is to show the recognized structures directly in the original document. In HTML pages this can be done by modifying the HTML code around each hit.</p>
+
+<p>Using the <code>position</code> field of the <code>Hit</code>s, you can find the recognized names and wrap them with a special element. To keep track the modification in the HTML code, an extra variable (<code>modification</code>) is used.</p>
+
+<pre class="sh_java">...
+
+public static String prefix = "&lt;span data-structurename=\"%n\"&gt;";
+public static String suffix = "&lt;/span&gt;";
+
+...
+
+int modification = 0;
+for (Hit hit : hits) {
+
+    //add the corrected name of this hit to the data attr.
+    String current_prefix = prefix.replace("%n",
+      hit.structure.getName());
+
+    //add the modified prefix before, and the suffix after this hit
+    pagecontent = pagecontent.substring(0,
+      hit.position - 1 + modification) +
+      current_prefix + hit.text + suffix +
+      pagecontent.substring(hit.position - 1 +
+        modification + hit.text.length());
+
+    //update the amount of modification performed so far
+    modification += current_prefix.length() + suffix.length();
+}
+
+System.out.println(pagecontent);
+
+...</pre>
+
+<p>Highlighting can be achieved by styling the added elements using CSS: for this, a class can be added to the element.</p>
+
+<p>Resources:</p>
+<ul>
+    <li>Example code: Demo4.java and httpclient JAR files in the <a href="d2sguide.zip">zip</a> file</li>
+</ul>
+
+
+<h2><a class="anchor" NAME="saving_infile">5. Saving results in SDF or MRV file format</a></h2>
+<p>This example is extended with the functionality that saves the results into a multi-molecule file using the <code>MolExporter</code> class.</p>
+
+<p>Using the <code>Molecule.setProperty()</code> method, you can save related information in data fields such as the hit text, position; or in case of PDF files, you can add the page number.</p>
+
+<pre class="sh_java">...
+
+//MolExporter exporter = new MolExporter("test.sdf", "sdf");
+MolExporter exporter = new MolExporter("test.mrv", "mrv");
+
+try {
+    for (Hit hit : hits) {
+        hit.structure.setProperty("hit text", hit.text);
+        hit.structure.setProperty("hit position", hit.position);        
+        exporter.write(hit.structure);
+    }
+} finally {
+   exporter.flush();
+   exporter.close();
+}
+
+...</pre>
+
+<p>Resources:</p>
+<ul>
+    <li>Example code: Demo5.java and httpclient JAR files in the <a href="d2sguide.zip">zip</a> file</li>
+    <li><a href="/marvin/help/developer/beans/api/chemaxon/formats/MolExporter.html">MolExporter API docs</a></li>
+    <li><a href="/marvin/help/formats/formats.html">Supported formats</a></li>
+</ul>
+
+
+<h2><a class="anchor" NAME="inJChemTable">6. Storing results in a JChem structure table</a></h2>
+<p>JChem structure tables are fast, scalable and searchable repositories of chemical structures. This example is extended with the functionality to store the hits in a table.</p>
+
+<p>Creating a structure table is detailed in the <a href="/jchem/doc/admin/#create">Administration Guide of JChem</a>. The recommended table type for this example is "Any structure" because some structures returned by DocumentExtractor contain query or R-group features (e.g.: penicillin). It is also recommended to enable the "Filter out duplicate structures" option because a structure usually appears several times in a document.</p>
+
+<p>To store additional information about each structure, add 2 extra columns to the table (<a href="/jchem/doc/admin/#modify">Administration Guide</a>):</p>
+<dl>
+    <dt><code>position</code></dt>
+    <dd>unsigned integer, to store <code>Hit.position</code></dd>
+
+    <dt><code>text</code></dt>
+    <dd>varchar, to store <code>Hit.text</code></dd>
+</dl>
+
+<img src="images/example6.png" width="196" height="186" alt="example structure table to store hits" />
+
+<p>The <code>ConnectionHandler</code> and <code>UpdateHandler</code> classes are used to manage connection and data in the structure table.</p>
+
+<p>Setting up a database connection, to a MySQL database and its structures table:</p>
+
+<pre class="sh_java">...
+
+ConnectionHandler database = new ConnectionHandler();
+database.setDriver(DatabaseConstants.MYSQL_DRIVER);
+database.setUrl("jdbc:mysql://localhost/database");
+database.setLoginName("username");
+database.setPassword("password");
+
+database.connectToDatabase();
+
+
+UpdateHandler uh = new UpdateHandler(database,
+  UpdateHandler.INSERT, "structures", "position, text");
+
+...</pre>
+
+<p>Next, you need a function to call while processing the hits. This function takes a <code>Hit</code> and stores it in the structure table.</p>
+
+<pre class="sh_java">...
+
+private static void addStructure(Hit hit)
+  throws SQLException {
+
+    String struct = hit.structure.toFormat("mrv");
+    uh.setStructure(struct);
+
+    uh.setValueForAdditionalColumn(1, hit.position, java.sql.Types.INTEGER);
+    uh.setValueForAdditionalColumn(2, hit.text, java.sql.Types.VARCHAR);
+    
+    uh.execute();
+}
+
+...</pre>
+
+<p>Resources:</p>
+<ul>
+    <li>Example code: Demo6.java and httpclient JAR files in the <a href="d2sguide.zip">zip</a> file</li>
+    <li><a href="/jchem/doc/dev/dbconcepts/#tabletypes">JChem table types</a></li>
+    <li><a href="/jchem/doc/admin/#create">JChem table options</a></li>
+    <li><a href="/jchem/dev/java/api/chemaxon/util/ConnectionHandler.html">ConnectionHandler class API docs</a></li>
+    <li><a href="/jchem/doc/dev/java/api/chemaxon/jchem/db/UpdateHandler.html">UpdateHandler class API docs</a></li>
+</ul>
+
+
+<h2><a class="anchor" NAME="increasing_speed">7. Increasing processing speed by multithreading</a></h2>
+<p>Performance is a high priority in online services. The example presents multithreading functionality to take advantage of a common multicore CPU on a single HTML page.</p>
+
+<p>Splitting the HTML document into pieces, each thread can work independently. Splitting points need to be chosen carefully to ensure that possible results are not lost. We can only cut where no structural information would continue, such as at the end of sentences or at section separators.</p>
+
+<p>Using certain HTML elements as separators is a good choice and they are easy to find with regular expressions. Here you can see a pattern that achieves this by cutting at block level HTML and other safe elements.</p>
+
+<pre class="sh_java">...
+
+Pattern p = Pattern.compile("(.{2000}.*?&lt;/?(a|abbr|blockquote|" +
+  "caption|code|dd|div|dl|dt|h1|h2|h3|h4|h5|h6|hr|img|label|" +
+  "legend|li|ol|p|pre|table|td|th|tr|ul)[^&gt;]*&gt;|.*$)",
+  Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+
+...</pre>
+
+<p>After splitting the content of the page using this pattern, a task is created for each piece - chunk - using the <code>java.util.concurrent</code> framework. A task processes that piece of content similar to the <a href="#structures_webpage">second example.</a></p>
+
+<pre class="sh_java">...
+
+int availableProcessors = Runtime.getRuntime().availableProcessors();
+ExecutorService exec = Executors.newFixedThreadPool(availableProcessors);
+ExecutorCompletionService execservice = new ExecutorCompletionService(exec);
+int execservicesize = 0;
+
+...
+
+Matcher m = p.matcher(pagecontent);
+while (m.find()) {
+
+    //create and submit new callable instance
+    execservice.submit(new DocumentExtractorTask(m.group(1)));
+    execservicesize++;
+
+}
+
+...
+
+while (execservicesize-- > 0) {
+
+    //wait until the next fragment is finished
+    Future&lt;List&lt;Hit&gt;&gt; f = execservice.take();
+    List&lt;Hit&gt; hits = f.get();
+
+    //print out the name of each recognized structure
+    for (Hit hit : hits) {
+        System.out.println(hit.text);
+    }
+
+}
+
+...</pre>
+
+<p>This solution works for HTML documents, however, fragmenting pages with other content types is not easy, since traditional separators such as punctuation characters can appear in structure names. If you have a good solution to this problem, please do not hesitate to share it in our <a href="/forum/">forum</a>.</p>
+
+<p>Resources:</p>
+<ul>
+    <li>Example code: Demo7.java and httpclient JAR files in the <a href="d2sguide.zip">zip</a> file</li>
+</ul>
+
+</body>
+</html>

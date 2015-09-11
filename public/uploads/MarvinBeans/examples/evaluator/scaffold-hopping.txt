@@ -1,0 +1,3 @@
+refmol = "c1ccccc1";
+dissimilarity("ChemicalFingerprint", refmol) - 
+dissimilarity("PharmacophoreFingerprint", refmol) > 0.6

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Customize Marvin OLE editing mode</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Customize Marvin OLE editing mode </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>When you would like to edit a Marvin OLE object in an MS-Office document, MarvinSketch can be opened by a couple of ways depending on the configuration of the OLE server.</p>
+      <p>By default, when OLE object is edited the editor opens embedded into the MS-Office application. If you would like to see MarvinSketch in a standalone window during editing the OLE object, you have to modify OLE server settings in the registry.</p>
+      <p>In the <code>C:\Program Files\ChemAxon\Shared\MarvinOLE</code> folder, you will find different registry entries that can help you to modify the registry:</p>
+      <ul>
+       <li><strong>StandaloneModeForAdministrators.reg</strong>: this registry file is defined for administrators to deploy Stand Alone Mode data editing company wide as default for all users. This setting cannot be applied by restricted users since it is targeting to change a global part of the registry database. This global setting can be overriden by each user individually with running the StandaloneModeOn or StandaloneModeOff files (see below).</li>
+       <li><strong>StandaloneModeOn.reg</strong>: this registry file is for restricted users to influence the global setting of default editing mode. This script switches the default editing mode to Stand Alone Mode. The in-place mode is optionally still available in every Office application by selecting the Edit menu point from the context menu on a MarvinOLE document.</li>
+       <li><strong>StandaloneModeOff.reg</strong>: this registry file is to reset the default approach of data editing (as is after installation) when in-place mode is the default data editing mode in the container applications.</li>
+      </ul>
+      <p>Just install the desired regfile to modify the edit settings of the OLE server as described below.</p>
+      <h4 id="CustomizeMarvinOLEeditingmode-Installationofaregfile"><a class="anchor" name="regfile_installation" rel="nofollow"></a>Installation of a regfile</h4>
+      <ul>
+       <li>Navigate into the directory in file Explorer where the desired regfile is located and take a right mouse-click on the file.</li>
+       <li>Select <strong>Open With...</strong> option from the popup menu. If regedit.exe is available in the list, select it. If not, commit the <strong>Browse</strong> button in the Open With dialog and find regedit.exe to select it. By default, it is located in the <code>C:\Windows</code> folder.</li>
+       <li>After selecting <strong>regedit.exe</strong>, submit the Open With dialog to run desired regfile with regedit.exe.</li>
+      </ul>
+      <h4 id="CustomizeMarvinOLEeditingmode-UIsettingsforStandalonemode">UI settings for Standalone mode</h4>
+      <p>Marvin OLE represents a multi-document interface, which means that the users can edit more than one single document at a time. When using standalone mode all opened documents can be seen in child windows hosted in a main window frame.<br /> From version 5.12 a new setting is avilable for both administrators an users: for setting that these OLE documents should be opened in maximized window state. (Maximized window state is when the active document window overlaps, covers all other document windows.)<br /> Alt+Tab helps switching among all opened documents as normally, but the active document child gets into focus with full size in the host.</p>
+      <p>Registry key for this feature is</p>
+      <p><code>[Maximized = DWORD value]</code></p>
+      <p>where 0x1 value means True (display in maximized way) and 0x0 value is the default False (display in normal way)</p>
+      <ul>
+       <li>For administrators we have a key to set and change this setting by <code>HKEY_LOCAL_MACHINE\SOFTWARE\ChemAxon\MarvinOLE\Settings</code></li>
+       <li>For the current user this setting is <br /> <code>HKEY_CURRENT_USER\Software\ChemAxon\MarvinOLE\Settings</code> <br /> which overrides the administrator value.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

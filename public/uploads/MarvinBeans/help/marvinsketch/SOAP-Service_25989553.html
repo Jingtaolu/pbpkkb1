@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : SOAP Service</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : SOAP Service </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Service type: <span class="confluence-link">&nbsp;</span><a href="https://docs.chemaxon.com/display/marvinsketch/Marvin+Services#MarvinServices-SOAP" rel="nofollow"><span class="confluence-link">SOAP Service</span> </a><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/13336710/13402255.png" data-image-src="https://docs.chemaxon.com/download/attachments/13336710/preferences5_4.png?version=1&amp;modificationDate=1385479215000&amp;api=v2" /></span></p>
+      <p>&nbsp;</p>
+      <ul>
+       <li><strong>WSDL URI</strong>: Browse the WSDL file or type the URI of the service;</li>
+       <li><strong>Port</strong>: Select WSDL port which describes the interfaces (legal operations) exposed by the web service;</li>
+       <li>After importing the service descriptor, the tree containing all available operation of the web-service is filled, and an operation can be selected. Upon selecting an operation, the argument list of the operation is filled, if the operation is supported, otherwise an error message is shown. There is a port selector for an operation. The SOAP type requests are supported. The port selector automatically tries to select a SOAP type port.</li>
+       <li>Fill in the required fields:
+        <ul>
+         <li><p><strong>Type</strong>: Type of the parameter; supported types and their mapping:<br /><br /></p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd">SOAP</td>
+              <td class="confluenceTd">Java</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>xs:string</code></td>
+              <td class="confluenceTd"><code>java.lang.String</code></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>xs:int</code></td>
+              <td class="confluenceTd"><code>java.lang.Integer</code></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>xs:double</code></td>
+              <td class="confluenceTd"><code>java.lang.Double</code></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>xs:float</code></td>
+              <td class="confluenceTd"><code>java.lang.Float</code></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>xs:boolean</code></td>
+              <td class="confluenceTd"><code>java.lang.Boolean</code></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>xs:anytype</code></td>
+              <td class="confluenceTd"><code>java.lang.Object</code></td>
+             </tr>
+            </tbody>
+           </table>
+          </div></li>
+         <li><strong>Name</strong>: Name of the parameter; parameters can be referred by this name later;</li>
+         <li><strong>Evaluation</strong>: Specify how the parameters are passed to the service. Select from the drop-down list:
+          <ul>
+           <li>Molecule format: Input molecule is converted to specified format and the resulting string is passed to the service as parameter;</li>
+           <li>Chemical Terms: Evaluate the given <a href="https://docs.chemaxon.com/display/chemicalterms" rel="nofollow">Chemical Terms</a> expression on the input molecule and pass the evaluation result to the service as parameter;</li>
+           <li>Manual: The value of the parameter is read from the <strong>Value</strong> field.</li>
+          </ul></li>
+         <li><strong>Value</strong>: Set a default value for the input parameter (in case of Manual evaluation) or set the parameters for evaluation. Value can be overwritten on the calculation info panel.</li>
+        </ul></li>
+      </ul>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

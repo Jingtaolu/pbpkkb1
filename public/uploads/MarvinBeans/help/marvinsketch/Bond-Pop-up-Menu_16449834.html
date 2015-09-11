@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Bond Pop-up Menu</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Bond Pop-up Menu </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The bond pop-up menu appears when you right-click on a bond within the molecule. It allows you to make a number of changes to the selected bond. It contains options for bond-specific activities that also can be accessed from the <a class="external-link" rel="nofollow">Bond Menu</a>.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><p>Menu Item</p></th>
+          <th class="confluenceTh"><p>Submenu Items</p></th>
+          <th class="confluenceTh"><p>Description</p></th>
+         </tr>
+         <tr>
+          <td rowspan="7" class="confluenceTd"><p><a class="external-link" rel="nofollow">Type</a></p></td>
+          <td class="confluenceTd"><p>Single</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond type to Single.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Double</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond type to Double.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Triple</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond type to Triple.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Aromatic</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond type to Aromatic.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Wedge bond types</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond to a Wedge bond type to represent a stereo bond: Single Up or Single Down.<br /> These bond types are active only in 2D.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Query bond types</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond to a bond type to be used in a query:<br /> Single Up or Down, Double Cis or Trans, Double C/T or Unspec, Single or Double, Single or Aromatic, Double or Aromatic, Any.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Coordinate</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond type to Coordinate.</p></td>
+         </tr>
+         <tr>
+          <td colspan="2" class="confluenceTd"><p>Bold</p></td>
+          <td class="confluenceTd"><p>Thickens the selected bond.</p></td>
+         </tr>
+         <tr>
+          <td colspan="2" class="confluenceTd"><p>Hashed</p></td>
+          <td class="confluenceTd"><p>Changes the selected bond hashed.</p></td>
+         </tr>
+         <tr>
+          <td rowspan="4" class="confluenceTd"><p>Topology</p></td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd"><p>The following options can be set as bond property when the molecule is used as a query.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>None</p></td>
+          <td class="confluenceTd"><p>Removes defined bond topologies.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>In Ring</p></td>
+          <td class="confluenceTd"><p>The specified bond must be in a ring to score a hit.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>In Chain</p></td>
+          <td class="confluenceTd"><p>The specified bond must be in a chain to score a hit.</p></td>
+         </tr>
+         <tr>
+          <td rowspan="7" class="confluenceTd"><p>Reacting Center</p></td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd"><p>The following bond property options can be set in case of drawing reaction search queries. See<span class="confluence-link">&nbsp;</span><span class="confluence-link"><span class="confluence-link">&nbsp;</span><a href="https://docs.chemaxon.com/display/jchembase/Reaction+search#Reactionsearch-Reactingcenter"><span class="confluence-link">Reacting center bond</span></a> </span> for further query feature descriptions.</p></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>None</p></td>
+          <td class="confluenceTd"><p>Removes added bond property.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Center</p></td>
+          <td class="confluenceTd"><p>Specifies that the bond takes part in the reaction.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Make or Break</p></td>
+          <td class="confluenceTd"><p>The assigned bond can form or disappear in the reaction.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Change</p></td>
+          <td class="confluenceTd"><p>The assigned bond remains and can alter during the reaction.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Make and Change</p></td>
+          <td class="confluenceTd"><p>The assigned bond can form, break,or change its type during the reaction.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Not Center</p></td>
+          <td class="confluenceTd"><p>The assigned bond can not be the reaction center.</p></td>
+         </tr>
+         <tr>
+          <td colspan="2" class="confluenceTd"><p>Stereo Search</p></td>
+          <td class="confluenceTd"><p>Uses stereoconfiguration of specified double bond when the molecule is used as a query.</p></td>
+         </tr>
+         <tr>
+          <td rowspan="2" class="confluenceTd"><p>Arrange</p></td>
+          <td class="confluenceTd"><p>Bring to Front</p></td>
+          <td class="confluenceTd"><p>Brings the selected bond in front of the others.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Send to Back</p></td>
+          <td class="confluenceTd"><p>Sends the selected bond to the back of the others.</p></td>
+         </tr>
+         <tr>
+          <td rowspan="2" class="confluenceTd"><p>Align</p></td>
+          <td class="confluenceTd"><p>Horizontally</p></td>
+          <td class="confluenceTd"><p>Orients the selected bond horizontally.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p>Vertically</p></td>
+          <td class="confluenceTd"><p>Orients the bond vertically.</p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

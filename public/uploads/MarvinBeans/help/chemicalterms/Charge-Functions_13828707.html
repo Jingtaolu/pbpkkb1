@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Charge Functions</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Charge Functions </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>This set of functions deal with polarizability and partial charges.</p>
+      <h3 id="ChargeFunctions-Example">Example</h3>
+      <p><span style="color: rgb(0,0,0);">Compute charge for each atom in the given molecule:</span></p>
+      <p><span style="color: rgb(0,0,0);"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828707/14123052.png" data-image-src="attachments/13828707/14123052.png" data-unresolved-comment-count="0" data-linked-resource-id="14123052" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="dibrom-benzene.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828707" data-linked-resource-container-version="14" /></span><br /></span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">charge()</pre> 
+       </div>
+      </div>
+      <p>The calculation returns the following numbers: <em style="line-height: 1.4285715;">0; -0.15; -0.15; -0.15; -0.15; -0.15; 0; -0.15</em></p>
+      <h3 id="ChargeFunctions-ListofChargeFunctions">List of Charge Functions</h3> 
+      <div id="expander-126293433" class="expand-container"> 
+       <div id="expander-control-126293433" class="expand-control"> 
+        <span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png" /></span>
+        <span class="expand-control-text">Click here for the complete list of charge functions.</span> 
+       </div> 
+       <div id="expander-content-126293433" class="expand-content">
+        <div class="table-wrap">
+         <table class="confluenceTable">
+          <tbody>
+           <tr>
+            <th class="confluenceTh">Name</th>
+            <th class="confluenceTh">License</th>
+            <th class="confluenceTh">Description</th>
+            <th class="confluenceTh">Return value</th>
+            <th class="confluenceTh">Parameters</th>
+            <th class="confluenceTh">Examples</th>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="atomicpolarizability" rel="nofollow"></a><a name="atomicpolarizabilitydesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#atomicpolarizabilityex" name="atomicpolarizabilityex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>atomicPolarizability<br />atomPol<br />pol<br />polarizability</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates atomic polarizability</td>
+            <td class="confluenceTd">the polarizability values</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the atom index / MolAtom object,</li>
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>atomicPolarizability(0)</code>&nbsp;returns the polarizability of atom&nbsp;
+              <code>0</code>&nbsp;of the input molecule&nbsp;
+              <code>atomicPolarizability(2, &quot;7.4&quot;)</code>returns the polarizability of atom&nbsp;
+              <code>2</code>&nbsp;of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="averagepolarizability" rel="nofollow"></a><a name="averagepolarizabilitydesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#averagepolarizabilityex" name="averagepolarizabilityex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>averagePolarizability<br />averagePol<br />avgPol</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates average molecular polarizability component considering 3D geometry</td>
+            <td class="confluenceTd">the polarizability value</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>averagePolarizability()</code>&nbsp;returns the average polarizability component of the input molecule&nbsp;
+              <code>averagePolarizability(&quot;7.4&quot;)</code>returns the average polarizability component of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="axxpol" rel="nofollow"></a><a name="axxpoldesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#axxpolex" name="axxpolex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>axxPol</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates principal component of polarizability tensor (a(xx), a(yy), a(zz))</td>
+            <td class="confluenceTd">the principal component of polarizability tensor</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>axxPol()</code>&nbsp;returns the principal component&nbsp;
+              <code>a(xx)</code>&nbsp;of polarizability tensor of the input molecule&nbsp;
+              <code>axxPol(&quot;7.4&quot;)</code>&nbsp;returns the principal component&nbsp;
+              <code>a(xx)</code>&nbsp;of polarizability tensor of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="ayypol" rel="nofollow"></a><a name="ayypoldesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#ayypolex" name="ayypolex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>ayyPol</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates principal component of polarizability tensor (a(xx), a(yy), a(zz))</td>
+            <td class="confluenceTd">the principal component of polarizability tensor</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>ayyPol()</code>&nbsp;returns the principal component&nbsp;
+              <code>a(yy)</code>&nbsp;of polarizability tensor of the input molecule&nbsp;
+              <code>ayyPol(&quot;7.4&quot;)</code>&nbsp;returns the principal component&nbsp;
+              <code>a(yy)</code>&nbsp;of polarizability tensor of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="azzpol" rel="nofollow"></a><a name="azzpoldesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#azzpolex" name="azzpolex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>azzPol</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates principal component of polarizability tensor (a(xx), a(yy), a(zz))</td>
+            <td class="confluenceTd">the principal component of polarizability tensor</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>azzPol()</code>&nbsp;returns the principal component&nbsp;
+              <code>a(zz)</code>&nbsp;of polarizability tensor of the input molecule&nbsp;
+              <code>azzPol(&quot;7.4&quot;)</code>&nbsp;returns the principal component&nbsp;
+              <code>a(zz)</code>&nbsp;of polarizability tensor of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="charge" rel="nofollow"></a><a name="chargedesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#chargeex" name="chargeex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>charge</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates partial charges on atoms<br />for result types &quot;aromaticsystem&quot; / &quot;aromaticring&quot;, calculates the sum of partial charges of the atoms in the aromatic system / smallest aromatic ring containing the atom</td>
+            <td class="confluenceTd">the charge values</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the atom index / MolAtom object,</li>
+              <li>the result type (&quot;total&quot; (default), &quot;pi&quot;, &quot;sigma&quot;, &quot;aromaticsystem&quot;, &quot;aromaticsystemsigma&quot;, &quot;aromaticsystempi&quot;, &quot;aromaticring&quot;, &quot;aromaticringsigma&quot;, &quot;aromaticringpi&quot;),</li>
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>charge(0)</code>&nbsp;returns the partial charge on atom&nbsp;
+              <code>0</code>&nbsp;of the input molecule&nbsp;
+              <code>charge(2, &quot;pi&quot;, &quot;7.4&quot;)</code>&nbsp;returns the partial &quot;pi&quot; charge on atom&nbsp;
+              <code>2</code>&nbsp;of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="molecularpolarizability" rel="nofollow"></a><a name="molecularpolarizabilitydesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#molecularpolarizabilityex" name="molecularpolarizabilityex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>molecularPolarizability<br />molPol</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates molecular polarizability</td>
+            <td class="confluenceTd">the polarizability value</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>molecularPolarizability()</code>&nbsp;returns the molecular polarizability of the input molecule&nbsp;
+              <code>molecularPolarizability(&quot;7.4&quot;)</code>returns the molecular polarizability of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="piorbitalelectronegativity" rel="nofollow"></a><a name="piorbitalelectronegativitydesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#piorbitalelectronegativityex" name="piorbitalelectronegativityex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>piOrbitalElectronegativity<br />pOEN</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates atomic pi orbital electronegativity</td>
+            <td class="confluenceTd">the pi orbital electronegativity values</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the atom index / MolAtom object,</li>
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>piOrbitalElectronegativity(0)</code>returns the pi orbital electronegativity of atom&nbsp;
+              <code>0</code>&nbsp;of the input molecule&nbsp;
+              <code>piOrbitalElectronegativity(2, &quot;7.4&quot;)</code>returns the pi orbital electronegativity of atom&nbsp;
+              <code>2</code>&nbsp;of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="resonantcharge" rel="nofollow"></a><a name="resonantchargedesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#resonantchargeex" name="resonantchargeex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>resonantCharge</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates partial charges on atoms considering resonance effect<br />for result types &quot;aromaticsystem&quot; / &quot;aromaticring&quot;, calculates the sum of partial charges of the atoms in the aromatic system / smallest aromatic ring containing the atom</td>
+            <td class="confluenceTd">the charge values</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the atom index / MolAtom object,</li>
+              <li>the result type (&quot;total&quot; (default), &quot;pi&quot;, &quot;sigma&quot;, &quot;aromaticsystem&quot;, &quot;aromaticsystemsigma&quot;, &quot;aromaticsystempi&quot;, &quot;aromaticring&quot;, &quot;aromaticringsigma&quot;, &quot;aromaticringpi&quot;),</li>
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>resonantCharge(0)</code>&nbsp;returns the partial charge on atom&nbsp;
+              <code>0</code>&nbsp;of the input molecule considering resonance effect
+              <code>resonantCharge(2, &quot;pi&quot;, &quot;7.4&quot;)</code>returns the partial &quot;pi&quot; charge on atom&nbsp;
+              <code>2</code>&nbsp;of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>considering resonance effect
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+           <tr>
+            <td class="confluenceTd"><a name="sigmaorbitalelectronegativity" rel="nofollow"></a><a name="sigmaorbitalelectronegativitydesc" rel="nofollow"></a><a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#sigmaorbitalelectronegativityex" name="sigmaorbitalelectronegativityex" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>sigmaOrbitalElectronegativity<br />sOEN</td>
+            <td class="confluenceTd">Charge Plugin Group</td>
+            <td class="confluenceTd">calculates atomic sigma orbital electronegativity</td>
+            <td class="confluenceTd">the sigma orbital electronegativity values</td>
+            <td class="confluenceTd">
+             <ul style="margin-left: 20.0px;">
+              <li>the atom index / MolAtom object,</li>
+              <li>the major microspecies pH (takes the input molecule itself if omitted)</li>
+             </ul></td>
+            <td class="confluenceTd"><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Molecule Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a><br />
+             <div>
+              <code>sigmaOrbitalElectronegativity(0)</code>returns the sigma orbital electronegativity of atom&nbsp;
+              <code>0</code>&nbsp;of the input molecule&nbsp;
+              <code>sigmaOrbitalElectronegativity(2, &quot;7.4&quot;)</code>returns the sigma orbital electronegativity of atom&nbsp;
+              <code>2</code>&nbsp;of the major microspecies taken at pH&nbsp;
+              <code>7.4</code>
+             </div><a class="fakelink" style="text-decoration: underline;" rel="nofollow">Reaction Context</a>&nbsp;<a class="fakelink" style="text-decoration: underline;" rel="nofollow">(All)</a></td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

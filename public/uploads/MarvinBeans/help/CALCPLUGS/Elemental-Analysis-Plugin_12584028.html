@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Elemental Analysis Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Elemental Analysis Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Elemental Analysis Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200955954 {padding: 0px;}
+div.rbtoc1439200955954 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200955954 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200955954"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#ElementalAnalysisPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#ElementalAnalysisPlugin-Options">Options</a></li> 
+          <li><a href="#ElementalAnalysisPlugin-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="ElementalAnalysisPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The&nbsp;Elemental Analysis Plugin calculates<strong>&nbsp;</strong>basic descriptors related to the elemental composition of a molecule.</p>
+      <p>The <a href="#ElementalAnalysisPlugin-fig.1">example below</a> illustrates the analysis results for an input structure.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="ElementalAnalysisPlugin-fig.1"></span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584028/30474287.png" data-image-src="attachments/12584028/30474287.png" data-unresolved-comment-count="0" data-linked-resource-id="30474287" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="IMG_18082014_150746.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584028" data-linked-resource-container-version="45" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584028/30474286.png" data-image-src="attachments/12584028/30474286.png" data-unresolved-comment-count="0" data-linked-resource-id="30474286" data-linked-resource-version="4" data-linked-resource-type="attachment" data-linked-resource-default-alias="IMG_18082014_125328.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584028" data-linked-resource-container-version="45" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Fig. 1 Elemental Analysis result window examples</p>
+      <p>&nbsp;</p>
+      <h1 id="ElementalAnalysisPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>In the&nbsp;<a href="#ElementalAnalysisPlugin-fig.2"><em>Elemental Analysis Options</em>&nbsp;</a>window&nbsp;you can set the following options:</p>
+      <ul>
+       <li><strong><strong style="line-height: 1.4285715;">Type</strong></strong></li>
+      </ul>
+      <ol>
+       <li><strong><strong style="line-height: 1.4285715;">Mass:</strong><span style="line-height: 1.4285715;">&nbsp;</span></strong><span style="line-height: 1.4285715;">average molecular mass calculated from the&nbsp;</span><span style="line-height: 1.4285715;"><a href="#ElementalAnalysisPlugin-amass">standard atomic weights</a></span><span style="line-height: 1.4285715;">.</span></li>
+       <li><strong>Exact mass:</strong>&nbsp;monoisotopic mass calculated from the<a href="#ElementalAnalysisPlugin-emass">&nbsp;weights</a>&nbsp;of the most abundant natural isotopes of the elements.</li>
+       <li><strong>Formula:</strong>&nbsp;chemical formula of the molecule according to the<a href="#ElementalAnalysisPlugin-hills">&nbsp;Hill system</a>: the number of carbon atoms is indicated first, the number of hydrogen atoms next, and then the number of all other chemical elements subsequently, in alphabetical order. Isotopes (like Deuterium and Tritium) are not listed separately but counted together (e.g., deuterium and tritium atoms are counted as hydrogens). When the formula contains no carbon, all the elements, including hydrogen, are listed alphabetically. If the molecule contains an SRU or Repeating Unit S-group, it is taken into account and Polymer Formula is generated.&nbsp;</li>
+       <li><strong>Isotope formula:</strong>&nbsp;gives the chemical formula of the molecule with separately listed isotopes, according to the Hill system.</li>
+       <li><strong>Dot-disconnected formula:</strong>&nbsp;chemical formula of the molecule, with fragment formulae separated by dots (e.g. salts, counterions, solvent molecules).</li>
+       <li><strong>Grouped dot-disconnected formula</strong>:&nbsp;chemical formula of the molecule, with the fragment formulae separated by dots and multiple fragments grouped together with the number of repetition</li>
+       <li><strong>Dot-disconnected isotope formula:</strong>&nbsp;chemical formula of the molecule, with the fragment formulae separated by dots and separately listed isotopes.</li>
+       <li><strong>Mass spectrum:</strong>&nbsp;calculates the isotope distribution of the input molecule(s). The result is displayed as a spectrum, which plots the mass/charge values (m/z) vs. the relative abundance.</li>
+       <li><strong>Composition:</strong>&nbsp;elemental composition given in weight percentage (w/w %), calculated from the atomic masses.</li>
+       <li><strong>Isotope composition:</strong>&nbsp;elemental composition with separately listed isotopes (w/w %).</li>
+       <li><strong>Atom count:</strong>&nbsp;number of all atoms in the molecule.</li>
+      </ol>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>For polymers mass, composition and atom count calculations are not available. NaN, N/A, and -1 values are returned in these cases, respectively.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <ul>
+       <li><strong>Use D/T symbols for Deuterium/Tritium:</strong>&nbsp;if unchecked (default), isotopes of hydrogen are displayed as 2H and 3H; otherwise D and T symbols are used.</li>
+       <li><p class="_mce_tagged_br"><strong>Single fragment mode:</strong>&nbsp;if unchecked (default), the calculation handles unlinked molecules together (e.g. salt molecules), summing up the masses of each component;&nbsp;otherwise the results are displayed in a scroll window.</p></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="ElementalAnalysisPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584028/30474285.png" data-image-src="attachments/12584028/30474285.png" data-unresolved-comment-count="0" data-linked-resource-id="30474285" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="IMG_18082014_125206.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584028" data-linked-resource-container-version="45" /></span></p>
+      <p>Fig. 2 Elemental Analysis Options window<br />&nbsp;</p>
+      <h1 id="ElementalAnalysisPlugin-References">References</h1>
+      <ol>
+       <li><span class="confluence-anchor-link" id="ElementalAnalysisPlugin-amass"></span>Atom weights: M. E. Wieser, &quot;Atomic weights of the elements 2005 (IUPAC Technical Report)&quot; Pure Appl. Chem., Vol. 78, No. 11, pp. 2051-2066, 2006;&nbsp;<a href="http://dx.doi.org/10.1351/pac200678112051" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><span class="confluence-anchor-link" id="ElementalAnalysisPlugin-emass"></span>Isotope weights: G.Audi and A.H.Wapstra, &quot;The 1995 update to the atomic mass evaluation&quot; Nuclear Physics A595 vol. 4, pp. 409-480, 1995;<a href="http://dx.doi.org/10.1016/0375-9474(95)00445-9" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><span class="confluence-anchor-link" id="ElementalAnalysisPlugin-hills"></span>The Hill system: E. A. Hill, &quot;On A System Of Indexing Chemical Literature; Adopted By The Classification Division Of The U. S. Patent Office&quot;. J. Am. Chem. Soc., 22(8), pp. 478-494, 1900;&nbsp;<a href="http://dx.doi.org/10.1021/ja02046a005" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+      </ol>
+      <p>&nbsp;</p>
+      <p><br /><br /></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

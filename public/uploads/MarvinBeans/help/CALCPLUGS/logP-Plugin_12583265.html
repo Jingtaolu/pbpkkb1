@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : logP Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : logP Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the log<em>P</em> Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200953859 {padding: 0px;}
+div.rbtoc1439200953859 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200953859 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200953859"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#logPPlugin-Introduction">Introduction &nbsp;</a></li> 
+          <li><a href="#logPPlugin-Options">Options &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#logPPlugin-GeneralOptions">General Options</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#logPPlugin-Method">Method &nbsp;</a></li> 
+              <li><a href="#logPPlugin-Otheroptions">Other options</a></li> 
+             </ul> </li> 
+            <li><a href="#logPPlugin-DisplayOptions">Display Options</a></li> 
+           </ul> </li> 
+          <li><a href="#logPPlugin-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="logPPlugin-Introduction"><br />Introduction<br />&nbsp;</h1>
+      <p><span class="confluence-anchor-link" id="logPPlugin-intro"></span></p>
+      <p>The log<em>P</em>&nbsp;Plugin calculates the octanol/water partition coefficient, which is used in QSAR analysis and rational drug design as a measure of molecular hydrophobicity. The calculation method is based on the publication of <a href="#logPPlugin-refviswan">Viswanadhan et al</a>. The log<em>P&nbsp;</em>of a molecule is composed of the increment of its atoms. However, the algorithm described in the paper was modified at several points:</p>
+      <ol>
+       <li>Many atomic types were redefined to accommodate electron delocalization and contributions of ionic forms were added.&nbsp;</li>
+       <li>The log<em>P&nbsp;</em>of zwitterions are calculated from their log<em>D</em>&nbsp;value at their isoelectric point.&nbsp;</li>
+       <li>The effect of hydrogen bonds on log<em>P</em>&nbsp;is considered if there is a chance to form a six membered ring between suitable donor and acceptor atoms.&nbsp;</li>
+       <li>New atom types were introduced especially for sulfur, carbon, nitrogen and metal atoms.&nbsp;</li>
+      </ol>
+      <p>To find details on log<em style="line-height: 1.4285715;">P </em>calculation, see the <a href="LogP-and-logD-calculations_13338354.html">following page</a>.&nbsp;</p>
+      <p>The result of the calculation appears in a new window, either in a MarvinView (for a <a href="#logPPlugin-fig.1">2D view</a>) window or in a MarvinSpace (for a <a href="#logPPlugin-fig.2">3D view</a>) window.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="logPPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/12583265/35947518.png" data-image-src="attachments/12583265/35947518.png" data-unresolved-comment-count="0" data-linked-resource-id="35947518" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="logp_pl2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583265" data-linked-resource-container-version="66" /></span></p>
+      <p>Fig. 1 Log<em>P</em>&nbsp;result window with atomic increments displayed in MarvinView</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="logPPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/12583265/35947521.jpg" data-image-src="attachments/12583265/35947521.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947521" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="logp_pl3.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583265" data-linked-resource-container-version="66" /></span></p>
+      <p>Fig. 2 Log<em>P</em> result window with atomic&nbsp;increments displayed in MarvinSpace</p>
+      <p>&nbsp;</p>
+      <h1 id="logPPlugin-Options">Options<br />&nbsp;</h1>
+      <h2 id="logPPlugin-GeneralOptions">General Options</h2>
+      <p>&nbsp;</p>
+      <p>Different general options can be set in the&nbsp;<em><a href="#logPPlugin-fig">logP&nbsp;Options</a>&nbsp;</em>window:</p>
+      <h3 id="logPPlugin-Method">Method<br />&nbsp;</h3>
+      <p>This option defines the method for calculating logP. These can be:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Consensus</strong>: this method uses a consensus model built on the <a href="#logPPlugin-chemaxonmod">ChemAxon</a> and <a href="#logPPlugin-refklopman">Klopman et al.</a> models and the <a href="#logPPlugin-refphysprop">PhysProp</a> database.&nbsp;</li>
+       <li><strong><span class="confluence-anchor-link" id="logPPlugin-chemaxonmod"></span>ChemAxon</strong>: this method is based on ChemAxon's own logP model, which is based on the VG method (derived from&nbsp;<a href="#logPPlugin-refviswan">Viswanadhan et al.</a>). Read more about it <a href="#logPPlugin-intro">here</a>.&nbsp;</li>
+       <li><strong>User defined:</strong>&nbsp;if a training set of structures and corresponding experimental log<em>P</em>&nbsp;values is available, it can be used as a database for log<em>P</em>&nbsp;calculations. See&nbsp;<a href="Training-the-logP-Plugin_13338141.html">the manual page</a>&nbsp;on creating such training sets.<br /><br /></li>
+      </ul>
+      <h3 id="logPPlugin-Otheroptions">Other options</h3>
+      <p>&nbsp;</p>
+      <p>These options are for refining the logP calculation.&nbsp;</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Training ID:</strong>&nbsp;if the&nbsp;<strong>User defined</strong>&nbsp;method is selected, this dropdown list becomes active. All created training sets are listed here. Choose the one to apply for the calculation.&nbsp;</li>
+       <li><strong>Electrolyte concentration</strong>
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Cl<sup>-</sup>&nbsp;concentration:</strong>&nbsp;can be set between 0.1 and 0.25 mol/L.</li>
+         <li><strong>Na<sup>+</sup>&nbsp;K<sup>+</sup>&nbsp;concentration:</strong>&nbsp;can be set between 0.1 and 0.25 mol/L.</li>
+        </ul></li>
+       <li><strong>Consider tautomerization/resonance:</strong>&nbsp;the log<em>P</em>&nbsp;of the major tautomer will be calcutated if enabled.<br />&nbsp;</li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="logPPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="300" src="attachments/12583265/35947469.jpg" data-image-src="attachments/12583265/35947469.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947469" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logp_pl1.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583265" data-linked-resource-container-version="66" /></span></p>
+      <p>Fig. 3 log<em>P</em> Options window with the General Options panel</p>
+      <p>&nbsp;</p>
+      <h2 id="logPPlugin-DisplayOptions">Display Options</h2>
+      <p>&nbsp;</p>
+      <p>Different display options can be set in the<a href="#logPPlugin-fig.4">&nbsp;<em>logP&nbsp;Options</em></a>&nbsp;window:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places</strong>:&nbsp;setting the number of decimal places for the precision of the result value.</li>
+       <li><strong>Show value</strong>: sets which logP values be displayed in the result window. It can be:
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Increments</strong>:&nbsp;calculates and shows the increments for atoms one-by-one.</li>
+         <li><strong>log<em>P&nbsp;</em></strong>:&nbsp;shows just the value of the log<em>P.</em></li>
+        </ul></li>
+       <li><strong>Display in MarvinSpace:</strong>&nbsp;the result window opens as <a href="#logPPlugin-fig.2">3D MarvinSpace viewer</a>. If unchecked, the results will be shown in a <a href="#logPPlugin-fig.1">2D MarvinView panel</a>.</li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="logPPlugin-fig.4"></span>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="300" src="attachments/12583265/35947530.jpg" data-image-src="attachments/12583265/35947530.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947530" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logp_pl4.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12583265" data-linked-resource-container-version="66" /></span></p>
+      <p>Fig. 4 log<em>P&nbsp;</em>Options window with the Display Options panel</p>
+      <h1 id="logPPlugin-References"><br />References</h1>
+      <ol>
+       <li><a class="text" name="ref1" rel="nofollow"></a><span class="confluence-anchor-link" id="logPPlugin-refviswan"></span>Viswanadhan, V. N.; Ghose, A. K.; Revankar, G. R.; Robins, R. K.,&nbsp;<em>J. Chem. Inf. Comput. Sci.</em>,&nbsp;<strong>1989</strong>,&nbsp;<em>29</em>, 163-172;&nbsp;<a href="http://dx.doi.org/10.1021/ci00063a006" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><a class="text" name="ref2" rel="nofollow"></a><span class="confluence-anchor-link" id="logPPlugin-refklopman"></span>Klopman, G.;&nbsp;Li, Ju-Yun.; Wang, S.; Dimayuga, M.:&nbsp;<em>J.Chem.Inf.Comput.Sci.</em>,&nbsp;<strong>1994</strong>,&nbsp;<em>34</em>, 752;&nbsp;<a href="http://dx.doi.org/10.1021/ci00020a009" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+       <li><span class="confluence-anchor-link" id="logPPlugin-refphysprop"></span>PHYSPROP<sup>&copy;</sup>&nbsp;database</li>
+       <li><a class="text" name="ref3" rel="nofollow"></a>Csizmadia, F; Tsantili-Kakoulidou, A.; Pander, I.; Darvas, F.,&nbsp;<em>J. Pharm. Sci.</em>,&nbsp;<strong>1997</strong>,&nbsp;<em>86</em>, 865-871;&nbsp;<a href="http://dx.doi.org/10.1021/js960177k" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></li>
+      </ol> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

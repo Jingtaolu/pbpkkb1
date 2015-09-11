@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Refractivity Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Refractivity Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the Refreactivity Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956613 {padding: 0px;}
+div.rbtoc1439200956613 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956613 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956613"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#RefractivityPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#RefractivityPlugin-Options">Options</a></li> 
+          <li><a href="#RefractivityPlugin-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="RefractivityPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The Refractivity Plugin is able to calculate molar refractivity. This descriptor is strongly related to the volume of the molecules and to London dispersive forces that play crucial part in drug-receptor interactions.&nbsp;Our calculation is based on the atomic method proposed by&nbsp;<a href="#RefractivityPlugin-viswan">Viswanadhan et al.</a>&nbsp;</p>
+      <p>The calculation results with the value of refractivity (the dimension is 10<sup>6</sup>⋅[m<sup>3</sup>⋅mol<sup>-1</sup>])&nbsp;can be displayed in<a href="#RefractivityPlugin-fig.1"> 2D</a> or<a href="#RefractivityPlugin-fig.2"> 3D</a>.&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="RefractivityPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584090/29098627.png" data-image-src="attachments/12584090/29098627.png" data-unresolved-comment-count="0" data-linked-resource-id="29098627" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="refractivity.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584090" data-linked-resource-container-version="26" /></span></p>
+      <p>Fig.1 Refractivity Plugin result window with 2D display in MarvinView</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="RefractivityPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584090/29098628.png" data-image-src="attachments/12584090/29098628.png" data-unresolved-comment-count="0" data-linked-resource-id="29098628" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="refractivity_mspace.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584090" data-linked-resource-container-version="26" /></span></p>
+      <p>Fig. 2 Refractivity Plugin result window with 3D display in MarvinSpace</p>
+      <p>&nbsp;</p>
+      <h1 id="RefractivityPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>Different calculation parameters can be set in the&nbsp;<a href="#RefractivityPlugin-fig.3"><em>Refractivity Options</em>&nbsp;</a>window:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Decimal places:</strong>&nbsp;setting the number of decimal places with which the result value is given.</li>
+       <li><strong>Type</strong>: sets the type of the calculation
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Increments:</strong>&nbsp;displays the increments given by atoms.</li>
+         <li><strong>Refractivity:</strong>&nbsp;calculates the value of the molar refractivity</li>
+        </ul></li>
+       <li><strong>Increments of hydrogens:</strong>&nbsp;displays the increments given by hydrogens.</li>
+       <li><strong><a href="#RefractivityPlugin-fig.2">Display in MarvinSpace</a>:&nbsp;</strong>if checked, the result window opens as a 3D MarvinSpace viewer; otherwose it is shown in 2D.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The numbers in brackets refer to the refractivity sum of the implicit hydrogen atoms.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="RefractivityPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584090/29099429.png" data-image-src="attachments/12584090/29099429.png" data-unresolved-comment-count="0" data-linked-resource-id="29099429" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="refrac_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584090" data-linked-resource-container-version="26" /></span></p>
+      <p>Fig. 3 Refractivity Options window</p>
+      <h1 id="RefractivityPlugin-References"><br />References</h1>
+      <p><span class="confluence-anchor-link" id="RefractivityPlugin-viswan"></span>&nbsp;<span style="line-height: 1.4285715;">Viswanadhan, V. N.; Ghose, A. K.; Revankar, G. R.; Robins, R. K.,&nbsp;</span><em style="line-height: 1.4285715;">J. Chem. Inf. Comput. Sci.</em><span style="line-height: 1.4285715;">,&nbsp;</span><strong style="line-height: 1.4285715;">1989</strong><span style="line-height: 1.4285715;">,&nbsp;</span><em style="line-height: 1.4285715;">29</em><span style="line-height: 1.4285715;">, 163-172;&nbsp;</span><a href="http://dx.doi.org/10.1021/ci00063a006" style="text-decoration: underline;" class="external-link" rel="nofollow">doi</a></p>
+      <h2 id="RefractivityPlugin-http://www.chemaxon.com/marvin/help/calculations/other.html#resonance"><a class="external-link" href="http://www.chemaxon.com/marvin/help/calculations/other.html#resonance" name="resonance" style="text-decoration: underline;" rel="nofollow"></a></h2> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

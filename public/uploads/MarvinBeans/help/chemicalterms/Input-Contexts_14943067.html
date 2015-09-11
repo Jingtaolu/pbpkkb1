@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Input Contexts</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Input Contexts </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>On this page you will find information about</p>
+        <ul>
+         <li><a href="#InputContexts-data_groups">Data groups</a></li>
+         <li><a href="#InputContexts-evaluation_environments">Expression evaluation environments</a></li>
+         <li><a href="#InputContexts-input_contexts">Input contexts</a></li>
+        </ul> 
+       </div>
+      </div>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>When evaluating an expression, the Evaluator substitutes data reference symbols by the corresponding data items.</p>
+       </div> 
+      </div> 
+      <h1 id="InputContexts-data_groupsDatagroups"><br /><span class="confluence-anchor-link" id="InputContexts-data_groups"></span>Data groups</h1>
+      <p>&nbsp;</p>
+      <p>All data items belong to exactly one of the following data groups:</p>
+      <ol style="margin-left: 20.0px;">
+       <li><strong>constants</strong><br />data having the same value at each evaluation
+        <ul style="margin-left: 20.0px;">
+         <li>numerical or string constants (e.g.&nbsp;<code>5</code>,&nbsp;<code>7.4</code>,&nbsp;<code>&quot;acidic&quot;</code>,&nbsp;<code>&quot;mols/amine.mol&quot;</code>,&nbsp;<code>&quot;NCC(N)C1=CC(=CC=C1)C(O)=O&quot;</code>)</li>
+         <li>molecule constants&nbsp;declared in the&nbsp;configuration XML&nbsp;(e.g.&nbsp;<code>nitro</code>,&nbsp;<code>hydrazide</code>,&nbsp;<code>carboxyl</code>)</li>
+        </ul><p>&nbsp;</p></li>
+       <li><strong>inputs</strong><br />data possibly changing for each evaluation, such as
+        <ul style="margin-left: 20.0px;">
+         <li>input molecules and atoms,</li>
+         <li>input reactants for reaction processing,</li>
+         <li>created products in reaction processing</li>
+        </ul></li>
+      </ol>
+      <h1 id="InputContexts-evaluation_environmentsExpressionevaluationenvironments"><br /><span class="confluence-anchor-link" id="InputContexts-evaluation_environments"></span>Expression evaluation environments<br /><br /></h1>
+      <p>The type of the input data depends on the&nbsp;expression evaluation environment, which currently is one of the following:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>an expression string evaluated by the command line version of Evaluator refers to the current input molecule read from the input file(s) or the standard input<p>&nbsp;</p></li>
+       <li>an inner atomic expression refers to both the input molecule and the current atom - it is used when a Chemical Terms expression is evaluated on some or all atoms of the input molecule (e.g.&nbsp;atom filtering conditions,&nbsp;atomic evaluators&nbsp;and&nbsp;min-max evaluators)<p>&nbsp;</p></li>
+       <li>a&nbsp;reaction condition&nbsp;can refer to a reactant and a product array as well as to their atoms mapped according to the reaction equation</li>
+      </ol>
+      <h1 id="InputContexts-input_contextsInputcontexts"><br /><span class="confluence-anchor-link" id="InputContexts-input_contexts"></span>Input contexts<br />&nbsp;</h1>
+      <p>The evaluation environment provides a specific&nbsp;input context&nbsp;for accessing its input data. The input context consists of a bunch of accessor functions that can be used in the expression strings to access the input data.</p>
+      <p>The following input contexts correspond to the evaluation environments described above:</p>
+      <ol style="margin-left: 20.0px;">
+       <li><a name="molcontext" rel="nofollow"></a><span class="confluence-anchor-link" id="InputContexts-molecule_context"></span><strong>molecule context</strong>, used for single molecule input (e.g.&nbsp;<a href="Chemical-Terms-Evaluator_13829045.html">command line Evaluator</a>,&nbsp;<a href="JChem-Cartridge_13829047.html">JChem Cartridge</a>):
+        <ul style="margin-left: 20.0px;">
+         <li><code>mol()</code>: refers to the current input molecule</li>
+        </ul><p>&nbsp;</p></li>
+       <li><a name="atomcontext" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="InputContexts-atom_context"></span>atom context</strong>, used for single atom input (e.g. inner atomic expressions):
+        <ul style="margin-left: 20.0px;">
+         <li><code>mol()</code>: refers to the current input molecule</li>
+         <li><code>atom()</code>: refers to the current input atom index in the input molecule</li>
+        </ul><p>&nbsp;</p></li>
+       <li><a name="searchcontext" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="InputContexts-search_context"></span>search context</strong>, used for filtering search hits (e.g.&nbsp;<code>jcsearch</code>&nbsp;and&nbsp;search queries):
+        <ul style="margin-left: 20.0px;">
+         <li><code>mol(), target()</code>: both refer to the search target molecule</li>
+         <li><code>query()</code>: refers to the search query molecule</li>
+         <li><code>m(int i)</code>: refers to the query atom index with atom map&nbsp;<code>i</code></li>
+         <li><code>hit(), h()</code>: both refer to the search hit array</li>
+         <li><code>hit(int i), h(int i)</code>: both refer to the&nbsp;<code>i</code>-th element of the search hit array, this is the target atom index matching the query atom with atom index&nbsp;<code>i</code></li>
+         <li><code>hm(int i)</code>: refers to the target atom index matching the query atom with atom map&nbsp;<code>i</code>&nbsp;(shorthand for&nbsp;<code>h(m(i))</code>)</li>
+        </ul><p>&nbsp;</p></li>
+       <li><a name="reactioncontext" rel="nofollow"></a><span class="confluence-anchor-link" id="InputContexts-reaction_context"></span><strong>reaction context</strong>, used for reaction input initiated by the&nbsp;<a href="Reactor_13829039.html">Reactor</a>:
+        <ul style="margin-left: 20.0px;">
+         <li><code>reactant(int i)</code>: refers to the&nbsp;<code>i</code>-th reactant (0-based indexing)</li>
+         <li><code>product(int i)</code>: refers to the&nbsp;<code>i</code>-th product (0-based indexing)</li>
+         <li><code>ratom(int m)</code>: refers to the reactant atom corresponding to reactant atom map&nbsp;<code>m</code>&nbsp;according to the reaction equation</li>
+         <li><code>patom(int m)</code>: refers to the product atom corresponding to product atom map&nbsp;<code>m</code>&nbsp;according to the reaction equation<br />&nbsp;</li>
+        </ul>
+        <div class="confluence-information-macro confluence-information-macro-information"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>In reaction context atoms also can be referred by atom index, but in this case the molecule (reactant / product) parameter always have to be specified in the parameter list of the function (see&nbsp;<a href="Reactor-Examples_14943081.html#ReactorExamples-reactor_example">this example</a>).</p>
+         </div> 
+        </div> </li>
+      </ol>
+      <p>Note that the default input molecule is the molecule returned by&nbsp;<code>mol()</code>&nbsp;in case this function exists in the context.</p>
+      <div class="lenia">
+       &nbsp;
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

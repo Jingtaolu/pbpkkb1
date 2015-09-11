@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<MDocument>
+  <MChemicalStruct>
+    <reaction>
+      <propertyList>
+        <property dictRef="NAME" title="NAME">
+          <scalar><![CDATA[Baeyer-Villiger ketone oxidation]]></scalar>
+        </property>
+        <property dictRef="DESCRIPTION" title="DESCRIPTION">
+          <scalar><![CDATA[Synthesis of esters or lactones from ketones with retention of configuration.]]></scalar>
+        </property>
+        <property dictRef="COMPONENTS" title="COMPONENTS">
+          <scalar><![CDATA[ketones >> esters]]></scalar>
+        </property>
+        <property dictRef="REAGENTS" title="REAGENTS">
+          <scalar><![CDATA[hydrogen peroxyde, organic acid]]></scalar>
+        </property>
+        <property dictRef="EXCLUDE" title="EXCLUDE">
+          <scalar><![CDATA[match(reactant(0), "[#5,#7,#8,#14,#15,#16][H]") || match(reactant(0), "[n,s]") || match(reactant(0), "[#6]S[#6,#16]") || match(reactant(0), "[#6]S([#6])=[N,O]") || match(reactant(0), "[H]C=O")]]></scalar>
+        </property>
+        <property dictRef="EXPLAIN&#95;EXCLUDE" title="EXPLAIN&#95;EXCLUDE">
+          <scalar><![CDATA[Exclude reagents containing BH, NH, OH, SiH, PH, SH groups or aromatic N, S or sulfide, disulfide, sulfoxyde or sulfimide groups and exclude aldehydes producing carboxylic acid with these reagents.]]></scalar>
+        </property>
+        <property dictRef="SELECTIVITY" title="SELECTIVITY">
+          <scalar><![CDATA[charge(ratom(2), "sigma")]]></scalar>
+        </property>
+        <property dictRef="EXPLAIN&#95;SELECTIVITY" title="EXPLAIN&#95;SELECTIVITY">
+          <scalar><![CDATA[The oxygen goes between the carbonyl carbon and its neighbour with the biggest sigma charge.]]></scalar>
+        </property>
+        <property dictRef="EXAMPLE" title="EXAMPLE">
+          <scalar><![CDATA[CC(=O)C1CCCCC1>>CC(=O)OC1CCCCC1
+O=C1CCC2CC12>>O=C1CCC2CC2O1
+CCCC1CCCC1=O>>CCCC1CCCC(=O)O1
+CC[C@@H]1CCCCCC1=O>>CC[C@@H]1CCCCCC(=O)O1]]></scalar>
+        </property>
+        <property dictRef="PREPARATION" title="PREPARATION">
+          <scalar><![CDATA[30% hydrogen peroxyde is added at 0 Celsius degree to the solution of the ketone in 90% AcOH. After 24h the mixture is poured into water and the product is extracted.]]></scalar>
+        </property>
+        <property dictRef="SOLVENT" title="SOLVENT">
+          <scalar><![CDATA[90 % acetic acid]]></scalar>
+        </property>
+        <property dictRef="TEMPERATURE / Celsius degree" title="TEMPERATURE / Celsius degree">
+          <scalar>0</scalar>
+        </property>
+        <property dictRef="MEDIA" title="MEDIA">
+          <scalar>acidic</scalar>
+        </property>
+        <property dictRef="REACTION TIME / h" title="REACTION TIME / h">
+          <scalar>24</scalar>
+        </property>
+        <property dictRef="TOTAL TIME / h" title="TOTAL TIME / h">
+          <scalar>26-28</scalar>
+        </property>
+        <property dictRef="YIELD / %" title="YIELD / %">
+          <scalar>50-70</scalar>
+        </property>
+        <property dictRef="DIFFICULTY" title="DIFFICULTY">
+          <scalar>1</scalar>
+        </property>
+        <property dictRef="SAFETY" title="SAFETY">
+          <scalar>2</scalar>
+        </property>
+        <property dictRef="ENVIRONMENTAL HAZARD" title="ENVIRONMENTAL HAZARD">
+          <scalar>1</scalar>
+        </property>
+        <property dictRef="GENERALITY" title="GENERALITY">
+          <scalar>3</scalar>
+        </property>
+        <property dictRef="REPRODUCABILITY" title="REPRODUCABILITY">
+          <scalar>3</scalar>
+        </property>
+        <property dictRef="REFERENCES" title="REFERENCES">
+          <scalar><![CDATA[Baeyer, A., Viliger, V.	Chem. Ber.	1899	32	3625
+Baeyer, A., Viliger, V.	Chem. Ber.	1900	23	858
+Hassner, A.	J. Org. Chem.	1978	43	1774
+Sarapanami, C.R.	J. Org. Chem.	1986	51	2322
+Friess, S.L., Pinson, R.	J. Am. Chem. Soc.	1952	74	1302
+Mislow, K., Brenner, J.	J. Am. Chem. Soc.	1953	75	2318
+Waters, W.A.	in Gilman, H., Organic Chemistry, vol 4,1169(John Wiley & Sons, New York, 1953)
+Sager, W., Duckworth, A.	J. Am. Chem. Soc.	1955	77	188
+Hassall, C.H.	Organic Reactions	1957	9	73
+Hawthorne, M.F., Emmons, W.D., McCallum, K.S.	J. Am. Chem. Soc	1958	80	6393
+Hawthorne, M.F., Emmons, W.D.	J. Am. Chem. Soc	1958	80	6398
+Franzen, V.	Reaktionsmechanismen I p73-77(A. Huthig Verlag, Heidelberg, 1958)
+Fieser, L.F., Fieser, M.	Advanced Organic Chemistry 427 (Reinhold, New York 1961)
+McClure, J.D., Williams, P.H.	J. Org. Chem.	1962	27	24
+Mateos, J.L., Menchaca, H.	J. Org. Chem.	1964	29	2026
+Pinhey, J.T., Schaffner, K.	Tetrahedron Letters	1965		601
+Robertson, J.C., Swelim, A.	Tetrahedron Letters	1967	30	2871]]></scalar>
+        </property>
+        <property dictRef="REACTIVITY" title="REACTIVITY">
+          <scalar><![CDATA[!match(ratom(1), "O=[C:1][C]([H])C=O", 1)]]></scalar>
+        </property>
+        <property dictRef="EXPLAIN&#95;REACTIVITY" title="EXPLAIN&#95;REACTIVITY">
+          <scalar><![CDATA[Beta diketones able to enolize do not react.]]></scalar>
+        </property>
+      </propertyList>
+      <reactantList>
+        <molecule molID="m1">
+          <atomArray
+              atomID="a1 a2 a3 a4"
+              elementType="O C C C"
+              mrvMap="0 1 0 2"
+              reactionStereo="0 0 0 Ret"
+              x2="-20.832933333333337 -20.832933333333337 -19.499200000000002 -22.16662600741796"
+              y2="2.3684266666666667 0.8284266666666668 0.058426666666666675 0.05845014034069618"
+              />
+          <bondArray>
+            <bond atomRefs2="a2 a1" order="2" />
+            <bond atomRefs2="a4 a2" order="1" />
+            <bond atomRefs2="a2 a3" order="1" />
+          </bondArray>
+        </molecule>
+      </reactantList>
+      <agentList>
+        <molecule molID="m2">
+          <atomArray
+              atomID="a1"
+              elementType="R"
+              sgroupRef="sg1"
+              x2="-12.945625305175781"
+              y2="2.5506250858306885"
+              />
+          <bondArray>
+          </bondArray>
+          <molecule id="sg1" role="SuperatomSgroup" title="H2O2" molID="m3">
+            <atomArray
+                atomID="a2 a3 a4 a5"
+                elementType="H O O H"
+                x2="-2.0005186827420536 -0.6668395609140179 0.666839560914017 2.0005186827420536"
+                y2="-0.3849999999999996 0.3850000000000002 -0.3850000000000005 0.3849999999999995"
+                />
+            <bondArray>
+              <bond atomRefs2="a2 a3" order="1" />
+              <bond atomRefs2="a3 a4" order="1" />
+              <bond atomRefs2="a4 a5" order="1" />
+            </bondArray>
+          </molecule>
+        </molecule>
+        <molecule molID="m4">
+          <atomArray
+              atomID="a1"
+              elementType="R"
+              sgroupRef="sg1"
+              x2="-12.368124961853027"
+              y2="-0.5293750166893005"
+              />
+          <bondArray>
+          </bondArray>
+          <molecule id="sg1" role="SuperatomSgroup" title="AcOH" molID="m5">
+            <atomArray
+                atomID="a2 a3 a4 a5"
+                elementType="C C O O"
+                x2="1.1102230246251565E-16 1.1102230246251565E-16 1.3336791218280362 -1.3336791218280353"
+                y2="1.5399999999999998 -2.220446049250313E-16 -0.7699999999999998 -0.7699999999999998"
+                />
+            <bondArray>
+              <bond atomRefs2="a2 a3" order="1" />
+              <bond atomRefs2="a3 a4" order="1" />
+              <bond atomRefs2="a3 a5" order="2" />
+            </bondArray>
+          </molecule>
+        </molecule>
+      </agentList>
+      <productList>
+        <molecule molID="m6">
+          <atomArray
+              atomID="a1 a2 a3 a4 a5"
+              elementType="O O C C C"
+              mrvMap="3 0 1 0 2"
+              x2="-2.090527052904763 -0.7569803862380962 -0.7569803862380962 0.5767529470952368 -3.424219726989385"
+              y2="1.6697916261355084 -0.6402083738644919 0.8997916261355083 1.6697916261355084 0.8998150998095364"
+              />
+          <bondArray>
+            <bond atomRefs2="a5 a1" order="1" />
+            <bond atomRefs2="a1 a3" order="1" />
+            <bond atomRefs2="a3 a2" order="2" />
+            <bond atomRefs2="a3 a4" order="1" />
+          </bondArray>
+        </molecule>
+      </productList>
+    </reaction>
+  </MChemicalStruct>
+</MDocument>

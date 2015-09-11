@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Structure Menu MS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Structure Menu MS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span>&nbsp; <span class="external-link">&nbsp;</span>This menu </span>provides chemical functions relating to structures like molecule cleaning, aromatization, reaction-handling, naming and more.</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="clean2D" rel="nofollow"></a>Clean 2D &gt; Clean in 2D</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985918/26281145.png" data-image-src="attachments/25985918/26281145.png" data-unresolved-comment-count="0" data-linked-resource-id="26281145" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="clean2D24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985918" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd">Calculates new 2D coordinates for the molecule.</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Clean 2D &gt; Clean and Arrange in 2D</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" height="16" width="16" src="https://jira.chemaxon.com/secure/thumbnail/41404/_thumb_41404.png" data-image-src="https://jira.chemaxon.com/secure/thumbnail/41404/_thumb_41404.png" /></span></td>
+          <td colspan="1" class="confluenceTd">Cleans the structure(s) and places them in the center of the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="clean2DWedgeH" rel="nofollow"></a>Clean 2D &gt; Hydrogenize Chiral Center</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Adds an explicit hydrogen atom to a chiral center having no terminal atoms when 2D cleaning is performed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="clean2DWedgeBonds" rel="nofollow"></a>Clean 2D &gt; Clean Wedge Bonds</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Arranges the wedge bonds of the molecule in 2D.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="clean3D" rel="nofollow"></a>Clean 3D &gt; Clean in 3D</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985918/26281146.png" data-image-src="attachments/25985918/26281146.png" data-unresolved-comment-count="0" data-linked-resource-id="26281146" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="clean3D24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985918" data-linked-resource-container-version="4" /></span></td>
+          <td class="confluenceTd">Calculates new 3D coordinates for the molecule. Clean3D builds up conformers of fragments from which the best, i.e. the lowest energy conformer is given back. The quality of the structures is measured by a simple energy function (Dreiding type molecular mechanics).</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Clean 3D &gt; Cleaning Method &gt; Fine Build</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Fine Clean3D builds up conformers of fragments to find low energy conformer. Leaves failed fragments intact.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Clean 3D &gt; Cleaning Method &gt; Fine with Hydrogenize</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">The build process always adds explicit hydrogens to the structures which are removed if not present in the original molecule. This option prevents the removal of extra hydrogen atoms, otherwise gives the same results than Fine build.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Clean 3D &gt; Cleaning Method &gt; Fast Build</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Fast clean, which if fails, performs fine clean. It accepts any generated structure, and it is the default behavior of the Clean3D function.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Clean 3D &gt; Cleaning Method &gt; Build or Optimize</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Builds 3D structure for non-3D molecules and just optimizes the 3D molecules with the Dreiding force field.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Clean 3D &gt; Cleaning Method &gt; Gradient Optimize</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Optimizes with the Dreiding force field using the actual structure as starting geometry.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="clean3DSelectConformer" rel="nofollow"></a>Clean 3D &gt; Display Stored Conformers</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Allows you to choose one of the possible conformer structures which were calculated via the Conformers plugin.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="assignatoms" rel="nofollow"></a>Directed Merge &gt; Assign Atoms</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Chooses the atoms of the fragments to be merged.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="merge" rel="nofollow"></a>Directed Merge &gt; Merge</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Merges the fragments at the atoms set.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="hydrogenize" rel="nofollow"></a>Add &gt; Add Explicit Hydrogens</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099641.png" data-image-src="attachments/16122211/29099641.png" data-unresolved-comment-count="0" data-linked-resource-id="29099641" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hydrogenize24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Adds explicit H atoms instead of the current implicit ones. Explicit hydrogens are displayed with atoms joining its neighbor while implicit hydrogens are displayed by atom symbols only.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="attachData" rel="nofollow"></a>Add &gt; Data</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099639.png" data-image-src="attachments/16122211/29099639.png" data-unresolved-comment-count="0" data-linked-resource-id="29099639" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="attach_data24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Attaches data like stoichiometry coefficient to the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="setAbsoluteStereo" rel="nofollow"></a><span class="confluence-anchor-link" id="StructureMenuMS-stereo"></span>Add &gt; Absolute Stereo (CHIRAL)</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099638.png" data-image-src="attachments/16122211/29099638.png" data-unresolved-comment-count="0" data-linked-resource-id="29099638" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="absolute_stereo24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Sets chiral flag for the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="addMulticenter" rel="nofollow"></a>Add &gt; Multi-Center</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Adds a multi-center attachment point representing a group of atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="createMarkush" rel="nofollow"></a>Add &gt; Position Variation Bond</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985920/26281151.png" data-image-src="attachments/25985920/26281151.png" data-unresolved-comment-count="0" data-linked-resource-id="26281151" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markushbond24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985920" data-linked-resource-container-version="3" /></span></td>
+          <td class="confluenceTd">Create a variable point of attachment to represent a connection point to a group of atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="dehydrogenize" rel="nofollow"></a>Remove &gt; Explicit Hydrogens</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099642.png" data-image-src="attachments/16122211/29099642.png" data-unresolved-comment-count="0" data-linked-resource-id="29099642" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="dehydrogenize24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Removes explicit H atoms and increases the number of implicit hydrogens.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="removeData" rel="nofollow"></a>Remove &gt; Data</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Removes attached data from the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="removeAbsoluteStereo" rel="nofollow"></a>Remove &gt; Absolute Stereo (CHIRAL)</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099644.png" data-image-src="attachments/16122211/29099644.png" data-unresolved-comment-count="0" data-linked-resource-id="29099644" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="remove_absolute_stereo24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Removes the chiral flag of the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="editData" rel="nofollow"></a>Edit data</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Changes a previously attached data like stoichiometry coefficient of the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="editData" rel="nofollow"></a>Edit properties</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Bond properties can be edited from this menu.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="aromatize" rel="nofollow"></a>Aromatic Form &gt; Convert to Aromatic Form</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099634.png" data-image-src="attachments/16122211/29099634.png" data-unresolved-comment-count="0" data-linked-resource-id="29099634" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="aromatize24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Transforms the molecule to aromatic representation using the transformation method set.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Aromatic Form &gt; Conversion Method &gt; Basic</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Basic aromatization method is described <a href="https://docs.chemaxon.com/display/SB/Methods">here</a>.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Aromatic Form &gt; Conversion Method &gt; General</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">General aromatization method is described <a href="https://docs.chemaxon.com/display/SB/Methods">here</a>.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Aromatic Form &gt; Conversion Method &gt; Loose</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Loose aromatization method is described <a href="https://docs.chemaxon.com/display/SB/Methods">here</a>.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="dearomatize" rel="nofollow"></a>Aromatic Form &gt; Convert to Kekul&eacute; Form</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099645.png" data-image-src="attachments/16122211/29099645.png" data-unresolved-comment-count="0" data-linked-resource-id="29099645" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="dearomatize24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Transforms the molecule to non-aromatic representation.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="createSGroup" rel="nofollow"></a>Group &gt; Group</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122176/26281124.png" data-image-src="attachments/16122176/26281124.png" data-unresolved-comment-count="0" data-linked-resource-id="26281124" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="group24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122176" data-linked-resource-container-version="8" /></span></td>
+          <td class="confluenceTd">Creates a custom S-group, R-group or Repeating Unit with Repetition Ranges.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="createRepeatingGroup" rel="nofollow"></a>Group &gt; Frequency Variation</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985920/26281150.png" data-image-src="attachments/25985920/26281150.png" data-unresolved-comment-count="0" data-linked-resource-id="26281150" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="groupr24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985920" data-linked-resource-container-version="3" /></span></td>
+          <td class="confluenceTd">Creates a Repeating Unit with Repetition Ranges.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="mergeBrackets" rel="nofollow"></a>Group &gt; Merge Brackets</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Creates a bracket that crosses two bonds.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="editSGroup" rel="nofollow"></a>Group &gt; Edit Group</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Modifies the properties of the selected group (restricted to 4 types: generic, component, monomer, mer).</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="contractSGroup" rel="nofollow"></a>Group &gt; Contract Group</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Contracts all groups to its abbreviations.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="expandSGroup" rel="nofollow"></a>Group &gt; Expand Group</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Displays the full structure instead of the abbreviations.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="ungroupSGroup" rel="nofollow"></a>Group &gt; Ungroup</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Removes all abbreviated group associations from the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="groupReactionFragment" rel="nofollow"></a>Reaction &gt; Merge Reactants</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Merges the selected fragments to a reactant, product, or agent.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="splitReactionFragment" rel="nofollow"></a>Reaction &gt; Unmerge Reactants</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Removes selected fragments from a previously merged reactant, product, or agent.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="mapAtoms" rel="nofollow"></a>Mapping &gt; Map Atoms</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099643.png" data-image-src="attachments/16122211/29099643.png" data-unresolved-comment-count="0" data-linked-resource-id="29099643" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="map_reaction24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Inserts map numbers of the selected atoms.</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Mapping &gt; Manual Atom Map</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336666/13402223.png" data-image-src="attachments/13336666/13402223.png" data-unresolved-comment-count="0" data-linked-resource-id="13402223" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="map4b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336666" data-linked-resource-container-version="21" /></span></td>
+          <td colspan="1" class="confluenceTd">Inserts map numbers manually</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Mapping &gt; Reaction Mapping Method &gt; Complete</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">All atoms in the reaction are mapped.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Mapping &gt; Reaction Mapping Method &gt; Changing</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Only those atoms are mapped that have changing bond. Either the bond order changes, or new bond is created, or bond is deleted. Orphan and widow atoms are included.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Mapping &gt; Reaction Mapping Method &gt; Matching</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Maps all matching atoms in the reaction (Daylight style mapping). A reaction atom is called matching if it is not an orphan/widow atom: it exists on both sides of the reaction.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="unmapAtoms" rel="nofollow"></a>Mapping &gt; Unmap Atoms</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099646.png" data-image-src="attachments/16122211/29099646.png" data-unresolved-comment-count="0" data-linked-resource-id="29099646" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="unmap_reaction24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Removes map numbers of the selected atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rlogic" rel="nofollow"></a>Attribute &gt; R-Logic</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Allows setting additional R-group conditions such as occurrence, rest H and if-then expressions to R-groups in the R-logic dialog window.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="s2n" rel="nofollow"></a>Structure to Name &gt; Place IUPAC Name</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Inserts IUPAC Name onto the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="s2n" rel="nofollow"></a>Structure to Name &gt; Generate Name</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099649.png" data-image-src="attachments/16122211/29099649.png" data-unresolved-comment-count="0" data-linked-resource-id="29099649" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="structure-name24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Generates IUPAC and/or Traditional Name.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="n2s" rel="nofollow"></a>Name to Structure</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Opens the Source window in IUPAC Name format, and enables you to enter directly a IUPAC Name and convert it to structure.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="external-link" rel="nofollow"></a>Markush Enumeration</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Generates a whole or a subset of the library of a generic <a href="Markush-structures_14942814.html">Markush structure</a>.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="checkStructure" rel="nofollow"></a>Check Structure</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122211/29099647.png" data-image-src="attachments/16122211/29099647.png" data-unresolved-comment-count="0" data-linked-resource-id="29099647" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="check-structure24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122211" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd">Checks and corrects chemical structures. See <a href="https://docs.chemaxon.com/display/structurechecker/Structure+Checker+User%27s+Guide">Structure Checker in MarvinSketch</a> for more details.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="autoCheck" rel="nofollow"></a>Auto Check</td>
+          <td colspan="1" class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">Toggles auto checking of structures while drawing.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h3 id="StructureMenuMS-"><a class="anchor" name="calculations" rel="nofollow"></a><span class="confluence-anchor-link">&nbsp;</span></h3>
+      <p><br /><br /><br /></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

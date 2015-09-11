@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Dissimilarity Functions</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Dissimilarity Functions </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The <strong>dissimilarity</strong> function computes the dissimilarity between specified molecules.&nbsp;</p>
+      <p>This function is highly customizable in terms of the type of <strong>descriptor</strong> used to characterize the studied compounds and the type of <strong>metric</strong>&nbsp;used to calculate the dissimilarity value.&nbsp;</p>
+      <p>Possible descriptors:</p>
+      <ul>
+       <li>Chemical Fingerprint (CF) - default</li>
+       <li>Pharmacophore Fingerprint (PF)</li>
+       <li>ECFP</li>
+       <li>Burden eigenvalue descriptor (BCUT)</li>
+      </ul>
+      <p>Possible metrics:</p>
+      <ul>
+       <li>Tanimoto - default</li>
+       <li>Euclidean</li>
+      </ul>
+      <p>Besides calculating structural dissimilarity of compounds, the following physicochemical properties may also be set as descriptor in conjunction with the AbsDiff function:</p>
+      <ul>
+       <li>HDon</li>
+       <li>HAcc</li>
+       <li>Heavy</li>
+       <li>LogD</li>
+       <li>LogP</li>
+       <li>Mass</li>
+       <li>TPSA</li>
+      </ul>
+      <h3 id="DissimilarityFunctions-Example">Example</h3>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Dissimilarity function requires JChem.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

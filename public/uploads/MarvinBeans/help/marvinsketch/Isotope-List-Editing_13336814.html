@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Isotope List Editing</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Isotope List Editing </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-warning"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p><strong>If you use a custom isotopes.data file, please note that, you have to recreate the file when upgrading your Marvin application!</strong></p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p class="title"><span style="color: rgb(51,51,51);">&nbsp;</span></p>
+          <p>Marvin applets reads the isotopes list from&nbsp;<em>chemaxon/isotopes.txt</em>&nbsp;location from the&nbsp;<em>marvin</em>&nbsp;directory.</p>
+          <p>MarvinSketch from the Marvin Beans package refers to the same relative path to access the isotopes list.&nbsp;</p>
+          <p><span>&nbsp;</span>The following values are in the tab-separated columns:</p>
+          <ul>
+           <li>Atom number</li>
+           <li>Number of neutrons</li>
+           <li>Mass (exact mass of the isotope, preferably at least 5 decimal places)</li>
+           <li>Abundance (values normalized to the most abundant natural isotope; main isotope - 100.00, artificial isotope - 0)</li>
+          </ul>
+          <p>To add a custom isotope:&nbsp;</p>
+          <ol>
+           <li>Download and open<a href="attachments/13336814/29099362.txt" data-linked-resource-id="29099362" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="isotopes2013.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13336814" data-linked-resource-container-version="11">&nbsp;isotopes.txt&nbsp;</a>or<a href="attachments/13336814/29099364.txt" data-linked-resource-id="29099364" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="elements2013.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13336814" data-linked-resource-container-version="11">&nbsp;elements.txt.</a></li>
+           <li>Edit (or copy) a line next to the other isotopes of the given atom number. Fill in the other data. Save the file.</li>
+           <li>Refresh&nbsp;<em>isotopes.txt</em>&nbsp;or&nbsp;<em>elements.txt</em>:
+            <ul>
+             <li><strong>Marvin Applets</strong>: Overwrite the old file with the new one in the&nbsp;<em>chemaxon</em>&nbsp;subdirectory of the Marvin Beans package.</li>
+             <li><strong>Marvin Beans</strong>:&nbsp;<br />
+              <ol>
+               <li><span>Copy the file to the&nbsp;<em>user_home/chemaxon/</em>&nbsp;folder&nbsp;</span></li>
+               <li><span>Overwrite&nbsp;<em>chemaxon/isotopes.txt</em>&nbsp;or&nbsp;<em>chemaxon/elements.txt</em>&nbsp;inside the&nbsp;<em>chemaxon-core.jar</em>.&nbsp;<em>Chemaxon-core.jar</em>&nbsp;is a compressed archive file that you can extract/pack with any zip (un)compressor tool.</span></li>
+              </ol></li>
+            </ul></li>
+          </ol>
+          <p class="title"><span>Old element and isotopic data:</span></p>
+          <ol>
+           <li class="title"><span><a href="attachments/13336814/29099363.txt" data-linked-resource-id="29099363" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="elements2005.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13336814" data-linked-resource-container-version="11">elements2005.txt</a></span></li>
+           <li class="title"><span><a href="attachments/13336814/29099361.txt" data-linked-resource-id="29099361" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="isotopes2009.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13336814" data-linked-resource-container-version="11">isotopes2009.txt</a></span></li>
+           <li class="title"><span><a href="attachments/13336814/29099364.txt" data-linked-resource-id="29099364" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="elements2013.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13336814" data-linked-resource-container-version="11">elements2013.txt</a></span></li>
+           <li class="title"><span><a href="attachments/13336814/29099362.txt" data-linked-resource-id="29099362" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="isotopes2013.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13336814" data-linked-resource-container-version="11">isotopes2013.txt</a></span></li>
+          </ol>
+          <h4 class="title" id="IsotopeListEditing-Obsoleteinformationforversionsbefore14.7.28:"><span>Obsolete information for versions before 14.7.28:</span></h4>
+          <span style="color: rgb(51,51,51);">All isotopes are listed in the binary file: </span>
+          <em><strong style="color: rgb(51,51,51);font-size: 14.0px;line-height: 1.4285715;">chemaxon/isotopes.data</strong></em>
+          <span style="color: rgb(51,51,51);">, a <span style="color: rgb(51,51,51);">compressed file which stores <em><strong>isotopes.txt</strong></em><span style="color: rgb(51,51,51);">&nbsp;</span> in a heavily optimized versioned format.</span><br /></span>
+          <p></p>
+          <p class="title"><span style="color: rgb(51,51,51);"><span style="color: rgb(51,51,51);">To add or edit</span>&nbsp;<span style="color: rgb(51,51,51);"> isotopes</span> you can alter <strong>isotopes.txt</strong>&nbsp;<span style="color: rgb(51,51,51);">source file</span> found in the </span><strong style="color: rgb(51,51,51);font-size: 14.0px;line-height: 1.4285715;">build</strong><span style="color: rgb(51,51,51);"> subdirectory of the Marvin package.</span></p>
+          <p class="title"><span style="color: rgb(51,51,51);">To encode source file (<em><strong>isotopes.txt</strong>)</em>, use </span><strong style="color: rgb(51,51,51);font-size: 14.0px;line-height: 1.4285715;">IsotopeCompiler</strong><span style="color: rgb(51,51,51);"> tool that creates a new copy of isotopes.data from the given source file.</span></p>
+          <p class="title"><span style="color: rgb(51,51,51);">This tool is bundled with both Marvin Beans and Marvin Applets packages. It is wrapped into </span><em><strong style="color: rgb(51,51,51);font-size: 14.0px;line-height: 1.4285715;">isotopescomp.jar</strong></em><span style="color: rgb(51,51,51);"> in the </span><em><strong style="color: rgb(51,51,51);font-size: 14.0px;line-height: 1.4285715;">build</strong></em><span style="color: rgb(51,51,51);"> subdirectory.</span></p>
+          <p class="title"><span style="color: rgb(51,51,51);"><br /></span></p>
+          <p>Marvin applets reads the precompiled isotopes list from <em>chemaxon/isotopes.data</em> location from the <em>marvin</em> directory.</p>
+          <p>MarvinSketch from the Marvin Beans package refers to the same relative path to access the isotopes list. But - in this case - the path indicates the location of the file inside <em>MarvinBeans.jar</em> (or jchem.jar by JChem package).You can find &quot;MarvinBeans.jar&quot; in the <em>lib</em> subdirectory of Marvin Beans package.</p>
+          <p>&nbsp;</p>
+          <p>The following values are in the tab-separated columns:</p>
+          <ul>
+           <li>Atom number</li>
+           <li>Number of neutrons</li>
+           <li>Mass (exact mass of the isotope, preferably at least 5 decimal places)</li>
+           <li>Abundance (values normalized to the most abundant natural isotope; main isotope - 100.00, artificial isotope - 0)</li>
+          </ul>
+          <p>To add a custom isotope:</p>
+          <ol>
+           <li>Open <em>build/isotopes.txt</em>.</li>
+           <li>Edit (or copy) a line next to the other isotopes of the given atom number. Fill in the other data. Save the file.</li>
+           <li>Regenerate <em>isotopes.data</em>: enter into the <em>build</em> directory and type the following command:<pre>java -jar isotopescomp.jar isotopes.txt</pre>The output will be <em>isotopes.data</em> in the same directory.</li>
+           <li>Refresh <em>isotopes.data</em> or <em>elements.zip</em>:
+            <ul>
+             <li><strong>Marvin Applets</strong>: Overwrite the old file with the new one in the <em>chemaxon</em> subdirectory of the Marvin Beans package.</li>
+            </ul></li>
+          </ol>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li><strong>Marvin Beans</strong>:&nbsp;</li>
+            </ul></li>
+          </ul>
+          <p style="margin-left: 90.0px;">1. Copy the file to the <em>user_home/chemaxon/</em> folder <br />2. Overwrite <em>chemaxon/isotopes.data</em> or <em>chemaxon/elements.zip</em> inside the <em>chemaxon-core.jar</em>. <em>Chemaxon-core.jar</em> is a compressed archive file that you can extract/pack with any zip (un)compressor tool. <br /><br /><br /></p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

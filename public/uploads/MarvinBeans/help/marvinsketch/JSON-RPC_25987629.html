@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : JSON-RPC</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : JSON-RPC </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Marvin supports protocol versions 1.0 and 1.1. JSON Schema Service Descriptor can also be used for runtime parameter discovery.</p>
+      <p>The response MUST be a textual representation of any finite combinations of <code>java.lang.Boolean</code>, <code>java.lang.Number</code>, <code>java.lang.String</code>, <code>java.lang.Object[]</code>, <code>java.util.Map&lt;java.lang.String, java.lang.Object&gt;</code>, and <code>null</code></p>
+      <h5 id="JSON-RPC-CallingJSON-RPCServicefromAPI">Calling JSON-RPC Service from API</h5>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">	JsonServiceDescriptor descriptor = new JsonServiceDescriptor();
+    descriptor.setURL(&quot;http://api.geonames.org/&quot;);
+    descriptor.setMethodName(&quot;citiesJSON&quot;);
+    
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;north&quot;, new Double(0)));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;south&quot;, new Double(0)));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;east&quot;, new Double(0)));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;west&quot;, new Double(0)));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;language&quot;, &quot;&quot;));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;username&quot;, &quot;&quot;));
+
+    Object result = null;
+    try {
+        result = descriptor.getServiceHandler().callService(descriptor, 44.1, -9.9, 22.4, 55.2, &quot;en&quot;, &quot;demo&quot;);
+    } catch (ServiceException e) {
+        System.err.println(&quot;Service call failed.&quot;);
+    }
+    StringBuilder builder = new StringBuilder();
+    Object[] array = (Object[]) ((Map&lt;String, Object&gt;)result).get(&quot;geonames&quot;);
+    for(Object obj : array) {
+        builder.append(&quot;Synchronized call returned: &quot; + ((Map&lt;String, Object&gt;)obj).get(&quot;name&quot;) + &quot;\n&quot;);
+    }
+    System.out.println(builder.toString());
+
+    descriptor.getServiceHandler().callService(descriptor, new AsyncCallback&lt;Map&lt;String, Object&gt;&gt;() {
+
+        @Override
+        public void onSuccess(Map&lt;String, Object&gt; result) {
+            StringBuilder builder = new StringBuilder();
+            Object[] array = (Object[]) result.get(&quot;geonames&quot;);
+            for(Object obj : array) {
+                builder.append(&quot;Asynchronous call returned: &quot; + ((Map&lt;String, Object&gt;)obj).get(&quot;name&quot;) + &quot;\n&quot;);
+            }
+            System.out.println(builder.toString());
+        }
+
+        @Override
+        public void onFailure(ServiceException caught) {
+            System.err.println(&quot;Asynchronous call failed.&quot;);
+        }
+        
+    }, 44.1, -9.9, 22.4, 55.2, &quot;en&quot;, &quot;demo&quot;);
+		</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre>    </pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : XYZ import and export options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : XYZ import and export options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="XYZimportandexportoptions-Importoptions">Import options</h2>
+          <p>At <strong>import</strong>, the default behaviour is to use the &quot;any&quot; bond type for all bonds, 0 charge for each atom, no implicit Hydrogens.</p>
+          <p>Import options can be specified in the applet by writing &quot;{<em>options</em>}&quot; after the file name.</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_f" rel="nofollow"></a><strong>f...</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class="confluenceTd">Bond length cut-off. Two atoms can be connected if they are closer than the sum of their covalent radii times the cut-off value. Default: &quot;{f1.12}&quot;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_Z" rel="nofollow"></a><strong>Z#</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class="confluenceTd">Set maximum number of connections for element Z.<br /> Example: &quot;{f1.4,C4,H1}&quot;. This setting increases the cut-off value, but does not let Carbons to have more than 4 connections, and Hydrogens to have more than 1 connection.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_b" rel="nofollow"></a><strong>b</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td class="confluenceTd"><p>Try to guess bond types, atom charges and implicit Hydrogens from atom distances and valence rules.<br /> <strong>Warning:</strong> This is an <em>experimental</em> feature. Since XYZ files do not contain bond information, these &quot;guesses&quot; can be different from the actual bond orders, especially in case of radicals, missing Hydrogen atoms and complexes.</p><p>The user should check the calculated bonds after import.</p></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <ul>
+             <li><a href="Basic-export-options_14943114.html">Basic export options</a></li>
+             <li><a href="XYZ-format_21496209.html">XYZ format</a></li>
+            </ul> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

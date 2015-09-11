@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : CXSMILES and CXSMARTS import and export options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : CXSMILES and CXSMARTS import and export options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar"> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <ul>
+             <li><a href="SMILES-and-SMARTS-import-and-export-options_19694473.html">SMILES and SMARTS import and export options</a></li>
+             <li><a href="Basic-export-options_14943114.html">Basic export options</a></li>
+            </ul> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="CXSMILESandCXSMARTSimportandexportoptions-Importoptions"><a class="anchor" name="ioptions" rel="nofollow"></a>Import options</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="ioption_s" rel="nofollow"></a><strong>s</strong></td>
+              <td class="confluenceTd"><p>Fix chiral flag from cxsmiles input.<br /> By default the molecule absolute stereoconfiguration (relative or absolute chirality - chiral flag) is specified at the extended part of the cxsmiles string. If it is missing it is assumed to be absolute by default (see Molecule absolute stereoconfiguration above). Using the 's' option the molecule's absolute stereoconfiguration is tried to be figured out.<br /> <em>Example</em>:</p>
+               <ul>
+                <li><pre>molconvert cxsmiles -s 'C[C@H]1CC[C@@H](C)CC1{cxsmiles}' results C[C@H]1CC[C@@H](C)CC1</pre></li>
+                <li><pre>molconvert cxsmiles -s 'C[C@H]1CC[C@@H](C)CC1{cxsmiles:s}' results C[C@H]1CC[C@@H](C)CC1 |r|</pre></li>
+               </ul></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>See also <a rel="nofollow">SMILES import options</a>.</p>
+          <h2 id="CXSMILESandCXSMARTSimportandexportoptions-Exportoptions"><a class="anchor" name="options" rel="nofollow"></a>Export options</h2>
+          <p>Export options can be specified in the format string. The format descriptor and the options are separated by a colon. All options have default values (see below). Using the &quot;+&quot; or &quot;-&quot; sign the default export values can be changed to &quot;true&quot; or &quot;false&quot; respectively. If the option is given without &quot;+&quot; or &quot;-&quot; modifier then the default values are not used and only the specific feature is exported.</p>
+          <p><em> Examples</em>:</p>
+          <ul>
+           <li>&quot;cxsmiles:&quot; writes all default features (absolute stereoconfiguration, enhanced stereo features, atom labels, wiggly bond indexes, ring stereo bond info and reaction fragment level grouping),</li>
+           <li>&quot;cxsmiles:lc&quot; writes the atom labels and the atomic coordinates only,</li>
+           <li>&quot;cxsmiles:+c&quot; writes writes all default features and the atomic coordinates,</li>
+           <li>&quot;cxsmiles:-le&quot; writes absolute stereoconfiguration, enhanced stereo features, ring stereo bond info and reaction fragment level grouping but not atom labels and wiggly bond indexes.</li>
+          </ul>
+          <p>&nbsp;</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><p><strong>u</strong></p></td>
+              <td class="confluenceTd">Write unique cxsmiles output. (Includes unique smiles string.)<br /> Enhanced stereo information are also stored in unique format. <br /> Default value: <em>false</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>e</strong></td>
+              <td class="confluenceTd">Write relative stereo configuration and enhanced stereo features. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>l</strong></td>
+              <td class="confluenceTd">Write atom labels / aliases / values. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>w</strong></td>
+              <td class="confluenceTd">Write wiggly and in case of atomic coordinate export also UP and DOWN bond indexes. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>d</strong></td>
+              <td class="confluenceTd">Write CIS, TRANS ring bond indexes. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong><span class="confluence-anchor-link" id="CXSMILESandCXSMARTSimportandexportoptions-optionF"></span>f</strong></td>
+              <td class="confluenceTd">Reaction fragment level grouping. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>p</strong></td>
+              <td class="confluenceTd">Write local parities. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>R</strong></td>
+              <td class="confluenceTd">Write radical numbers. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>L</strong></td>
+              <td class="confluenceTd">Write lone electron pairs. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>m</strong></td>
+              <td class="confluenceTd">Write multicenter SGroups and coordinate bonds. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>N</strong></td>
+              <td class="confluenceTd">Write link nodes. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong><span class="confluence-anchor-link" id="CXSMILESandCXSMARTSimportandexportoptions-optionC"></span>c</strong>[p]</td>
+              <td class="confluenceTd">Write atomic coordinates. <em>p</em> can optionally specify the coordinate precision. If <em>p</em> is not specified, the default value 2 is used. Default value: <em>false</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>D</strong></td>
+              <td class="confluenceTd">Write Data Sgroup information. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>BOM</strong></td>
+              <td class="confluenceTd">Write the UTF-8 <em>byte order mark</em> (BOM), if the given or the system's encoding is UTF-8. Default value: <em>false</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>q</strong></td>
+              <td class="confluenceTd">Write MDL query features. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>P</strong></td>
+              <td class="confluenceTd">Write polymer Sgroups. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>b</strong></td>
+              <td class="confluenceTd">Write local bicyclo-alkane stereo information. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>B</strong></td>
+              <td class="confluenceTd">Write Hydrogen bonds. Default value: <em>true</em>.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><p><strong>A</strong></p></td>
+              <td class="confluenceTd">Write atom properties. Default value: <em>true</em>.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p>See also <a rel="nofollow">SMILES export options</a> and <a rel="nofollow">basic export options</a>.</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

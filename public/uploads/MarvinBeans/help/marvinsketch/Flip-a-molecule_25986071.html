@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Flip a molecule</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Flip a molecule </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201023552 {padding: 0px;}
+div.rbtoc1439201023552 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201023552 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201023552"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#Flipamolecule-HorizontalFlip,VerticalFlip,Rotate180&deg;">Horizontal Flip, Vertical Flip, Rotate 180&deg;</a></li> 
+              <li><a href="#Flipamolecule-GroupFlip">Group Flip</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>You might need to flip the whole or parts of the structures.</p>
+          <p>These operations are located in the&nbsp;<strong>Edit &gt; Transform</strong> menu.</p>
+          <p>If no selection is made, the operation will be executed on the whole structure (except for Group Flip).</p>
+          <p>The flip operation is equal to a rotation of 180&deg; around a horizontal or vertical axis in the plane of the drawing.&nbsp;<br />All flips result in stereocenter retention.</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><strong>Horizontal flip <br />(around <em>y</em> axis)</strong></td>
+              <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/12584310/12746804.png" data-image-src="https://docs.chemaxon.com/download/attachments/12584310/flip_horizontal.png?version=1&amp;modificationDate=1385394152000&amp;api=v2" /></span></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>Vertical flip <br />(around <em>x</em> axis)</strong></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/12584310/12746805.png" data-image-src="https://docs.chemaxon.com/download/attachments/12584310/flip_vertical.png?version=1&amp;modificationDate=1385394152000&amp;api=v2" /></span></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><strong>Rotate 180&deg; <br />(in canvas plane, around <em>z</em> axis)</strong></td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/12584310/12746802.png" data-image-src="https://docs.chemaxon.com/download/attachments/12584310/flip_canvas.png?version=1&amp;modificationDate=1385394152000&amp;api=v2" /></span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h3 id="Flipamolecule-HorizontalFlip,VerticalFlip,Rotate180&deg;">Horizontal Flip, Vertical Flip, Rotate 180&deg;</h3>
+          <p>Flip a selection:</p>
+          <ol>
+           <li>Select part of the structure.</li>
+           <li>Right-click on the structure or go to&nbsp;<strong>Edit &gt; Transform</strong> menu.</li>
+           <li>Click on the command.</li>
+          </ol>
+          <p>Flip the whole structure without selection:</p>
+          <ol>
+           <li>Go to the&nbsp;<strong>Edit &gt; Transform</strong> menu<strong>.</strong></li>
+           <li>Click on the command.</li>
+          </ol>
+          <p>Note: If no structure is selected, the right-click on the canvas will not offer the flip command.</p>
+          <h3 id="Flipamolecule-GroupFlip">Group Flip</h3>
+          <p>The <strong>Group Flip</strong> operation can be executed only on a selected structure connected to the rest of the molecule by only one bond (of any type): the selection can not be in the &quot;middle&quot; of a molecule. The selection is not permitted for disjunctive structures either.</p>
+          <p>This operation rotates the selected group by 180&deg; around an axis set on the bond connecting the selection to the rest of the molecule. Stereocenters in the molecules are retained, the wedge bond styles change to keep the stereo information.</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd">Group flip</td>
+              <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="attachments/12584310/12746803.png" data-image-src="https://docs.chemaxon.com/download/attachments/12584310/flip_group.png?version=1&amp;modificationDate=1385394152000&amp;api=v2" /></span></td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <ol>
+           <li>Select part of the molecule.</li>
+           <li>Right-click on the canvas and select&nbsp;<strong>Transform &gt; Group Flip</strong>; or go to the&nbsp;<strong>Edit &gt; Transform</strong> menu<strong>.</strong></li>
+           <li>Select&nbsp;<strong>Flip &gt; Group.</strong></li>
+          </ol>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

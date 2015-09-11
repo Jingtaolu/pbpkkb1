@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Merging Structures</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Merging Structures </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>MarvinSketch allows you to&nbsp;merge two already drawn molecules in a few steps.</p>
+          <p>As the merging points in both the template and the substituent molecules (1, 2 or 3 pairs of them) is assigned, the template coordinates do not change, only the substituent is resized, rotated (in three dimensions) and moved to fit the template.</p>
+          <ol>
+           <li>Select <strong>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985865/29099707.png" data-image-src="attachments/25985865/29099707.png" data-unresolved-comment-count="0" data-linked-resource-id="29099707" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="merging_mapper_tool24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985865" data-linked-resource-container-version="6" /></span></strong><strong>Assign Atoms</strong> from the <strong>Structure &lt; Directed Merge</strong> submenu.</li>
+           <li>Click and drag the arrow from the atom of the substituent to the template molecule. The arrow will be numbered.</li>
+           <li>Repeat the process (the Assign Atoms action is still active, no need to re-select the command) once ore twice to define more merging points.</li>
+           <li>Merge the molecules by selecting the&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985865/29099706.png" data-image-src="attachments/25985865/29099706.png" data-unresolved-comment-count="0" data-linked-resource-id="29099706" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="directed_merge_in_3d24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985865" data-linked-resource-container-version="6" /></span><strong> Merge</strong> command from the <strong>Structure &gt; Directed Merge</strong> submenu.</li>
+          </ol>
+          <p>&nbsp;</p>
+          <p>In case of assigning 1 or 2 atom pairs, the subsituent is selected after the merge and the <strong>Rotate in</strong> <strong>3D</strong> mode&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122203/29099593.png" data-image-src="attachments/16122203/29099593.png" data-unresolved-comment-count="0" data-linked-resource-id="29099593" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rotate-mode24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122203" data-linked-resource-container-version="13" /></span> is active, and you can rotate the substituent around an axis:&nbsp;<br /><br /> <strong>1 atompair</strong> To finish merging, click anywhere on the blank canvas.</p>
+          <ul>
+           <li>one bond&nbsp; - the bond is the axis;</li>
+           <li>&nbsp;two bonds - the axis is the bisector of the angle of these bonds;</li>
+           <li>&nbsp;3 bonds&nbsp; choose the x,y, or z axis, or define the axis by selecting two atoms.<br /><br /></li>
+          </ul>
+          <p><strong>2 atompairs</strong></p>
+          <ul>
+           <li>The rotation axis is defined by the two connection points of the template and the substituent. Upon clicking on&nbsp;&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25985865/29099706.png" data-image-src="attachments/25985865/29099706.png" data-unresolved-comment-count="0" data-linked-resource-id="29099706" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="directed_merge_in_3d24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25985865" data-linked-resource-container-version="6" /></span><strong> Merge</strong> the mouse gets in&nbsp; Rotate in 3D mode&nbsp; and the user can rotate the substituent till the desired position.</li>
+           <li>&nbsp;If any atom pairs fall in the merging range after the rotation, they will be merged.</li>
+          </ul>
+          <p>&nbsp;If this second merge happens only on one atom pair, the substituent remains selected, and is subject to a second <strong>3D rotation</strong> action, where the rotation axis is defined by the original and the new connection points.&nbsp;</p>
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="MergingStructures-Howtomergestructures">How to merge structures</h3>
+          <div class="confluenceTable">
+           <p>&nbsp;</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd"><strong>1 atom pair</strong></td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/1atom_assign.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/1atom_assign.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" /></span></td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/1atom_rot.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/1atom_rot.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" /></span></td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/1atom_result.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/1atom_result.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" /></span></td>
+              </tr>
+              <tr>
+               <td class="confluenceTd"><strong>2 atom pairs</strong></td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/2atom_assign.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/2atom_assign.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" /></span></td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/2atom_rot.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/2atom_rot.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" /></span></td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/2atom_result.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/2atom_result.png?version=1&amp;modificationDate=1385394147000&amp;api=v2" /></span></td>
+              </tr>
+              <tr>
+               <td class="confluenceTd"><strong>3 atom pairs</strong></td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/3atom_assign.png?version=1&amp;modificationDate=1385394148000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/3atom_assign.png?version=1&amp;modificationDate=1385394148000&amp;api=v2" /></span></td>
+               <td class="confluenceTd">&nbsp;</td>
+               <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" src="https://confluence.chemaxon.com/download/attachments/12584310/3atom_result.png?version=1&amp;modificationDate=1385394148000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/12584310/3atom_result.png?version=1&amp;modificationDate=1385394148000&amp;api=v2" /></span></td>
+              </tr>
+             </tbody>
+             <thead>
+              <tr>
+               <th class="confluenceTh">
+                <div class="tablesorter-header-inner">
+                 <div class="tablesorter-header-inner">
+                  &nbsp;
+                 </div>
+                </div></th>
+               <th class="confluenceTh">
+                <div class="tablesorter-header-inner">
+                 <div class="tablesorter-header-inner">
+                  Assigned atoms
+                 </div>
+                </div></th>
+               <th class="confluenceTh">
+                <div class="tablesorter-header-inner">
+                 <div class="tablesorter-header-inner">
+                  Selected for rotation
+                 </div>
+                </div></th>
+               <th class="confluenceTh">
+                <div class="tablesorter-header-inner">
+                 <div class="tablesorter-header-inner">
+                  Merge product
+                 </div>
+                </div></th>
+              </tr>
+             </thead>
+            </table>
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

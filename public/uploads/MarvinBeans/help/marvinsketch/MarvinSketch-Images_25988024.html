@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : MarvinSketch Images</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : MarvinSketch Images </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The MarvinSketch canvas is referred to as the area where all molecule fragments and graphical objects such as arrows, text boxes, etc. appear.<br /> The scale factor in MarvinSketch determines the displayed size of a Carbon-Carbon single bond measured in pixels.</p>
+      <p>The magnification is the value in percents that indicate the actual zoom ratio of the contents of the canvas.<br /> The default value of the scale factor is 28, and this is equivalent to 100% magnification.</p>
+      <hr />
+      <p>This example demonstrates how to create images from the contents of the MarvinSketch canvas using two different approaches.</p>
+      <p>The image below shows the sample GUI component of this example.</p>
+      <p>There are two buttons below the MSketchPane component, <strong>Get Sketch Image</strong> and <strong>Get Molecule Image</strong>, that will demonstrate the difference between the two methods.</p>
+      <p>To make it easy, the images that are created will be shown by placing them on a <code>javax.swing.JLabel</code> component below the two buttons.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988024/29098581.png" data-image-src="attachments/25988024/29098581.png" data-unresolved-comment-count="0" data-linked-resource-id="29098581" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sketch_image.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988024" data-linked-resource-container-version="4" /></span></p>
+      <p>By pressing the <strong>Get Sketch Image</strong> button, the image of the canvas using the actual magnification is generated and set as the icon image of the label.</p>
+      <p>The <strong>Get Molecule Image</strong> button creates a 200 x 200 pixel size image, automatically computing the appropriate scale factor. In this example we modify the default behavior with a parameter. If this scale factor is greater than 100%, the scale factor is explicitly set to 100%, so that small molecules will not be overscaled. Note, that the molecule is automatically centered in the image.</p>
+      <p>The very brief code samples below are taken from <code>SketchImages.java</code>.</p>
+      <h4 id="MarvinSketchImages-Creatingtheimageofthecanvas">Creating the image of the canvas</h4>
+      <p>The MSketchPane bean can generate an image from the contents of the canvas if either a scale factor or an absolute image size (with java.awt.Dimension) is set. In this example we use the actual <span class="confluence-link"><a href="Structure-display-parameters_25985399.html#Structuredisplayparameters-scale">scale factor</a></span> of the canvas itself, thus zooming affects the result of the generated image.</p>
+      <pre class="sh_java sh_sourceCode">    <span class="sh_comment">// getting the actual scale factor of the canvas</span>
+    <span class="sh_type">double</span> currentScale <span class="sh_symbol">=</span> sketchPane<span class="sh_symbol">.</span><span class="sh_function">getScale</span><span class="sh_symbol">();</span>
+    <span class="sh_comment">// getting the image of the canvas with the current scale factor</span>
+    Image canvasImage <span class="sh_symbol">=</span> sketchPane<span class="sh_symbol">.</span><span class="sh_function">getImage</span><span class="sh_symbol">(</span>currentScale<span class="sh_symbol">);</span>
+</pre>
+      <h4 id="MarvinSketchImages-Convertingthemoleculeofthecanvastoanimage">Converting the molecule of the canvas to an image</h4>
+      <p>The image format along with additional options should be set as a String. The options are separated from the format identifier with a colon, and from each other with commas.<br /> More details of specifying image formats are available in the <a href="https://docs.chemaxon.com/display/FF/Image+Export+in+Marvin">Image Generation</a> documentation.</p>
+      <p>With the use of the <code>maxscale</code> parameter the scale factor is not allowed to be grater than that of 100%.</p>
+      <pre class="sh_java sh_sourceCode">    String format <span class="sh_symbol">=</span> <span class="sh_string">&quot;jpeg:w200,h200,maxscale28&quot;</span><span class="sh_symbol">;</span>
+    <span class="sh_type">byte</span><span class="sh_symbol">[]</span> imageData <span class="sh_symbol">=</span> sketchPane<span class="sh_symbol">.</span><span class="sh_function">getMol</span><span class="sh_symbol">().</span><span class="sh_function">toBinFormat</span><span class="sh_symbol">(</span>format<span class="sh_symbol">);</span>
+</pre>
+      <p>As of Marvin 5.2.0 images can be created with transparent background in PNG, SVG, PDF and EMF formats. To set the transparent background, the <code>transbg</code> parameter should be set along with a background color containing alpha values in RGBA form.</p>
+      <pre class="sh_java sh_sourceCode">    String format <span class="sh_symbol">=</span> <span class="sh_string">&quot;png:w200,h200,maxscale28,transbg,#ffffffff&quot;</span><span class="sh_symbol">;</span>
+</pre>
+      <p>There is an alternative to the image generation method which does not require to set the image format explicitely, and retrieves a <code>java.awt.Image</code> object instead of the image data. This conversion is more appropriate in case the image is not written to file.</p>
+      <pre class="sh_java sh_sourceCode">    Image image <span class="sh_symbol">=</span> sketchPane<span class="sh_symbol">.</span><span class="sh_function">getMol</span><span class="sh_symbol">().</span><span class="sh_function">toObject</span><span class="sh_symbol">(</span><span class="sh_string">&quot;image:w200,h200&quot;</span><span class="sh_symbol">);</span>
+</pre>
+      <h4 id="MarvinSketchImages-Comparisonofthetwomethods">Comparison of the two methods</h4>
+      <p>The advantages of converting the molecule to an image format are straightforward:</p>
+      <ul>
+       <li>Bean creation is not necessary, it can even be used as a command line method.</li>
+       <li>Arbitrary image size setting is possible considering memory limits.</li>
+      </ul>
+      <p>However there is one disadvantage as well, namely that the various functionalities offered by the JavaBean component affecting the display are not directly available on the molecule itself. This means that all display options being different from the default <strong>has to be set explicitely</strong> as the parameter of the conversion String.</p>
+      <p>For example, to convert a molecule to an image where the CHIRAL flags are visible is as follows:</p>
+      <pre class="sh_java sh_sourceCode">    String format <span class="sh_symbol">=</span> <span class="sh_string">&quot;jpeg:w200,h200,chiral_all&quot;</span><span class="sh_symbol">;</span>
+    <span class="sh_type">byte</span><span class="sh_symbol">[]</span> imageData <span class="sh_symbol">=</span> sketchPane<span class="sh_symbol">.</span><span class="sh_function">getMol</span><span class="sh_symbol">().</span><span class="sh_function">toBinFormat</span><span class="sh_symbol">(</span>format<span class="sh_symbol">);</span>
+</pre>
+      <p>The available options are enumerated as <a href="https://docs.chemaxon.com/display/FF/Image+Export+in+Marvin">Export options</a> of the Image Generation documentation.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

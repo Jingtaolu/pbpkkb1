@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Molecule File Conversion with MolConverter</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Molecule File Conversion with MolConverter </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span style="color: rgb(54,54,54);">MolConverter is a command line program in Marvin Beans and JChem that converts between various file types.</span></p>
+      <h2 id="MoleculeFileConversionwithMolConverter-Usage">Usage</h2>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert [options] outformat[:exportoptions] [files...]</pre> 
+       </div>
+      </div>
+      <p><a href="http://www.chemaxon.com/marvin/help/applications/molconvert.html#outformat" name="outformat" class="external-link" rel="nofollow"></a>The&nbsp;outformat&nbsp;argument must be the codename of one of the supported formats. That can be found in the page of each file format. Some example:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th colspan="1" class="confluenceTh">Format type</th>
+          <th colspan="1" class="confluenceTh">Codename of the format</th>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Document formats</td>
+          <td class="confluenceTd"><a href="14943131.html"><code>mrv</code></a>, <a href="19694130.html">cdx</a>, <a href="19694130.html">cdxml</a>, <a href="19693851.html">skc</a></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Molecule file formats</td>
+          <td class="confluenceTd"><p><span class="confluence-link"><a href="19693841.html#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-mol"><code>mol</code></a>,&nbsp;<a href="19693841.html#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rgf"><code>rgf</code></a>,&nbsp;<a href="19693841.html#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-sdf"><code>sdf</code></a>,&nbsp;</span><a href="19693841.html#MDLMOLfiles,RGfiles,SDfiles,Rxnfiles,RDfilesformats-rdf"><span class="confluence-link"><code>rdf</code></span></a>,&nbsp;<a href="MOL-file-compression_16450008.html"><code>csmol</code>,&nbsp;<code>csrgf</code>,&nbsp;<code>cssdf</code>,&nbsp;<code>csrdf</code></a>,<br /><a href="CML_14943146.html"><code>cml</code></a>, <a href="SMILES_19694469.html">smiles</a>, <a href="19694483.html">cxsmiles</a>, <a href="ChemAxon-SMILES-Abbreviated-Group_19694488.html">abbrevgroup</a>, <a href="21496092.html">peptide</a>,<span style="text-decoration: underline;">&nbsp;</span><br /><a href="Tripos-SYBYL-MOL-format_21496144.html">sybyl</a>,&nbsp;<a href="Tripos-Mol2-format_21496147.html">mol2</a>, <a href="21496158.html">pdb</a>, <a href="XYZ-format_21496209.html">xyz</a>, <a href="IUPAC-InChI-and-InChIKey_21496048.html">inchi</a>, <a href="Name_21496069.html">name</a></p></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Graphics formats</td>
+          <td class="confluenceTd"><a href="JPEG_18448439.html">jpeg</a>, <a href="BMP_18448441.html">msbmp</a>, <a href="PNG_18448443.html">png</a>, <a href="Export-to-POV-Ray_18448454.html">pov</a>,<code>&nbsp;</code><a href="SVG_18448452.html">svg</a>, <a href="EMF_18448448.html">emf</a>, <a href="TIFF_18448458.html">tiff</a>, <a href="EPS_18448460.html">eps</a></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Compression and Encoding</td>
+          <td class="confluenceTd"><a href="GZIP_21496284.html">gzip</a>, <a href="Base64_21496286.html">base64</a></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><a href="http://www.chemaxon.com/marvin/help/applications/molconvert.html#query-encoding" name="query-encoding" style="text-decoration: underline;" class="external-link" rel="nofollow"></a>Alternatively<span style="color: rgb(54,54,54);">, use</span><span>&nbsp;</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert [options] query-encoding [files...]</pre> 
+       </div>
+      </div>
+      <p><span style="color: rgb(54,54,54);">to query the automatically detected encodings of the specified molecule files.</span></p>
+      <p>From files having doc, docx, ppt, pptx, xls, xls, odt, pdf, xml, html or txt format, Molconvert is able to recognize the name of compounds and convert it to any of the above mentioned output formats.</p>
+      <h3 id="MoleculeFileConversionwithMolConverter-Options">Options</h3>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><code>-o</code>&nbsp;<span>file</span></td>
+          <td class="confluenceTd">Write output to specified file instead of standard output</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-m</code></td>
+          <td class="confluenceTd">Produce multiple output files</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-e</code>&nbsp;<span>charset</span></td>
+          <td class="confluenceTd">Set the input character encoding. The encoding must be supported by Java.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-e</code>&nbsp;[<span>in</span><code>]..[</code><span>out</span>]</td>
+          <td class="confluenceTd">Set the input (<span>in</span>) and/or output (<span>out</span>) character encodings. Examples: UTF-8, ASCII, Cp1250 (Windows Eastern European), Cp1252 (Windows Latin 1), ms932 (Windows Japanese).</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-s</code>&nbsp;<span>string</span></td>
+          <td class="confluenceTd">Read molecule from specified SMILES, SMARTS or peptide string (try to recognize its format)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-s</code>&nbsp;<span>string</span><code>{</code><span>format</span><code>:</code><span>options</span><code>}</code></td>
+          <td class="confluenceTd">Read molecule from the string in the specified&nbsp;<span>format</span>&nbsp;(can be omitted), using the specified import<span>options</span>&nbsp;(can be omitted)</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">-f &lt;string&gt;</td>
+          <td colspan="1" class="confluenceTd">Specify the import format and options</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--smiles</code>&nbsp;<span>string</span></td>
+          <td class="confluenceTd">Read molecule from specified SMILES string</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--smarts</code>&nbsp;<span>string</span></td>
+          <td class="confluenceTd">Read molecule from specified SMARTS string</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--peptide</code>&nbsp;<span>string</span></td>
+          <td class="confluenceTd">Read molecule from specified peptide string</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-g</code></td>
+          <td class="confluenceTd">Continue with next molecule on error (default: exit on error)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-Y</code></td>
+          <td class="confluenceTd">Remove explicit H atoms</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-I</code>&nbsp;<span>&lt;range&gt;</span></td>
+          <td class="confluenceTd">process input molecules with molecule index (1-based) falling into the specified range (e.g. 5-8,15 refers to molecules 5,6,7,8,15)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-U</code></td>
+          <td class="confluenceTd">fuse input molecules and output the union</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-R</code>&nbsp;<span>&lt;file&gt;[:&lt;range&gt;]</span></td>
+          <td class="confluenceTd">fuse fragments to input molecule(s) from file with specified mol index range range syntax: &quot;-5,10-20,25,26,38-&quot; (e.g. -R frags.mrv:20-)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-R&lt;i&gt;</code>&nbsp;<span>&lt;file&gt;[:&lt;range&gt;]</span></td>
+          <td class="confluenceTd">fuse R&lt;i&gt; definition members to input molecule(s) from file in specified index range (e.g. -R1 rdef1.mrv:5-8,19)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-R&lt;i&gt;:&lt;1|2&gt;</code>&nbsp;<span>&lt;file&gt;[:&lt;range&gt;]</span></td>
+          <td class="confluenceTd">fuse R&lt;i&gt; definition members to input molecule(s) from file in specified index range, filter molecules having 1 (2, resp.) attachment points (e.g. -R1:2 rdef1.mrv:-3,8-10)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-F</code></td>
+          <td class="confluenceTd">Remove small fragments, keep the largest</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-c</code>&quot;<span>f1</span><span>OP</span><span>value</span>&amp;<span>f2</span><span>OP</span><span>value</span>...&quot;</td>
+          <td class="confluenceTd">Filtering by the values of fields in the case of SDF import.<br /><span>OP</span>&nbsp;may be: =,&lt;,&gt;,&lt;=,&gt;=</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--mol-fields-to-records</code></td>
+          <td class="confluenceTd">Convert molecule type fields to separate records.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-v</code></td>
+          <td class="confluenceTd">Verbose</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-vv</code></td>
+          <td class="confluenceTd">Very verbose (print stack trace at error)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-n</code></td>
+          <td class="confluenceTd">Skip valence checking</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-2</code><span>[</span><code>:</code><span>options]</span><span>[</span><code>:</code><span>F&lt;i1&gt;&lt;i2&gt;...,&lt;iN&gt;]</span></td>
+          <td class="confluenceTd">Calculate 2D coordinates&nbsp;<a href="https://docs.chemaxon.com/display/SR/Cleaning+options">Options</a>&nbsp;for coordinate calculation.&nbsp;<br />Performs partial clean with fixed atom coordinates for atoms&nbsp;<span>&lt;i1&gt;&lt;i2&gt;...,&lt;iN&gt;</span>&nbsp;(1-based indexes) if the&nbsp;<span>F</span>parameter is specified.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-3</code><span>[</span><code>:</code><span>options]</span></td>
+          <td class="confluenceTd">Calculate 3D coordinates<br /><a href="https://docs.chemaxon.com/display/SR/Cleaning+options">Options</a> for coordinate calculation.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-<span>H3D</span></code></td>
+          <td class="confluenceTd">Detailed list on <a href="https://docs.chemaxon.com/display/SR/Cleaning+options">Clean 3d Options</a></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">Import options&nbsp;</span><span style="color: rgb(54,54,54);">can be specified between braces, in one of the following forms:</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">filename{options}</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">filename{MULTISET,options}</td>
+          <td class="confluenceTd">to merge molecules into one that contains multiple atom sets</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">filename{format:}</td>
+          <td class="confluenceTd">to skip automatic format recognition</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">filename{format:options}</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">filename{format:MULTISET,options}</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>You can also pass <a href="https://docs.chemaxon.com/display/marvinsketch/Java+VM+options+in+MarvinSketch">options to JAVA VM</a> when you run the application from command line.</p>
+      <h2 id="MoleculeFileConversionwithMolConverter-Examples">Examples</h2>
+      <ol>
+       <li><p>Printing the SMILES string of a molecule in a molfile</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles caffeine.mol</pre> 
+         </div>
+        </div></li>
+       <li><p>Dearomatizing an aromatic molecule:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles:-a -s &quot;c1ccccc1&quot;</pre> 
+         </div>
+        </div></li>
+       <li><p>Aromatizing a molecule:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles:a -s &quot;C1=CC=CC=C1&quot;</pre> 
+         </div>
+        </div><p>(The default general aromatization is used.)<br /><br /></p></li>
+       <li><p>Aromatizing a molecule using the basic algorithm:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles:a_bas -s &quot;CN1C=NC2=C1C(=O)N(C)C(=O)N2C&quot;</pre> 
+         </div>
+        </div></li>
+       <li><p>Converting a SMILES file to MDL Molfile</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert mol caffeine.smiles -o caffeine.mol</pre> 
+         </div>
+        </div></li>
+       <li><p>Making an SDF from molfiles:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert sdf *.mol -o molecules.sdf</pre> 
+         </div>
+        </div><p><code><br /></code></p></li>
+       <li><p>Printing the encodings of SDfiles in the working directory:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert query-encoding *.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>SMILES to Molfile with optimized 2D coordinate calculation, converting double bonds with unspecified cis/trans to &quot;either&quot;</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert -2:2e mol caffeine.smiles -o caffeine.mol</pre> 
+         </div>
+        </div></li>
+       <li><p>2D coordinate calculation with optimization and fixed atom coordinates for atoms 1, 5, 6:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert -2:2:F1,5,6 mol caffeine.mol</pre> 
+         </div>
+        </div></li>
+       <li><p>Import a file as XYZ, do not try to recognize the file format:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles &quot;foo.xyz{xyz:}&quot;</pre> 
+         </div>
+        </div><p><span>Note:</span>&nbsp;This is just an example. XYZ and other formats known by Marvin are always recognized (send us a bug report otherwise), so the specification of the input format is usually not needed. It is only relevant if a user-defined import module is used.<br /><br /></p></li>
+       <li><p>Import a file as XYZ, with bond-length cut-off = 1.4, and max. number of Carbon connections = 4, export to SMILES:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles &quot;foo.xyz{f1.4C4}&quot;</pre> 
+         </div>
+        </div></li>
+       <li><p>Import a file as Gzipped XYZ, with the same import options as in the previous example:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles &quot;foo.xyz.gz{gzip:xyz:f1.4C4}&quot;</pre> 
+         </div>
+        </div></li>
+       <li><p>Like the previous example but merge the molecules into one molecule that contains multiple atom sets. MDL molfile is exported.</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert mol &quot;foo.xyz.gz{gzip:xyz:MULTISET,f1.4C4}&quot;</pre> 
+         </div>
+        </div></li>
+       <li><p>Import an SDF and export a table containing selected molecules with columns: SMILES, ID, and logP:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles -c &quot;ID&lt;=1000&amp;logP&gt;=-2&amp;logP&lt;=4&quot; -T ID:logP foo.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Fuse R2 definition from file, filter fragments with 1 attachment point:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert mrv in.mrv -R2:1 rdef.mrv</pre> 
+         </div>
+        </div></li>
+       <li><p>Fuse fragments from file (note, that the input molecule, which the fragments are fused to, should also be specified):</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert mrv in.mrv -R frags.mrv</pre> 
+         </div>
+        </div></li>
+       <li><p>Generate all common names for a structure:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert &quot;name:common,all&quot; -s tylenol</pre> 
+         </div>
+        </div></li>
+       <li><p>Generate the most popular common name for a structure (It fails if none is known.):</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert name:common -s viagra</pre> 
+         </div>
+        </div></li>
+       <li><p>Generate SMILES from those molecules that names are mentioned in a file foo.html:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">molconvert smiles foo.html</pre> 
+         </div>
+        </div></li>
+      </ol>
+      <p><code><br /></code></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

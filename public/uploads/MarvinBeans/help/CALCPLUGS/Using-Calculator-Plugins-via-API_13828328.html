@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Using Calculator Plugins via API</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Using Calculator Plugins via API </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200960700 {padding: 0px;}
+div.rbtoc1439200960700 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200960700 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200960700"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#UsingCalculatorPluginsviaAPI-StepsusingCalculatorPluginsviaAPI">Steps using Calculator Plugins via API&nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-Instantiatethepluginobject">Instantiate the plugin object &nbsp;</a></li> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-Settheparametersofthecalculation">Set the parameters of the calculation</a></li> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-Settheinputmolecule">Set the input molecule &nbsp;</a></li> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-Runthecalculation">Run the calculation</a></li> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-Gettheresults">Get the results</a></li> 
+           </ul> </li> 
+          <li><a href="#UsingCalculatorPluginsviaAPI-Usingmultipleplugins,writingtheresultstoSDFfields">Using multiple plugins, writing the results to SDF fields &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-SettingparametersandgettingtheresultsforMajorMicrospeciesPlugin">Setting parameters and getting the results for MajorMicrospeciesPlugin &nbsp;</a></li> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-SettingparametersandgettingtheresultsforTPSAPlugin">Setting parameters and getting the results for TPSAPlugin &nbsp;</a></li> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-SettingparametersandgettingtheresultsforlogDPlugin">Setting parameters and getting the results for logDPlugin &nbsp;</a></li> 
+            <li><a href="#UsingCalculatorPluginsviaAPI-GettingtheresultsforIUPACNamingPlugin">Getting the results for IUPACNamingPlugin &nbsp;</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="UsingCalculatorPluginsviaAPI-StepsusingCalculatorPluginsviaAPI"><span style="color: rgb(0,0,0);">Steps using Calculator Plugins via API&nbsp;<br /><br /><br /></span></h1>
+      <p>In this example of the&nbsp;<a href="Elemental-Analysis-Plugin_12584028.html">ElementalAnalysisPlugin</a>&nbsp;we demonstrate how to use the Calculator Plugin API step-by-step. These steps are common for all types of plugins.</p>
+      <p>&nbsp;</p>
+      <h2 id="UsingCalculatorPluginsviaAPI-Instantiatethepluginobject">Instantiate the plugin object<br />&nbsp;</h2>
+      <p>Calculator Plugin classes are placed in the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/package-summary.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>chemaxon.marvin.calculations</code></a>&nbsp;package. First import the necessary classes:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">import chemaxon.marvin.calculations.ElementalAnalyserPlugin;</pre> 
+       </div>
+      </div>
+      <p><br />Instantiate a new&nbsp;<code>ElementalAnalyserPlugin</code>&nbsp;object with its default constructor:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">ElementalAnalyserPlugin plugin = new ElementalAnalyserPlugin();</pre> 
+       </div>
+      </div>
+      <h2 id="UsingCalculatorPluginsviaAPI-Settheparametersofthecalculation"><br />Set the parameters of the calculation<br /><br /></h2>
+      <p>After creating the&nbsp;<code>ElementalAnalyserPlugin</code>&nbsp;object the parameters of the calculation can be set with plugin specific setter methods. The precision of the results can be set with the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#setDoublePrecision(int)" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>setDoublePrecision(int)</code></a>&nbsp;method:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">plugin.setDoublePrecision(2);</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <h2 id="UsingCalculatorPluginsviaAPI-Settheinputmolecule">Set the input molecule<br />&nbsp;</h2>
+      <p>All calculator plugins take a molecule (a&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>Molecule</code></a>&nbsp;object) as input, and perform the calculation on one molecule at a time. The input molecule can be set with the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#setMolecule(chemaxon.struc.Molecule)" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>setMolecule(Molecule)</code></a>&nbsp;method:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> plugin.setMolecule(mol);</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h2 id="UsingCalculatorPluginsviaAPI-Runthecalculation">Run the calculation</h2>
+      <p>&nbsp;</p>
+      <p>To run the calculation, the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html#run()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>run()</code></a>&nbsp;method of the plugin should be invoked:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> plugin.run();</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <h2 id="UsingCalculatorPluginsviaAPI-Gettheresults">Get the results</h2>
+      <p>&nbsp;</p>
+      <p>It is plugin specific how results of the calculation can be retrieved.&nbsp;<code>ElementalAnalyserPlugin</code>&nbsp;can return several kinds of results, some of these are:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><p>mass and exact mass</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">double mass = plugin.getMass(); 
+ double exactMass = plugin.getExactMass();</pre> 
+         </div>
+        </div></li>
+       <li><p>count of atoms and count of all atoms</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">// the number of all atoms in the molecule 
+ int atomCount = plugin.getAllAtomCount(); 
+// carbon atom count 
+int countOfC = plugin.getAtomCount(6); 
+// carbon-14 isotope count 
+int countOfC14 = plugin.getAtomCount(6, 14);</pre> 
+         </div>
+        </div></li>
+       <li><p>formula</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">String formula = plugin.getFormula();</pre> 
+         </div>
+        </div></li>
+       <li><p>composition</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">String composition = plugin.getComposition();</pre> 
+         </div>
+        </div><p><br /><br /></p></li>
+      </ul>
+      <p>In the file&nbsp;<a href="attachments/13828328/29098666.java" data-linked-resource-id="29098666" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ElementalAnalyserPluginExample.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828328" data-linked-resource-container-version="23"><code>ElementalAnalyserPluginExample.java</code></a>&nbsp;a complete code example can be found which uses the code parts above. It reads input molecules from a file given as command line parameter and displays the results.&nbsp;The input file&nbsp;<a href="attachments/13828328/29098667.sdf" data-linked-resource-id="29098667" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="example_mols.sdf" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828328" data-linked-resource-container-version="23">example_mols.sdf</a>&nbsp;contains the chemical structures shown below:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828328/29098664.png" data-image-src="attachments/13828328/29098664.png" data-unresolved-comment-count="0" data-linked-resource-id="29098664" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="example_mols.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828328" data-linked-resource-container-version="23" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>To compile the&nbsp;example,&nbsp;<code>MarvinBeans.jar</code>&nbsp;has to be referenced in the&nbsp;<code>CLASSPATH</code>. After compiling the example can be run from command line like this:<br />&nbsp;</p>
+      <pre>  java ElementalAnalyserPluginExample [molFile]</pre>
+      <p>&nbsp;</p>
+      <p>For example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> java ElementalAnalyserPluginExample example_mols.sdf</pre> 
+       </div>
+      </div>
+      <pre> </pre>
+      <p>The output is:</p>
+      <pre>CC(=O)OC(CC(O)=O)C[N+](C)(C)C
+  formula: C9H18NO4, mass: 204.2435, exact mass: 204.123583069
+  number of atoms (32): C (9), C-14 (0)
+  composition: C (52.93%), H (8.88%), N (6.86%), O (31.33%)
+
+OC1[14CH]=CC=C(C1O)C(O)=O
+  formula: C7H8O4, mass: 158.1286, exact mass: 158.045500732
+  number of atoms (19): C (7), C-14 (1)
+  composition: C (54.43%), H (5.1%), O (40.47%)
+
+NCC(=O)COP(O)(O)=O
+  formula: C3H8NO5P, mass: 169.0731, exact mass: 169.014008883
+  number of atoms (18): C (3), C-14 (0)
+  composition: C (21.31%), H (4.77%), N (8.28%), O (47.32%), P (18.32%)
+
+CCN1[14CH]=[NH+]C2=C(N)[NH+]=[14CH]N=[14C]12
+  formula: C7H11N5, mass: 171.1734, exact mass: 171.111171341
+  number of atoms (23): C (7), C-14 (3)
+  composition: C (52.61%), H (6.48%), N (40.91%)<br />&nbsp;</pre>
+      <h1 id="UsingCalculatorPluginsviaAPI-Usingmultipleplugins,writingtheresultstoSDFfields"><a name="example1" rel="nofollow"></a>Using multiple plugins, writing the results to SDF fields<br />&nbsp;</h1>
+      <p>In the second example four plugins are used: the&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>MajorMicrospeciesPlugin</code></a>&nbsp;to generate the major microspecies at pH 7.4;&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/TPSAPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>TPSAPlugin</code></a>&nbsp;to calculate the polar surface areas;&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>logDPlugin</code></a>&nbsp;to calculate the logD values;&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>IUPACNamingPlugin</code></a>&nbsp;to generate the names of molecules read from a molfile. The results of the calculations are written to an SD file: they are the major microspecies of the input molecules, the IUPAC names, the surface area values and logD values.</p>
+      <p>The main steps in this example are the same as in the previous one, only the methods used for parameter settings and the methods used for getting the results are different.</p>
+      <p>&nbsp;</p>
+      <h2 id="UsingCalculatorPluginsviaAPI-SettingparametersandgettingtheresultsforMajorMicrospeciesPlugin">Setting parameters and getting the results for MajorMicrospeciesPlugin<br />&nbsp;</h2>
+      <p>For setting the parameters method&nbsp;<code>setpH(double)</code>&nbsp;is used. Major microspecies at the specified pH will be generated.</p>
+      <pre><span> mmsPlugin.<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html#setpH(double)" style="text-decoration: underline;" class="external-link" rel="nofollow">setpH(7.4)</a>; // major microspecies generation at pH = 7.4</span></pre>
+      <p>For getting the results method&nbsp;<code>getMajorMicrospecies()</code>&nbsp;is used. It returns a&nbsp;<code>Molecule</code>&nbsp;object.</p>
+      <pre><span> Molecule majorms = mmsPlugin.<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html#getMajorMicrospecies()" style="text-decoration: underline;" class="external-link" rel="nofollow">getMajorMicrospecies()</a>;</span></pre>
+      <h2 id="UsingCalculatorPluginsviaAPI-SettingparametersandgettingtheresultsforTPSAPlugin"><br />Setting parameters and getting the results for TPSAPlugin<br />&nbsp;</h2>
+      <p>For setting the parameters method&nbsp;<code>setpH(double)</code>&nbsp;is used.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">tpsaPlugin.setpH(7.4); // surface area calculation at pH = 7.4</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>For getting the results method&nbsp;<code>getSurfaceArea()</code>&nbsp;is used.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> double surfaceArea = tpsaPlugin.getSurfaceArea();</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <h2 id="UsingCalculatorPluginsviaAPI-SettingparametersandgettingtheresultsforlogDPlugin">Setting parameters and getting the results for logDPlugin<br />&nbsp;</h2>
+      <p>There are quite a few parameters that can be set for logD calculation. These are: Cl<span>-</span>&nbsp;ion concentration, Na<span>+</span>/K<span>+</span>&nbsp;ion concentration, pH (for calculating logD at a single pH value), pH lower limit, pH upper limit, and pH step size.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">// set the Cl- and Na+/K+ concentration 
+ logDPlugin.setCloridIonConcentration(0.15); 
+ logDPlugin.setNaKIonConcentration(0.15); 
+// set the pH range and pH step size logDPlugin.setpHLower(5.4); 
+ logDPlugin.setpHUpper(9.4); 
+ logDPlugin.setpHStep(2.0);</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The results of the logD calculation are returned by the method&nbsp;<code>getlogDs()</code>, the pH values are returned by the method&nbsp;<code>getpHs()</code>. Both methods return a double array (<code>double[]</code>), the logD array contains the logD values for corresponding pH-s in the pH array.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;"> double[] pHs = logDPlugin.getpHs(); double[] logDs = logDPlugin.getlogDs();</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre>&nbsp;</pre>
+      <h2 id="UsingCalculatorPluginsviaAPI-GettingtheresultsforIUPACNamingPlugin">Getting the results for IUPACNamingPlugin<br />&nbsp;</h2>
+      <p>For getting the results method&nbsp;<code>getPreferredIUPACName()</code>&nbsp;is used, it returns the preferred IUPAC name.&nbsp;<code>IUPACNamingPlugin</code>&nbsp;has also the method&nbsp;<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html#getTraditionalName()" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>getTraditionalName()</code></a>&nbsp;to return the traditional name of the molecule.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">String name = iupacNamingPlugin.getPreferredIUPACName();</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre>
+      <p>The complete code example can be found in the file&nbsp;<a href="attachments/13828328/29098668.txt" data-linked-resource-id="29098668" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="PluginExample.java.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="13828328" data-linked-resource-container-version="23"><code>PluginExample.java</code></a>. After compiling the example can be run from command line:</p>
+      <p>&nbsp;</p>
+      <pre>java PluginExample [molFile]<br />&nbsp;</pre>
+      <p>Example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">java PluginExample example_mols.sdf &gt; results.sdf</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The result is written to the&nbsp;<a href="attachments/13828328/29098669.sdf" data-linked-resource-id="29098669" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="results.sdf" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="13828328" data-linked-resource-container-version="23">results.sdf</a>&nbsp;file.<br />&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828328/29098665.png" data-image-src="attachments/13828328/29098665.png" data-unresolved-comment-count="0" data-linked-resource-id="29098665" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="results.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828328" data-linked-resource-container-version="23" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>The above examples can also be run by&nbsp;<code>run.sh</code>&nbsp;shell script (Linux/UNIX) or&nbsp;<code>RUN.BAT</code>&nbsp;batch file (Windows).</p>
+      <div class="documentation_helpsection">
+       <br />
+       <br />
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

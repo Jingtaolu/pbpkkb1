@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Display tools</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Display tools </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Display tools enhance the visualization capabilities of MarvinSpace. With these the user can have better understanding of the structures studied.<br />The&nbsp;<strong>Depth cue</strong>&nbsp;(or Fog) tool enhances the sensation of space (depth) by fading distant objects. The fog can gradually be adjusted by the&nbsp;<strong>Depth cue</strong>&nbsp;slider.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Depth cue slider image" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/fog.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/fog.png" /></span></p>
+      <p>The&nbsp;<strong>Clipping</strong>&nbsp;slider is a composite slider. It moves two planes parallel with the canvas towards or away from the visible objects. One of the planes (the near plane) cuts these object so that parts in front of the plane will not be visible. The other plane (the far plane) cuts parts that are behind the plane. This helps better understand the structure being analyzed by allowing deeper insight into buried parts by hiding obscuring details.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Clipping slider image" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/clipping.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/clipping.png" /></span></p>
+      <p>The&nbsp;<strong>Isosurface</strong>&nbsp;slider is yet an experimental slider. Its aim is to easily change the threshold value of isosurfaces. Isosurfaces in MarvinSpace 1.3 appear only when Gaussian Cube files are imported. In this case an isosurface is automatically generated, and it can be changed interactively (depends on the size of the volume and the computer capacity) by changing the threshold value with the slider.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Isosurface image" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/isosurface.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/isosurface.png" /></span></p>
+      <p>Finally, the tool for&nbsp;<span class="confluence-anchor-link" id="Displaytools-dynsc"></span><a class="text" name="dynamicsurfacecolor" rel="nofollow"></a><strong>dynamic surface coloring</strong>&nbsp;is more complex. In the present release it can be used in combination with surfaces colored by electrostatic potential.<br />By moving the sliders the areas of the surface where the negative/positive potential is below/above the threshold values set by the slider are not colored (i.e.. colored by the default color).<br />The leftmost and rightmost edit boxes display the minimum/maximum potential values calculated on the surface, while the two inner values correspond to the actual positions of the slider in the [minimum, 0] and the [0, maximum] ranges, respectively.<br />By clicking on the colored image above the sliders, the palette can be changed by selecting a palette from a list on an appearing dialog.<br />With this dynamic coloring modelers can better focus on areas where the absolute value of the potential is above a certain threshold thus where the chance for an electrostatic interaction is more likely.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Color slider image" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/color.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/color.png" /></span></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Query Structures</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Query Structures </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Query structures are generalized structures representing a group of similar molecules which differ only in some structural elements. For example, all of the molecules possess the same skeleton with a halogen atom as substituent, but it is not crucial to know which halogen exactly. See more about query structures in&nbsp;<strong><a href="https://docs.chemaxon.com/display/jchembase/Query+Guide">JChem Query Guide</a></strong>. Using&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-queryAtoms">query atoms</a></strong>&nbsp;and&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-bonds">bonds</a></strong>&nbsp;offered in Marvin JS different query structures can be designed. Note that atom properties (e.g., atomic charge) can be modified for the query atoms, too. The query atoms are available on the&nbsp;Atoms&nbsp;toolbar, under a &quot;combo&quot; button.<br /><span class="confluence-anchor-link" id="QueryStructures-pseudo"></span>You can define pseudo atoms in your molecules. Replacing an atom with a pseudo will change it to an &quot;Any&quot; type query atom. Some atom properties (such as atom query properties) can also be associated with a pseudo atom on the<strong>&nbsp;<a href="https://confluence.chemaxon.com/display/MFJ/Basic+Features+of+Marvin+for+JavaScript#BasicFeaturesofMarvinforJavaScript-topic_Basic_Features_of_Marvin_for_JAtom" class="external-link" rel="nofollow">Atom properties</a></strong>&nbsp;dialog.</p>
+      <h2 id="QueryStructures-atomList"><span class="confluence-anchor-link" id="QueryStructures-atomList"></span></h2>
+      <p></p>
+      <h2 id="QueryStructures-AtomListsandNOTLists">Atom Lists and NOT Lists</h2>
+      <p>You can add an &quot;Atom List&quot; query atom to your molecule, which covers a set of atoms. The created structure produces a hit if any of the atoms in the list is found in the target. Similarly, you can use &quot;NOT List&quot; query atoms, too. A NOT List query atom can represent any atom that is not part of the list.<br />Atom Lists and NOT Lists can be defined using the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-periodicTable">Periodic Table</a></strong>. Pressing the appropriate button on the dialog then clicking on the atoms one after the other prepares the list. Close the Periodic Table when you are ready: the list of atoms is on the cursor. Furthermore, you can replace an atom with a new list or modify an already existing list in the&nbsp;<a href="https://confluence.chemaxon.com/display/MFJ/Toolbars#Toolbars-topic_ToolbarsPeriodicTable2" class="external-link" rel="nofollow"></a><strong><a href="Properties_17236088.html#Properties-atomDialog">Atom properties</a></strong>&nbsp;dialog, by selecting 'List/NOT list' at the top of the dialog.</p>
+      <h2 id="QueryStructures-homologyGroupsHomologygroups"><span class="confluence-anchor-link" id="QueryStructures-homologyGroups"></span>Homology groups</h2>
+      <p>Built-in homology groups of Marvin JS represent series of chemical compounds with the same specific structural properties. Among these groups there are homologous series groups such as alkyl, alkenyl, alkynyl, carboalicyclyl and other generalized chemical names, like alkali and transition metal&nbsp;<em>etc</em>. Please,&nbsp;follow this&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Homology+Groups+and+Markush+Structures#HomologyGroupsandMarkushStructures-list">link</a>&nbsp;for the complete list of built-in homology groups as well as their aliases (shortened names).<br />Homology groups are available from the&nbsp;<strong><a href="Properties_17236088.html#Properties-atomDialo">Atom properties</a></strong><span style="color: rgb(0,0,255);">&nbsp;</span>dialog after a right-click on an atom. At the top of the dialog, change to 'Homology Groups' instead of 'Element' then select the appropriate group from the list and choose either its full name or its alias at the 'Display' option.</p>
+      <h2 id="QueryStructures-PositionVariationBond(variablepointofattachment)">Position Variation Bond (variable point of attachment)</h2>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><a href="Video-Tutorials_23692062.html#VideoTutorials-positionVariationBond">See how to use the <strong>Position variation tool</strong> here.</a></p>
+       </div> 
+      </div> 
+      <p>Position variation bond represents a variable connection pointing from a group of atoms to an atom.</p>
+      <h4 id="QueryStructures-Display:">Display:</h4>
+      <p>The variable atoms are highlighted with grey background, the darker highlight indicates that the atom is part of more than one position variation group. <br />To identify which atom belongs to which group of attachment you can hover over the bond in question, then a light blue frame will appear around the corresponding atoms.</p>
+      <p>&nbsp;</p>
+      <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="354" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236093/33390630.png?effects=border-simple,blur-border" data-image-src="attachments/17236093/33390630.png" data-unresolved-comment-count="0" data-linked-resource-id="33390630" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-1-8 13:2:39.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236093" data-linked-resource-container-version="45" /></span>
+      <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="343" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236093/33390631.png?effects=border-simple,blur-border" data-image-src="attachments/17236093/33390631.png" data-unresolved-comment-count="0" data-linked-resource-id="33390631" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-1-8 13:21:22.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236093" data-linked-resource-container-version="45" /></span>
+      <h4 id="QueryStructures-Drawingpositionvariationbond:">Drawing position variation bond:</h4>
+      <ol>
+       <li>Create the structure.</li>
+       <li>Select the Position variation bond tool from the Bonds &quot;combo&quot; box.</li>
+       <li>You can select the atoms by the Position variation bond tool the same way, as selecting by Freehand selection tool.</li>
+       <li>A carbon atom with a simple bond will be established attached to variable atoms.</li>
+       <li>Change the carbon atom to any type of atoms (, query atoms, abbreviated groups, etc.), and the bond type.<br /><br /></li>
+      </ol>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Please, note that contracted abbreviated groups are not allowed to be among the variable atoms, and expanded abbreviated groups also will be ungroupped after establishing the bond.</p>
+       </div> 
+      </div> 
+      <p></p>
+      <h2 id="QueryStructures-RgroupsR-groupqueries"><span class="confluence-anchor-link" id="QueryStructures-Rgroups"></span>R-group queries</h2>
+      <p>You can create R-groups, manage R-group definitions and add attachment points in Marvin JS to your structures.&nbsp;</p>
+      <p><a href="Markush-Structures_26705945.html">Here you can read a detailed description about R-group queries in Marvin JS.</a></p>
+      <h2 id="QueryStructures-absoluteStereoAbsolutestereoinformation"><span class="confluence-anchor-link" id="QueryStructures-absoluteStereo"></span>Absolute stereo information</h2>
+      <p>The &quot;Absolute&quot; chiral flag on a molecule indicates that every chiral center marked with wedge bonds has a known absolute configuration, that is to say, the structure represents a single, well-defined stereoisomer. This chiral flag can be added to a molecule through the&nbsp;<strong><a href="Context-Menus_17236082.html#ContextMenus-editPopup">pop-up menu</a></strong>&nbsp;and its display can be turned on/off in the&nbsp;<strong><a href="Display-Options_17236089.html#DisplayOptions-structureDisplay">View Settings</a></strong><span style="color: rgb(0,0,255);"><span style="color: rgb(0,0,255);">&nbsp;</span></span>dialog window.<br />Depending on the file format, a molecule which has wedge bonds without a chiral flag has either of the following meanings:</p>
+      <ul>
+       <li>In MDL file types (MOL, SDF, ...): wedge bonds describe the relative configuration of chiral centers; the structure is a racemic mixture of two enantiomers.</li>
+       <li>In Daylight file types (SMILES, SMARTS): wedge bonds describe the absolute configuration of chiral centers; the structure represents a single enantiomer.</li>
+      </ul>
+      <h2 id="QueryStructures-enhancedStereoEnhancedstereospecifications"><span class="confluence-anchor-link" id="QueryStructures-enhancedStereo"></span>Enhanced stereo specifications</h2>
+      <p>Marvin JS&nbsp;supports the MDL enhanced stereo representation. Enhanced stereo specifications enable us to refer to several stereoisomers of a molecule by drawing only one structure. Attaching these notations to chiral centers makes it possible to represent stereochemical information: whether we know the absolute configuration of a stereogenic center or we have information only about the relative configuration of two or more chiral atoms. The advantage of enhanced stereo representation is the most palpable when the molecule contains several chiral centers. Illustrating all or even just a few of the molecules stereoisomers can be really demanding in a case like this, but with the help of enhanced stereo specifications only one molecular structure can be enough to represent every diastereomer.<br />Marvin JS&nbsp;applies four identifiers, which help us to create groups from the stereocenters. Each group label consists of an identifier, and – in some cases – of a number. Each and every stereocenter belongs only to one stereogenic group. The following identifiers can be attached to stereogenic centers:</p>
+      <ul>
+       <li><strong>Off:</strong> We have no information about the configuration of the chiral atom;</li>
+       <li><strong>Abs:</strong> We know the absolute configuration of the chiral center;</li>
+       <li><strong>Or:</strong> Attaching the „Or&quot; identifier to a stereogenic center means that we only know the configuration of the atom relative to another chiral center, but we do not have information about the absolute configuration. For a molecule with two chiral centers it either refers to the structure as drawn (<em>e.g.</em>,&nbsp;<strong>1<em>R</em></strong><em>,</em><strong>2<em>R</em></strong>&nbsp;configuration) or to its enantiomer, which has opposite configuration on its chiral atoms (<strong>1<em>S</em></strong><em>,</em><strong>2<em>S</em></strong>);</li>
+       <li><strong>And:</strong> We use the „And&quot; notation if we want to represent a mixture of stereoisomers which can contain specified enantiomers/diastereomers or even every optical isomer.</li>
+      </ul>
+      <p>You can find a more detailed description of enhanced stereo representation along with a set of examples in the&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Stereochemistry+jchembase#Stereochemistryjchembase-mdl_enhanced_stereo">JChem Query Guide</a><a class="external-link" href="http://www.chemaxon.com/jchem/doc/user/query_stereochemistry.html#mdl_enhanced_stereo" rel="nofollow">.</a></p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Please, note that import and export of enhanced stereo notations are not possible in MDL Molfile V2000 format, only in the extended MDL Molfile (V3000) format (provided that the relevant webservice is available).&nbsp;
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : MarvinView In JTable Example</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : MarvinView In JTable Example </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Since chemical structures are frequently stored in databases, the most common usage of molecule visualization is perhaps in tablular format allowing to browse the database, showing search results, selections of structures against particular criteria.</p>
+      <p>In typical Java applications, the <code>javax.swing.JTable</code> is used to display tables of data. This form visualization form will be referred to as <em>tables</em>. This section demonstrates how can moecules be rendered with Marvin inside existing tables.</p>
+      <p>The following picture shows a simple table with a molecule column.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988067/29098575.png" data-image-src="attachments/25988067/29098575.png" data-unresolved-comment-count="0" data-linked-resource-id="29098575" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="jtable.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988067" data-linked-resource-container-version="2" /></span><br /> The characteristic features of <code>JTable</code> to bear in mind are as follows:</p>
+      <ul>
+       <li>JTable does not contain or cache data, it is simply a view of your data.</li>
+       <li>Molecule tables can contain a large amount of structures, thus speed and the amount of required disk space are criticial.</li>
+       <li>JTable optionally enables editing the structure data.</li>
+      </ul>
+      <p>It is important to understand the concepts of JTable about Editors and Renderers. Let us quote the relevant part of the <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/table.html#editrender" class="external-link" rel="nofollow">Java Tutorials</a>:</p>
+      <hr />
+      <p>You might expect each cell in a table to be a component. However, for performance reasons, Swing tables are implemented differently.<br /><br /> Instead, a single <em>cell renderer</em> is generally used to draw all of the cells that contain the same type of data. You can think of the renderer as a configurable ink stamp that the table uses to stamp appropriately formatted data onto each cell. When the user starts to edit a cell's data, a <em>cell editor</em> takes over the cell, controlling the cell's editing behavior.<br /><br /> To choose the renderer that displays the cells in a column, a table first determines whether you specified a renderer for that particular column. If you did not, then the table invokes the table model's <code>getColumnClass</code> method, which gets the data type of the column's cells. Next, the table compares the column's data type with a list of data types for which cell renderers are registered. This list is initialized by the table, but you can add to it or change it.</p>
+      <hr />
+      <p>ChemAxon recommends the following points to consider:</p>
+      <ul>
+       <li>There is only one single cell renderer that is required to display molecules in tables, regardless of the number of structures being available.</li>
+       <li>There are two major approaches provided to create a cell renderer with Marvin: using MViewPane or simply painting the molecules with MolPrinter.</li>
+       <li>A cell editor is required only in case the structure itself is allowed to be modified by the user. Otherwise it is not needed to use a complex component for rendering.</li>
+      </ul>
+      <h4 id="MarvinViewInJTableExample-CreatingcellrendererwithMViewPane">Creating cell renderer with MViewPane</h4>
+      <p>To use the MViewPane component as the cell renderer, it should implement the <code>getTableCellRendererComponent</code> method of the <code>TableCellRenderer</code> interface. The implementation of this method sets up the rendering component to display the passed-in molecule, and then returns the component.</p>
+      <pre class="sh_java sh_sourceCode">    <span class="sh_keyword">public</span> <span class="sh_keyword">class</span><span class="sh_normal">&nbsp;</span><span class="sh_type">MViewRenderer</span> <span class="sh_keyword">extends</span> MViewPane
+            <span class="sh_keyword">implements</span> TableCellRenderer <span class="sh_cbracket">{</span>
+
+        <span class="sh_keyword">public</span> Component <span class="sh_function">getTableCellRendererComponent</span><span class="sh_symbol">(</span>
+                JTable table<span class="sh_symbol">,</span> Object value<span class="sh_symbol">,</span> <span class="sh_type">boolean</span> isSelected<span class="sh_symbol">,</span>
+                <span class="sh_type">boolean</span> hasFocus<span class="sh_symbol">,</span> <span class="sh_type">int</span> row<span class="sh_symbol">,</span> <span class="sh_type">int</span> column<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span>
+            <span class="sh_symbol">...</span> <span class="sh_comment">// setting backround color and border</span>
+            <span class="sh_function">setM</span><span class="sh_symbol">(</span> <span class="sh_number">0</span><span class="sh_symbol">,</span> <span class="sh_symbol">(</span>Molecule<span class="sh_symbol">)</span>value <span class="sh_symbol">);</span>
+            <span class="sh_keyword">return</span> <span class="sh_keyword">this</span><span class="sh_symbol">;</span>
+        <span class="sh_cbracket">}</span>
+    <span class="sh_cbracket">}</span>
+ </pre>
+      <p>This renderer class is accessible from the public API: <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/beans/MViewRenderer.html" class="external-link" rel="nofollow">chemaxon.marvin.beans.MViewRenderer</a></p>
+      <h4 id="MarvinViewInJTableExample-CreatingcellrendererwithMolPrinter">Creating cell renderer with MolPrinter</h4>
+      <p>In many cases it is sufficient to have only the static image of the molecule inside cells, i.e no need to rotate, change rendering mode or modify the structure itself. The renderer can be more compact in this case.</p>
+      <p>This renderer extends the <code>JPanel</code> class overriding its <code>paintComponent</code> method. The <code>getTableCellRenderer</code> method sets the molecule to be shown.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">    public class MolRenderer extends JPanel
+            implements TableCellRenderer {
+
+        private MolPrinter printer;
+
+        public MolRenderer() {
+            printer=new MolPrinter();
+        }
+
+        public Component getTableCellRendererComponent(
+                    JTable table, Object value, boolean isSelected,
+                    boolean hasFocus, int row, int column) {
+            ... // Setting background color and border
+            // Passing the current molecule to MolPrinter.
+            printer.setMol((Molecule)value);
+            return this;
+        }
+
+        public void paintComponent(Graphics g) {
+            // It is very important to set the scale factor of MolPrinter,
+            // otherwise the image will not appear.
+            // The scale factor is computed by MolPrinter from
+            // the current size.
+            double scale = printer.maxScale(getSize());
+            // The scale factor can be maximized to prevent overscaling small molecules.
+            if( scale &gt; SketchPanel.DEFAULT_SCALE ) {
+                scale = SketchPanel.DEFAULT_SCALE;
+            }
+            printer.setScale(scale);
+            // When MolPrinter is properly initialized, it can paint the
+            // molecule.
+            printer.paint((Graphics2D) g, getSize());
+        }
+    }</pre> 
+       </div>
+      </div>
+      <pre class="sh_java sh_sourceCode">&nbsp;</pre>
+      <p>There are several ways to specify a cell renderer. In this example we use type-specific renderers using the <code>setDefaultRenderer</code> method of JTable:</p>
+      <pre class="sh_java sh_sourceCode">    table<span class="sh_symbol">.</span><span class="sh_function">setDefaultRenderer</span><span class="sh_symbol">(</span>Molecule<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">,</span> <span class="sh_keyword">new</span> <span class="sh_function">MViewRenderer</span><span class="sh_symbol">());</span>
+</pre>
+      <p>for setting MViewPane renderer, while</p>
+      <pre class="sh_java sh_sourceCode">    table<span class="sh_symbol">.</span><span class="sh_function">setDefaultRenderer</span><span class="sh_symbol">(</span>Molecule<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">,</span> <span class="sh_keyword">new</span> <span class="sh_function">MolRenderer</span><span class="sh_symbol">());</span>
+</pre>
+      <p>for setting MolPrinter renderer.</p>
+      <h4 id="MarvinViewInJTableExample-CreatingcelleditorwithMViewPane">Creating cell editor with MViewPane</h4>
+      <p>Using MViewPane as a cell editor provides two major advantages.</p>
+      <ol>
+       <li>It offers many functionalities that modify the visualization but not the structure itself, for example rotation, zoom, display and color schemas, or the dimension in which the structure is shown.</li>
+       <li>It can also be used as an indirect cell editor. Double clicking on the MViewPane cell editor brings up MarvinSketch, in which the structure can be modified. After MarvinSketch is closed, the molecule is updated.</li>
+      </ol>
+      <p>The image below shows indirect editing in use:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988067/29098576.png" data-image-src="attachments/25988067/29098576.png" data-unresolved-comment-count="0" data-linked-resource-id="29098576" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="editor.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988067" data-linked-resource-container-version="2" /></span></p>
+      <p>The code below shows the major parts of the simple cell editor.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">    class MViewEditor extends DefaultCellEditor {
+
+        //returns the edited molecule
+        public Object getCellEditorValue() {
+            currentMol = ((MViewPane)editorComponent).getM(0);
+            return currentMol;
+        }
+
+        public Component getTableCellEditorComponent(JTable table,
+                Object value, boolean isSelected, int row, int column) {
+            currentMol = (Molecule)value;
+            ... // setting background color and border
+            ((MViewPane)editorComponent).setM(0,currentMol);
+            return editorComponent;
+        }
+    }</pre> 
+       </div>
+      </div>
+      <pre class="sh_java sh_sourceCode">This editor class is accessible from the public API: <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/beans/MViewEditor.html" class="external-link" rel="nofollow">chemaxon.marvin.beans.MViewEditor</a></pre>
+      <p>In case the molecular structures can be modified by a cell editor, we can ensure that the modification affects all other data being in connection, like computed molecular data.</p>
+      <p>In this example the third column contains such computed molecular data, the mass.</p>
+      <p>When the editing of the molecule is finished, and <code>fireEditingStopped</code> is called, the <code>setValueAt(Object value, int row, int col)</code> method of the table model gets called. In this example we have set the molecule masses inside this method, so that when the molecule is initialized and every time it is modified, its mass will be instantly updated.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">    public void setValueAt(Object value, int row, int col) {
+        data[row][col] = value;
+        if(col==1) {
+            // setting the mass here keeps the column updated
+            // upon editing the molecules
+            setValueAt(&quot;&quot;+((Molecule)value).getMass(), row, 2);
+        }
+        fireTableCellUpdated(row, col);
+    }</pre> 
+       </div>
+      </div>
+      <pre class="sh_java sh_sourceCode">&nbsp;</pre>
+      <p>The code excerpts shown above were taken from the full sample code of</p>
+      <ul>
+       <li><code>ViewJTable.java</code>,</li>
+       <li><code>MolRenderer.java</code>,</li>
+       <li><code>MViewRenderer.java</code>,</li>
+       <li><code>MViewEditor.java</code>.</li>
+      </ul> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

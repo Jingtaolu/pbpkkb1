@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : MarvinView Table View Example</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : MarvinView Table View Example </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>This example demonstrates the creation of scrollable molecule tables.<br /> A mechanism by which molecules are loaded dynamically and cached automatically is also shown. This makes it possible that input files are supported with arbitrary size.</p>
+      <p>The result is shown with an example input below:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988069/29098572.png" data-image-src="attachments/25988069/29098572.png" data-unresolved-comment-count="0" data-linked-resource-id="29098572" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="table.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988069" data-linked-resource-container-version="3" /></span></p>
+      <h4 id="MarvinViewTableViewExample-Specifyingtheinput">Specifying the input</h4>
+      <p>&nbsp;</p>
+      <p>To allow dynamic loading and caching the input of the viewer must be an implementation of <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/io/MDocSource.html" class="external-link" rel="nofollow">MDocSource</a></code>. You can either use an existing implementation like <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/formats/MolImporter.html" class="external-link" rel="nofollow">MolImporter</a></code> or <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/io/ArrayMDocSource.html" class="external-link" rel="nofollow">ArrayMDocSource</a></code>, or you can create a custom implementation.</p>
+      <p>In the current example, the input is a molecule file hence it is convenient to use <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/formats/MolImporter.html" class="external-link" rel="nofollow">MolImporter</a></code>:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">    static MDocSource createDocSource(String fname) {
+        try {
+            return new MolImporter(fname);
+        } catch(FileNotFoundException ex) {
+            System.err.println(&quot;File &quot; + fname+&quot; not found&quot;);
+        } catch(MolFormatException ex) {
+            System.err.println(&quot;File &quot; + fname
+                    + &quot; is corrupted or not a structure file.\n&quot;
+                    + ex.getMessage());
+        } catch (IOException e) {
+            System.err.println(&quot;Error reading file &quot; + fname+&quot;\n&quot;);
+        }
+        return null;
+    }</pre> 
+       </div>
+      </div>
+      <pre class="sh_java sh_sourceCode">&nbsp;</pre>
+      <h4 id="MarvinViewTableViewExample-CreatingtheGUI">Creating the GUI</h4>
+      <p>The creation of the GUI must be performed in the event dispatch thread.</p>
+      <pre class="sh_java sh_sourceCode">    <span class="sh_comment">// Swing components should be created, queried, and manipulated on</span>
+    <span class="sh_comment">// the event-dispatching thread according to Sun's recommendations.</span>
+    EventQueue<span class="sh_symbol">.</span><span class="sh_function">invokeLater</span><span class="sh_symbol">(</span> <span class="sh_keyword">new</span> <span class="sh_function">Runnable</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span>
+        <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">run</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span>
+            <span class="sh_function">createAndShowGUI</span><span class="sh_symbol">(</span>docSource<span class="sh_symbol">,</span> fileName<span class="sh_symbol">);</span>
+        <span class="sh_cbracket">}</span>
+    <span class="sh_cbracket">}</span><span class="sh_symbol">);</span>
+</pre>
+      <p>It consists of the following steps:</p>
+      <ol>
+       <li>The creation of an <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html" class="external-link" rel="nofollow">MViewPane</a></code> object:<pre class="sh_java sh_sourceCode">    MViewPane viewPane <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">MViewPane</span><span class="sh_symbol">();</span>
+    viewPane<span class="sh_symbol">.</span><span class="sh_function">setBorderWidth</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">);</span>
+    viewPane<span class="sh_symbol">.</span><span class="sh_function">setBackground</span><span class="sh_symbol">(</span>Color<span class="sh_symbol">.</span>LIGHT_GRAY<span class="sh_symbol">);</span>
+    viewPane<span class="sh_symbol">.</span><span class="sh_function">setMolbg</span><span class="sh_symbol">(</span>Color<span class="sh_symbol">.</span>WHITE<span class="sh_symbol">);</span>
+</pre></li>
+       <li>Adding the <code>viewPane</code> and a menubar to a JFrame:<pre class="sh_java sh_sourceCode">    JFrame win <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">JFrame</span><span class="sh_symbol">();</span>
+    JMenuBar menubar <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">JMenuBar</span><span class="sh_symbol">();</span>
+    win<span class="sh_symbol">.</span><span class="sh_function">setJMenuBar</span><span class="sh_symbol">(</span>menubar<span class="sh_symbol">);</span>
+    win<span class="sh_symbol">.</span><span class="sh_function">setTitle</span><span class="sh_symbol">(</span><span class="sh_string">&quot;MarvinView Table Layout Example&quot;</span><span class="sh_symbol">);</span>
+    win<span class="sh_symbol">.</span><span class="sh_function">setDefaultCloseOperation</span><span class="sh_symbol">(</span>JFrame<span class="sh_symbol">.</span>EXIT_ON_CLOSE<span class="sh_symbol">);</span>
+    win<span class="sh_symbol">.</span><span class="sh_function">getContentPane</span><span class="sh_symbol">().</span><span class="sh_function">setLayout</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_function">GridLayout</span><span class="sh_symbol">(</span><span class="sh_number">1</span><span class="sh_symbol">,</span> <span class="sh_number">1</span><span class="sh_symbol">));</span>
+    win<span class="sh_symbol">.</span><span class="sh_function">getContentPane</span><span class="sh_symbol">().</span><span class="sh_function">add</span><span class="sh_symbol">(</span>viewPane<span class="sh_symbol">);</span>
+</pre></li>
+       <li>The creation of a <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/view/swing/TableSupport.html" class="external-link" rel="nofollow">TableSupport</a></code> object is performed with the first <code>MViewPane.<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html#getTableSupport%28%29" class="external-link" rel="nofollow">getTableSupport()</a></code> call:<pre class="sh_java sh_sourceCode">    TableSupport tableSupport <span class="sh_symbol">=</span> viewPane<span class="sh_symbol">.</span><span class="sh_function">getTableSupport</span><span class="sh_symbol">();</span>
+</pre></li>
+       <li>Adding Table menu items using <code>TableSupport.<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/view/swing/TableSupport.html#makeTableMenu%28java.awt.Container%29" class="external-link" rel="nofollow">makeTableMenu</a></code>:<pre class="sh_java sh_sourceCode">    JMenu menu<span class="sh_symbol">;</span>
+    tableSupport<span class="sh_symbol">.</span><span class="sh_function">makeTableMenu</span><span class="sh_symbol">(</span>menu <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">JMenu</span><span class="sh_symbol">(</span><span class="sh_string">&quot;Table&quot;</span><span class="sh_symbol">));</span>
+    menu<span class="sh_symbol">.</span><span class="sh_function">setMnemonic</span><span class="sh_symbol">(</span><span class="sh_string">'t'</span><span class="sh_symbol">);</span>
+    menubar<span class="sh_symbol">.</span><span class="sh_function">add</span><span class="sh_symbol">(</span>menu<span class="sh_symbol">);</span>
+</pre></li>
+       <li>Optional table settings using the <code><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/view/swing/TableOptions.html" class="external-link" rel="nofollow">TableOptions</a></code> class:<pre class="sh_java sh_sourceCode">    TableOptions tblopts <span class="sh_symbol">=</span> tableSupport<span class="sh_symbol">.</span><span class="sh_function">getTableOptions</span><span class="sh_symbol">();</span>
+    <span class="sh_comment">// tblopts.setViewHandlerType(TableOptions.VH_GRIDBAG);</span>
+    tblopts<span class="sh_symbol">.</span><span class="sh_function">setMaxRows</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">);</span>
+    tblopts<span class="sh_symbol">.</span><span class="sh_function">setMaxCols</span><span class="sh_symbol">(</span><span class="sh_number">5</span><span class="sh_symbol">);</span>
+</pre></li>
+       <li>Making the window visible.<pre class="sh_java sh_sourceCode">    win<span class="sh_symbol">.</span><span class="sh_function">pack</span><span class="sh_symbol">();</span>
+    win<span class="sh_symbol">.</span><span class="sh_function">setLocationRelativeTo</span><span class="sh_symbol">(</span><span class="sh_keyword">null</span><span class="sh_symbol">);</span>
+    win<span class="sh_symbol">.</span><span class="sh_function">setVisible</span><span class="sh_symbol">(</span><span class="sh_keyword">true</span><span class="sh_symbol">);</span>
+</pre></li>
+       <li>Starting molecule table visualization using <code>TableSupport.<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/view/swing/TableSupport.html#start%28chemaxon.marvin.io.MDocSource,%20java.lang.String%29" class="external-link" rel="nofollow">start</a>(docSource, inputName)</code>, where <code>docSource</code> is the input document source (see the previous section) and inputName is a string describing the input, for example name of the input file — its function is to make error messages more specific.<pre class="sh_java sh_sourceCode">    tableSupport<span class="sh_symbol">.</span><span class="sh_function">start</span><span class="sh_symbol">(</span>docSource<span class="sh_symbol">,</span> inputName<span class="sh_symbol">);</span>
+</pre></li>
+      </ol>
+      <h4 id="MarvinViewTableViewExample-ChangingthebackgroundofmoleculeIDfields">Changing the background of molecule ID fields</h4>
+      <p>The Example menu contains a &quot;Highlight&quot; menu which demonstrates the highlighting of a record by changing the background color of its ID field.</p>
+      <p>The color of the ID field is changed using viewPane.<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html#setRecordIDBackground%28int,%20java.awt.Color%29" class="external-link" rel="nofollow">setRecordIDBackground</a> and <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/beans/MViewPane.html#setRecordIDForeground%28int,%20java.awt.Color%29" class="external-link" rel="nofollow">setRecordIDForeground</a>:</p>
+      <pre class="sh_java sh_sourceCode">    <span class="sh_type">int</span> selected <span class="sh_symbol">=</span> viewPane<span class="sh_symbol">.</span><span class="sh_function">getSelectedIndex</span><span class="sh_symbol">();</span>
+    viewPane<span class="sh_symbol">.</span><span class="sh_function">setRecordIDBackground</span><span class="sh_symbol">(</span>selected<span class="sh_symbol">,</span> SystemColor<span class="sh_symbol">.</span>textHighlight<span class="sh_symbol">);</span>
+    viewPane<span class="sh_symbol">.</span><span class="sh_function">setRecordIDForeground</span><span class="sh_symbol">(</span>selected<span class="sh_symbol">,</span> SystemColor<span class="sh_symbol">.</span>textHighlightText<span class="sh_symbol">);</span>
+</pre>
+      <p>Source code:<a href="attachments/25988069/26281309.java" data-linked-resource-id="26281309" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ViewTable.java" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="25988069" data-linked-resource-container-version="3">ViewTable.java</a><a href="http://www.chemaxon.com/marvin/examples/beans/view-table/ViewTable.java.html" class="external-link" rel="nofollow"></a></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

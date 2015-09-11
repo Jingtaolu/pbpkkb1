@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h3 id="Options-"><span style="color: rgb(0,0,0);"><br /></span></h3>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><code>-h</code><br /><code>--help</code></td>
+          <td class="confluenceTd">Print command line help</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-</code></td>
+          <td class="confluenceTd">import structures from standard input</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--geometry <em>W</em>x<em>H</em>+<em>X</em>+<em>Y</em></code></td>
+          <td class="confluenceTd">set preferred window size (<em>W</em> x <em>H</em>) and location (<em>X</em>, <em>Y</em>)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--real-time</code></td>
+          <td class="confluenceTd">display input stream in real time</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--spreadsheet</code></td>
+          <td class="confluenceTd">use spreadsheet-like viewer with one row per input record (default if the input file contains data fields)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>--gridbag</code></td>
+          <td class="confluenceTd">use compact matrix-like viewer with more molecules in a row (default if the input file does not contain data fields)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-c &lt;number&gt;</code></td>
+          <td class="confluenceTd">maximum number of visible columns for GridBagView (default: 2)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-r &lt;number&gt;</code></td>
+          <td class="confluenceTd">maximum number of visible rows for GridBagView (default: 2)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-n &lt;number&gt;</code></td>
+          <td class="confluenceTd">maximum number of molecules to import (default: 1000)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-s &lt;number&gt;</code></td>
+          <td class="confluenceTd">index of the first molecule to import (default: 1)</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-S</code></td>
+          <td class="confluenceTd">display unique SMILES code</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-f &lt;f1&gt;:&lt;f2&gt;</code></td>
+          <td class="confluenceTd">show specified fields (&lt;f1&gt;, &lt;f2&gt;, ...) in the given order from an SDfile. Field names are separated by colons.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Options for displaying additional atomic properties stored in SDfile:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><code>-p &lt;file&gt;</code></td>
+          <td class="confluenceTd">palette definition property file*</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-t&nbsp;&lt;tagName&gt;</code></td>
+          <td class="confluenceTd">name of the tag in the SDfile that contains property symbols*</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><small> * See the <a href="Property-colors-in-MarvinView_25987374.html">Property colors in MarvinView</a> section </small></p>
+      <p>You can also pass <a href="Java-VM-options_28409883.html">options to Java VM</a> when you run the application from command line.</p>
+      <h2 id="Options-Examples">Examples</h2>
+      <ol>
+       <li>Displaying the first 1000 structures from str.smi:<pre>mview str.smi</pre></li>
+       <li>Viewing 500 structures starting at the 9500-th one from str.smi:<pre>mview -n 500 -s 9500 str.smi</pre></li>
+       <li>Showing structures and 3 fields (ID, name, and stock) from stock.sdf:<pre>mview -f &quot;ID:name:stock&quot; stock.sdf</pre></li>
+       <li>Display in 2 columns, show SMILES code:<pre>mview -Sc 2 stock.sdf</pre></li>
+       <li>Search using <a class="external-link" href="http://www.chemaxon.com/jchem" rel="nofollow">JChem</a>'s command line search module and display the structure and the ID field from the results:<pre>jcsearch -q 'Clc1ccccc1' -f sdf input.sdf | mview -f ID -</pre></li>
+       <li><a class="text" name="opt_real-time" rel="nofollow"></a>Displaying the progress of a command line molecular dynamics simulation in real time:<pre>program_producing_molfiles_on_stdout | mview --real-time -</pre></li>
+       <li>Atom coloring according to property symbols in SDFile:<pre>mview -p colors.ini -t PPL stock.sdf</pre></li>
+      </ol> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

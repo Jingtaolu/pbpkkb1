@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Introduction</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Introduction </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span style="color: rgb(54,54,54);">Chemaxon's Chemical Terms is a language for adding advanced chemical intelligence to cheminformatics applications. </span></p>
+      <p><span style="color: rgb(54,54,54);">Chemical Terms provides chemistry and mathematical functions including: </span></p>
+      <ul>
+       <li><span style="color: rgb(54,54,54);">property predictions </span></li>
+       <li><span style="color: rgb(54,54,54);">functional group recognition </span></li>
+       <li><span style="color: rgb(54,54,54);">isomer enumeration </span></li>
+       <li><span style="color: rgb(54,54,54);">conformer selection </span></li>
+       <li><span style="color: rgb(54,54,54);">ring and distance based topological functions</span></li>
+       <li><span style="color: rgb(54,54,54);">other electronical, steric and structural functions.</span></li>
+      </ul>
+      <p>The functions are integrated via an open plugin interface providing dynamic loading, easy extension and programmatic access.&nbsp;</p>
+      <p>The Chemical Terms expressions can be used in various ChemAxon applications including&nbsp;<a href="JChem-Base_16449917.html">JChem Base</a>,&nbsp;<a href="JChem-Cartridge_13829047.html">JChem Cartridge</a>,&nbsp;<a href="Instant-JChem_13829041.html">Instant JChem</a>,&nbsp;<a href="Reactor_13829039.html">Reactor</a>, etc.; in custom applications via the API, or from command line using the &quot;evaluate&quot; tool (<a href="Chemical-Terms-Evaluator_13829045.html">Chemical Terms Evaluator</a>).</p>
+      <p><br />Some brief examples of applying the Chemical Terms language are:</p>
+      <ul>
+       <li>Search filters calculated on the fly: &nbsp;</li>
+      </ul>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">heteroAromaticRingCount() &lt; 4 and
+rotatableBondCount() &lt;= 10;</pre> 
+       </div>
+      </div>
+      <ul>
+       <li>Storing calculated properties in a database column:</li>
+      </ul>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">mass() &lt;= 500 and
+logP() &lt;= 5 and
+donorCount() &lt;= 5 and
+acceptorCount() &lt;= 10</pre> 
+       </div>
+      </div>
+      <ul>
+       <li>Goal function for random evolutionary drug design:</li>
+      </ul>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">dissimilarity(&quot;ChemicalFingerprint&quot;, actives) - 
+dissimilarity(&quot;PharmacophoreFingerprint&quot;, actives) &gt; 0.6</pre> 
+       </div>
+      </div>
+      <ul>
+       <li>Reactitvity rule for determine activated ring systems in a virtual reaction:</li>
+      </ul>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">charge(ratom(1), &quot;aromaticsystem&quot;) &lt;= -0.2</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

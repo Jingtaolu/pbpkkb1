@@ -1,0 +1,101 @@
+<html>
+<head>
+<script type="text/javascript" src="../../sh_main.js"></script>
+<script type="text/javascript" src="../../sh_java.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../marvinmanuals.css" TITLE="Style">
+
+<title>Text Box Example</title>
+</head>
+<body onload="sh_highlightDocument();">
+<h1>Text Box Example</h1>
+
+<p>In this example MarvinBeans API is used to create a <a href="../../../help/developer/beans/api/chemaxon/struc/graphics/MTextBox.html"><code>MTextBox</code></a>
+ containing formatted text. </p>
+
+
+<p>The image below shows the created <code>MTextBox</code> in a <code>MSketchPane</code>:</p>
+<img src="MTextBoxExample.png" >
+
+
+
+<p>The following paragraphs demonstrate the major parts of the <a href="MTextBoxExample.java.html">
+<code>MTextBoxExample.java</code></a> code. The source of the created text box can also be downloaded from <a href="MTextBoxExample.mrv">MTextBoxExample.mrv</a>.</p>
+<h4>Initializing the text box</h4>
+
+<p>To create a text box an empty <a href="../../../help/developer/beans/api/chemaxon/struc/Molecule.html"><code>Molecule</code></a> should be created first.
+The Molecule has an <a href="../../../help/developer/beans/api/chemaxon/struc/MDocument.html"><code>MDocument</code></a> attribute to which a
+<a href="../../../help/developer/beans/api/chemaxon/struc/graphics/MTextBox.html"><code>MTextBox</code></a> object can be set. If the <code>MDocument</code> object is <code>null</code>, it should be created first.
+</p>
+<pre class="sh_java">
+    Molecule mol = new Molecule();
+    MDocument md = mol.getDocument();
+    if (md == null) {
+        md = new MDocument(mol);
+    }
+    MTextBox textBox = new MTextBox();
+    md.addObject(textBox);
+</pre>    
+
+<p>The <a href="../../../help/developer/beans/api/chemaxon/struc/graphics/MTextDocument.html"><code>MTextDocument</code></a> attribute contains the formatted text
+in the <a href="../../../help/developer/beans/api/chemaxon/struc/graphics/MTextBox.html"><code>MTextBox</code></a>.  The <code>MTextDocument</code> can be accessed this way:
+</p>
+<pre class="sh_java">
+    textBox.getTextDocument();
+</pre>
+
+
+<h4>Creating formatted text</h4>
+
+<p>The font of the formatted text is represented by a <a href="../../../help/developer/beans/api/chemaxon/struc/graphics/MFont.html"><code>MFont</code></a> object.
+The font family, font size and font style should be set in the constructor. The following line of code will create a new "SansSerif" font with bold style and 12pt size:
+</p>
+<pre class="sh_java">
+    MFont boldMf = new MFont("SansSerif", MFont.BOLD, 12);
+</pre>
+
+<p>The text's color and superscript/subscript information will be defined in <a href="../../../help/developer/beans/api/chemaxon/struc/graphics/MTextAttributes.html"><code>MTextAttributes</code></a> objects. 
+The following piece of code will create a very simple <code>MTextAttributes</code> object (see the text "deuterium" in the picture above) with a blue text using the font defined in the previous step. The used 0 and 1 arguments are needed for the default values:
+</p>
+<pre class="sh_java">
+    MTextAttributes blueBoldMta = new MTextAttributes(0, 0, Color.blue, boldMf, 1, 0, 0);
+</pre>
+<p>A bit more advanced usage with a superscript defined is:</p>
+<pre class="sh_java">
+    MTextAttributes superScriptMta = new MTextAttributes(0, MTextAttributes.DEFAULT_SUPERSCRIPT_SUBLEVEL, Color.black, mf, MTextAttributes.DEFAULT_SUPERSCRIPT_SCALE, 0, MTextAttributes.DEFAULT_SUPERSCRIPT_DELTAY);
+</pre>
+
+<h4>Adding the formatted text to the text box</h4>
+
+<p>
+The formatted text should be added to the <code>MTextDocument</code> with the following method:
+</p>
+<pre>
+    <a href="../../../help/developer/beans/api/chemaxon/struc/graphics/MTextDocument.html#append(java.lang.String, chemaxon.struc.graphics.MTextAttributes)"><code>MTextDocument.append(java.lang.String, chemaxon.struc.graphics.MTextAttributes)</code></a>
+</pre>
+<p>In the example we added the blue bold text "deuterium" to the MTextDocument with:
+</p>
+<pre class="sh_java">
+    textDocument.append(" deuterium", blueBoldMta);
+</pre>
+        
+
+<h4>Setting the coordinates and rotation</h4>
+
+
+<p>After the text is formatted and added to the <code>MTextBox</code>, we can set its coordinates with:</p> 
+<pre class="sh_java">
+    textBox.setCorners(p1, p2);
+</pre>
+<p>For transforming the coordinates a <a href="../../../help/developer/beans/api/chemaxon/struc/CTransform3D.html"><code>CTransform3D</code></a> 
+is needed.</p>
+<p>The following code creates an empty Ctransform3D then sets it to rotate the textbox around the Z axis with 45 degrees. After that the transformation center
+ is set to be the center of the textbox and then the transformation is done on the textbox. 
+<pre class="sh_java">
+        CTransform3D ctrans=new CTransform3D();
+        ctrans.setEuler(0, 0, 45);
+        textBox.setTCenter(MRectangle.P_CENTER);
+        textBox.transform(ctrans, 0, null);
+</pre>
+</body>
+</html>

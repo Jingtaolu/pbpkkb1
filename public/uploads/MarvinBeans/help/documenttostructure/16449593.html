@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Document to Structure : Document to Structure Developer's Guide</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Document to Structure : Document to Structure Developer's Guide </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>&nbsp;<style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200971604 {padding: 0px;}
+div.rbtoc1439200971604 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200971604 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+      <div class="toc-macro rbtoc1439200971604"> 
+       <ul class="toc-indentation"> 
+        <li><a href="#DocumenttoStructureDeveloper'sGuide-Introduction">Introduction</a></li> 
+        <li><a href="#DocumenttoStructureDeveloper'sGuide-BasicAPIusage">Basic API usage</a></li> 
+        <li><a href="#DocumenttoStructureDeveloper'sGuide-Processingtextdirectly">Processing text directly</a></li> 
+        <li><a href="#DocumenttoStructureDeveloper'sGuide-Configuringbehavior">Configuring behavior</a></li> 
+        <li><a href="#DocumenttoStructureDeveloper'sGuide-Monitoringprogress">Monitoring progress</a></li> 
+        <li><a href="#DocumenttoStructureDeveloper'sGuide-Commandlineusage">Command line usage</a></li> 
+        <li><a href="#DocumenttoStructureDeveloper'sGuide-Seealso">See also</a></li> 
+       </ul> 
+      </div>
+      <p></p>
+      <h2 id="DocumenttoStructureDeveloper'sGuide-Introduction"><span style="color: rgb(0,0,0);">Introduction</span></h2>
+      <p>The Document to Structure product finds chemical structures in documents. Chemical names in the text of document, structures embedded in Office documents, or image drawings of structure are all supported (see the <a href="file:///D:/work/svn_head/Marvin/help/d2s/d2s.html" class="external-link" rel="nofollow">user documentation</a> for more details). The structures can then be exported to any supported molecule format, or manipulated in memory.</p>
+      <h2 class="lenia" id="DocumenttoStructureDeveloper'sGuide-BasicAPIusage"><span style="color: rgb(0,0,0);">Basic API usage</span></h2>
+      <p>Document to Structure plugs into the generic IO API of ChemAxon. This means that documents can be used exactly as other molecular formats (sdf, ...) as a source for importing structures.</p>
+      <p>Example usage:</p>
+      <pre>// We have a document to process
+File document = new File(&quot;document.pdf&quot;);
+
+MolImporter importer = new MolImporter(document, &quot;d2s&quot;);
+
+// Iterate through the hits
+for (Molecule m : importer) {
+  String smiles = m.toFormat(&quot;smiles&quot;);
+  String name = m.getName();
+  String sourceText = m.getProperty(DocumentToStructure.SOURCE_TEXT);
+  //...
+}
+</pre>
+      <p>The exact same code can be used to import an XML file, a Microsoft Office document, ... The format is detected automatically.</p>
+      <p>The <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/naming/DocumentToStructure.htmlaxon/naming/DocumentToStructure.html" class="external-link" rel="nofollow">list of all available properties</a> can be found in the API. Which property is available depends on the format. For instance, in text formats like xml, html and txt, the number of characters since the beginning of the file is available as DocumentToStructure.CHARACTER, while this has no value in a binary format.</p>
+      <p>Note that SOURCE_TEXT contains the name as it appears in the source document. A cleaned version (of possible OCR errors, typos, ...) can be retrieved with <code>m.getName()</code>.</p>
+      <h2 id="DocumenttoStructureDeveloper'sGuide-Processingtextdirectly"><a name="text" rel="nofollow"></a>Processing text directly</h2>
+      <p>When the text to convert is given as a String object, the MolImporter object can be constructed with:</p>
+      <pre>String text = ...;
+MolImporter importer = DocumentToStructure.process(text);
+</pre>
+      <h2 id="DocumenttoStructureDeveloper'sGuide-Configuringbehavior"><a name="conf" rel="nofollow"></a>Configuring behavior</h2>
+      <p>Document to Structure accepts options to configure how it behaves. All <a href="https://docs.chemaxon.com/display/n2s/Format+options">name to structure format options</a> can be used with document to structure as well, to configure which name conversions are attempted. For instance, by default elements and ions are not converted when using d2s, as they may occur often in documents and are not always useful. However their conversion can be enabled, using:</p>
+      <pre>MolImporter importer = new MolImporter(document, &quot;d2s:+elements,+ions&quot;);
+</pre>
+      <p>Document to Structure has specific options as well:</p>
+      <ul>
+       <li><strong>cas</strong>: enable the conversion of CAS numbers (uses a webservice, off by default).</li>
+       <li><strong>smiles</strong>: enable the conversion of SMILES strings (on by default)</li>
+       <li><strong>inchi</strong>: enable the conversion of InChI strings (on by default)</li>
+       <li><strong>ocr</strong>: enable the processing of scanned text in PDF documents (on by default)</li>
+       <li><strong>osr</strong>: enable the conversion of structure drawings by any available OSR external tool (on by default if any such tool is installed)</li>
+       <li><strong>osra</strong>: enable the conversion of structure drawings by the OSRA external tool (on by default if OSRA is installed). Using this option will specify that OSRA should be used even if other OSR tools are available.</li>
+       <li><strong>clide</strong>: enable the conversion of structure drawings by the CLiDE external tool (on by default if CLiDE is installed). Using this option will specify that CLiDE should be used even if other OSR tools are available.</li>
+       <li><strong>imago</strong>: enable the conversion of structure drawings by the OSRA external tool (on by default if Imago is installed). Using this option will specify that Imago should be used even if other OSR tools are available.</li>
+       <li><strong>timeout=N</strong>: the maximum number of seconds to run, with 0 for no timeout (default: no timeout)</li>
+       <li><strong>osraTimeout=N</strong>: configure the maximum number of seconds to run OSRA on an image (default: 20 seconds)</li>
+       <li><strong>clideTimeout=N</strong>: configure the maximum number of seconds to run CLiDE on an image (default: 20 seconds)</li>
+       <li><strong>imagoTimeout=N</strong>: configure the maximum number of seconds to run Imago on an image (default: 20 seconds)</li>
+       <li><strong>filterOSR</strong>: enable the filtering of OSR structures for incomplete recognition (on by default)</li>
+       <li><strong>text</strong>: enable the conversion of all text based formats: name, smiles, InChI, CAS (on by default)</li>
+       <li><strong>acronyms</strong>: enable the conversion acronyms, such as ATP for Adenosine TriPhosphate (off by default)</li>
+       <li><strong>OLE</strong>: enable the conversion of structures embedded in office documents (on by default)</li>
+       <li><strong>startPage=N</strong>: start processing document at page N (can be combined with endPage to process a range of pages)</li>
+       <li><strong>endPage=N</strong>: stop processing document at page N</li>
+       <li><strong>insideTag=&lt;tag&gt;</strong>: for markup formats, enable the conversion only inside the given tag (typically <strong>insideTag=body</strong> for HTML). Off by default.</li>
+       <li><strong>contextRadius=N</strong>: maximum number of characters of context to include, on each side of the hit (default = 40).</li>
+       <li><strong>contextIndex</strong>: whether to include the index of the hit in the context. Off by default.</li>
+      </ul>
+      <p>Each option can be precedeed by a minus sign <strong>-</strong> (for instance <strong>-smiles</strong>) to disable it. Both forms <strong>smiles</strong> and <strong>+smiles</strong> are accepted to enable an option.</p>
+      <h2 id="DocumenttoStructureDeveloper'sGuide-Monitoringprogress"><a name="progress" rel="nofollow"></a>Monitoring progress</h2>
+      <p>For estimating the progress of converting a document, you can use the standard method MolImporter.estimateNumRecords().</p>
+      <h2 id="DocumenttoStructureDeveloper'sGuide-Commandlineusage"><a name="cli" rel="nofollow"></a>Command line usage</h2>
+      <p>Document to Structure can be used as any other import file format. For instance, command line usage can be achieved by using MolConverter on a format supported by Document to Structure:</p>
+      <pre>molconvert sdf document.doc -o structures.sdf</pre>
+      <h2 id="DocumenttoStructureDeveloper'sGuide-Seealso">See also</h2>
+      <ul>
+       <li>Detailed <a href="http://www.chemaxon.com/marvin/examples/d2s/index.html" class="external-link" rel="nofollow">code examples</a> using Document to Structure in real-world situations.</li>
+       <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/formats/MolImporter.html" class="external-link" rel="nofollow">API documentation of the MolImporter interface</a></li>
+       <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/naming/DocumentToStructure.html" class="external-link" rel="nofollow">API documentation of the DocumentToStructure constants for properties, and helper methods</a></li>
+       <li><a href="16449581.html">User documentation for d2s</a></li>
+       <li>An <a href="file:///D:/work/svn_head/Marvin/help/developer/document-extractor.html" class="external-link" rel="nofollow">earlier version of the API</a> of the Document to Structure.&nbsp;</li>
+      </ul>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

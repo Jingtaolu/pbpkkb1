@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Reactions</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Reactions </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="Reactions-Reaction">Reaction</h2>
+      <h3 id="Reactions-Drawingreactions">Drawing reactions</h3>
+      <p>In Marvin JS there is an option to draw a reaction by the <strong>Reaction tool</strong> buttons.&nbsp;</p>
+      <p>You can draw simple (straight) reaction arrows, or you can use resonance (two-headed) arrows to display the mesomeric structures of a compound by choosing the appropriate arrow tool.</p>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Note that all of the functions below are only reachable when one of the 
+        <strong>Reaction tool</strong>s is active.
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        If you would like to save your structures as a &quot;reaction file&quot; there are some restrictions. For more information see the 
+        <a href="#Reactions-technicalDetails">Technical details</a> panel below.
+       </div> 
+      </div> 
+      <p>The &quot;+&quot; sign between the reactant or product molecules can be added manually by&nbsp;left clicking&nbsp;on the chosen place on the canvas and you can remove the reaction operators by left-clicking on them repeatedly.</p>
+      <p>Alternatively, if you select the reactant &nbsp;or the product side with one of the <strong>Selection</strong> tools, and then press the <strong>Reaction tool&nbsp;</strong>button, the &quot;+&quot; signs will be added automatically between each reactant or product molecule. However, it works only if the selection does not contain other &quot;+&quot; signs or a reaction arrow.</p>
+      <p>The Reaction operator is movable by dragging them on the canvas.</p>
+      <p>You can draw arrows by left-clicking on the start point of the arrow, dragging towards the products and releasing the mouse button when the arrow length reaches the proper size. Clicking on the middle of the arrows deletes the arrow.</p>
+      <p><a href="#Reactions-multiStep">Multistep</a> reactions and <a href="Drawing-Graphical-Objects_25987774.html#DrawingGraphicalObjects-snappedObjects">graphical charts</a> also can be displayed by the <strong>Reaction tool</strong>.</p>
+      <p><span class="confluence-anchor-link" id="Reactions-technicalDetails"></span></p>
+      <div class="panel" style="border-color: Gray;border-style: solid;border-width: 1px;">
+       <div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: Gray;">
+        <b>Technical details</b>
+       </div>
+       <div class="panelContent"> 
+        <p>If the structure on the canvas contains only a single step reaction, then this structure will be automatically exported as a &quot;reaction file&quot; by Marvin JS. This means that in the exported file there will be separate blocks for reactants, products and agents making it possible to use the exported file in a reaction search. In this case, only those file formats are available in the <strong style="line-height: 1.4285715;">Export</strong>&nbsp;dialog which support reactions (MRV, RXN, SMILES, CXSMILES, SMARTS, CXSMARTS, CML, RXN V3000, SDF, CSSDF, CDX, SKC).</p>
+        <div class="confluence-information-macro confluence-information-macro-note"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p><span>Please note that the conversion of the structure to a reaction file happens on server side and requires the reaction converter webservice to be available</span></p>
+         </div> 
+        </div> 
+        <p><span class="confluence-anchor-link" id="Reactions-multiStep"></span>When the structure contains more than one reaction or a multistep reaction (or when the reaction converter webservice is not available), the structure will not be converted to a reaction file. In this case, there will not be reactant/product/agent blocks in the exported files and the &quot;+&quot; signs and arrows of the reaction(s) will be exported as graphical objects.</p> 
+       </div>
+      </div>
+      <h3 id="Reactions-MappingAtoms">Mapping Atoms</h3>
+      <p>Marvin JS provides the option to set map numbers to individual atoms. Unlike atom indices, map numbers remain constant during editing the molecule. Mapping can be useful if you want to identify corresponding atoms in the reactant and product side of a reaction.</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p><a href="Display-Options_17236089.html#DisplayOptions-showAtomMaps">Atom map visibility</a> should be turned on to display the atom map numbers.</p>
+       </div> 
+      </div> 
+      <p>There are two ways for adding map numbers to the atoms.You can add map number to every single atom manually from the&nbsp;<strong style="line-height: 1.4285715;"><span style="color: rgb(0,0,0);"><a href="Properties_17236088.html#Properties-atomProperties">Atom properties</a></span></strong>&nbsp;dialog or if you would like to map the same atom with the same number, you can map these atoms by dragging from atom to atom when the&nbsp;<strong>Reaction tool</strong> is active.</p>
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <h5 id="Reactions-Reactiontoolmappinglogic"><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> Reaction tool mapping logic</h5>
+        <ul>
+         <li><strong>Creating the atom map number</strong><br />When there is no map number on any of the atoms, both of the atoms get the smallest number which isn't represented on the canvas.</li>
+         <li><strong>Adding the atom map number</strong><br />When there is an atom map on the former atom, the latter one gets the same number as the other atom has.<br />When there is an atom map on the latter atom, the former atom gets the same number as the latter atom has.</li>
+         <li><strong>Overwriting the atom map number</strong><br />Dragging from an atom which has already an atom map number to another atom with an atom map, the latter atom will get the same number as the former atom has.</li>
+         <li><strong>Deleting the atom map number<br /></strong>Dragging from an atom with an atom map number to another atom with the same number results that both of the map numbers will be deleted from the canvas.</li>
+        </ul> 
+       </div>
+      </div>
+      <h4 id="Reactions-Auto-mapping">Auto-mapping</h4>
+      <p>There is another option to&nbsp;<span>assign map numbers to the corresponding atoms in a reaction. </span></p>
+      <p><span>Click the <strong><a href="Toolbars_17236081.html#Toolbars-autoMap">Auto Map</a></strong> button. In this case every atom in the reaction would get atom map number automatically.&nbsp;<br /></span></p>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Please note, that Auto-map function only works for structures which are in the same reaction. (In other words: there should be only one reaction&nbsp;(one arrow) on the canvas where every molecule would be a reactant or a product of it.)
+       </div> 
+      </div> 
+      <div class="panel" style="border-color: Gray;border-style: solid;border-width: 1px;">
+       <div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: Gray;">
+        <b>Technical details</b>
+       </div>
+       <div class="panelContent"> 
+        <p>This feature is only available with Standardizer license.</p> 
+       </div>
+      </div>
+      <h2 id="Reactions-ReactionMechanisms">Reaction Mechanisms</h2>
+      <p>Marvin JS supports the detailed display of reaction mechanisms by using electron flow arrows (or mechanism arrows) to describe the formation and breaking of chemical bonds. You can use single and double electron flow arrows for representing each elementary step in a complex mechanism.</p>
+      <p><a href="Reaction-Mechanisms_17236095.html">You can read a detailed description about using electron flow arrows in Marvin JS.</a></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236096/17400165.png?effects=border-simple,blur-border" data-image-src="attachments/17236096/17400165.png" data-unresolved-comment-count="0" data-linked-resource-id="17400165" data-linked-resource-version="3" data-linked-resource-type="attachment" data-linked-resource-default-alias="reaction.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236096" data-linked-resource-container-version="33" /></span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

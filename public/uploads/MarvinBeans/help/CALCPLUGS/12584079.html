@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Hydrogen Bond Donor/Acceptor Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Hydrogen Bond Donor/Acceptor Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This manual gives you a walk-through on how to use the H Bond Donor/Acceptor Plugin:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200956322 {padding: 0px;}
+div.rbtoc1439200956322 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200956322 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200956322"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#HydrogenBondDonor/AcceptorPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#HydrogenBondDonor/AcceptorPlugin-Definitions">Definitions</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#HydrogenBondDonor/AcceptorPlugin-Example">Example</a></li> 
+           </ul> </li> 
+          <li><a href="#HydrogenBondDonor/AcceptorPlugin-Options">Options</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="HydrogenBondDonor/AcceptorPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The Hydrogen Bond Donor-Acceptor Plugin calculates atomic hydrogen bond donor and acceptor inclination. Atomic data and overall hydrogen bond donor and acceptor multiplicity are displayed for the input molecule (or its&nbsp;<a href="Major-Microspecies-Plugin_12583160.html">microspecies</a>&nbsp;at a given pH). The weighted average hydrogen bond donor and acceptor multiplicities taken over the microspecies and the proportions of their occurrences are computed for different pHs and displayed in a chart.</p>
+      <p>The<a href="#HydrogenBondDonor/AcceptorPlugin-fig.1"> following window</a> shows the results of a calculation.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="HydrogenBondDonor/AcceptorPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="600" src="attachments/12584079/29098622.png" data-image-src="attachments/12584079/29098622.png" data-unresolved-comment-count="0" data-linked-resource-id="29098622" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hbda.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584079" data-linked-resource-container-version="20" /></span></p>
+      <p>Fig. 1 H Bond Donor/Acceptor result window</p>
+      <p>&nbsp;</p>
+      <h1 id="HydrogenBondDonor/AcceptorPlugin-Definitions">Definitions</h1>
+      <p>&nbsp;</p>
+      <p>Here are the definition of the donor/acceptor count and sites that is used in the plugin:</p>
+      <ul>
+       <li>Donor count = the sum of the atoms in the molecule which have H donor property.</li>
+       <li>Donor sites = the sum of the H atoms connected to the donor atoms.</li>
+       <li>Acceptor count = the sum of the acceptor atoms. An acceptor atom always has a lone electron pair/lone electron pairs that is capable of establishing a H bond.</li>
+       <li>Acceptor sites = the sum of the lone pairs on the acceptor atoms.</li>
+      </ul>
+      <h2 id="HydrogenBondDonor/AcceptorPlugin-Example">Example</h2>
+      <p>&nbsp;</p>
+      <p>The following molecule has a Donor count of 2 and 4 Donor sites. It also has an Acceptor count of 6 and 6 Acceptor sites.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/12584079/37322834.jpg" data-image-src="attachments/12584079/37322834.jpg" data-unresolved-comment-count="0" data-linked-resource-id="37322834" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hbda.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="12584079" data-linked-resource-container-version="20" /></span></p>
+      <p>Fig. 2 Example molecule showing the different assigned HBDA features</p>
+      <h1 id="HydrogenBondDonor/AcceptorPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>Different calculation parameters can be set in the&nbsp;<a href="#HydrogenBondDonor/AcceptorPlugin-fig.2"><em>H Bond Donor/Acceptor Options</em>&nbsp;window</a>:</p>
+      <ul>
+       <li><strong>Decimal places:</strong>&nbsp;setting the number of decimal places with which the result value is given.</li>
+       <li><strong>Type:&nbsp;</strong>defined the type of calculations (donor or acceptor).</li>
+       <li><strong>Exclude sulfur atoms from acceptors</strong>: if set, sulphur atoms in the acceptors are excluded.</li>
+       <li><strong>Exclude halogens from acceptors:&nbsp;</strong>if set, halogen atoms in the acceptors are excluded.</li>
+       <li><strong>Show microspecies data by pH:</strong>&nbsp;the number of donor or acceptor sites vs. pH chart is displayed.</li>
+       <li><strong>Microspecies:&nbsp;</strong>set the dimensions of the pH chart with&nbsp;<strong>pH lower limit, pH upper limit</strong>&nbsp;and&nbsp;<strong>pH step size</strong>. The default values are 0, 14 and 0.5, respectively (see the <a href="#HydrogenBondDonor/AcceptorPlugin-fig.2">example below</a>)</li>
+       <li><strong>Display major microspecies:</strong>&nbsp;the structure of the major form at the given pH is displayed.<br /><br /><br /></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="HydrogenBondDonor/AcceptorPlugin-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584079/29099419.png" data-image-src="attachments/12584079/29099419.png" data-unresolved-comment-count="0" data-linked-resource-id="29099419" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Hbond_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584079" data-linked-resource-container-version="20" /></span></p>
+      <p>Fig. 3 H Bond Donor/Acceptor Options</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

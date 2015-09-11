@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Custom Checkers and Fixers</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Custom Checkers and Fixers </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Custom checker and fixer implementations can be integrated into the list of available checkers through the&nbsp;<strong>Checker/Fixer Manager&nbsp;</strong>available in the&nbsp;<strong>Preferences</strong>&nbsp;menu.. &nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://confluence.chemaxon.com/download/attachments/10029028/external_checker.png?version=1&amp;modificationDate=1380705020000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/10029028/external_checker.png?version=1&amp;modificationDate=1380705020000&amp;api=v2" /></span>&nbsp;<br />The Checker/Fixer Manager&nbsp;contains two tabs:&nbsp;<strong>Checkers</strong>&nbsp;and&nbsp;<strong>Fixers</strong>. Add the external checker(s)/fixer(s) by pressing&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="plus" height="18" width="18" src="http://www.chemaxon.com/marvin/help/structurechecker/images/msketch/add.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/images/msketch/add.png" /></span>&nbsp;button on the relevant tab.</p>
+      <p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://confluence.chemaxon.com/download/attachments/10029028/external_checker2.png?version=1&amp;modificationDate=1380705262000&amp;api=v2" data-image-src="https://confluence.chemaxon.com/download/attachments/10029028/external_checker2.png?version=1&amp;modificationDate=1380705262000&amp;api=v2" /></span></p>
+      <p><br />First, enter the URL or browse the location of JAR file containing the particular checker/fixer in field&nbsp;<strong>Java Archive (JAR)</strong>. If the JAR file contains more than one classes, select the appropriate class from the drop-down list to add that checker or fixer to the list of external checkers or fixers. Additional information fields will be filled automatically if checker/fixer classes use annotations (e.g., Checker/Fixer ID, Help text, Description, etc.). The&nbsp;<strong>Checker/Fixer ID</strong>&nbsp;will appear among the list of available checkers.</p>
+      <p>Various external checkers and/or fixers can be added from the same or from different JAR files. &nbsp;<span>After you have finished adding external checkers and fixers, click on&nbsp;</span><strong>OK</strong><span>; the newly added checkers will appear among the factory checkers. These external checkers/fixers will now also be available in the Structure Checker Application and in all other applications using Structure Checker. When defining external checkers and fixers, an xml file called externalcheckersfixers.xml will automatically be placed in the&nbsp;<a class="external-link" href="http://www.chemaxon.com/marvin/help/sketch/library_location.html" rel="nofollow">chemaxon folder of the User Home</a>. &nbsp;</span></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link REL="stylesheet" TYPE="text/css" HREF="../../help/marvinmanuals.css" TITLE="Style">
+<title>Integration of third party calculations into Marvin</title>
+</head>
+<body>
+<h1>Integration of third party calculations into Marvin and JChem</h1>
+
+<h2>Contents</h2>
+<ul>
+	<li><a href="#intro">Introduction</a></li>
+	<li><a href="#exampleplugin">Example plugin</a></li>
+	<li><a href="#marvin">MarvinSketch and MarvinView</a>
+	<ul>
+		<li><a href="#marvinapplication">Applications</a>
+		<li><a href="#marvinapplet">Applets</a>
+	</ul>
+	</li>
+	<li><a href="#cxcalc">cxcalc</a></li>
+	<li><a href="#chemicalterms">Chemical Terms</a>
+	<ul>
+		<li><a href="#ctapplication">Applications</a>
+		<li><a href="#ctapplet">Applets</a>
+	</ul>
+	</li>
+	<li><a href="#api">API</a></li>
+</ul>
+
+<h2><a class="anchor" name="intro">Introduction</a></h2>
+
+<p>Third-party calculations can be integrated into Marvin and JChem by using ChemAxon's Calculator Plugin system. As third-party
+calculation we refer to any calculation which is not provided by ChemAxon with Marvin Beans or JChem package. The guides below describe how
+third-party calculations can be integrated with ChemAxon applications and toolkits, including GUI, applet, command line and API usages. All
+guides contain code examples and links to the related topics in developers guide.<br>
+MarvinSketch GUI offers a new, user-friendly version of integrating third-party calculation as service via the <a href="../../help/sketch/gui/setting_services.html">Services module</a>.
+
+<h2><a class="anchor" name="exampleplugin">Example plugin</a></h2>
+
+<p>In the first place, it is required to extend the <a href="../../help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html" target="_blank">
+<code>chemaxon.marvin.plugin.CalculatorPlugin</code></a> class, the descendant class should call the third-party calculation. 
+The steps of the implementation are described in the <a	href="../../help/developer/plugins.html">Calculator Plugins Developers Guide</a>.
+
+<p>In the examples below <a href="BemisMurckoPlugin.java.txt"><code>BemisMurckoPlugin</code></a> will be used as example third-party plugin implementation. The BemisMurckoPlugin can calculate 
+the Bemis-Murcko framework of a molecule, return it as Molecule object, and also can calculate the number of atoms and bonds in the generated 
+Bemis-Murcko framework, returning them as integers.
+
+<!-- 
+<p>Bemis-Murcko framework ...
+-->
+ 
+<p>A custom plugin implementation - of course - can call any Java library, native application (through JNI), or libraries written in
+other languages, such as C or C++ (through JNI). In the current example only MarvinBeans Java library is called from the code of the
+BemisMurckoPlugin.
+
+<h2><a class="anchor" name="generalnotes">General notes</a></h2>
+
+<p>In this document we will refer to the Marvin installation directory as <code>MarvinBeans</code> directory.
+<br>If Marvin's default installation was followed, Marvin installation directory is located in:
+<ul>
+	<li>Windows: <code>C:\Program Files\ChemAxon\MarvinBeans</code></li>
+	<li>Linux: <code>$HOME/ChemAxon/MarvinBeans</code> (e.g. <code>/home/myusername/ChemAxon/MarvinBeans</code>)</li>
+	<li>OS X: <code>/Applications/ChemAxon/MarvinBeans</code></li>
+</ul>
+
+
+<h2><a class="anchor" name="marvin">MarvinSketch and MarvinView</a></h2>
+
+<p>In MarvinSketch and MarvinView Calculator Plugins can be accessed from the <b>Tools</b> menu.
+<h3><a class="anchor" name="marvinapplication">Applications</a></h3>
+
+<p>To integrate a calculation into MarvinSketch/MarvinView application the following steps should be made:
+<ol>
+	<li>Implement a CalculatorPlugin class (<a href="../../help/developer/plugins.html">more</a>). Implement also a CalculatorPluginDisplay class, 
+	if required (<a href="../../help/developer/plugins.html#plugindisplay">more</a>).
+	<p>We only implemented  <a href="BemisMurckoPlugin.java.txt"><code>BemisMurckoPlugin.java</code></a>. In the current example <code>BemisMurckoPluginDisplay</code> class is not required.
+	<li>Compile the classes.
+	<p>Use the Marvin Beans package for compilation. 
+	<pre>javac -classpath MarvinBeans/lib/MarvinBeans.jar BemisMurckoPlugin.java</pre>
+	<li>Create the plugin options panel description in XML file (<script type="text/javascript"><!--
+	document.write('<a href="mailto:'+'support'+'@'+'chemaxon.com">'+'for details, mail to ChemAxon\'s support</a>');
+	//--></script>). 
+	<p>Copy the created <a href="xjars/BemisMurckoPluginParameters.xml.txt"><code>BemisMurckoPluginParameters.xml</code></a> to a directory named <code>xjars</code>.
+	<li>Pack the created class and XML files into a JAR.
+	<p>In the next command <a href="BemisMurckoPlugin.txt"><code>BemisMurckoPlugin.txt</code></a> refers to JAR manifest file, which also has to be created. The 
+	<code>BemisMurckoPlugin.class</code> file is the 
+	result of the compilation of <code>BemisMurckoPlugin.java</code> into class file.	
+	<pre>jar cmf BemisMurckoPlugin.txt BemisMurckoPlugin.jar BemisMurckoPlugin.class xjars/BemisMurckoPluginParameters.xml</pre>
+	<li>Copy the JAR file into the plugins directory.
+	<p>The created JAR file (<a href="applications/BemisMurckoPlugin.jar"><code>BemisMurckoPlugin.jar</code></a>) has to be copied to the <code>MarvinBeans/plugins</code> directory.
+	<li>Create/edit the <b>Tools</b> menu configuration file (<a href="../../help/developer/plugins.html#config">more</a>).
+	<p>Create your own instance of <a href="plugins.properties"><code>plugins.properties</code></a> in the <code>MarvinBeans/plugins</code> directory. This properties 
+	file describes the structure of the	<b>Tools</b> menu in MarvinSketch/MarvinView. If this file exists, it overwrites the default 
+	<b>Tools</b> menu. There is a template for <code>plugins.properties</code> (<code>plugins.properties.sample.txt</code>) in this 
+	directory. Just make a copy of it, and edit it.
+	<p>To add a new menuitem for the new plugin add the following line to the file:
+	<pre>plugin_999=$BemisMurckoPlugin$BemisMurckoPlugin.jar$Bemis Murcko Framework$B$$</pre>
+	
+	<p><b>Note:</b> The plugin class has to be referenced with full name (including the name of the package that contains the class).
+</ol>
+
+Run MarvinSketch/MarvinView. You can run the example plugin by selecting <i>Bemis Murcko Framework</i> from the <b>Tools</b> menu.
+
+<h3><a class="anchor" name="marvinapplet">Applets</a></h3>
+
+<p>Integration into MarvinSketch and MarvinView applets is quite similar to the application integration, only the compilation process 
+and the JAR file creation is different. In this section <code>marvin</code> will refer to the root directory of Marvin Applets.
+
+<ol>
+	<li>Implement a CalculatorPlugin class (<a href="../../help/developer/plugins.html">more</a>). Implement also a CalculatorPluginDisplay class, 
+	if required (<a href="../../help/developer/plugins.html#plugindisplay">more</a>).
+	<p>We only implemented  <a href="BemisMurckoPlugin.java.txt"><code>BemisMurckoPlugin.java</code></a>. In the current example <code>BemisMurckoPluginDisplay</code> class is not required.
+	<li>Compile the classes.
+	<p>Use JAR files from Marvin Applets package for compilation of the new plugin. Since Marvin Applets classes are compiled with 1.5 
+	compatible compiler, additional code has to compile with 1.5 compatible JDK. To provide compatibility, set the source and the target 
+	attributes to 1.5. 
+	<pre>javac -source 1.5 -target 1.5 -classpath "marvin/jmarvin.jar:marvin/sjars/Plugin.jar:marvin/sjars/PluginGUI.jar" BemisMurckoPlugin.java</pre>
+	<li>Create the plugin options panel description in XML file (<script type="text/javascript"><!--
+	document.write('<a href="mailto:'+'support'+'@'+'chemaxon.com">'+'for details, mail to ChemAxon\'s support</a>');
+	//--></script>). 
+	<p>Copy the created <a href="xjars/BemisMurckoPluginParameters.xml.txt"><code>BemisMurckoPluginParameters.xml</code></a> to a directory named <code>xjars</code>.
+	<li>Pack the created class and XML files into a JAR.
+
+	<p>Marvin applets accept custom plugins from certain location: <code>marvin/plugin/extensions.jar</code>. Therefore, wrap resources for
+	your plugin into <code>extensions.jar</code>. In this example, <a href="BemisMurckoPlugin.txt"><code>BemisMurckoPlugin.txt</code></a> 
+	is the manifest file for the JAR file, <code>BemisMurckoPlugin.class</code> file is the result of the compilation of <code>BemisMurckoPlugin.java</code> 
+	into class file.</p>
+	<pre>jar cmf BemisMurckoPlugin.txt extensions.jar BemisMurckoPlugin.class xjars/BemisMurckoPluginParameters.xml</pre>
+	<p>The JAR files that Marvin applets load have to be signed.</p>
+	<pre>jarsigner -keystore "&lt;keystorepath&gt;" -storepass &lt;password&gt; extensions.jar &lt;alias&gt;</pre>
+	<p>In the above statement, the <code>&lt;keystorepath&gt;</code> is the location of the keystore file where your signing key is stored. The
+	<code>&lt;password&gt;</code> gives the password for the keystore. The <code>&lt;alias&gt;</code> is the alias of the certification key in the keystore.
+	<li>Copy the JAR file into the plugins directory.
+	<p>The created JAR file (<a href="applets/extensions.jar"><code>extensions.jar</code></a> - note: the downloadable jar is not signed) has to be copied to the <code>marvin/plugins</code> directory.
+	<li>Create/edit the <b>Tools</b> menu configuration file (<a href="../../help/developer/plugins.html#config">more</a>).
+	<p>Create your own instance of <a href="plugins.properties"><code>plugins.properties</code></a> in the <code>marvin/plugins</code> directory. This properties 
+	file describes the structure of the	<b>Tools</b> menu in MarvinSketch/MarvinView. If this file exists, it overwrites the default 
+	<b>Tools</b> menu. There is a template for <code>plugins.properties</code> (<code>plugins.properties.sample.txt</code>) in this 
+	directory. Just make a copy of it, and edit it.
+	<p>To add a new menuitem for the new plugin add the following line to the file:
+	<pre>plugin_999=$BemisMurckoPlugin$BemisMurckoPlugin.jar$Bemis Murcko Framework$B$$</pre>
+</ol>
+Now, you are ready. In MarvinSketch/MarvinView applet the new plugin will display in the <b>Tools</b> menu.
+
+
+<h2><a class="anchor" name="cxcalc">cxcalc</a></h2>
+
+<p><code>cxcalc</code> is ChemAxon's application for performing the plugin calculations in batch mode. Integration with <code>cxcalc</code> goes as follows:
+<ol>
+	<li>Implement a CalculatorPlugin class (<a href="../../help/developer/plugins.html">more</a>). Implement also a CalculatorPluginOutput class, 
+	if required (<a href="../../help/developer/plugins.html#pluginoutput">more</a>).
+	<p>We only implemented  <a href="BemisMurckoPlugin.java.txt"><code>BemisMurckoPlugin.java</code></a>. In the current example <code>BemisMurckoPluginOutput</code> class is not required.
+	<li>Compile the classes.
+	<p>Use the Marvin Beans package for compilation. 
+	<pre>javac -classpath MarvinBeans/lib/MarvinBeans.jar BemisMurckoPlugin.java</pre>
+	<li>Pack the created class file(s) into a JAR.
+	<p>In the next command <a href="BemisMurckoPlugin.txt"><code>BemisMurckoPlugin.txt</code></a> refers to JAR manifest file, which also has to be created.
+	<pre>jar cmf BemisMurckoPlugin.txt BemisMurckoPlugin.jar BemisMurckoPlugin.class</pre>
+	<li>Copy the JAR file into the plugins directory.
+	<p>The created JAR file (<a href="cxcalc/BemisMurckoPlugin.jar"><code>BemisMurckoPlugin.jar</code></a>) has to be copied to the <code>MarvinBeans/plugins</code> directory.
+	
+	<li>Create/edit the <code>calc.properties</code> configuration file (<a href="../../help/applications/calc.html#config">more</a>).
+	<p>Create your own instance of <a href="calc.properties"><code>calc.properties</code></a> in the <code>MarvinBeans/plugins</code> directory. This properties 
+	file should contain the configurations (parameters, help text, etc.) of the third-party calculations. If this file exists, then the calculations
+	defined in it are added to default calculations. There is a template for <code>calc.properties</code> (<code>calc.properties.sample.txt</code>) 
+	in this	directory; just make a copy of it, and edit it.
+</ol>
+The new calculations can be run with the following commands:
+<ul>
+<li>Generate the Bemis-Murcko framework
+<pre>cxcalc bemismurcko testmols.sdf</pre>
+
+<li>Count atoms of the Bemis-Murcko framework
+<pre>cxcalc bemismurckoatomcount testmols.sdf</pre>
+
+<li>Count bonds of the Bemis-Murcko framework
+<pre>cxcalc bemismurckobondcount testmols.sdf</pre>
+</ul>
+
+<h2><a class="anchor" name="chemicalterms">Chemical Terms</a></h2>
+
+<p>Chemical Terms is a language for adding advanced chemical intelligence to cheminformatics applications. It is an additional interface to 
+access plugin calculations, and is integrated into a number of ChemAxon's applications (e.g. Instant JChem, JChem Base, JChem Cartridge, 
+Reactor). Chemical Terms can also be used with Marvin applets through JavaScript.
+
+<p>In case of Chemical Terms, integration means adding a new Chemical Terms function. After the function is added, it can be used from 
+all applications that make use of Chemical Terms.
+
+<h3><a class="anchor" name="ctapplication">Applications</a></h3>
+
+<p>Integration steps:
+<ol>
+	<li>Implement a CalculatorPlugin class (<a href="../../help/developer/plugins.html">more</a>).
+	<p>We implemented <a href="BemisMurckoPlugin.java.txt"><code>BemisMurckoPlugin.java</code></a>.
+	<li>Compile the classes.
+	<p>Use the Marvin Beans package for compilation. 
+	<pre>javac -classpath MarvinBeans/lib/MarvinBeans.jar BemisMurckoPlugin.java</pre>
+	<li>Pack the created class files into a JAR.
+	<p>In the next command <a href="BemisMurckoPlugin.txt"><code>BemisMurckoPlugin.txt</code></a> refers to JAR manifest file, which also has to be created. The 
+	<code>BemisMurckoPlugin.class</code> file is the result of the compilation of <code>BemisMurckoPlugin.java</code> into class file.	
+	<pre>jar cmf BemisMurckoPlugin.txt BemisMurckoPlugin.jar BemisMurckoPlugin.class</pre>
+	<li>Copy the JAR file into the plugins directory.
+	<p>The created JAR file (<a href="chemicalterms/BemisMurckoPlugin.jar"><code>BemisMurckoPlugin.jar</code></a>) has to be copied to the <code>MarvinBeans/plugins</code> directory.
+	<li>Create/edit the <code>evaluator.xml</code> configuration file (<a href="../../help/chemicalterms/Evaluator.html#config">more</a>).
+	<p>Create your own instance of <a href="evaluator.xml.txt"><code>evaluator.xml</code></a> file in the <code>MarvinBeans/config</code> directory
+	(see the Evaluator manual for alternative location). 
+	This XML file describes the Chemical Terms functions. If this file exists, then the functions defined in it 
+	are added to default functions. There is a template for <code>evaluator.xml</code> (<code>evaluator.xml.sample.txt</code>) 
+	in this	directory; just make a copy of it, and edit it.
+</ol>
+
+<p>Test the new functions with <a href="../../help/chemicalterms/Evaluator.html#config">Chemical Terms Evaluator</a>: 
+<ul>
+<li>Generate the Bemis-Murcko framework
+<pre>evaluate -e bemisMurcko() testmols.sdf</pre>
+
+<li>Count atoms of the Bemis-Murcko framework
+<pre>evaluate -e bemisMurckoAtomCount() testmols.sdf</pre>
+
+<li>Count bonds of the Bemis-Murcko framework
+<pre>evaluate -e bemisMurckoBondCount() testmols.sdf</pre>
+</ul>
+
+<h3><a class="anchor" name="ctapplet">Applets</a></h3>
+
+<p>After performing the steps below the Chemical Terms functions will be accessible via JavaScript from MarvinSketch/MarvinView 
+applet. For usage examples see: <a href="../../sketch/index.jsp">Marvin, Calculator Plugin and Chemical Terms Demo page</a>. 
+In this section <code>marvin</code> will refer to the root directory of Marvin Applets.
+
+<ol>
+	<li>Implement a CalculatorPlugin class (<a href="../../help/developer/plugins.html">more</a>).
+	<p>We implemented <a href="BemisMurckoPlugin.java.txt"><code>BemisMurckoPlugin.java</code></a>.
+	<li>Compile the classes.
+	<p>Use JAR files from Marvin Applets package for compilation of the new plugin. Since Marvin Applets classes are compiled with 1.5 
+	compatible compiler, additional code has to compile with 1.5 compatible JDK. To provide compatibility, set the source and the target 
+	attributes to 1.5. 
+	<pre>javac -source 1.5 -target 1.5 -classpath "marvin/jmarvin.jar:marvin/sjars/Plugin.jar:marvin/sjars/PluginGUI.jar" BemisMurckoPlugin.java</pre>
+	<li>Pack the created class files into a JAR.
+	<p>Marvin applets accept custom plugins from certain location: <code>marvin/plugin/extensions.jar</code>. Therefore, wrap resources for
+	your plugin into <code>extensions.jar</code>. In this example, <a href="BemisMurckoPlugin.txt"><code>BemisMurckoPlugin.txt</code></a> is the manifest 
+	file for the JAR file, <code>BemisMurckoPlugin.class</code> file is the result of the compilation of <code>BemisMurckoPlugin.java</code> into class file.</p>
+	<pre>jar cmf BemisMurckoPlugin.txt extensions.jar BemisMurckoPlugin.class</pre>
+	<p>The JAR files that Marvin applets load have to be signed.</p>
+	<pre>jarsigner -keystore "&lt;keystorepath&gt;" -storepass &lt;password&gt; extensions.jar &lt;alias&gt;</pre>
+	<p>In the above statement, the <code>&lt;keystorepath&gt;</code> is the location of the keystore file where your signing key is stored. The
+	<code>&lt;password&gt;</code> gives the password for the keystore. The <code>&lt;alias&gt;</code> is the alias of the certification key in the keystore.
+	<li>Copy the JAR file into the plugins directory.
+	<p>The created JAR file (<a href="chemicalterms/extensions.jar"><code>extensions.jar</code></a> - note: the downloadable jar is not signed) has to be copied to the <code>marvin/plugins</code> directory.
+	<li>Create/edit the <code>evaluator.xml</code> configuration file (<a href="../../help/chemicalterms/Evaluator.html#config">more</a>).
+	<p>Create your own instance of <a href="evaluator.xml.txt"><code>evaluator.xml</code></a> file in the <code>marvin/config</code> directory
+	(see the <a href="../../help/chemicalterms/ChemicalTerms.html#molsets">Chemical Terms Language Reference</a> for alternative location). 
+	This XML file describes the Chemical Terms functions. If this file exists, then the functions defined in it 
+	are added to default functions. There is a template for <code>evaluator.xml</code> (<code>evaluator.xml.sample.txt</code>) 
+	in this	directory; just make a copy of it, and edit it.
+</ol>
+
+<p>After performing these steps the new calculations can be called from the applet via JavaScript, as show on 
+<a href="../../sketch/index.jsp">Marvin, Calculator Plugin and Chemical Terms Demo page</a>.
+
+<h2><a class="anchor" name="api">API</a></h2>
+The implemented <a href="BemisMurckoPlugin.java.txt"><code>BemisMurckoPlugin.java</code></a> provides also java Application Programming Interface, so it can be used 
+from other java code. For details see <a href="../../examples/plugin-api/index.html">Calculator Plugins Code Examples</a>.
+
+</body>
+</html>

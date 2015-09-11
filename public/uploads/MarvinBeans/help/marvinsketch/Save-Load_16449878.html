@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Save Load</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Save Load </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/16449878/35422209.png" data-image-src="attachments/16449878/35422209.png" data-unresolved-comment-count="0" data-linked-resource-id="35422209" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Preference_SaveLoad.PNG" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449878" data-linked-resource-container-version="8" /></span></p>
+      <ul>
+       <li><strong>Default location:</strong> the folder from which to load or to save molecules may be set by the user.
+        <ul>
+         <li>Startup directory: the folder where the command to start the application was given.</li>
+         <li>Last location: the last folder used for opening or saving a structure.</li>
+         <li>Custom working directory: a user-defined folder. If a molecule is loaded from another folder, then the file's location will be offered for saving.</li>
+        </ul></li>
+       <li><strong>Default file format</strong> determines which type is offered by default when structures are saved to file.</li>
+       <li><strong>Save/Load settings</strong>
+        <ul>
+         <li><strong>Save/Load GUI settings (.MRV, .PDF format)</strong> allows storing and loading of display options like background color, font type, stereo labels, atom indices <em>etc.</em> in addition to the chemical structure itself. This option can only be used with <a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=14943131">MRV</a> and <a href="https://docs.chemaxon.com/display/FF/PDF">PDF</a> formats and it is selected by default.<br /><strong>Save/Load zoom factor (.MRV format)</strong> stores and loads the zooming scale of the structures. This option can only be used with the<span class="confluence-link">&nbsp;</span><span class="confluence-link"><span class="confluence-link"><span class="confluence-link"><span class="confluence-link"> <a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=14943131">MRV</a> </span></span></span></span>format.</li>
+         <li><strong><a class="anchor" name="Zoom2Scaffold" rel="nofollow"></a>Zoom to scaffold on load (Sketch only)</strong> sets the zooming scale to 'Scaffold' if the loaded file contains defined R-groups, so the R-group definitions might not be seen on the canvas without scrolling. The 'Zoom level' dropdown list on the <strong>General Toolbar</strong> is supplemented with 'Scaffold' and 'R1, R2, R3...' only when there are defined R-group(s). Without R-group definitions the zooming scale for the loaded structure(s) will not be modified, the last zooming scale will be used.<br /> When this option is switched off in the <strong>Preferences</strong> menu then MarvinSketch opens the new file with the last zoom level.</li>
+        </ul></li>
+       <li><strong>Recent file entries</strong> defines the number of files in the Recent files list in the File menu, with values between 1 and 10.</li>
+       <li><strong>Image import service URL</strong> URL of a server on which a chemical structure recognition program runs can be given.</li>
+       <li><strong>Name import service URL</strong> URL of a server on which a chemical name recognition program runs can be given.</li>
+      </ul>
+      <h3 id="SaveLoad-"><span class="confluence-anchor-link"><br /></span></h3> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Features imported from CDX and CDXML files</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Features imported from CDX and CDXML files </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-equal" data-layout="two-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>On this page:</b>
+           </div>
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200974203 {padding: 0px;}
+div.rbtoc1439200974203 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200974203 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439200974203"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#FeaturesimportedfromCDXandCDXMLfiles-cdxatomAtoms">Atoms</a></li> 
+              <li><a href="#FeaturesimportedfromCDXandCDXMLfiles-genericLabelsGenericlabels">Generic labels</a></li> 
+              <li><a href="#FeaturesimportedfromCDXandCDXMLfiles-cdximportbondBonds">Bonds</a></li> 
+              <li><a href="#FeaturesimportedfromCDXandCDXMLfiles-reactionArrowReactionarrow">Reaction arrow</a></li> 
+              <li><a href="#FeaturesimportedfromCDXandCDXMLfiles-groupsGroups">Groups</a></li> 
+              <li><a href="#FeaturesimportedfromCDXandCDXMLfiles-symbolsSymbols">Symbols</a></li> 
+              <li><a href="#FeaturesimportedfromCDXandCDXMLfiles-complexGraphicsComplexgraphics">Complex graphics</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="FeaturesimportedfromCDXandCDXMLfiles-cdxatomAtoms"><a name="atoms" rel="nofollow"></a><span class="confluence-anchor-link" id="FeaturesimportedfromCDXandCDXMLfiles-cdxatom"></span>Atoms</h2>
+          <p>The atom features from the CDX file format import limitations are the following:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <thead>
+             <tr>
+              <th class="confluenceTh">ChemBioDraw</th>
+              <th class="confluenceTh">ChemAxon</th>
+              <th colspan="1" style="text-align: center;" class="confluenceTh">Comment</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <td class="confluenceTd">Charge</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Isotope</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Isotopic Abundance</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Substituents up to</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">'s&lt;n&gt;' query property up to 6</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Substituents Exactly</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">'s&lt;n&gt;' query property up to 6</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Free Sites</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">*0 is converted to 's*', others are converted to 's&lt;n&gt;', calculated: Free Sites-number of bonds.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Unsaturation</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">'u' query property if set to 'Must be absent'</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Reaction Change</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Reaction Stereo</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Translation</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Abnormal Valence</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Enhanced Stereochemistry</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Radical</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Implicit Hydrogens</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">If not allowed, the atom gets a 'h0' query property</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Ring Bond Count</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">&nbsp;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Hdot / HDash</td>
+              <td style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td colspan="1" class="confluenceTd">Imported as explicit hydrogens</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h2 id="FeaturesimportedfromCDXandCDXMLfiles-genericLabelsGenericlabels"><span class="confluence-anchor-link" id="FeaturesimportedfromCDXandCDXMLfiles-genericLabels"></span>Generic labels</h2>
+          <p>The generic labels from the CDX file format are imported to Marvin as:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th class="confluenceTh">Label</th>
+              <th class="confluenceTh">ChemDraw</th>
+              <th class="confluenceTh">ChemAxon</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">A</td>
+              <td class="confluenceTd">Any Atom</td>
+              <td class="confluenceTd">Any atom type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">M</td>
+              <td class="confluenceTd">Metal</td>
+              <td class="confluenceTd">Pseudo atom: M</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Q</td>
+              <td class="confluenceTd">Non-hydrogen heteroatom</td>
+              <td class="confluenceTd">Hetero atom type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">X</td>
+              <td class="confluenceTd">Halogen</td>
+              <td class="confluenceTd">Pseudo atom type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">R</td>
+              <td class="confluenceTd">Unspecified</td>
+              <td class="confluenceTd">R-group atom type</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h2 id="FeaturesimportedfromCDXandCDXMLfiles-cdximportbondBonds"><span class="confluence-anchor-link" id="FeaturesimportedfromCDXandCDXMLfiles-cdximportbond"></span>Bonds</h2>
+          <p>The following bond features from the CDX file format are imported to Marvin as:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <thead>
+             <tr>
+              <th style="text-align: center;" class="confluenceTh">ChemBioDraw</th>
+              <th colspan="1" class="confluenceTh">ChemAxon</th>
+              <th style="text-align: center;" class="confluenceTh">Comment</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <td colspan="3" style="text-align: center;" class="confluenceTd"><strong>Single bond</strong></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Plain</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Dashed</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single bond Down</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Hashed</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Hashed</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Hashed Wedged</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Singe bond Down</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Bold</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Bold bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Bold Wedged</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single bond Up</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Hollow Wedged</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single bond Up</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Dative</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Coordinative bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Wavy</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single bond Up or Down</td>
+             </tr>
+             <tr>
+              <td colspan="3" style="text-align: center;" class="confluenceTd"><strong>Double bonds </strong></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Plain</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Double bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Bold</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Double bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Double Either</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Double bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Tautomeric</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single or double query bond type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Aromatic</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Aromatic bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Triple bond</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Triple bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Quadruple bond</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Any bond</td>
+             </tr>
+             <tr>
+              <td colspan="3" class="confluenceTd">Bond properties</td>
+             </tr>
+             <tr>
+              <td colspan="3" style="text-align: center;" class="confluenceTd"><strong>Query bonds</strong></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Any</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Any bond</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">S/D</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single or double query bond type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">S/A</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single or aromatic query bond type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">D/A</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Double or aromatic query bond type</td>
+             </tr>
+             <tr>
+              <td colspan="3" style="text-align: center;" class="confluenceTd"><strong>Topology</strong></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Ring</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Bond is in ring</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Chain</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Bond is in chain</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Ring or Chain</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">No topology</td>
+             </tr>
+             <tr>
+              <td colspan="3" style="text-align: center;" class="confluenceTd"><strong>Reaction center</strong></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Center</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">The bond is a reacting center.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Make/Break</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">The bond is made or broken in the reaction</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Change</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">The bond (order) has changed in the reaction</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Make and Change</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">The bond is created and changed</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Not Center</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">The bond is not a reacting center</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Not modified</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">The bond is not modified in the reaction</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h2 id="FeaturesimportedfromCDXandCDXMLfiles-reactionArrowReactionarrow"><a name="reaction" rel="nofollow"></a><span class="confluence-anchor-link" id="FeaturesimportedfromCDXandCDXMLfiles-reactionArrow"></span>Reaction arrow</h2>
+          <p>The following reaction arrows from the CDX file format are imported to Marvin as:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <thead>
+             <tr>
+              <th class="confluenceTh">ChemBioDraw</th>
+              <th colspan="1" class="confluenceTh">ChemAxon</th>
+              <th style="text-align: center;" class="confluenceTh">Comment</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <td class="confluenceTd">Solid</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single reaction arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Bold</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single reaction arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Dashed</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single reaction arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">One-Sided</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single reaction arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Hollow</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single reaction arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">No Go</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Single reaction arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Retrosynthetic</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Double reaction arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Resonance</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Resonance arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Equilibrium</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Equilibrium arrow type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Degree arrows</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Not yet supported, will be converted to electron flows</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>Note that files containing multi-step reactions are imported with graphical arrows, thus these won't be recognized as single reactions in Marvin.</p>
+          <h2 id="FeaturesimportedfromCDXandCDXMLfiles-groupsGroups"><a name="groups" rel="nofollow"></a><span class="confluence-anchor-link" id="FeaturesimportedfromCDXandCDXMLfiles-groups"></span>Groups</h2>
+          <p>The following groups from the CDX file format are imported to Marvin as:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <thead>
+             <tr>
+              <th style="text-align: center;" class="confluenceTh">ChemBioDraw</th>
+              <th colspan="1" style="text-align: center;" class="confluenceTh">ChemAxon</th>
+              <th class="confluenceTh">ChemAxon</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <td colspan="3" style="text-align: center;" class="confluenceTd"><strong>Bracket Usage</strong></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Unspecified</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Generic S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Anypolymer (anyp)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Any polymer S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Component (c)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Component S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Copolymer (co)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Copolymer S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Copolymer, alternating (alt)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Copolymer S-group type with alternating polymer S-group subtype</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Copolymer, block (blk)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Copolymer S-group type with block polymer S-group subtype</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Copolymer, random (ran)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Copolymer S-group type with random polymer S-group subtype</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Crosslink (xl)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Crosslink S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Generic ()</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Generic S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Graft (grf)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Graft S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Mer (mer)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Mer S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Mixture, ordered (f)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Formulation S-group type.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Mixture, unordered (mix)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Mixture S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Modification (mod)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Modification S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Monomer (mon)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Monomer S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Multiple Group (#)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Multiple group S-group type</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">SRU (n)</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">SRU S-group type</td>
+             </tr>
+             <tr>
+              <td colspan="3" style="text-align: center;" class="confluenceTd"><strong>Repeat pattern</strong></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Head-to-Tail</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Head-to-tail S-group connectivity</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Head-to-Head</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Head-to-head S-group connectivity</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Either/Unknown</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Either unknown S-group connectivity</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Flip Type</td>
+              <td colspan="1" style="text-align: center;" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Supported</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h2 id="FeaturesimportedfromCDXandCDXMLfiles-symbolsSymbols"><a name="symbols" rel="nofollow"></a><span class="confluence-anchor-link" id="FeaturesimportedfromCDXandCDXMLfiles-symbols"></span>Symbols</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <thead>
+             <tr>
+              <th class="confluenceTh">ChemBioDraw</th>
+              <th colspan="1" class="confluenceTh">ChemAxon</th>
+              <th class="confluenceTh">ChemAxon</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <td class="confluenceTd">Lone Pairs</td>
+              <td colspan="1" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd"><p>Imported as lone pairs, but automatic lone pair calculation writes them over.<br />It can be turned off <em>e.g.</em> in MarvinSketch at the Edit &gt; Preferences... &gt; Structure tab.</p></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">Abs label</td>
+              <td colspan="1" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">If there is a label in the cdx file, the absolute stereo flag is set to the molecule.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <h2 id="FeaturesimportedfromCDXandCDXMLfiles-complexGraphicsComplexgraphics"><a name="graphics" rel="nofollow"></a><span class="confluence-anchor-link" id="FeaturesimportedfromCDXandCDXMLfiles-complexGraphics"></span>Complex graphics</h2>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <thead>
+             <tr>
+              <th class="confluenceTh">ChemBioDraw</th>
+              <th colspan="1" class="confluenceTh">ChemAxon</th>
+              <th class="confluenceTh">ChemAxon</th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <td class="confluenceTd">Tables</td>
+              <td colspan="1" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">Tables are imported as graphical objects. The cell size and relative positions are retained, and the cells visualized by rectangles.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd">TLC plates</td>
+              <td colspan="1" class="confluenceTd"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)" /></td>
+              <td class="confluenceTd">TLC plate drawing is imported with graphical elements, keeping original positions.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

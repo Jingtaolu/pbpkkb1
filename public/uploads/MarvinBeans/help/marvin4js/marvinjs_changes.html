@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="author" content="Dóra Barna, Eufrozina Hoffmann">
+	<link rel ="stylesheet" type="text/css" href="../marvinmanuals.css" title="Style">
+	<title>Changes</title>
+</head>
+<body>
+
+<h1>History of changes: New features and improvements, Bugfixes</h1>
+<h3><a id="v60300" class="anchor"></a>June 11th, 2014: Marvin JS 6.3.1</h3>
+
+<h4>Bugfixes</h4>
+<ul>
+	<li><strong>Marvin JS GUI</strong>
+		<ul>
+			<li> "Cut", "Copy" and "Paste" buttons have been restored to the General Toolbar.
+ 				</li>
+		</ul>
+	</li>
+</ul>
+
+<h3><a id="v60300" class="anchor"></a>May 15th, 2014: Marvin JS 6.3.0</h3>
+<h4>New features and improvements</h4>
+<ul>
+	<li><strong>Marvin JS GUI</strong>
+		<ul>
+			<li>Marvin JS now calculates the lone pairs of atoms automatically. The visibility of lone pairs can be turned on and off in the <b>View settings</b> dialog.</li>
+		</ul>
+	</li>
+	<li><strong>Editing</strong>
+		<ul>
+			<li>Chemical reactions can be drawn, edited, imported and exported in Marvin JS using either straight arrows or resonance arrows. <a href="marvinjs_chem.htm#reaction">Documentation</a></li>
+			<li>Single and double electron flow arrows can drawn, edited and imported/exported in MRV format in Marvin JS. <a href="electronflow.html">Documentation</a></li>
+			<li>"Monovalent" radical electrons can be added to atoms using the <b>Atom properties</b> dialog.</li>
+			<li>Mapping numbers can be added to atoms using the <b>Atom properties</b> dialog.</li>
+		</ul>
+	</li>
+	<li><strong>Import/Export</strong>
+		<ul>
+			<li>Structuress containing single step reactions can be exported as reaction files from server side in the following file fromats: MRV, RXN, SMILES, CXSMILES, SMARTS, CXSMARTS, CML, 
+				RXN V3000, SDF, CSSDF, CDX, SKC.<br>
+				Structures containing more than one or multistep reactions can be exported from client side. The arrows and "+" signs in the reactions will be exported as graphical objects in this case. 
+				<a href="marvinjs_chem.htm#reaction">Documentation</a></li>
+			<li>During MOL file import, Marvin JS normalizes the coordinates and uses consistent scaling irrespectively of the content of the MOL file.</li>
+			<li>During MRV export, fragments inside R-group definitions are exported as separate molecules.</li>
+		</ul>
+	</li>
+</ul>
+
+<h4>Bugfixes</h4>
+<ul>
+	<li><strong>Marvin JS GUI</strong>
+		<ul>
+			<li>On Mac OS X, simulating a right-click by using Ctrl + left-click on a selected atom did not contain the elements of the Selection popup menu. 
+				<a href="https://www.chemaxon.com/forum/ftopic12112.html">Forum</a></li>
+		</ul>
+	</li>
+	<li><strong>Editing</strong>
+		<ul>
+			<li>Removing more than one atom alias in one step could not be undone.</li>
+			<li>Adding crossing bonds to an abbreviated group could not be undone after the group had been expanded.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3><a id="v60220" class="anchor"></a>April 4th, 2014: Marvin for JavaScript 6.2.2</h3>
+<p>No changes.</p>
+
+<h3><a id="v60210" class="anchor"></a>February 28th, 2014: Marvin for JavaScript 6.2.1</h3>
+<h4>New features and improvements</h4>
+<ul>
+	<li><strong>Marvin for JavaScript Toolbars</strong>
+		<ul>
+			<li>The <b>R-group</b> and <b>R-group attachment</b> buttons can be reached from the <b>Tools</b> toolbar.</li>
+		</ul>
+	</li>
+	<li><strong>Clipboard handling</strong>
+		<ul>
+			<li>Pasting structures into Marvin for JavaScript using the Ctrl+V keyboard shortcut is possible in any of the supported text-based formats (SMILES, Name, InChi...) when the relevant webservice is available.</li>
+		</ul>
+	</li>
+	<li><strong>Import/Export</strong>
+		<ul>
+			<li>The "Absolute" chiral flag can be imported and exported in MDL MOL V2000 format.</li>
+			<li>InChiKey file format has been removed from the list of import format options because it is not possible to import such files with Marvin for JavaScript.</li>
+		</ul>
+	</li>
+</ul>
+
+<h4>Bugfixes</h4>
+<ul>
+	<li><strong>Editing</strong>
+		<ul>
+			<li>The type of highlighted atoms and bonds could not be changed by keyboard typing.</li>
+			<li>Changing an atom by keyboard typing while using the <b>Freehand</b> tool for drawing made the <b>Freehand</b> tool inactive</li>
+			<li>When selected R-attachments were deleted using the Delete key, the green selection highlight remained visible on the canvas.</li>
+			<li>Adding a chain or a template to an atom in an R-group definition, then undoing the editing removed the atom from the definition.</li>
+			<li>Merging a template on a bond of an R-group definition fragment removed the whole fragment from the definition.</li>
+			<li>When a template was merged on a structure, the template atoms overwrote the original atoms on the canvas.</li>
+		</ul>
+	</li>
+	<li><strong>Import/Export</strong>
+		<ul>
+			<li>During MDL MOL V2000 import, MOL V3000 files were recognized as empty molecules, and no error message was given about the unsuccessful import. 
+				<a href="https://www.chemaxon.com/forum/ftopic12011.html">Forum</a></li>
+		</ul>
+	</li>
+</ul> 
+
+<h3><a id="v60200" class="anchor"></a>January 30th, 2014: Marvin for JavaScript 6.2.0</h3>
+<h4>New features and improvements</h4>
+<ul>
+	<li><strong>Editing</strong>
+		<ul>
+			<li>R-group definitions can be created and edited in Marvin for JavaScript. <a href="marvinjs_chem.htm#rGroup">Documentation</a></li>
+			<li>R-group attachment points can be defined on atoms.</li>
+			<li>R-group attachment points are automatically numbered.</li>
+		</ul>
+	</li>
+	
+	<li><strong>Marvin for JavaScript Menus</strong>
+		<ul>
+			<li>"Bonds" popup menu has been removed.</li>
+			<li>"Delete" option has been removed from popup menus.</li>
+			<li>Drop-down lists behind popup menus can be reached by pressing long.</li>
+		</ul>
+	</li>
+	
+	<li><strong>Clipboard handling</strong>
+		<ul>
+			<li>Copy and paste from and to Marvin for JavaScript is possible in MDL Molfile V2000 format using the Ctrl+C and Ctrl+V keyboard shortcuts, respectively.</li>
+			<li>Pasting structures into Marvin for JavaScript is possible in MRV format using the Ctrl+V keyboard shortcut.</li>
+		</ul>
+	</li>
+	
+	<li><strong>Import/Export</strong>
+		<ul>
+			<li>Import and export of SMARTS and ChemAxon Extended SMARTS files have become possible when the relevant webservice is available.</li>
+		</ul>
+	</li>
+	
+	<li><strong>Touchscreen devices</strong>
+		<ul>
+			<li>Icons on toolbars have been enlarged.</li>
+			<li>Popup menus can be opened by long-press on the canvas.</li>
+			<li>Extra buttons for reaching popup menu elements have been removed from the toolbar.</li>
+			<li>Changing the zoom ratio with two fingers has become possible.</li>
+			<li>The canvas content can be scrolled with two fingers.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3><a id="v60140" class="anchor"></a>December 7th, 2013: Marvin for JavaScript 6.1.4</h3>
+<p>No changes.</p>
+
+<h3><a id="v60130" class="anchor"></a>October 31st, 2013: Marvin for JavaScript 6.1.3</h3>
+<p>No changes.</p>
+
+<h3><a id="v60120" class="anchor"></a>October 17th, 2013: Marvin for JavaScript 6.1.2</h3>
+<p>No changes.</p>
+
+<h3><a id="v60110" class="anchor"></a>October 11th, 2013: Marvin for JavaScript 6.1.1</h3>
+<p>Non-public version</p>
+
+<h3><a id="v60100" class="anchor"></a>September 10th, 2013: Marvin for JavaScript 6.1.0</h3>
+<h4>New features and improvements</h4>
+<ul>
+	<li><strong>Marvin for JavaScript Toolbar</strong>
+		<ul>
+			<li>"More" button has been introduced on the toolbars.</li>
+		</ul>
+	</li>
+	
+	<li><strong>Editing</strong>
+		<ul>
+			<li>Pre-defined homology groups are available from the Atom properties dialog. <a href="marvinjs_chem.htm#homology">Documentation</a></li>
+			<li>Atoms, bonds, and selection can be erased with the Delete button of the keyboard.</li>
+			<li>Atoms can be changed with an atom shortcut while the bond tool is active and <i>vice versa</i>: bonds can be modified with a bond shortcut while an atom tool is active.</li>
+		</ul>
+	</li>
+	
+	<li><strong>Touchscreen devices</strong>
+		<ul>
+			<li>Popup menu elements are available through toolbar buttons on touchscreen devices.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3><a id="v60060" class="anchor"></a>November 25th, 2013: Marvin for JavaScript 6.0.6</h3>
+<p>No changes.</p>
+
+<h3><a id="v60050" class="anchor"></a>August 27th, 2013: Marvin for JavaScript 6.0.5</h3>
+<p>No changes.</p>
+
+<h3><a id="v60040" class="anchor"></a>August 6th, 2013: Marvin for JavaScript 6.0.4</h3>
+<p>No changes.</p>
+
+<h3><a id="v60030" class="anchor"></a>July 23rd, 2013: Marvin for JavaScript 6.0.3</h3>
+<p>No changes.</p>
+
+<h3><a id="v60020" class="anchor"></a>June 25th, 2013: Marvin for JavaScript 6.0.2</h3>
+<p>No changes.</p>
+
+<h3><a id="v60010" class="anchor"></a>June 21st, 2013: Marvin for JavaScript 6.0.1</h3>
+<h4>Bugfixes </h4>
+<ul>
+	<li>Zooming problem in case of  two fingers' zooming on a touchpad has been resolved.</li>
+	<li>Unnecessary console log reference has been removed from code.</li>
+	<li>Merging and rotation feedback in Chrome browser has been fixed.</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Secondary Structure parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Secondary Structure parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Possible values</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.DrawType</code></td>
+          <td class="confluenceTd">Draw type of all secondary structure components of the scene</td>
+          <td class="confluenceTd">
+           <ul style="margin-left: 20.0px;">
+            <li>Trace,</li>
+            <li>Tube,</li>
+            <li>PipeAndPlank,</li>
+            <li>RibbonLines,</li>
+            <li>Ribbon,</li>
+            <li>CartoonSquare,</li>
+            <li>Cartoon</li>
+           </ul></td>
+          <td class="confluenceTd"><code>Cartoon</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.ColorType</code></td>
+          <td class="confluenceTd">Color type of all secondary structure components of the scene</td>
+          <td class="confluenceTd"><code>&quot;Constant&quot;, &quot;Residue&quot;, &quot;Chain&quot;, &quot;Rainbow&quot;, &quot;B-factor&quot;, &quot;SecondaryStructure&quot;</code></td>
+          <td class="confluenceTd"><code>SecondaryStructure</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.Quality</code></td>
+          <td class="confluenceTd">Quality of all secondary structure components of the scene</td>
+          <td class="confluenceTd"><code>&quot;High&quot;, &quot;Medium&quot;, &quot;Low&quot;</code></td>
+          <td class="confluenceTd"><code>Medium</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.Color</code></td>
+          <td class="confluenceTd">The color used in constant color mode</td>
+          <td class="confluenceTd"><code>java.awt.Color</code></td>
+          <td class="confluenceTd"><code>#ffffff</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.HelixWidth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>1.2</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.HelixDepth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>0.3</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.HelixShift</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>2.5</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.HelixArrow</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.HelixArrowWidth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>3.8</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.SheetWidth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>1.2</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.SheetDepth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>0.4</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.SheetArrow</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.SheetArrowWidth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>3.8</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.CoilWidth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>0.3</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.CoilDepth</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Float</code></td>
+          <td class="confluenceTd"><code>0.3</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.CoilUniform</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>true, false</code></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>SecondaryStructure.Threads</code></td>
+          <td class="confluenceTd">.</td>
+          <td class="confluenceTd"><code>Integer</code></td>
+          <td class="confluenceTd"><code>6 </code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

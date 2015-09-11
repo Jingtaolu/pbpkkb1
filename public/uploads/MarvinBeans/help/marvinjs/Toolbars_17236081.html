@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Toolbars</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Toolbars </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span style="line-height: 1.4285715;">Toolbars provide buttons for accessing the majority of the features offered by Marvin JS.&nbsp;The button of the currently selected tool has a blue highlight to indicate its active status.</span></p>
+      <div class="panel" style="background-color: SmokeWhite;border-width: 1px;">
+       <div class="panelContent" style="background-color: SmokeWhite;"> 
+        <h5 id="Toolbars-Hoveracursoroverabuttontoseeatooltipdescribingthefunctionalityofthebutton."><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> Hover a cursor over a button to see a tooltip describing the functionality of the button.</h5> 
+       </div>
+      </div>
+      <p><span class="confluence-anchor-link" id="Toolbars-Summary"></span></p>
+      <div class="panel" style="background-color: WhiteSmoke;border-color: Teal;border-style: solid;border-width: 1px;">
+       <div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: Teal;background-color: WhiteSmoke;color: black;">
+        <b>Toolbars</b>
+       </div>
+       <div class="panelContent" style="background-color: WhiteSmoke;"> 
+        <ul>
+         <li><a href="#Toolbars-generalToolbar">General Toolbar</a></li>
+         <li><a href="#Toolbars-toolsToolbar">Tools Toolbar</a>&nbsp;
+          <ul>
+           <li><a href="#Toolbars-bonds">Bonds</a></li>
+          </ul></li>
+         <li><a href="#Toolbars-atomsToolbar">Atoms Toolbar&nbsp;</a></li>
+         <li style="margin-left: 30.0px;"><a href="#Toolbars-periodicTable">Periodic Table</a></li>
+         <li style="margin-left: 30.0px;"><a href="#Toolbars-starAtom">Star (*) atom</a></li>
+         <li style="margin-left: 30.0px;"><a href="#Toolbars-queryAtoms">Query atoms</a></li>
+         <li><a href="#Toolbars-templateToolbar">Templates Toolbar</a></li>
+        </ul> 
+       </div>
+      </div>
+      <h2 id="Toolbars-generalToolbarGeneralToolbar"><span class="confluence-anchor-link" id="Toolbars-generalToolbar"></span><span style="color: rgb(0,0,0);">General Toolbar</span></h2>
+      <p><span style="font-size: 20.0px;line-height: 1.5;color: rgb(0,0,0);">&nbsp;</span> <span style="font-size: 14.0px;line-height: 1.4285715;">The </span> <strong style="font-size: 14.0px;line-height: 1.4285715;">General</strong> <span style="font-size: 14.0px;line-height: 1.4285715;"> toolbar contains buttons for file management (Import, Export) and for general editing/viewing of the canvas content (Clear, Undo/Redo, Cut/Copy/Paste, Zoom, Clean, Navigate and View Settings).</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399997.png" data-image-src="attachments/17236081/17399997.png" data-unresolved-comment-count="0" data-linked-resource-id="17399997" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="clear.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-clear"></span>Clear</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Clear the whole canvas without saving its content.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29097995.jpg" data-image-src="attachments/17236081/29097995.jpg" data-unresolved-comment-count="0" data-linked-resource-id="29097995" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Import.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-import"></span>Import</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Load an already existing file into Marvin JS. See the supported file formats <a href="Import-and-Export_17236084.html#ImportandExport-import">here</a>.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400040.png" data-image-src="attachments/17236081/17400040.png" data-unresolved-comment-count="0" data-linked-resource-id="17400040" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="save.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-export"></span>Export</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Save your structures in the choosen file format. See the supported file formats <a href="Import-and-Export_17236084.html#ImportandExport-export">here</a>.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400012.png" data-image-src="attachments/17236081/17400012.png" data-unresolved-comment-count="0" data-linked-resource-id="17400012" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="undo.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;">Undo</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Revert the last commands you applied.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400036.png" data-image-src="attachments/17236081/17400036.png" data-unresolved-comment-count="0" data-linked-resource-id="17400036" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="redo.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;">Redo</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Revert the effect of the last &quot;Undo&quot; command.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400001.png" data-image-src="attachments/17236081/17400001.png" data-unresolved-comment-count="0" data-linked-resource-id="17400001" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="cut.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-cut"></span>Cut</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Place the selection on the clipboard, while removing the original structure from the canvas.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400000.png" data-image-src="attachments/17236081/17400000.png" data-unresolved-comment-count="0" data-linked-resource-id="17400000" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="copy.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-copy"></span>Copy</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Place the selection on the clipboard, while leaving the original structure unchanged.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400027.png" data-image-src="attachments/17236081/17400027.png" data-unresolved-comment-count="0" data-linked-resource-id="17400027" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="paste.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-paste"></span>Paste</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Insert the content of the clipboard onto the canvas.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400017.png" data-image-src="attachments/17236081/17400017.png" data-unresolved-comment-count="0" data-linked-resource-id="17400017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ZoomIn.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-zoomIn"></span>Zoom in</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Increase the zoom ratio.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400018.png" data-image-src="attachments/17236081/17400018.png" data-unresolved-comment-count="0" data-linked-resource-id="17400018" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ZoomOut.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-zoomOut"></span>Zoom out</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Decrease the zoom ratio.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400016.png" data-image-src="attachments/17236081/17400016.png" data-unresolved-comment-count="0" data-linked-resource-id="17400016" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ZoomAll.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-zoomAll"></span>Zoom All</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Change the zoom ratio to the optimal value to view everything on the canvas.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400019.png" data-image-src="attachments/17236081/17400019.png" data-unresolved-comment-count="0" data-linked-resource-id="17400019" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ZoomSelection.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-zoomToSelection"></span>Zoom to Selection</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">The selected object will be the center of zooming.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399996.png" data-image-src="attachments/17236081/17399996.png" data-unresolved-comment-count="0" data-linked-resource-id="17399996" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="clean2D.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-clean2D"></span>Clean 2D</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Clean the structure(s) on the canvas in 2D by recalculating the atomic coordinates.</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/19759115.png" data-image-src="attachments/17236081/19759115.png" data-unresolved-comment-count="0" data-linked-resource-id="19759115" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="clean_3d.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><p><span class="confluence-anchor-link" id="Toolbars-clean3d"></span>Clean 3D</p></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Clean the structure(s) on the canvas in 3D by recalculating the atomic coordinates.</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-center" width="29" src="attachments/17236081/29099382.png" data-image-src="attachments/17236081/29099382.png" data-unresolved-comment-count="0" data-linked-resource-id="29099382" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-28 14:8:18.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span><span class="confluence-anchor-link" id="Toolbars-autoMap"></span>Auto Map</span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">&nbsp;Assigns map numbers to the corresponding atoms in a reaction.</td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400008.png" data-image-src="attachments/17236081/17400008.png" data-unresolved-comment-count="0" data-linked-resource-id="17400008" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="stereo.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-calcStereo"></span>Calculate stereo</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Determine R/S stereo labels for chiral atoms and E/Z labels for double bonds.</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/24313903.png" data-image-src="attachments/17236081/24313903.png" data-unresolved-comment-count="0" data-linked-resource-id="24313903" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Explicit H.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-anchor-link" id="Toolbars-explicitH"></span>Add/Remove explicit H</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span>Add/remove hydrogen atoms to/from the selected structure. Without selection changes apply for every atom on the canvas.</span></td>
+         </tr>
+         <tr>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/19759105.png" data-image-src="attachments/17236081/19759105.png" data-unresolved-comment-count="0" data-linked-resource-id="19759105" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="3D_rotate.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><p><span class="confluence-anchor-link" id="Toolbars-rotate3D"></span>3D rotate</p></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Rotate your structure in 3D.</td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400015.png" data-image-src="attachments/17236081/17400015.png" data-unresolved-comment-count="0" data-linked-resource-id="17400015" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="viewSettings.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-viewSettings"></span>View Settings</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Set display properties in the <strong>View Settings</strong> dialog box.</p></td>
+         </tr>
+         <tr>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399977.png" data-image-src="attachments/17236081/17399977.png" data-unresolved-comment-count="0" data-linked-resource-id="17399977" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="help.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td class="confluenceTd"><p style="text-align: center;">About Marvin JS</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Displays information about the application (name, version number) and a link to the User's Guide.</p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><a href="#Toolbars-Summary">Back to the List...</a></p>
+      <h2 id="Toolbars-toolsToolbarToolsToolbar"><span class="confluence-anchor-link" id="Toolbars-toolsToolbar"></span> <span style="line-height: 1.5;color: rgb(0,0,0);">Tools Toolbar</span></h2>
+      <p><span style="color: rgb(0,0,0);">&nbsp;</span> <span style="font-size: 14.0px;line-height: 1.4285715;">The </span> <strong style="font-size: 14.0px;line-height: 1.4285715;">Tools</strong> <span style="font-size: 14.0px;line-height: 1.4285715;"> toolbar offers several options for drawing or editing structures.<br /> </span> <span style="line-height: 1.4285715;">There are &quot;combo&quot; buttons on the </span> <strong style="line-height: 1.4285715;">Tools</strong> <span style="line-height: 1.4285715;"> toolbar, which have a triangle in their lower right corner. When you click there, you can select a function from a list of options. Once an option is selected, the main &quot;combo&quot; button retains the selection.</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400035.png" data-image-src="attachments/17236081/17400035.png" data-unresolved-comment-count="0" data-linked-resource-id="17400035" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rectangleSelection.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-selection"></span>Selection</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Select whole structures or molecule fragments.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399966.png" data-image-src="attachments/17236081/17399966.png" data-unresolved-comment-count="0" data-linked-resource-id="17399966" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="delete.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-delete"></span>Delete</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Erase one or more structures or molecule fragments.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400042.png" data-image-src="attachments/17236081/17400042.png" data-unresolved-comment-count="0" data-linked-resource-id="17400042" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="singleBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-bondsButton"></span> <strong> <a href="#Toolbars-bonds">Bonds</a> </strong></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Open the complete list of chemical bonds including several query bond types.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399992.png" data-image-src="attachments/17236081/17399992.png" data-unresolved-comment-count="0" data-linked-resource-id="17399992" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="chain.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-chain"></span>Chain</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Draw an alkyl chain of arbitrary length.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400031.png" data-image-src="attachments/17236081/17400031.png" data-unresolved-comment-count="0" data-linked-resource-id="17400031" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="positiveCharge.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-incrCharge"></span>Increase Charge</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Increase the charge of an atom with one unit (<em>i.e.</em> adds a positive charge to the atom).</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400049.png" data-image-src="attachments/17236081/17400049.png" data-unresolved-comment-count="0" data-linked-resource-id="17400049" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="negativeCharge.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-decrCharge"></span>Decrease Charge</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Decrease the charge of an atom with one unit (<em>i.e.</em> adds a negative charge to the atom).</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/17236081/35423534.png" data-image-src="attachments/17236081/35423534.png" data-unresolved-comment-count="0" data-linked-resource-id="35423534" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-12 11:48:29.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Repeating Group</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Creates a repeating unit or a link node.</td>
+         </tr>
+         <tr>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/26281291.png" data-image-src="attachments/17236081/26281291.png" data-unresolved-comment-count="0" data-linked-resource-id="26281291" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Smart R-group.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-anchor-link" id="Toolbars-Rgroups"></span> Smart <span>R-group</span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span>Insert an R-group or create an R-group definition.</span></td>
+         </tr>
+         <tr>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400034.png" data-image-src="attachments/17236081/17400034.png" data-unresolved-comment-count="0" data-linked-resource-id="17400034" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="rAttachment.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-anchor-link" id="Toolbars-Rattachment"></span> <span>R-group attachment</span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span>Add an R-group attachment point to an atom.</span></td>
+         </tr>
+         <tr>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/33390856.png" data-image-src="attachments/17236081/33390856.png" data-unresolved-comment-count="0" data-linked-resource-id="33390856" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Staight arrow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-anchor-link" id="Toolbars-straightArrow"></span>Reaction tool</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">&quot;Combo&quot; button to select between single (straight) or other types of arrows.</td>
+         </tr>
+         <tr>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17989732.png" data-image-src="attachments/17236081/17989732.png" data-unresolved-comment-count="0" data-linked-resource-id="17989732" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="box.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-anchor-link" id="Toolbars-box"></span>Rectangle</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><p>&quot;Combo&quot; button to draw a graphical box (e.g. rectangle, ellipse ).</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400107.png" data-image-src="attachments/17236081/17400107.png" data-unresolved-comment-count="0" data-linked-resource-id="17400107" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="single_eflow.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-anchor-link" id="Toolbars-singleEflow"></span>Electron Flow Operator</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">&quot;Combo&quot; button to select between single or double electron flow arrows.</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/37913954.png" data-image-src="attachments/17236081/37913954.png" data-unresolved-comment-count="0" data-linked-resource-id="37913954" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-6-24 9:36:39.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd"><span class="confluence-anchor-link" id="Toolbars-increaseRadical"></span>Increase radical</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">&quot;Combo&quot; button to add radicals or lone pairs to an atom.</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/37913956.png" data-image-src="attachments/17236081/37913956.png" data-unresolved-comment-count="0" data-linked-resource-id="37913956" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-6-24 9:38:52.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Text</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Write text, insert symbols onto the canvas.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><a href="#Toolbars-Summary">Back to the List...</a></p>
+      <h3 id="Toolbars-bondsBonds"><span style="color: rgb(7,113,121);"> <span class="confluence-anchor-link" id="Toolbars-bonds"></span> <span style="color: rgb(0,0,0);">Bonds</span> </span></h3>
+      <p>You can choose any type of bond by clicking on the lower right corner of the <strong>Bonds</strong> &quot;combo&quot; button in the toolbar. Among these bonds you can find several query types, too. You can also use keyboard shortcuts to choose a bond type to connect two atoms or alter an already existing bond. See the complete list of chemical bonds available in Marvin for JavaScript and their respective keyboard shortcuts in the table below.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><strong>Bond symbol</strong></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><strong>Bond type</strong></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><strong>Shortcut</strong></p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-drawing"></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399970.png" data-image-src="attachments/17236081/17399970.png" data-unresolved-comment-count="0" data-linked-resource-id="17399970" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="drawing.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-freehand"></span>Drawing</p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><strong><code>Ctrl+D</code></strong></p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400042.png" data-image-src="attachments/17236081/17400042.png" data-unresolved-comment-count="0" data-linked-resource-id="17400042" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="singleBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Single&quot; bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">1</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399968.png" data-image-src="attachments/17236081/17399968.png" data-unresolved-comment-count="0" data-linked-resource-id="17399968" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="doubleBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Double&quot; bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">2</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400011.png" data-image-src="attachments/17236081/17400011.png" data-unresolved-comment-count="0" data-linked-resource-id="17400011" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="tripleBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Triple&quot; bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">3</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400025.png" data-image-src="attachments/17236081/17400025.png" data-unresolved-comment-count="0" data-linked-resource-id="17400025" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="aromaticBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Aromatic&quot; bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">4</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400045.png" data-image-src="attachments/17236081/17400045.png" data-unresolved-comment-count="0" data-linked-resource-id="17400045" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="singleUpBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Single Up&quot; wedge bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">5</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400044.png" data-image-src="attachments/17236081/17400044.png" data-unresolved-comment-count="0" data-linked-resource-id="17400044" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="singleDownBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Single Down&quot; wedge bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">6</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400006.png" data-image-src="attachments/17236081/17400006.png" data-unresolved-comment-count="0" data-linked-resource-id="17400006" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="singleUpDownBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Single Up or Down&quot; query bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">7</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399969.png" data-image-src="attachments/17236081/17399969.png" data-unresolved-comment-count="0" data-linked-resource-id="17399969" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="doubleCisTransBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Double Cis or Trans&quot; query bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">-</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400014.png" data-image-src="attachments/17236081/17400014.png" data-unresolved-comment-count="0" data-linked-resource-id="17400014" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="unspecifiedBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Double C/T or Unspecified&quot; query bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">-</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400043.png" data-image-src="attachments/17236081/17400043.png" data-unresolved-comment-count="0" data-linked-resource-id="17400043" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="singleDoubleBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Single or Double&quot; query bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">12</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400041.png" data-image-src="attachments/17236081/17400041.png" data-unresolved-comment-count="0" data-linked-resource-id="17400041" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="singleAromaticBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Single or Aromatic&quot; query bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">14</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399967.png" data-image-src="attachments/17236081/17399967.png" data-unresolved-comment-count="0" data-linked-resource-id="17399967" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="doubleAromaticBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Double or Aromatic&quot; query bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">24</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400022.png" data-image-src="attachments/17236081/17400022.png" data-unresolved-comment-count="0" data-linked-resource-id="17400022" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="anyBond.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Any&quot; query bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">0</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/32145435.png" data-image-src="attachments/17236081/32145435.png" data-unresolved-comment-count="0" data-linked-resource-id="32145435" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-10-21 16:25:33.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Coordinate&quot; bond</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">-</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/17236081/33390858.png" data-image-src="attachments/17236081/33390858.png" data-unresolved-comment-count="0" data-linked-resource-id="33390858" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="PositionVariationBondTool.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">&quot;Position variation&quot; bond</td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">-</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><a href="#Toolbars-Summary">Back to the List...</a></p>
+      <h2 id="Toolbars-atomsToolbarAtomsToolbar"><span class="confluence-anchor-link" id="Toolbars-atomsToolbar"></span> <span style="color: rgb(0,0,0);">Atoms Toolbar</span></h2>
+      <p>The elements of the <strong>Atoms</strong> toolbar provide tools for drawing and modifying atoms, including query atom types, too. The chosen atomic symbol appears on the tip of the cursor. After a left-click, this atom is put on the canvas. Note that you can also use <a href="Keyboard-Shortcuts_17236097.html"> shortcuts </a> (atomic symbols) to choose any atom from the Periodic Table.</p>
+      <p style="text-align: center;">&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-periodicTableButton"></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400028.png" data-image-src="attachments/17236081/17400028.png" data-unresolved-comment-count="0" data-linked-resource-id="17400028" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="periodicTable.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-periodicTableButton"></span> <strong><span style="color: rgb(0,0,0);"> <a href="#Toolbars-periodicTable">Periodic Table</a> </span></strong></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Opens the Periodic Table to select an atom.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399980.png" data-image-src="attachments/17236081/17399980.png" data-unresolved-comment-count="0" data-linked-resource-id="17399980" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="hydrogen2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399991.png" data-image-src="attachments/17236081/17399991.png" data-unresolved-comment-count="0" data-linked-resource-id="17399991" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="carbon2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400051.png" data-image-src="attachments/17236081/17400051.png" data-unresolved-comment-count="0" data-linked-resource-id="17400051" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nitrogen2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400026.png" data-image-src="attachments/17236081/17400026.png" data-unresolved-comment-count="0" data-linked-resource-id="17400026" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="oxygen2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span>...</p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-freqAtoms"></span>Frequently used atoms</p></td>
+          <td class="confluenceTd"><p style="text-align: center;">The most frequently used atoms can be reached directly from the toolbar.</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400007.png" data-image-src="attachments/17236081/17400007.png" data-unresolved-comment-count="0" data-linked-resource-id="17400007" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="starAtom.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span style="color: rgb(0,0,0);"> <a href="#Toolbars-starAtom">Star atom</a> </span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Draws a '*' atom (<em>e.g.</em>, for an unspecified end group in a polymer).</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098086.png" data-image-src="attachments/17236081/29098086.png" data-unresolved-comment-count="0" data-linked-resource-id="29098086" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="any.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-queryAtomButton"></span> <span style="color: rgb(0,0,0);"> <a href="#Toolbars-queryAtom">Query atoms</a> </span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">&quot;Combo&quot; button to select a query atom type or define a pseudo atom.</p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><span style="color: rgb(7,113,121);"><a href="#Toolbars-Summary">Back to the List...</a><br /></span></p>
+      <h3 id="Toolbars-periodicTablePeriodicTable"><span style="color: rgb(7,113,121);"><span class="confluence-anchor-link" id="Toolbars-periodicTable"></span> <span style="color: rgb(0,0,0);"> <strong>Periodic Table</strong> </span> </span></h3>
+      <p>This button opens the Periodic Table in a pop-up window. You can choose any atom from the Periodic Table to put it on the canvas with a left-click. You can also define <span style="color: rgb(0,51,102);"><a href="Query-Structures_17236093.html#QueryStructures-atomLists">Atom Lists and NOT Lists</a></span>&nbsp;for query structures. The selected atom or list appears on the tip of the cursor, and you can place it on the canvas one or more times.<br />&nbsp;<span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" confluence-query-params="effects=border-simple,blur-border" src="attachments/17236081/32702834.png?effects=border-simple,blur-border" data-image-src="attachments/17236081/32702834.png" data-unresolved-comment-count="0" data-linked-resource-id="32702834" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Periodic Table.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p>
+      <p><a href="#Toolbars-Summary">Back to the List...</a></p>
+      <h3 id="Toolbars-starAtomStar(*)atom"><span style="color: rgb(7,113,121);"> <span class="confluence-anchor-link" id="Toolbars-starAtom"></span> <span style="color: rgb(0,0,0);"> <strong>Star (*</strong>) atom</span> </span></h3>
+      <p>In most cases, a '*' atom stands for an unspecified end group in a polymer. More generally, it can symbolize any type of unknown or unspecified groups or molecules. Technically, it is an 'AH' type query atom (any elements including hydrogen) with an alias.<span style="color: rgb(7,113,121);">&nbsp;</span></p>
+      <p><span style="color: rgb(7,113,121);"><a href="#Toolbars-Summary">Back to the List...</a></span></p>
+      <p><span class="confluence-anchor-link" id="Toolbars-queryAtoms"></span><span style="color: rgb(7,113,121);">&nbsp;</span><span style="color: rgb(0,0,0);"> <strong>Query atoms</strong></span></p>
+      <p>Marvin JS offers several query atom types, which can be reached by left-clicking on the lower right corner of the <strong>Query Atoms</strong> &quot;combo&quot; button. See the complete list in the table below. Pseudo atoms are also available from here.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098698.png" data-image-src="attachments/17236081/29098698.png" data-unresolved-comment-count="0" data-linked-resource-id="29098698" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:10:24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Any of the elements except hydrogen</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098699.png" data-image-src="attachments/17236081/29098699.png" data-unresolved-comment-count="0" data-linked-resource-id="29098699" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:10:45.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Hetero atom (any atom except carbon and hydrogen)</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098700.png" data-image-src="attachments/17236081/29098700.png" data-unresolved-comment-count="0" data-linked-resource-id="29098700" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:11:7.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Metal atom</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098701.png" data-image-src="attachments/17236081/29098701.png" data-unresolved-comment-count="0" data-linked-resource-id="29098701" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:11:23.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Halogen atom</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098702.png" data-image-src="attachments/17236081/29098702.png" data-unresolved-comment-count="0" data-linked-resource-id="29098702" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:11:33.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Any of the elements including hydrogen</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098703.png" data-image-src="attachments/17236081/29098703.png" data-unresolved-comment-count="0" data-linked-resource-id="29098703" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:11:49.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Any of the elements except carbon</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098704.png" data-image-src="attachments/17236081/29098704.png" data-unresolved-comment-count="0" data-linked-resource-id="29098704" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:12:4.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Metal atom or hydrogen</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098705.png" data-image-src="attachments/17236081/29098705.png" data-unresolved-comment-count="0" data-linked-resource-id="29098705" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:12:16.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Halogen atom or hydrogen</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/29098706.png" data-image-src="attachments/17236081/29098706.png" data-unresolved-comment-count="0" data-linked-resource-id="29098706" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2014-7-21 15:12:27.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Pseudo atom</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/37913684.png" data-image-src="attachments/17236081/37913684.png" data-unresolved-comment-count="0" data-linked-resource-id="37913684" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-6-15 17:15:32.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Atom query properties</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><a href="#Toolbars-Summary">Back to the List...</a></p>
+      <h2 id="Toolbars-templateToolbarTemplatesToolbar"><span class="confluence-anchor-link" id="Toolbars-templateToolbar"></span> <span style="line-height: 1.5;color: rgb(0,0,0);">Templates Toolbar</span></h2>
+      <p><span style="line-height: 1.5;color: rgb(0,0,0);">&nbsp;</span>&nbsp;Five<span style="font-size: 14.0px;line-height: 1.4285715;">&nbsp;generic templates are available from the </span> <strong style="font-size: 14.0px;line-height: 1.4285715;">Templates</strong> toolbar. After selecting one of these templates you can place it on the canvas with a left mouse-click. When placing it on the canvas, you can rotate the template around its center by dragging the cursor. Templates can also be connected to already existing structures by <a href="Drawing-Chemical-Structures_17236086.html#DrawingChemicalStructures-sproutDraw"> sprout drawing</a><span style="font-size: 14.0px;line-height: 1.4285715;">.</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td colspan="1" class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400020.png" data-image-src="attachments/17236081/17400020.png" data-unresolved-comment-count="0" data-linked-resource-id="17400020" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="abbrevGroup1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td colspan="1" class="confluenceTd"><p style="text-align: center;"><span class="confluence-anchor-link" id="Toolbars-abbrevGroup"></span>Abbreviated Groups</p></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/17236081/37913683.png" data-image-src="attachments/17236081/37913683.png" data-unresolved-comment-count="0" data-linked-resource-id="37913683" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-6-15 17:14:6.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></td>
+          <td colspan="1" style="text-align: center;" class="confluenceTd">Reaxys Group Generics</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400002.png" data-image-src="attachments/17236081/17400002.png" data-unresolved-comment-count="0" data-linked-resource-id="17400002" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="cyclohexane.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span>&nbsp;</td>
+          <td class="confluenceTd"><p style="text-align: center;">Cyclohexane</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400003.png" data-image-src="attachments/17236081/17400003.png" data-unresolved-comment-count="0" data-linked-resource-id="17400003" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="cyclopentane.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Cyclopentane</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400033.png" data-image-src="attachments/17236081/17400033.png" data-unresolved-comment-count="0" data-linked-resource-id="17400033" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pyrrole.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Pyrrole</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17400004.png" data-image-src="attachments/17236081/17400004.png" data-unresolved-comment-count="0" data-linked-resource-id="17400004" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="cyclopentaneHouse.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Cyclopentane (house)</p></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><p style="text-align: center;"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236081/17399987.png" data-image-src="attachments/17236081/17399987.png" data-unresolved-comment-count="0" data-linked-resource-id="17399987" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="benzene.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236081" data-linked-resource-container-version="100" /></span></p></td>
+          <td class="confluenceTd"><p style="text-align: center;">Benzene</p></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><a href="#Toolbars-Summary">Back to the List...</a></p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <span style="line-height: 1.4285715;"> Buttons for momentarily unavailable features are grayed out, and the </span> 
+        <span><strong><a href="#Toolbars-explicitH">Add/Remove explicit H</a></strong>,</span>
+        <span style="color: rgb(0,0,255);"> <span style="color: rgb(0,0,255);"><span style="color: rgb(0,51,102);"><strong> </strong><strong><a href="#Toolbars-clean2D">Clean</a></strong></span></span></span>
+        <span style="line-height: 1.4285715;">&nbsp;and<span style="color: rgb(0,0,0);"> <strong> <a href="#Toolbars-calcStereo">Calculate stereo</a></strong></span>&nbsp;buttons do not appear unless server connection is available.</span>
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,155 @@
+<html>
+<head>
+ <meta NAME="description" CONTENT="Marvin Beans Examples">
+ <meta NAME="author" CONTENT="Tamas Vertse">
+ <link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+ <title>Marvin Beans Examples</title>
+</head>
+<body>
+<center><h1>Marvin Beans Examples</h1></center>
+The examples having bolded links below contain additional description of the example.
+<ol>
+
+    <li>MarvinSketch
+    <ol>
+        <li><a href="sketch-simple/index.html"><b>MarvinSketch Simple Bean</b></a>:<br>
+            Creates a MarvinSketch bean and shows getting and setting molecules.</li>
+        <li><a href="sketch-images/index.html"><b>MarvinSketch Images</b></a>:<br>
+        Creates an image from the contents of the MarvinSketch canvas.</li>
+        <li><a href="sketch-params/index.html"><b>Structure Display Parameters</b></a>:<br>
+            Example of R-group visibility parameters.</li>
+        <li><a href="sketch-templates/index.html"><b>Structure Templates</b></a>:<br>
+        Customizing structure templates used in MarvinSketch.</li>
+        <li><a href="mtextbox/index.html"><b>Text Box</b></a>:<br>
+            Creating a text box containing formatted text.
+        </li>
+    </ol></li>
+
+    <li>MarvinView
+    <ol>
+        <li><a href="view-simple/index.html"><b>MarvinView Simple Bean</b></a>:<br>
+        Creates a single-cell MarvinView bean component.</li>
+        <li><a href="view-jtable/index.html"><b>MarvinView In JTable</b></a>:<br>
+            Loads multiple molecules from a file and displays them in a
+            JTable using MarvinView as the renderer of Molecule cells.</li>
+        <li><a href="view-table/index.html"><b>MarvinView Table View</b></a>:<br>
+	    Displays a molecule file in MarvinView using a scrollable molecule
+	    table.<br>
+	    Molecules are loaded dynamically and cached automatically,
+	    hence arbitrary size files are supported.</li>
+	<li>Lower level ways for creating molecule tables.<br>
+	    In these examples, all molecules are loaded in advance,
+	    hence the table size is limited by the available memory.
+	    <ol>
+	    <li><a href="view-table-params/index.html"><b>Table View with Parameters</b></a>:<br>
+		Loads multiple molecules from a file into memory, then displays
+		them using MarvinView's scrollable multi-cell molecule
+		matrix mode.</li>
+	    <li><a href="view-custommenu/CustomMenuExample.java.txt">CustomMenuExample</a>:
+		Customize the menu of MarvinView.</li>
+	    <li><a href="view-popup/MViewPopupExample.java.txt">MViewPopupExample</a>:
+		A viewer example with a customized popup menu.</li>
+	    <li><a href="view-checkbox/MViewExampleWithCheckbox.java.txt">
+		MViewExampleWithCheckbox</a>:
+                Demonstrates the handling of action and item events.</li>
+	    <li><a href="view-saveprops/MViewSaveProperties.java.txt">MViewSaveProperties</a>:
+		Demonstrates how to save Marvin properties.</li>
+	    </ol>
+	    </li>
+    </ol></li>
+
+    <li>Swing Components<ul>
+        <li><a href="jfilechooser-accessory/index.html"><b>JFileChooser accessory component</b></a>:<br>
+            Marvin as a custom accessory component of a file chooser to provide preview to molecule files.
+        </li>
+        <li><a href="dialog/DialogLauncher.java.txt">DialogLauncher</a>:<br> Launches a sketcher
+        or a viewer from a dialog window.</li>
+    </ul></li>
+
+    <li>Events
+    <ul>
+        <li><a href="sketch-events/SketchEventTest.java.txt">SketchEventTest</a>:
+        Shows the fired events of the sketcher.</li>
+        <li><a href="view-events/ViewEventTest.java.txt">ViewEventTest</a>:
+        This viewer example logs the fired events of the viewer.</li>
+        <li><a href="sketch-molchanged/MolChangedEventExample.java.txt"
+                >MolChangedEventExample</a>:
+                Howto listen the modifying of the structure in the editor.</li>
+    </ul></li>
+
+
+
+<li><a href="converter/SimpleConverter.java.txt">SimpleConverter</a>: Converts the
+specified molecule file into the required file format.</li>
+<li><a href="image-generation/index.html"><b>JSP Image Generation</b></a>:
+A JSP example to create an image from a molecule structure and display it
+in the browser.</li>
+<li><a href="excelsheet-generation/index.html"><b>Excelsheet Generation</b></a>:
+A JSP example to create an Excel Sheet with Marvin generated
+structure images and structure data.</li>
+<li><a href="../webstart/install.html"><b>JNLP examples</b></a>: Installation guide to jnlp examples</li>
+<li><a href="../plugin/index.html"><b>Calculator Plugins</b></a></li>
+<ul>
+	<li><a href="../plugin/index.html#usingtheapi"><b>Using Calculator Plugins via API</b></a>: general overview that shows how calculator plugins can be used via API.</li>
+	<li>Plugin API usage examples:
+	<ul>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html">ElementalAnalyserPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html">IUPACNamingPlugin</a>
+		<li>Protonation
+		<ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/pKaPlugin.html">pKaPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html">MajorMicrospeciesPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IsoelectricPointPlugin.html">IsoelectricPointPlugin</a>
+		</ul>
+		<li>Partitioning
+		<ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logPPlugin.html">logPPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html">logDPlugin</a>
+		</ul>
+		<li>Charge
+		<ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ChargePlugin.html">ChargePlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/IonChargePlugin.html">IonChargePlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/PolarizabilityPlugin.html">PolarizabilityPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/OrbitalElectronegativityPlugin.html">OrbitalElectronegativityPlugin</a>
+		</ul>
+		<li>Isomers
+		<ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/TautomerizationPlugin.html">TautomerizationPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/StereoisomerPlugin.html">StereoisomerPlugin</a>
+		</ul>
+		<li>Conformation
+		<ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ConformerPlugin.html">ConformerPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MolecularDynamicsPlugin.html">MolecularDynamicsPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/AlignmentPlugin.html">AlignmentPlugin</a>
+		</ul>
+		<li>Geometry
+		<ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/TopologyAnalyserPlugin.html">TopologyAnalyserPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/GeometryPlugin.html">GeometryPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/TPSAPlugin.html">TPSAPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/MSAPlugin.html">MSAPlugin</a>
+		</ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/EnumerationPlugin.html">EnumerationPlugin</a>
+		<li>Other
+		<ul>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/HuckelAnalysisPlugin.html">HuckelAnalysisPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/RefractivityPlugin.html">RefractivityPlugin</a>
+			<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/HBDAPlugin.html">HBDAPlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/ResonancePlugin.html">ResonancePlugin</a>
+		<li><a href="../../help/developer/beans/api/chemaxon/marvin/calculations/StructuralFrameworksPlugin.html">StructuralFrameworksPlugin</a>
+		</ul>
+	</ul></li>
+	<li><a href="../plugin-concurrent/index.html"><b>Concurrent plugin examples</b></a>: examples which show concurrent usage of calculator plugins.</li>
+	<li><a href="../plugin-dev/index.html"><b>Custom plugin implementation</b></a>: custom calculator plugin implementation and test application.</li>
+</ul>
+</ol>
+<p>
+<hr WIDTH="90%">
+<p ALIGN=CENTER><small>Copyright &copy; 1998-2015
+<a HREF="http://www.chemaxon.com" TARGET="_top">ChemAxon Ltd.</a>
+&nbsp;&nbsp;&nbsp;All rights reserved.</small></p>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Molecular Dynamics Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Molecular Dynamics Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives you a walk-through on how to use the Molecular Dynamics Plugin:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200955696 {padding: 0px;}
+div.rbtoc1439200955696 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200955696 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200955696"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#MolecularDynamicsPlugin-Introduction">Introduction</a></li> 
+          <li><a href="#MolecularDynamicsPlugin-Options">Options</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="MolecularDynamicsPlugin-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The Molecular Dynamics Plugin calculates the trajectory of a molecular system by integrating the equations of Newton's laws of motion. The generated trajectory can be visualized as a continuous animation or as a <a href="#MolecularDynamicsPlugin-fig.1">sequence of discrete frames</a>.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="MolecularDynamicsPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583839/29098598.png" data-image-src="attachments/12583839/29098598.png" data-unresolved-comment-count="0" data-linked-resource-id="29098598" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="md.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583839" data-linked-resource-container-version="18" /></span></p>
+      <p>Fig. 1 Trajectory of an MD run, shown as a sequence of frames</p>
+      <p>&nbsp;</p>
+      <h1 id="MolecularDynamicsPlugin-Options">Options</h1>
+      <p>&nbsp;</p>
+      <p>The following options can be set in the&nbsp;<em><a href="#MolecularDynamicsPlugin-fig.2">Molecular Dynamics Options</a></em>&nbsp;panel:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><strong>Display</strong>: display mode
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Animation</strong>: trajectory is displayed as an&nbsp;<a href="attachments/12583839/29098599.gif" data-linked-resource-id="29098599" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mdanim.gif" data-nice-type="Image" data-linked-resource-content-type="image/gif" data-linked-resource-container-id="12583839" data-linked-resource-container-version="18">animation</a>.</li>
+         <li><strong>Frames</strong>: trajectory frames are displayed individually (see above).</li>
+        </ul></li>
+       <li><strong>Force field:</strong>&nbsp;force field used for calculation.</li>
+       <li><strong>Integrator:</strong>&nbsp;integrator type used for solving the equations of Newton's laws of motion.</li>
+       <li><strong>Simulation steps:</strong>&nbsp;number of simulation steps.</li>
+       <li><strong>Step time (fs):</strong>&nbsp;time between simulation steps in femtoseconds.</li>
+       <li><strong>Initial temperature (K):</strong>&nbsp;initial temperature of the system in kelvin.</li>
+       <li><strong>Start time of display (fs):</strong>&nbsp;the time of the first simulation frame to be displayed in femtoseconds.</li>
+       <li><strong>Frame interval (fs):</strong>&nbsp;time between displayed simulation frames in femtoseconds.</li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="MolecularDynamicsPlugin-fig.2"></span>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12583839/29098600.png" data-image-src="attachments/12583839/29098600.png" data-unresolved-comment-count="0" data-linked-resource-id="29098600" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mddialog.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12583839" data-linked-resource-container-version="18" /></span></p>
+      <p>Fig. 2 Molecular Dynamics Options panel</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

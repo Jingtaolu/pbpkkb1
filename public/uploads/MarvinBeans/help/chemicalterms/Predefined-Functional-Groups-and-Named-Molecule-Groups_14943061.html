@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Predefined Functional Groups and Named Molecule Groups</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Predefined Functional Groups and Named Molecule Groups </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Referring molecules by names is sometimes easier&nbsp;than using explicit SMARTS strings or molecule file paths.&nbsp;For example, you may want to write&nbsp;nitro or&nbsp;carboxyl&nbsp;as query in a&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/Evaluator+and+JChem+Cartridge+Examples#EvaluatorandJChemCartridgeExamples-matching_conditions" rel="nofollow">match</a>&nbsp;function.</p>
+      <h1 id="PredefinedFunctionalGroupsandNamedMoleculeGroups-Thebuilt-infunctionalgroupsfile">The built-in functional groups file<br />&nbsp;</h1>
+      <p>Frequently used queries are pre-defined in the&nbsp;<a href="attachments/14943061/32702599.cxsmi" data-linked-resource-id="32702599" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="functionalgroups.cxsmi" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943061" data-linked-resource-container-version="18">built-in functional groups file</a>&nbsp;(<code>chemaxon/marvin/templates/functionalgroups.cxsmi</code>&nbsp;within&nbsp;<code>MarvinBeans-templates.jar</code>).<br /><br /></p>
+      <h1 id="PredefinedFunctionalGroupsandNamedMoleculeGroups-User-definedgroups">User-defined groups<br />&nbsp;</h1>
+      <p>You can also define your favourite query SMARTS in&nbsp;<code>marvin/config/marvin/templates/functionalgroups.cxsmi</code>&nbsp;file and in&nbsp;<code>$HOME\chemaxon\marvin\templates\functionalgroups.cxsmi</code>&nbsp;(Windows) or<code>$HOME/.chemaxon/marvin/templates/functionalgroups.cxsmi</code>&nbsp;(UNIX / Linux) file where&nbsp;<code>marvin</code>&nbsp;is the Marvin installation directory,&nbsp;<code>$HOME</code>&nbsp;is your user home directory.</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>However, there are some&nbsp;<strong>limitations</strong>&nbsp;when choosing the molecule names. Molecule names should be composed of letter, digit characters, and the '_' character. This means that molecule names cannot contain special characters, such as '=', '-', etc. with the exception of '_'. Molecule name definitions in&nbsp;<code>functionalgroups.cxsmi</code>&nbsp;file can contain whitespace characters (space, tab), but when names are referenced from a Chemical Terms expression the whitespace characters should be replaced with a single '_' character (e.g.&nbsp;<code>secondary amine</code>&nbsp;should be referred as&nbsp;<code>secondary_amine</code>&nbsp;in Chemical Terms expressions).</p>
+       </div> 
+      </div> 
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Note:&nbsp;from Marvin 5.4&nbsp;<code>mols.smarts</code>&nbsp;configuration file is not used by Chemical Terms. It is replaced by&nbsp;<code>functionalgroups.cxsmi</code>&nbsp;file.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <div class="lenia">
+       &nbsp;
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

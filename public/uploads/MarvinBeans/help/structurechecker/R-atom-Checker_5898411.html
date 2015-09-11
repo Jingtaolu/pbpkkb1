@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : R-atom Checker</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : R-atom Checker </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Checker searches for R-atoms. Tick options for searching:</p>
+      <ul>
+       <li>All;</li>
+       <li>Disconnected;</li>
+       <li>Generic;</li>
+       <li>Linker, or;</li>
+       <li>Nested R-atoms.</li>
+      </ul>
+      <p>Fixer: no fixer is available for this checker.</p>
+      <p><br /><strong>Example</strong>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">R-atom Checker</th>
+          <th class="confluenceTh">Warning:</th>
+          <th class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Find All R-atoms</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_ratom_ch" height="123" width="327" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_ch.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_ch.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no fixer" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Find Disconnected R-atoms</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_ratom_disconnected_ch" height="100" width="229" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chdisc.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chdisc.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no fixer" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Find Generic R-atoms</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_ratom_generic_ch" height="89" width="85" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chgener.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chgener.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no fixer" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Find Linker R-atoms</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_ratom_linker_ch" height="182" width="89" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chlink.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chlink.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no fixer" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Find Nested R-atoms</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="ex_ratom_linker_ch" height="155" width="298" src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chnest.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/ex_ratom_chnest.png" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-external-resource" alt="no fixer" height="24" width="24" src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" data-image-src="http://www.chemaxon.com/marvin/help/structurechecker/no.png" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

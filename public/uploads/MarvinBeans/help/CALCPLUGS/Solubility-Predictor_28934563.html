@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Solubility Predictor</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Solubility Predictor </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This manual gives you a walk-through on how to use the Solubility Predictor:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200954707 {padding: 0px;}
+div.rbtoc1439200954707 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200954707 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200954707"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#SolubilityPredictor-Introduction">Introduction</a></li> 
+          <li><a href="#SolubilityPredictor-Usage">Usage</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#SolubilityPredictor-MarvinSketch">MarvinSketch &nbsp;</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#SolubilityPredictor-Menusystem">Menu system</a></li> 
+              <li><a href="#SolubilityPredictor-Resultwindow">Result window &nbsp;</a></li> 
+             </ul> </li> 
+            <li><a href="#SolubilityPredictor-cxcalc">cxcalc</a></li> 
+            <li><a href="#SolubilityPredictor-ChemicalTerms">Chemical Terms&nbsp;</a></li> 
+            <li><a href="#SolubilityPredictor-KNIME">KNIME</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#SolubilityPredictor-Example">Example&nbsp;</a></li> 
+             </ul> </li> 
+            <li><a href="#SolubilityPredictor-API">API</a></li> 
+           </ul> </li> 
+          <li><a href="#SolubilityPredictor-SolubilityPredictorDemoPage">Solubility Predictor Demo Page&nbsp;</a></li> 
+          <li><a href="#SolubilityPredictor-References">References &nbsp;</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="SolubilityPredictor-Introduction">Introduction<br /><br /></h1>
+      <p>Aqueous solubility is one of the most important physico-chemical properties in modern drug discovery. It has impact on ADME-related properties like drug uptake, distribution and even oral bioavailability. Solubility can also be a relevant descriptor for property-based computational screening methods in the drug discovery process. Hence there is a significant interest in fast, reliable, structure-based methods for predicting aqueous solubility of promising drug candidates.</p>
+      <p>Predicting solubility of drug molecules is not a trivial computational task. The used model has to somehow calculate the intrinsic solubility for the compound, which is a crucial solubility parameter. ChemAxon's Solubility Predictor is able to calculate the intrinsic aqueous solubility. The prediction uses a fragment-based method that identifies different structural fragments in the molecule and calculates their solubility contribution. The implementation is based on the article of&nbsp;<a href="#SolubilityPredictor-houetal">Hou&nbsp;<em>et al</em></a><em>.</em></p>
+      <p>The<a href="#SolubilityPredictor-fig.1"> figure below </a>shows a fragmented molecule using the fragmentation method behind the intrinsic solubility prediction.</p>
+      <p><span class="confluence-anchor-link" id="SolubilityPredictor-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="200" src="attachments/28934563/29098734.png" data-image-src="attachments/28934563/29098734.png" data-unresolved-comment-count="0" data-linked-resource-id="29098734" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logs_frag_molecule.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 1 The molecule is split into fragments to predict its solubility.<br />&nbsp;</p>
+      <p><span style="line-height: 1.4285715;">However, in many applications (such as therapeutic or lab measurements) it is also important to know the solubility in acidic/basic solutions, that is at a given pH. Therefore the model should also be able to calculate the pH--solubility profile of a compound. The original solubility predictor method has been extended so that it is able to calculate the pH--solubility profile.</span></p>
+      <p>The predictor can provide&nbsp;<em>quantitative</em>&nbsp;results, giving the solubility in logS, mg/mL or mol/L units. The predictive accuracy of the plugin is considered to be 1 logS unit. In case only an estimation about how well the compound is soluble, the plugin can give a solubility category as a&nbsp;<em>qualitative</em>&nbsp;measure.<br />&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">On the logS unit</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The logS is a common unit for expressing solubility. This unit is the 10-based logarithm of the solubility measured in mol/l unit, that is logS = log (solubility measured in mol/l).</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>The accuracy of the intrinsic solubility prediction was tested using two test sets in Hou&nbsp;<em>et al.</em>&nbsp;The<a href="#SolubilityPredictor-fig.2"> two plots below</a> show the experimental vs. predicted intrinsic solubility values and the deviation.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="SolubilityPredictor-fig.2"></span></p>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/28934563/29098735.png" data-image-src="attachments/28934563/29098735.png" data-unresolved-comment-count="0" data-linked-resource-id="29098735" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logs_1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/28934563/29098736.png" data-image-src="attachments/28934563/29098736.png" data-unresolved-comment-count="0" data-linked-resource-id="29098736" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logs_2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 2 Plots showing predicted vs. experimental intrinsic solubility values (see the <a href="#SolubilityPredictor-houetal">reference 1.</a> for data)</p>
+      <p>&nbsp;</p>
+      <p>Tests for pH--logS profile were also run. The <a href="#SolubilityPredictor-fig.3">two plots below </a>show calculated and experimental pH-logS profiles for different acidic, basic and zwitter-ionic compounds.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="SolubilityPredictor-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/28934563/29098738.png" data-image-src="attachments/28934563/29098738.png" data-unresolved-comment-count="0" data-linked-resource-id="29098738" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logs_pH_2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/28934563/29098737.png" data-image-src="attachments/28934563/29098737.png" data-unresolved-comment-count="0" data-linked-resource-id="29098737" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logs_pH_1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 3 Plots showing calculated vs. experimental pH-logS profiles for different compound sets (see the <a href="#SolubilityPredictor-shoghietal">reference 2.</a> for data)</p>
+      <p>&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">Future goals</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The Solubility Predictor will be developed further in the future. Among our future goals are extending the prediction with a descriptor-based method and adding training features.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h1 id="SolubilityPredictor-Usage">Usage<br /><br /></h1>
+      <p>The Solubility Predictor is currently available in three ways.<br />&nbsp;</p>
+      <h2 id="SolubilityPredictor-MarvinSketch">MarvinSketch<br /><span style="line-height: 1.5;">&nbsp;</span></h2>
+      <p>The solubility predictor is integrated into Marvin Sketch as a plugin, which makes prediction fast and easy. The Solubility Plugin can be reached via the&nbsp;<em>Calculations &gt; Solubility</em>&nbsp;menu.&nbsp;</p>
+      <p>&nbsp;</p>
+      <h3 id="SolubilityPredictor-Menusystem">Menu system</h3>
+      <p>&nbsp;</p>
+      <p>The menu system of the Solubility Plugin has File, Options and Help menus.&nbsp;</p>
+      <h4 id="SolubilityPredictor-optionsmenuFilemenu"><strong><span class="confluence-anchor-link" id="SolubilityPredictor-optionsmenu"></span>File&nbsp;menu<br /><br /></strong></h4>
+      <p>The File menu can be used to export the results into PDF, or to close the result window.</p>
+      <ul>
+       <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/28934563/29100106.png" data-image-src="attachments/28934563/29100106.png" data-unresolved-comment-count="0" data-linked-resource-id="29100106" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_pdf.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span>&nbsp;<em>Export to PDF</em>: exports the results into a PDF file, which can be used as a report.</li>
+       <li><em>Exit</em>: closes the result window.</li>
+      </ul>
+      <h4 id="SolubilityPredictor-optionsmenuOptionsmenu"><br /><span class="confluence-anchor-link" id="SolubilityPredictor-optionsmenu"></span>Options menu<br />&nbsp;</h4>
+      <p>The Options menu can be used to set the options of the solubility calculation.</p>
+      <ul>
+       <li><em>Measurement Unit</em>: sets the solubility measurement unit. This can be&nbsp;<em>logS</em> (default),&nbsp;<em>mol/l</em>, or&nbsp;<em>mg/ml</em>.</li>
+       <li><em>Restore default settings</em>: restores the default settings of the calculation.<br /><br /></li>
+      </ul>
+      <h4 id="SolubilityPredictor-helpmenuHelpmenu"><span class="confluence-anchor-link" id="SolubilityPredictor-helpmenu"></span>Help menu<br />&nbsp;</h4>
+      <p>The Help menu opens the help guide of the predictor.</p>
+      <p>&nbsp;</p>
+      <h3 id="SolubilityPredictor-Resultwindow"><strong>Result window<br />&nbsp;</strong></h3>
+      <p>The <a href="#SolubilityPredictor-fig.4">result window</a> displays the pH-logS plot and a table with prediction results given in one of the following ways :</p>
+      <ul>
+       <li><strong>Solubility information:</strong>&nbsp;displays intrinsic solubility value, solubility at pH 7.4 and a qualitative category for the predicted solubility. These categories are:
+        <ul>
+         <li><em>low</em>: if solubility is &lt; 0.01 mg/ml</li>
+         <li><em>moderate</em>: if solubility is between 0.01 and 0.06 mg/ml</li>
+         <li><em>high</em>: if solubility is &gt; 0.06 mg/ml&nbsp;<br />&nbsp;</li>
+        </ul></li>
+      </ul>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <p class="title">About qualitative categories</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>These categories are determined based on intrinsic solubility values.&nbsp;</p>
+       </div> 
+      </div> 
+      <ul>
+       <li><strong style="line-height: 1.4285715;">pH-Solubility table:</strong>&nbsp;displays a table containing the predicted pH-solubility values.<br />&nbsp;</li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="SolubilityPredictor-fig.4"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="612" src="attachments/28934563/29098739.png" data-image-src="attachments/28934563/29098739.png" data-unresolved-comment-count="0" data-linked-resource-id="29098739" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="logs_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 4 The Solubility Plugin result window in MarvinSketch<br />&nbsp;</p>
+      <p>&nbsp;</p>
+      <h2 id="SolubilityPredictor-cxcalc">cxcalc</h2>
+      <p><em>&nbsp;</em></p>
+      <p>The solubility predictor is integrated into the&nbsp;<a href="cxcalc-command-line-tool_12584204.html">cxcalc</a>&nbsp;command line tool. The command syntax is</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc [general options] [input files/strings] logs [logs options] [input files/strings]</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>where the logS options are the following:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logs options: 
+    -h  --help           this help message
+    -U  --unit           measurement unit  [mg/ml | mol/l | logS] (default:
+                         logS)
+    -i  --intrinsic      intrinsic solubility (default: false)
+    -c  --category       solubility category (default: false)
+    -H  --pH              solubility at this pH (default: not set)
+    -l  --lower           (default: 0)
+    -u  --upper           (default: 14)
+    -s  --step            (default: 1)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>Some examples on how to use the solubility predictor via&nbsp;cxcalc:</p>
+      <ul>
+       <li><p>Calculating intrinsic solubility and solubility at pH 7.4 for compounds:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc logs -i true -H 7.4 molecules.smiles</pre> 
+         </div>
+        </div></li>
+       <li><p>Calculating solubility values between pH 7.0 and 13.0 in mol/l unit:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc logs -U mol/l -l 7.0 -u 13.0 molecules.smiles</pre> 
+         </div>
+        </div></li>
+       <li><p>Predicting qualitative solubility category:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc logs -c true test.mol</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <h2 id="SolubilityPredictor-ChemicalTerms">Chemical Terms&nbsp;</h2>
+      <p>&nbsp;</p>
+      <p>The solubility predictor is also integrated into ChemAxon's&nbsp;<a href="https://docs.chemaxon.com/display/chemicalterms/The+Chemical+Terms+Language">Chemical Terms language</a>. The solubility can be calculated by the logS() function that has two parameters:</p>
+      <ul>
+       <li>A <em>unit</em>&nbsp;parameter, which could be <strong>'mg/ml'</strong>, <strong>'mol/l'</strong>, <strong>'logS'</strong>, or <strong>'category'</strong>. In case of 'category' is used, qualitative solubility is calculated. If no unit parameter is given, logS unit is used.</li>
+       <li>A&nbsp;<em>pH</em> parameter, which is a real number (e.g. '7.4') and sets the pH for solublity calculation. If no pH parameter is given, intrinsic solubility is calculated.<br /><br /></li>
+      </ul>
+      <p>The following examples show how the functions above can be used with the Chemical Terms evaluator command line tool:</p>
+      <ul>
+       <li><p>Calculating intrinsic solubility for acetic acid in logS unit:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;logS()&quot; &quot;CC(O)=O&quot;</pre> 
+         </div>
+        </div></li>
+       <li><p>Calculating solubility at pH 7.0 in mol/l unit:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;logS('7.0', 'mol/l')&quot; molecule.mol</pre> 
+         </div>
+        </div></li>
+       <li><p>Determining qualitative solubility category at pH 7.4:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;logS('7.4', 'category')&quot; molecule.mol</pre> 
+         </div>
+        </div></li>
+      </ul>
+      <h2 id="SolubilityPredictor-KNIME">KNIME</h2>
+      <p>&nbsp;</p>
+      <p>Aqueous Solubility prediction is also available as a node in the KNIME workflow management system. All options that are available for solubility prediction are also available in KNIME. The pictures <a href="#SolubilityPredictor-knime_solub">below</a> show the <em>General</em> and <em>Advanced Options</em> of the node:<br /><br /><span class="confluence-anchor-link" id="SolubilityPredictor-knime_solub"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="400" src="attachments/28934563/33390598.jpg" data-image-src="attachments/28934563/33390598.jpg" data-unresolved-comment-count="0" data-linked-resource-id="33390598" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="solubility_knime.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 5 General Options of the Solubility KNIME node</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="400" src="attachments/28934563/33390599.jpg" data-image-src="attachments/28934563/33390599.jpg" data-unresolved-comment-count="0" data-linked-resource-id="33390599" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="solubility_knime_2.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 6 Advanced options of the Solubility KNIME node</p>
+      <p>&nbsp;</p>
+      <h3 id="SolubilityPredictor-Example">Example&nbsp;</h3>
+      <p>&nbsp;</p>
+      <p>The following simple KNIME workflow is an example of how to predict solubility in KNIME:</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/28934563/33390602.jpg" data-image-src="attachments/28934563/33390602.jpg" data-unresolved-comment-count="0" data-linked-resource-id="33390602" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="solubility_knime_wf.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 7 Simple workflow for calculating solubility in KNIME</p>
+      <p>&nbsp;</p>
+      <p>In this workflow the importer node provides the molecules for the solubility node. The solubility node is set to calculate the intrinsic qualitative and quantitative solubility for the input molecules.</p>
+      <p>The output in this case is a MarvinView node that is used to view the molecules with the calculated solubility values. &nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-note"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The picture above shows the state of the nodes before the running of the whole workflow.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>The first few lines of the output view in the MarvinView node:</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/28934563/33390603.jpg" data-image-src="attachments/28934563/33390603.jpg" data-unresolved-comment-count="0" data-linked-resource-id="33390603" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="solubility_knime_outp.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="28934563" data-linked-resource-container-version="149" /></span></p>
+      <p>Fig. 8 First few lines of the output of the solubility calculation</p>
+      <p>&nbsp;</p>
+      <h2 id="SolubilityPredictor-API">API</h2>
+      <p>&nbsp;</p>
+      <p>The Solubility Plugin API with usage examples can be reached <a href="https://www.chemaxon.com/marvin/help/developer/beans/api/com/chemaxon/calculations/solubility/SolubilityCalculator.html" class="external-link" rel="nofollow">here</a>.&nbsp;</p>
+      <p>&nbsp;</p>
+      <h1 id="SolubilityPredictor-SolubilityPredictorDemoPage">Solubility Predictor Demo Page&nbsp;</h1>
+      <p>&nbsp;</p>
+      <p>You can try the Solubility Predictor for free on this <a href="https://disco.chemaxon.com/apps/calculations-examples/solubility-predictor.html" class="external-link" rel="nofollow">demo page</a>.&nbsp;</p>
+      <h1 id="SolubilityPredictor-References"><br />References<br />&nbsp;</h1>
+      <p><span class="confluence-anchor-link" id="SolubilityPredictor-houetal"></span>&nbsp;1.&nbsp;Hou, T. J.; Xia, K.; Zhang, W.; Xu, X. J. ADME Evaluation in Drug Discovery. 4. Prediction of Aqueous Solubility Based on Atom Contribuition Approach.&nbsp;<em>J. Chem. Inf. Comput. Sci.</em>&nbsp;<strong>2004</strong>,&nbsp;<em>44</em>, 266-275</p>
+      <p><span class="confluence-anchor-link" id="SolubilityPredictor-shoghietal"></span>&nbsp;2.&nbsp;Shoghi, E.; Fuguet, E.; Bosch, E.; Rafols, C. Solubility-pH profiles of some acidic, basic and amphoteric drugs <em>European Journal of Pharmaceutical Sciences</em>&nbsp;<strong>2013</strong>, <em>48,&nbsp;</em>291-300</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

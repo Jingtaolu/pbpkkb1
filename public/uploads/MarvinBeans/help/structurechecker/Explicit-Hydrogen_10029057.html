@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Explicit Hydrogen</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Explicit Hydrogen </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul style="margin-left: 20.0px;">
+       <li>Checker searches for explicit hydrogens.&nbsp;<br /> <br />The following different types of explicit hydrogens can be searched:
+        <ul style="margin-left: 20.0px;">
+         <li><strong>Lonely</strong>: hydrogen atom without connection (<code>:lonely=true</code>)</li>
+         <li><strong>Isotopic</strong>: hydrogen isotopes (<code>:isotopic=true</code>)</li>
+         <li><strong>Charged</strong>: charged hydrogen atoms (<code>:charged=true</code>)</li>
+         <li><strong>Radical</strong>: hydrogen radicals (<code>:radical=true</code>)</li>
+         <li><strong>Mapped</strong>: mapped hydrogens (<code>:mapped=true</code>)</li>
+         <li><strong>Wedged</strong>: hydrogen connecting with wedged bond (<code>:wedged=true</code>)</li>
+         <li><strong>H Connected</strong>: hydrogen connected to a hydrogen atom (<code>:hconnected=true</code>)</li>
+         <li><strong>Polymer End Group</strong>: hydrogen connected to a SRU S-group (<code>:polymerendgroup=true</code>)</li>
+         <li><strong>S-group End</strong>: hydrogen connected to a Superatom S-group (<code>:sgroupend=true</code>)</li>
+         <li><strong>S-group</strong>: hydrogen which is the only atom in an S-group (<code>:sgroup=true</code>)</li>
+         <li><strong>Valence Error</strong>: hydrogen connected to an atom which has valence error (<code>:valenceerror=true</code>)</li>
+         <li><strong>Bridgehead</strong>: hydrogen connected to a bridgehead atom (<code>:bridgehead=true</code>)</li>
+        </ul></li>
+      </ul>
+      <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This picture summarizes the applied categorizations:</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/10029057/16646221.png" data-image-src="attachments/10029057/16646221.png" data-unresolved-comment-count="0" data-linked-resource-id="16646221" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="explicit_H_types.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029057" data-linked-resource-container-version="9" /></span></p>
+      <ul style="margin-left: 20.0px;">
+       <li>The corresponding fixer offers removing explicit hydrogens and the selected special atoms (<code>removeexplicith</code>).</li>
+      </ul>
+      <p><br /> <strong>Example</strong> <span style="color: rgb(54,54,54);">:</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Explicit Hydrogen Checker (<code>explicith</code>)</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Remove Explicit Hydrogen (<code>removeexplicith</code>)</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Detect Explicit Hydrogen</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_explh_ch" height="172" width="151" src="attachments/10029057/29098307.png" data-image-src="attachments/10029057/29098307.png" data-unresolved-comment-count="0" data-linked-resource-id="29098307" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_explh_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029057" data-linked-resource-container-version="9" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" alt="ex_explh_f" height="85" width="86" src="attachments/10029057/29098308.png" data-image-src="attachments/10029057/29098308.png" data-unresolved-comment-count="0" data-linked-resource-id="29098308" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_explh_f.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10029057" data-linked-resource-container-version="9" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Applet only parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Applet only parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The following parameters are meaningful only for the applet (JMSketch) and not for the JavaBean (MSketchPane).</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Appletonlyparameters-menu"></span>menubar</code></td>
+          <td class="confluenceTd">Enable the embedded menubar.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>buttonmenubar</code></td>
+          <td class="confluenceTd">Enable menubar in button (/hide) mode if the <a href="#Appletonlyparameters-menu">menubar</a> parameter is <code>true</code>. Combine it with the <a href="#Appletonlyparameters-detach">detach</a> parameter to set the button mode.<br /> <code>True</code>, to allow, <code>false</code> to deny menu bar on the big sketcher button.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Appletonlyparameters-detach"></span>detach</code></td>
+          <td class="confluenceTd">Detachment behavior. The value consists of some optional arguments: <code>show/hide</code> <code>size</code>, and <code>maxscale</code>. If more arguments are included, they must be separated by a comma.<br /> To detach the sketcher from the web page and display it in a separate window, set <code>&quot;show&quot;</code>.<br /> To detach the sketcher without displaying the separate window, set <code>&quot;hide&quot;</code>.<br /> Both settings make the applet on the web page look like a molecule viewer.<br /><br /> The initial size of the sketcher window can be specified with &quot;<code>size=</code><em>width</em><code>x</code><em>height</em>&quot; <br />Examples: &quot;<code>show</code>&quot;, &quot;<code>size=500x500</code>&quot;, &quot;<code>hide,size=500x500</code>&quot;.<br /> In case the <code>maxscale</code> argument is set, it can prevent small molecules to be overscaled on the button.<br /> Example for maximum 100% magnification: &quot;<code>hide,maxscale=28</code>&quot;<br /> Live applet example: <a href="http://www.chemaxon.com/marvin/examples/applets/sketch/openwindow.html" class="external-link" rel="nofollow">MarvinSketch Exemple - Pure visualization mode</a><a href="http://www.chemaxon.com/marvin/examples/applets/sketch/openwindow.html" class="external-link" rel="nofollow"><span style="color: rgb(51,51,51);">&nbsp;</span></a><span style="color: rgb(51,51,51);">&nbsp;</span></td>
+          <td class="confluenceTd"><code>size=444x350</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>undetachByX</code></td>
+          <td class="confluenceTd">Sketcher window close (x) behavior.<br /> <code>false</code>: always hide sketcher<br /> <code>true</code>: replace viewer component by sketcher in web browser window if the applet is large enough (&gt;= 400x300)</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Appletonlyparameters-mol"></span>mol</code></td>
+          <td class="confluenceTd">The molecule file to be loaded at startup, as either a URL or the file itself (inline) in MDL mol, compressed mol, SMILES, SMARTS, etc format.<br /> Newlines occurring in the string must be replaced or preceded by &quot;\n&quot; and backslashes are recommended to be escaped as &quot;\\&quot;.<br /> The file format and/or import options can be specified if one of the following forms is used:<br /> &quot;file{options}&quot;,<br /> &quot;file{MULTISET,options}&quot;,<br /> &quot;file{format:}&quot;,<br /> &quot;file{format:options}&quot;, or<br /> &quot;file{format:MULTISET,options}&quot;.<br /> If the MULTISET option is specified, then a multi-molecule file is read into one molecule object containing multiple atom sets.<br /> Examples: &quot;foo.xyz{f1.4C4}&quot;, &quot;foo.xyz.gz{gzip:xyz:MULTISET,f1.4C4}&quot;</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span style="text-decoration: line-through;">preload</span></code></td>
+          <td class="confluenceTd">Deprecated</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>cacheMols</code></td>
+          <td class="confluenceTd">Store loaded molecules in an internal cache (<code>true</code> or <code>false</code>).</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>loadMols</code></td>
+          <td class="confluenceTd">Comma-separated list of molfiles to preload. Useful for caching molecules in JavaScript &quot;slideshows&quot;.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>usedJars</code></td>
+          <td class="confluenceTd">Comma-separated list of additional jar files that can be used by the applet. The additional files have to be defined with their paths relative to the applet's base.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>imageSaveFormat</code></td>
+          <td class="confluenceTd">The default file format for image saving.</td>
+          <td class="confluenceTd"><code>png</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>molLoaderFinishedEvent</code></td>
+          <td class="confluenceTd">Evaluates a JavaScript code after the loading of the molecule into the editor is finished. This <em>&quot;event&quot;</em> is invoked if molecule is loaded-in into the applet in any of the following cases:
+           <ul>
+            <li>Automaticaly, at applet starting: (using the <a href="#Appletonlyparameters-mol">mol</a> applet parameter)</li>
+            <li>Calling <em>(J)MSketch.setMol(...)</em> from JavaScript.</li>
+           </ul><p>Note: If the MAYSCRIPT option is not specified, JavaScript can not be evaluated from the applet. E.g.:</p>
+           <div class="code panel pdl" style="border-width: 1px;">
+            <div class="codeContent panelContent pdl"> 
+             <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">     msketch_mayscript=true;
+     msketch_begin(&quot;marvin&quot;,400,300);
+     msketch_param(&quot;mol&quot;,&quot;caffeine.mol&quot;);
+     msketch_param(&quot;molLoaderFinishedEvent&quot;,&quot;js:alert('Molecule is loaded-in.')&quot;);
+     msketch_end();</pre> 
+            </div>
+           </div><pre>     </pre></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Appletonlyparameters-listen"></span>listenpropertychange</code></td>
+          <td class="confluenceTd"><p>Switch on/off property change event listener to the applet. If listener is active, the applet will call <strong>propertyChange(prop)</strong> JavaScript method. If you would like to handle property change events in JavaScript, implement this method in your html source. Note: If the MAYSCRIPT option is not specified, JavaScript can not be evaluated from the applet. E.g.:</p>
+           <div class="code panel pdl" style="border-width: 1px;">
+            <div class="codeContent panelContent pdl"> 
+             <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">     function propertyChange(prop) {
+        if(document.textform != null) {
+            var s = document.textform.txt.value;
+            document.textform.txt.value = s + &quot;\n&quot; + prop;
+        }
+     }
+
+     msketch_mayscript=true;
+     msketch_begin(&quot;marvin&quot;,400,300);
+     msketch_param(&quot;listenpropertychange&quot;,&quot;true&quot;);
+     msketch_end();</pre> 
+            </div>
+           </div><pre>     </pre>If you also specify the &quot;appletid&quot; parameter, its value will appear in the name of the property as prefix (e.g.: &quot;firstapplet.mol&quot;).</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>appletid</code></td>
+          <td class="confluenceTd">Identify applet in property change event notifications to JavaScript. Use this parameter with&nbsp;<a href="#Appletonlyparameters-listen"><code>listenpropertychange</code></a> when more than one applet are located on the same web page. It helps to identify which applet sent the notification.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="skin" rel="nofollow"></a><code>skin</code></td>
+          <td class="confluenceTd">Change the component's Look &amp; Feel (only in SWING applet). If you do not specify this parameter, Marvin will use the default LookAndFeel style. <br />This parameter value is the name of the new LookAndFeel class.</td>
+          <td class="confluenceTd"><code>javax.swing.plaf<br /> .metal<br /> .MetalLookAndFeel</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="splashScreenImage" rel="nofollow"></a><code>splashScreenImage</code></td>
+          <td class="confluenceTd">Change the component's splash screen displayed at startup. If you do not specify this parameter, Marvin will use its default splash screen. <br />This parameter value is the relative path of the image, specify relatively to the CODEBASE<br /> Note: Animated gif files can be displayed badly (flashing, or too fast animation)</td>
+          <td class="confluenceTd"><code>null</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="license" rel="nofollow"></a><code>license</code></td>
+          <td class="confluenceTd">Sets the contents of a pre-read license file to the license manager to read and validate licenses from.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="licenseFile" rel="nofollow"></a><code>licenseFile</code></td>
+          <td class="confluenceTd">Sets the license file location to the license manager to read and validate licenses from.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="onError" rel="nofollow"></a><code>onError</code></td>
+          <td class="confluenceTd">A string containing a javascript code, that has to be run by the applet, if it has a failure at initialization.<br /> The %s wildcard can be used to include the error message given by the applet inside the javascript code.<br /> If used with <code>alertError</code> also set to true, the alert window will be shown first, and after the user has pressed the OK button on the alert will the given code run.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="alertError" rel="nofollow"></a><code>alertError</code></td>
+          <td class="confluenceTd">If this parameter is set to true, the applet will show a javascript alert window with an error message, if there was a problem in the initialization process of the applet.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="legacy_lifecycle" rel="nofollow"></a><code>legacy_lifecycle</code></td>
+          <td class="confluenceTd">The &quot;legacy_lifecycle&quot; is a general Java applet parameter. If its value is true, it helps avoid destroying the applet when you leaves the applet page. If you use &quot;marvin.js&quot;, it sets its value to true automatically unless you specify its value explicitly. By the way, the default value of this parameter in Java is false. See the discussion about it on the <a href="https://www.chemaxon.com/forum/ftopic4945.html" class="external-link" rel="nofollow">forum</a>.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="bgloadPriority" rel="nofollow"></a><code>bgloadPriority</code></td>
+          <td class="confluenceTd">You can specify the order of the modules for background loading. After startup of MarvinSketch, modules that are not used yet are started downloading in the background to fast up their initalization of their first usage. The value of this parameter is a comma separated list of modules that get priority for loading. See also<a href="#Appletonlyparameters-bg">&nbsp;<code>bgloadEnabled</code></a>.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="bgloadEnabled" rel="nofollow"></a><code><span class="confluence-anchor-link" id="Appletonlyparameters-bg"></span>bgloadEnabled</code></td>
+          <td class="confluenceTd">Let or deny loading of rest of modules in a background thread after startup. Set this parameter to true to accept background loading. Set it to false if you would like to reject this functionality.</td>
+          <td class="confluenceTd">true</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="sketchHelp" rel="nofollow"></a><code>sketchHelp</code></td>
+          <td class="confluenceTd">MarvinSketch help contents. Accepts relative URL to the applet codebase or any absolute URL.</td>
+          <td class="confluenceTd"><span style="color: rgb(51,51,51);"><code>chemaxon/marvin/help<br /> /sketch-index.html</code></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="sketchQuickHelp" rel="nofollow"></a><code>sketchQuickHelp</code></td>
+          <td class="confluenceTd">MarvinSketch quick help. Accepts relative URL to the applet codebase or any absolute URL.</td>
+          <td class="confluenceTd"><span style="color: rgb(51,51,51);"><code>chemaxon/marvin/help<br /> /sketch.html</code></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="checkerConfigURL" rel="nofollow"></a><code>checkerConfigURL</code></td>
+          <td class="confluenceTd">Default checker configuration URL. Accepts any <strong>absolute</strong> URL.</td>
+          <td class="confluenceTd"><code>local configuration</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

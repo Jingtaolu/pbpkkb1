@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Installation and System Requirements - Marvin JS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Installation and System Requirements - Marvin JS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="InstallationandSystemRequirements-MarvinJS-Softwarerequirement">Software requirement</h2>
+      <p>Marvin JS is a web based editor. Please, upload it to a web server and refer to its URL in your browser.</p>
+      <h3 id="InstallationandSystemRequirements-MarvinJS-Serverside">Server side</h3>
+      <ul>
+       <li>Web server</li>
+       <li>JChem Webservices <span style="color: rgb(0,0,0);">(v14.7.21 or above)&nbsp;</span>is optional (if you need&nbsp;<a href="Webservices_17236105.html#Webservices-extendedFunc">extended functionalities</a>)</li>
+      </ul>
+      <h3 id="InstallationandSystemRequirements-MarvinJS-Clientside">Client side</h3>
+      <ul>
+       <li>JavaScript enabled web browser, see&nbsp;<a href="Browser-compatibility_28934704.html">browser compatibility</a></li>
+      </ul>
+      <h2 id="InstallationandSystemRequirements-MarvinJS-Licenserequirement">License requirement</h2>
+      <p>Marvin JS requires Marvin JS license. Consult with the sales team where you have to place the license file where your copy of Marvin JS package can access.</p>
+      <p>Please, take care that JChem Webservices requires a separate license. Thus, you also setup a JChem Webservices for your site, you need JChem Webservices license too. Consult with its manual how to setup its license.</p>
+      <h2 id="InstallationandSystemRequirements-MarvinJS-Installation">Installation</h2>
+      <h3 id="InstallationandSystemRequirements-MarvinJS-DeployMarvinJS">Deploy Marvin JS</h3>
+      <p>Download the&nbsp;<a href="https://www.chemaxon.com/download/marvin-suite/#mjs" class="external-link" rel="nofollow">Marvin JS zip package</a>&nbsp;from the ChemAxon site.</p>
+      <h4 id="InstallationandSystemRequirements-MarvinJS-DeployMarvinJSintoanApacheTomcatContainer">Deploy Marvin JS into an Apache Tomcat Container</h4>
+      <p>JChem Webservice requires a servlet container like Apache Tomcat. If you would like to install both Marvin JS and JChem Webservices, it worths to install both of them into the Tomcat Container. In this case, the web root can be an ideal place where you can deploy Marvin JS:</p>
+      <ul>
+       <li>Navigate into the&nbsp;<strong>webapps</strong>&nbsp;folder of Tomcat and enter its&nbsp;<strong>ROOT</strong>&nbsp;subdirectory.</li>
+       <li>Create a new folder in this directory (e.g.&nbsp;<em>marvinjs</em>).</li>
+       <li>Extract the Marvin JS zip file into this new directory.</li>
+      </ul>
+      <h4 id="InstallationandSystemRequirements-MarvinJS-DeployMarvinJSunderanywebserver">Deploy Marvin JS under any web server</h4>
+      <p>Extract the zip file into a new empty directory (e.g.&nbsp;<code>marvinjs</code>) and deploy it under your web server.<br />(Consult with the manual of the server or its administrator how to deploy new content there.)</p>
+      <h3 id="InstallationandSystemRequirements-MarvinJS-InstallwebservicesforMarvinJS">Install web services for Marvin JS</h3>
+      <p>If you need extended functionalities, ChemAxon JChem Webservices is required.</p>
+      <p>Marvin JS can communicate with other web service implementations that are compatible with the ChemAxon provided version. See the&nbsp;<a href="Webservices_17236105.html">required web service specifications</a></p>
+      <ul>
+       <li>Download ChemAxon JChem Webservices&nbsp;<span style="color: rgb(0,0,0);">(v14.7.21 or above).</span></li>
+       <li>Install the required web services under the same domain as the web server hosts.&nbsp;<br />Please consult with the appropriate installation guide of JChem Webservices.&nbsp;You can find the download link for the recommended webservice version on the&nbsp;<a href="https://www.chemaxon.com/download/marvin-suite/#mjs" class="external-link" rel="nofollow">Marvin JS download</a>&nbsp;site.&nbsp;</li>
+       <li>Marvin JS searches web services on the following URL:&nbsp;<code>/webservices2</code>.<br />If your web service copy is available on a different URL, please, modify settings in Marvin JS.
+        <ul>
+         <li>Modify web service location in the&nbsp;<strong>webservices.js</strong>&nbsp;file, which you can find in the root of the Marvin JS package.</li>
+        </ul></li>
+      </ul>
+      <p><strong>Note:</strong>&nbsp;If web services and Marvin JS are located on different domains, the browser can block the access of web services at runtime since the request may harm the&nbsp;<a href="http://en.wikipedia.org/wiki/Same_origin_policy" class="external-link" rel="nofollow">same origin policy</a>&nbsp;of the browser.</p>
+      <h3 id="InstallationandSystemRequirements-MarvinJS-Trythedeployedversion">Try the deployed version</h3>
+      <p>Open examples of Marvin JS package from your web server in your browser to check whether the deployment was successful:</p>
+      <p><code>http://&lt;web server url&gt;/&lt;marvinjs directory path&gt;/examples/</code></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

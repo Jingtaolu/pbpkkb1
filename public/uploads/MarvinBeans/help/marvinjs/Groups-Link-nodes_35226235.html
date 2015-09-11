@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Groups-Link nodes</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Groups-Link nodes </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Marvin JS does not differentiate between SRU, Repeating units, and Link nodes in display or creation.</p>
+      <p>However, there are restrictions to export a group as a Link node:</p>
+      <ul>
+       <li>there should be one atom in the group</li>
+       <li>the repeating pattern shouldn't have been set (or it must be the default value)</li>
+       <li>the number of repetition should be a range starting with 1.</li>
+      </ul>
+      <h2 id="Groups-Linknodes-CreateaLinknode">Create a Link node</h2>
+      <h5 id="Groups-Linknodes-withtheRepeatingGrouptool"><span style="color: rgb(112,112,112);">with the Repeating Group tool</span></h5>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35226235/35423527.png" data-image-src="attachments/35226235/35423527.png" data-unresolved-comment-count="0" data-linked-resource-id="35423527" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Repeating_3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35226235" data-linked-resource-container-version="7" /></span></p>
+      <p><br />&nbsp; &nbsp;&nbsp;<br /><br /></p>
+      <ul>
+       <li>Select the&nbsp;<strong>Repeating Group tool</strong>, then select the atom you would like to change to a link node with it.</li>
+       <li>Then the repeating group&nbsp;<strong>dialog opens</strong>.<strong>&nbsp;Leave</strong>&nbsp;the repetition pattern on the default value and&nbsp;<strong>set</strong>&nbsp;the repetition range from the value 1 to the number you would like, then click OK.</li>
+      </ul>
+      <p>After the dialog closes, the link node is established.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <h5 id="Groups-Linknodes-withSelection">with Selection</h5>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35226235/35423524.png" data-image-src="attachments/35226235/35423524.png" data-unresolved-comment-count="0" data-linked-resource-id="35423524" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Repeating_4.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35226235" data-linked-resource-container-version="7" /></span></p>
+      <p><strong><br /></strong></p>
+      <p>&nbsp;</p>
+      <ul>
+       <li><strong>Select the atom</strong>&nbsp;you would like to group with one of the Selection tools.</li>
+       <li>Click on the&nbsp;<strong>Repeating Group tool</strong>.&nbsp;</li>
+       <li>Then the repeating group&nbsp;<strong>dialog opens</strong>.&nbsp;<strong>Leave</strong>&nbsp;the repetition pattern the default value&nbsp;and&nbsp;<strong>set</strong>&nbsp;the repetition range from the value 1 to the number you would like, then click OK.&nbsp;</li>
+      </ul>
+      <p>After the dialog closes, the repetition unit has been established.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <h2 id="Groups-Linknodes-ModifyaLinknode">Modify a Link node</h2>
+      <p>You can change a Link node to a Repeating unit or an SRU by changing the range, or the repeating pattern.</p>
+      <p>Changing the atom type in this case is not possible.</p>
+      <h2 id="Groups-Linknodes-DeleteaLinkNode">Delete a Link Node &nbsp;</h2>
+      <p>Right-click on the atom in the brackets, then select <strong>Ungroup</strong> from the menu.&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        When you modify the atoms in the group it will automatically be ungroupped.
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

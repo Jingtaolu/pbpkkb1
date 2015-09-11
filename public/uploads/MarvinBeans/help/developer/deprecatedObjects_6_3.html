@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta NAME="description" CONTENT="deprecated methods in Marvin">
+<meta NAME="keywords" CONTENT="deprecated, removed, methods">
+<meta NAME="author" CONTENT="Mate Steiner, Zsuzsanna Szabo, Peter Szakacs">
+<link REL="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Deprecated and removed elements in Marvin</title>
+</head>
+<body>
+<h1>Deprecated and removed elements in the API</h1>
+<table border="0" cellspacing="0" cellpadding="5" class="grid">
+<tr>
+<td colspan="3">
+<h2>Deprecated elements in the API</h2>
+</td>
+</tr>
+<tr style="text-align:left">
+<td align="center"><strong>Name of deprecated class, field or method</strong></td><td align="center"><strong>Deprecation version</strong></td><td align="center"><strong>Recommended class, field or method</strong></td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.struc</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>MolAtom.setForSpecIsotopeSymbol(String sym)</code></td><td align="center">Marvin 6.3</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html#setSpecIsotopeSymbolPreferred()" target="_blank">chemaxon.struc.MolAtom.setSpecIsotopeSymbolPreferred()</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html#setMassno()" target="_blank">chemaxon.struc.MolAtom.setMassno()</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Molecule.clonelesscopy(MoleculeGraph g)</code></td><td align="center">Marvin 6.3</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>Molecule.ungroupSgroup(int i, int opts)</code></td><td align="center">Marvin 6.3</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#ungroupSgroup(chemaxon.struc.Sgroup)" target="_blank">chemaxon.struc.Molecule.ungroupSgroup(Sgroup)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Molecule.ungroupSgroup(int i)</code></td><td align="center">Marvin 6.3</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#ungroupSgroup(chemaxon.struc.Sgroup)" target="_blank">chemaxon.struc.Molecule.ungroupSgroup(Sgroup)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Molecule.ungroupSgroups(int type)</code></td><td align="center">Marvin 6.3</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#ungroupSgroups(EnumSet)" target="_blank">chemaxon.struc.Molecule.ungroupSgroups(EnumSet)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.clonelesscopy(MoleculeGraph graph)</code></td><td align="center">Marvin 6.3</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.getStereo2(MolBond b)</code></td><td align="center">Marvin 6.3</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#getEZStereo(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.MoleculeGraph.getEZStereo(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RgMolecule.clonelesscopy(MoleculeGraph g)</code></td><td align="center">Marvin 6.3</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>RxnMolecule.clonelesscopy(MoleculeGraph g)</code></td><td align="center">Marvin 6.3</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>Sgroup.getType()</code></td><td align="center">Marvin 6.3</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Sgroup.html#getSgroupType()" target="_blank">chemaxon.struc.Sgroup.getSgroupType()</a>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<h2>Removed elements in the API</h2>
+</td>
+</tr>
+<tr style="text-align:left">
+<td align="center"><strong>Name of removed class, field or method</strong></td><td align="center"><strong>Removal version</strong></td><td align="center"><strong>Recommended class, field or method</strong></td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.struc.util.bondutil</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>MolBondUtil</code></td><td align="center">Marvin 6.3</td><td>Internal usage only.</td>
+</tr>
+</table>
+</body>
+</html>

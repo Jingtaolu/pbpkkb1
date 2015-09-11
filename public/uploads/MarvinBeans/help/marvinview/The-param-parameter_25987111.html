@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : The param parameter</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : The param parameter </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>In a <code>param</code> or <code>paramH</code> parameter, the first character is the field separator (`:' here). The first field is the type of the first component (<code>M</code>, <code>L</code>, <code>B</code>, <code>C</code> or <code>T</code>), followed by its <em>n</em> parameters in the forthcoming <em>n</em> fields. Then the same for the second component, etc. Component parameters:</p>
+      <blockquote>
+       <p>&nbsp;</p>
+       <div class="table-wrap">
+        <table class="confluenceTable">
+         <tbody>
+          <tr>
+           <td class="confluenceTd"><code>:M:</code><em>width</em><code>:</code><em>height</em></td>
+           <td class="confluenceTd"><em>width</em> and <em>height</em> are in pixel units.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>:L:</code><em>fontprops</em></td>
+           <td class="confluenceTd"><em>fontprops:</em> font properties.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>:B:</code><em>fontprops</em><code>::</code><br /> <code>:B:</code><em>fontprops</em><code>:</code><em>description</em><code>:</code><br /> <code>:B:</code><em>fontprops</em><code>:</code><em>description</em><code>:</code><em>frame</em></td>
+           <td class="confluenceTd"><em>fontprops:</em> font properties,<br /> <em>description:</em> description string,<br /> <em>target:</em> target frame for the URL (&quot;<code>_self</code>&quot; = show in the window and frame that contain the applet, &quot;<code>_parent</code>&quot; = show in the applet's parent frame, &quot;<code>_top</code>&quot; = show in the top-level frame of the applet's window, &quot;<code>_blank</code>&quot; = show in new window).</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>:C:</code><em>fontprops</em><code>:</code><br /> <code>:C:</code><em>fontprops</em><code>:</code><em>description</em></td>
+           <td class="confluenceTd"><em>fontprops:</em> font properties,<br /> <em>description:</em> description string.<br /> You may specify the checkbox group number in the type field, by writing <code>g</code><em>n</em> next to the type-specifying character <code>C</code>, where <em>n</em> is the group number. No more than one button in a group can be pressed at the same time.</td>
+          </tr>
+          <tr>
+           <td class="confluenceTd"><code>:T:</code><em>fontprops</em><br /> <code>:T:</code><em>fontprops</em><code>:</code><em>columns</em><br /> <code>:T:</code><em>fontprops</em><code>:</code><em>columns</em><code>:</code><em>editable</em></td>
+           <td class="confluenceTd"><em>fontprops:</em> font properties,<br /> <em>columns:</em> number of columns,<br /> <em>editable:</em> editable (rw) or read only (r).</td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <p>&nbsp;</p>
+      </blockquote>
+      <p>The <em>fontprops</em> field usually contains only one number, the font size. Additional properties are &quot;b&quot; (bold font) and &quot;i&quot; (italic). A 12pt bold italic font is specified as &quot;12bi&quot;.</p>
+      <p>Example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">&lt;param name=&quot;param&quot; value=&quot;:
+M:100:100:
+L:10b:
+C:10:select this molecule:
+Cg0:10:include this structure:
+B:10:search for more molecules like this:_self:
+T:10:
+T:10:15:
+T:10:15:rw&quot;&gt;</pre> 
+       </div>
+      </div>
+      <pre>&nbsp;</pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

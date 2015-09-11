@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Substructure Groups</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Substructure Groups </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>S-groups or substructure groups represent an integral part of a chemical structure. Marvin JS can handle generic S-groups and predefined abbreviated groups (superatom S-groups). Structures containing S-groups can be imported and exported either in MRV or in MDL Molfile format.</p>
+      <h2 id="SubstructureGroups-genericGroupsGenericS-groups"><span class="confluence-anchor-link" id="SubstructureGroups-genericGroups"></span>Generic S-groups</h2>
+      <p>Generic S-groups usually represent whole molecules,&nbsp;<em>e.g.,</em>&nbsp;solvents. They are visualized between brackets, which will disappear if you remove the group status from the substructure either by using the&nbsp;<strong>Ungroup</strong>&nbsp;option of the&nbsp;<strong><a href="Context-Menus_17236082.html#ContextMenus-groupPopup">Group pop-up menu</a></strong><span style="color: rgb(0,0,255);"><span style="color: rgb(0,0,255);"><strong>&nbsp;</strong></span></span>or by editing the molecule (changing/adding/deleting atoms or bonds, modifying atom properties...).</p>
+      <h2 id="SubstructureGroups-abbrevGroupsAbbreviatedgroups(SuperatomS-groups)"><span><span class="confluence-anchor-link" id="SubstructureGroups-abbrevGroups"></span>Abbreviated groups (Superatom S-groups)</span></h2>
+      <p>An abbreviated group can be part of a larger molecule by connecting the group to other fragments through its attachment point. Currently, only a predefined list of abbreviated groups is available in Marvin JS. Using the abbreviations of chemical functional groups and molecules enables us to create more compact structures. Alternatively, abbreviated groups can be displayed in their full, expanded forms in favor of a more detailed description of the crucial parts of the molecule.<br />Marvin JS&nbsp;offers a wide selection of abbreviated groups belonging to several chemical compound families (carbohydrates, amino acids,&nbsp;<em>etc.</em>). These structures are available under the&nbsp;<strong><a href="Toolbars_17236081.html#Toolbars-abbrevGroup">Abbreviated Groups</a></strong>&nbsp;button of the <strong>Template</strong>&nbsp;toolbar. Searching for a group in the opening dialog, you can decide whether to use the group in its contracted or expanded form. For the latter option, tick the <strong>Expand</strong> checkbox in the dialog window. Pressing the &quot;OK&quot; button closes the dialog and puts the selected group on the tip of the cursor, from where you can place it on the canvas with a left-click.<br />An abbreviated group can be expanded, contracted, or ungrouped after it has been placed on the canvas. These options are available from the&nbsp;<strong><a href="Context-Menus_17236082.html#ContextMenus-groupPopup">Group pop-up menu</a></strong>.</p>
+      <ul>
+       <li>Expanded groups are denoted by special feedback: blue background and brackets appear around the group if the cursor is over it (the green &quot;hover-over&quot; feedback is still visible on the respective atom or bond), and the abbreviated name is also visible. The attachment points of the groups are circled in blue:<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236091/17400143.png" data-image-src="attachments/17236091/17400143.png" data-unresolved-comment-count="0" data-linked-resource-id="17400143" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="abbrevgroup2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236091" data-linked-resource-container-version="14" /></span></li>
+       <li>If an expanded group is &quot;ungrouped&quot;, the feedback around it will disappear. The same action in case of a contracted group means that the group will be firstly expanded, and its feedback will disappear.</li>
+       <li>Contracted groups can be manipulated as atoms; while expanded abbreviated groups can be handled as molecules or fragments: they can be rotated, dragged, merged, mirrored, deleted, and cleaned in 2D.</li>
+       <li>Editing an expanded abbreviated group in any sense -&nbsp;<em>i.e.</em>, changing/deleting an atom or a bond, modifying the charge or mass number of atoms - leads to the removal of the group status from the substructure.</li>
+      </ul>
+      <h2 id="SubstructureGroups-repeatingUnitRepeatingunitandSRUpolymer"><span class="confluence-anchor-link" id="SubstructureGroups-repeatingUnit"></span>Repeating unit and SRU polymer</h2>
+      <p>Repeating units or Structural Repeating units represent repeating structural parts in a molecule.</p>
+      <p>The&nbsp;repetition count&nbsp;can consist of a number, a range, a number and a rage separated by comma or &quot;n&quot;. The pattern of the repetition can be set to head-to-head (hh), head-to-tail (ht) (this is the default value), or either/unknown (eu).</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236091/35423529.png" data-image-src="attachments/17236091/35423529.png" data-unresolved-comment-count="0" data-linked-resource-id="35423529" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-11 12:26:31.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236091" data-linked-resource-container-version="14" /></span></p>
+      <p>How to draw repeating structures:</p>
+      <ul>
+       <li><span>Choose the</span><strong>&nbsp;Repeating Group tool</strong><span>&nbsp;from the Tools toolbar, then select the structure you would like to group.</span></li>
+       <li>When the repeating group<strong>&nbsp;</strong>dialog opens, define the repetition pattern and&nbsp;set&nbsp;the repetition range you would like, then click OK.&nbsp;</li>
+      </ul>
+      <p>After the dialog closes, the repetition unit is established.</p>
+      <h2 id="SubstructureGroups-Linknode">Link node</h2>
+      <p>With Link nodes you can represent structures containing rings or chains of variable size.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/17236091/35423528.png" data-image-src="attachments/17236091/35423528.png" data-unresolved-comment-count="0" data-linked-resource-id="35423528" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-11 10:45:10.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="17236091" data-linked-resource-container-version="14" /></span></p>
+      <p>How to draw a Link node:</p>
+      <ul>
+       <li>Selecting the repeating atom with the<strong> Repeating Group tool,</strong> Repeating group dialog appears.</li>
+       <li>Leave the repetition pattern the default value and set the repetition range from one, then click the OK button.</li>
+      </ul>
+      <p>Then the dialog automatically closes, and the link node will be displayed in your structure.</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        The difference between the display of Repeating unit and Link node is minimal, however when you export a structure with these settings, this will be exported as a Link node.
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

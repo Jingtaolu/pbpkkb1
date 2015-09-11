@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Image Export in Marvin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Image Export in Marvin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="ImageExportinMarvin-imageFormatsImageformats"><span class="confluence-anchor-link" id="ImageExportinMarvin-imageFormats"></span> <span style="color: rgb(0,0,0);">Image formats</span></h2>
+          <p><span style="color: rgb(54,54,54);">Marvin is able to export bitmap image files like&nbsp;</span> <span style="color: rgb(0,0,255);"><u><a href="JPEG_18448439.html"><span style="color: rgb(0,0,255);">JPEG</span></a></u></span><span style="color: rgb(54,54,54);">,&nbsp;</span> <u><span style="color: rgb(0,0,255);"><a href="BMP_18448441.html"><span style="color: rgb(0,0,255);">MS BMP</span></a></span></u><span style="color: rgb(54,54,54);">,&nbsp;</span> <u><span style="color: rgb(0,0,255);"><a href="PNG_18448443.html"><span style="color: rgb(0,0,255);">PNG</span></a></span></u><span style="color: rgb(54,54,54);">,&nbsp;</span><u><span style="color: rgb(0,0,255);"><a href="TIFF_18448458.html"><span style="color: rgb(0,0,255);">TIFF</span></a></span></u> <span style="color: rgb(54,54,54);">&nbsp;and vector graphics files like&nbsp;</span> <u><span style="color: rgb(0,0,255);"><a href="EPS_18448460.html"><span style="color: rgb(0,0,255);">EPS</span></a></span></u><span style="color: rgb(54,54,54);">,&nbsp;</span> <span style="color: rgb(0,0,255);"><u><a href="SVG_18448452.html"><span style="color: rgb(0,0,255);">SVG</span></a></u></span><span style="color: rgb(54,54,54);">,&nbsp;</span> <u><span style="color: rgb(0,0,255);"><a href="PDF_18448450.html"><span style="color: rgb(0,0,255);">PDF</span></a></span></u> <span style="color: rgb(54,54,54);">&nbsp;and&nbsp;</span> <u><span style="color: rgb(0,0,255);"><a href="EMF_18448448.html"><span style="color: rgb(0,0,255);">EMF</span></a></span></u><span style="color: rgb(54,54,54);">.</span></p>
+          <p>Restrictions:</p>
+          <ol style="margin-left: 20.0px;">
+           <li>These are binary file formats, so the applet.getMol(...) function does not work.</li>
+           <li>Instead of the molecule.toFormat(...) function, the MolExporter.<span style="color: rgb(0,0,255);"><u><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/formats/MolExporter.html#exportToBinFormat%28chemaxon.struc.Molecule,%20java.lang.String%29" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);text-decoration: underline;">exportToBinFormat(...)</span></a></u></span>&nbsp;method should be used.</li>
+           <li>Command line creation of image files using&nbsp;<u><span style="color: rgb(0,0,255);"><a href="Molecule-File-Conversion-with-MolConverter_18448462.html"><span style="color: rgb(0,0,255);">MolConverter</span></a></span></u>&nbsp;works only in Java 1.2 or later JVMs.</li>
+          </ol>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="ImageExportinMarvin-exportOptionsExportoptions"><a class="anchor" name="options" rel="nofollow"></a> <span class="confluence-anchor-link" id="ImageExportinMarvin-exportOptions"></span>Export options</h2>
+          <p><span style="color: rgb(54,54,54);">Image export options are separated by commas in format descriptor strings.</span> <br /> <span style="color: rgb(54,54,54);">The following common options are recognized by all image export modules:</span></p>
+          <div class="table-wrap">
+           <table style="line-height: 1.4285715;" class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>H_off</code></td>
+              <td class="confluenceTd">Do not show implicit Hydrogen labels.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>H_hetero</code></td>
+              <td class="confluenceTd">Implicit Hydrogen labels on heteroatoms only.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>H_heteroterm</code></td>
+              <td class="confluenceTd">Implicit Hydrogen labels on hetero- and terminal atoms (default).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>H_all</code></td>
+              <td class="confluenceTd">Implicit Hydrogen labels on all atoms.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>chiral_off</code></td>
+              <td class="confluenceTd">Switch off chirality support, do not show R/S labels (default).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>chiral_selected</code></td>
+              <td class="confluenceTd">Show R/S if the chiral flag is set for the molecule.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>chiral_all</code></td>
+              <td class="confluenceTd">Show R/S for any molecule.</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><code>noRGroups</code></td>
+              <td colspan="1" class="confluenceTd">Do not show R groups</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><code>noRLogic</code></td>
+              <td colspan="1" class="confluenceTd">Do not show R logic</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>w...</code> <br /> <code>h...</code></td>
+              <td class="confluenceTd">Image width and height in pixels. If only one from w and h is specified, then the other will have the same value. If none of them is specified, then their values are calculated from&nbsp;<u><span style="color: rgb(0,0,255);"><a href="#ImageExportinMarvin-scale"><span style="color: rgb(0,0,255);">scale</span></a></span></u>. If scale is not specified, then the default size is 200x200.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code><span class="confluence-anchor-link" id="ImageExportinMarvin-scale"></span>scale...</code></td>
+              <td class="confluenceTd">Magnification. 1.54&Aring; (C-C bond length) is&nbsp;<em>scale</em>&nbsp;pixels.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>maxscale...</code></td>
+              <td class="confluenceTd">Maximizes the magnification to prevent overscaling of small molecules.<br />It is usually set to 28, which is the scale factor for 100% magnification.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>atsiz...</code></td>
+              <td class="confluenceTd">Atom label font size in C-C bond length units. Default: 0.4<br /> <em>atsiz</em>*1.54 &Aring; =&nbsp;<em>atsiz</em>*<em>scale</em>&nbsp;points</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><code>bondl</code></td>
+              <td colspan="1" class="confluenceTd">Bond length in pt. Default: 28</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>bondw...</code></td>
+              <td class="confluenceTd">Width of double bond in C-C bond length units. Default: 0.18<br /> <em>bondw</em>*1.54 &Aring; =&nbsp;<em>bondw</em>*<em>scale</em>&nbsp;pixels</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><code>boldbondw</code></td>
+              <td colspan="1" class="confluenceTd">Width of bold bond in pt. Default:6</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>wireThickness...</code></td>
+              <td class="confluenceTd">Bond thickness in wireframe mode. Default: 0.064</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>stickThickness...</code></td>
+              <td class="confluenceTd">The stick diameter for ball and stick mode. Default: 0.1</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>ballRadius...</code></td>
+              <td class="confluenceTd">Ball radius for ball and stick mode. Default: 0.5</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>#rrggbb</code></td>
+              <td class="confluenceTd">Background color. It also determines the brightness of the CPK palette (for atoms and bonds); lighter colors are choosen automatically for dark background and conversely. Default: &quot;#ffffff&quot;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>#aarrggbb</code></td>
+              <td class="confluenceTd">Background color with alpha value. Use alpha=0 for transparent background, e.g. #00ffffff. Note that the alpha channel is not supported by all image formats. Default: &quot;#ffffffff&quot;</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>transbg</code></td>
+              <td class="confluenceTd">Sets the image background to transparent.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>mono</code></td>
+              <td class="confluenceTd">Black &amp; white.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>cpk</code></td>
+              <td class="confluenceTd">Use CPK colors (default).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>shapely</code></td>
+              <td class="confluenceTd">Use the&nbsp;<u><span style="color: rgb(0,0,255);"><a href="https://docs.chemaxon.com/x/F4EZAQ" rel="nofollow"><span style="color: rgb(0,0,255);">shapely</span></a></span></u>&nbsp;color scheme.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>group</code></td>
+              <td class="confluenceTd">Use coloring based on residue sequence numbers.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>setcolors</code> <br /> <code>setcolors:</code>...</td>
+              <td class="confluenceTd">Use atom/bond set colors. Colors can be specified as a colon separated list of values. Use &quot;a<span>k</span>:#rrggbb&quot; for atom set&nbsp;<span>k</span>, &quot;b<span>k</span>:#rrggbb&quot; for bond set&nbsp;<span>k</span>. The hashmark &quot;#&quot; can be omitted. Human-readable color names like &quot;red&quot;, &quot;green&quot;, &quot;blue&quot; can also be used.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>wireframe</code></td>
+              <td class="confluenceTd">Wireframe rendering style (default for 2D).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>wireknobs</code></td>
+              <td class="confluenceTd">Wireframe with knobs.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>ballstick</code></td>
+              <td class="confluenceTd">&quot;Ball &amp; stick&quot; rendering style (default for 3D).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>spacefill</code></td>
+              <td class="confluenceTd">Spacefill rendering style.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>noantialias</code></td>
+              <td class="confluenceTd">Switch off antialiasing.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>amap</code></td>
+              <td class="confluenceTd">Displays atom mapping.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>anum</code></td>
+              <td class="confluenceTd">Displays atom numbers.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>atomNumberingType...</code></td>
+              <td class="confluenceTd">Sets the type of atom numbering. Implies anum parameter.<br />Possible values:
+               <ul style="margin-left: 20.0px;">
+                <li>1 (Atom numbers)</li>
+                <li>2 (IUPAC numbering)</li>
+               </ul></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>lp</code></td>
+              <td class="confluenceTd">Displays lone pairs.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>lpexpl</code></td>
+              <td class="confluenceTd">Display the explicit lone pairs instead of the implicit lone pairs if lone pair displaying is switched on. See the&nbsp;<code>lp</code>&nbsp;parameter.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>lonePairsAsLine</code></td>
+              <td class="confluenceTd">Display lone pairs as a line instead of the default two dots. This parameter has effect only if the&nbsp;<code>lp</code>parameter is also specified.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>downwedge_mdl</code></td>
+              <td class="confluenceTd">Down wedge orientation points downward (MDL). (default)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>downwedge_daylight</code></td>
+              <td class="confluenceTd">Down wedge orientation points upward (Daylight).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>anybond_auto</code></td>
+              <td class="confluenceTd">Draw any bonds with dashed lines in most cases. If all bonds are generated from atom coordinates, any bonds are displayed with solid lines. (default)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>anybond_dashed</code></td>
+              <td class="confluenceTd">Draw any bonds with dashed lines.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>anybond_solid</code></td>
+              <td class="confluenceTd">Draw any bond with solid lines.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>noatsym</code></td>
+              <td class="confluenceTd">Hide atom symbols in 3D mode.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>valprop</code></td>
+              <td class="confluenceTd">Show valence property on atoms that have the valence property explicitly set.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>ez</code></td>
+              <td class="confluenceTd">Show E/Z.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>cv_on</code></td>
+              <td class="confluenceTd">Always show the atom labels of carbon atoms.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>cv_off</code></td>
+              <td class="confluenceTd">Never show the atom labels of carbon atoms.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>cv_inChain</code></td>
+              <td class="confluenceTd">Show the atom labels of carbon atoms at straight angles and at implicit Hydrogens.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>grinvVisible</code></td>
+              <td class="confluenceTd">Displays graph invariants.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>bondLengthVisible</code></td>
+              <td class="confluenceTd">Displays the length of bonds in Angstroms.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>valenceErrorVisible</code></td>
+              <td class="confluenceTd">Displays valence errors.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>absLabelVisible</code></td>
+              <td class="confluenceTd">Sets the Abolute label visibility to true.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>ligandOrderVisibility_withDef</code></td>
+              <td class="confluenceTd">Active by default. Show ligand order on images only when the R-group definition is present.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>ligandOrderVisibility_on</code></td>
+              <td class="confluenceTd">Show all ligand order on images for R-groups.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>ligandOrderVisibility_off</code></td>
+              <td class="confluenceTd">Never show ligand order on images for R-groups.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>aprop</code></td>
+              <td class="confluenceTd">Show explicitly set properties on atoms.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>liganderr</code></td>
+              <td class="confluenceTd">Show ligand errors on R-groups.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>coordBondStyle_solid</code></td>
+              <td class="confluenceTd">Display coordinate bond as a single bond.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>coordBondStyle_arrow</code></td>
+              <td class="confluenceTd">Display coordinate bond as an arrow.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>coordBondStyleAtMulticenter_hashed</code></td>
+              <td class="confluenceTd">Display coordinate bond as a dashed bond when it connects to a multicenter atom.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>coordBondStyleAtMulticenter_solid</code></td>
+              <td class="confluenceTd">Display coordinate bond as a single bond when it connects to a multicenter atom.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>chargeWithCircle</code></td>
+              <td class="confluenceTd">Display charge symbols in a circle.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code>oneLetterPeptideDisplay</code></td>
+              <td class="confluenceTd">Display peptides with their one letter abbreviation instead of the three letter abbreviation which is the default.</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><code>fogFactor</code></td>
+              <td colspan="1" class="confluenceTd">Sets the Fog factor scale value: int, default value: 0, range: 0..100</td>
+             </tr>
+             <tr>
+              <td colspan="1" class="confluenceTd"><code>marginSize</code></td>
+              <td colspan="1" class="confluenceTd">Set the margin width. default value: 0.8 pt</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>&nbsp;</p>
+          <p><span style="color: rgb(54,54,54);">2D defaults:&nbsp;</span> <code>H_heteroterm,w200,h200,#ffffffff,cpk,wireframe</code> <span style="color: rgb(54,54,54);">&nbsp;</span></p>
+          <p>3D defaults:&nbsp;<code>H_heteroterm,w200,h200,#ff000000,cpk,ballstick</code></p>
+          <p><em>Examples</em>:</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <td class="confluenceTd"><code>jpeg</code></td>
+              <td class="confluenceTd">Default settings: 200x200 pixels, white background (or black in 3D).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code> jpeg:w100,#ffff00 </code></td>
+              <td class="confluenceTd">100x100 JPEG with yellow background.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code> jpeg:w100,h150 </code></td>
+              <td class="confluenceTd">100x150 JPEG with default background.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><code> png:aprop -s &quot;C1-C10 alkyl&quot; -o alkyl.png</code></td>
+              <td class="confluenceTd">PNG showing &quot;C1-C10 alkyl&quot;.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><strong>See also:</strong></p>
+            <ul>
+             <li><a href="Basic-export-options_14943114.html">Basic export options</a></li>
+            </ul> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

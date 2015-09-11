@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Valence Error</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Valence Error </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul style="margin-left: 20.0px;">
+       <li>Checker searches for valence errors.
+        <ul style="margin-left: 20.0px;">
+         <li>Allow traditional N representation: checking this option will allow the presence of pentavalent nitrogen.&nbsp;<a href="https://docs.chemaxon.com/display/SB/Nitrogen+group">Details on valence calculation of nitrogen</a>&nbsp;(<code>:allowTraditionalNitrogen=true</code>)</li>
+        </ul></li>
+       <li>Fixer offers removing explicit hydrogens if applicable (<code>fixvalence</code>).</li>
+      </ul>
+      <p><br /> <strong>Example</strong> <span style="color: rgb(54,54,54);">:</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th rowspan="2" class="confluenceTh">Valence Error Checker (<code>valenceerror</code>)</th>
+          <th rowspan="2" class="confluenceTh">Warning:</th>
+          <th class="confluenceTh">Fix</th>
+         </tr>
+         <tr>
+          <th class="confluenceTh">Fix Valence (<code>fixvalence</code>)</th>
+         </tr>
+         <tr>
+          <th rowspan="3" class="confluenceTh">Detect Valence Error</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_valence_ch" height="91" width="79" src="attachments/10028822/29098408.png" data-image-src="attachments/10028822/29098408.png" data-unresolved-comment-count="0" data-linked-resource-id="29098408" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_valence_ch.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="no error" height="24" width="24" src="attachments/10028822/29098412.png" data-image-src="attachments/10028822/29098412.png" data-unresolved-comment-count="0" data-linked-resource-id="29098412" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_valence_ch" height="112" width="129" src="attachments/10028822/29098411.png" data-image-src="attachments/10028822/29098411.png" data-unresolved-comment-count="0" data-linked-resource-id="29098411" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_valence_chc2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_valence_f" height="94" width="133" src="attachments/10028822/29098413.png" data-image-src="attachments/10028822/29098413.png" data-unresolved-comment-count="0" data-linked-resource-id="29098413" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_valence_fc2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_valence_ch" height="111" width="128" src="attachments/10028822/29098410.png" data-image-src="attachments/10028822/29098410.png" data-unresolved-comment-count="0" data-linked-resource-id="29098410" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_valence_chc.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="not available" height="24" width="24" src="attachments/10028822/29098412.png" data-image-src="attachments/10028822/29098412.png" data-unresolved-comment-count="0" data-linked-resource-id="29098412" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+         </tr>
+         <tr>
+          <th rowspan="3" class="confluenceTh">Detect Valence Error:<br />Allow traditional N representation<br />(<code>:allowTraditionalNitrogen=true</code>)</th>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="ex_valence_ch" height="91" width="79" src="attachments/10028822/29098409.png" data-image-src="attachments/10028822/29098409.png" data-unresolved-comment-count="0" data-linked-resource-id="29098409" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ex_valence_ch1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" alt="not available" height="24" width="24" src="attachments/10028822/29098412.png" data-image-src="attachments/10028822/29098412.png" data-unresolved-comment-count="0" data-linked-resource-id="29098412" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="10028822" data-linked-resource-container-version="7" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br /> <strong>Note</strong> <span style="color: rgb(54,54,54);">: Valence errors with no removable hydrogens have to be corrected manually.</span></p>
+      <p><span style="color: rgb(54,54,54);"> <strong>Current limitation</strong>:<span>&nbsp;If an R group definition contains an S group with valence error inside, the checker reports about the problem but no fixer is applied (even if the valence error could be eliminated with H removal).</span> </span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

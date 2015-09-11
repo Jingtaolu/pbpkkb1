@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Customizing Marvin GUI</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Customizing Marvin GUI </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201033334 {padding: 0px;}
+div.rbtoc1439201033334 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201033334 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201033334"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#CustomizingMarvinGUI-configConfigurationfile">Configuration file</a></li> 
+              <li><a href="#CustomizingMarvinGUI-AppletAppletcustomizationstep-by-step">Applet customization step-by-step</a></li> 
+              <li><a href="#CustomizingMarvinGUI-JavaBeanJavaBeancustomizationstep-by-step">JavaBean customization step-by-step</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#CustomizingMarvinGUI-Ex1Example1:MakeISIS/Draw-likeconfigurationtobethedefault">Example 1: Make ISIS/Draw-like configuration to be the default</a></li> 
+                <li><a href="#CustomizingMarvinGUI-Ex2Example2:CreatingacustomToolspalette">Example 2: Creating a custom Tools palette</a></li> 
+               </ul> </li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p><span style="color: rgb(51,51,51);">The </span><a href="Customizing-MarvinSketch-GUI_13336666.html">Customization</a><span style="color: rgb(51,51,51);"> document demonstrates an easy, interactive way of GUI personalization.</span></p>
+          <p>This document shows how to use the same interactive method to customize the GUI if MarvinSketch is used as an <a href="#CustomizingMarvinGUI-Applet"><strong>applet</strong> </a>being on a server or as a <strong><a href="#CustomizingMarvinGUI-JavaBean">JavaBean</a></strong>.</p>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <p class="title">API XSD</p> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            Note, that API and XSD will also be available very soon.
+           </div> 
+          </div> 
+          <h4 id="CustomizingMarvinGUI-configConfigurationfile"><span class="confluence-anchor-link" id="CustomizingMarvinGUI-config"></span>Configuration file</h4>
+          <p>MarvinSketch stores all changes made on the GUI in a <strong>configuration file</strong>.<br /> This file is located at</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">USER_HOME/CHEMAXON_DIR/VERSION/customization.xml</pre> 
+           </div>
+          </div>
+          <p>where</p>
+          <ul>
+           <li><p><code>USER_HOME</code> is</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">C:\Documents and Settings\USERNAME</pre> 
+             </div>
+            </div><p>on Windows,</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">/home/USERNAME</pre> 
+             </div>
+            </div><p>&nbsp;on Unix</p></li>
+           <li><p><code>CHEMAXON_DIR</code> is&nbsp;</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">chemaxon</pre> 
+             </div>
+            </div><p>(Windows)<br />&nbsp;or</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">.chemaxon</pre> 
+             </div>
+            </div><p><code>(Unix)</code></p></li>
+           <li><code>VERSION</code> is the actual version number of MarvinSketch, with which the customization is made</li>
+          </ul>
+          <p>Example location:<br /> Windows:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">C:\Documents and Settings\USERNAME\chemaxon\6.4.0\customization.xml</pre> 
+           </div>
+          </div>
+          <p><br /> Unix/Linux:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">/home/USERNAME/.chemaxon/6.4.0/customization.xml</pre> 
+           </div>
+          </div>
+          <h4 id="CustomizingMarvinGUI-AppletAppletcustomizationstep-by-step"><span class="confluence-anchor-link" id="CustomizingMarvinGUI-Applet"></span>Applet customization step-by-step</h4>
+          <ol>
+           <li>Remove the the configuration file from your local file system (make sure to create a backup)</li>
+           <li>Launch MarvinSketch on the client side</li>
+           <li>Personalize the GUI using the methods described in the <a href="Customizing-MarvinSketch-GUI_13336666.html">Customization</a> document</li>
+           <li><p>Upload the newly created configuration file to be beside the MarvinSketch applet on the server, <em>e.g.</em>, <a href="http://example-server.org/marvin/customization.xml" class="external-link" rel="nofollow"></a></p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">http://example-server.org/marvin/customization.xml</pre> 
+             </div>
+            </div></li>
+           <li><p>Set the &quot;menuconfig&quot; <a href="Other-parameters_25985403.html#Otherparameters-menuconfig">applet parameter</a> to the URL of the configuration file, <em>e.g.</em>,</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">msketch_param(&quot;menuconfig&quot;, &quot;http://example-server.org/marvin/configuration.xml&quot;);</pre> 
+             </div>
+            </div><p>or</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">msketch_param(&quot;menuconfig&quot;, &quot;files/marvin/configuration.xml&quot;);</pre> 
+             </div>
+            </div><p><code><br /></code></p></li>
+          </ol>
+          <h4 id="CustomizingMarvinGUI-JavaBeanJavaBeancustomizationstep-by-step"><span class="confluence-anchor-link" id="CustomizingMarvinGUI-JavaBean"></span>JavaBean customization step-by-step</h4>
+          <ol>
+           <li>Remove the the configuration file from your local file system (make sure to create a backup)</li>
+           <li>Launch MarvinSketch on the client side</li>
+           <li>Personalize the GUI using the methods described in the <a href="Customizing-MarvinSketch-GUI_13336666.html">Customization</a> document</li>
+           <li>Copy the newly created configuration file to a path which is included in the classpath of the application</li>
+           <li>Use UserSettings to instantiate the bean:</li>
+          </ol>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">UserSettings userSettings=new UserSettings();
+
+userSettings.put(&quot;menuconfig&quot;, &quot;org/example/configuration.xml&quot;);
+
+MSketchPane sketchPane=new MSketchPane(userSettings);</pre> 
+           </div>
+          </div>
+          <h5 id="CustomizingMarvinGUI-Ex1Example1:MakeISIS/Draw-likeconfigurationtobethedefault"><span class="confluence-anchor-link" id="CustomizingMarvinGUI-Ex1"></span>Example 1: Make ISIS/Draw-like configuration to be the default</h5>
+          <p>The <a href="Configurations-of-MarvinSketch_13336701.html">Configurations</a> document describes built-in alternative schemas for personalized GUIs.<br /> To make a configuration schema to be the default, the identifier of the desired configuration has to be set in a simple xml file.</p>
+          <p>The identifiers of the available configurations are below:</p>
+          <p>&nbsp;</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th style="margin-left: 60.0px;" class="confluenceTh">Configuration</th>
+              <th style="margin-left: 60.0px;" class="confluenceTh">Identifier</th>
+             </tr>
+             <tr style="margin-left: 60.0px;">
+              <td style="margin-left: 60.0px;" class="confluenceTd">Marvin</td>
+              <td style="margin-left: 60.0px;" class="confluenceTd">default</td>
+             </tr>
+             <tr style="margin-left: 60.0px;">
+              <td style="margin-left: 60.0px;" class="confluenceTd">Classic Marvin</td>
+              <td style="margin-left: 60.0px;" class="confluenceTd">classic</td>
+             </tr>
+             <tr style="margin-left: 60.0px;">
+              <td style="margin-left: 60.0px;" class="confluenceTd">ISIS/Draw-like</td>
+              <td style="margin-left: 60.0px;" class="confluenceTd">config1</td>
+             </tr>
+             <tr style="margin-left: 60.0px;">
+              <td style="margin-left: 60.0px;" class="confluenceTd">ChemDraw-like</td>
+              <td style="margin-left: 60.0px;" class="confluenceTd">config2</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>The contents of the configuration file:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;customization active=&quot;config1&quot;&gt;
+    &lt;/customization&gt;</pre> 
+           </div>
+          </div>
+          <h5 id="CustomizingMarvinGUI-Ex2Example2:CreatingacustomToolspalette"><span class="confluence-anchor-link" id="CustomizingMarvinGUI-Ex2"></span>Example 2: Creating a custom Tools palette</h5>
+          <p>This example shows a configuration file which performs the following changes:</p>
+          <ul>
+           <li>the Tools toolbar on the left hand side is hidden</li>
+           <li>a new toolbar is defined in its place with some custom actions</li>
+           <li>the Atoms toolbar on the right hand side is changed</li>
+          </ul>
+          <p>The result is shown in the picture below:</p>
+          <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336697/13402230.png" data-image-src="attachments/13336697/13402230.png" data-unresolved-comment-count="0" data-linked-resource-id="13402230" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="custom_marvin.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336697" data-linked-resource-container-version="13" /></span></p>
+          <p>The content of the <em>default</em> scheme of the configuration file is as follow</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">       &lt;scheme id=&quot;default&quot;&gt;
+        &lt;modify path=&quot;toolbar/atoms/atom.N&quot; visible=&quot;false&quot;/&gt;
+        &lt;modify path=&quot;toolbar/atoms/atom.S&quot; visible=&quot;false&quot;/&gt;
+        &lt;modify path=&quot;toolbar/atoms/atom.F&quot; visible=&quot;false&quot;/&gt;
+        &lt;modify path=&quot;toolbar/atoms/atom.P&quot; visible=&quot;false&quot;/&gt;
+        &lt;modify path=&quot;toolbar/atoms/atom.Cl&quot; visible=&quot;false&quot;/&gt;
+        &lt;modify path=&quot;toolbar/atoms/atom.I&quot; visible=&quot;false&quot;/&gt;
+        &lt;add path=&quot;toolbar/atoms&quot;&gt;
+          &lt;item id=&quot;increaseCharge&quot;/&gt;
+          &lt;item id=&quot;decreaseCharge&quot;/&gt;
+        &lt;/add&gt;
+        &lt;order itemorder=&quot;periodicSystem/atom.H/atom.C/atom.N/atom.O/atom.S/atom.F/atom.P/atom.Cl/atom.Br/atom.I/increaseCharge/decreaseCharge&quot; path=&quot;toolbar/atoms&quot;/&gt;
+        &lt;modify index=&quot;1&quot; path=&quot;toolbar/tools&quot; row=&quot;0&quot; visible=&quot;false&quot;/&gt;
+        &lt;toolbar anchor=&quot;west&quot; id=&quot;CustomToolbar-0&quot; index=&quot;0&quot; name=&quot;Custom-Tools-Palette&quot; row=&quot;0&quot;&gt;
+          &lt;item id=&quot;bondGroup&quot;/&gt;
+          &lt;item id=&quot;insertElectronFlow&quot;/&gt;
+          &lt;item id=&quot;insertElectronFlow2&quot;/&gt;
+          &lt;item id=&quot;insertRectangle&quot;/&gt;
+          &lt;item id=&quot;insertArrow&quot;/&gt;
+          &lt;item id=&quot;insertTwoHeadedArrow&quot;/&gt;
+        &lt;/toolbar&gt;
+      &lt;/scheme&gt;</pre> 
+           </div>
+          </div>
+          <p>Currently using a configuration file is the only way to change the GUI of applets or beans. The possibility of using the API will be available soon.</p>
+          <p>Note that the graphical user interface of MarvinView and MarvinSpace can not be customized yet.&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

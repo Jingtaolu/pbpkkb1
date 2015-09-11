@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : structurecheck_cline</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : structurecheck_cline </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h1 id="structurecheck_cline-Structurechecker-TheCommand-lineToolofStructureChecker">Structurechecker - The Command-line Tool of Structure Checker</h1>
+      <h2 id="structurecheck_cline-Contents">Contents</h2>
+      <ul>
+       <li><a href="#structurecheck_cline-commandline">Structurechecker command-line tool </a></li>
+       <li><a href="#structurecheck_cline-options">Options </a></li>
+       <li><a href="#structurecheck_cline-usage">Usage </a></li>
+       <li><a href="#structurecheck_cline-input">Input </a></li>
+       <li><a href="#structurecheck_cline-output">Output </a></li>
+       <li><a href="#structurecheck_cline-examples">Examples </a></li>
+       <li><a class="createlink" href="/pages/createpage.action?spaceKey=structurechecker&amp;title=STRCHK%3Astructurechecker&amp;linkCreation=true&amp;fromPageId=5177932">Structure checker user guide (GUI) </a></li>
+       <li><a class="unresolved" href="#">List of available checkers </a></li>
+      </ul>
+      <p><span class="confluence-anchor-link" id="structurecheck_cline-commandline"></span>Structurecheck Command-line <br /> <a href="structurechecker_5177910.html">Structure Checker </a> is a chemical validation tool detecting and fixing common structural errors or special features that can be potential sources of problems. <strong>Structurecheck</strong> is the command-line tool of Structure Checker.</p>
+      <h2 id="structurecheck_cline-optionsOptions"><span class="confluence-anchor-link" id="structurecheck_cline-options"></span>Options</h2>
+      <p>&nbsp;</p>
+      <div class="preformatted panel" style="border-width: 1px;">
+       <div class="preformattedContent panelContent"> 
+        <pre>StructureCheck 5.6, (C) 1999-2011 ChemAxon Ltd.
+Licenses of additionally used third party programs can be found in license.html
+Online version: http://www.chemaxon.com/marvin/license.html
+Molecule checker.
+Usage:
+  structurecheck [input file(s)/string(s)] -c &amp;lt;config file/string&amp;gt; [options]
+
+General options:
+  -m, --mode &amp;lt;operationmode&amp;gt;          mode of the operation: fix or check
+                                      default mode is check 
+      &amp;lt;operationmode&amp;gt; = [fix|check]   
+      check - only check is executed, does not modify molecules
+      fix   - fixes molecules containing structure errors whenever possible
+  -x                                  fix mode (deprecated, use --mode fix)
+Input options:
+  -c, --config &amp;lt;filepath|string&amp;gt;      action string configuration
+                                      actions separated by &quot;..&quot;,
+                                      valid checker actions are:
+                                      - 3d
+                                        (detect atoms with 3D coordinates)
+                                      - abbrevgroup
+                                        (detect abbreviated groups)
+                                      - abbrevgroup:expanded=true
+                                        (detect expanded abbreviated groups)
+                                      - abbrevgroup:contracted=true
+                                        (detect contracted abbreviated groups)
+                                      - alias
+                                        (detect atoms with alias)
+                                      - aromaticity
+                                        (detect aromaticity errors)
+                                      - aromaticity:type=[basic,loose,general]
+                                        (detect aromaticity errors
+                                        with the given aromatization type)
+                                      - atommap
+                                        (detect atoms with map number)
+                                      - atomqueryproperty
+                                        (detect atom query properties)
+                                      - atomqueryproperty:H=[true,false]:
+                                        X=[true,false]:
+                                        D=[true,false]:
+                                        R=[true,false]:
+                                        h=[true,false]:
+                                        r=[true,false]:
+                                        a=[true,false]:
+                                        s=[true,false]:
+                                        u=[true,false]:
+                                        rb=[true,false]:
+                                        (detect hydrogen count/
+                                        connection count/explicit connection
+                                        count/ring count/implicit hydrogen
+                                        count/smallest ring count/aromaticity/
+                                        substitution count/unsaturation/ring
+                                        bond count atom query properties)
+                                      - atomvalue
+                                        (detect atoms with atom value)
+                                      - attacheddata
+                                        (detect atoms with attached data)
+                                      - bondangle
+                                        (detect unpreferred bond angles
+                                        in 2d)
+                                      - bondlength
+                                        (detect bonds that are too long
+                                        or too short)
+                                      - chiralflag
+                                        (detect non-chiral molecules with
+                                        chiral flag)
+                                      - coordsystem
+                                        (detect invalid coordination systems)
+                                      - covalentcounterion
+                                        (detect covalent counterions)
+                                      - crosseddoublenond
+                                        (detect crossed double bonds)
+                                      - empty
+                                        (detect items without atoms)
+                                      - explicith
+                                        (detect explicit hydrogens)
+                                      - explicith:lonely=[true,false]:
+                                        mapped[true,false]:
+                                        charged=[true,false]:
+                                        isotopic=[true,false]:
+                                        radical=[true,false]:
+                                        wedged=[true,false]
+                                        (detect lonely/charged/mapped/isotopic
+                                        radical/wedged explicit hydrogens)
+                                      - explicitlp
+                                        (detect explicit lone pairs)
+                                      - isotope
+                                        (detect isotopes)
+                                      - metallocene
+                                        (detect incorrect metallocene
+                                        representations)
+                                      - missingatommap
+                                        (detect atoms without map numbers)
+                                      - multicenter
+                                        (detect multicenters)
+                                      - multicomponent
+                                        (detect molecules containing
+                                        disconnected parts)
+                                      - moleculecharge
+                                        (detect non-neutral molecules)
+                                      - ocr
+                                        (detect structures that are probably
+                                        not chemical structures but originated
+                                        from other drawings, usually results of
+                                        incorrect optical structure
+                                        recognition)
+                                      - overlappingAtoms
+                                        (detect atoms that are too close to
+                                        each other)
+                                        (detect bonds that are too close to
+                                        each other)
+                                      - pseudoatom
+                                        (detect pseudo atoms)
+                                      - queryatom
+                                        (detect query atoms)
+                                      - querybond
+                                        (detect query bonds)
+                                      - racemate
+                                        (detect asymmetric tetrahedral atoms
+                                        without specific stereo configuration)
+                                      - radical
+                                        (detect radical atoms)
+                                      - ratom:all=[true,false]:
+                                        disconnected=[true,false]:
+                                        generic=[true,false]:
+                                        linker=[true,false]:
+                                        nested=[true,false]:
+                                        (detect all/disconnected/generic
+                                        linker/nested R-atoms)
+                                      - rare
+                                        (detect rare elements)
+                                      - reactionmap
+                                        (detect reactions with invalid
+                                        atom mapping)
+                                      - rgroupattachmenterror
+                                        (detect R-group attachment errors)
+                                      - rgroupreferenceerror:
+                                        missingratom=[true,false]:
+                                        missingrgroup=[true,false]:
+                                        selfreference=[true,false]:
+                                        (detect missing R-atom/
+                                        missing R-group/invalid attachment/
+                                        self reference errors in R-group
+                                        definitions)
+                                      - ringstrainerror
+                                        (detect small rings with 
+                                        trans or cumulative double bonds,
+                                        or triple bond)
+                                      - solvent
+                                        (detect common solvents appearing
+                                        by a main component)
+                                      - staratom
+                                        (detect star atoms)
+                                      - substructure:reactionSmarts=[smarts]
+                                        (detects if the give smarts
+                                        structure could be found as
+                                        a substructure of the
+                                        original molecule)
+                                      - unbalancedreaction
+                                        (detect reactions with orphan atoms)
+                                      - valence
+                                        (detect valence errors)
+                                      - valenceproperty
+                                        (detect atoms with valence properties)
+                                      - valenceproperty:defaultvalence=true
+                                        (detect atoms with default valence
+                                        properties)
+                                      - valenceproperty:nondefaultvalence=true
+                                        (detect atoms with default valence
+                                        properties)
+                                      - wedge
+                                        (detect incorrect wedge bonds)
+                                      - wigglydoublebond
+                                        (detects non_stereo double bonds
+                                        with wiggly representation)
+                                        connected to a double bond)
+
+                                        valid fixer actions are:
+                                      - aliastoatom
+                                        (remove aliases from atoms)
+                                      - aliastogroup
+                                        (convert atoms with aliases to
+                                        abbreviated groups if the alias)
+                                        is recognized)
+                                      - aliastocarbon
+                                        (remove alias values from atoms and 
+                                        convert the atom to a carbon)
+                                      - clearabsstereo
+                                        (remove the chiral flag)
+                                      - clean
+                                        (calculate 2D coordinates)
+                                      - contractgroup
+                                        (contract all abbreviated groups)
+                                      - converttoelementalform
+                                        (convert isotopes into elemental atoms)
+                                      - converttoionicform
+                                        (convert covalent counterions
+                                        to ionic form)
+                                      - converttometalloceneform
+                                        (convert non-standard metallocene
+                                        representations into coordinated
+                                        multicenter representation
+                                      - crosseddoublebond
+                                        (convert non-stereo double bond
+                                        represented by wiggly ligand)
+                                        to crossed double bond representation)
+                                      - crossedtowiggly
+                                        (convert non-stereo double bond
+                                        represented by crossed double bond)
+                                        to wiggly ligand representation)
+                                      - dearomatize
+                                        (convert aromatic rings into Kekule
+                                        form)
+                                      - expandgroup
+                                        (expand all abbreviated groups)
+                                        representation if it is possible)
+                                      - fixrgroupattachment
+                                        (add missing attachments to members
+                                        with single location)
+                                      - fixvalence
+                                        (correct valence problem by removing
+                                        hydrogens or setting charges)
+                                      - mapmolecule
+                                        (add atom maps to each atom 
+                                        of the molecule)
+                                      - mapreaction
+                                        (add atom maps to the reaction)
+                                      - neutralize
+                                        (remove charges from the molecule)
+                                      - pseudotogroup
+                                        (convert pseudo atoms to 
+                                        abbreviated groups if pseudo label
+                                        is a known abbreviated group)
+                                      - removeexplicith
+                                        (remove explicit hydrogens)
+                                      - rearomatize
+                                        (dearomatize the molecule and
+                                        aromatize it again)
+                                      - removealias
+                                        (remove alias values from atoms)
+                                      - removeatom
+                                        (remove the problematic atoms
+                                        from the molecule)
+                                      - removeatommap
+                                        (remove atom map numbers)
+                                      - removeatomqueryproperty
+                                        (remove atom query properties)
+                                      - removeatomvalue
+                                        (remove atom values)
+                                      - removeattacheddata
+                                        (remove data attached to atoms)
+                                      - removebond
+                                        (remove problematic bonds
+                                        from the molecule)
+                                      - removeradical
+                                        (convert radicals to non_radical atoms)
+                                      - removevalenceproperty
+                                        (remove valence properties from atoms)
+                                      - removezcoordinate
+                                        (set the z-coordinates of atoms to 
+                                        zero)
+                                      - ungroup
+                                        (ungroup all abbreviated groups)
+                                      - wedgeclean
+                                        (recalculate the orientation of the
+                                        wedge bonds in the molecule)
+
+Output options:
+  -t --output-type &amp;lt;output type&amp;gt;      output type (default: single) 
+      &amp;lt;output type&amp;gt; = [single|separated|accepted|discarded]
+      single    - both accepted and discarded structures are written to the
+                  &amp;lt;output path&amp;gt;
+      separated - accepted structures are written to the &amp;lt;output path&amp;gt;, 
+                  discarded structures are written to the  &amp;lt;discarded path&amp;gt;
+      accepted  - only accepted structures are written to the &amp;lt;output path&amp;gt;
+      discarded - only discarded structures are written to the &amp;lt;discarded path&amp;gt;
+  -o, --output &amp;lt;output path&amp;gt;          output file (default: standard output)
+  -d, --discarded &amp;lt;discarded path&amp;gt;    writes molecules with structure
+                                      error to a separate file (default:
+                                      standard output)
+  -f, --format &amp;lt;format&amp;gt;               output file format (default: smiles)
+  -rf, --report-file &amp;lt;filepath&amp;gt;       writes report to a file
+  -rp, --report-property &amp;lt;propname&amp;gt;   writes report to the property of the
+                                      output, with the specified propery name
+  -l, --log &amp;lt;filepath&amp;gt;                writes software-error log messages
+                                      to file
+  -ocr, --discard-scan-errors         discard incorrectly scanned molecules
+  
+  Examples:
+  structurecheck -c config.xml -t separated -o out.smiles -d discarded.smiles in
+.smiles
+  structurecheck -c config.xml -m fix -t separated -d discarded.smiles in.smiles
+  structurecheck -c config.xml -m fix -t discarded in.sdf
+  structurecheck -c &quot;bondLength&quot; in.sdf
+  structurecheck -c &quot;isotope-&amp;gt;converttoelementalform&quot; in.sdf
+  structurecheck -c &quot;aromaticity..valence&quot; -m fix -f sdf -o out.sdf in.sdf
+</pre> 
+       </div>
+      </div>
+      <p><a href="structurecheck_cline_5177932.html">Go to top </a></p>
+      <h2 id="structurecheck_cline-usageUsage"><span class="confluence-anchor-link" id="structurecheck_cline-usage"></span>Usage</h2>
+      <div class="preformatted panel" style="border-width: 1px;">
+       <div class="preformattedContent panelContent"> 
+        <pre>structurecheck  -c &amp;lt;config file&amp;gt; -m [mode] [&amp;lt;options&amp;gt;] [input list]</pre> 
+       </div>
+      </div>
+      <ul>
+       <li>The command line parameter <span style="color: green;">-c</span> or <span style="color: green;">--config</span> is mandatory. This parameter specifies the configuration file path or a <a class="unresolved" href="#">simple action string </a>.</li>
+       <li>The optional parameter <span style="color: green;">-m</span> or <span style="color: green;">--mode</span> specifies the operation mode. The following operation modes are available:</li>
+      </ul>
+      <ul>
+       <li>check (default): searches for errors;</li>
+       <li>fix: fixes automatically fixable errors.</li>
+      </ul>
+      <p><strong>Note</strong>: When a molecule import/export error occurs, the program continues to run. The error is written to the console, and the molecule is discarded from the results (i.e., the resulting output file contains less molecules than the input file).</p>
+      <h2 id="structurecheck_cline-inputInput"><span class="confluence-anchor-link" id="structurecheck_cline-input"></span>Input</h2>
+      <p>Structurecheck accepts most molecular file formats as input (<a class="unresolved" href="#">Marvin Documents (MRV), MDL molfile, Sdfile, RXNfile, Rdfile, SMILES, etc. </a>). The input can be specified as:</p>
+      <ul>
+       <li>input file(s),</li>
+       <li>input string(s), or</li>
+       <li>SMILES (default).</li>
+      </ul>
+      <p><strong>Note</strong>: If neither the input file nor the input string is specified, the standard input (console) will be read.</p>
+      <p><a href="structurecheck_cline_5177932.html">Go to top </a></p>
+      <h2 id="structurecheck_cline-outputOutput"><span class="confluence-anchor-link" id="structurecheck_cline-output"></span>Output</h2>
+      <p>Structurecheck's output contains the file(s) of the checked/fixed molecules and optionally a report of the results. The molecules are written to the output file(s). The format of the output file(s) can be specified by the <span style="color: green;">-f</span> or <span style="color: green;">--format</span> option (default format is: &quot;smiles&quot;). The type of output is defined by the <span style="color: green;">-t</span> or <span style="color: green;">--output-type</span> parameter. The possible values of the output type are the following:</p>
+      <ul>
+       <li><strong>single</strong> (default): all molecules are written to the file defined by the <span style="color: green;">--output</span> parameter. If <span style="color: green;">--output</span> parameter is omitted, the result is written in the standard output (console). (<span style="color: green;">--discarded</span> parameter is ignored in this case.)</li>
+       <li><strong>separated</strong>: valid and invalid molecules are written to two different files. The <span style="color: green;">--output</span> parameter defines the output file of molecules with valid structures, and the <span style="color: green;">--discarded</span> parameter defines the output file of molecules with invalid structures (or in fix mode, those which can not be fixed automatically).</li>
+      </ul>
+      <ul>
+       <li>If <span style="color: green;">--discarded</span> parameter is omitted, molecules with invalid structures are written to standard output;</li>
+       <li>If <span style="color: green;">--output</span> parameter is omitted, molecules with valid structures are written to standard output;<br /> <strong>Note</strong>: The indication of <span style="color: green;">--output</span> or <span style="color: green;">--discarded</span> parameter is mandatory. If none of these parameters are defined, the program stops.</li>
+      </ul>
+      <p><strong>accepted</strong>: only molecules with valid structures are written to file defined by the <span style="color: green;">--output</span> parameter. If <span style="color: green;">--output</span> parameter is omitted, molecules with valid structures are written to the standard output. (<span style="color: green;">--discarded</span> parameter is ignored in this case) <strong>discarded</strong>: only molecules with invalid structures are written to the file defined by the <span style="color: green;">--discarded</span> parameter. If <span style="color: green;">?-discarded</span> parameter is omitted, molecules with valid structures are written to the standard output. (<span style="color: green;">--output</span> parameter is ignored in this case.)</p>
+      <p>The report of the structure check can be written either to a separate file, defined by the <span style="color: green;">--report-file</span> parameter, or to the output file(s) as additional molecule property. The name of the property can be defined by the <span style="color: green;">--report-property</span> parameter.</p>
+      <p><strong>Note</strong>: Not all molecules with structure errors are discarded. When fix mode is selected, molecules with automatically unfixable errors will be discarded only.</p>
+      <p><a href="structurecheck_cline_5177932.html">Go to top </a></p>
+      <h2 id="structurecheck_cline-examplesUsageexamples"><span class="confluence-anchor-link" id="structurecheck_cline-examples"></span>Usage examples</h2>
+      <p>Below you can find the short descriptions of some examples.</p>
+      <ol>
+       <li>
+        <div class="preformatted panel" style="border-width: 1px;">
+         <div class="preformattedContent panelContent"> 
+          <pre>structurecheck -c &quot;metallocene&quot;</pre> 
+         </div>
+        </div><p>Executes a check with configuration <em>metallocene</em> on the molecule(s) defined in the standard input, and writes the result to the standard output (console);</p></li>
+       <li>
+        <div class="preformatted panel" style="border-width: 1px;">
+         <div class="preformattedContent panelContent"> 
+          <pre>structurecheck -c &quot;bondLength&quot; in.sdf</pre> 
+         </div>
+        </div><p>Executes a check with configuration <em>bondLength</em> on the molecule(s) defined in the <span style="color: green;">in.sdf</span> file, and writes the result to the standard output (console);</p></li>
+       <li>
+        <div class="preformatted panel" style="border-width: 1px;">
+         <div class="preformattedContent panelContent"> 
+          <pre>structurecheck -c &quot;isotope-&amp;gt;converttoelementalform&quot; in.sdf</pre> 
+         </div>
+        </div><p>Executes a check with configuration <em>isotope-&gt;converttoelementalform</em> on the molecule(s) defined in the <span style="color: green;">in.sdf</span> file, and writes the result to the standard output (console);</p></li>
+       <li>
+        <div class="preformatted panel" style="border-width: 1px;">
+         <div class="preformattedContent panelContent"> 
+          <pre>structurecheck -c &quot;aromaticity..valence&quot; -m fix -f sdf -o out.sdf in.sdf</pre> 
+         </div>
+        </div><p>Executes a fix with configuration <em>aromaticity</em> and <em>valence</em> on the molecule(s) defined in the <span style="color: green;">in.sdf</span> file, and writes the molecules with valid structures (including automatically fixed molecules) in <span style="color: green;">sdf</span> format to the <span style="color: green;">out.sdf</span> output file;</p></li>
+       <li>
+        <div class="preformatted panel" style="border-width: 1px;">
+         <div class="preformattedContent panelContent"> 
+          <pre>structurecheck -c config.xml -t separated -o out.sdf -d discarded.sdf</pre> 
+         </div>
+        </div><p>Executes a check with configuration contained by the <span style="color: green;">config.xml</span>, and writes the molecules with valid structures to <span style="color: green;">out.sdf</span>, and writes the molecules with invalid structures to <span style="color: green;">discarded.sdf</span>.<br /> <strong>Note</strong>: The format of both outputs is SMILES<img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)" /> as <span style="color: green;">--format (-f)</span> is not defined;</p></li>
+       <li>
+        <div class="preformatted panel" style="border-width: 1px;">
+         <div class="preformattedContent panelContent"> 
+          <pre>structurecheck -c config.xml -m fix -t separated -d discarded.sdf</pre> 
+         </div>
+        </div><p>Executes a fix with configuration contained by the <span style="color: green;">config.xml</span>, and writes the molecules with invalid structures to <span style="color: green;">discarded.sdf</span>, and writes molecules with valid structures to the standard output (console);</p></li>
+       <li>
+        <div class="preformatted panel" style="border-width: 1px;">
+         <div class="preformattedContent panelContent"> 
+          <pre>structurecheck -c config.xml -m fix -t discarded in.sdf</pre> 
+         </div>
+        </div><p>Executes a fix with configuration contained by the <span style="color: green;">config.xml</span>, and writes the molecules with invalid structures to <span style="color: green;">discarded.sdf</span>, and omits molecules with valid structures.</p></li>
+      </ol>
+      <p><a href="structurecheck_cline_5177932.html">Go to top </a> &nbsp; Copyright &copy; 1999-2010 <a href="http://www.chemaxon.com" class="external-link" rel="nofollow">ChemAxon Ltd. </a> &nbsp;&nbsp;&nbsp;All rights reserved.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

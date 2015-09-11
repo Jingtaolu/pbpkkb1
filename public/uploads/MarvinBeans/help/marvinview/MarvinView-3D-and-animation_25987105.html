@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : MarvinView 3D and animation</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : MarvinView 3D and animation </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>animate</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Start an XYZ animation sequence, or starts rotating the specified 3D molecule(s).<br /> Possible values: <code>off</code>, <code>all</code>, or a comma-separated list of molecule indices (0...n-1).<br /> <strong>Note:</strong> This parameter does not apply to beans, only to applet.</td>
+          <td class="confluenceTd"><code>off</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinView3Dandanimation-delay"></span>animDelay</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Delay (seconds) before repeating the animation.</td>
+          <td class="confluenceTd"><code>0</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinView3Dandanimation-anim"></span>animFPS</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Number of frames per second in 3D animation.</td>
+          <td class="confluenceTd"><code>10</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinView3Dandanimation-sync"></span>animSync</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Whether the animations in different cells should be synchronized.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinView3Dandanimation-ball"></span>ballRadius</code></td>
+          <td class="confluenceTd">Ball radius for &quot;ballstick&quot; <a href="#MarvinView3Dandanimation-render">rendering mode</a>, in units of covalent radius.</td>
+          <td class="confluenceTd"><code>0.5</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinView3Dandanimation-render"></span>rendering</code></td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Rendering style.
+           <ul>
+            <li><code>wireframe</code> - wireframe</li>
+            <li><code>wireknobs</code> - wireframe with knobs</li>
+            <li><code>sticks</code> - 3D sticks</li>
+            <li><code>ballstick</code> - ball &amp; stick</li>
+            <li><code>spacefill</code> - balls</li>
+           </ul></td>
+          <td class="confluenceTd"><code>wireframe</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>script</code><br /> <code>script0</code><br /><code>script1</code><br /><code>script2</code><br /><code>...</code></td>
+          <td class="confluenceTd">Script containing a subset of <a href="RasMol-Scripts_18448983.html">RashMol commands</a> delimited by semicolons. If this applet parameter is specified, then the <a href="MarvinView-Applet-only-parameters_25987119.html">mol</a> parameter is neglected. The molecule(s) must be loaded using the <a href="RasMol-Scripts_18448983.html#RasMolScripts-load">load </a>command in the script.<br /> <strong>Note:</strong> To load the script from a file, use the <a href="RasMol-Scripts_18448983.html#RasMolScripts-script">script</a> command:<br /> <code>&lt;param name=&quot;script&quot; value=&quot;script myscript.spt&quot;&gt;</code></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>spin</code><br /> <code>spin0</code><br /> <code>spin1</code><br /> <code>spin2</code><br /> ...</td>
+          <td class="confluenceTd"><a rel="nofollow"></a>Spinning rate and axis for animated<a rel="nofollow"></a> molecules. Spinning rate is specified in degrees per second, the axis is specified with a 3D vector. Numbers are separated by commas.<br /> <strong>Note:</strong> XYZ animations do not spin by default, only if this parameter is set.</td>
+          <td class="confluenceTd"><code>36,0,1,0</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinView3Dandanimation-stick"></span>stickThickness</code></td>
+          <td class="confluenceTd">3D stick diameter for &quot;sticks&quot; and &quot;ballstick&quot; <a href="#MarvinView3Dandanimation-render">rendering mode</a>s, in Angstroms.</td>
+          <td class="confluenceTd"><code>0.1</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="MarvinView3Dandanimation-wire"></span>wireThickness</code></td>
+          <td class="confluenceTd">line thickness for &quot;wireframe&quot; and &quot;wireknobs&quot;&nbsp; <a href="#MarvinView3Dandanimation-render">rendering mode</a>s in Angstroms.</td>
+          <td class="confluenceTd"><code>0.064</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

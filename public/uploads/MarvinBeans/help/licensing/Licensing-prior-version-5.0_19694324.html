@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Licensing : Licensing prior version 5.0</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Licensing : Licensing prior version 5.0 </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h4 id="Licensingpriorversion5.0-Marvin4.1.*andJChem3.2.*">Marvin 4.1.* and JChem 3.2.*</h4>
+      <p>A license key for any other software module of ChemAxon is an 8-character string that enables the user to use the application that require a license key without restriction. These applications run in demo mode if the user does not have the license key. This means that you can run these tools for a restricted number of molecules.</p>
+      <p>There is a license handler tool that lists licensed applications and provides a graphical interface to set license keys. The tool can run as a command line application, a graphical standalone application and is also available from the Marvin GUI. The standalone versions can be accessed through the&nbsp;<code>license</code>&nbsp;shell script (Unix) or&nbsp;<code>license.bat</code>&nbsp;batch file (Windows).</p>
+      <p>Type</p>
+      <pre>license -h</pre>
+      <p><span style="color: rgb(51,51,51);">for the list of command line options.</span></p>
+      <p>Type</p>
+      <pre>license</pre>
+      <p><span style="color: rgb(51,51,51);">to invoke the graphical version.</span></p>
+      <p>The same tool can be accessed from the&nbsp;<strong>Edit &gt; Preferences &gt; Licenses</strong>&nbsp;tab of the Marvin GUI.</p>
+      <p>The graphical license handler: all license groups</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694324/19759240.png" data-image-src="attachments/19694324/19759240.png" data-unresolved-comment-count="0" data-linked-resource-id="19759240" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="gui1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694324" data-linked-resource-container-version="3" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>The graphical license handler: an individual group</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694324/19759241.png" data-image-src="attachments/19694324/19759241.png" data-unresolved-comment-count="0" data-linked-resource-id="19759241" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="gui2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694324" data-linked-resource-container-version="3" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Note: License handler tool is available in Marvin 4.1/JChem 3.2 and above. In preceding versions license keys have to be set by editing the&nbsp;<code>licenses.dat</code>&nbsp;file, as described below.</p>
+      <p>License keys of Marvin's plugins can be set using the the Marvin GUI: invoke the graphical license handler from the corresponding plugin options pane (e.g. for the log<em>D&nbsp;</em>plugin: Tools -&gt; Partitioning -&gt; logD).</p>
+      <p>The license key for&nbsp;MarvinSpace&nbsp;can be set in MarvinSpace: invoke the graphical license handler from the &quot;Others&quot; tab of the Options pane (Display -&gt; Options...). As of Marvin 4.1.5 MarvinSpace does not require separate license key.</p>
+      <p>License keys are listed in the&nbsp;<code>.chemaxon/licenses.dat</code>&nbsp;(Unix) or&nbsp;<code>chemaxon\licenses.dat</code>&nbsp;(Windows) file under the user's home directory. License keys are automatically saved in this file when they are set by the license handler tool. On Unix systems - including most distributions of Linux - the home directory for each user takes the form&nbsp;<code>/home/username</code>(where&nbsp;<code>username</code>&nbsp;is the name of the user account). In newer versions of Microsoft Windows, based on the multi-user Windows NT, each user has a home directory which by default is located at&nbsp;<code>C:\Documents and Settings\username</code>&nbsp;when using the English language version of the OS (with&nbsp;<code>username</code>&nbsp;again replaced by the particular user's login name).</p>
+      <p>In case of a web application (e.g. JSP pages) the license file should be placed on the server side, the user home is the home directory of the user that runs (owns) the web server. If the web server runs as a system service under Windows the user home can be a system user home, which is sometimes difficult to determine. (It can be&nbsp;<code>&quot;c:\&quot;</code>&nbsp;or<code>&quot;c:\windows\system32\config\systemprofile\&quot;</code>, etc.) To make setting the license keys easier, we provide a web-based (JSP) utility: &lt;jchem_home&gt;/util/license/setlicense.jsp. Load this page in a browser from your web server, and you can upload a specified license file from the client computer to the appropriate directory and file name on the server.</p>
+      <p>However, the license file should be placed on the client side in case of Marvin applets or web applications having embedded Marvin applets to access the plugin calculations.</p>
+      <p>Example license key entries in the license file:</p>
+      <pre>chemaxon.marvin.calculations.XYZPlugin=56TYAD12
+chemaxon.reaction.XYZReactionHandler=ABCD1234
+</pre>
+      <p>Please contact&nbsp;<a href="mailto:sales@chemaxon.com" style="text-decoration: underline;" class="external-link" rel="nofollow">ChemAxon</a>&nbsp;if you need a license key.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

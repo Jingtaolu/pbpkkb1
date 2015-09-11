@@ -1,0 +1,4 @@
+(mass() >= 160) && (mass() <= 480) &&
+(atomCount() >= 20) && (atomCount() <= 70) &&
+(logP() >= -0.4) && (logP() <= 5.6) &&
+(refractivity() >= 40) && (refractivity() <= 130)

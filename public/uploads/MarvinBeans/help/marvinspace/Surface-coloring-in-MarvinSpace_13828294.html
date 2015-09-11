@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Surface coloring in MarvinSpace</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Surface coloring in MarvinSpace </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div>
+       This page shows code examples for different ways of coloring surfaces in MarvinSpace:&nbsp;
+      </div>
+      <ol>
+       <li><p><strong>Built-in CPK&nbsp;coloring</strong></p><p><code>SurfaceColoring sc = new SurfaceColoring(molecules, surface, precision);<br />sc.doColoring(SurfaceColoring.BUILT_IN_CPK_MAPPING);</code></p><p><code><br /></code></p></li>
+       <li><strong>Built-in residue coloring</strong><br /><br /><code>SurfaceColoring sc = new SurfaceColoring(molecules, surface, precision);<br />sc.doColoring(SurfaceColoring.BUILT_IN_RESIDUE_MAPPING);</code><br /><br /></li>
+       <li><strong>Built-in chain coloring</strong><br /><strong><br /></strong><code>SurfaceColoring sc = new SurfaceColoring(molecules, surface, precision);<br />sc.doColoring(SurfaceColoring.BUILT_IN_CHAIN_MAPPING);</code><br /><code><br /></code></li>
+       <li><strong>Coloring by&nbsp;parametrized built-in electrostaic potential&nbsp;property and built-in colors</strong><br /><br /><code>SurfaceColoring sc = new SurfaceColoring( molecules, surface, precision );<br />sc.setEnrtyRadiusMode( SurfaceColoring.RADIUS_VDW_EXTENDED );<br />surfaceColoring.setAtomRadiusExtension( 1 );<br />sc.setPropertyValueDecreasement( SurfaceColoring.DECREASE_RECIPROCAL_SQUARE );<br />sc.setReciprocalConstant( 8.854 );<br />sc.setWeightMode( SurfaceColoring.SUM_OF_VALUES );<br />sc.setBuiltInColorMapperMethod(SurfaceColoring.COLOR_MAPPER_RED_AND_BLUE);<br />sc.setPropertyMethod( MoleculeIterators.AtomPropertyInterface.class.getMethod( &quot;getPartialAtomCharge&quot;, new Class[] {int.class} ) );<br />sc.doColoring();</code><br /><code><br /></code></li>
+       <li><strong>Coloring by custom atom property (of built-in <em>MoleculeIterators.AtomPropertyInterface</em> class) and built-in rainbow colors</strong><br /><strong><br /></strong><code>SurfaceColoring sc = new SurfaceColoring(molecules, surface, precision);<br />sc.setWeightMode( SurfaceColoring.DISTANCE_WEIGHTED );<br />sc.setPropertyMethod( MoleculeIterators.AtomPropertyInterface.class.getMethod( &quot;getType&quot;, new Class[] {int.class} ) );<br />sc.setBuiltInColorMapperMethod( SurfaceColoring.COLOR_MAPPER_RAINBOW );<br />sc.doColoring();</code><br /><code><br /></code></li>
+       <li><strong>Coloring by custom atom property and&nbsp;parametrized colors</strong><br /><strong><br /></strong><code>SurfaceColoring sc = new SurfaceColoring(molecules, surface, precision);<br />sc.setWeightMode( SurfaceColoring.DISTANCE_WEIGHTED );<br />sc.setPropertyMethod( MoleculeIterators.AtomPropertyInterface.class.getMethod( &quot;getType&quot;, new Class[] {int.class} ) );<br />sc.setHomogeneousPaletteColors( new byte[][] {Colors.lightgray, Colors.yellow} );<br />sc.doColoring();</code><br /><code><br /></code></li>
+       <li><strong>Coloring by custom property and&nbsp;custom colors</strong><br /><strong><br /></strong><code>chemaxon.marvin.space.util.Palette palette = new chemaxon.marvin.space.util.Palette(0, 16);<br />palette.clear();<br />palette.putColor( Colors.lightgray );<br />palette.putColor( Colors.yellow );<br />SurfaceColoring sc = new SurfaceColoring(molecules, surface, precision);<br />sc.setWeightMode( SurfaceColoring.DISTANCE_WEIGHTED );<br />sc.setPropertyMethod( MoleculeIterators.AtomPropertyInterface.class.getMethod( &quot;getType&quot;, new Class[] {int.class} ) );<br />sc.setPropertyColorMapperMethod( chemaxon.marvin.space.util.Palette.class.getMethod(&quot;getByteColor&quot;, new Class[] {double.class}) );<br />sc.setPropertyColorObject(palette);<br />sc.doColoring();</code><br /><code><br /></code></li>
+       <li><strong>Coloring by&nbsp;custom values of a custom object&nbsp;and built-in coloring</strong><br /><br /><code>SurfaceColoring sc = new SurfaceColoring( molecules, surface, precision );<br />sc.setPropertyObject( myGrid );<br />sc.setPropertyMethod( MyGrid.class.getMethod( &quot;getLinearWeightedValue&quot;, new Class[] {float.class, float.class, float.class} ) );<br />sc.setBuiltInColorMapperMethod( SurfaceColoring.COLOR_MAPPER_RAINBOW );<br />sc.doColoring();</code><br /><code><br /></code></li>
+      </ol> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

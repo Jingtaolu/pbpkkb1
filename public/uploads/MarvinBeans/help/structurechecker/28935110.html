@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Classes, interfaces and configuration</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Classes, interfaces and configuration </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The most important classes and interfaces of the Structure Checker API are:</p>
+      <ul>
+       <li><code>chemaxon.checkers.StructureChecker</code>&nbsp;interface and its implementations: contain the code to detect issues in structures;</li>
+       <li><code>chemaxon.checkers.result.StructureCheckerResult</code>&nbsp;interface and its implementations: represent the result of a structure check, and contain information about the problems;</li>
+       <li><code>chemaxon.fixers.StructureFixer</code>&nbsp;interface and its implementations: contain the code to fix a certain issue represented by a&nbsp;<code>StructureCheckerResult</code>.</li>
+      </ul>
+      <p><br /> <strong>Figure 1.</strong> <span style="color: rgb(0,0,0);">&nbsp;Logic of Structure Checker's checkers and fixers</span></p>
+      <p><span style="color: rgb(0,0,0);"> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/28935110/29098563.png" data-image-src="attachments/28935110/29098563.png" data-unresolved-comment-count="0" data-linked-resource-id="29098563" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="api.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="28935110" data-linked-resource-container-version="8" /></span> <br /> </span></p>
+      <p>&nbsp;</p>
+      <h3 id="Classes,interfacesandconfiguration-Configuration,metadataandpersistence">Configuration, metadata and persistence</h3>
+      <p>A list of checkers (optionally with preferred fixers) can be executed on a structure using an implementation of&nbsp;<code>chemaxon.checkers.runner.StructureCheckerRunner</code>.&nbsp;<code>BasicCheckerRunner</code>&nbsp;is meant for checking, and it has basic fixing capabilities,&nbsp;<code>AdvancedCheckerRunner</code>&nbsp;is more robust, and has better fixing method, like running more iterations and fixer priorities.</p>
+      <p>A list of checkers can be saved and restored with&nbsp;<code>ConfigurationReader</code>&nbsp;and&nbsp;<code>ConfigurationWriter</code>&nbsp;implementations located in&nbsp;<code>chemaxon.checkers.runner.configuration.reader</code>&nbsp;(and&nbsp;<code>writer</code>) packages. Implementations for XML and Action String representation are available.</p>
+      <p>Checker and Fixer metadata is kept in the&nbsp;<code>@CheckerInfo</code>&nbsp;and&nbsp;<code>@FixerInfo</code>&nbsp;annotations of the corresponding class.</p>
+      <div class="lenia">
+       <span style="font-size: 20.0px;line-height: 1.5;"> <br /><br /></span>
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

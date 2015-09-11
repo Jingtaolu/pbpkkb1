@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinView In JTable Example</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">struc</span><span class="symbol">.</span><span class="normal">Molecule</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">MViewPane</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">DefaultCellEditor</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JCheckBox</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">JTable</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="normal">UIManager</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="normal">Component</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * MViewEditor is a DefaultCellEditor component that can be used to assign</span>
+<span class="comment"> * cell editor to Molecule objects in JTables.</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment"> Judit Vasko-Szedlar</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> Marvin 5.2.2 2009.05.18.</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment"> Marvin 5.2.2</span>
+<span class="comment"> </span><span class="comment">*/</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> MViewEditor </span><span class="keyword">extends</span><span class="normal"> DefaultCellEditor </span><span class="cbracket">{</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">The current molecule of the MViewPane where MViewPane is the</span>
+<span class="normal">    </span><span class="comment">//</span><span class="comment">cell editor</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> Molecule currentMol </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Creates the cell editor.</span>
+<span class="comment">     * It can be assigned to JTables for example with</span>
+<span class="comment">     * </span><span class="keyword">&lt;code&gt;</span><span class="comment">table.setDefaultEditor(</span>
+<span class="comment">     *              Molecule.class, new MViewEditor());</span><span class="keyword">&lt;/code&gt;</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="function">MViewEditor</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">super</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">JCheckBox</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment">Sets the MViewPane to the editor component</span>
+<span class="normal">        editorComponent </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MViewPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Returns the reference to the editor component.</span>
+<span class="comment">     * </span><span class="type">@return</span><span class="comment"> the editor component as </span><span class="keyword">&lt;code&gt;</span><span class="comment">MViewPane</span><span class="keyword">&lt;/code&gt;</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> MViewPane </span><span class="function">getEditorComponent</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">MViewPane</span><span class="symbol">)</span><span class="normal">editorComponent</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Returns the mode that determines if the structure is editable.</span>
+<span class="comment">     * </span><span class="type">@return</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> MViewPane#VIEW_ONLY}  if molecules can be viewed only,</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> MViewPane#EDITABLE}   if they are editable with MarvinView,</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> MViewPane#SKETCHABLE} if they are editable with MarvinSketch.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="type">int</span><span class="normal"> </span><span class="function">getEditable</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="keyword">return</span><span class="normal"> </span><span class="function">getEditorComponent</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">getEditable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Sets the mode that determines if the structure is editable.</span>
+<span class="comment">     * If the structure is allowed to be edited, the Edit &gt; Structure menu</span>
+<span class="comment">     * or the double mouse click performs the editing.</span>
+<span class="comment">     * </span><span class="keyword">&lt;p&gt;</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> MViewPane#VIEW_ONLY}: editing is disabled,</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> MViewPane#EDITABLE}: editing is enabled</span>
+<span class="comment">     *              and launches MarvinView in a new window,</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> MViewPane#SKETCHABLE}: editing is enabled</span>
+<span class="comment">     *              and launches MarvinSketch in a new window.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> e   identifier of the mode</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setEditable</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">	</span><span class="function">getEditorComponent</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">setEditable</span><span class="symbol">(</span><span class="normal">e</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">protected</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">fireEditingStopped</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="keyword">super</span><span class="symbol">.</span><span class="function">fireEditingStopped</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Returns the edited molecule that is a {</span><span class="type">@link</span><span class="comment"> Molecule} instance.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> Object </span><span class="function">getCellEditorValue</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        currentMol </span><span class="symbol">=</span><span class="normal"> </span><span class="function">getEditorComponent</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">getM</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> currentMol</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Sets up the editor component.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	table		the </span><span class="keyword">&lt;code&gt;</span><span class="comment">JTable</span><span class="keyword">&lt;/code&gt;</span><span class="comment"> that is asking the</span>
+<span class="comment">     *				editor to edit; can be </span><span class="keyword">&lt;code&gt;</span><span class="comment">null</span><span class="keyword">&lt;/code&gt;</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	value		the value of the cell to be edited; it is</span>
+<span class="comment">     *				considered to be a {</span><span class="type">@link</span><span class="comment"> Molecule} instance;</span>
+<span class="comment">     *                          </span><span class="keyword">&lt;code&gt;</span><span class="comment">null</span><span class="keyword">&lt;/code&gt;</span><span class="comment"> is a valid value</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	isSelected	true if the cell is to be rendered with</span>
+<span class="comment">     *				highlighting</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	row     	the row of the cell being edited</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	column  	the column of the cell being edited</span>
+<span class="comment">     * </span><span class="type">@return</span><span class="comment">	the component for editing</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> Component </span><span class="function">getTableCellEditorComponent</span><span class="symbol">(</span><span class="normal">JTable table</span><span class="symbol">,</span>
+<span class="normal">            Object value</span><span class="symbol">,</span><span class="normal"> </span><span class="type">boolean</span><span class="normal"> isSelected</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> column</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        currentMol </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">Molecule</span><span class="symbol">)</span><span class="normal">value</span><span class="symbol">;</span>
+<span class="normal">        MViewPane mviewPane </span><span class="symbol">=</span><span class="normal"> </span><span class="function">getEditorComponent</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="function">setBackgroundColor</span><span class="symbol">(</span><span class="normal">table</span><span class="symbol">,</span><span class="normal"> mviewPane</span><span class="symbol">,</span><span class="normal"> isSelected</span><span class="symbol">,</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> column</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="function">setBorder</span><span class="symbol">(</span><span class="normal">table</span><span class="symbol">,</span><span class="normal"> mviewPane</span><span class="symbol">,</span><span class="normal"> isSelected</span><span class="symbol">,</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> column</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        mviewPane</span><span class="symbol">.</span><span class="function">setM</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">,</span><span class="normal"> currentMol</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> editorComponent</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Sets the background color for the current cell based on selection.</span>
+<span class="comment">     * The default implementation sets the table selection color</span>
+<span class="comment">     * on the editor component. The method is called by</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> #getTableCellEditorComponent(</span>
+<span class="comment">     *      javax.swing.JTable, Object, boolean, int, int)},</span>
+<span class="comment">     * overwrite to change the default behavior.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	table		the </span><span class="keyword">&lt;code&gt;</span><span class="comment">JTable</span><span class="keyword">&lt;/code&gt;</span><span class="comment"> that is asking the</span>
+<span class="comment">     *				editor to edit; can be </span><span class="keyword">&lt;code&gt;</span><span class="comment">null</span><span class="keyword">&lt;/code&gt;</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">   mviewPane       the editor component</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	isSelected	true if the cell is to be rendered with the</span>
+<span class="comment">     *				selection highlighted; otherwise false</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	row	        the row of the cell being edited</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	column	        the column of the cell being edited</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setBackgroundColor</span><span class="symbol">(</span><span class="normal">JTable table</span><span class="symbol">,</span><span class="normal"> MViewPane mviewPane</span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="type">boolean</span><span class="normal"> isSelected</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> column</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        mviewPane</span><span class="symbol">.</span><span class="function">setMolbg</span><span class="symbol">(</span><span class="normal"> table</span><span class="symbol">.</span><span class="function">getSelectionBackground</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mviewPane</span><span class="symbol">.</span><span class="function">setForeground</span><span class="symbol">(</span><span class="normal"> UIManager</span><span class="symbol">.</span><span class="function">getColor</span><span class="symbol">(</span>
+<span class="normal">                </span><span class="string">"Table.focusCellForeground"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mviewPane</span><span class="symbol">.</span><span class="function">setBackground</span><span class="symbol">(</span><span class="normal"> UIManager</span><span class="symbol">.</span><span class="function">getColor</span><span class="symbol">(</span>
+<span class="normal">                </span><span class="string">"Table.focusCellBackground"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Sets the border for the current cell based on selection.</span>
+<span class="comment">     * The default implementation sets the table selection color</span>
+<span class="comment">     * on the editor component. The method is called by</span>
+<span class="comment">     * {</span><span class="type">@link</span><span class="comment"> #getTableCellEditorComponent(</span>
+<span class="comment">     *      javax.swing.JTable, Object, boolean, int, int)},</span>
+<span class="comment">     * overwrite to change the default behavior.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	table		the </span><span class="keyword">&lt;code&gt;</span><span class="comment">JTable</span><span class="keyword">&lt;/code&gt;</span><span class="comment"> that is asking the</span>
+<span class="comment">     *				editor to edit; can be </span><span class="keyword">&lt;code&gt;</span><span class="comment">null</span><span class="keyword">&lt;/code&gt;</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">   mviewPane       the editor component</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	isSelected	true if the cell is to be rendered with the</span>
+<span class="comment">     *				selection highlighted; otherwise false</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	row	        the row of the cell being edited</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment">	column	        the column of the cell being edited</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">setBorder</span><span class="symbol">(</span><span class="normal">JTable table</span><span class="symbol">,</span><span class="normal"> MViewPane mviewPane</span><span class="symbol">,</span>
+<span class="normal">                          </span><span class="type">boolean</span><span class="normal"> isSelected</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> row</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> column</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        mviewPane</span><span class="symbol">.</span><span class="function">setBorder</span><span class="symbol">(</span><span class="normal"> UIManager</span><span class="symbol">.</span><span class="function">getBorder</span><span class="symbol">(</span>
+<span class="normal">                </span><span class="string">"Table.focusCellHighlightBorder"</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span><span class="normal">    </span>
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

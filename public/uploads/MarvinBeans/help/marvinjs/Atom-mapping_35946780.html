@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Atom mapping</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Atom mapping </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Unlike atom indices, map numbers remain constant during editing the molecule.&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Atom map visibility&nbsp;should be turned on 
+        <span>in </span>
+        <strong><a href="View-Settings-dialog_35226318.html">View settings dialog</a> </strong>to display the atom map numbers.
+       </div> 
+      </div> 
+      <ul>
+       <li><a href="#Atommapping-setMapIndividually">Setting map numbers to individual atoms.&nbsp;</a></li>
+       <li><a href="#Atommapping-assignMapNumberToAtoms">Assigning the same number to corresponding atoms.</a></li>
+       <li><a href="#Atommapping-autoMapping">Auto mapping (only in reaction).</a></li>
+      </ul>
+      <h3 id="Atommapping-setMapIndividuallyHowtosetmapnumberstoindividualatoms"><span class="confluence-anchor-link" id="Atommapping-setMapIndividually"></span>How to set map numbers to individual atoms</h3>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946780/35946808.png" data-image-src="attachments/35946780/35946808.png" data-unresolved-comment-count="0" data-linked-resource-id="35946808" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-26 18:10:40.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946780" data-linked-resource-container-version="46" /></span></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>You can add map number to every single atom manually <em>via</em> the&nbsp;<a href="Atom-properties-dialog_35946507.html">Atom properties&nbsp;dialog</a>. &nbsp;<br />Open the Basic Tab in the dialog, activate Map field by clicking the Padlock icon next to the imput field. Type the number then click OK.&nbsp;</p>
+      <p>You can change the number in this menu anytime.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <h3 id="Atommapping-Howtodeletemapnumbersfromindividualatoms">How to delete map numbers from individual atoms</h3>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946780/35946861.png" data-image-src="attachments/35946780/35946861.png" data-unresolved-comment-count="0" data-linked-resource-id="35946861" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-30 15:50:35.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946780" data-linked-resource-container-version="46" /></span></p>
+      <p>&nbsp;</p>
+      <p><br />To remove atom map numbers from atoms you can delete the Map value in Atom propertied dialog by closing the Padlock next to the imput field.</p>
+      <p>&nbsp;</p>
+      <h3 id="Atommapping-assignMapNumberToAtomsHowtoassignthesamenumbertocorrespondingatoms"><span class="confluence-anchor-link" id="Atommapping-assignMapNumberToAtoms"></span>How to assign the same number to corresponding atoms</h3>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946780/35946857.png" data-image-src="attachments/35946780/35946857.png" data-unresolved-comment-count="0" data-linked-resource-id="35946857" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-30 15:8:22.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946780" data-linked-resource-container-version="46" /></span></p>
+      <p>&nbsp;</p>
+      <p>Select the smart Reaction tool from the Tools toolbar, then push the left mouse button on the atom you would like to map, and drag to the other atom which should get the same map number. <span style="line-height: 1.4285715;">&nbsp;</span><span style="line-height: 1.4285715;">(Golden brown feedback helps the process.) </span>After releasing the mouse button, the atom map number appears on the lower-right corner of the selected atoms.</p>
+      <p>&nbsp;</p>
+      <div class="panel" style="background-color: white;border-color: #ff9900;border-width: 1px;">
+       <div class="panelContent" style="background-color: white;"> 
+        <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> When there is no map number on any of the atoms, both of the atoms get the smallest number which isn't represented on the canvas. 
+       </div>
+      </div>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946780/35946858.png" data-image-src="attachments/35946780/35946858.png" data-unresolved-comment-count="0" data-linked-resource-id="35946858" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-30 15:25:12.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946780" data-linked-resource-container-version="46" /></span></p>
+      <p>&nbsp;</p>
+      <p>In some cases you need to map atoms with the same number as another atom has. <br />Select the smart Reaction tool from the Tools toolbar, then push the left mouse button on the atom you would like to map, and drag to the other atom which sould get the same map number.&nbsp;When the second atom gets a golden-brown feedback release the mouse button.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946780/35946859.png" data-image-src="attachments/35946780/35946859.png" data-unresolved-comment-count="0" data-linked-resource-id="35946859" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-30 15:34:41.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946780" data-linked-resource-container-version="46" /></span></p>
+      <p>&nbsp;</p>
+      <p><br />The same happens when you drag from the atom which has no map number to another which has one. Both of the atoms will get the same map number as the latter one had.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <h3 id="Atommapping-Overwritingtheatommapnumber">Overwriting the atom map number</h3>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946780/35946871.png" data-image-src="attachments/35946780/35946871.png" data-unresolved-comment-count="0" data-linked-resource-id="35946871" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-30 16:20:15.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946780" data-linked-resource-container-version="46" /></span></p>
+      <p>&nbsp;</p>
+      <p><br />Dragging from an atom which has already an atom map number to another atom with an atom map, the latter atom will get the same number as the former atom has.</p>
+      <p>&nbsp;</p>
+      <h3 id="Atommapping-Deletingtheatommapnumber">Deleting the atom map number</h3>
+      <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/35946780/35946872.png" data-image-src="attachments/35946780/35946872.png" data-unresolved-comment-count="0" data-linked-resource-id="35946872" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-30 16:33:54.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35946780" data-linked-resource-container-version="46" /></span></p>
+      <p>&nbsp;</p>
+      <p>Dragging from an atom with an atom map number to another atom with the same number results that both of the map numbers will be deleted from the canvas.</p>
+      <p>&nbsp;</p>
+      <h3 id="Atommapping-autoMappingAuto-mapping"><span class="confluence-anchor-link" id="Atommapping-autoMapping"></span>Auto-mapping</h3>
+      <p>There is another option to&nbsp;assign map numbers to the corresponding atoms in a reaction.</p>
+      <p>Click the&nbsp;<strong style="line-height: 1.4285715;">Auto Map</strong>&nbsp;button. In this case every atom in the reaction would get atom map number automatically.&nbsp;This feature is only available with Standardizer license.</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Please note, that Auto-map function only works for structures which are in the same reaction. (In other words: there should be only one reaction&nbsp;(one arrow) on the canvas where every molecule would be a reactant or a product of it.)
+       </div> 
+      </div> 
+      <strong><br /></strong>
+      <p></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

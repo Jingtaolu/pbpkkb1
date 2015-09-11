@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 2.1.2
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>MarvinView Table View Example with Parameters</title>
+<link rel="stylesheet" href="../../javacode.css" type="text/css">
+</head>
+<body>
+<pre><tt><span class="comment">/*</span>
+<span class="comment"> * Copyright (c) 1998-2015 ChemAxon Ltd. All Rights Reserved.</span>
+<span class="comment"> </span><span class="comment">*/</span>
+
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">marvin</span><span class="symbol">.</span><span class="normal">beans</span><span class="symbol">.</span><span class="normal">MViewPane</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolImporter</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">formats</span><span class="symbol">.</span><span class="normal">MolFormatException</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> chemaxon</span><span class="symbol">.</span><span class="normal">struc</span><span class="symbol">.</span><span class="normal">Molecule</span><span class="symbol">;</span>
+
+<span class="preproc">import</span><span class="normal"> javax</span><span class="symbol">.</span><span class="normal">swing</span><span class="symbol">.</span><span class="symbol">*</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">awt</span><span class="symbol">.</span><span class="symbol">*</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">FileNotFoundException</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">io</span><span class="symbol">.</span><span class="normal">IOException</span><span class="symbol">;</span>
+<span class="preproc">import</span><span class="normal"> java</span><span class="symbol">.</span><span class="normal">util</span><span class="symbol">.</span><span class="normal">ArrayList</span><span class="symbol">;</span>
+
+<span class="comment">/**</span>
+<span class="comment"> * Loads multiple molecules from a chemical structure file and displays</span>
+<span class="comment"> * them in MarvinView using its multi-cell molecule table mode.</span>
+<span class="comment"> * Along with the structure the index of the molecule is also displayed</span>
+<span class="comment"> * as a label (the index is simply an integer number from 1 to the number</span>
+<span class="comment"> * of structures).</span>
+<span class="comment"> * The approach in MarvinView is to lay out all structures in a large</span>
+<span class="comment"> * virtual table with a given number of rows and columns of which a given</span>
+<span class="comment"> * number of rows and columns are visible. Thus visible rows and all rows,</span>
+<span class="comment"> * as well as visible columns and all columns are distinguished.</span>
+<span class="comment"> * As a consequence, the table allows scrolling its content</span>
+<span class="comment"> * if there are more molecules than table cells (more rows than visible</span>
+<span class="comment"> * rows, or more columns than visible columns). </span>
+<span class="comment"> * In this simple example the number of columns is the same as the</span>
+<span class="comment"> * number of visible columns (2) and the number of visible rows is 2,</span>
+<span class="comment"> * while the total number of rows is unlimited (thus the table can be</span>
+<span class="comment"> * scrolled vertically).</span>
+<span class="comment"> * The program takes one input file (given in the command line as the</span>
+<span class="comment"> * first argument by the name of the file), reads all structures and</span>
+<span class="comment"> * displays them in the table.</span>
+<span class="comment"> * </span>
+<span class="comment"> * </span><span class="type">@author</span><span class="comment">  Judit Vasko-Szedlar, Miklos Vargyas</span>
+<span class="comment"> * </span><span class="type">@version</span><span class="comment"> 5.2.2 05/15/2009</span>
+<span class="comment"> * </span><span class="type">@since</span><span class="comment">   Marvin 5.0.3 04/11/2008 </span>
+<span class="comment"> </span><span class="comment">*/</span>
+<span class="keyword">public</span><span class="normal"> </span><span class="keyword">class</span><span class="normal"> ViewTableParams </span><span class="cbracket">{</span>
+
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> grid table to display molecules </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> MViewPane viewPane</span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MViewPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span><span class="normal"> </span>
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> application window that contains only the viewPane </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> JFrame mainWindow </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">JFrame</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span><span class="normal">    </span>
+
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> number of table rows </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">int</span><span class="normal"> visibleRowCount</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> number of columns displayed </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">int</span><span class="normal"> visibleColumnCount</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> total number of molecules to be displayed </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">int</span><span class="normal"> molCount</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> index of the next molecule to be added</span><span class="comment">*/</span><span class="normal"> </span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">int</span><span class="normal"> currentMoleculeIndex </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span>
+
+<span class="normal">    </span><span class="comment">/**</span><span class="comment"> </span>
+<span class="comment">     * Creates and displays a molecule view table of given size.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> molCount total number of molecules to be visualized</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> visibleRowCount number of visible table rows</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> visibleColumnCount number of visible columns</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="function">ViewTableParams</span><span class="symbol">(</span><span class="type">int</span><span class="normal"> molCount</span><span class="symbol">,</span><span class="normal"> </span><span class="type">int</span><span class="normal"> visibleRowCount</span><span class="symbol">,</span>
+<span class="normal">                     </span><span class="type">int</span><span class="normal"> visibleColumnCount</span><span class="symbol">)</span><span class="cbracket">{</span>
+
+<span class="normal">        </span><span class="keyword">this</span><span class="symbol">.</span><span class="normal">visibleRowCount </span><span class="symbol">=</span><span class="normal"> visibleRowCount</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">this</span><span class="symbol">.</span><span class="normal">visibleColumnCount </span><span class="symbol">=</span><span class="normal"> visibleColumnCount</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">this</span><span class="symbol">.</span><span class="normal">molCount </span><span class="symbol">=</span><span class="normal"> molCount</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> Swing components should be created, queried, and manipulated on</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> the event-dispatching thread according to Sun's recommendations.</span>
+<span class="normal">        SwingUtilities</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">createAndShowGUI</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        mainWindow</span><span class="symbol">.</span><span class="function">setTitle</span><span class="symbol">(</span><span class="string">"MarvinView Table Layout Example"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mainWindow</span><span class="symbol">.</span><span class="function">setDefaultCloseOperation</span><span class="symbol">(</span><span class="normal">JFrame</span><span class="symbol">.</span><span class="normal">EXIT_ON_CLOSE</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mainWindow</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">setLayout</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">BorderLayout</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mainWindow</span><span class="symbol">.</span><span class="function">getContentPane</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">viewPane</span><span class="symbol">,</span><span class="normal"> BorderLayout</span><span class="symbol">.</span><span class="normal">CENTER</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="function">initTable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        mainWindow</span><span class="symbol">.</span><span class="function">pack</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mainWindow</span><span class="symbol">.</span><span class="function">setLocationRelativeTo</span><span class="symbol">(</span><span class="keyword">null</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mainWindow</span><span class="symbol">.</span><span class="function">setVisible</span><span class="symbol">(</span><span class="keyword">true</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Places the given molecule in the next empty cell. Cells are</span>
+<span class="comment">     * filled from top to down, and from left to right in each row.</span>
+<span class="comment">     * The label of the cell is also set, numbered from 1.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> structure the molecule to add to the table</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">addMolecule</span><span class="symbol">(</span><span class="normal"> Molecule structure </span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setM</span><span class="symbol">(</span><span class="normal">currentMoleculeIndex</span><span class="symbol">,</span><span class="normal"> structure</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setL</span><span class="symbol">(</span><span class="normal">currentMoleculeIndex</span><span class="symbol">,</span>
+<span class="normal">                Integer</span><span class="symbol">.</span><span class="function">toString</span><span class="symbol">(</span><span class="symbol">+</span><span class="symbol">+</span><span class="normal">currentMoleculeIndex</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Sets the table layout and some parameters that affect</span>
+<span class="comment">     * the appereance of the table.</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">initTable</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> calculate total table rows, making sure that no input molecules</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> is lost, this is why floor (rounding up) is used, the float</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> division instead of an integer division is also important</span>
+<span class="normal">	</span><span class="type">int</span><span class="normal"> totalRows </span><span class="symbol">=</span><span class="normal"> </span><span class="symbol">(</span><span class="type">int</span><span class="symbol">)</span><span class="normal"> Math</span><span class="symbol">.</span><span class="function">floor</span><span class="symbol">(</span>
+<span class="normal">                </span><span class="symbol">(</span><span class="type">double</span><span class="symbol">)</span><span class="normal"> molCount </span><span class="symbol">/</span><span class="normal"> visibleColumnCount</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setParams</span><span class="symbol">(</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> set total row count</span>
+<span class="normal">                </span><span class="string">"rows="</span><span class="symbol">+</span><span class="normal">totalRows</span><span class="symbol">+</span><span class="string">"\n"</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> set visible row count</span>
+<span class="normal">                </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"visibleRows="</span><span class="symbol">+</span><span class="normal">visibleRowCount</span><span class="symbol">+</span><span class="string">"\n"</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> set column count</span>
+<span class="normal">                </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"cols="</span><span class="symbol">+</span><span class="normal">visibleColumnCount</span><span class="symbol">+</span><span class="string">"\n"</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> visible column count</span>
+<span class="normal">                </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"visibleCols="</span><span class="symbol">+</span><span class="normal">visibleColumnCount</span><span class="symbol">+</span><span class="string">"\n"</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> 2:1 -&gt; 2 rows and 1 columns per cell;</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> L:0:0:1:1:c:n:0:1 -&gt; first row and col (0:0:1:1) of the</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment">     cell is a label (L), centered (c) ...</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> M:1:0:1:1:c:b:1:1 -&gt; second row in the first (and only)</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment">     column is a molecule (M), centered (c) ...</span>
+<span class="normal">                </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"layout=:2:1:L:0:0:1:1:c:n:0:1:M:1:0:1:1:c:b:1:1\n"</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> L:10b -&gt; label is displayed in 10pt bold fonts</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> M:200:200 -&gt; molecule is displayed in a 200x200</span>
+<span class="normal">                </span><span class="comment">//</span><span class="comment"> pixels area</span>
+<span class="normal">                </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"param=:L:10b:M:200:200\n"</span>
+<span class="normal">        </span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> border around each cell</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setBorderWidth</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> table and cell background</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setBackground</span><span class="symbol">(</span><span class="normal">Color</span><span class="symbol">.</span><span class="normal">LIGHT_GRAY</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="comment">//</span><span class="comment"> molecule background</span>
+<span class="normal">        viewPane</span><span class="symbol">.</span><span class="function">setMolbg</span><span class="symbol">(</span><span class="normal">Color</span><span class="symbol">.</span><span class="normal">WHITE</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Imports Molecules from a named structure file.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> fileName name of the chemical structure file</span>
+<span class="comment">     * </span><span class="type">@return</span><span class="comment"> ArrayList of Molecule objects in the same order as</span>
+<span class="comment">     *         read from the file</span>
+<span class="comment">     * </span><span class="type">@throws</span><span class="comment"> IOException if anything went wrong with reading the</span>
+<span class="comment">     *                     structures, or opening the file</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">private</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="normal"> </span><span class="function">loadMolecules</span><span class="symbol">(</span><span class="normal">String fileName</span><span class="symbol">)</span>
+<span class="normal">            </span><span class="keyword">throws</span><span class="normal"> IOException </span><span class="cbracket">{</span>
+
+<span class="normal">        ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="normal"> molecules </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        MolImporter mi </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">MolImporter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        mi</span><span class="symbol">.</span><span class="function">setFileName</span><span class="symbol">(</span><span class="normal">fileName</span><span class="symbol">)</span><span class="symbol">;</span>
+
+<span class="normal">        Molecule m </span><span class="symbol">=</span><span class="normal"> mi</span><span class="symbol">.</span><span class="function">read</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">while</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">m </span><span class="symbol">!</span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">null</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            molecules</span><span class="symbol">.</span><span class="function">add</span><span class="symbol">(</span><span class="normal">m</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            m </span><span class="symbol">=</span><span class="normal"> mi</span><span class="symbol">.</span><span class="function">read</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+
+<span class="normal">        mi</span><span class="symbol">.</span><span class="function">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">return</span><span class="normal"> molecules</span><span class="symbol">;</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="normal">    </span><span class="comment">/**</span>
+<span class="comment">     * Takes one command line argument, the name of the input file.</span>
+<span class="comment">     * </span><span class="type">@param</span><span class="comment"> args the first element is the input file name</span>
+<span class="comment">     </span><span class="comment">*/</span>
+<span class="normal">    </span><span class="keyword">public</span><span class="normal"> </span><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">main</span><span class="symbol">(</span><span class="normal">String</span><span class="symbol">[</span><span class="symbol">]</span><span class="normal"> args</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+
+<span class="normal">        String fileName </span><span class="symbol">=</span><span class="normal"> args</span><span class="symbol">[</span><span class="number">0</span><span class="symbol">]</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="keyword">try</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            </span><span class="keyword">final</span><span class="normal"> ArrayList</span><span class="symbol">&lt;</span><span class="normal">Molecule</span><span class="symbol">&gt;</span><span class="normal"> molecules </span><span class="symbol">=</span><span class="normal"> </span><span class="function">loadMolecules</span><span class="symbol">(</span><span class="normal">fileName</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="keyword">final</span><span class="normal"> ViewTableParams mv </span><span class="symbol">=</span><span class="normal"> </span><span class="keyword">new</span><span class="normal"> </span><span class="function">ViewTableParams</span><span class="symbol">(</span><span class="normal">molecules</span><span class="symbol">.</span><span class="function">size</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> invokeLater is necessary because of the GUI manipulations</span>
+<span class="normal">            </span><span class="comment">//</span><span class="comment"> of setM and setL methods</span>
+<span class="normal">            SwingUtilities</span><span class="symbol">.</span><span class="function">invokeLater</span><span class="symbol">(</span><span class="keyword">new</span><span class="normal"> </span><span class="function">Runnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                </span><span class="keyword">public</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">run</span><span class="symbol">(</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                    </span><span class="keyword">for</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">Molecule mol </span><span class="symbol">:</span><span class="normal"> molecules</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">                        mv</span><span class="symbol">.</span><span class="function">addMolecule</span><span class="symbol">(</span><span class="normal">mol</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">                    </span><span class="cbracket">}</span>
+<span class="normal">                </span><span class="cbracket">}</span>
+<span class="normal">            </span><span class="cbracket">}</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">FileNotFoundException ex</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"File "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> fileName </span><span class="symbol">+</span><span class="normal"> </span><span class="string">" not found"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">MolFormatException ex</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"File "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> fileName</span>
+<span class="normal">                    </span><span class="symbol">+</span><span class="normal"> </span><span class="string">" is corrupted or not a structure file.\n"</span>
+<span class="normal">                    </span><span class="symbol">+</span><span class="normal"> ex</span><span class="symbol">.</span><span class="function">getMessage</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">        </span><span class="keyword">catch</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">IOException e</span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">            System</span><span class="symbol">.</span><span class="normal">err</span><span class="symbol">.</span><span class="function">println</span><span class="symbol">(</span><span class="string">"Error reading file "</span><span class="normal"> </span><span class="symbol">+</span><span class="normal"> fileName </span><span class="symbol">+</span><span class="normal"> </span><span class="string">"\n"</span><span class="symbol">)</span><span class="symbol">;</span>
+<span class="normal">        </span><span class="cbracket">}</span>
+<span class="normal">    </span><span class="cbracket">}</span>
+
+<span class="cbracket">}</span>
+</tt></pre>
+</body>
+</html>

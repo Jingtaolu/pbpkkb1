@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Surface Tab</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Surface Tab </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The Surface tab sets the following descriptors an options, all related to surface calculation:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><strong>Parameter</strong></th>
+          <th class="confluenceTh">Description</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Probe radius</strong></td>
+          <td class="confluenceTd">Radius of probe atom representing solvent when constructing the Connolly and the solvent accessible surfaces. Measured in Angstroms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Automatic surface resolution</strong></td>
+          <td class="confluenceTd">Size of grid cells in surface calculations will be set automatically according to the number of atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Manual surface resolution</strong></td>
+          <td class="confluenceTd">Size of grid cells in surface calculations can be given, measured in Angstroms. The smaller the value, the finer the surface and the longer the surface calculation takes. Also, finer resolution grids require significantly more working memory.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Surface triangle count reduction</strong></td>
+          <td class="confluenceTd">When checked, the number triangles constituting a molecular surface are reduced without effecting the smoothness of the surface. This step is performed after the surface is calculated and it takes some time particularly for larger surfaces. However, it is worth spending some extra time for triangle reduction because the resulting surface can be displayed and manipulated much faster than the original surface.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

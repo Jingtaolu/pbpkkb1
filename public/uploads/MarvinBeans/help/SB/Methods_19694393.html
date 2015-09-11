@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Scientific Background : Methods</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Scientific Background : Methods </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Four types of transformation to aromatic representation are implemented in Marvin, all of them are based on the H&uuml;ckel's 4n+2 rule.</p>
+      <p>All transformation methods work only in structures which are in non-aromatic representation. If the molecules are in partially aromatic form (containing any aromatic bond) the transformation method may fail. None of the methods can recognize homoaromatic systems.<a class="external-link" href="http://www.chemaxon.com/marvin/help/sci/aromatization-doc.html#basic" name="basic" style="text-decoration: underline;" rel="nofollow"></a></p>
+      <h3 id="Methods-basicAromatizationBasicaromaticitydetection"><span class="confluence-anchor-link" id="Methods-basicAromatization"></span>Basic aromaticity detection</h3>
+      <p>Process: locate the ring atoms in the molecule connected with single and double bonds respectively, sum the number of pi-electrons and if the H&uuml;ckel's rule is valid, then the ring is aromatic. Ring systems are also checked.</p>
+      <p>There are some exceptions:</p>
+      <ul>
+       <li>Where the double and single bonds are not sequential but the ring is aromatic. In this case the atom between single bonds has an orbit which takes part in the aromatic system. (Relevant atoms: N, O, P, S, As and Se when they can donate a free electron-pair to the aromatic system and B when it can donate a molecule orbit without additional electron.)</li>
+       <li>Rings with less than 5 members are not aromatic.</li>
+      </ul>
+      <h3 id="Methods-generalAromatizationGeneralaromaticitydetection"><a class="anchor" name="daylight_arom" style="text-decoration: none;" rel="nofollow"></a><span class="confluence-anchor-link" id="Methods-generalAromatization"></span>General aromaticity detection</h3>
+      <p>The method is the same as used by <a href="http://www.daylight.com/dayhtml_tutorials/languages/smiles/index.html" class="external-link" rel="nofollow">Daylight.</a><br />Locate the ring atoms in the molecule connected with single and double bonds respectively, sum the number of pi-electrons and if H&uuml;ckel's rule is valid, then the ring is aromatic. Ring systems are also checked. The atoms at the generated ring system may not form a continuous ring like in benzo[de]chromene (SMILES: O1C=CC2=CC=CC3=CC=CC1=C23) where all atoms of the molecule are in the ring system generated from the three 6 membered ring.</p>
+      <p>There are some exceptions:</p>
+      <ul>
+       <li>Oxygen and sulfur can share a pair of pi-electrons.</li>
+       <li>Nitrogen can also share a pair of pi-electrons, if it has three ligands, otherwise the sp2 nitrogen shares just one electron (as in pyridine).</li>
+       <li>An exocyclic double bond to an electronegative atom takes out one shared pi-electron from the cycle, as in 2-pyridone or coumarin.</li>
+      </ul>
+      <h3 id="Methods-looseAromatizationLoosearomaticitydetection"><a class="external-link" href="http://www.chemaxon.com/marvin/help/sci/aromatization-doc.html#loose" name="loose" style="text-decoration: underline;" rel="nofollow"></a><span class="confluence-anchor-link" id="Methods-looseAromatization"></span>Loose aromaticity detection</h3>
+      <p>The following ring systems are interpreted as aromatic:</p>
+      <ul>
+       <li>Five-membered rings such as the structures shown below:<br />(Where: A = any atom except hydrogen, Q = any atom except H or C)<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694373/19759264.png" data-image-src="attachments/19694373/19759264.png" data-unresolved-comment-count="0" data-linked-resource-id="19759264" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="14.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694373/19759265.png" data-image-src="attachments/19694373/19759265.png" data-unresolved-comment-count="0" data-linked-resource-id="19759265" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="15.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></li>
+       <li>Six-membered rings that can be drawn as alternating single and double bonds:<br />&nbsp;&nbsp;&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694373/19759266.png" data-image-src="attachments/19694373/19759266.png" data-unresolved-comment-count="0" data-linked-resource-id="19759266" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="16.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694373/19759267.png" data-image-src="attachments/19694373/19759267.png" data-unresolved-comment-count="0" data-linked-resource-id="19759267" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="17.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694373/19759268.png" data-image-src="attachments/19694373/19759268.png" data-unresolved-comment-count="0" data-linked-resource-id="19759268" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="18.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694373/19759269.png" data-image-src="attachments/19694373/19759269.png" data-unresolved-comment-count="0" data-linked-resource-id="19759269" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="19.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></li>
+       <li>Perimeter bonds in azulenes:<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/19694373/19759270.png" data-image-src="attachments/19694373/19759270.png" data-unresolved-comment-count="0" data-linked-resource-id="19759270" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="20.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></li>
+      </ul>
+      <h3 id="Methods-ambiguousAromatizationAmbiguousaromaticitydetection"><a class="external-link" href="http://www.chemaxon.com/marvin/help/sci/aromatization-doc.html#ambig" name="ambig" style="text-decoration: underline;" rel="nofollow"></a><span class="confluence-anchor-link" id="Methods-ambiguousAromatization"></span>Ambiguous aromaticity detection</h3>
+      <p>This type of aromatization checks 5-membered rings with bond pattern similar to pyrrole and having A, AH, Q, QH, atom list (with ambiguous atom types) or not list at the N position (with the two single bonds). In that particular ring, the bonds are replaced by &quot;single or aromatic&quot; and &quot;double or aromatic&quot; bonds. In case of 5-membered ring fusion with aromatic rings, the aromatic ring is aromatized first.</p>
+      <p>Examples:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th style="text-align: left;" class="confluenceTh">Molecule in aliphatic form</th>
+          <th style="text-align: left;" class="confluenceTh">Query aromatization</th>
+         </tr>
+         <tr>
+          <td style="text-align: left;" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="150" src="attachments/19694373/19759279.png" data-image-src="attachments/19694373/19759279.png" data-unresolved-comment-count="0" data-linked-resource-id="19759279" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="29.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></td>
+          <td style="text-align: left;" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="150" src="attachments/19694373/19759280.png" data-image-src="attachments/19694373/19759280.png" data-unresolved-comment-count="0" data-linked-resource-id="19759280" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="30.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></td>
+         </tr>
+         <tr>
+          <td style="text-align: left;" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="150" src="attachments/19694373/19759281.png" data-image-src="attachments/19694373/19759281.png" data-unresolved-comment-count="0" data-linked-resource-id="19759281" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="31.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></td>
+          <td style="text-align: left;" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="150" src="attachments/19694373/19759282.png" data-image-src="attachments/19694373/19759282.png" data-unresolved-comment-count="0" data-linked-resource-id="19759282" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="32.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></td>
+         </tr>
+         <tr>
+          <td style="text-align: left;" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="180" src="attachments/19694373/19759283.png" data-image-src="attachments/19694373/19759283.png" data-unresolved-comment-count="0" data-linked-resource-id="19759283" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="33.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></td>
+          <td style="text-align: left;" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="180" src="attachments/19694373/19759284.png" data-image-src="attachments/19694373/19759284.png" data-unresolved-comment-count="0" data-linked-resource-id="19759284" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="34.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="19694373" data-linked-resource-container-version="12" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

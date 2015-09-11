@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Solubility prediction</title>
+<link rel="stylesheet" type="text/css" href="../marvinmanuals.css">
+</head>
+<body>
+<h1>Solubility prediction</h1>
+
+<p>
+Aqueous solubility is one of the key factors that determines the oral bioavailability of a drug. 
+Being related to the absorption and distribution in the ADME-Tox, it is one of the main physico-chemical
+properties to be optimized in drug discovery.
+</p>
+
+<p>There are many types of solubility defined in the drug discovery literature. Most methods
+developed for <i>in-silico</i> prediction calculates <i>intrinsic</i> solubility for the given compound.
+Intrinsic solubility of a compound is the concentration in equilibrium with the solid phase that dissolved into the solution.
+Instead of the concentration its natural logarithm, logS, is used for convenience in the literature. 
+</p>
+
+<p>ChemAxon's solubility predictor is able to calculate the aqueous solubility of a compound at a given pH, its 
+intrinsic solubility and its pH dependence, too. It can provide quantitative result, giving the solubility in logS, mg/mL or mol/L.
+In case only a rough estimation 
+is needed, the plugin can give a solubility category as a qualitative measure. 
+</p>
+
+<p>
+Like ChemAxon's other calculators for physico-chemical properties (e.g. pKa, logP), the prediction is made 
+using only structural information of the molecule.  
+</p>
+
+<p>The solubility prediction functionality is built in different ChemAxon products.</p>
+
+<h3>Solubility Plugin</h3>
+
+<p>The solubility predictor is integrated into MarvinSketch as a plugin, enabling prediction in a fast and easy way. The Solubility Plugin can be reached via the Calculations > Solubility menu.</p> 
+
+<p>
+   It offers the following options for calculation:
+</p>
+
+<p><b>Options menu</b>
+<ul>
+    <li><b>Measurement Unit:</b>
+	<ul>
+		<li><b>logS:</b> sets the measurement unit to logS (default). </li>
+        <li><b>mol/l:</b> sets the measurement unit to mol/l. </li>
+        <li><b>mg/ml:</b> sets the measurement unit to mg/ml. </li>
+	</ul> 
+	</li>
+</ul>
+</p>
+
+<p><b>File menu</b></p>
+<ul>
+    <li><b>Export to PDF:</b> generates a PDF report of the solubility prediction.</li>
+</ul>
+</p>
+  
+
+<p>The result window displays the pH-logS plot and a table that with prediction results given in one of the following ways : </p>
+<ul>
+    <li><b>Solubility information:</b> displays intrinsic solubility value, solubility at pH 7.4 and a qualitative category for the  predicted solubility. These categories are:
+     <ul>
+     <li><b>low</b>: if solubility is &lt; 0.01 mg/ml </li>
+     <li><b>moderate</b>: if solubility is between 0.01 and 0.06 mg/ml </li>
+     <li><b>high</b>: if solubility is &gt; 0.06 mg/ml </li>
+     </ul>   
+    </li>
+
+    <li><b>pH-Solubility table:</b> displays a table containing the predicted pH-solubility values. </li>
+    
+</ul>
+
+<p>
+<table>
+	<tr>
+		<td><img src="solubility_files/logs_panel.png" width="500" height="375"></td>
+	</tr>
+</table>
+</p>
+
+<h3>Solubility prediction with <i>cxcalc</i> </h3>
+
+The solubility predictor is integrated into the <i>cxcalc</i> command line tool. The command syntax is 
+
+<p>
+<code>cxcalc [general options] [input files/strings] logs [logs options] [input files/strings]</code>
+</p>
+
+where the logS options are the following:
+
+<pre>
+<code>
+logs options: 
+    -h  --help           this help message
+    -U  --unit           measurement unit  [mg/ml | mol/l | logS] (default:
+                         logS)
+    -i  --intrinsic      intrinsic solubility (default: false)
+    -c  --category       solubility category (default: false)
+    -H  --pH             <pH value> solubility at this pH (default: not set)
+    -l  --lower          <pH lower limit> (default: 0)
+    -u  --upper          <pH upper limit> (default: 14)
+    -s  --step           <pH step size> (default: 1)
+</code>
+</pre>
+
+Some examples on how to use the solubility predictor via <i>cxcalc</i>:
+
+<ul>
+
+<li>Calculating intrinsic solubility and solubility at pH 7.4 for compounds:
+<p><code>cxcalc logs -i true -H 7.4 molecules.smiles</code></p>
+</li>
+
+<li>Calculating solubility values between pH 7.0 and 13.0 in mol/l unit:
+<p><code>cxcalc logs -U mol/l -l 7.0 -u 13.0 molecules.smiles</code></p>
+</li> 
+
+<li>Predicting qualitative solubility category:
+<p><code>cxcalc logs -c true test.mol</code></p>
+</li>
+
+</ul>
+
+<h3>Solubility predicition with ChemAxon's Chemical Terms</h3>
+
+The solubility predictor is also integrated into ChemAxon's Chemical Terms language. 
+The solubility can be calculated by three different functions in Chemical Terms:
+
+<ul>
+     <li><b>logS(param pH)</b>: calculates logS at the pH given as a parameter.</li>
+     <li><b>logS0()</b>: calculates intrinsic logS value.</li>
+     <li><b>logSCategory()</b>: determines qualitative solubility category. </li>
+</ul>
+
+The following examples show how the functions above can be used with the Chemical Terms evaluator
+command line tool:
+
+<ul>
+
+<li>Calculating intrinsic solubility for acetic acid:
+<p><code>evaluate -e "logS0()" "CC(O)=O"</code></p>
+</li>
+
+<li>Calculating solubility at pH 7.0:
+<p><code>evaluate -e "logS('7.0')" molecule.mol</code></p>
+</li> 
+
+<li>Determines qualitative solubility category:
+<p><code>evaluate -e "logSCategory()" molecule.mol</code></p>
+</li> 
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

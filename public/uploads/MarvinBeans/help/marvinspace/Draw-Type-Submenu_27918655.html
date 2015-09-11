@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Draw Type Submenu</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Draw Type Submenu </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Submenus and options in the Display Menu allow to change the drawing style, the coloring scheme and further properties of components displayed. Classes of components can have different settings, for instance the atom colors of proteins and that of ligands can be set independently.&nbsp;<br />However, there are global parameters too, like the fog effect and anti-aliasing, that affect all visible components.</p>
+      <p>Display settings are applied to all visible components of the corresponding category, that is, if the draw type of ligands is changed to spacefill, then all ligands are drawn this way, that is, with large atom spheres.</p>
+      <h5 id="DrawTypeSubmenu-Drawtypesubmenu"><a class="external-link" href="https://www.chemaxon.com/marvin/help/space/space-gui.html#drawtypemenu" name="drawtypemenu" style="text-decoration: underline;" rel="nofollow"></a><strong>Draw type</strong>&nbsp;submenu</h5>
+      <p>Component type specific visualization mode can be selected in this submenu. Eight further submenus are available: Ligand, MacroMolecule, Water, Ion, Pharmacophore point, Pharmacophore arrow, Surface and Secondary structure. Note, that MacroMolecule refers to proteins and nucleic acid polymers too. Also note, that not all visualization modes are available for all kinds of components.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh"><strong>Ligand Draw Type</strong></th>
+          <th class="confluenceTh">Description</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Wire</strong></td>
+          <td class="confluenceTd">Draws bonds only as thin lines. The wire mode is the fastest, use it for very large structures or when graphic hardware exhibits poor performance.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Ball</strong></td>
+          <td class="confluenceTd">Only atoms are displayed as small spheres.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Stick</strong></td>
+          <td class="confluenceTd">Only bonds are displayed as sticks (ie. cylinders) with smooth caps and joints.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Ball and wire</strong></td>
+          <td class="confluenceTd">The combination of the&nbsp;<strong>Ball</strong>&nbsp;and the&nbsp;<strong>Wire</strong>&nbsp;modes.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Ball and stick</strong></td>
+          <td class="confluenceTd">The combination of the&nbsp;<strong>Ball</strong>&nbsp;and the&nbsp;<strong>Stick</strong>&nbsp;modes. This gives very nice representation of the molecular structure, though in the case of large structures (that is, over 15000 atoms) the graphic performance drops sharply on non-hardware accelerated graphics cards. Good cards can easily&nbsp;cope with very large structures that contain over 50000 atoms.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Spacefill</strong></td>
+          <td class="confluenceTd">This mode represents atoms only, each with a sphere. The size of the sphere is equal to the van der Waals radius of the corresponding atom. Van der Waals radii are built in and&nbsp;cannot yet be modified by the user.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Hydrogens</strong></td>
+          <td class="confluenceTd">An option, independent from all above draw type (that is, it can be combined with all draw types available. When box is checked, hydrogen atoms as well as bonds connecting heavy atoms and hydrogens are drawn, too.<br />Note, that MarvinSpace 1.3 is not capable of generating hydrogens not described in input files in the case of macromolecules. However, small molecules (excluding ligands in complexes) are automatically &quot;hydrogenized&quot;.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>Note, that&nbsp;<strong>Ligand</strong>&nbsp;draw type is applied to all small molecules, not only to ligands of protein-ligand complexes.</p>
+      <p>The next submenu,&nbsp;<strong>MacroMolecule</strong>, offers the same modes as ligand drawing.</p>
+      <p>The next submenu,&nbsp;<strong>Water</strong>&nbsp;allows to specify the representation of water molecules defined in PDB files. The same modes are available as in case of ligand drawing.</p>
+      <p><strong>Ion</strong>&nbsp;sets the display mode of ions defined in PDB files, the same options are available as for water molecules plus dotted mode, though the default draw type is&nbsp;<strong>Spacefill</strong>.</p>
+      <p>The&nbsp;<strong>Pharmacophore point</strong>&nbsp;and&nbsp;<strong>Pharmacophore arrow</strong>&nbsp;submenus offers the display modes&nbsp;<strong>Solid</strong>,&nbsp;<strong>Wire</strong>&nbsp;and&nbsp;<strong>Transparent</strong>.&nbsp;<strong>Dotted&nbsp;</strong>mode is available in&nbsp;<strong>Pharmacophore point</strong>&nbsp;menu only. Read more about Pharmacophore representation<a href="#DrawTypeSubmenu-pharmac">&nbsp;</a><a href="Pharmacophore-models_28934474.html">here</a><a href="#DrawTypeSubmenu-pharmac">.</a></p>
+      <p>In the&nbsp;<strong>Surface</strong>&nbsp;submenu four draw types are available:&nbsp;<strong>Dot</strong>,&nbsp;<strong>Mesh</strong>,&nbsp;<strong>Solid</strong>&nbsp;and&nbsp;<strong>Transparent</strong>.</p>
+      <p>The next submenu is&nbsp;<strong>Secondary structure</strong>.</p>
+      <blockquote>
+       <strong>Trace</strong>&nbsp;is a connection of C alpha atoms with cylinders.
+       <br />
+       <strong>Tube</strong>&nbsp;is a smooth cylindrical tube representation of the C alpha atoms.
+       <br />
+       <strong>Pipe and Plank</strong>&nbsp;means the displaying of helices as cylinders, the sheets as boxes, and the others as tube.
+       <br />The followings are slightly different versions of the standard secondary structure representation.
+       <br />
+       <strong>Ribbon lines</strong>&nbsp;is drawing as several &quot;parallel&quot;, or offset curves,
+       <br />
+       <strong>Ribbon</strong>&nbsp;is a flat, polygonal representation,
+       <br />
+       <strong>Cartoon square</strong>&nbsp;is like a thick ribbon,
+       <br />
+       <strong>Cartoon</strong>&nbsp;is the common cartoon representation of secondary structures.
+      </blockquote>
+      <p>The last submenu in&nbsp;<strong>Draw type</strong>&nbsp;is&nbsp;<strong>Label</strong>.</p>
+      <blockquote>
+       There are two types of labels available:
+       <br />Labels can be&nbsp;
+       <strong>drawn in plane</strong>, so that they won't be affected by depth cueing and clipping, their size will not change by zooming, and they will not be obscured by objects in the space.
+       <br />Labels can also be rendered in 3D in exact depth.
+       <br />The size of the labels can be chosen as Small, Medium or Large.
+       <br />Border and Background drawing of labels can be enabled or disabled.
+      </blockquote> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

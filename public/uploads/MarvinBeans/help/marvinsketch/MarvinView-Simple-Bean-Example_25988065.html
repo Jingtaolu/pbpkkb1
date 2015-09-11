@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : MarvinView Simple Bean Example</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : MarvinView Simple Bean Example </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>This example shows how to create the MViewPane JavaBean component and embed it in a Swing Container component.</p>
+      <p>By default, MViewPane has one single cell into which a molecule can be set by different ways:</p>
+      <ul>
+       <li>Loaded from file or URL</li>
+       <li>Pasted or Dropped from other applications</li>
+       <li>Molecule object set directly via API</li>
+       <li>Molecule String representation set via API</li>
+      </ul>
+      <p>This example demonstrates loading molecules from files by creating a File &gt; Open menu.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988065/29098577.png" data-image-src="attachments/25988065/29098577.png" data-unresolved-comment-count="0" data-linked-resource-id="29098577" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="viewsimple.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988065" data-linked-resource-container-version="2" /></span></p>
+      <p>This image is a snapshot of <code>ViewSimple.java</code> in use. The major part of this code is shown below.</p>
+      <p>Creating and embedding the single-cell MViewPane component in the JPanel:</p>
+      <pre class="sh_java sh_sourceCode"> <span class="sh_keyword">public</span> <span class="sh_keyword">class</span><span class="sh_normal">&nbsp;</span><span class="sh_type">ViewSimple</span> <span class="sh_keyword">extends</span> JPanel <span class="sh_cbracket">{</span>
+     <span class="sh_keyword">public</span> <span class="sh_function">ViewSimple</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span>
+         viewPane <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">MViewPane</span><span class="sh_symbol">();</span>
+         <span class="sh_function">setLayout</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_function">BorderLayout</span><span class="sh_symbol">());</span>
+         <span class="sh_function">add</span><span class="sh_symbol">(</span>viewPane<span class="sh_symbol">,</span> BorderLayout<span class="sh_symbol">.</span>CENTER<span class="sh_symbol">);</span>
+     <span class="sh_cbracket">}</span>
+ <span class="sh_cbracket">}</span>
+ </pre>
+      <p>Setting a <code>java.io.File</code> to the single cell having the index 0 without format options:</p>
+      <pre class="sh_java sh_sourceCode">     viewPane<span class="sh_symbol">.</span><span class="sh_function">setM</span><span class="sh_symbol">(</span><span class="sh_number">0</span><span class="sh_symbol">,</span> fileChooser<span class="sh_symbol">.</span><span class="sh_function">getSelectedFile</span><span class="sh_symbol">(),</span> <span class="sh_keyword">null</span><span class="sh_symbol">);</span>
+ </pre>
+      <p>In case a multi-molecule file is opened with this method, it is considered to be an animation, or molecular dynamics simulation, and the structures will be shown one after another.<br /> However it is more common to have multi-molecule files containing molecules without such a relation. These molecules are typically shown in a table.<br /> The <a href="http://www.chemaxon.com/marvin/examples/beans/view-table/index.html" class="external-link" rel="nofollow">View Table</a> example shows how to create a table with multiple cells.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

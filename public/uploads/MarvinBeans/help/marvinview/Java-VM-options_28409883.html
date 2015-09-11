@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Java VM options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Java VM options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>If you run ChemAxon applications from command line (through ChemAxon shell scripts), then apart from the application specific parameters, you can specify some options to Java VM (like Java heap size). E.g.:</p>
+      <pre>    mview -Xmx128m huge-file.sdf
+</pre>
+      <p>sets the max memory of the Java VM to 128Mb (the default value is 64Mb). This can be useful if we want to load a huge molecule file into the MarvinView application.</p>
+      <h3 id="JavaVMoptions-Options"><a class="anchor" name="options" rel="nofollow"></a>Options</h3>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><code>-client</code></td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">to select the &quot;client&quot; VM</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-server</code></td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">to select the &quot;server&quot; VM</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-Xmx&lt;size&gt;</code></td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">set maximum Java heap size</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>-X</code></td>
+          <td class="confluenceTd">&nbsp;</td>
+          <td class="confluenceTd">print help on non-standard options. Different Java VM-s support various non-standard options. After printing the help, the Java VM exits immediately. Thus, the application will not start if the command line includes this option.<br /> The ChemAxon shell scripts can evalute all non-standard options starting with <code>-X</code>.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

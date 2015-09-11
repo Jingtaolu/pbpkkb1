@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : SMILES and SMARTS import and export options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : SMILES and SMARTS import and export options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h3 id="SMILESandSMARTSimportandexportoptions-Importoptions"><a class="anchor" name="ioptions" rel="nofollow"></a>Import options</h3>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="ioption_f" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="SMILESandSMARTSimportandexportoptions-optionF"></span>f</strong><br /> <small>{f<em>FIELD1</em>,f<em>FIELD2</em>,<em>...</em>}</small>&nbsp;&nbsp;</td>
+              <td class="confluenceTd">Import data fields from a multi-column file. The fields should be separated by tab character. The first column contains the SMILES/SMARTS strings, the second may contain the <em>molecule name</em> or the data field called <em>FIELD1</em>, the following columns contain the other fields. <br /> Example:<pre>molconvert sdf &quot;foo.smi{fname,fID}&quot; </pre>reads the smiles string, the name and the ID from the foo.smi file and converts it to SDF format.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="ioption_d" rel="nofollow"></a><strong>d</strong></td>
+              <td class="confluenceTd">Import with Daylight compatibility for query H.<br /> In daylight smarts, H is only considered as H atom when the atom expression has the syntax [&lt;mass&gt;H&lt;charge&gt;&lt;map&gt;] (mass, charge and map are optional). Otherwise it is considered as query H count.<br /> Examples: [!H!#6] without d option is imported as an atom which is not H and not C. However with d option it is imported as an atom which has not one H attached, and which is not C.<br /> Use &quot;H1&quot; or &quot;#1&quot; or &quot;#1A&quot; instead of &quot;H&quot; to avoid ambiguous meaning of H. &quot;H1&quot; always means query H count. &quot;#1&quot; always means H atom, &quot;#1A&quot; means aliphatic H atom.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="ioption_c" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="SMILESandSMARTSimportandexportoptions-optionC"></span>c</strong></td>
+              <td class="confluenceTd">Ignore fixing of double bond stereo information in small rings, also ignore fixing of aromatic bonds to aliphatic if necessary.<br /> Double bonds in small rings (ring size &lt; 8) is imported automatically with CIS stereo information. If c options is set, the double bond stereo information is not changed to CIS during the import.<br /> By default the bond is aromatic between two aromatic atom. But this is not true e.g. in case of biphenyl where the bond connecting the two aromatic ring is single. If biphenyl is represented with the SMILES string: &quot;c1ccc(cc1)c1ccccc1&quot; then it is necessary to set the bond between the two rings to single. If the molecule is exported by ChemAxon tools, the single bond between two aromatic atom is always explicitly written to avoid any confusion, so fixing aromatic bonds to aliphatic can be avoided.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="ioption_z" rel="nofollow"></a><strong>Z</strong></td>
+              <td class="confluenceTd">Import compressed smiles. The compressed format must be specified explicitly, as it is not recognized by the importer automatically.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+          <p>After importing SMILES, invoking of <code>MoleculeGraph.clearCashedInfo</code> method is recommended in order to remove cashed information which results increased molecule size.</p>
+          <h3 id="SMILESandSMARTSimportandexportoptions-Exportoptions"><a class="anchor" name="options" rel="nofollow"></a>Export options</h3>
+          <p>Export options can be specified in the format string. The format descriptor and the options are separated by a colon.</p>
+          <div class="table-wrap">
+           <table class="confluenceTable">
+            <tbody>
+             <tr>
+              <th colspan="1" class="confluenceTh">Codename</th>
+              <th colspan="1" class="confluenceTh">Explanation</th>
+             </tr>
+             <tr>
+              <td class="confluenceTd">&nbsp;</td>
+              <td class="confluenceTd"><a rel="nofollow"></a><a rel="nofollow">Basic options for aromatization and H atom adding/removal.</a></td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_0" rel="nofollow"></a><strong>0</strong></td>
+              <td class="confluenceTd">Do not include chirality (parity) and double bond stereo (cis/trans) information.<br /> Examples: &quot;smiles:0&quot; (not stereo), &quot;smiles:a0&quot; (aromatic, not stereo)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_q" rel="nofollow"></a><strong>q</strong></td>
+              <td class="confluenceTd"><em>Obsolete option. </em> <br /> Atom equivalences are checked by default using graph invariants at double bonds.<br /> Example: molconvert smiles -s &quot;C/C=C(/C)C&quot; results CC=C(C)C</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_r" rel="nofollow"></a><strong>r</strong>i</td>
+              <td class="confluenceTd">Smiles export rigorousness (<em>i</em> with the following values):<br />
+               <ol>
+                <li>Export the most information from the molecule to SMILES or SMARTS format. Don't check anything.</li>
+                <li>Atoms, bonds and the molecule is checked for SMILES, SMARTS compatibility (<em>default</em>).</li>
+                <li>In addition to the checks in case of value 5, double bonds in alternating single and double bond chain are checked for correct export.</li>
+               </ol>Example: Let <a href="attachments/19694473/19759360.mrv" data-linked-resource-id="19759360" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="m_1.mrv" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="19694473" data-linked-resource-container-version="11">molecule.mrv</a> file contain the molecule CC=CC=CC=CC where the two side double bonds are in TRANS configuration but the middle one has no CIS, TRANS information (crossed double bond, or double bond with wiggly bond).<br /> molconvert smiles:r7 m.mrv will drop an Exception: &quot;Nonstereo double bond between active CIS TRANS stereo bonds. Not possible to export it correctly to SMILES&quot;<br /> molconvert smiles m.mrv results C\C=C\C=C\C=C\C (which is incorrect in the sense that the middle bond became TRANS configuration).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_s" rel="nofollow"></a><strong>s</strong></td>
+              <td class="confluenceTd">Write query smarts. (See <a href="SMARTS_19694471.html"><span class="confluence-link">query</span><span class="confluence-link"> SMARTS</span></a><span class="confluence-link">&nbsp;</span> for details.)</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_u" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="SMILESandSMARTSimportandexportoptions-uniqueOption"></span>u</strong></td>
+              <td class="confluenceTd">Write unique smiles (considering chirality info also <a href="SMILES_19694469.html#SMILES-reference">[2]</a>). Note: Use this option if you want unique smiles export.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_h" rel="nofollow"></a><strong>h</strong></td>
+              <td class="confluenceTd">Convert explicit H atoms to query hydrogen count.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_T" rel="nofollow"></a><strong><span class="confluence-anchor-link" id="SMILESandSMARTSimportandexportoptions-optionT"></span>T</strong>f1:f2:...</td>
+              <td class="confluenceTd">Export <em>f1</em>, <em>f2</em> ... SDF fields. The fields are separated by tab character.<br /> If '-' is given before the T option like '-Tf1:f2:...' then no header line is written.<br /> '*' character is used to export all fields (and name also) in the molecules.<br /> 'name' field is used to export molecule name (if no 'name' field in the molecule exists).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_t" rel="nofollow"></a><strong>t</strong></td>
+              <td class="confluenceTd">Export terminal atom with single_or_aromatic bond.<br /> Examples: instead of [#6]-c1ccccc1 export the molecule to [#6]c1ccccc1<br /> instead of [#6]-[#6] export the molecule to [#6][#6]</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_n" rel="nofollow"></a><strong>n</strong></td>
+              <td class="confluenceTd">Export molecule name (the first line of an MDL molfile).</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_Z" rel="nofollow"></a><strong>Z</strong></td>
+              <td class="confluenceTd">Use compressed format, and compress the SMILES string. Note that the compressed format is not recognized by the import, so it should be specified explicitly.</td>
+             </tr>
+             <tr>
+              <td class="confluenceTd"><a class="text" name="option_BOM" rel="nofollow"></a><strong>BOM</strong></td>
+              <td class="confluenceTd">Write the UTF-8 <em>byte order mark</em> (BOM), if the given or the system's encoding is UTF-8.</td>
+             </tr>
+            </tbody>
+           </table>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><strong>See also:</strong></p>
+            <ul>
+             <li><a href="SMILES_19694469.html">SMILES</a></li>
+             <li><a href="SMARTS_19694471.html">SMARTS</a></li>
+            </ul> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

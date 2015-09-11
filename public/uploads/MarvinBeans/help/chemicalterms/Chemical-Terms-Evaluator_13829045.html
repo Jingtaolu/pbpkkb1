@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Chemical Terms Evaluator</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Chemical Terms Evaluator </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div>
+       <div class="panel" style="border-width: 1px;">
+        <div class="panelContent"> 
+         <p>This manual gives you a walk-through on the Chemical Terms Evaluator tool:</p>
+         <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200968998 {padding: 0px;}
+div.rbtoc1439200968998 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200968998 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+         <div class="toc-macro rbtoc1439200968998"> 
+          <ul class="toc-indentation"> 
+           <li><a href="#ChemicalTermsEvaluator-IntroductionIntroduction">Introduction</a></li> 
+           <li><a href="#ChemicalTermsEvaluator-InstallationInstallation">Installation &nbsp;</a></li> 
+           <li><a href="#ChemicalTermsEvaluator-UsageUsage">Usage</a> 
+            <ul class="toc-indentation"> 
+             <li><a href="#ChemicalTermsEvaluator-Options">Options &nbsp;</a></li> 
+             <li><a href="#ChemicalTermsEvaluator-InputInput">Input &nbsp;</a></li> 
+             <li><a href="#ChemicalTermsEvaluator-OutputOutput">Output&nbsp;</a></li> 
+            </ul> </li> 
+           <li><a href="#ChemicalTermsEvaluator-ConfigurationConfiguration">Configuration &nbsp;</a> 
+            <ul class="toc-indentation"> 
+             <li><a href="#ChemicalTermsEvaluator-evaluator_parametersEvaluatorParameters">Evaluator Parameters &nbsp;</a></li> 
+             <li><a href="#ChemicalTermsEvaluator-plugin_definitionsPluginDefinitions">Plugin Definitions &nbsp;</a> 
+              <ul class="toc-indentation"> 
+               <li><a href="#ChemicalTermsEvaluator-Declaration">Declaration &nbsp;</a></li> 
+              </ul> </li> 
+             <li><a href="#ChemicalTermsEvaluator-function_definitionsFunctionDefinitions">Function Definitions &nbsp;</a> 
+              <ul class="toc-indentation"> 
+               <li><a href="#ChemicalTermsEvaluator-Declaration.1">Declaration &nbsp;</a></li> 
+              </ul> </li> 
+             <li><a href="#ChemicalTermsEvaluator-matching_conditionsMatchingConditions">Matching Conditions &nbsp;</a> 
+              <ul class="toc-indentation"> 
+               <li><a href="#ChemicalTermsEvaluator-Declaration.2">Declaration &nbsp;</a></li> 
+              </ul> </li> 
+             <li><a href="#ChemicalTermsEvaluator-defaultDefaultfunctiondefinitions,plugindefinitionsandmatchingconditions">Default function definitions, plugin definitions and matching conditions &nbsp;</a></li> 
+            </ul> </li> 
+           <li><a href="#ChemicalTermsEvaluator-Usage_examplesUsageExamples">Usage Examples &nbsp;</a></li> 
+          </ul> 
+         </div>
+         <p></p> 
+        </div>
+       </div>
+       <p>&nbsp;</p>
+      </div>
+      <h1 id="ChemicalTermsEvaluator-IntroductionIntroduction"><a name="intro" rel="nofollow"></a> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-Introduction"></span>Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The&nbsp;<span>Chemical Terms Evaluator</span>&nbsp;is a command line application designed to evaluate mathematical expressions on molecules. These expressions usually have a chemical meaning formulated in ChemAxon's&nbsp;<a href="The-Chemical-Terms-Language_14943052.html"> <span>Chemical Terms Language</span> </a>&nbsp;using&nbsp;<a href="Available-Functions_25985686.html">built-in chemical and general purpose functions</a>. It is also possible to extend this built-in set of calculations by a&nbsp;<a href="#ChemicalTermsEvaluator-Configuration">user-defined configuration</a>.</p>
+      <p>Apart from evaluating Chemical Terms by the&nbsp;<code>evaluate</code>&nbsp;chemaxon command line tool, this evaluation mechanism is used for chemical calculations in chemaxon products where computational and/or search conditions come into the picture, such as&nbsp;<a href="https://docs.chemaxon.com/display/CD/Pharmacophore+perception+-+PMapper">pharmacophore feature identification</a>&nbsp;(note, that the Pmapper feature definitions use a&nbsp;<a href="https://docs.chemaxon.com/display/CD/Pharmacophore+perception+-+PMapper#Pharmacophoreperception-PMapper-pharmacophoredefs">specific syntax</a>),&nbsp;<a href="https://docs.chemaxon.com/display/reactor/Home">reaction definitions</a>,&nbsp;<a href="https://docs.chemaxon.com/display/jchemcartridge/JChem+Oracle+Cartridge+Home">database filters and chemical calculations</a>.</p>
+      <p>The heart of the evaluator mechanism is the&nbsp;<a href="http://jep.sourceforge.net/" style="text-decoration: underline;" class="external-link" rel="nofollow">JEP Java Expression Parser</a>.</p>
+      <p>You may want to look at the&nbsp;<a href="The-Chemical-Terms-Language_14943052.html">complete language reference</a>&nbsp;including a description of the<a href="Expression-Syntax_14943058.html">&nbsp;expression syntax</a>&nbsp;and&nbsp;<a href="The-Chemical-Terms-Language_14943052.html#TheChemicalTermsLanguage-simple_examples">some simple examples</a>&nbsp;showing how some well-known chemical rules can be formulated in this language.</p>
+      <p>Evaluator uses&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-molecule_context">molecule context</a>&nbsp;to set the input molecule, therefore calculations refer to the input molecule by default. The&nbsp;language reference&nbsp;also includes a set of&nbsp;<a href="Evaluator-and-JChem-Cartridge-Examples_14943079.html">Evaluator examples</a>. A set of&nbsp;<a href="Evaluator-Examples_14943033.html#EvaluatorExamples-Basic_exampels">working examples</a>&nbsp;is available.</p>
+      <div class="lenia">
+       &nbsp;
+      </div>
+      <h1 id="ChemicalTermsEvaluator-InstallationInstallation"><a class="anchor" name="inst" rel="nofollow"></a> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-Installation"></span>Installation<br />&nbsp;</h1>
+      <p>Download&nbsp;and launch platform specific installer by following the&nbsp;installation instructions.<br />&nbsp;</p>
+      <h1 id="ChemicalTermsEvaluator-UsageUsage"><a name="usage" rel="nofollow"></a> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-Usage"></span>Usage</h1>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">The command line tool&nbsp;</span> <code>evaluate</code> <span style="color: rgb(54,54,54);">&nbsp;evaluates a single expression and prints the result in human readable text format or else outputs the input molecule with the result set as a specified SDF tag.</span></p>
+      <blockquote style="margin-left: 0.0px;">
+       <span>evaluate</span>&nbsp;[options] [input files/strings]
+      </blockquote>
+      <h2 id="ChemicalTermsEvaluator-Options"><a name="options" rel="nofollow"></a>Options<br />&nbsp;</h2>
+      <pre>Options:
+  -h, --help                          this help message
+  -l, --list-functions                list Chemical Terms functions
+
+Input Options:
+  -c, --config &lt;filepath&gt;             configuration XML file
+                                      (if omitted then default
+                                      configuration is applied)
+  -n, --no-input-mol                  expression should be evaluated
+                                      without input molecule
+  -e, --expr-string &lt;str|filepath&gt;    expression string or file
+
+Output Options:
+  -o, --output &lt;filepath&gt;             output file path (default: stdout)
+  -g, --ignore-error                  continue with next molecule on error
+  -v, --verbose                       verbose output
+  -C, --clean &lt;dim[:opts]&gt;            clean output molecules (dim: 2 or 3)
+                                      with options
+                                      (default: t2000 - time limit: 2 sec)
+           (see http://www.chemaxon.com/marvin/help/sci/cleanoptions.html)
+  -f, --format &lt;format&gt;               output format if result is molecule
+                                      (default: smiles or smarts)
+                                      (ignores the output options below)
+  -x, --extract &lt;format&gt;              extract mode: write exactly those
+                                      molecules in the specified format that
+                                      satisfy the input boolean expression
+                                      (excludes other output options)
+  -p, --precision &lt;precision&gt;         max. number of fractional digits
+                                      in the output (default: 2)
+  -S, --sdf-output                    SDF output (otherwise text output)
+  -t, --tag                           name of the SDFile tag to store the
+                                      evaluation result (default: CALC)
+  -i, --include-expr                  output expression string<br />
+</pre>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The input molecule file can contain more than one molecule, in this case the expression evaluation is performed for all input molecules one-by-one.</p>
+        <p>The command line parameter&nbsp;<code>--config</code>&nbsp;specifies the filename of the&nbsp;configuration file. If this parameter is not specified, then the&nbsp;<a href="#ChemicalTermsEvaluator-default">default configuration</a>&nbsp;is used.</p>
+        <p>If the command line parameter&nbsp;<code>--no-input-mol</code>&nbsp;is specified then the expression is evaluated without input molecule.</p>
+        <p>The command line parameter&nbsp;<code>--expr-string</code>&nbsp;specifies the expression string if it is given on the command line or the file path containing the expression string.</p>
+        <p>The command line parameter&nbsp;<code>--format</code>&nbsp;specifies the output molecule format in case when the output is a molecule or a molecule array. The default format is SMILES / SMARTS. If this option is used then all other output options except for&nbsp;<code>--output</code>,&nbsp;<code>--ignore-error</code>&nbsp;and&nbsp;<code>--verbose</code>&nbsp;are ignored.</p>
+        <p>If the command line parameter&nbsp;<code>--clean</code>&nbsp;is specified then result molecules as well as SDF output is cleaned in the given dimension.</p>
+        <p>If the command line parameter&nbsp;<code>--extract</code>&nbsp;is specified then the input expression is used as a molecule filter: for each input molecule it is evaluated as a boolean condition and the program filters the molecules that satisfy this condition, that is, for which the expression evaluation result is&nbsp;<code>true</code>. These molecules are written as output in the specified format. If this option is used then all other output options except for&nbsp;<code>--output</code>,&nbsp;<code>--ignore-error</code>and&nbsp;<code>--verbose</code>&nbsp;are ignored.</p>
+        <p>The command line parameter&nbsp;<code>--precision</code>&nbsp;specifies the maximum number of fractional digits to be displayed in the output.</p>
+        <p>If the command line parameter&nbsp;<code>--sdf-output</code>&nbsp;is specified then input molecules are written to the output in SDF format with evaluation result set as an SDF tag. The command line parameter&nbsp;<code>--tag</code>&nbsp;specifies this SDF tag.</p>
+        <p>If the command line parameter&nbsp;<code>--include-expr</code>&nbsp;is specified then the evaluation result is preceeded by the expression string itself in the output.</p>
+        <p>If the command line parameter&nbsp;<code>--ignore-error</code>&nbsp;is specified, then import/export errors will not stop the processing but the error is written to the console and the molecule is skipped. By default, the program exits in case of molecule import/export errors.</p>
+       </div> 
+      </div> 
+      <p><a name="input" rel="nofollow"></a></p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <p class="title">The expression string</p> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The expression string is a functional expression that the evaluator tries to evaluate. It can contain calculation functions that are available in the cxcalc command line tool. These calculations have many different calculation parameters. The syntax of the parameters is &quot;<em>key1:value1 key2:value2 ...</em>&quot;. <br /><br />For example, if the user wants to calculate the partial charges of the atoms in a molecule, and wants to specify the type of the charge and the microspecies, he should type</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('type:pi pH:6.5')&quot; molecule.mol</pre> 
+         </div>
+        </div>
+        <p><br />In this case the parameter string defines that the user wants to calculate <em style="line-height: 1.4285715;">pi </em>charge for each atom of the microspecies at pH=6.5. Other parameters can be specified in the same fashion.</p>
+       </div> 
+      </div> 
+      <h2 id="ChemicalTermsEvaluator-InputInput"><span class="confluence-anchor-link" id="ChemicalTermsEvaluator-Input"></span>Input<br />&nbsp;</h2>
+      <p>The software may take molecules from a text file. Most molecular file formats are accepted (<a href="https://docs.chemaxon.com/display/FF/MDL+MOL+files">MDL molfile, Compressed molfile, SDfile, Compressed SDfile</a>,&nbsp;<a href="http://www.daylight.com/dayhtml/smiles/" class="external-link" rel="nofollow">SMILES</a>,&nbsp;<a href="https://docs.chemaxon.com/display/FF/File+Formats+Home">etc.</a>).</p>
+      <p>If no input file name is given in the command line, the standard input is read.</p>
+      <h2 id="ChemicalTermsEvaluator-OutputOutput"><a name="output" rel="nofollow"></a> <br /> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-Output"></span>Output&nbsp;</h2>
+      <p>&nbsp;</p>
+      <p>If no output file name is given, results are written to the standard output.</p>
+      <p>If the&nbsp;<code>--sdf-output</code>&nbsp;command line parameter is specified, the output format is SDF and the evaluation result is written to an SDF tag (default tag: CALC). Otherwise only the evaluation result is written to the output in simple text format.</p>
+      <h1 id="ChemicalTermsEvaluator-ConfigurationConfiguration"><a name="config" rel="nofollow"></a> <br /> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-Configuration"></span>Configuration<br />&nbsp;</h1>
+      <p>The configuration file is an XML file containing some/all of the following optional subsections:</p>
+      <ol style="margin-left: 20.0px;">
+       <li><a href="#ChemicalTermsEvaluator-evaluator_parameters">Evaluator parameters</a>: this section specifies general evaluator parameters, currently&nbsp;<a href="#ChemicalTermsEvaluator-cache_mode">cache-mode</a>&nbsp;can be set here</li>
+       <li><a href="#ChemicalTermsEvaluator-plugin_definitions">Plugin definitions</a>: this section describes the plugins and their parameters that can be referenced from the expression (these override the&nbsp;<a href="#ChemicalTermsEvaluator-default">default plugin definitions</a>)</li>
+       <li><a href="#ChemicalTermsEvaluator-function_definitions">Function definitions</a>: this section describes the predefined and user-defined functions that can be referenced from the expression (these override the&nbsp;<a href="#ChemicalTermsEvaluator-default">default function definitions</a>)</li>
+       <li><a href="#ChemicalTermsEvaluator-matching_conditions">Matching conditions</a>: this section specifies the reference ID of the substructure matching function and its search options in case when they are different from the default substructure search settings (these override the&nbsp;<a href="#ChemicalTermsEvaluator-default">default matching condition</a>)</li>
+      </ol>
+      <h2 id="ChemicalTermsEvaluator-evaluator_parametersEvaluatorParameters"><a name="paramsdef" rel="nofollow"></a> <br /> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-evaluator_parameters"></span>Evaluator Parameters<br />&nbsp;</h2>
+      <p><span class="confluence-anchor-link" id="ChemicalTermsEvaluator-cache_mode"></span>The evaluator parameter section currently sets the&nbsp;<a name="cached" rel="nofollow"></a> <span>cache-mode</span>&nbsp;attribute: if set to &quot;true&quot; then&nbsp;<a href="#ChemicalTermsEvaluator-matching_conditions">matching condition</a>&nbsp;and&nbsp;<a href="#ChemicalTermsEvaluator-plugin_definitions">plugin calculation</a>&nbsp;results are cached in the molecule object and reused instead of performing the same structure search or chemical calculation repeatedly. The default is &quot;false&quot;, since typically a Chemical Terms evaluation does not contain multiple references to the same matching condition or calculation and the caching procedure by itself also has some overhead.</p>
+      <p><span> <em>Example</em>:</span></p>
+      <pre>&lt;Params <a name="cache" rel="nofollow"></a>Cached=&quot;true&quot;/&gt;
+</pre>
+      <h2 id="ChemicalTermsEvaluator-plugin_definitionsPluginDefinitions"><a name="plugindef" rel="nofollow"></a> <br /> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-plugin_definitions"></span>Plugin Definitions<br />&nbsp;</h2>
+      <p>The plugin declarations enables different structure based chemical calculations (e.g. p<span>K</span> <span>a</span>, log<span>P</span>, log<span>D</span>) to be referenced in the expression strings.</p>
+      <h3 id="ChemicalTermsEvaluator-Declaration"><span>Declaration<br />&nbsp;</span></h3>
+      <p>The <a href="#ChemicalTermsEvaluator-plugin_definition">plugin definition section</a> contains the following data for each plugin reference that is to be used in the expressions:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>the plugin name&nbsp;which the plugin is referenced by in the expression;</li>
+       <li>the plugin JAR&nbsp;relative to the&nbsp;<code>marvin/plugins</code>&nbsp;directory (<code>marvin</code>&nbsp;refers to Marvin istallation directory), where the plugin class should be loaded from (optional, loaded from the usual CLASSPATH if omitted);</li>
+       <li>the plugin java class&nbsp;which wraps the plugin calculation into a prescribed frame;</li>
+       <li>the plugin parameters&nbsp;as parameter name-value pairs - this section is optional: if omitted, the default plugin parameters are used.</li>
+      </ol>
+      <p>The set of possible plugin parameters and a short description for each plugin can be seen with the help of the&nbsp;<a href="https://docs.chemaxon.com/display/CALCPLUGS/cxcalc+command+line+tool">cxcalc</a>&nbsp;program:</p>
+      <pre>cxcalc &lt;plugin&gt; -h
+</pre>
+      <p>where&nbsp;<span>plugin</span>&nbsp;is the plugin ID in the&nbsp;<a href="https://docs.chemaxon.com/display/CALCPLUGS/cxcalc+command+line+tool">cxcalc configuration file</a>. The parameter names used by the Evaluator are the long command line parameter names, without the starting '--' double dashes. For example, take p<span>K</span> <span>a</span>, type:</p>
+      <pre>cxcalc pka -h
+</pre>
+      <p>which prints out the following help text:</p>
+      <pre>Calculator plugin: pka.
+pKa calculation.
+ 
+Usage:
+  cxcalc [general options] [input files] pka
+[pka options] [input files]
+ 
+pka options:
+  -h, --help       this help message
+  -p, --precision  &lt;floating point precision as number of
+                   fractional digits: 0-8 or inf&gt; default: 2
+  -t, --type       [pKa|acidic|basic] (default: pKa)
+  -m, --mode       [macro|micro] (default: macro)
+  -n, --ions       max number of ionizable atoms to be considered (default: 8)
+  -i, --min        min basic pKa (default: -10)
+  -x, --max        max acidic pKa (default: 20)
+  -a, --na         number of acidic pKa values displayed (default: 2)
+  -b, --nb         number of basic pKa values displayed (default: 2)
+</pre>
+      <p>The&nbsp;<code>help</code>,&nbsp;<code>precision</code>,&nbsp;<code>na</code>&nbsp;and&nbsp;<code>nb</code>&nbsp;parameters refer to display options, therefore these are not used by the Evaluator. Thus the parameter set for the p<span>K</span> <span>a</span>&nbsp;calculation in our case is:</p>
+      <pre>type, mode, ions, min, max.
+</pre>
+      <p>The same plugin can be used with different parameter settings if the XML configuration has more than one&nbsp;<code>&lt;Plugin&gt;</code>&nbsp;section with the same&nbsp;java class&nbsp;but different&nbsp;plugin names&nbsp;used to reference the plugins with each of the different&nbsp;parameter sections. In the following example the&nbsp;pKa1&nbsp;name references pKa&nbsp;calculation with minimal basic pKa&nbsp;value&nbsp;-3&nbsp;and maximal acidic pKa&nbsp;value&nbsp;10&nbsp;while the&nbsp;pKa2&nbsp;name references pKa&nbsp;calculation with minimal basic pKa&nbsp;value&nbsp;-20&nbsp;and maximal acidic pKa&nbsp;value&nbsp;30. Different functions of a calculator plugin can be referenced by different IDs. In the example below, the &quot;mass&quot; result type of the&nbsp;ElemetalAnalyser&nbsp;plugin is referenced by the&nbsp;mass&nbsp;name, while the &quot;exactmass&quot; result type of the same plugin is referred by the&nbsp;exactmass&nbsp;name.</p>
+      <p><a name="pluginconfig" rel="nofollow"></a> <span> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-plugin_definition"></span> <em>Example</em>:</span></p>
+      <pre>  <a name="pluginstag" rel="nofollow"></a>&lt;Plugins&gt;
+    <a name="plugintag" rel="nofollow"></a>&lt;Plugin <a name="pluginname" rel="nofollow"></a>ID=&quot;charge&quot; 
+        <a name="pluginclass" rel="nofollow"></a>Class=&quot;chemaxon.marvin.calculations.ChargePlugin&quot;
+        <a name="pluginjar" rel="nofollow"></a>JAR=&quot;ChargePlugin.jar&quot;/&gt;
+    <a name="ioncharge" rel="nofollow"></a>&lt;Plugin ID=&quot;ioncharge&quot; class=&quot;chemaxon.marvin.calculations.IonChargePlugin&quot;&gt;
+	<a name="pluginparams" rel="nofollow"></a>&lt;Param Name=&quot;pH&quot; Value=&quot;3.6&quot;/&gt;
+        &lt;Param Name=&quot;max-ions&quot; Value=&quot;6&quot;/&gt;
+	<a name="minpercent" rel="nofollow"></a>&lt;Param Name=&quot;min-percent&quot; Value=&quot;5&quot;/&gt;
+	&lt;Param Name=&quot;charge-type&quot; Value=&quot;accumulated&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin ID=&quot;microspecies&quot; class=&quot;chemaxon.marvin.calculations.MajorMicrospeciesPlugin&quot;/&gt;
+    &lt;Plugin ID=&quot;pka&quot; class=&quot;chemaxon.marvin.calculations.pKaPlugin&quot;/&gt;
+    &lt;Plugin <a name="pka1" rel="nofollow"></a>ID=&quot;pKa1&quot; 
+        class=&quot;chemaxon.marvin.calculations.pKaPlugin&quot;&gt;
+	&lt;Param Name=&quot;min&quot; Value=&quot;-3&quot;/&gt;
+	&lt;Param Name=&quot;max&quot; Value=&quot;10&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin <a name="pka2" rel="nofollow"></a>ID=&quot;pKa2&quot; 
+        class=&quot;chemaxon.marvin.calculations.pKaPlugin&quot;&gt;
+	&lt;Param Name=&quot;min&quot; Value=&quot;-20&quot;/&gt;
+	&lt;Param Name=&quot;max&quot; Value=&quot;30&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin ID=&quot;logp&quot; 
+        class=&quot;chemaxon.marvin.calculations.logPPlugin&quot;&gt;
+        <a name="plugintype" rel="nofollow"></a>&lt;Param Name=&quot;type&quot; Value=&quot;logPMicro&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin <a name="mass" rel="nofollow"></a>ID=&quot;mass&quot; 
+        class=&quot;chemaxon.marvin.calculations.ElementalAnalyserPlugin&quot;&gt;
+	&lt;Param Name=&quot;type&quot; Value=&quot;mass&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin <a name="exactmass" rel="nofollow"></a>ID=&quot;exactmass&quot; 
+        class=&quot;chemaxon.marvin.calculations.ElementalAnalyserPlugin&quot;&gt;
+	&lt;Param Name=&quot;type&quot; Value=&quot;exactmass&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin ID=&quot;logp&quot; class=&quot;chemaxon.marvin.calculations.logPPlugin&quot;/&gt;
+    &lt;Plugin ID=&quot;logd&quot; class=&quot;chemaxon.marvin.calculations.logDPlugin&quot;/&gt;
+    &lt;Plugin ID=&quot;acc&quot; class=&quot;chemaxon.marvin.calculations.HBDAPlugin&quot;&gt;
+	&lt;Param Name=&quot;type&quot; Value=&quot;acc&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin ID=&quot;don&quot; class=&quot;chemaxon.marvin.calculations.HBDAPlugin&quot;&gt;
+	&lt;Param Name=&quot;type&quot; Value=&quot;don&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin ID=&quot;acceptorcount&quot; class=&quot;chemaxon.marvin.calculations.HBDAPlugin&quot;&gt;
+	&lt;Param Name=&quot;type&quot; Value=&quot;acceptorcount&quot;/&gt;
+    &lt;/Plugin&gt;
+    &lt;Plugin ID=&quot;donorcount&quot; class=&quot;chemaxon.marvin.calculations.HBDAPlugin&quot;&gt;
+	&lt;Param Name=&quot;type&quot; Value=&quot;donorcount&quot;/&gt;
+    &lt;/Plugin&gt;
+&lt;/Plugins&gt;
+</pre>
+      <h2 id="ChemicalTermsEvaluator-function_definitionsFunctionDefinitions"><a name="functiondef" rel="nofollow"></a> <br /> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-function_definitions"></span>Function Definitions<br />&nbsp;</h2>
+      <p>The expression strings can also include references to predefined functions. These functions are implemented by java classes that have to implement the<code>org.nfunk.jep.function.PostfixMathCommandI</code>&nbsp;interface. See the&nbsp;<a href="http://jep.sourceforge.net/doc/javadoc/index.html" style="text-decoration: underline;" class="external-link" rel="nofollow">JEP API Documentation</a>&nbsp;for details.</p>
+      <h3 id="ChemicalTermsEvaluator-Declaration.1"><span>Declaration<br />&nbsp;</span></h3>
+      <p>The function definition section contains the user-defined function implementation java classes accessible from the expressions. Each class is given an&nbsp;ID: this is the name that the function is referenced by from the expression. The&nbsp;Class&nbsp;attribute specifies the java class that implements the function. A predefined function may have preset parameters in a similar fashion as in the&nbsp;Plugin declaration section. Currently only the&nbsp;atomic property query&nbsp;function applies this for presetting the name of the atomic property to be queried.</p>
+      <p><span> <em>Example</em>:</span></p>
+      <pre>    <a name="functions" rel="nofollow"></a>&lt;Functions&gt;
+        &lt;Function <a name="arrayid" rel="nofollow"></a>ID=&quot;array&quot; class=&quot;chemaxon.jep.function.IntArray&quot;/&gt;
+        &lt;Function <a name="functionid" rel="nofollow"></a>ID=&quot;min&quot; <a name="functionclass" rel="nofollow"></a>Class=&quot;chemaxon.jep.function.Min&quot;/&gt;
+	&lt;Function ID=&quot;max&quot; class=&quot;chemaxon.jep.function.Max&quot;/&gt;
+	&lt;Function ID=&quot;count&quot; class=&quot;chemaxon.jep.function.Count&quot;/&gt;
+	&lt;Function ID=&quot;sum&quot; class=&quot;chemaxon.jep.function.Sum&quot;/&gt;
+	&lt;Function ID=&quot;sortasc&quot; class=&quot;chemaxon.jep.function.SortAsc&quot;/&gt;
+	&lt;Function ID=&quot;sortdesc&quot; class=&quot;chemaxon.jep.function.SortDesc&quot;/&gt;
+	<a name="fin" rel="nofollow"></a>&lt;Function ID=&quot;in&quot; class=&quot;chemaxon.jep.function.In&quot;/&gt;
+	&lt;Function ID=&quot;eval&quot; class=&quot;chemaxon.jep.function.AtomEvaluatorFunction&quot;/&gt;
+	&lt;Function ID=&quot;filter&quot; class=&quot;chemaxon.jep.function.Filter&quot;/&gt;
+	&lt;Function ID=&quot;minatom&quot; class=&quot;chemaxon.jep.function.MinAtom&quot;/&gt;
+	&lt;Function ID=&quot;maxatom&quot; class=&quot;chemaxon.jep.function.MaxAtom&quot;/&gt;
+	&lt;Function ID=&quot;minvalue&quot; class=&quot;chemaxon.jep.function.MinValue&quot;/&gt;
+	&lt;Function ID=&quot;maxvalue&quot; class=&quot;chemaxon.jep.function.MaxValue&quot;/&gt;
+	<a name="fatomprop" rel="nofollow"></a>&lt;Function ID=&quot;atomprop&quot; class=&quot;chemaxon.jep.function.AtomProperties&quot;/&gt;
+	<a name="fhcount" rel="nofollow"></a>&lt;Function ID=&quot;hcount&quot; class=&quot;chemaxon.jep.function.AtomProperties&quot;&gt;
+	    <a name="fparam" rel="nofollow"></a>&lt;Param Name=&quot;property&quot; Value=&quot;hcount&quot;/&gt;
+	&lt;/Function&gt;
+	&lt;Function ID=&quot;connections&quot; class=&quot;chemaxon.jep.function.AtomProperties&quot;&gt;
+	    &lt;Param Name=&quot;property&quot; Value=&quot;connections&quot;/&gt;
+	&lt;/Function&gt;
+	<a name="fvalence" rel="nofollow"></a>&lt;Function ID=&quot;valence&quot; class=&quot;chemaxon.jep.function.AtomProperties&quot;&gt;
+	    &lt;Param Name=&quot;property&quot; Value=&quot;valence&quot;/&gt;
+	&lt;/Function&gt;
+	&lt;Function ID=&quot;atno&quot; class=&quot;chemaxon.jep.function.AtomProperties&quot;&gt;
+	    &lt;Param Name=&quot;property&quot; Value=&quot;atno&quot;/&gt;
+	&lt;/Function&gt;
+	&lt;Function ID=&quot;map&quot; class=&quot;chemaxon.jep.function.AtomProperties&quot;&gt;
+	    &lt;Param Name=&quot;property&quot; Value=&quot;map&quot;/&gt;
+	&lt;/Function&gt;
+	&lt;Function ID=&quot;arom&quot; class=&quot;chemaxon.jep.function.AtomProperties&quot;&gt;
+	    &lt;Param Name=&quot;property&quot; Value=&quot;arom&quot;/&gt;
+	&lt;/Function&gt;
+    &lt;/Functions&gt;
+</pre>
+      <h2 id="ChemicalTermsEvaluator-matching_conditionsMatchingConditions"><a name="matchdef" rel="nofollow"></a> <br /> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-matching_conditions"></span>Matching Conditions<br />&nbsp;</h2>
+      <p>The matching condition declaration enables the&nbsp;<code>Match</code>&nbsp;function to be used in expression strings. This function performs substructure search and optionally checks for atom matching.</p>
+      <h3 id="ChemicalTermsEvaluator-Declaration.2"><span>Declaration<br />&nbsp;</span></h3>
+      <p>The declaration gives a reference ID to the function, should contain a&nbsp;Class&nbsp;attribute which specifies the java class that implements the function, and can specify the&nbsp;search attributes&nbsp;in case when they differ from the default settings. Specifying search attributes is optional, if omitted then the default values are used. For a detailed description of the search options see the&nbsp;<a href="http://www.chemaxon.com/jchem/doc/user/queryindex.html" class="external-link" rel="nofollow">JChem Query Guide</a>.</p>
+      <p align="center"><a name="searchattributes" rel="nofollow"></a></p>
+      <p><span>Search attributes that can be set in the&nbsp;</span> <code>Search</code> <span>&nbsp;section.</span></p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Attribute</th>
+          <th class="confluenceTh">Range</th>
+          <th class="confluenceTh">Default Value</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">StereoSearch</td>
+          <td class="confluenceTd"><code>true/false</code></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">DoubleBondStereoMatchingMode</td>
+          <td class="confluenceTd"><code>none/marked/all</code></td>
+          <td class="confluenceTd"><code>marked</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">SubgraphSearch</td>
+          <td class="confluenceTd"><code>true/false</code></td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">ExactAtomMatching</td>
+          <td class="confluenceTd"><code>true/false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">ExactStereoMatching</td>
+          <td class="confluenceTd"><code>true/false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">OrderSensitiveSearch</td>
+          <td class="confluenceTd"><code>true/false</code></td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><span> <br /> <em>Example:&nbsp;</em> </span></p>
+      <pre>&lt;Matching <a name="matchid" rel="nofollow"></a>ID=&quot;match&quot; <a name="matchclass" rel="nofollow"></a>Class=&quot;chemaxon.jep.function.Match&quot;&gt;
+    <a name="searchattr" rel="nofollow"></a>&lt;Search DoubleBondStereoMatchingMode=&quot;all&quot; OrderSensitiveSearch=&quot;true&quot;/&gt;
+&lt;/Matching&gt;
+</pre>
+      <p>A detailed description of the usage of the match function in expression strings is given below.&nbsp;</p>
+      <h2 id="ChemicalTermsEvaluator-defaultDefaultfunctiondefinitions,plugindefinitionsandmatchingconditions"><a name="builtin" rel="nofollow"></a> <br /> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-default"></span>Default function definitions, plugin definitions and matching conditions<br />&nbsp;</h2>
+      <p>Default plugin and function definitions as well as the default matching condition are read from the&nbsp;<code>built-in&nbsp;evaluator.xml</code>&nbsp;file&nbsp;located under the<code>chemaxon/jep</code>&nbsp;directory in&nbsp;<code>marvinbeans.jar / jchem.jar</code>&nbsp;provided by ChemAxon.&nbsp;Plugins,&nbsp;functions&nbsp;and&nbsp;matching conditions&nbsp;defined by the user are read from&nbsp;<code>marvin/config/evaluator.xml</code>&nbsp;file (where&nbsp;<code>marvin</code>&nbsp;is the Marvin istallation directory; in case of JChem it is the JChem installation directory) and from&nbsp;<code>MARVIN_MAJOR_VERSION/evaluator.xml</code>&nbsp;file (where&nbsp;<code>MARVIN_MAJOR_VERSION</code>&nbsp;is the major version of Marvin/JChem, e.g. &quot;5.1&quot;) located under the&nbsp;<code>.chemaxon</code>&nbsp;(UNIX / Linux) or&nbsp;<code>chemaxon</code>&nbsp;(Windows) subdirectory in the user's home directory. The user defined XML configuration elements are added to default configuration, if both exist then user defined configuration override the built-in settings.</p>
+      <div class="lenia">
+       &nbsp;
+      </div>
+      <h1 id="ChemicalTermsEvaluator-Usage_examplesUsageExamples"><a name="examples" rel="nofollow"></a> <span class="confluence-anchor-link" id="ChemicalTermsEvaluator-Usage_examples"></span>Usage Examples<br />&nbsp;</h1>
+      <ol style="margin-left: 20.0px;">
+       <li><p>Calculates the molecule mass for the molecules in the&nbsp;<code>target.sdf</code>&nbsp;file where the mass calculator plugin is defined in the&nbsp;<code>config.xml</code>&nbsp;configuration file:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -c config.xml -e &quot;mass()&quot; target.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Filters molecules with molecule mass at least&nbsp;<code>200</code>, molecule mass is computed according to the&nbsp;default configuration:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;mass() &gt;= 200&quot; -x sdf -o heavy.sdf target.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Evaluates the expression in file calc.txt for molecules in target.sdf, uses the&nbsp;default configuration:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e calc.txt target.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>The same with SDF output into file with results written to the SDF tag RESULT, preceded by the expression string:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e calc.txt -S -i -t RESULT -o result.sdf target.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>The same but the expression string is given in the&nbsp;<code>expr.txt</code>&nbsp;file:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e expr.txt -m query.sdf target.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Calculates partial charges for each atom with precision of&nbsp;<code>3</code>&nbsp;fractional digits, uses the charge calculation defined in&nbsp;<code>config.xml</code>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -c config.xml -e &quot;charge()&quot; -p 3 target.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>The same with SDF file output with charge values written to the CHARGES SDF tag:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -c config.xml -e &quot;charge()&quot; -p 3 -S -t CHARGE -o result.sdf target.sdf</pre> 
+         </div>
+        </div></li>
+       <li><p>Enumerates atoms&nbsp;<code>1</code>&nbsp;and&nbsp;<code>2</code>&nbsp;of the Markush structure m.mrv, writes the resulting structures in MRV format:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;markushEnumerations('1,2')&quot; m.mrv -f mrv</pre> 
+         </div>
+        </div></li>
+       <li><p>Returns&nbsp;<code>3</code>&nbsp;random enumerations of the Markush structure m.mrv, writes the resulting structures in MRV format, aligns scaffold and stores scaffold/R-group coloring data:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;randomMarkushEnumerationsDisplay(3)&quot; m.mrv -f mrv</pre> 
+         </div>
+        </div><p>Note, that the display options (coordinates and attached coloring data) cannot be stored in the default SMILES output format, therefore it is necessary to specify the MRV output format in this case.</p></li>
+       <li><p><span>Searches for structural issues, given as&nbsp;</span>action strings<span>; evaluator returns found explicit hydrogens or SMARTS defined substructures:</span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;check('explicith..substructure:name=nitro check:reactionSmarts=[O:2]=[N:1]=O')&quot; &quot;[H]C1=CC(C)=CC(=C1)N(=O)=O&quot; &quot;[H]C1=CC(C)=CC=C1&quot; &quot;CC1=CC(=CC=C1)N(=O)=O&quot; &quot;CC1=CC=CC=C1&quot;</pre> 
+         </div>
+        </div></li>
+      </ol>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);"> <br /> </span></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

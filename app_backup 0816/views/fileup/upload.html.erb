@@ -1,0 +1,8 @@
+<h1>Fileup#get</h1>
+<p>Find me in app/views/fileup/get.html.erb</p>
+
+<%= form_for @file1, :url => url_for(:controller => 'fileup', :action => 'display') do |f| %>
+    <%= f.file_field :something %>
+
+    <%= f.submit "upload structure" %>
+<% end %>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : MarvinView Display parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : MarvinView Display parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Parameter</th>
+          <th class="confluenceTh">Meaning</th>
+          <th class="confluenceTh">Default</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a>addRemoveHatomsEnabled</code></td>
+          <td class="confluenceTd"><strong>Add/Remove -&gt; Explicit Hydrogens</strong> is enabled or disabled in the <strong>Edit</strong> menu. It will be disabled if this parameter is false.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a>autoTabScale</code></td>
+          <td class="confluenceTd">Automatically change scale when component size changed. Only applicable to the MViewPane bean.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a><span class="confluence-anchor-link" id="MarvinViewDisplayparameters-back"></span>background</code></td>
+          <td class="confluenceTd">Background color in hexa. Sets the background color of the components (like menubar, toolbar, labels and buttons), excluding the molecule canvas. See also: <a href="#MarvinViewDisplayparameters-molbg">molbg</a></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><code>confirmTransfer</code></td>
+          <td class="confluenceTd">Displays a confirmation dialog window upon closing the structure editor window in case the structure has been altered.</td>
+          <td class="confluenceTd"><code>false</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a><span class="confluence-anchor-link" id="MarvinViewDisplayparameters-detach"></span>detachable</code></td>
+          <td class="confluenceTd">Enable or disable popping up detached viewer window. If this parameter is true, the selected molecule can be displayed in separate window by selecting &quot;Window&quot; menu item in the popup menu or by doubleclicking on the canvas. Viewer is not detachable if detachable parameter is false. (See also<a href="MarvinView-Other-parameters_25987121.html"> editable</a>.)</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a>dispQuality</code></td>
+          <td class="confluenceTd">Display quality.
+           <ul>
+            <li><code>0</code> - low quality, faster rendering</li>
+            <li><code>1</code> - high quality (antialiasing), slower rendering</li>
+           </ul></td>
+          <td class="confluenceTd"><code>1</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a><span class="confluence-anchor-link" id="MarvinViewDisplayparameters-molbg"></span>molbg</code></td>
+          <td class="confluenceTd">Molecule background color in hexa. To set different colors for some specified cells, use a comma separated list of &quot;<em>i</em><code>:#</code>rrggbb&quot; settings, where <em>i</em> is the cell index. For example, to set the default color to white and the color of cell 2 to red, use &quot;<code>#ffffff,2:#ff0000</code>&quot;. See also: <a href="#MarvinViewDisplayparameters-back">background</a></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a><span class="confluence-anchor-link" id="MarvinViewDisplayparameters-select"></span>selectedIndex</code></td>
+          <td class="confluenceTd">Select the specified cell.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a><span class="confluence-anchor-link" id="MarvinViewDisplayparameters-tab"></span>tabScale</code></td>
+          <td class="confluenceTd">Magnification in the molecule table. Each cell has the specified magnification if positive. The scaling is automatic if negative (-1).</td>
+          <td class="confluenceTd"><code>-1</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><code>transferButtonIcon</code></td>
+          <td class="confluenceTd">Sets the location of a custom icon for the Transfer action.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><code>transferButtonText</code></td>
+          <td class="confluenceTd">Sets custom text for the Transfer action.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" rel="nofollow"></a><code>transferButtonVisible</code></td>
+          <td class="confluenceTd">Makes the Transfer button visible on the General Toolbar.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><a class="text" rel="nofollow"></a><span class="confluence-anchor-link" id="MarvinViewDisplayparameters-win"></span>winScale</code></td>
+          <td class="confluenceTd">Magnification in the zoom window. A 1.54 &Aring; long C-C bond is magnified to <em>winScale</em> pixels.</td>
+          <td class="confluenceTd"><code>26.4</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Simple Viewer applet example:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: xml; gutter: false" style="font-size:12px;">&lt;applet code=&quot;MView&quot; width=100 height=100&gt;
+&lt;param name=&quot;molbg&quot; value=&quot;#a0ffa0&quot;&gt;
+&lt;param name=&quot;escapeChar&quot; value=&quot;\&quot;&gt;
+&lt;param name=&quot;mol&quot; value=&quot;Pyrrole\n
+...
+M  END\n&quot;&gt;&lt;/applet&gt;</pre> 
+       </div>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

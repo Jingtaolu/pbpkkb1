@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Unordered Mixtures and Ordered Mixtures</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Unordered Mixtures and Ordered Mixtures </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201027013 {padding: 0px;}
+div.rbtoc1439201027013 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201027013 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201027013"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#UnorderedMixturesandOrderedMixtures-Orderedandunorderedmixtures">Ordered and unordered mixtures</a></li> 
+              <li><a href="#UnorderedMixturesandOrderedMixtures-Howto...">How to ...</a> 
+               <ul class="toc-indentation"> 
+                <li><a href="#UnorderedMixturesandOrderedMixtures-drawanunorderedcomponent">draw an unordered component</a></li> 
+                <li><a href="#UnorderedMixturesandOrderedMixtures-drawanorderedcomponent">draw an ordered component</a></li> 
+                <li><a href="#UnorderedMixturesandOrderedMixtures-drawamixture">draw a mixture</a></li> 
+                <li><a href="#UnorderedMixturesandOrderedMixtures-changethetypeofamixture">change the type of a mixture</a></li> 
+                <li><a href="#UnorderedMixturesandOrderedMixtures-addanewcomponenttoamixture">add a new component to a mixture</a></li> 
+                <li><a href="#UnorderedMixturesandOrderedMixtures-deleteacomponentfromamixture">delete a component from a mixture</a></li> 
+               </ul> </li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>These features can be expressed by brackets (groups) of type component, unordered mixture (also called mixture) and ordered mixture (also called formulation). A component here is a set of atoms contained by a component bracket.</p>
+          <h3 id="UnorderedMixturesandOrderedMixtures-Orderedandunorderedmixtures">Ordered and unordered mixtures</h3>
+          <p>An unordered mixture (denoted by &quot;mix&quot; at the bottom of the right bracket) consists of several unordered components (denoted by &quot;c&quot; at the bottom of the right bracket). For these types of mixtures, the order of addition during the preparation is not important. Example:</p>
+          <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25986418/26281190.png" data-image-src="attachments/25986418/26281190.png" data-unresolved-comment-count="0" data-linked-resource-id="26281190" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mix01.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25986418" data-linked-resource-container-version="6" /></span></p>
+          <p>Ordered mixtures, on the other hand contain ordered components, which define the order of addition. Example:<br />&nbsp;</p>
+          <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25986418/26281191.png" data-image-src="attachments/25986418/26281191.png" data-unresolved-comment-count="0" data-linked-resource-id="26281191" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="for01.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25986418" data-linked-resource-container-version="6" /></span></p>
+          <h3 id="UnorderedMixturesandOrderedMixtures-Howto...">How to ...</h3>
+          <h4 style="margin-left: 60.0px;" id="UnorderedMixturesandOrderedMixtures-drawanunorderedcomponent">draw an unordered component</h4>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li>Draw the structures that form the mixture.</li>
+             <li>To define a structure as a component in a mixture, click the Group tool on the toolbar, then select the structure.</li>
+             <li>In the &quot;<strong>Create Group</strong>&quot; dialog window choose &quot;<strong>Component (c)</strong>&quot; from the &quot;<strong>Type</strong>&quot; list.</li>
+             <li>The &quot;<strong>Order</strong>&quot; field should be empty or should contain &quot;none&quot;. If the &quot;<strong>Order</strong>&quot; field already contains a number, just delete it (you can type in &quot;none&quot; as well).</li>
+             <li>Click OK.</li>
+            </ul></li>
+          </ul>
+          <h4 style="margin-left: 60.0px;" id="UnorderedMixturesandOrderedMixtures-drawanorderedcomponent">draw an ordered component</h4>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li>Draw the structures that form the mixture.</li>
+             <li>To define a structure as a component in a mixture, click the Group tool on the toolbar, then select the structure.</li>
+             <li>In the &quot;<strong>Create Group</strong>&quot; dialog window choose &quot;<strong>Component (c)</strong>&quot; from the &quot;<strong>Type</strong>&quot; list.</li>
+             <li>If this is the first component of the mixture, click the &quot;<strong>Order</strong>&quot; field and enter &quot;1&quot; in place of &quot;none&quot;. If the &quot;<strong>Order</strong>&quot; field already contains a number Marvin will automatically increment the &quot;<strong>Order</strong>&quot; field for subsequent components.</li>
+             <li>Click OK.</li>
+            </ul></li>
+          </ul>
+          <h4 style="margin-left: 60.0px;" id="UnorderedMixturesandOrderedMixtures-drawamixture">draw a mixture</h4>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li>Create the components to form the mixture.</li>
+             <li>Click the <strong>Group</strong> tool on the toolbar, then select the structures.</li>
+             <li>In the &quot;<strong>Create Group</strong>&quot; dialog window choose the type (&quot;Ordered mixture(f)&quot; or &quot;Unordered mixture(for)&quot;) from the &quot;Type&quot; combobox.</li>
+             <li>Click OK.</li>
+            </ul></li>
+          </ul>
+          <h4 style="margin-left: 60.0px;" id="UnorderedMixturesandOrderedMixtures-changethetypeofamixture">change the type of a mixture</h4>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li>Hover the mouse over the group.</li>
+             <li>Choose &quot;<strong>Edit Group</strong>&quot; from the contextual menu (right mouse click on the selected mixture).</li>
+             <li>Change the type of the mixture.</li>
+             <li>Click OK.</li>
+            </ul></li>
+          </ul>
+          <h4 style="margin-left: 60.0px;" id="UnorderedMixturesandOrderedMixtures-addanewcomponenttoamixture">add a new component to a mixture</h4>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li>Draw the new component.</li>
+             <li>Drag one part of the bracket and move it to enclose the new component.</li>
+            </ul></li>
+          </ul>
+          <h4 style="margin-left: 60.0px;" id="UnorderedMixturesandOrderedMixtures-deleteacomponentfromamixture">delete a component from a mixture</h4>
+          <ul>
+           <li style="list-style-type: none;background-image: none;">
+            <ul>
+             <li>Select the component.</li>
+             <li>Press the <strong>Delete</strong> button on your keyboard or select the <strong>Erase</strong> tool.</li>
+            </ul></li>
+          </ul>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

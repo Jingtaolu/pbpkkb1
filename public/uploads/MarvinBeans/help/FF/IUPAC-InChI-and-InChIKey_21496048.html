@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : IUPAC InChI and InChIKey</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : IUPAC InChI and InChIKey </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="sectionColumnWrapper">
+       <div class="sectionMacro">
+        <div class="sectionMacroRow">
+         <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+          <h2 id="IUPACInChIandInChIKey-IUPACInChIformat">IUPAC InChI format</h2>
+          <p>ChemAxon applications are able to import and export IUPAC InChI files, and export IUPAC InChIKey files. This function does not work in the applets (except signed ones).</p>
+          <p>The export makes an InChi with AuxInfo by default. The import requires an InChi string (AuxInfo is optional). Without AuxInfo, the generated molecule does not include coordinates.</p>
+          <p>At the moment Linux, Windows and Mac platforms are supported.</p>
+          <p>Since Version 5.5 the InChI 1.03 version is integrated, jni-inchi sourceforge project is used to call the native C code. Since Version 5.2.5 InChIKey export format is also included.</p>
+         </div>
+         <div class="columnMacro" style="width:30%;min-width:30%;max-width:30%;">
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>inchi, inchikey</strong></p> 
+           </div>
+          </div>
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <p><a href="InChi-and-InChiKey-export-options_21496052.html">InChi and InChiKey export options</a>&nbsp;</p> 
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <h2 id="IUPACInChIandInChIKey-KnownIssues"><a class="anchor" name="options" rel="nofollow"></a>Known Issues</h2>
+      <ul>
+       <li>Allenes and cumulenes are not supported yet.</li>
+      </ul>
+      <h2 id="IUPACInChIandInChIKey-JNI-InChI"><a class="anchor" name="jniinchi" rel="nofollow"></a>JNI-InChI</h2>
+      <p><a href="http://jni-inchi.sourceforge.net/" class="external-link" rel="nofollow">JNI-InChi</a> is Copyright 2006-2010, Sam Adams. JNI-InChI is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License e as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. (See <a href="http://www.gnu.org/licenses/gpl.html" class="external-link" rel="nofollow">GPL</a>, <a href="http://www.gnu.org/licenses/lgpl.html" class="external-link" rel="nofollow">LGPL</a> licence.)</p>
+      <p>The modified source, that we use in our program to locate and download dlls, is available <a href="attachments/21496048/21430293.zip" data-linked-resource-id="21430293" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="srcjniinchi.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="21496048" data-linked-resource-container-version="5">here</a>.</p>
+      <p>The compiled version (jni-inchi_07.jar) is in the lib directory of the installed marvin. If you find any bugs, we recommend asking for a bugfix on our technical support forum, instead of modifying the source.</p>
+      <h2 id="IUPACInChIandInChIKey-References"><a class="anchor" name="references" rel="nofollow"></a>References</h2>
+      <ul>
+       <li><a href="http://www.iupac.org/" class="external-link" rel="nofollow">www.iupac.org</a></li>
+       <li><a href="http://www.iupac.org/inchi/" class="external-link" rel="nofollow">www.iupac.org/inchi</a></li>
+       <li><a href="http://sourceforge.net/projects/inchi" class="external-link" rel="nofollow">sourceforge.net/projects/inchi</a></li>
+       <li><a href="http://jni-inchi.sourceforge.net" class="external-link" rel="nofollow">http://jni-inchi.sourceforge.net</a></li>
+      </ul>
+      <p align="LEFT"><small>InchiExport uses the <em>InChI format</em>, <a href="attachments/21496048/21430294.txt" data-linked-resource-id="21430294" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="IUPACInChI.license.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="21496048" data-linked-resource-container-version="5">InChITM Material is &copy; IUPAC 2005</a><br /> </small></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

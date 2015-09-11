@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Importing and Exporting Molecules</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Importing and Exporting Molecules </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439201062166 {padding: 0px;}
+div.rbtoc1439201062166 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439201062166 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+            <div class="toc-macro rbtoc1439201062166"> 
+             <ul class="toc-indentation"> 
+              <li><a href="#ImportingandExportingMolecules-loadLoadingMolecules">Loading Molecules</a></li> 
+              <li><a href="#ImportingandExportingMolecules-saveSavingMolecules">Saving Molecules</a></li> 
+              <li><a href="#ImportingandExportingMolecules-printPrintingMolecules">Printing Molecules</a></li> 
+             </ul> 
+            </div>
+            <p></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="ImportingandExportingMolecules-loadLoadingMolecules"><span class="confluence-anchor-link" id="ImportingandExportingMolecules-load"></span>Loading Molecules</h2>
+          <p>MarvinView can open molecule files saved in any of the&nbsp;<a href="https://docs.chemaxon.com/display/FF">supported formats</a>&nbsp;for viewing.</p>
+          <p>Choose&nbsp;<strong>File &gt; Open...</strong>&nbsp;and browse for the file in the&nbsp;<strong>Open file</strong>&nbsp;dialog.<br />Tick the&nbsp;<strong>Show preview</strong>&nbsp;checkbox to see the contents of the file (molecules, reactions, queries).</p>
+          <p>A single item is dispalyed in the preview window; the text field at the bottom shows the index of the current structure and the number of structures in the file.</p>
+          <p>When a multiple structure file is selected (<em>e.g.</em>, MRV or SDF), the navigation buttons become active. Their functions are: go to first, go to previous, go to next, go to last. Note that the preview window allows you only to check the file content, but not to select the molecules you would like to open. For this purpose, the&nbsp;<strong>Select</strong>&nbsp;text box has to be used, where you can write the serial numbers of the molecules to open. The numbers have to be separated either by commas or by a dash. (Clicking on the&nbsp;<strong>Info</strong>&nbsp;button in this row will give you tips for specifying the desired molecules.) Leaving this textbox empty means that every molecule in the file will be loaded into MarvinView. Currently this is the default behavior of file loading in Marvin.</p>
+          <p><br />Importing image files containing chemical structures is also possible with the help of OSRA (since version 5.3.0). Please&nbsp;<a href="https://docs.chemaxon.com/display/FF/Image+Import+in+Marvin">consult this page for details</a>.</p>
+          <p>The supported image formats are: bmp, png, jpg, gif, svg, and tif. Furthermore, you can import chemical structures from ps and pdf files, too.</p>
+          <p>&nbsp;</p>
+          <p>In order to open an image file go to the&nbsp;<strong>File &gt; Open...</strong>&nbsp;menu and select&nbsp;<strong>All Files</strong>&nbsp;from the list of&nbsp;<strong>Files of Type</strong>.<br />You can also take advantage of the&nbsp;<span> <a href="https://confluence.chemaxon.com/x/mYXL" class="external-link" rel="nofollow"> <span>Cut/Copy/Paste and Drag &amp; Drop Functionality</span> </a> </span>&nbsp;of Marvin to move a molecule from another chemical drawing application into MarvinView.<a name="save" rel="nofollow"></a></p>
+          <h2 id="ImportingandExportingMolecules-saveSavingMolecules"><span class="confluence-anchor-link" id="ImportingandExportingMolecules-save"></span>Saving Molecules</h2>
+          <p>First and foremost, MarvinView is designed for viewing molecules and for changing their display properties. However, you also have some possibilities for editing, and you can also save your molecules in any of the&nbsp;<a href="https://docs.chemaxon.com/display/FF">supported structure file formats</a>.</p>
+          <p>In case your have multiple chemical objects you would like to save, you should use the&nbsp;<strong>File &gt; Save All...</strong>&nbsp;menu option.<br />In the dialog window used for saving, a&nbsp;<strong>Saving method</strong>&nbsp;tab can be opened with the help of the&nbsp;<strong>Advanced</strong>&nbsp;checkbox.</p>
+          <p>The first half of the tab offers the following choices:</p>
+          <ul>
+           <li><strong>All structures SEPARATELY:</strong>&nbsp;Saves all structures separately in a single file.<br />This is the deafult behavior of saving. Without opening the&nbsp;<strong>Saving method</strong>&nbsp;tab, this option will be applied.</li>
+           <li><strong>Into SEPARATE FILES:</strong>&nbsp;Saves each structure to a separate file.<br />In this option, the numbering of molecule files begins with the molecule in the upper left corner.</li>
+          </ul>
+          <p>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338386/13402274.png" data-image-src="attachments/13338386/13402274.png" data-unresolved-comment-count="0" data-linked-resource-id="13402274" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="save_view.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338386" data-linked-resource-container-version="10" /></span>&nbsp;</p>
+          <p>The first option remains inactive unless the chosen file type supports multimolecule files (such as MRV or SDF). Similarly, for one molecule only files these options are disabled.<br />When the given parameters for saving (filename, format, and route) are the same as for an already existing file, the outcome will be determined by the other two radio buttons of the dialog window.</p>
+          <p>If you select the&nbsp;<strong>Overwrite file</strong>&nbsp;option, the original contents of the file will be replaced.</p>
+          <p>However, selecting the&nbsp;<strong>Append to end of file</strong>&nbsp;radio button will add the new structures to the original file, so its contents will be preserved.</p>
+          <p>In the first case, a new dialog window will be displayed, where you can reinforce or change your decision about overwriting the file.</p>
+          <p>If the chosen file format does not support multiple structures, the&nbsp;<strong>Overwrite</strong>&nbsp;option is applied automatically.</p>
+          <p>&nbsp;</p>
+          <p>You can create a new file from a subset of molecules selected from a larger file. Choosing the&nbsp;<strong>File &gt; Save Selection...</strong>&nbsp;menu point opens a dialog window where you can specify the molecules you want to save in the new file.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>If you have selected a molecule previously in your MarvinView table only the selected molecule will be saved in the new file.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>MarvinView allows you to save an image of a selected molecule in the Viewer. When you have selected a molecule, go to&nbsp;<strong>File &gt; Save As Image...</strong>. You can select from JPEG, PNG, SVG, EPS, TIF, BMP, and EMF image file formats.</p>
+          <p><a name="print" rel="nofollow"></a></p>
+          <h2 id="ImportingandExportingMolecules-printPrintingMolecules"><span class="confluence-anchor-link" id="ImportingandExportingMolecules-print"></span>Printing Molecules</h2>
+          <p>You can print the molecule using the&nbsp;<strong>Print</strong>&nbsp;item in either the&nbsp;<span> <a href="https://confluence.chemaxon.com/x/AYfL#file" class="external-link" rel="nofollow"> <span>File menu</span> </a> </span>&nbsp;or the pop-up menu.<br />The Print dialog box contains two sets of options where you can choose</p>
+          <ol>
+           <li>&nbsp;the structures to be printed: all molecules, all visible molecules in the window, or the selected molecule.</li>
+           <li>&nbsp;how to print the selected molecule(s): send to printer, print to pdf file or see the print preview.</li>
+          </ol>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

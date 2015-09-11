@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : FAQ MV</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : FAQ MV </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><a href="#FAQMV-todo">What shall I do with license files?</a><br /> <a href="#FAQMV-howtoinstall">How do I install license files?</a><br /> <a href="#FAQMV-clm">What is ChemAxon License Manager?</a><br /> <a href="#FAQMV-license_manager">How can I use the ChemAxon License Manager?</a><br /> <a href="#FAQMV-separate">Will I have separate license files for each product?</a><br /> <a href="#FAQMV-more_licenses">Can I have more than one license file?</a><br /> <a href="#FAQMV-install_all">Do I have to install the license files in each product I have license to?</a><br /> <a href="#FAQMV-what_happens">What happens when I install a license file?</a><br /> <a href="#FAQMV-inside_licenses">What do license files contain?</a><br /> <a href="#FAQMV-location_api">Can I set the license file location through API?</a></p>
+      <h4 id="FAQMV-todoWhatshallIdowithlicensefiles?"><span class="confluence-anchor-link" id="FAQMV-todo"></span> What shall I do with license files?</h4>
+      <p>You need to install the license files you get, because all products should know the location of the license file.</p>
+      <h4 id="FAQMV-howtoinstallHowdoIinstalllicensefiles?"><a class="anchor" name="install_howto" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-howtoinstall"></span>How do I install license files?</h4>
+      <p>You can install the license files either manually or with the Chemaxon License Manager.</p>
+      <h4 id="FAQMV-clmWhatisChemAxonLicenseManager?"><a class="anchor" name="clm" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-clm"></span>What is ChemAxon License Manager?</h4>
+      <p>ChemAxon License Manager is a central place where you can manage the licenses of all ChemAxon products.</p>
+      <h4 id="FAQMV-license_managerHowcanIusetheChemAxonLicenseManager?"><a class="anchor" name="license_manager" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-license_manager"></span>How can I use the ChemAxon License Manager?</h4>
+      <p>You can reach the graphical interface either from the Help menu of any product, or through the Start menu. You can also use the <code>scripts/license</code> command line version.</p>
+      <h4 id="FAQMV-separateWillIhaveseparatelicensefilesforeachproduct?"><a class="anchor" name="separate" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-separate"></span>Will I have separate license files for each product?</h4>
+      <p>No, license files usually contain licenses to several products.</p>
+      <h4 id="FAQMV-more_licensesCanIhavemorethanonelicensefile?"><a class="anchor" name="more_licenses" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-more_licenses"></span>Can I have more than one license file?</h4>
+      <p>Yes, it is possible that you have more license files, though these can be easily merged into one file.</p>
+      <h4 id="FAQMV-install_allDoIhavetoinstallthelicensefilesineachproductIhavelicenseto?"><a class="anchor" name="install_all" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-install_all"></span>Do I have to install the license files in each product I have license to?</h4>
+      <p>No, with ChemAxon License Manager you need to install a license file only once.</p>
+      <h4 id="FAQMV-what_happensWhathappenswhenIinstallalicensefile?"><a class="anchor" name="what_happens" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-what_happens"></span>What happens when I install a license file?</h4>
+      <p>ChemAxon License Manager copies the license file to a location where all products can find it. This location is <code>.chemaxon/license.cxl</code> (Unix) or <code>chemaxon\license.cxl</code> (Windows) under the user's home directory.<br />You can copy your license file to this location if you wish to install manually.</p>
+      <h4 id="FAQMV-inside_licensesWhatdolicensefilescontain?"><a class="anchor" name="inside_licenses" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-inside_licenses"></span>What do license files contain?</h4>
+      <p>License files contain several licenses to products. A license contains all relevant information from your license agreement, such as product name, licensee, expiration date, usage restrictions, etc. All licenses are cryptographically protected from modification.</p>
+      <h4 id="FAQMV-location_apiCanIsetthelicensefilelocationthroughAPI?"><a class="anchor" name="location_api" rel="nofollow"></a><span class="confluence-anchor-link" id="FAQMV-location_api"></span>Can I set the license file location through API?</h4>
+      <p>Yes, you can use the following method:<br /> <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/license/LicenseManager.html#setLicenseFile%28java.lang.String%29" class="external-link" rel="nofollow"> chemaxon.license.LicenseManager.setLicenseFile(String path)</a></p>
+      <p>&nbsp;</p>
+      <p></p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

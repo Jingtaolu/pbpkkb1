@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : MOL file compression</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : MOL file compression </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="MOLfilecompression-Molfilecompression"><a class="anchor" name="csmol" rel="nofollow"></a>Molfile compression</h2>
+      <div class="sectionColumnWrapper">
+       <div class="sectionMacro">
+        <div class="sectionMacroRow">
+         <div class="columnMacro" style="width:70%;min-width:70%;max-width:70%;">
+          <p>MarvinSketch and MarvinView can handle <em>compressed molfiles</em> that are typically five times smaller than their original, uncompressed version. This reduces the download time of HTML pages containing molecule applets.</p>
+          <p>Compressed molfiles can be created by choosing <strong>Edit</strong>/<strong>Source</strong>, then <strong>Format</strong>/<strong>Compressed&nbsp;Molfile</strong> in MarvinSketch or MarvinView. If you cannot find the Edit menu, then click on the upper left arrow in MarvinSketch, right click or double click the compound in MarvinView.</p>
+         </div>
+         <div class="columnMacro">
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codenames</em>: <strong>csmol</strong>, <strong>cssdf</strong>, <strong>csrxn</strong>, <strong>csrdf</strong></p>
+            <p><em>Extensions</em>: <strong>.csmol</strong>, <strong>.cssdf</strong>, <strong>.csrxn</strong>, <strong>.csrdf</strong></p> 
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <h2 id="MOLfilecompression-UsingtheMdlCompressorclassinJava">Using the MdlCompressor class in Java</h2>
+      <p>The <code>chemaxon.formats.MdlCompressor</code> can compress or decompress MDL Molfiles, SDfiles, RGfiles and Rxnfiles in two ways:</p>
+      <ol>
+       <li><p><em>In one step:</em> if the input file contents are in a byte array or in a String.<br /> MdlCompressor has two static methods that convert in one step:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">public static byte[] convert(byte[] mol, int flags) throws IOException;
+public static String convert(String mol, int flags) throws IOException; </pre> 
+         </div>
+        </div><p>The following flags can be specified:</p>
+        <ul>
+         <li><code>COMPRESS</code> for compression</li>
+         <li><code>DECOMPRESS</code> for decompression</li>
+        </ul></li>
+       <li><p><em>Molecule by molecule:</em> using an InputStream and an OutputStream.</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">import java.io.*; 
+import chemaxon.formats.*; 
+
+public class Example { 
+	public static void main(String args[]) { 
+		int n = 0; 
+		try { 
+			FileInputStream in = new FileInputStream(&quot;2000.sdf&quot;); 
+			MdlCompressor mc = new MdlCompressor(in, System.out, MdlCompressor.COMPRESS); 
+			while(mc.convert()) ++n; 
+		} catch(FileNotFoundException ex) { 
+			System.err.println(&quot;File not found&quot;); 
+		} catch(MolFormatException ex) { 
+			System.err.println(&quot;Bad file format&quot;); 
+		} catch(IOException ex) { 
+			System.err.println(&quot;Unexpected end of file&quot;); 
+		} 
+		System.out.println(&quot;Number of molecules: &quot;+n); 
+	} 
+} 
+
+</pre> 
+         </div>
+        </div></li>
+      </ol>
+      <p>Note that there is a more general converter class in the Chemaxon class library (too general to be open source), chemaxon.formats.MolConverter, that is also a command line application (it has a main() method). In a Java program, it can be used similarly to MdlCompressor. Only the constructor differs:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">MolConverter mc = new MolConverter(in, System.out, &quot;csmol&quot;);</pre> 
+       </div>
+      </div>
+      <p><strong>Decompression:</strong></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">MolConverter mc = new MolConverter(in, System.out, &quot;mol&quot;);</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h2 id="MOLfilecompression-UsingmolCompress()inJavaScript"><a name="js" rel="nofollow"></a>Using molCompress() in JavaScript</h2>
+      <div class="sectionColumnWrapper">
+       <div class="sectionMacro">
+        <div class="sectionMacroRow">
+         <div class="columnMacro" style="width:60%;min-width:60%;max-width:60%;">
+          <p>At first you should include the file molcompress.js in the HTML page, in the following way:</p>
+          <p>&nbsp;</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: js; gutter: false" style="font-size:12px;">&lt;script LANGUAGE=&quot;JavaScript1.1&quot; SRC=&quot;molcompress.js&quot;&gt;&lt;/script&gt;</pre> 
+           </div>
+          </div>
+         </div>
+         <div class="columnMacro" style="width:40%;min-width:40%;max-width:40%;">
+          <div class="confluence-information-macro confluence-information-macro-warning"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <span style="color: rgb(0,0,0);"><small>Note that the JavaScript version of molCompress can only compress simple Molfiles. SDfiles, RGfiles and Rxnfiles are not supported.</small></span>
+           </div> 
+          </div> 
+         </div>
+        </div>
+       </div>
+      </div>
+      <p>Because of the difference of operating systems in text file formats, you might need a function that converts a string to DOS/Windows format:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: js; gutter: false" style="font-size:12px;">&lt;script LANGUAGE=&quot;JavaScript1.1&quot;&gt;
+&lt;!--
+//molCompress() returns a string with \n newline characters.
+// The &lt;textarea&gt; HTML element needs \r\n end-of-line characters
+// in MS Windows, so we must fix the molCompress() output before
+// setting the value of a &lt;textarea&gt;.
+function eolfix(s) {
+	if(navigator.userAgent.lastIndexOf(&quot;(Win&quot;) &gt;= 0) {
+		return s.split(&quot;\n&quot;).join(&quot;\r\n&quot;);
+	} else {
+		return s;
+	}
+}
+//--&gt;
+&lt;/script&gt;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>In this example, an HTML textarea is used to display the input and output of the molfile compression or decompression.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: js; gutter: false" style="font-size:12px;">&lt;form onSubmit=&quot;return false;&quot;&gt;
+&lt;textarea NAME=&quot;mol&quot; ROWS=5 COLS=60&gt;
+
+MSketch 11289810322D
+
+1 0 0 0 0 0 0 0 0 0999 V2000
+-2.5313 0.7188 0.0000 C 0 0 0 0 0 0 0 0 0 0 0 0
+
+M END
+&lt;/textarea&gt;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The second argument of <code>molCompress()</code> must be <code>true</code> for compression, <code>false</code> for decompession.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: js; gutter: false" style="font-size:12px;">&lt;input TYPE=&quot;BUTTON&quot; VALUE=&quot;Compress&quot; onClick=&quot;mol.value=eolfix(molCompress(mol.value, true))&quot;&gt;
+&lt;input TYPE=&quot;BUTTON&quot; VALUE=&quot;Inflate&quot; onClick=&quot;mol.value=eolfix(molCompress(mol.value, false))&quot;&gt;
+&lt;/form&gt;</pre> 
+       </div>
+      </div>
+      <p>You may want to try the <a href="http://www.chemaxon.com/marvin/help/developer/molcompress-demo.html" class="external-link" rel="nofollow">compression demo</a> and view its source.<strong> <br /></strong></p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

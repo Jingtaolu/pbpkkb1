@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Canvas MS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Canvas MS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>The canvas is the main area where chemical structures, queries and reactions are drawn.</p>
+          <h2 id="CanvasMS-BasicNavigations"><span style="color: rgb(0,0,0);">Basic Navigations</span></h2>
+          <h3 id="CanvasMS-ZoomingtheCanvas">Zooming the Canvas</h3>
+          <p><span class="confluence-anchor-link" id="CanvasMS-zoom"></span>To zoom in or out on the canvas, you can choose the<strong> Zoom In</strong> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122173/26280708.png" data-image-src="attachments/16122173/26280708.png" data-unresolved-comment-count="0" data-linked-resource-id="26280708" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="zoom-in24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122173" data-linked-resource-container-version="10" /></span>, <strong>Zoom Out</strong><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122173/26280709.png" data-image-src="attachments/16122173/26280709.png" data-unresolved-comment-count="0" data-linked-resource-id="26280709" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="zoom-out24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122173" data-linked-resource-container-version="10" /></span> or <strong>Zoom Tool</strong>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122178/26281117.png" data-image-src="attachments/16122178/26281117.png" data-unresolved-comment-count="0" data-linked-resource-id="26281117" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="zoomtool.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122178" data-linked-resource-container-version="3" /></span> of <span> <a href="General-Toolbar_16122173.html"> <span>General Toolbar</span></a></span>.</p>
+          <p>The <span> <a href="View-Menu-MS_16122203.html"> <span>View Menu&lt;Zoom</span> level</a>&nbsp; </span> has also options to change the magnification of the canvas.</p>
+          <p>If you have a mouse with a wheel, you can also use <strong>Ctrl+Mouse Wheel</strong> to zoom in or out on the canvas. When using <strong>Ctrl+Mouse Wheel</strong> to zoom, the actual position of the cursor will define the center of zooming.</p>
+          <h3 id="CanvasMS-ScrollingtheCanvas">Scrolling the Canvas</h3>
+          <p>Drawing on the canvas activates the horizontal and vertical scroll bars.</p>
+          <p>To move the canvas click the <strong>Scroll Arrow</strong> of the scroll bar or drag the <strong>Scroll Box</strong> to scroll the canvas in the preferred direction.</p>
+          <p>You can also use the appropriate <strong>Arrow Key</strong> of your keyboard to move the canvas.</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout two-equal" data-layout="two-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Moving the Canvas with Arrow Keys works only when no selection is made or everything is selected on the Canvas.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>&nbsp;</p>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p>When an item is selected on the canvas, the <strong>Arrow Keys</strong> will move the marked object. <strong>Ctrl+Arrow key</strong> can be used to move the canvas in this case. <strong>Shift+Arrow keys</strong> will move the selected items in greater units.</p>
+          <p>The undo operation&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122173/26280710.png" data-image-src="attachments/16122173/26280710.png" data-unresolved-comment-count="0" data-linked-resource-id="26280710" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="undo24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122173" data-linked-resource-container-version="10" /></span> recalls the former direction of these movements.</p>
+          <p>If you have a mouse with a wheel, use the <strong>Mouse Wheel</strong> to scroll the canvas up or down and use <strong>Shift+Mouse Wheel</strong> to scroll the canvas left or right.</p>
+          <p><br /> <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/13336593/32702580.png" data-image-src="attachments/13336593/32702580.png" data-unresolved-comment-count="0" data-linked-resource-id="32702580" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="canvas_with_title.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336593" data-linked-resource-container-version="13" /></span></p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

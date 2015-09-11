@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Edit Menu MS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Edit Menu MS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>This menu contains general clipboard operations like Copy and Paste, structure selecting and deleting commands, as well as Marvin-specific editing options.</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="undo" rel="nofollow"></a>Undo&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336615/13402129.png" data-image-src="attachments/13336615/13402129.png" data-unresolved-comment-count="0" data-linked-resource-id="13402129" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="undo24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336615" data-linked-resource-container-version="17" /></span></td>
+          <td class="confluenceTd">Reverses the last command or the last entry you typed.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="redo" rel="nofollow"></a>Redo&nbsp;&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336615/13402128.png" data-image-src="attachments/13336615/13402128.png" data-unresolved-comment-count="0" data-linked-resource-id="13402128" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="redo24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336615" data-linked-resource-container-version="17" /></span></td>
+          <td class="confluenceTd">Reverses the action of the last Undo command.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="cut" rel="nofollow"></a>Cut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336615/13402135.png" data-image-src="attachments/13336615/13402135.png" data-unresolved-comment-count="0" data-linked-resource-id="13402135" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="cut24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336615" data-linked-resource-container-version="17" /></span></td>
+          <td class="confluenceTd">Removes and copies the selection to the clipboard.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="copy" rel="nofollow"></a>Copy&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122173/26280707.png" data-image-src="attachments/16122173/26280707.png" data-unresolved-comment-count="0" data-linked-resource-id="26280707" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="copy24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122173" data-linked-resource-container-version="10" /></span></td>
+          <td class="confluenceTd">Copies the selection to the clipboard.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="copyAs" rel="nofollow"></a>Copy As</td>
+          <td class="confluenceTd">Copies the selection to the clipboard in the specified format.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="copyAsSmiles" rel="nofollow"></a>Copy As Smiles</td>
+          <td class="confluenceTd">Copies the selection to the clipboard in SMILES format.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="paste" rel="nofollow"></a>Paste&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336615/13402136.png" data-image-src="attachments/13336615/13402136.png" data-unresolved-comment-count="0" data-linked-resource-id="13402136" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="paste24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336615" data-linked-resource-container-version="17" /></span></td>
+          <td class="confluenceTd">Inserts the contents of the clipboard at the location of the cursor, without replacing selection.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="selectAll" rel="nofollow"></a>Select All</td>
+          <td class="confluenceTd">Selects the structure being on the canvas including all fragments and graphical objects.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="delete" rel="nofollow"></a>Delete&nbsp;&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336615/13402130.png" data-image-src="attachments/13336615/13402130.png" data-unresolved-comment-count="0" data-linked-resource-id="13402130" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="delete-mode24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336615" data-linked-resource-container-version="17" /></span></td>
+          <td class="confluenceTd">Removes the selection from the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="dragSelection1" rel="nofollow"></a>Transform</td>
+          <td class="confluenceTd">These transformations affect the molecular coordinates. Note: The structure will be saved with the altered coordinates.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="dragSelection" rel="nofollow"></a>Transform &gt; Drag Selection</td>
+          <td class="confluenceTd">Moves selection on the canvas with changing coordinates.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rotateSelection" rel="nofollow"></a>Transform &gt; Rotate in 2D</td>
+          <td class="confluenceTd">Rotates selection in the plane of the canvas with changing coordinates.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rotateSelection3D" rel="nofollow"></a>Transform &gt; Rotate in 3D &gt; Around arbitrary axis</td>
+          <td class="confluenceTd">Rotates selection in 3D around an axis defined by two atoms selected by the user.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rotateSelection3D0" rel="nofollow"></a>Transform &gt; Rotate in 3D &gt; Around X axis</td>
+          <td class="confluenceTd">Rotates selection in 3D around a horizontal axis placed in the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rotateSelection3D1" rel="nofollow"></a>Transform &gt; Rotate in 3D &gt; Around Y axis</td>
+          <td class="confluenceTd">Rotates selection in 3D around a vertical axis placed in the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rotateSelection3D2" rel="nofollow"></a>Transform &gt; Rotate in 3D &gt; Around Z axis</td>
+          <td class="confluenceTd">Rotates the selection in 3D around an axis perpendicular to the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rotateSelection3D3" rel="nofollow"></a><span class="confluence-anchor-link">&nbsp;<span class="confluence-anchor-link" id="EditMenuMS-free3dRotation"></span></span>Transform &gt; Rotate in 3D &gt; Free 3D rotation</td>
+          <td class="confluenceTd">Rotates selection in 3D with changing coordinates. Compare it to the <strong><a href="View-Menu-MS_16122203.html">Rotate in 3D</a></strong> transformation of <strong>View</strong> menu, which affects only the position of observation.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="rotateSelection3D4" rel="nofollow"></a>Transform &gt; Rotate in 3D &gt; Group rotation</td>
+          <td class="confluenceTd">The selected group rotates around the bond that connects it to the molecule.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="switchSelectionTransformation" rel="nofollow"></a>Transform &gt; Switch Transformation</td>
+          <td class="confluenceTd">Changes transformation mode from Drag to Rotate in 2D, Rotate in 2D to Rotate in 3D, while Rotate in 3D to Drag.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="flipHorizontally" rel="nofollow"></a>Transform &gt; Flip &gt; Flip Horizontally</td>
+          <td class="confluenceTd">Flips the selected object(s) horizontally, preserving the configuration of all enantiomers.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="flipVertically" rel="nofollow"></a>Transform &gt; Flip &gt; Flip Vertically</td>
+          <td class="confluenceTd">Flips the selected object(s) vertically, preserving the configuration of all enantiomers.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="flipPlane" rel="nofollow"></a>Transform &gt; Flip &gt; Rotate 180&deg; in Canvas</td>
+          <td class="confluenceTd">Rotates the selected object(s) on the canvas plane, preserving the configuration of all enantiomers.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="flipGroup" rel="nofollow"></a>Transform &gt; Flip &gt; Group Flip</td>
+          <td class="confluenceTd">Rotates the selected structure group by 180&deg; around an axis set on the bond connecting the selection to the rest of the molecule. Stereocenters in the molecules are retained, the wedge bond styles change to keep the stereo information.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="mirrorHorizontally" rel="nofollow"></a>Transform &gt; Mirror &gt; Mirror Horizontally</td>
+          <td class="confluenceTd">Mirrors the selected object(s) horizontally, inverting the configuration of all enantiomers.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="mirrorVertically" rel="nofollow"></a>Transform &gt; Mirror &gt; Mirror Vertically</td>
+          <td class="confluenceTd">Mirrors the selected object(s) vertically, inverting the configuration of all enantiomers.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="mirrorCanvas" rel="nofollow"></a>Transform &gt; Mirror &gt; Mirror to Canvas Plane</td>
+          <td class="confluenceTd">Mirrors the selected object(s) to the canvas plane, inverting the configuration of all enantiomers.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="mirrorGroup" rel="nofollow"></a>Transform &gt; Mirror &gt; Group Mirror</td>
+          <td class="confluenceTd">Mirrors the selected group if it has only one connecting bond to the structure.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="inverseCenter" rel="nofollow"></a>Transform &gt; Invert &gt; Invert to geometric center</td>
+          <td class="confluenceTd">Reflects the selected fragment(s) through the geometric center point.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="inverseArb" rel="nofollow"></a>Transform &gt; Invert &gt; Invert to an arbitrary center</td>
+          <td class="confluenceTd">Reflects the selected fragment(s) through the chosen point in any fragment (an atom).</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="3dPlane" rel="nofollow"></a>Transform &gt; 3D plane</td>
+          <td class="confluenceTd">Rotates the molecule to place the selected 3 atoms into the plane of the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="moveToFront" rel="nofollow"></a>Object &gt; Bring to Front</td>
+          <td class="confluenceTd">Brings the selected object in front of all others.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="moveToBack" rel="nofollow"></a>Object &gt; Send to Back</td>
+          <td class="confluenceTd">Places the selected object behind all others.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="moveToBack" rel="nofollow"></a>Object &gt; Align</td>
+          <td class="confluenceTd">Aligns the centers of the selected objects horizontally or vertically on the canvas.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="moveToBack" rel="nofollow"></a>Object &gt; Distribute</td>
+          <td class="confluenceTd">Distributes the selected objects horizontally or vertically in the space defined by the furthermost objects.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="moveToBack" rel="nofollow"></a>Object &gt; Align and Distribute</td>
+          <td class="confluenceTd">Performs alignment and distribution horizontally or vertically.</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Format</td>
+          <td colspan="1" class="confluenceTd">Changes atom and bond drawing properties in the document.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="templates" rel="nofollow"></a>Template Library&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122201/29099588.png" data-image-src="attachments/16122201/29099588.png" data-unresolved-comment-count="0" data-linked-resource-id="29099588" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="templates24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122201" data-linked-resource-container-version="11" /></span></td>
+          <td class="confluenceTd">Organized collection of template molecules can be edited.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="source" rel="nofollow"></a>Source</td>
+          <td class="confluenceTd">You can alter a molecule by directly editing its source in the <strong>Edit Source</strong> window. You can view and edit the source in any of the supported file formats.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="preferences" rel="nofollow"></a>Preferences&nbsp;&nbsp; <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16122201/29099589.png" data-image-src="attachments/16122201/29099589.png" data-unresolved-comment-count="0" data-linked-resource-id="29099589" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="options24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16122201" data-linked-resource-container-version="11" /></span></td>
+          <td class="confluenceTd">The <strong>Preferences</strong> dialog window allows you to change many of the MarvinSketch display settings, error highlighting, and object visibility.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h3 id="EditMenuMS-"><a class="anchor" name="view" rel="nofollow"></a><span class="confluence-anchor-link">&nbsp;</span></h3> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

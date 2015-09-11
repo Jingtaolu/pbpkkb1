@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSpace : Controls</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSpace : Controls </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Controls are tools that can manipulate the internal and absolute coordinates or other geometrical properties of the selected objects. Three controls are available: translate, rotate and resize. The latter, resize, can be applied to elements of&nbsp;<a href="Pharmacophore-models_28934474.html">pharmacophore models</a>&nbsp;or to surfaces.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="Controls in MarvinSpace" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/controls.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/controls.png" /></span></p>
+      <p>The translate control moves the selected object and changes its coordinates, thus the relative position of two (or more) objects (e.g.. two ligands in the same binding pocket) can be modified. To translate a molecule follow the steps below:</p>
+      <ol>
+       <li>Select the structure in the&nbsp;<a href="#Controls-selection">selection panel</a>: click on it with the left mouse button</li>
+       <li>click right button to get the popup menu</li>
+       <li>choose first item,&nbsp;<strong>Select</strong>, atoms of the selected structure become highlighted</li>
+       <li>now press the translate control button in the Toolbar:&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="icon" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/translate.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/translate.png" /></span></li>
+       <li>drag the selected object: hold down the left mouse button plus press the&nbsp;<strong>Ctrl</strong>&nbsp;(control) key on the keyboard and move the mouse</li>
+      </ol>
+      <p>Note, however, that this way the selected object can be translated in the plane of the screen only. In order to move it in other directions, that is, along the third axis towards the viewer's eyes or away from them, the&nbsp;<strong>Shift</strong>&nbsp;key has to be pressed too.&nbsp;<br />Note that rotation and translation of the scene is always possible, regardless of which monitor or control is being applied.</p>
+      <p>The next control button is the rotation control. With this the selected structure can be rotated without affecting any other object. For instance a ligand in a proteins binding pocket can be rotated while the protein remains in its original position. To rotate the selected object follow the steps of translation described above, except that in the 4th step press the rotate control button instead of the translate button:&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="icon" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/rotate.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/rotate.png" /></span>&nbsp;<br />Note, that the&nbsp;<strong>Ctrl</strong>&nbsp;(control) key on the keyboard has to be held down to rotate the selected object, otherwise the scene is rotated (thus no coordinates, relative positions of objects changes).<br />If both&nbsp;<strong>Ctrl</strong>&nbsp;(control) and&nbsp;<strong>Shift</strong>&nbsp;keys are pressed, the object rotates about the axis perpendicular to the plane of the canvas.</p>
+      <p>The resize control can be applied to increase/decrease the size of spheres and arrows used in&nbsp;pharmacophore model building.&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image confluence-external-resource" alt="icon" src="https://www.chemaxon.com/marvin/help/space/space-gui_files/resize.png" data-image-src="https://www.chemaxon.com/marvin/help/space/space-gui_files/resize.png" /></span>&nbsp;<br />This works similar to translation and rotation, though in this case the object to be selected is either a pharmacophore sphere or an arrow. Again, the&nbsp;<strong>Ctrl</strong>&nbsp;(control) key has to pressed to resize the selected object. Resize also has effect on surfaces. In this case the bounding box of a selected surface can be resized, and thus the surface will be clipped by 6 clipping planes determined by the sides of the bounding box.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

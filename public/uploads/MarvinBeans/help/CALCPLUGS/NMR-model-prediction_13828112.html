@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : NMR model prediction</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : NMR model prediction </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This background material describes the models behind the NMR prediction:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200961461 {padding: 0px;}
+div.rbtoc1439200961461 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200961461 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200961461"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#NMRmodelprediction-Introduction">Introduction</a></li> 
+          <li><a href="#NMRmodelprediction-ModelsusedinNMRPrediction">Models used in NMR Prediction</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#NMRmodelprediction-HOSE-code-basedprediction">HOSE-code-based prediction</a></li> 
+            <li><a href="#NMRmodelprediction-Decision-tree-basedprediction">Decision-tree-based prediction</a></li> 
+            <li><a href="#NMRmodelprediction-Mixedmodels">Mixed models</a></li> 
+            <li><a href="#NMRmodelprediction-Chemicalshiftdatasource">Chemical shift data source</a></li> 
+           </ul> </li> 
+          <li><a href="#NMRmodelprediction-Chemicalshiftdescriptors">Chemical shift descriptors</a></li> 
+          <li><a href="#NMRmodelprediction-References">References</a></li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="NMRmodelprediction-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>The current version of NMR Predictor employs a combination of two basic methods (similarity search based on HOSE code technology and QSPR modeling) for chemical shift prediction. After a concise introduction to the HOSE code technology, QSPR descriptors and decision tree-based QSPR modeling we will show how the HOSE and QSPR approaches can be merged in order to obtain an accurate and robust chemical shift prediction model.</p>
+      <p>&nbsp;</p>
+      <h1 id="NMRmodelprediction-ModelsusedinNMRPrediction">Models used in NMR Prediction</h1>
+      <p>&nbsp;</p>
+      <h2 id="NMRmodelprediction-HOSE-code-basedprediction">HOSE-code-based prediction</h2>
+      <p>&nbsp;</p>
+      <p>The <a href="#NMRmodelprediction-hoseexample">HOSE code</a> technology is often used to describe the chemical environment of a selected atom up to a certain radius. Atoms with the same HOSE code are assumed to have similar chemical shift values. The larger the radius of the common HOSE code is the more similar the chemical shifts are. If we have a database containing HOSE codes as keys and corresponding experimental chemical shifts as values we can predict chemical shift values based on similarity search.</p>
+      <p><span class="confluence-anchor-link" id="NMRmodelprediction-hoseexample"></span></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="900" src="attachments/13828112/30474315.png" data-image-src="attachments/13828112/30474315.png" data-unresolved-comment-count="0" data-linked-resource-id="30474315" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="HOSE_example.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828112" data-linked-resource-container-version="21" /></span></p>
+      <p>Fig. 1 HOSE code example</p>
+      <p>&nbsp;</p>
+      <h2 id="NMRmodelprediction-Decision-tree-basedprediction">Decision-tree-based prediction</h2>
+      <p>&nbsp;</p>
+      <p>In order to reach a better chemical shift prediction accuracy the following clusters have been introduced:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><sup>13</sup>C clusters:
+        <ul style="margin-left: 20.0px;">
+         <li>aromatic C</li>
+         <li>aromatic CH</li>
+         <li>sp<sup>3</sup>&nbsp;CH<sub>3</sub></li>
+         <li>sp<sup>3</sup>&nbsp;CH<sub>2</sub></li>
+         <li>sp<sup>3</sup>&nbsp;CH</li>
+         <li>sp<sup>3</sup>&nbsp;C</li>
+         <li>sp<sup>2</sup>&nbsp;CH or CH<sub>2</sub></li>
+         <li>sp<sup>2</sup>&nbsp;C</li>
+         <li>sp C</li>
+        </ul></li>
+       <li><sup>1</sup>H clusters:
+        <ul style="margin-left: 20.0px;">
+         <li>protons attached to C</li>
+         <li>heteroatomic protons (X-H, where X is not C)</li>
+        </ul></li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p><span style="color: rgb(54,54,54);">Each of these clusters has an M5P decision tree-based chemical shift prediction model. Decisions corresponding to the nodes of the tree are made based on the chemical shift descriptor values until one of the leaves is reached. Each leaf of the decision tree corresponds to a multilinear regression (MLR) model which is employed for the prediction of the chemical shift of the focus atom.</span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <h2 id="NMRmodelprediction-Mixedmodels"><span style="color: rgb(54,54,54);">Mixed models</span></h2>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p>In order to predict chemical shifts accurately, we combined the decision tree-based and HOSE models as follows:</p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li>For&nbsp;<sup>1</sup>H NMR:
+        <ul style="margin-left: 20.0px;">
+         <li>Start with a HOSE radius of 6 and generate HOSE code for the focus atom</li>
+         <li>If there are shifts corresponding to this HOSE code, return the average them and</li>
+         <li>If not, go to HOSE radius of 5, ...</li>
+         <li>The minimal possible HOSE radius is 4</li>
+         <li>Invoke the M5P-based chemical shift model if there have not been any HOSE hits.</li>
+        </ul></li>
+       <li>For&nbsp;<sup>13</sup>C NMR:
+        <ul style="margin-left: 20.0px;">
+         <li>Very similar to the 1H NMR mixed chemical shift model</li>
+         <li>The minimal possible HOSE radius is 3 in this case</li>
+        </ul></li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <h2 id="NMRmodelprediction-Chemicalshiftdatasource"><span style="color: rgb(54,54,54);">Chemical shift data source</span></h2>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p><span style="color: rgb(54,54,54);">The training and test chemical shift data were obtained from NMRShiftDB, see the link&nbsp;<a href="http://nmrshiftdb.nmr.uni-koeln.de/" rel="nofollow" style="text-decoration: underline;" class="external-link">http://nmrshiftdb.nmr.uni-koeln.de/</a>&nbsp;for further details.</span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <h1 id="NMRmodelprediction-Chemicalshiftdescriptors"><span style="color: rgb(54,54,54);">Chemical shift descriptors</span></h1>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <p>Two kind of descriptor sets were implemented for chemical shift prediction: &quot;sum&quot; (for&nbsp;<sup>1</sup>H NMR) and &quot;detailed&quot; (for&nbsp;<sup>13</sup>C NMR). Both of them are based on a traversal of the molecule graph starting from a selected atom (focus atom, this is the atom whose chemical shift needs to be predicted). After identifying the neighbors of the focus atom in the different spheres (see the figure below) we count the occurrences of previously defined atom types in the different spheres. The current implementation employs <a href="#NMRmodelprediction-chemshdesc">6 spheres</a> around the focus atom and an additional sphere containing the rest of the atoms. Currently 40 atom types are handled by the descriptor computation. Number of ring closures and hydrogen atoms in a given sphere are added to the 40 atom type counts for each sphere. The same procedure is repeated for atoms belonging to one of the pi-electron systems of the molecule. Thus the total number of the chemical shift descriptors equals 2*(6+1)*(40+2) = 588. In addition to the descriptors of the sum model, the detailed model also utilizes 8 physicochemical descriptors (valence, period, electronegativity, van der Waals radius, hybridization, bond type to previous atom, number of protons attached, ring closure count) to characterize atoms of the inner (in our case only for the first) spheres. The rest of the spheres are described by the previously outlined method. Thus the detailed model generates 2*6*(40+2)+4*8 = 536 descriptors for<sup>13</sup>C NMR chemical shift prediction.</p>
+      <p><span class="confluence-anchor-link" id="NMRmodelprediction-chemshdesc"></span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13828112/30474316.png" data-image-src="attachments/13828112/30474316.png" data-unresolved-comment-count="0" data-linked-resource-id="30474316" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="nmr_spheres.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13828112" data-linked-resource-container-version="21" /></span></p>
+      <p>Fig. 2 Chemical shift circular descriptors</p>
+      <p>&nbsp;</p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <h1 id="NMRmodelprediction-References">References</h1>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <ol>
+       <li><a rel="nofollow"></a><span class="confluence-anchor-link" id="NMRmodelprediction-anchacta"></span>Anal. Chim. Acta&nbsp;<strong>103</strong>, 355-365 (1978).</li>
+       <li><a rel="nofollow"></a><span class="confluence-anchor-link" id="NMRmodelprediction-chshiftd"></span>J. Chem. Inf. Model.&nbsp;<strong>48</strong>, 128-134 (2008).</li>
+       <li>J. Chem. Inf. Comput. Sci.&nbsp;<strong>40</strong>, 1169-1176 (2000).</li>
+       <li>J. Magn. Reson.&nbsp;<strong>157</strong>, 242-252 (2002).</li>
+      </ol>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

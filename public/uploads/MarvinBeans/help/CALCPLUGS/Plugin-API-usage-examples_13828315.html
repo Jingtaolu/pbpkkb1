@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Plugin API usage examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Plugin API usage examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span style="color: rgb(54,54,54);">Plugin API usage examples can be found in the API doc headers of the corresponding plugin classes.</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/ElementalAnalyserPlugin.html" class="external-link" rel="nofollow">ElementalAnalyserPlugin</a></li>
+       <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/IUPACNamingPlugin.html" class="external-link" rel="nofollow">IUPACNamingPlugin</a></li>
+       <li>Protonation
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/pKaPlugin.html" style="line-height: 1.4285715;" class="external-link" rel="nofollow">pKaPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/MajorMicrospeciesPlugin.html" class="external-link" rel="nofollow">MajorMicrospeciesPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/IsoelectricPointPlugin.html" class="external-link" rel="nofollow">IsoelectricPointPlugin</a></li>
+        </ul></li>
+       <li>Partitioning
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/logPPlugin.html" class="external-link" rel="nofollow">logPPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/logDPlugin.html" class="external-link" rel="nofollow">logDPlugin</a></li>
+         <li><a href="https://www.chemaxon.com/jchem/doc/dev/java/api/chemaxon/marvin/calculations/HlbPlugin.html" style="line-height: 1.4285715;" class="external-link" rel="nofollow">HLBPlugin</a></li>
+        </ul></li>
+       <li>Charge
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/ChargePlugin.html" class="external-link" rel="nofollow">ChargePlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/IonChargePlugin.html" class="external-link" rel="nofollow">IonChargePlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/PolarizabilityPlugin.html" class="external-link" rel="nofollow">PolarizabilityPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/OrbitalElectronegativityPlugin.html" class="external-link" rel="nofollow">OrbitalElectronegativityPlugin</a></li>
+        </ul></li>
+       <li>Isomers
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/TautomerizationPlugin.html" class="external-link" rel="nofollow">TautomerizationPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/StereoisomerPlugin.html" class="external-link" rel="nofollow">StereoisomerPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/com/chemaxon/calculations/stereoanal/StereoAnalysis.html" class="external-link" rel="nofollow">StereoAnalysis</a></li>
+        </ul></li>
+       <li>Conformation
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/ConformerPlugin.html" class="external-link" rel="nofollow">ConformerPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/MolecularDynamicsPlugin.html" class="external-link" rel="nofollow">MolecularDynamicsPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/AlignmentPlugin.html" class="external-link" rel="nofollow">AlignmentPlugin</a></li>
+        </ul></li>
+       <li>Geometry
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/TopologyAnalyserPlugin.html" class="external-link" rel="nofollow">TopologyAnalyserPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/GeometryPlugin.html" class="external-link" rel="nofollow">GeometryPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/TPSAPlugin.html" class="external-link" rel="nofollow">TPSAPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/MSAPlugin.html" class="external-link" rel="nofollow">MSAPlugin</a></li>
+        </ul></li>
+       <li>Solubility Prediction<br />
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/com/chemaxon/calculations/solubility/SolubilityCalculator.html" class="external-link" rel="nofollow">SolubilityCalculator</a></li>
+        </ul></li>
+       <li>Other
+        <ul>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/HuckelAnalysisPlugin.html" class="external-link" rel="nofollow">HuckelAnalysisPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/RefractivityPlugin.html" class="external-link" rel="nofollow">RefractivityPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/HBDAPlugin.html" class="external-link" rel="nofollow">HBDAPlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/ResonancePlugin.html" class="external-link" rel="nofollow">ResonancePlugin</a></li>
+         <li><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/calculations/StructuralFrameworksPlugin.html" class="external-link" rel="nofollow">StructuralFrameworksPlugin</a></li>
+        </ul></li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

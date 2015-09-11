@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Evaluator Examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Evaluator Examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p>This page contains detailed examples of using the Chemical Terms Evaluator command line tool:</p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200969449 {padding: 0px;}
+div.rbtoc1439200969449 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200969449 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200969449"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#EvaluatorExamples-IntroductionIntroduction">Introduction &nbsp;</a></li> 
+          <li><a href="#EvaluatorExamples-PrerequisitesPrerequisites">Prerequisites &nbsp;</a></li> 
+          <li><a href="#EvaluatorExamples-Basic_examplesBasicexamples">Basic examples &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#EvaluatorExamples-Example#1">Example #1 &nbsp;</a></li> 
+            <li><a href="#EvaluatorExamples-Example#2">Example #2&nbsp;</a></li> 
+            <li><a href="#EvaluatorExamples-Example#3">Example #3&nbsp; &nbsp;</a></li> 
+            <li><a href="#EvaluatorExamples-Example#4">Example #4</a></li> 
+            <li><a href="#EvaluatorExamples-Example#5">Example #5 &nbsp;</a></li> 
+            <li><a href="#EvaluatorExamples-Example#6">Example #6</a></li> 
+            <li><a href="#EvaluatorExamples-Example#7">Example #7</a></li> 
+            <li><a href="#EvaluatorExamples-Example#8">Example #8</a></li> 
+            <li><a href="#EvaluatorExamples-Example#9">Example #9</a></li> 
+            <li><a href="#EvaluatorExamples-Example#10">Example #10</a></li> 
+            <li><a href="#EvaluatorExamples-Example#11">Example #11</a></li> 
+            <li><a href="#EvaluatorExamples-Example#12">Example #12</a></li> 
+           </ul> </li> 
+          <li><a href="#EvaluatorExamples-Reaction_rule_examplesReactionruleexamples">Reaction rule examples</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#EvaluatorExamples-Example#1.1">Example #1</a></li> 
+            <li><a href="#EvaluatorExamples-Example#2.1">Example #2</a></li> 
+            <li><a href="#EvaluatorExamples-Search_filtering_examplesSearchfilteringexamples">Search filtering examples &nbsp;</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="EvaluatorExamples-IntroductionIntroduction"><a class="anchor" rel="nofollow"></a><span class="confluence-anchor-link" id="EvaluatorExamples-Introduction"></span>Introduction<br />&nbsp;</h1>
+      <p>These examples show the application of&nbsp;ChemAxon's Chemical Terms&nbsp;in various ChemAxon products. First we look at some basic examples showing chemical expressions formulated with input read from a&nbsp;molecule context, which applies to the&nbsp;Chemical Terms Evaluator&nbsp;command line tool and chemical expression evaluation and filtering in&nbsp;JChem Cartridge. Next we demonstrate the strength of the chemical terms language in formulating reaction rules, where input is taken from a&nbsp;reaction context. Finally we show how to select&nbsp;search hits&nbsp;by formulating&nbsp;search filters&nbsp;referring to a&nbsp;search context&nbsp;containing the target and query molecules together with the current search hit.</p>
+      <p>Throughout the examples, use the set of&nbsp;<a href="Chemical-Terms-Functions_13828699.html">Chemical Terms Reference Tables</a>&nbsp;to look at the function and plugin calculation syntax together with some generic examples.</p>
+      <div class="lenia" style="text-align: center;">
+       &nbsp;
+      </div>
+      <h1 id="EvaluatorExamples-PrerequisitesPrerequisites"><a class="anchor" rel="nofollow"></a><span class="confluence-anchor-link" id="EvaluatorExamples-Prerequisites"></span>Prerequisites<br />&nbsp;</h1>
+      <p>To run these examples:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>The&nbsp;<a href="http://java.sun.com/products" style="text-decoration: underline;" class="external-link" rel="nofollow">Java Virtual Machine</a>&nbsp;version 1.4 or higher and Marvin / JChem have to be installed on your system.</li>
+       <li>The&nbsp;<code>PATH</code>&nbsp;environment variable have to be set as described in the&nbsp;Installation Guide for Marvin Beans&nbsp;manual.</li>
+       <li>A command shell (under UNIX / Linux: your favorite shell, under Windows: a&nbsp;Cygwin&nbsp;shell or a Command Prompt) has to be run in the evaluator example directory. This do this<br /><br />under UNIX / Linux type:<pre>cd marvin/examples/evaluator<br />
+</pre>under Windows type:<pre>cd marvin\examples\evaluator
+</pre></li>
+      </ol>
+      <div class="lenia" style="text-align: center;">
+       &nbsp;
+      </div>
+      <h1 id="EvaluatorExamples-Basic_examplesBasicexamples"><a class="anchor" rel="nofollow"></a><span class="confluence-anchor-link" id="EvaluatorExamples-Basic_examples"></span>Basic examples<br />&nbsp;</h1>
+      <p>These examples refer to a&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-molecule_context">molecule context</a>&nbsp;and applies the&nbsp;Chemical Terms Evaluator&nbsp;command line tool and chemical expression evaluation and filtering in&nbsp;JChem Cartridge. The working examples below use the&nbsp;evaluate&nbsp;tool but the same expressions can be used in&nbsp;JChem Cartridge as well. However, only&nbsp;boolean&nbsp;expressions (evaluated to&nbsp;<em>true</em>&nbsp;or&nbsp;<em>false</em>) can be used for setting a&nbsp;filtering condition.</p>
+      <p>Our input molecules are stored in the&nbsp;<a href="attachments/14943033/32702491.smiles" data-linked-resource-id="32702491" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="aroms.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137"><em>aroms.smiles</em>&nbsp;</a>fille. The molecules are the following:&nbsp;<br /><br /><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702490.png" data-image-src="attachments/14943033/32702490.png" data-unresolved-comment-count="0" data-linked-resource-id="32702490" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="aroms.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span>&nbsp;</p>
+      <p><span style="line-height: 1.4285715;"><br />Now we start with some </span>simple plugin calculations<span style="line-height: 1.4285715;"> and proceed towards the&nbsp;</span><a href="#EvaluatorExamples-exclude">exclude rule</a><span style="line-height: 1.4285715;">&nbsp;of the reaction. The first and last molecules are the same (benzene) because we will react benzene with two different&nbsp;acid-halides&nbsp;when processing the&nbsp;</span><a href="#EvaluatorExamples-friedel_crafts_acylation">Friedel-Crafts acylation</a><span style="line-height: 1.4285715;">.</span>This will be the first reactant set in the&nbsp;<a href="#EvaluatorExamples-friedel_crafts_acylation">Friedel-Crafts acylation</a>&nbsp;reaction in the&nbsp;<a href="#EvaluatorExamples-Reaction_rule_examples">Reaction examples</a>&nbsp;section.<br />&nbsp;</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Friedel Crafts acylation is the acylation of aromatic rings using an acyl halide in the presence of a strong Lewis acid catalyst.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#1">Example #1<br />&nbsp;</h2>
+      <p>You can evaluate some simple molecule properties returning a single number by evaluating the following Chemical Terms functions, one-by-one:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">ringCount()
+aromaticRingCount()
+chainAtomCount()
+smallestRingSize()
+bondCount()
+mass()</pre> 
+       </div>
+      </div>
+      <p><br />You can find all available functions in the&nbsp;<a href="Chemical-Terms-Functions_13828699.html">structure based calculations reference tables</a>. For command line access, run&nbsp;Chemical Terms Evaluator&nbsp;by simply typing:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;ringCount()&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p><br />and you will get the number of rings for each input molecule:</p>
+      <pre>1
+1
+1
+1
+1
+1
+3
+2
+1
+1
+1
+1
+1
+1
+</pre>
+      <p>You can print the results of the other evaluations in the same way.</p>
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#2">Example #2&nbsp;</h2>
+      <p>&nbsp;</p>
+      <p>There are other functions that compute a single numeric value for the input molecule, e.g.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">avgPol()
+logp()
+psa()</pre> 
+       </div>
+      </div>
+      <p>These functions compute the average molecular polarizability component based on the 3D geometry, the log<span style="line-height: 1.4285715;">P</span>&nbsp;and the topological polar surface area, respectively.</p>
+      <p>The corresponding Chemical Terms command line example is e.g.</p>
+      <p><span class="confluence-anchor-link" id="EvaluatorExamples-psa_example"></span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;psa()&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>, which gives the following results:&nbsp;</p>
+      <pre>0
+17.07
+45.82
+0
+0
+0
+0
+15.79
+20.23
+20.23
+26.02
+26.02
+29.1
+0
+</pre>
+      <h2 id="EvaluatorExamples-Example#3"><br />Example #3&nbsp;<br />&nbsp;</h2>
+      <p>Some (atomic) plugin calculations - when called for the molecule as a whole - return an array containing the calculation result for each atom:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge()
+pka()
+energyE()
+polarizability()</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The Chemical Terms Evaluator<span style="line-height: 1.4285715;">&nbsp;example in this case can be e.g.:</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;energyE()&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p><br />In the result the array elements are separated by ';' characters, and invalid values (<code style="line-height: 1.4285715;">NaN,</code>&nbsp;not-a-number values) are returned when there is no result calculated for the atom; in case of&nbsp;<code style="line-height: 1.4285715;">energyE()</code>&nbsp;these are the non-aromatic atoms, represented by empty strings:</p>
+      <pre>2.54;2.54;2.54;2.54;2.54;2.54
+;0.5;3.78;1.57;1.05;0.99;1.21;0.99;1.05
+1.73;-0.02;1.73;0.7;0.29;0.19;0.3;0.19;0.29
+1.84;2.77;2.27;2.54;2.31;2.54;2.27
+3.03;2.57;2.51;2.54;2.51;2.54;2.51
+3.03;2.57;2.48;2.54;2.48;2.57;3.03;2.48
+2.42;2.42;2.23;3.03;2.01;3.03;2.23;2.42;2.42;2.23;3.03;2.01;3.03;2.23
+3.88;3.87;3.76;4.31;3.99;3.85;3.43;4.33;3.74
+4.2;1.73;1.45;1.56;1.46;1.56;1.45
+4.02;2.24;1.77;1.26;1.55;1.3;1.55;1.26
+1.55;3.09;1.98;2.55;2.06;2.55;1.98
+;2.29;1.07;2.26;1.8;2.05;1.83;2.05;1.8
+;0.82;4.12;3.1;1.83;1.2;1.42;1.25;1.42;1.2
+2.54;2.54;2.54;2.54;2.54;2.54
+</pre>
+      <p><br />To perform the plugin calculation for specific atom(s) you should specify the corresponding atom index list as parameter(s):</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(0)
+pka(0, 1)
+energyE(2, 3, 4)
+polarizability(2)</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#4">Example #4</h2>
+      <p><br />You can also pass other, plugin-specific parameters, e.g. you can compute acidic p<span style="line-height: 1.4285715;">K</span><span style="line-height: 1.4285715;">a</span>&nbsp;values for each atom or for specified atoms by:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pka('acidic')
+pka(0, 2, 3,  'acidic')</pre> 
+       </div>
+      </div>
+      <p><span style="line-height: 1.4285715;"><br />Another typical structure-based calculation parameter is the pH. For some plugin calculations if the pH is specified, the plugin calculates with the physiological microspecies of the input molecule at the given pH, e.g.</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge('7.4')
+charge('7.4', 0)
+energyE('6.5', 2, 3)
+psa('9.4')</pre> 
+       </div>
+      </div>
+      <p><span style="line-height: 1.4285715;"><br />Note that the pH value is always enclosed in quotes, while atom indices are specified as integers, e.g. typing</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;psa('9.4')&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>gives the following:</p>
+      <pre>0
+17.07
+45.82
+0
+0
+0
+0
+15.79
+20.23
+20.23
+26.02
+27.64
+29.1
+0
+</pre>
+      <p>,which differs from the results received for the input molecule itself for two molecules (compare with the non-parameterized&nbsp;<a href="#EvaluatorExamples-psa_example">PSA calculation example</a>&nbsp;above).</p>
+      <p>For log<span style="line-height: 1.4285715;">D</span>&nbsp;the pH value simply means the pH where the log<span style="line-height: 1.4285715;">D</span>&nbsp;is to be taken, e.g.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logd('7.4')</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#5">Example #5<br />&nbsp;</h2>
+      <p>Another specific building block of chemical expressions is the set of substructure search functions. Currently we have two such functions:</p>
+      <ol style="margin-left: 20.0px;">
+       <li><code>match()</code>&nbsp;tests substructure matching and returns&nbsp;<code>true</code>&nbsp;or&nbsp;<code>false</code>&nbsp;depending on the search result.</li>
+       <li><code>matchCount()</code>&nbsp;counts the search hits and returns this numerical result.</li>
+      </ol>
+      <p>Both functions have the same parametrization:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>the target molecule (by default, this is the input molecule)</li>
+       <li>optional target atom indices to be matched</li>
+       <li>the query molecule (mandatory)</li>
+       <li>optional query maps to be matched</li>
+      </ul>
+      <p><br />You can find a summary on the usage of these match functions in the&nbsp;Match Reference Tables. For example, to test whether the input molecule contains an oxygen&nbsp;or a sulphur&nbsp;atom with a single hydrogen type:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match('[O,S;H1]')</pre> 
+       </div>
+      </div>
+      <p><br />To count these atoms, write</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">matchCount('[O,S;H1]')</pre> 
+       </div>
+      </div>
+      <p><br />Now to match and find a nitrogen,&nbsp;aliphatic or aromatic atom with at least one attached hydrogen, type:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match('[#7][H]')
+matchCount('[#7][H]')</pre> 
+       </div>
+      </div>
+      <p><br />Chemical Terms Evaluator&nbsp;example in this case is:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;match('[#7][H]')&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p><br />The result is:</p>
+      <pre>0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+1
+1
+1
+0</pre>
+      <p>Note that&nbsp;<code>true</code>&nbsp;is treated and displayed as a numerical&nbsp;<code>1</code>&nbsp;and&nbsp;<code>false</code>&nbsp;as a numerical&nbsp;<code>0</code>. This is useful when you test a rule like&nbsp;bioavailability, where you require that at least a certain number of the specified conditions be satisfied.</p>
+      <h2 id="EvaluatorExamples-Example#6"><br />Example #6</h2>
+      <p><br /><br />You can use the&nbsp;<code>-x, --extract &lt;format&gt;</code>&nbsp;option to filter out from the input and output precisely those molecules which satisfy the boolean expression:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;match('[#7][H]')&quot; -x smiles aroms.smiles</pre> 
+       </div>
+      </div>
+      <p><br />The result is:</p>
+      <pre>c1ccc2[nH]ccc2c1
+Nc1ccccc1
+CC(N)c1ccccc1
+CC(=O)Nc1ccccc1
+</pre>
+      <p><br />To test atom-by-atom matches you should refer to a target atom by its atom index (0-based) and possibly one or more query maps. For example</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(2, '[#8]C=O')</pre> 
+       </div>
+      </div>
+      <p><span style="line-height: 1.4285715;">will test whether target atom 2&nbsp;</span><span style="line-height: 1.4285715;">is part of a carboxylic group, while</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(2, '[#8:1]C=[O:2]', 1)</pre> 
+       </div>
+      </div>
+      <p>will test whether target atom 2&nbsp;is a carboxylic OH, and</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">match(2, '[#8:1]C=[O:2]', 1, 2)</pre> 
+       </div>
+      </div>
+      <p>will test whether target atom 2&nbsp;is a carboxylic oxygen.</p>
+      <p><br />Note that the target atom index should be written in front of the query, while the query atom map(s) should follow the query. However, in most cases the target atom is not specified by explicitely writing an atom index, since we do not know the atom order in the target. Instead, the target atom usually comes from another context, such as&nbsp;<code style="line-height: 1.4285715;">ratom(i)</code>&nbsp;or&nbsp;<code style="line-height: 1.4285715;">patom(i)</code>&nbsp;from a&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-reaction_context">reaction context</a>&nbsp;or else a superior function iterates through all atoms and collects those that satisfy the match condition. The most typical example for such a function is the&nbsp;<code style="line-height: 1.4285715;">filter()</code>&nbsp;function explained below.</p>
+      <h2 id="EvaluatorExamples-Example#7"><br />Example #7</h2>
+      <p>&nbsp;</p>
+      <p>You can also use logical operators to include two or more substructure search results:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">match('[O,S;H1]') || match('[#7][H]')</pre> 
+       </div>
+      </div>
+      <p>will test for matching any of OH, SH OR a nitrogen with at least one attached hydrogen. In this case the command line example is simply</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;match('[O,S;H1]') || match('[#7][H]')&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p>The result is:</p>
+      <pre>0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+0
+</pre>
+      <p>The logical AND operator can also be applied in the same way:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">match('[O,S;H1]') &amp;&amp; match('[#7][H]')</pre> 
+       </div>
+      </div>
+      <p>will test for matching both an OH or SH AND a nitrogen with at least one attached hydrogen.</p>
+      <p>Furthermore, you can add the number of search hits to count all the above functional groups:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">matchCount('[O,S;H1]') + matchCount('[#7][H]')</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#8">Example #8</h2>
+      <p>&nbsp;</p>
+      <p>The&nbsp;<code>filter</code> function&nbsp;takes a&nbsp;<code style="line-height: 1.4285715;">boolean</code>&nbsp;subexpression as argument, iterates through the atoms of the input molecule and evaluates this inner subexpression for each atom. The result is an atom index array containing the atom indices satifying the inner subexpression. For example</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">filter(&quot;charge() &gt; 0&quot;)</pre> 
+       </div>
+      </div>
+      <p>returns the indices of atoms with positive partial charge. Test this with the&nbsp;Chemical Terms Evaluator:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;filter('charge() &gt; 0')&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>The result is:</p>
+      <pre>1
+3;4;8
+ 
+ 
+ 
+ 
+ 
+ 
+1
+ 
+1
+0;1
+ 
+</pre>
+      <p>with empty rows meaning no positive partial charge for that molecule. You can check the charge values by simply typing:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;charge()&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#9">Example #9</h2>
+      <p>&nbsp;</p>
+      <p>Another typical example for an inner condition is the&nbsp;<code style="line-height: 1.4285715;">match()</code>&nbsp;function:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">filter(&quot;match('[#8:1]C=[O:2]', 1, 2)&quot;)</pre> 
+       </div>
+      </div>
+      <p>will list all carboxylic oxygens in the input molecule, while</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">filter(&quot;match('[#7:1][H]', 1)&quot;)</pre> 
+       </div>
+      </div>
+      <p>will list all nitrogen atoms with at least one attached hydrogen. To test this type:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;filter(\&quot;match('[#7:1][H]', 1)\&quot;)&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p><br />Note that you can nest single and double quotes but if you need more than two, then you should escape the inner quotes identical to the outer quotes. To escape this problem you can save your filter in a file and switch to the&nbsp;<code style="line-height: 1.4285715;">-f</code>&nbsp;option:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e filter.txt aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>The result is:</p>
+      <pre> 
+ 
+ 
+ 
+ 
+ 
+ 
+4
+ 
+ 
+0
+2
+3
+ 
+
+</pre>
+      <p>that is, there are four input molecules containing a nitrogen atom with an attached hydrogen, and all of these contain only one such atom.</p>
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#10">Example #10</h2>
+      <p><br />As another example, you can list aromatic carbons by:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;filter(\&quot;match('c')\&quot;)&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>The resulting atom index arrays are displayed as comma-separated lists:</p>
+      <pre>0;1;2;3;4;5
+3;4;5;6;7;8
+3;4;5;6;7;8
+1;2;3;4;5;6
+1;2;3;4;5;6
+1;2;3;4;5;7
+0;1;2;3;4;5;6;7;8;9;10;11;12;13
+0;1;2;3;5;6;7;8
+1;2;3;4;5;6
+2;3;4;5;6;7
+1;2;3;4;5;6
+3;4;5;6;7;8
+4;5;6;7;8;9
+0;1;2;3;4;5
+</pre>
+      <p><br />You can evaluate atomic plugin calculations on these filtered atoms, too. For example</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;charge(filter(\&quot;match('c')\&quot;))&quot; aroms.smiles </pre> 
+       </div>
+      </div>
+      <p><span style="line-height: 1.4285715;">will return the partial charges on aromatic carbons:</span></p>
+      <p>&nbsp;</p>
+      <pre>-0.06;-0.06;-0.06;-0.06;-0.06;-0.06
+-0.02;-0.02;-0.05;-0.04;-0.05;-0.02
+0.03;0.03;-0.03;-0.03;-0.03;0.03
+-0.06;-0.07;-0.06;-0.07;-0.06;-0.07
+-0.02;-0.04;-0.05;-0.06;-0.05;-0.04
+-0.02;-0.03;-0.05;-0.03;-0.02;-0.01
+-0.06;-0.06;-0.05;-0.04;-0.03;-0.04;-0.05;-0.06;-0.06;-0.05;-0.04;-0.03;-0.04;-0.05
+-0.05;-0.05;-0.04;-0.09;-0.11;-0.04;-0.04;-0.04
+-0.01;-0.06;-0.06;-0.1;-0.06;-0.06
+-0.04;-0.05;-0.06;-0.06;-0.06;-0.05
+-0.04;-0.07;-0.07;-0.09;-0.07;-0.07
+-0.05;-0.05;-0.06;-0.06;-0.06;-0.05
+-0.02;-0.04;-0.05;-0.06;-0.05;-0.04
+-0.06;-0.06;-0.06;-0.06;-0.06;-0.06
+</pre>
+      <p><span style="line-height: 1.4285715;"><br />You can also apply various array functions for the above results, e.g. you can take the sum of these charges by:</span></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;sum(charge(filter(\&quot;match('c')\&quot;)))&quot; aroms.smiles</pre> 
+       </div>
+      </div>
+      <p><span style="line-height: 1.4285715;">The result is:</span></p>
+      <pre>-0.37
+-0.2
+-0.01
+-0.39
+-0.26
+-0.15
+-0.63
+-0.47
+-0.35
+-0.32
+-0.41
+-0.33
+-0.27
+-0.37
+</pre>
+      <pre>&nbsp;</pre>
+      <h2 id="EvaluatorExamples-Example#11">Example #11</h2>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="EvaluatorExamples-similar_expression"></span>A similar expression to the&nbsp;<a href="#EvaluatorExamples-exclude">exclude rule</a>&nbsp;of the&nbsp;<a href="#EvaluatorExamples-friedel_crafts_acylation">Friedel-Crafts acylation</a>&nbsp;reaction can be:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">match(&quot;[#15][H]&quot;) || 
+(max(pka(filter(&quot;match('[O,S;H1]')&quot;), &quot;acidic&quot;)) &gt; 14.5)  ||
+(max(pka(filter(&quot;match('[#7:1][H]', 1)&quot;), &quot;basic&quot;)) &gt; 0) </pre> 
+       </div>
+      </div>
+      <p><br />This condition tests whether the molecule contains a phosphorus with an attached hydrogen, or the maximum acidic p<span style="line-height: 1.4285715;">K</span><span style="line-height: 1.4285715;">a</span>&nbsp;taken on an OH or SH&nbsp;is greater than 14.5, or the maximum basic p<span style="line-height: 1.4285715;">K</span><span style="line-height: 1.4285715;">a</span>&nbsp;taken on nitrogen atoms with attached hydrogen is positive.</p>
+      <p>Saying that the maximum basic p<span>K</span><span>a</span>&nbsp;on certain atoms is positive is the same as saying that there should be an atom among these atoms with a positive p<span>K</span><span>a</span>, but the former is the way to describe this fact in Chemical Terms. Thus, the above condition is satisfied if any of the following is satisfied:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>the molecule contains a phosphorus with an attached hydrogen, or</li>
+       <li>the molecule contains an OH or SH&nbsp;with acidic p<span>K</span><span>a</span>&nbsp;greater than 14.5, or</li>
+       <li>the molecule contains a nitrogen with positive basic p<span>K</span><span>a</span>&nbsp;with an attached hydrogen</li>
+      </ol>
+      <p>Note that in logical expressions we put simpler calculations to the front to increase efficiency: if the first simple matching rule&nbsp;<code>match(&quot;[#15][H]&quot;)</code>&nbsp;is passed then there is no need to evaluate the other two with more complicated filtering and p<span>K</span><span>a</span>&nbsp;calculation.</p>
+      <p><br />To test this condition on our input molecules save the filter into a text file and type:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e friedel-crafts-exclude.txt aroms.smiles</pre> 
+       </div>
+      </div>
+      <p><br />It turns out that the following input molecules satisfy this&nbsp;<a href="#EvaluatorExamples-exclude">exclude rule</a>, so the&nbsp;<a href="#EvaluatorExamples-friedel_crafts_acylation">Friedel-Crafts acylation</a>&nbsp;will not be performed for these molecules:</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702493.png" data-image-src="attachments/14943033/32702493.png" data-unresolved-comment-count="0" data-linked-resource-id="32702493" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="friedel-crafts-excluded.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p>
+      <p>&nbsp;</p>
+      <h2 id="EvaluatorExamples-Example#12"><span style="font-size: 20.0px;line-height: 1.5;">Example #12</span></h2>
+      <p>&nbsp;</p>
+      <p>Finally we test some well-known and easily expressible chemical conditions on our input molecules:</p>
+      <ol style="margin-left: 20.0px;">
+       <li><em>Lipinski's rule of five:</em><pre>(mass() &lt;= 500) &amp;&amp; 
+(logP() &lt;= 5) &amp;&amp; 
+(donorCount() &lt;= 5) &amp;&amp; 
+(acceptorCount() &lt;= 10)
+</pre><p>To test this type</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e lipinski.txt aroms.smiles</pre> 
+         </div>
+        </div><p>It turns out that all of our input molecules satisfy Lipinski's rule.</p><p>&nbsp;</p></li>
+       <li><em>Lead-likeness:</em><pre>(mass() &lt;= 450) &amp;&amp;
+(logD(&quot;7.4&quot;) &gt;= -4) &amp;&amp; (logD(&quot;7.4&quot;) &lt;= 4) &amp;&amp;
+(ringCount() &lt;= 4) &amp;&amp;
+(rotatableBondCount() &lt;= 10) &amp;&amp;
+(donorCount() &lt;= 5) &amp;&amp;
+(acceptorCount() &lt;= 8)
+</pre><p>To test this type</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e lead-likeness.txt aroms.smiles</pre> 
+         </div>
+        </div><p>There is one molecule that fails to satisfy this rule:<span class="confluence-anchor-link" id="EvaluatorExamples-anthracene"></span></p><pre>c1ccc2cc3ccccc3cc2c1<br />&nbsp;</pre><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702494.png" data-image-src="attachments/14943033/32702494.png" data-unresolved-comment-count="0" data-linked-resource-id="32702494" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="aroms7.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e &quot;logD('7.4')&quot; &quot;c1ccc2cc3ccccc3cc2c1&quot;</pre> 
+         </div>
+        </div><p>The reason is that its log<span>D</span>&nbsp;at&nbsp;<code>pH=7.4</code>&nbsp;is too high:&nbsp;4.05.</p><p>&nbsp;</p></li>
+       <li><em>Bioavailability:</em><pre>(mass() &lt;= 500) +
+(logP() &lt;= 5) +
+(donorCount() &lt;= 5) +
+(acceptorCount() &lt;= 10) +
+(rotatableBondCount() &lt;= 10) +
+(PSA() &lt;= 200) +
+(fusedAromaticRingCount() &lt;= 5) &gt;= 6<br />
+</pre>Note that summing up the 7&nbsp;subresults above means to count how many of them are satisfied. The requirement that this sum should be at least 6&nbsp;means that we do not require all of the subconditions to be satisfed, but instead we allow at most one of them to fail.<p>To test this type</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e bioavailability.txt aroms.smiles</pre> 
+         </div>
+        </div><p>It turns out that all of our input molecules satisfy this bioavailability rule.</p><p>&nbsp;</p></li>
+       <li><em>Ghose filter:</em><pre>(mass() &gt;= 160) &amp;&amp; (mass() &lt;= 480) &amp;&amp;
+(atomCount() &gt;= 20) &amp;&amp; (atomCount() &lt;= 70) &amp;&amp;
+(logP() &gt;= -0.4) &amp;&amp; (logP() &lt;= 5.6) &amp;&amp;
+(refractivity() &gt;= 40) &amp;&amp; (refractivity() &lt;= 130)
+</pre><p>To test this type:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e ghose-filter.txt aroms.smiles</pre> 
+         </div>
+        </div><p>It turns out that only our&nbsp;<a href="#EvaluatorExamples-anthracene">previous molecule failing lead-likeness</a>&nbsp;passes this Ghose filter.</p><p>&nbsp;</p></li>
+       <li><em>Scaffold hopping:</em><pre>refmol = &quot;c1ccccc1&quot;;
+dissimilarity(&quot;ChemicalFingerprint&quot;, refmol) - 
+dissimilarity(&quot;PharmacophoreFingerprint&quot;, refmol) &gt; 0.6<br />
+</pre>Note that molecule constants can be defined by a molecule file path or a SMILES string. Multiple expressions are separated by ';' characters, whitespace characters can be added freely for readability, since they are not considered by the evaluation process.<p>This condition tests whether the chemical and the pharmacophore dissimilarities between benzene and the input molecule are sufficiently far from each other, that is, the molecules should not be reasonably similar in pharmacophoric features but distant in chemical structure.</p><p>To test this save the function in a txt file and type:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e scaffold-hopping.txt aroms.smiles</pre> 
+         </div>
+        </div><p>It turns out that none of our input molecules satisfies this rule.</p></li>
+      </ol>
+      <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Note that the default output is a&nbsp;<code>0-1</code>&nbsp;list representing&nbsp;<code>true-false</code>&nbsp;values for each input molecule.</p>
+      <p>You can use the&nbsp;<code>-x, --extract &lt;format&gt;</code>&nbsp;option to output precisely those input molecules that satisfy the condition. For example</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">evaluate -e ghose-filter.txt -x smiles aroms.smiles</pre> 
+       </div>
+      </div>
+      <p>will give the result:</p>
+      <pre>c1ccc2cc3ccccc3cc2c1</pre>
+      <p>&nbsp;</p>
+      <h1 id="EvaluatorExamples-Reaction_rule_examplesReactionruleexamples"><span class="confluence-anchor-link" id="EvaluatorExamples-Reaction_rule_examples"></span>Reaction rule examples</h1>
+      <p>&nbsp;</p>
+      <p>In this section we show two sample reactions:</p>
+      <ol style="margin-left: 20.0px;">
+       <li>Friedel-Crafts acylation</li>
+       <li>Baeyer-Villiger ketone oxidation</li>
+      </ol>
+      <p>We demonstrate the use of&nbsp;reaction rules:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>Reactivity rules</em>&nbsp;describe the chemical conditions of the reaction, while</li>
+       <li><em>Selectivity rules</em>&nbsp;select the main products and sort them by importance / occurrence in case of multiple possibilities, finally</li>
+       <li><em>Exclude rules</em>&nbsp;are used to exclude products that we do not want to produce even if they may be chemically feasible (e.g. because they are not stable or the corresponding reactants are likely to produce side-reactions)</li>
+      </ul>
+      <p><span style="color: rgb(54,54,54);">These chemical expressions formulating these rules access reaction data through a&nbsp;</span><a href="Input-Contexts_14943067.html#InputContexts-reaction_context">reaction context</a><span style="color: rgb(54,54,54);">. Here are some examples for using this context:</span></p>
+      <ul style="margin-left: 20.0px;">
+       <li><code>reactant(0)</code>: the first reactant</li>
+       <li><code>reactant(1)</code>: the second reactant</li>
+       <li><code>product(0)</code>: the first product</li>
+       <li><code>product(1)</code>: the second product</li>
+       <li><code>ratom(1)</code>: the reactant atom matching map&nbsp;<code>1</code>&nbsp;in the reaction equation</li>
+       <li><code>ratom(3)</code>: the reactant atom matching map&nbsp;<code>3</code>&nbsp;in the reaction equation</li>
+       <li><code>patom(1)</code>: the product atom matching map&nbsp;<code>1</code>&nbsp;in the reaction equation</li>
+       <li><code>patom(2)</code>: the product atom matching map&nbsp;<code>2</code>&nbsp;in the reaction equation</li>
+      </ul>
+      <p>You should map your reactions according to&nbsp;<a href="https://docs.chemaxon.com/display/reactor/Reaction+Mapping" rel="nofollow">ChemAxon's reaction mapping style</a>&nbsp;to access reactant and product atoms by map matching. You can also use <em>Structure/Mapping</em> in MarvinSketch to use automatical mapping.</p>
+      <div class="lenia">
+       &nbsp;
+      </div>
+      <h2 class="lenia" id="EvaluatorExamples-Example#1.1">Example #1</h2>
+      <p>&nbsp;</p>
+      <p><a class="anchor" rel="nofollow"></a>Our first example is the&nbsp;Friedel-Crafts acylation, an electrophilic aromatic substitution reaction with acyl halides producing oxo compounds.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/16646183.png" data-image-src="attachments/14943033/16646183.png" data-unresolved-comment-count="0" data-linked-resource-id="16646183" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="FC_example_with_R.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p>
+      <p>This reaction can be represented by the following <a href="attachments/14943033/32702495.mrv" data-linked-resource-id="32702495" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Friedel-Crafts_acylation.mrv" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">scheme</a>:</p>
+      <p><span><a href="https://www.chemaxon.com/marvin/examples/evaluator/Friedel-Crafts_acylation.mrv.txt" style="text-decoration: underline;" class="external-link" rel="nofollow"><span class="confluence-anchor-link" id="EvaluatorExamples-friedel_crafts_acylation"></span></a></span></p>
+      <p><span><a href="https://www.chemaxon.com/marvin/examples/evaluator/Friedel-Crafts_acylation.mrv.txt" style="text-decoration: underline;" class="external-link" rel="nofollow"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702496.png" data-image-src="attachments/14943033/32702496.png" data-unresolved-comment-count="0" data-linked-resource-id="32702496" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Friedel-Crafts_acylation.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /></a></span></p>
+      <p>The reaction has the following rules:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><em>Reactivity:</em><pre>charge(ratom(1), &quot;aromaticsystem&quot;) &lt;= -0.2<br />
+</pre>,meaning that the aromatic system should be at least as activated as dihalobenzenes.<p>&nbsp;</p></li>
+       <li><em>Selectivity:</em><pre>-energyE(ratom(1))<br />
+</pre>This is a specific directional rule saying that the electrophilic substitution takes place on the aromatic carbon atom with the lowest localization energy having an attached electrophile in the transition state.<p>&nbsp;</p></li>
+       <li><em>Selectivity tolerance:</em><pre>0.02<br />
+</pre>With this setting we change the default tolerance&nbsp;<code>0.0001</code>&nbsp;to accept other aromatic carbons having a similar localization energy with maximum difference&nbsp;<code>0.02&nbsp;</code>from the lowest value. Results will be sorted by this localization energy in ascending order, taking lowest first.<p>&nbsp;</p></li>
+       <li><span class="confluence-anchor-link" id="EvaluatorExamples-exclude"></span><em>Exclusion</em>:<br /><br /><code>match(ratom(2), &quot;[C:1]C=C&quot;, 1) || match(reactant(0), &quot;[O,S]C=[O,S]&quot;) || match(reactant(0), &quot;P[H]&quot;) || (max(pka(reactant(0), filter(reactant(0), &quot;match('[O,S;H]')&quot;), &quot;acidic&quot;)) &gt; 14.5) || (max(pka(reactant(0), filter(reactant(0), &quot;match('[#7][H]')&quot;), &quot;basic&quot;)) &gt; 0)</code> <br /><br /> The first reactant may not contain carboxylic acid group or its thio analogue. Exclude acryloyc halides as acylating agent. Exclude PH compounds, and aromatic compounds containing such nucleophilic groups wich can be acylated among these conditions (OH, SH compounds with higher pKa than 14.5, and NH compounds with higher pKb than 0). This is a more complicated, somewhat heuristical rule. You may want to have a look at a&nbsp;<a href="#EvaluatorExamples-similar_expression">similar condition</a>&nbsp;in the&nbsp;<a href="#EvaluatorExamples-Basic_examples">basic examples</a>&nbsp;section referring to a&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-molecule_context">molecule context</a>. Note, that now our condition should explicitly refer to the input molecule as&nbsp;reactant(0), meaning the first reactant, while in a molecule context the expression implicitly refers to the input molecule.<p>We exclude reactant pairs satisfying any of the following subexpressions (&nbsp;||&nbsp;means logical&nbsp;OR&nbsp;):<br />&nbsp;</p>
+        <ol>
+         <li><p>The second reactant is an <a href="attachments/14943033/32702497.smiles" data-linked-resource-id="32702497" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="acryloic-halide.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">acryloic halide</a>, testing this with an atom-matching condition on carbon atoms:</p><p><code>match(ratom(2), &quot;[C:1]C=C&quot;, 1)</code></p><p><a href="https://www.chemaxon.com/marvin/examples/evaluator/acryloic-halide.smiles" class="external-link" rel="nofollow"><span class="confluence-anchor-link" id="EvaluatorExamples-acryloic_halide"></span><br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702498.png" data-image-src="attachments/14943033/32702498.png" data-unresolved-comment-count="0" data-linked-resource-id="32702498" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="acryloic-halide.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /></a></p><p>&nbsp;</p></li>
+         <li>The first reactant contains a phosphorus with an attached hydrogen:<br /><code><br />match(reactant(0), &quot;P[H]&quot;)<br />&nbsp;</code></li>
+         <li>The first reactant contains an&nbsp;OH&nbsp;or&nbsp;SH&nbsp;with acidic pKa&nbsp;greater than&nbsp;14.5:<br /><br /><code>max(pka(reactant(0), filter(reactant(0), &quot;match('[O,S;H]')&quot;), &quot;acidic&quot;)) &gt; 14.5<br />&nbsp;</code></li>
+         <li>The first reactant contains a nitrogen with positive basic pKa&nbsp;with an attached hydrogen:<br /><br /><code>max(pka(reactant(0), filter(reactant(0), &quot;match('[#7][H]')&quot;), &quot;basic&quot;)) &gt; 0<br /></code><br />Note that we put simpler conditions first to increase efficiency. In the last two subexpressions, we use the&nbsp;filter function&nbsp;with a&nbsp;match filtering conditi&nbsp;to extract the relevant atoms for the pKa&nbsp;calculation. Finally, we take&nbsp;max&nbsp;of these values to test whether any of them exceeds a certain limit.<br />&nbsp;</li>
+        </ol></li>
+      </ul>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>Refer to the&nbsp;<a href="All-Available-Functions-in-Alphabetical-Order_13829016.html">Chemical Terms Reference Tables</a>&nbsp;for ChemAxon's Chemical Terms function/plugin calculation calculation syntax summary and explanation.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>Now it is time to process this reaction on some reactants. We will process the reaction on&nbsp;<code>14</code>&nbsp;reactant pairs.</p>
+      <p>Our reactant file for the first reactant contains a set of aromatic molecules stored in a <a href="attachments/14943033/32702491.smiles" data-linked-resource-id="32702491" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="aroms.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">SMILES file</a>:<br />&nbsp;</p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702490.png" data-image-src="attachments/14943033/32702490.png" data-unresolved-comment-count="0" data-linked-resource-id="32702490" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="aroms.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p>
+      <p><span style="line-height: 1.4285715;"><br /></span>The second reactant&nbsp;set is very simple - we take the same acid-halide for each of the aromatic molecules above:<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702500.png" data-image-src="attachments/14943033/32702500.png" data-unresolved-comment-count="0" data-linked-resource-id="32702500" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="acid-halide1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span>&nbsp;</p>
+      <p><span style="line-height: 1.4285715;"><br /></span>Then we will test benzene with another acid-halide as well:<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702501.png" data-image-src="attachments/14943033/32702501.png" data-unresolved-comment-count="0" data-linked-resource-id="32702501" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="acid-halide2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span>&nbsp;</p>
+      <p><span style="line-height: 1.4285715;"><br />Now run the Reactor to process the reaction.&nbsp;</span>The second reactants are stored in a <a href="attachments/14943033/32702502.smiles" data-linked-resource-id="32702502" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="acidhalides.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">SMILES file</a>&nbsp;with all but one molecule being identical to the first acid-halide above, while the last one being the second one:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">react -r Friedel-Crafts_acylation.mrv aroms.smiles acidhalides.smiles -t reaction -o Friedel-Crafts_results.smiles</pre> 
+       </div>
+      </div>
+      <p>The resulted reactions are stored in a result <a href="attachments/14943033/32702503.smiles" data-linked-resource-id="32702503" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Friedel-Crafts_results.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">SMILES file</a>.</p>
+      <p>To analyze the results examine the reactant pairs one-by-one. Observe that the only rule referring the second reactant is the exclude rule stating that the acid-halide carbon should not be the&nbsp;<a href="#EvaluatorExamples-acryloic_halide">acryloic-halide</a>&nbsp;mapped carbon. It follows that our first acid-halide, acetyl chloride&nbsp;is not excluded but our second acid halide, acryloyl chloride,&nbsp;obviously satisfies this condition and therefore the last reactant pair with benzene paired with this second acid-halide is excluded from the result. Now in the analyzation below, we examine the first reactant.</p>
+      <p>You can check the reactivity and selectivity rules with</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; r1.smiles
+evaluate -e &quot;energyE()&quot; r1.smiles</pre> 
+       </div>
+      </div>
+      <p><span style="color: rgb(54,54,54);">where&nbsp;</span><code style="line-height: 1.4285715;">r1.smiles</code><span style="color: rgb(54,54,54);">&nbsp;is a first reactant in SMILES form.</span><span style="color: rgb(54,54,54);">These commands will list the evaluation results for each atom, seperated by ';' characters (the results are copied under the command):</span></p>
+      <ol style="margin-left: 20.0px;">
+       <li><p>benzene satisfies the reactivity condition (sum of partial pi charges in the aromatic system).</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; &quot;c1ccccc1&quot;</pre> 
+         </div>
+        </div><pre>-0.37;-0.37;-0.37;-0.37;-0.37;-0.37
+
+</pre>However, it does not satisfy the exclude condition since it does not contain phosphorus or ionizable atoms (no p<span>K</span><span>a</span>&nbsp;values), therefore the reaction is processed and the result is:<br /><br /><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702506.png" data-image-src="attachments/14943033/32702506.png" data-unresolved-comment-count="0" data-linked-resource-id="32702506" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="r1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br />Observe that the selectivity rule does not play here since it evaluates to the same value because of molecule symmetry.<br />&nbsp;</p></li>
+       <li><p>Our second aromatic molecule (acetophenone) will not react because it fails to satisfy the reactivity rule:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -p 3 -e &quot;charge('aromaticsystem')&quot; &quot;CC(=O)c1ccccc1&quot;</pre> 
+         </div>
+        </div><pre>0;0;0;-0.199;-0.199;-0.199;-0.199;-0.199;-0.199<br />&nbsp;</pre>Now we see that the condition is not satisfied (<code>-0.199 &gt; -0.2</code>).<p>&nbsp;</p></li>
+       <li><p>The third reactant (nitrobenzene) will not react for the same reason:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; &quot;O=N(=O)c1ccccc1&quot;</pre> 
+         </div>
+        </div><pre>0;0;0;-0.01;-0.01;-0.01;-0.01;-0.01;-0.01
+</pre><p>&nbsp;</p></li>
+       <li><p>Toluol (reactant #4) satisfies the reactivity rule:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; &quot;Cc1ccccc1&quot;</pre> 
+         </div>
+        </div><pre>0;-0.39;-0.39;-0.39;-0.39;-0.39;-0.39<br />
+</pre><p>Toluol is obviously not excluded (for the same reason as benzene), therefore we should evaluate the selectivity rule to determine the main products:<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702509.png" data-image-src="attachments/14943033/32702509.png" data-unresolved-comment-count="0" data-linked-resource-id="32702509" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="toluol.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span>&nbsp;</p><p><br />Since our selectivity rule says to take the minimal localization energy (the localization energy is multiplied by&nbsp;<code>-1</code>&nbsp;to reverse the result order, that is to take the minimum instead of maximum), the ortho position is the best; the para position is also accepted because the corresponding value is within tolerance: 2.46-2.45 &lt; 0.02 .&nbsp;<br /><br />The resulting reaction is therefore:<br />&nbsp;</p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702510.png" data-image-src="attachments/14943033/32702510.png" data-unresolved-comment-count="0" data-linked-resource-id="32702510" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="r4.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><p>&nbsp;</p></li>
+       <li>For bromobenzene the situation is the same as with toluol:<br /><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702511.png" data-image-src="attachments/14943033/32702511.png" data-unresolved-comment-count="0" data-linked-resource-id="32702511" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="brom-benzene.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><br />The ortho and para positions are accepted, with the ortho position being the main result:<br />&nbsp;</p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702512.png" data-image-src="attachments/14943033/32702512.png" data-unresolved-comment-count="0" data-linked-resource-id="32702512" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="r5.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><p>&nbsp;</p></li>
+       <li><p>For anthracene the reactivity rule is satisfied:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; &quot;c1ccc2cc3ccccc3cc2c1&quot;</pre> 
+         </div>
+        </div><pre>-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63;-0.63<br />
+</pre>Anthracene is not excluded for the same reasons as toluol and benzene and the selectivity rule now determines a single position:<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702519.png" data-image-src="attachments/14943033/32702519.png" data-unresolved-comment-count="0" data-linked-resource-id="32702519" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="antracen.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><p><br />The reaction result is shown below:<br />&nbsp;</p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702521.png" data-image-src="attachments/14943033/32702521.png" data-unresolved-comment-count="0" data-linked-resource-id="32702521" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="r7.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><p>&nbsp;</p></li>
+       <li><p>For indole the reactivity rule is satisfied:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; &quot;c1ccc2[nH]ccc2c1&quot;</pre> 
+         </div>
+        </div><pre>-0.55;-0.55;-0.55;-0.55;-0.55;-0.55;-0.55;-0.55;-0.55<br />
+</pre><p>Indole is not excluded because there is no basic p<span>K</span><span>a</span>&nbsp;on its nitrogen atom:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702522.png" data-image-src="attachments/14943033/32702522.png" data-unresolved-comment-count="0" data-linked-resource-id="32702522" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="indol1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><br />The selectivity rule selects a single position for reaction:<br />&nbsp;</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702523.png" data-image-src="attachments/14943033/32702523.png" data-unresolved-comment-count="0" data-linked-resource-id="32702523" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="indol2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><br />The reaction result is shown below:<br />&nbsp;</p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702524.png" data-image-src="attachments/14943033/32702524.png" data-unresolved-comment-count="0" data-linked-resource-id="32702524" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="r8.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><p>&nbsp;</p></li>
+       <li><p>The reactivity rule for phenol is satisfied:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; &quot;Oc1ccccc1&quot;</pre> 
+         </div>
+        </div><pre>0;-0.35;-0.35;-0.35;-0.35;-0.35;-0.35<br />
+</pre><p>Phenol is not excluded, because the acidic p<span>K</span><span>a</span>&nbsp;of its OH group is not greater than the specified&nbsp;<code>14.5</code>&nbsp;limit:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702525.png" data-image-src="attachments/14943033/32702525.png" data-unresolved-comment-count="0" data-linked-resource-id="32702525" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="phenol1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br />The selectivity rule selects the ortho and the para positions:<br />&nbsp;</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702526.png" data-image-src="attachments/14943033/32702526.png" data-unresolved-comment-count="0" data-linked-resource-id="32702526" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="phenol2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><br />The resulting reactions are shown below:<br />&nbsp;</p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702527.png" data-image-src="attachments/14943033/32702527.png" data-unresolved-comment-count="0" data-linked-resource-id="32702527" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="r9.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><br /></li>
+       <li>The next three molecules satisfy the exclude condition regarding the conditions on the p<span>K</span><span>a</span>&nbsp;values (positive basic p<span>K</span><span>a</span>&nbsp;on a nitrogen having an attached H or acidic p<span>K</span><span>a</span>&nbsp;greater than&nbsp;<code>14.5</code>&nbsp;on an&nbsp;<code>OH</code>&nbsp;or&nbsp;<code>SH</code>):<p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702528.png" data-image-src="attachments/14943033/32702528.png" data-unresolved-comment-count="0" data-linked-resource-id="32702528" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="exclude1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702529.png" data-image-src="attachments/14943033/32702529.png" data-unresolved-comment-count="0" data-linked-resource-id="32702529" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="exclude2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702530.png" data-image-src="attachments/14943033/32702530.png" data-unresolved-comment-count="0" data-linked-resource-id="32702530" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="exclude3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p><p>&nbsp;</p></li>
+       <li>Acetanilide has negative p<span>K</span><span>a</span>&nbsp;on its nitrogen, therefore it is not excluded:<p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702531.png" data-image-src="attachments/14943033/32702531.png" data-unresolved-comment-count="0" data-linked-resource-id="32702531" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="phenyl-acetamide1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p><p>&nbsp;</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;charge('aromaticsystem')&quot; &quot;CC(=O)Nc1ccccc1&quot;</pre> 
+         </div>
+        </div><p><br />Phenylacetamide satisfies the reactivity rule:</p><pre>0;0;0;0;-0.27;-0.27;-0.27;-0.27;-0.27;-0.27<br />
+</pre><p>The selectivity rule selects a single position (ortho):<br />&nbsp;</p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702532.png" data-image-src="attachments/14943033/32702532.png" data-unresolved-comment-count="0" data-linked-resource-id="32702532" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="phenyl-acetamide2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><p>&nbsp;</p><p>The resulting reaction is shown below:</p></li>
+      </ol>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702533.png" data-image-src="attachments/14943033/32702533.png" data-unresolved-comment-count="0" data-linked-resource-id="32702533" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="r13.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p>
+      <div class="lenia">
+       &nbsp;
+      </div>
+      <h2 id="EvaluatorExamples-Example#2.1"><br />Example #2</h2>
+      <p>&nbsp;</p>
+      <p><a class="anchor" rel="nofollow"></a>Our second example is the&nbsp;Baeyer-Villiger ketone oxidation<strong>,&nbsp;</strong>a ketone oxidation to an ester upon treatment with peroxy acids.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/16646183.png" data-image-src="attachments/14943033/16646183.png" data-unresolved-comment-count="0" data-linked-resource-id="16646183" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="FC_example_with_R.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></p>
+      <p>&nbsp;</p>
+      <p>The reaction can be represented by the following <a href="attachments/14943033/32702542.mrv" data-linked-resource-id="32702542" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Baeyer-Villiger_ketone_oxidation.mrv" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">scheme</a>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702543.png" data-image-src="attachments/14943033/32702543.png" data-unresolved-comment-count="0" data-linked-resource-id="32702543" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Baeyer-Villiger_ketone_oxidation.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>The reaction has the following rules:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><p>Reactivity:</p><pre>!match(ratom(1), &quot;O=[C:1][C]([H])C=O&quot;, 1)</pre><p>This means that β-diketones are able to enolize do not react; we test this by an atom mathching condition: the ketone carbon matching map&nbsp;<code style="line-height: 1.4285715;">1</code>&nbsp;in the reaction equation should not match the carbon with map&nbsp;<code style="line-height: 1.4285715;">1</code>&nbsp;in <a href="attachments/14943033/32702544.smiles" data-linked-resource-id="32702544" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="beta-diketone.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">beta-diketones</a>:</p><p>&nbsp;</p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702545.png" data-image-src="attachments/14943033/32702545.png" data-unresolved-comment-count="0" data-linked-resource-id="32702545" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="beta-diketone.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span><br /><p>&nbsp;</p></li>
+       <li>Selectivity:<br /><pre>charge(ratom(2), &quot;sigma&quot;)<br />
+</pre>This means that the oxygen goes between the carbonyl carbon and its neighbour with the biggest σ charge.<p>&nbsp;</p></li>
+       <li>Selectivity tolerance: we do not set the tolerance, therefore the default tolerance&nbsp;<code>0.0001</code>&nbsp;will be applied, which practically means that only the main product is accepted.<p>&nbsp;</p></li>
+       <li><span class="confluence-anchor-link" id="EvaluatorExamples-exclude_rule_for_BV"></span>Exclude<a href="http://www.chemaxon.com/jchem/doc/user/reactor_cline.html#exclude" class="external-link" rel="nofollow">:</a><pre>match(reactant(0), &quot;[#5,#7,#8,#14,#15,#16][H]&quot;) || 
+match(reactant(0), &quot;[n,s]&quot;) || 
+match(reactant(0), &quot;[#6]S[#6,#16]&quot;) || 
+match(reactant(0), &quot;[#6]S([#6])=[N,O]&quot;) || 
+match(reactant(0), &quot;[H]C=O&quot;)<br />
+</pre>We exclude reagents containing BH, NH, OH, SiH, PH or SH&nbsp;groups or aromatic N, S&nbsp;or sulfide, disulfide, sulfoxyde or sulfimide groups and we also exclude aldehydes producing carboxylic acids with these reagents.<a href="http://www.chemaxon.com/jchem/doc/user/reactor_cline.html#exclude" class="external-link" rel="nofollow"><br /></a><pre>&nbsp;</pre></li>
+      </ul>
+      <p>Refer to the&nbsp;<a href="All-Available-Functions-in-Alphabetical-Order_13829016.html">Chemical Terms Reference Tables</a>&nbsp;for ChemAxon's Chemical Terms function/plugin calculation syntax summary and explanation.</p>
+      <p>Our <a href="attachments/14943033/32702545.png" data-linked-resource-id="32702545" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="beta-diketone.png" data-nice-type="Image" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">reactant file</a> is contains&nbsp;the following 7 molecules:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><a href="attachments/14943033/32702550.png" data-linked-resource-id="32702550" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ketones.png" data-nice-type="Image" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702550.png" data-image-src="attachments/14943033/32702550.png" data-unresolved-comment-count="0" data-linked-resource-id="32702550" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ketones.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></a></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Now run&nbsp;<a href="http://www.chemaxon.com/jchem/doc/user/reactor.html" style="text-decoration: underline;" class="external-link" rel="nofollow">Reactor</a>&nbsp;to process the reaction:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">react -r Baeyer-Villiger_ketone_oxidation.mrv ketones.smiles -t reaction -o Baeyer-Villiger_results.smiles</pre> 
+       </div>
+      </div>
+      <p><br />The result reactions are stored in <a href="attachments/14943033/32702551.smiles" data-linked-resource-id="32702551" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Baeyer-Villiger_results.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">Baeyer-Villiger_results.smiles</a>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702552.png" data-image-src="attachments/14943033/32702552.png" data-unresolved-comment-count="0" data-linked-resource-id="32702552" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Baeyer-Villiger_results.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br />You should note, that our 5th ketone does not react because it is a β-diketone and hence does not satisfy our reactivity criteria. The 6th ketone is an α-diketone matching&nbsp;<code>[H]C=O</code>&nbsp;in our&nbsp;<a href="#EvaluatorExamples-exclude_rule_for_BV">exclude rule</a>, therefore that will not react either. The specific chemical reason is that these ketones produce anhydrides instead of undergoing oxidation.</p>
+      <p>All other ketones from our input set react (satisfy our reactivity rule and are not excluded by our exclude rule), therefore our selectivity rule will determine the main product. We show the atomic sigma-charges below, look at the charge values on atoms matching reaction map&nbsp;<code>2</code>&nbsp;, marked with&nbsp;<code>2</code>&nbsp;in the following sample:</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702553.png" data-image-src="attachments/14943033/32702553.png" data-unresolved-comment-count="0" data-linked-resource-id="32702553" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sample.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>Now look at these sigma-charge values and check that the bigger value is selected in&nbsp;<a href="#EvaluatorExamples-BV_results">our results</a>&nbsp;above:<br />&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702554.png" data-image-src="attachments/14943033/32702554.png" data-unresolved-comment-count="0" data-linked-resource-id="32702554" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sigma-charges.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="lenia">
+       &nbsp;
+       <br />&nbsp;
+      </div>
+      <h2 id="EvaluatorExamples-Search_filtering_examplesSearchfilteringexamples"><a class="anchor" rel="nofollow"></a><span class="confluence-anchor-link" id="EvaluatorExamples-Search_filtering_examples"></span>Search filtering examples<br />&nbsp;</h2>
+      <p>In this section we show some examples for&nbsp;<a href="http://www.chemaxon.com/jchem/doc/user/Jcsearch.html#expression" style="text-decoration: underline;" class="external-link" rel="nofollow">search filters</a>. These expressions filter targets, queries and/or search hits: the substructure search is performed only for target-query pairs satisfying the filtering condition, furthermore, search hits are filtered by the expression.</p>
+      <p>Search data (target, query, search hits) is accessed through a&nbsp;<a href="Input-Contexts_14943067.html#InputContexts-search_context">search context</a>.&nbsp;Here are some examples for using this context:</p>
+      <ul style="margin-left: 20.0px;">
+       <li><code>target()</code>&nbsp;or&nbsp;<code>mol()</code>: the target molecule, this is usually omitted since the default input molecule is the target</li>
+       <li><code>query()</code>: the query molecule</li>
+       <li><code>m(1)</code>: query atom index of query atom with map&nbsp;<code>1</code></li>
+       <li><code>m(2)</code>: query atom index of query atom with map&nbsp;<code>2</code></li>
+       <li><code>h(0)</code>&nbsp;or&nbsp;<code>hit(0)</code>: target atom index matching query atom with atom index&nbsp;<code>0</code>&nbsp;(0-based indexing)</li>
+       <li><code>h(3)</code>&nbsp;or&nbsp;<code>hit(3)</code>: target atom index matching query atom with atom index&nbsp;<code>3</code>&nbsp;(0-based indexing)</li>
+       <li><code>hm(2)</code>: target atom index matching query atom with map&nbsp;<code>2</code></li>
+       <li><code>hm(4)</code>: target atom index matching query atom with map&nbsp;<code>4</code></li>
+      </ul>
+      <p><br />In the examples below, the target molecules are stored in&nbsp;<a href="attachments/14943033/32702555.smiles" data-linked-resource-id="32702555" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="targets.smiles" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">targets.smiles</a>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702556.png" data-image-src="attachments/14943033/32702556.png" data-unresolved-comment-count="0" data-linked-resource-id="32702556" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="targets.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br />Queries are stored in&nbsp;<a href="attachments/14943033/32702557.smarts" data-linked-resource-id="32702557" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="queries.smarts" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137">queries.smarts</a>:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/14943033/32702558.png" data-image-src="attachments/14943033/32702558.png" data-unresolved-comment-count="0" data-linked-resource-id="32702558" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="queries.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><br />In the following examples we use the&nbsp;<a href="http://www.chemaxon.com/jchem/doc/user/Jcsearch.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><code>jcsearch</code></a>&nbsp;command line tool to perform substructure search with filtering:</p>
+      <ol style="margin-left: 20.0px;">
+       <li><em>Filtering targets:<br /><br /></em>
+        <ul style="margin-left: 20.0px;">
+         <li><p>Output targets with carboxylic group(s) having molecular mass bigger than&nbsp;<code>170</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; -e &quot;mass() &gt; 170&quot;</pre> 
+           </div>
+          </div><pre>OC(=O)Cc1cccc(c1)C(O)=O
+Nc1cc(CC(O)=O)cc(N)c1N
+NC(C(O)=O)c1ccc2c(O)c3cccc(N)c3cc2c1
+</pre><p><br />Note that our 3rd target molecule also contains a carboxylic group but is not present in the output since it has molecular mass&nbsp;<code>151.16</code>. You can check molecular masses by:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;mass()&quot; targets.smiles</pre> 
+           </div>
+          </div><pre>180.16
+181.19
+151.16
+282.29
+209.24
+178.23<br />
+</pre></li>
+         <li><p>Add another restriction on the ring count, and you will filter out the 4th target too:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; -e &quot;mass() &gt; 170 &amp;&amp; ringCount() == 1&quot;</pre> 
+           </div>
+          </div><pre>OC(=O)Cc1cccc(c1)C(O)=O
+Nc1cc(CC(O)=O)cc(N)c1N<br />
+</pre></li>
+         <li><p>You can also filter by some well-known&nbsp;chemical rules, such as&nbsp;<span>Lipinski's rule of five</span>,&nbsp;<span>Lead-likeness</span>,&nbsp;<span>Bioavailability</span>&nbsp;or the&nbsp;<span>Ghose filter</span>, and any&nbsp;<code>boolean</code>condition shown in the&nbsp;basic examples&nbsp;section above, since here the input molecule will automatically refer to the target. For example, test the Ghose filter with the carboxylic group query:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; -e ghose-filter.txt </pre> 
+           </div>
+          </div><pre>OC(=O)Cc1cccc(c1)C(O)=O
+</pre><p><br />Only the first target is accepted because only our first&nbsp;<code>4</code>&nbsp;targets contain a carboxylic group and only the first of these satisfied the&nbsp;<a href="https://www.chemaxon.com/marvin/examples/evaluator/ghose-filter.txt" style="text-decoration: underline;" class="external-link" rel="nofollow">Ghose filter</a>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e ghose-filter.txt targets.smiles</pre> 
+           </div>
+          </div><pre>1
+0
+0
+0
+1
+1<br />
+</pre></li>
+        </ul></li>
+       <li><em>Filtering queries:<br /><br /></em>
+        <ul style="margin-left: 20.0px;">
+         <li><p>First set a molecular mass requirement on the query:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; -e &quot;mass(query()) &gt; 20&quot;</pre> 
+           </div>
+          </div><pre>OC(=O)Cc1cccc(c1)C(O)=O
+Nc1cc(CC(O)=O)cc(N)c1N
+NC(C(O)=O)c1ccccc1
+NC(C(O)=O)c1ccc2c(O)c3cccc(N)c3cc2c1
+</pre><p>All target molecules containing carboxylic group(s) are returned, since our query satisfies has molecular mass&nbsp;<code>44.01</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;mass()&quot; &quot;[#8:1]C=O&quot;</pre> 
+           </div>
+          </div><pre>44.01
+</pre><p>However, when running this with our nitrogen query then there is no output, although we have&nbsp;<code>4</code>&nbsp;target molecules containing nitrogen:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#7:1]&quot; -e &quot;mass(query()) &gt; 20&quot;</pre> 
+           </div>
+          </div><p>because nitrogen has molecular mass&nbsp;<code style="line-height: 1.4285715;">14.01</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;mass()&quot; &quot;[#7:1]&quot;</pre> 
+           </div>
+          </div><pre>14.01<br />&nbsp;</pre></li>
+         <li><p>Next, set a condition on a query atom. In this example we require that the query atom with map&nbsp;<code>1</code>&nbsp;should have partial charge greater than&nbsp;<code>-0.05</code>. This time we have empty result set for the carboxylic group but have 4&nbsp;search hits for the nitrogen:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; -e &quot;charge(query(), m(1)) &gt; -0.05&quot;</pre> 
+           </div>
+          </div>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#7:1]&quot; -e &quot;charge(query(), m(1)) &gt; -0.05&quot;</pre> 
+           </div>
+          </div><pre>Nc1cc(CC(O)=O)cc(N)c1N
+NC(C(O)=O)c1ccccc1
+NC(C(O)=O)c1ccc2c(O)c3cccc(N)c3cc2c1
+Nc1cccc2c(O)c3ccccc3cc12
+</pre><p>since the nitrogen has zero charge while the partial charge on the carboxylic OH is&nbsp;<code>-0.1</code>. Note, that we refer to the query molecule as&nbsp;<code>query()</code>&nbsp;and its mapped atom with atom map&nbsp;<code>1</code>&nbsp;as&nbsp;<code>m(1)</code>. You can also refer to query aotms by atom indices but in most cases it is more difficult to determine. However, since nitrogen is only one atom, you can safely write:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#7]&quot; -e &quot;charge(query(), 0) &gt; -0.1&quot;</pre> 
+           </div>
+          </div><pre>Nc1cc(CC(O)=O)cc(N)c1N
+NC(C(O)=O)c1ccccc1
+NC(C(O)=O)c1ccc2c(O)c3cccc(N)c3cc2c1
+Nc1cccc2c(O)c3ccccc3cc12
+</pre><br />You can also omit the atom map in the query.</li>
+        </ul><p>&nbsp;</p></li>
+       <li><em>Filtering search hits:</em><p>In these examples we filter search hits by setting conditions on p<span>K</span><span>a</span>&nbsp;values calculated on target atoms matching carboxylic oxygens or nitrogens. In order to check the results easily we show the p<span>K</span><span>a</span>&nbsp;values together with atom indices for the target molecules:<br />&nbsp;</p>
+        <div class="table-wrap">
+         <table class="confluenceTable">
+          <tbody>
+           <tr>
+            <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="500" src="attachments/14943033/32702559.png" data-image-src="attachments/14943033/32702559.png" data-unresolved-comment-count="0" data-linked-resource-id="32702559" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pka.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="14943033" data-linked-resource-container-version="137" /></span></td>
+           </tr>
+          </tbody>
+         </table>
+        </div><p>&nbsp;</p>
+        <ul style="margin-left: 20.0px;">
+         <li><p>First look at all carboxylic group hits and all nitrogen hits:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; --allHits</pre> 
+           </div>
+          </div><pre>    Query 0 matches:
+        Match 0:[    1,   2,   3 ]
+        Match 1:[   12,  11,  13 ]
+OC(=O)Cc1cccc(c1)C(O)=O
+    Query 0 matches:
+        Match 0:[    7,   6,   8 ]
+Nc1cc(CC(O)=O)cc(N)c1N
+    Query 0 matches:
+        Match 0:[    4,   3,   5 ]
+NC(C(O)=O)c1ccccc1
+    Query 0 matches:
+        Match 0:[    4,   3,   5 ]
+NC(C(O)=O)c1ccc2c(O)c3cccc(N)c3cc2c1<br />&nbsp;</pre>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#7:1]&quot; --allHits</pre> 
+           </div>
+          </div><pre>    Query 0 matches:
+        Match 0:[    1 ]
+        Match 1:[   11 ]
+        Match 2:[   13 ]
+Nc1cc(CC(O)=O)cc(N)c1N
+    Query 0 matches:
+        Match 0:[    1 ]
+NC(C(O)=O)c1ccccc1
+    Query 0 matches:
+        Match 0:[    1 ]
+        Match 1:[   17 ]
+NC(C(O)=O)c1ccc2c(O)c3cccc(N)c3cc2c1
+    Query 0 matches:
+        Match 0:[    1 ]
+Nc1cccc2c(O)c3ccccc3cc12<br />
+</pre></li>
+         <li><p>Next set filtering condition on the p<span>K</span><span>a</span>&nbsp;at target atom matching query atom with map&nbsp;<code>1</code>, which is either the carboxylic&nbsp;<code>OH</code>&nbsp;or the nitrogen depending on the query. Note that we refer to this atom as&nbsp;<code>hm(1):</code></p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; --allHits -e &quot;pka(hm(1)) &gt; 4&quot;  </pre> 
+           </div>
+          </div><p>&nbsp;</p><pre>    Query 0 matches:
+        Match 0:[   12,  11,  13 ]
+OC(=O)Cc1cccc(c1)C(O)=O
+    Query 0 matches:
+        Match 0:[    7,   6,   8 ]
+Nc1cc(CC(O)=O)cc(N)c1N<br /><br /></pre><p>Check these results by looking at the&nbsp;pKa&nbsp;values.<br />&nbsp;</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#7:1]&quot; --allHits -e &quot;pka(hm(1)) &gt; 4&quot;</pre> 
+           </div>
+          </div><p>&nbsp;</p><pre>    Query 0 matches:
+        Match 0:[   13 ]
+Nc1cc(CC(O)=O)cc(N)c1N
+    Query 0 matches:
+        Match 0:[    1 ]
+NC(C(O)=O)c1ccccc1
+    Query 0 matches:
+        Match 0:[    1 ]
+NC(C(O)=O)c1ccc2c(O)c3cccc(N)c3cc2c1<br /><br /></pre></li>
+         <li><p>Finally combine hit filtering with a condition on the target molecule:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">jcsearch targets.smiles -q &quot;[#8:1]C=O&quot; --allHits -e &quot;mass() &gt; 170 &amp;&amp; ringCount() == 1 &amp;&amp; pka(hm(1)) &gt; 4&quot;</pre> 
+           </div>
+          </div><pre><br />    Query 0 matches:
+        Match 0:[   12,  11,  13 ]
+OC(=O)Cc1cccc(c1)C(O)=O
+    Query 0 matches:
+        Match 0:[    7,   6,   8 ]
+Nc1cc(CC(O)=O)cc(N)c1N<br />
+</pre>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">&nbsp;jcsearch targets.smiles -q &quot;[#7:1]&quot; --allHits -e &quot;mass() &gt; 170 &amp;&amp; ringCount() == 1 &amp;&amp; pka(hm(1)) &gt; 4&quot;</pre> 
+           </div>
+          </div><pre>  Query 0 matches:
+        Match 0:[   13 ]
+Nc1cc(CC(O)=O)cc(N)c1N</pre><p>&nbsp;</p>Note that both carboxylic hits are kept because these targets satisfy both conditions, while two nitrogen hits are filtered out, because one target fails to satisfy the mass condition, and the other one has&nbsp;<code>3</code>&nbsp;rings. Observe that we put simpler conditions to the front for efficiency: if the mass condition fails, then the others are not considered at all.<br /><pre>&nbsp;</pre></li>
+        </ul></li>
+      </ol> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

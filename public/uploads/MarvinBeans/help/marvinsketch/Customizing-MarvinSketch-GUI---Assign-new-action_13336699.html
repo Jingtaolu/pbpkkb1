@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Customizing MarvinSketch GUI - Assign new action</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Customizing MarvinSketch GUI - Assign new action </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span style="color: rgb(51,51,51);">First of all, define the new action for the </span><strong style="color: rgb(51,51,51);font-size: 14.0px;line-height: 1.4285715;">chemaxon.marvin.beans.MSketchPane</strong><span style="color: rgb(51,51,51);"> component that you would like to integrate into your custom application. Your action has to be an extension of the </span><a href="http://download.oracle.com/javase/6/docs/api/javax/swing/AbstractAction.html" style="font-size: 14.0px;line-height: 1.4285715;" class="external-link" rel="nofollow">javax.swing.AbstractAction class</a><span style="color: rgb(51,51,51);">. In the below example, the new action is titled as </span><em style="color: rgb(51,51,51);font-size: 14.0px;line-height: 1.4285715;">Foo</em><span style="color: rgb(51,51,51);">.</span></p>
+      <pre>	private final Action newFooAction = new AbstractAction(&quot;Foo&quot;) {
+		public void actionPerformed(ActionEvent ev) {
+			System.err.println(ev);
+		}
+	};
+</pre>
+      <p>An Action that has a non-null value for <a href="http://download.oracle.com/javase/6/docs/api/javax/swing/Action.html#SELECTED_KEY" class="external-link" rel="nofollow"><code>Action.SELECTED_KEY</code></a> property is displayed in different ways in the menu, depending on the value of the <code>&quot;Radio&quot;</code> property. If the <code>&quot;Radio&quot;</code> is set to Boolean.TRUE it will be displayed as a <a href="http://download.oracle.com/javase/6/docs/api/javax/swing/JRadioButtonMenuItem.html" class="external-link" rel="nofollow"><code>JRadioButtonMenuItem</code></a> otherwise as a <a href="http://download.oracle.com/javase/6/docs/api/javax/swing/JCheckBoxMenuItem.html" class="external-link" rel="nofollow"><code>JCheckBoxMenuItem</code></a>. This property doesn't affect the Action's behavior in toolbars. It will be always displayed as a <a href="http://download.oracle.com/javase/6/docs/api/javax/swing/JToggleButton.html" class="external-link" rel="nofollow"><code>JToggleButton</code></a> there. For examples see the code of the <code>&quot;newToggleAction&quot;</code> and <code>&quot;newRadioAction&quot;</code> actions in the attached <a href="file:///D:/work/svn_head/Marvin/help/sketch/gui/gui-files/NewActionInSketch.java.txt" class="external-link" rel="nofollow">source code</a>.</p>
+      <p>After that, add the new action to the action map of the sketcher</p>
+      <pre>msketchPane.getActionMap().put(&quot;foo&quot;, newFooAction);</pre>
+      <p>To be able to access it in the <strong>Customize...</strong> dialog, set the <strong>useComponentActions</strong> parameter to <strong>true</strong>.</p>
+      <pre>msketchPane.setParams(&quot;useComponentActions=true\n&quot;);</pre>
+      <p>To test this functionality, run you custom application, open <strong>View/Customize</strong> menu, push the <strong>Add...</strong> button. The <strong>Custom</strong> entry appears among <strong>Categories</strong>. Under this category, you will see <em>Foo</em> in the <strong>Commands</strong> list.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13336699/13402231.png" data-image-src="attachments/13336699/13402231.png" data-unresolved-comment-count="0" data-linked-resource-id="13402231" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="add_commands.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13336699" data-linked-resource-container-version="1" /></span>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>Thus, you can insert this command manually into the running application to the desired place. For example, you can insert the <em>Foo</em> action into the <em>Atom</em> popup menu. But this modification is not preserved for the next time.</p>
+      <p>To add the new action permanently, define a menu configuration xml for you application. See the linking documentation how to export a configuration file: <a href="file:///D:/work/svn_head/Marvin/help/sketch/gui/configurations.html" class="external-link" rel="nofollow">Configurations of MarvinSketch</a>.</p>
+      <p>In our example, the new action appears in the menu config file like this:</p>
+      <pre>&lt;add path=&quot;popup/atom&quot;&gt;
+   &lt;item id=&quot;foo&quot;/&gt;
+&lt;/add&gt;
+</pre>
+      <p>The full xml file can be download from here: <a href="file:///D:/work/svn_head/Marvin/help/sketch/gui/gui-files/foo.xml" class="external-link" rel="nofollow">foo.xml</a>.</p>
+      <p>If the config xml is ready, place into the codebase of your application. The codebase is the same directory where the main jar of your application is located.</p>
+      <p>Modify the initalization of the sketcher component. Create a <em>UserSettings</em> object and specify the location of the xml file in the <strong>menuconfig</strong> parameter then give it for <strong>MSketchPane</strong>.</p>
+      <pre>UserSettings settings = new UserSettings();
+settings.setProperty(&quot;menuconfig&quot;,&quot;foo.xml&quot;);
+MSketchPane msketchPane = new MSketchPane(settings);
+</pre>
+      <p>The full java code is available here: <a href="file:///D:/work/svn_head/Marvin/help/sketch/gui/gui-files/NewActionInSketch.java.txt" class="external-link" rel="nofollow">NewActionInSketch.java</a></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

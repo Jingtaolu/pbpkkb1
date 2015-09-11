@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : XYZ format</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : XYZ format </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="XYZformat-XYZformat"><a class="anchor" name="xyz" rel="nofollow"></a>XYZ format</h2>
+          <p>Marvin imports and exports XYZ molecule files that have the following format:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">[ # optional comment line ]     not written but allowed at import
+[  N                      ]     always written, but can be omitted in imported files  
+[  name\tE                ]     always written, but can be omitted in imported files
+	atom1 x y z
+	atom2 x y z
+	...
+	atomN x y z</pre> 
+           </div>
+          </div>
+          <p>where <em>N</em> is the number of atoms and <em>E</em> is the energy (optional). If energy is set for the molecule, then it is separated from the molecule <em>name</em> with a TAB (&quot;\t&quot;) character.</p>
+          <p>Restrictions of the XYZ format:</p>
+          <ul>
+           <li>Bonds are not stored.</li>
+           <li>As a consequence, all the hydrogens must be explicit, otherwise the bond types can not be guessed reliably by the importing program. In Marvin, implicit hydrogens are automatically converted to explicit H atoms at XYZ export.</li>
+           <li>Charges are not stored.</li>
+           <li>Query properties and other extra features are not stored.</li>
+          </ul>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename</em>: <strong>xyz</strong></p> 
+           </div>
+          </div>
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelHeader" style="border-bottom-width: 1px;">
+            <b>See also</b>
+           </div>
+           <div class="panelContent"> 
+            <p>&nbsp;</p> 
+           </div>
+          </div>
+          <div class="confluence-information-macro confluence-information-macro-warning"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p><strong>Do not export 2D drawings in XYZ!</strong></p>
+            <p>XYZ export in Marvin is only meaningful for 3D molecules with realistic atomic distances.</p>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

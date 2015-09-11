@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Position variation bonds</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Position variation bonds </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Position variation bonds are bonds attached to variable atoms at one or both end positions. The set of variable atoms is drawn as a multicenter group. A position variation bond connects one atom from one end position to one atom from the other end position. If the end position is a single atom then the bond is attached to this atom, if the end position is a multicenter group then the bond is attached to an arbitrary member of the group.</p>
+      <p>Position variation drawing in Marvin Sketch is described in&nbsp;<a href="https://docs.chemaxon.com/display/marvinsketch/Markush+structures">Help</a>.</p>
+      <p><strong>Limitations:</strong></p>
+      <ul>
+       <li>Position variation bonds are only allowed to connect atoms of different fragments (i.e., position variation bonds cannot be part of a ring).</li>
+       <li>Multicenter groups are not allowed to contain R-atoms.</li>
+       <li>Multicenter groups are not allowed to contain another position variation bond (i.e., position variation bonds cannot be nested).</li>
+      </ul>
+      <p>If a link node is a member of a multicenter group then the group will also include the repeated atoms if the original multicenter group contains no more atoms from the link fragment, otherwise the position variation bond is part of the link fragment and repeated together with the link node. If the position variation bond is part of the link fragment the multicenter group can have atoms only within the link fragment and the link node atom.</p>
+      <p>Although an R-atom is not allowed to take part in position variation, it can be the single-atom end position of a position variation bond, in which case its attachment point is connected to the bond.</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Example</th>
+          <th class="confluenceTh">Example Markush library members</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25395224/25559053.png" data-image-src="attachments/25395224/25559053.png" data-unresolved-comment-count="0" data-linked-resource-id="25559053" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markush14_1c.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25395224" data-linked-resource-container-version="25" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/25395224/25559054.png" data-image-src="attachments/25395224/25559054.png" data-unresolved-comment-count="0" data-linked-resource-id="25559054" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markush14_1b.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25395224" data-linked-resource-container-version="25" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25395224/25559055.png" data-image-src="attachments/25395224/25559055.png" data-unresolved-comment-count="0" data-linked-resource-id="25559055" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markush14_2c.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25395224" data-linked-resource-container-version="25" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/25395224/25559056.png" data-image-src="attachments/25395224/25559056.png" data-unresolved-comment-count="0" data-linked-resource-id="25559056" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="markush14_2d.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25395224" data-linked-resource-container-version="25" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

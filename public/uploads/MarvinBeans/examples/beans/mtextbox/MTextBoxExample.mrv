@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<cml>
+<MDocument>
+  <MTextBox id="o2" fontScale="10.0" halign="LEFT" valign="TOP">
+    <Field name="text"><![CDATA[{fg=#000000,size=12}The element{fg=#ff0000} hydrogen{fg=#000000,bold} has three isotopes:{nobold} H{subL=1,scale=0.7,dy=0.6}1 {subL=-1,dy=-0.6}1 {subL=0,scale=1.0}, D{subL=1,scale=0.7,dy=0.6}2 {subL=-1,dy=-0.6}1 {subL=0,scale=1.0}and T{subL=1,scale=0.7,dy=0.6}3 {subL=-1,dy=-0.6}1 {subL=0,scale=1.0}. They're being called {italic} hydrogen,{fg=#0000ff,bold,noitalic} deuterium{fg=#000000,nobold} and{bold,italic} tricium.]]></Field>
+    <MPoint x="0.0" y="0.0" />
+    <MPoint x="5.358284285940843" y="8.679215950248008" />
+    <MPoint x="9.612801908611434" y="6.052606006159358" />
+    <MPoint x="4.254517622670592" y="-2.626609944088649" />
+  </MTextBox>
+</MDocument>
+</cml>

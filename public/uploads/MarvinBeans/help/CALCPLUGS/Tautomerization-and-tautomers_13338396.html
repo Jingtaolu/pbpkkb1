@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Tautomerization and tautomers</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Tautomerization and tautomers </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent"> 
+        <p><span>This page explains the concepts behind our tautomer generation process:</span></p>
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200962129 {padding: 0px;}
+div.rbtoc1439200962129 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200962129 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200962129"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#Tautomerizationandtautomers-Introduction">Introduction</a></li> 
+          <li><a href="#Tautomerizationandtautomers-Tautomerformsinthetautomerizationmodel">Tautomer forms in the tautomerization model &nbsp;</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#Tautomerizationandtautomers-Comparisonofthegeneratedtautomerforms-example">Comparison of the generated&nbsp;tautomer forms - example</a></li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <h1 id="Tautomerizationandtautomers-Introduction">Introduction</h1>
+      <p>&nbsp;</p>
+      <p>Tautomers are structural isomers of organic compounds that are in dynamic equilibrium due to the migration of a proton. The isomerization reaction by which tautomers are interconverted is called tautomerization.</p>
+      <p>In the <a href="#Tautomerizationandtautomers-fig.1">following picture</a> X, Y and Z atoms can be C, H, O or S atom, and H becomes an electrophile center during isomerization. When the electrophile center is a H<sup>+</sup>, the isomerization is also known as&nbsp;<em>prototropy</em>.&nbsp;<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="Tautomerizationandtautomers-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338396/29099693.png" data-image-src="attachments/13338396/29099693.png" data-unresolved-comment-count="0" data-linked-resource-id="29099693" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="tautomerization.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338396" data-linked-resource-container-version="39" /></span><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Fig. 1 Tautomerization (isomerization) example</span></p>
+      <p>&nbsp;</p>
+      <p>In solutions - in which tautomerization is possible - a <a href="#Tautomerizationandtautomers-fig.2">chemical equilibrium</a> of the isomers will be reached while the reaction results in the formal migration of a hydrogen atom or proton accompanied by a switch of a single bond and an adjacent double bond. Usually the catalysts of these reactions are acids or bases.<br />&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="Tautomerizationandtautomers-fig.2"></span></p>
+      <p><span style="color: rgb(54,54,54);"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="400" src="attachments/13338396/35947816.jpg" data-image-src="attachments/13338396/35947816.jpg" data-unresolved-comment-count="0" data-linked-resource-id="35947816" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="tautomer_mech.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338396" data-linked-resource-container-version="39" /></span>&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Fig. 2 Chemical equilibrium between tautomers and the schematic mechanism of the tautomerization</span></p>
+      <p><span style="color: rgb(54,54,54);"><br /></span></p>
+      <h1 id="Tautomerizationandtautomers-Tautomerformsinthetautomerizationmodel">Tautomer forms in the tautomerization model<br />&nbsp;</h1>
+      <p>Different tautomers forms of a chemical compound can be generated with the tautomer generator. It first identifies all possible proton donors and acceptors in a molecule and finds tautomerization paths between them. Then depending on the tautomer form one wants to calculate, the tautomerization algorithm can</p>
+      <ul style="margin-left: 20.0px;">
+       <li>combine the tautomer paths into tautomer regions (resulting in a g<em>eneric tautomer </em>representation)</li>
+       <li>combinatorially generates all possible tautomer forms (resulting in the set of <em>a</em><em>ll tautomers</em>)</li>
+       <li>filter and rank the enumerated forms (resulting in a m<em>ajor tautomer&nbsp;</em>form or d<em>ominant tautomer distribution</em>);</li>
+       <li>it can provide a (unique) c<em>anonical</em> tautomer form<em>&nbsp;</em>with canonicalization of all forms</li>
+       <li><em>normal </em>forms by applying normalization</li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><span>Canonicalization</span><span style="color: rgb(54,54,54);">&nbsp;applies systematic rearrangement of single and double bonds in the available tautomer regions, resulting in a unique tautomer form that can theoretically represent the whole tautomer set of the input structure. &nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">With the <em>Normal</em></span><em>&nbsp;tautomer</em><span style="color: rgb(54,54,54);"><em>&nbsp;generation</em> option the tautomer forms are generated according to empirical rules. Normal tautomer generation narrows down the possible tautomerization paths and leads to chemically more feasible products. You can find detailed description of the different tautomer generation options&nbsp;<a href="Tautomer-Generation-Plugin_12583378.html">here</a>.<br />&nbsp;</span></p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>The normal tautomer generation mode corresponds to the old rational tautomer generation mode.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <h2 id="Tautomerizationandtautomers-Comparisonofthegeneratedtautomerforms-example"><span>Comparison of the generated&nbsp;tautomer forms - example</span></h2>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p>The <a href="#Tautomerizationandtautomers-fig.3">example below</a> illustrates the different generated tautomer forms for the example molecule.</p>
+      <p><span class="confluence-anchor-link" id="Tautomerizationandtautomers-fig.3"></span></p>
+      <p><span style="color: rgb(54,54,54);"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="900" src="attachments/13338396/37650459.jpg" data-image-src="attachments/13338396/37650459.jpg" data-unresolved-comment-count="0" data-linked-resource-id="37650459" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="tautomers.jpg" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="13338396" data-linked-resource-container-version="39" /></span>&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">Fig. 3 Different tautomer forms generated for the input molecule</span></p>
+      <p><span style="color: rgb(54,54,54);">&nbsp;</span></p>
+      <p><span style="color: rgb(54,54,54);">This example illustrates how the applied rules for tautomer generation narrows down the generated number of tautomers. The canonical form represents a unique form that can be regarded as a &quot;theoretical&quot; representation of the whole tautomer set. </span></p>
+      <p><span style="color: rgb(54,54,54);">Normal canonical forms are representations of subsets of the whole tautomer set. Such a subset is narrowed down into its normal canonical form by introducing chemical rules into the generation process. (A chemical rule is a consideration whether a tautomer transformation between two forms can happen.)</span><span style="color: rgb(54,54,54);line-height: 1.4285715;">&nbsp;Tautomer forms within a subset can all be converted into each other, and their normal canonical form will be the same, too. However, forms that are elements of two different subsets (e.g. blue and red subset in the example) cannot be transformed into each other according the normal canonical tautomerization rules, and they will have different normal canonical forms, too.</span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

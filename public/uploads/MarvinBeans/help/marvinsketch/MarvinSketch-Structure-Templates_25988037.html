@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : MarvinSketch Structure Templates</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : MarvinSketch Structure Templates </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h4 id="MarvinSketchStructureTemplates-CustomizingStructureTemplates"><a class="external-link" href="http://www.chemaxon.com/marvin/examples/beans/sketch-templates/index.html#customize" name="customize" rel="nofollow"></a>Customizing Structure Templates</h4>
+      <p>By default, MarvinSketch contains 12 <a href="Templates_25985861.html">template groups</a>, as described in the Developer's Guide.</p>
+      <p>The Generic and My Templates groups automatically appear on the <a href="Advanced-Templates-Toolbar_16122186.html">Advanced Templates toolbar</a> for easier access.</p>
+      <p>&nbsp;</p>
+      <p>In this example, the My Templates group contains one molecule: benzene.</p>
+      <p>The goal of this example is to customize the template structures of MarvinSketch in the following way:</p>
+      <ul>
+       <li>Generic and Rings template groups are set to visible on the toolbar</li>
+       <li>Two wedge bonds are defined in the Extra Templates group, which will also be visible on the toolbar</li>
+       <li>A new template group, Conformers is defined consisting of 6 structures</li>
+      </ul>
+      <p>The result of this customization can be seen on the picture below. The Conformers and My Templates template groups are not visible on the toolbar in this case.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988037/29098584.png" data-image-src="attachments/25988037/29098584.png" data-unresolved-comment-count="0" data-linked-resource-id="29098584" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sketch_templates.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988037" data-linked-resource-container-version="2" /></span></p>
+      <p>The code below is taken from <code>SketchTemplates.java</code>, where the structure templates are customized using the <code>setParams</code> method of the <code>MSketchPane</code> class. Currently this is the only way of defining template groups.<br /> In the example, the characters <strong>*</strong> and <strong>:</strong> are used as delimiters.</p>
+      <pre class="sh_java sh_sourceCode">    sketchPane<span class="sh_symbol">.</span><span class="sh_function">setParams</span><span class="sh_symbol">(</span>
+        UserSettings<span class="sh_symbol">.</span>TOOLBAR_TEMPLATES<span class="sh_symbol">+</span><span class="sh_string">&quot;0=*Generic*chemaxon/marvin/templates/generic.t</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span><span class="sh_symbol">+</span>
+        UserSettings<span class="sh_symbol">.</span>TOOLBAR_TEMPLATES<span class="sh_symbol">+</span><span class="sh_string">&quot;1=*Rings*chemaxon/marvin/templates/rings.t</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span><span class="sh_symbol">+</span>
+        UserSettings<span class="sh_symbol">.</span>EXTRA_TEMPLATES<span class="sh_symbol">+</span><span class="sh_string">&quot;=chemaxon/marvin/templates/wedgebonds.t</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span><span class="sh_symbol">+</span>
+        UserSettings<span class="sh_symbol">.</span>TEMPLATES<span class="sh_symbol">+</span><span class="sh_string">&quot;11=:Conformers:chemaxon/marvin/templates/conformers.t</span><span class="sh_specialchar">\n</span><span class="sh_string">&quot;</span><span class="sh_symbol">);</span>
+</pre>
+      <p class="confluence-link">Using the <a href="Display-parameters_25985397.html#Displayparameters-tt">ttmpls</a> parameter, Generic and Rings template groups will appear on the toolbar beside the structures defined by <a href="Display-parameters_25985397.html#Displayparameters-x">xtmpls</a>. <br /> The new template group called Conformers is defined with the <a href="Display-parameters_25985397.html#Displayparameters-tmpls">tmpls</a> parameter, which makes it available in the <a href="Template-Library-Manager_16449890.html">Template Library</a>.</p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/25988037/29098585.png" data-image-src="attachments/25988037/29098585.png" data-unresolved-comment-count="0" data-linked-resource-id="29098585" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sketch_templates2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="25988037" data-linked-resource-container-version="2" /></span></p>
+      <p>In this example we have used the <a href="attachments/25988037/26281298.txt" data-linked-resource-id="26281298" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="wedgebonds.t.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="25988037" data-linked-resource-container-version="2">wedgebonds.t.</a> and&nbsp; <a href="attachments/25988037/26281299.txt" data-linked-resource-id="26281299" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="conformers.t.txt" data-nice-type="Text File" data-linked-resource-content-type="text/plain" data-linked-resource-container-id="25988037" data-linked-resource-container-version="2">conformers.t.</a> compressed SDfiles. Note that currently template files can only be in SDfiles or compressed SDfiles formats with .t extension.</p>
+      <p>The same example is available as an <a href="http://www.chemaxon.com/marvin/examples/applets/sketch/templates.html" class="external-link" rel="nofollow">applet example</a>, showing the usage and effect of using these parameters in applets.</p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

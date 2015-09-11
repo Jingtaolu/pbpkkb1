@@ -1,0 +1,267 @@
+<HTML>
+<HEAD>
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../help/marvinmanuals.css">
+<TITLE>.NET GUI example application</TITLE>
+</HEAD>
+<BODY>
+<center>
+<h1>.NET GUI Example Application</h1>
+<h3>Version 15.8.10.0</h3>
+<p/>
+</center>
+<a href="#purpose">Purpose of the example</a>
+<br/>
+<a href="#functions">Functions of the application</a>
+<br/>
+<a href="#requirements">Requirements</a>
+<br/>
+<a href="#settingup">Setting up the example application</a>
+<br/>
+<a href="#implement">Notes on the implementation</a>
+<p/>
+<br/>
+
+<h2><a name="purpose"></a>Purpose of the example</h2>
+<p>
+    This example demonstrates how to use a .NET UserControl (in particular the
+    UserControl for MarvinSketch) that has been derived from a Marvin Java GUI
+    component. The current version of Marvin has in place the implementation
+    necessary for embedding MarvinSketch in .NET application. If you need more
+    support either in terms of functionality or in terms of the covered GUI
+    components or both, do not hesitate to drop a post on our <a
+    href="http://www.chemaxon.hu/forum/" target="_blank">Technical Support
+    Forum</a> in the <em>Structure editing, viewing and file formats</em>
+    section.
+</p>
+<p>
+    This example demonstrates how to embed a Marvin Java GUI component into a
+    .NET form and how to add .NET implementations to Java event listeners
+    (callbacks).
+</p>
+<br/>
+
+<h2><a name="functions"></a>Functions of the application</h2>
+<p>
+    The application consists of one WinForm which has the MarvinSketch component
+    (MSketchControl) embedded on the left side and a number of .NET controls on
+    the right side.
+</p>
+    <p align="center"><img alt="model" border="0"
+    src="images/snapshot.png"></p>
+
+<p>
+    The MSketchControl component practically offers the same
+    functionality as the corresponding MarvinSketch Java application: it let's
+    you visually create and manipulate molecular structures.
+</p>
+<p>
+    On the right of the WinForm, the first three .NET TextBoxes display properties of the
+    molecular structure being edited. The property values are updated "on the
+    fly", automatically as the structure in the MarvinSektch control changes
+    as a result of user interaction.
+</p>
+<p>
+    The second group of .NET components on the right of the WinForm demonstrates
+    the use of the calculation plugins. The calculations are performed only
+    after the "Calculate" button is pressed.
+</p>
+<br/>
+
+<h2><a name="requirements"></a>Requirements</h2>
+<p>
+    The tools mentioned in the <a
+    href="../../../../doc/dev/dotnet.html">Developers' Guide</a>
+    must be installed.
+</p>
+<br/>
+<h2><a name="settingup"></a>Setting up the example application</h2>
+<ol>
+<li>
+    <a href="#copydlls">Copy the required DDLs</a>
+</li>
+<li>
+    <a href="#compile">Compile the source code into executable</a>
+</li>
+<li>
+    <a href="#jnbconf">Configure the .NET-Java bridge</a>
+</li>
+</ol>
+<p/>
+<ol>
+<li>
+    <h3><a name="copydlls"></a>Copy the required DDLs</h3>
+    Copy the required DLLs in the <code>examples/ChemAxon.NET/GUI/MSketchApp</code>
+    directory which will be the starting directory for the sample GUI
+    application. The following DLLs are required:
+    <ul>
+        <li>
+        <code>marvin15.8.10.0_JnbProxies_1.1.dll</code> or
+        <code>marvin15.8.10.0_JnbProxies_2.0.dll</code> depending on the version of your
+        .NET runtime. You can <!-- Marvin download:--> <a
+            href="http://www.chemaxon.com/download.php?d=/data/download/marvin">download</a>
+        them from our website.
+        </li>
+    <li>
+        <code>JNBShare.dll</code> and <code>JNBSharedMem.dll</code> are both
+        part of the standard JNBridge package. The directories
+        <code>1.x-targeted</code> and <code>2.0-targeted</code> in the JNBridge
+        package contain different versions of both of them targeting different
+        versions of the .NET runtime.  Use those located in the directory
+        matching the version of your .NET runtime.
+    </li>
+    <li>
+        <code>JNBTools.dll</code> in the <code>lib</code> directory of the
+                uncompressed Marvin installation package.
+    </li>
+    </ul>
+</li>
+<br>
+<li>
+    <h3><a name="compile"></a>Compile the source code into executable</h3>
+    <ol>
+    <li>
+        Find the <code>init.bat</code> batch file in the
+        <code>examples/ChemAxon.NET</code> directory and modify the value
+        of the <code>PROCESSOR_TYPE</code> environment variable to match your
+        environment.
+    </li>
+    <li>
+        Open a Command Prompt window and call the
+        <code>sdkvars.bat</code> batch file located in the
+        <code>Bin</code> directory of your .NET SDK installation to
+        set the required environment variables.
+    </li>
+    <li>
+        Change your current working directory in the Command Prompt
+        window to the <code>examples/ChemAxon.NET/GUI/MSketchApp</code> directory.
+    </li>
+    <li>
+        Run the <code>build.bat</code> batch file in the
+        <code>examples/ChemAxon.NET/GUI/MSketchApp</code> directory.
+    </li>
+    </ol>
+</li>
+<br>
+<li>
+    <h3><a name="jnbconf"></a>Configure the .NET-Java bridge</h3>
+    <ol>
+    <li>
+        If you haven't done yet so, execute the following command after
+        unpacking the JNBridge files:
+<pre>
+registrationTool.exe /n /SE
+</pre>
+        in order to register JNBridge in the Standard Edition mode. (There is
+        one registrationtool.exe in the 1.x-targeted and one in the
+        2.0-targeted directory. You have to pick the one corresponding to your
+        .NET version.)
+    </li>
+    <li>
+        Review the settings in the
+        <code>examples/ChemAxon.NET/GUI/MSketchApp/MSketchApp.exe.config</code> file and change the
+        values, where necessary, to match your environment.
+        <p/>
+        The tag <code>configuration/jnbridge/dotNetToJavaConfig</code> contains
+        information the JNBridge needs to know how to channel calls made the the Marvin
+        .NET proxies. You have to set the attributes of the
+        <code>configuration/jnbridge/dotNetToJavaConfig</code>
+        tag as follows:
+        <ul>
+        <li>
+            <code>scheme</code>: leave it <code>sharedmem</code> as is;
+        </li>
+        <li>
+            <code>jvm</code>: should point to the <code>bin\server\jvm.dll</code> file in the JRE directory;
+        </li>
+        <li>
+            <code>jnbcore</code>: should point to <code>jnbcore.jar</code> under the JNBridge installation directory;
+        </li>
+        <li>
+            <code>bcel</code>: should point to <code>bcel-5.1-jnbridge.jar</code> under the JNBridge installation directory;
+        </li>
+        <li>
+            <code>classpath</code>: should include a semicolon-separated list of the
+            directory path to the required Java libraries:<br/>
+            <ol>
+                <li>
+                    <code>MarvinBeans.jar</code> in the <code>lib</code> directory of the
+                    uncompressed Marvin Beans package;
+                </li>
+                <li>
+                    <code>aloe.jar</code> in the same directory as <code>MarvinBeans.jar</code>.
+                </li>
+                <li>
+                    <code>jnbtools.jar</code> in the same directory as <code>MarvinBeans.jar</code>.
+                </li>
+            </ol>
+        </li>
+        </ul>
+    </li>
+    <li>
+       Make sure that that jawt.dll (part of the Java runtime) is in your path.
+       (An immediate way to do this to put it in the current directory of your
+       application.) 
+    </li>
+    </ol>
+</li>
+<br>
+</ol>
+    
+<br/>
+<h2><a name="implement"></a>Notes on the implementation</h2>
+<p>
+The class <code>chemaxon.jnbridge.marvin.example.MSketchControl</code>
+encapsulates the behavior of MarvinSketch as a
+<code>System.Windows.Forms.UserControl</code>. <code>MSketchControl</code> has
+a default a constructor and constructor that accepts a boolean parameter.  When
+this parameter is true, the Java menu bar is displayed in the Java GUI
+components (this is also the behaviour of the default constructor). When this
+parameter is false, the Java menu bar is not displayed (the popup menus
+triggered by right mouse click will work though).
+</p>
+
+<p>
+We recognize that the developer of a .NET GUI application will clearly want to
+have a uniform menu system -- and this menu system obviously needs to be a
+standard .NET menu system. Currently, the recommended approach for the .NET
+developers to implement .NET GUI menus is to implement the menu actions from
+scratch. The core functionality of the Java control embedded in MSketchApp is
+the graphical representation of the molecular structures (and this is actually
+the only functionality relevant for this demo). This core functionality is, in
+turn, accessible through the API of the GUI components involved. Consequently,
+implementing "from scratch" the action for the Edit/Bonds/Aromatize submenu,
+for example, would involve: (1) obtaining the Molecule instance from MolPanel,
+(2) calling the "aromatize()" tranformation function on the Molecule instance
+and (3) setting the transformed Molecule instance back into MolPanel.
+</p>
+
+<p>
+In addition to its constructor,
+its main public interfaces provide a means to register implementations of the
+<code>java.beans.PropertyChangeListener</code> and
+<code>java.awt.event.ActionListener</code> interfaces to handle events produced
+by MarvinSketch as a result of user interaction. The implementation of the
+<code>MSketchControl</code> class in source code form is made available only
+for the curious. The typical developer will not need to know the implementation.
+</p>
+<p>
+The <code>chemaxon.jnbridge.marvin.example.MSketch</code> WinForm has two functions:
+<ul>
+    <li>
+    displaying an instance of MSketchControl and
+    </li>
+    <li>
+    handling property change events generated by the MarvinSketch instance.
+    </li>
+</ul>
+</p>
+<p>
+The PropertyChangeEvent is handled in the method <code>propertyChange</code> of
+<code>MSketch</code>.  A change in the <code><b>mol</b></code> property
+indicates that the molecular structure displayed in MarvinSketch has been
+changed. MSketch uses this event to update the TextBoxes displaying selected
+properties of the compound.
+</p>
+
+</BODY>
+</HTML>

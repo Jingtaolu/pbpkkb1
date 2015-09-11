@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Troubleshooting - MView and JMView tables</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Troubleshooting - MView and JMView tables </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul>
+       <li>JavaScript Error: uncaught Java exception java/lang/ArrayIndexOutOfBoundsException<br /> <strong>Cause:</strong> <code>getC</code>, <code>setC</code>, <code>setActionC</code>, <code>setActionB</code> or <code>setM</code> called with too large argument.</li>
+       <li>Molecule cells hang out of the applet, some inner rows intertwine.<br /> <strong>Possible causes:</strong>
+        <ul>
+         <li>Applet size too small.</li>
+         <li>There are some rows of labels, buttons or checkboxes in a cell between the molecule, and their total height is bigger than the molecule height you specified.<br /> <strong>Solution</strong>: increase molecule height, decrease font size or reduce the number of rows per cell.</li>
+        </ul></li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

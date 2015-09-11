@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Structure Checker : Create Graphical User Interface for Checker Options</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Structure Checker : Create Graphical User Interface for Checker Options </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <ul>
+       <li><a href="#CreateGraphicalUserInterfaceforCheckerOptions-edit">Create an editor class</a></li>
+       <li><a href="#CreateGraphicalUserInterfaceforCheckerOptions-bind">Bind the editor to the checker</a></li>
+       <li><a href="#CreateGraphicalUserInterfaceforCheckerOptions-ready">Ready to edit</a></li>
+      </ul>
+      <h2 id="CreateGraphicalUserInterfaceforCheckerOptions-CreateGraphicalUserInterfaceforCheckerOptions">Create Graphical User Interface for Checker Options</h2>
+      <p>To support checker configuration from GUI, an editor is required. We are going to create a simple editor with three radio buttons to set the preferred behavior. The options will be &quot;Reactant Side&quot;, &quot;Product Side&quot;, and &quot;Both Sides&quot; respectively. The class is placed to the same package as the checker class is.</p>
+      <h3 id="CreateGraphicalUserInterfaceforCheckerOptions-editCreateaneditorclass"><a rel="nofollow"></a><span class="confluence-anchor-link" id="CreateGraphicalUserInterfaceforCheckerOptions-edit"></span>Create an editor class</h3>
+      <p>Extend the&nbsp;<code>DefaultCheckerEditor</code>&nbsp;class, create a&nbsp;<code>JPanel</code>&nbsp;with some&nbsp;<code>JRadioButton</code>&nbsp;instances, and bind the radio buttons to the&nbsp;<code>Checker</code>&nbsp;instance.</p>
+      <p>Overriding&nbsp;<code>getCustomComponent</code>&nbsp;method will add the&nbsp;<code>JPanel</code>&nbsp;to the editor, while&nbsp;<code>getEditorComponent</code>&nbsp;sets up the editor to represent the passed Checker’s state. Changing the radio buttons will alter the state of the Checker.</p>
+      <p>Download the&nbsp;<a href="attachments/28935114/29098564.zip" data-linked-resource-id="29098564" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="custom.zip" data-nice-type="Zip Archive" data-linked-resource-content-type="application/zip" data-linked-resource-container-id="28935114" data-linked-resource-container-version="8">example</a>&nbsp;and find &quot;DuplicateAtomMapCheckerEditor.java&quot;.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">   public class DuplicateAtomMapCheckerEditor extends DefaultCheckerEditor {
+
+        /** the main component */
+        private JPanel mainPanel = null;
+
+        /** radio button for reactant only */
+        private JRadioButton reactantRadio = null;
+
+        /** radio button for product only */
+        private JRadioButton productRadio = null;
+
+        /** radio button for both */
+        private JRadioButton bothRadio = null;
+
+        /** the checker instance being edited */
+        private DuplicateAtomMapChecker checker = null;
+
+        /** * Constructs an editor component for duplicate atom map checker. */
+        public DuplicateAtomMapCheckerEditor() {
+            ButtonGroup group = new ButtonGroup();
+            group.add(getReactantRadio());
+            group.add(getProductRadio());
+            group.add(getBothRadio());
+        }
+		
+        @Override
+        protected Component getCustomComponent() {
+            if (mainPanel == null) {
+
+                // create a panel and set up a layout
+                mainPanel = new JPanel();
+                mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+
+                // add control components
+                mainPanel.add(getReactantRadio());
+                mainPanel.add(getProductRadio());
+                mainPanel.add(getBothRadio());
+
+                // set up some design
+                mainPanel.setBackground(Color.WHITE);
+                mainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+            }
+            return mainPanel;
+        }
+
+        @Override
+        public JComponent getEditorComponent(StructureChecker checker) {
+            if (checker instanceof DuplicateAtomMapChecker) {
+                this.checker = (DuplicateAtomMapChecker) checker;
+                switch (this.checker.getReactionSide()) {
+                case REACTANT:
+                    getReactantRadio().setSelected(true);
+                    break;
+                case PRODUCT:
+                    getProductRadio().setSelected(true);
+                    break;
+                case BOTH:
+                default:
+                    getBothRadio().setSelected(true);
+                    break;
+                }
+            } else {
+                this.checker = null;
+            }
+            return super.getEditorComponent(this.checker);
+        }
+
+        /** * Initializes and returns the radio button for reactant only selection. * * @return the radio button for reactant only selection */
+        private JRadioButton getReactantRadio() {
+            if (reactantRadio == null) {
+                reactantRadio = new JRadioButton(&quot;Search in reactants&quot;);
+                reactantRadio.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (reactantRadio.isSelected()) {
+                            checker.setReactionSide(ReactionSide.REACTANT);
+                        }
+                    }
+                });
+            }
+            return reactantRadio;
+        }
+
+        /** * Initializes and returns the radio button for product only selection. * * @return the radio button for product only selection */
+        private JRadioButton getProductRadio() {
+            if (productRadio == null) {
+                productRadio = new JRadioButton(&quot;Search in products&quot;);
+                productRadio.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (productRadio.isSelected()) {
+                            checker.setReactionSide(ReactionSide.PRODUCT);
+                        }
+                    }
+                });
+
+            }
+            return productRadio;
+        }
+
+        /** * Initializes and returns the radio button for both selection. * * @return the radio button for both selection */
+        private JRadioButton getBothRadio() {
+            if (bothRadio == null) {
+                bothRadio = new JRadioButton(&quot;Search in reactants and products&quot;);
+                bothRadio.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (bothRadio.isSelected()) {
+                            checker.setReactionSide(ReactionSide.BOTH);
+                        }
+                    }
+                });
+
+            }
+            return bothRadio;
+        }
+    
+    }</pre> 
+       </div>
+      </div>
+      <h3 id="CreateGraphicalUserInterfaceforCheckerOptions-bindBindtheeditortothechecker"><span class="confluence-anchor-link" id="CreateGraphicalUserInterfaceforCheckerOptions-bind"></span>Bind the editor to the checker</h3>
+      <p>The new editor can be attached to the checker by adding a new option to the&nbsp;<code>@CheckerInfo</code>&nbsp;annotation in&nbsp;<code>DuplicateAtomMapChecker</code>&nbsp;class.</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Eclipse; brush: java; gutter: true" style="font-size:12px;">    @CheckerInfo(
+            name = &quot;Duplicate Atom Map Checker&quot;,
+            description = &quot;Checks for mapping duplicates in a reaction.&quot;,
+            editorClassName = &quot;custom.checkers.DuplicateAtomMapCheckerEditor&quot;,
+            noErrorMessage = &quot;No duplicate mappings found&quot;,
+            moreErrorMessage = &quot;duplicate mappings found&quot;,
+            actionStringToken = &quot;duplicateatommap&quot;)</pre> 
+       </div>
+      </div>
+      <p>Create a new JAR file, and export both&nbsp;<code>DuplicateAtomMapChecker</code>&nbsp;and&nbsp;<code>DuplicateAtomMapCheckerEditor</code>&nbsp;classes. Replace the previously generated JAR file with this one. Overwrite the&nbsp;<em>duplicateatommapchecker.jar</em>&nbsp;in&nbsp;<em>home/MyCustomCheckers</em>&nbsp;folder.</p>
+      <h3 id="CreateGraphicalUserInterfaceforCheckerOptions-readyReadytoedit"><a rel="nofollow"></a><span class="confluence-anchor-link" id="CreateGraphicalUserInterfaceforCheckerOptions-ready"></span>Ready to edit</h3>
+      <p>The new editor is available and works in all Structure Checker related ChemAxon products.</p>
+      <h2 id="CreateGraphicalUserInterfaceforCheckerOptions-"><a class="anchor" name="links" rel="nofollow"></a></h2> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

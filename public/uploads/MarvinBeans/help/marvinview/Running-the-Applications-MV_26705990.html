@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinView : Running the Applications MV</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinView : Running the Applications MV </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h3 id="RunningtheApplicationsMV-Windows">Windows</h3>
+      <p style="margin-left: 30.0px;">Double click on the <code>exe</code> file in the directory of Marvin Beans or its shortcut on the <em>Desktop</em> or in the <em>Start menu</em></p>
+      <p style="margin-left: 30.0px;">Start the <em>Command prompt</em> from the <em>Start menu</em>. Type<br /><code>msketch.bat</code></p>
+      <p style="margin-left: 30.0px;">If it says, &quot;No such file or directory&quot;, include the <em>bin</em> subdirectory of the Marvin Beans directory in the PATH environment variable, or give the full path of the file.<br /> E.g.: <code>C:\Program Files\ChemAxon\MarvinBeans\bin\msketch.bat</code></p>
+      <p style="margin-left: 30.0px;">For more details about changing environment variables, please consult the Windows Help.</p>
+      <p>&nbsp;</p>
+      <h3 id="RunningtheApplicationsMV-MacOSX">Mac OS X</h3>
+      <p style="margin-left: 30.0px;">Double click on the application in the directory of Marvin Beans. You can find the shortcut icon on the <em>Desktop</em> or on the <em>Dock</em> panel.</p>
+      <p style="margin-left: 30.0px;">Start the <em>Terminal</em> application to be able to work in UNIX shell then type the name of the application, for example</p>
+      <p style="margin-left: 60.0px;"><code>msketch</code></p>
+      <p style="margin-left: 30.0px;">For more details, please see the Unix/Linux command line section below.</p>
+      <p>&nbsp;</p>
+      <h3 id="RunningtheApplicationsMV-UNIX/Linux">UNIX / Linux</h3>
+      <p style="margin-left: 30.0px;">Double click on the application in the directory of Marvin Beans or its shortcut on <em>Desktop</em>.</p>
+      <p style="margin-left: 30.0px;">Bring up a terminal and type</p>
+      <pre style="margin-left: 30.0px;">	msketch </pre>
+      <p style="margin-left: 30.0px;">If it says, &quot;command not found&quot;, add the <code>bin</code> subdirectory of Marvin Beans directory to the PATH. For more details, please consult the manual of the current shell. If you do not put it in the PATH, you can launch the application the following way:<br /> Change the directory where the application is located then run application:</p>
+      <pre style="margin-left: 30.0px;">	cd &lt;MARVINBEANSHOME&gt;/bin
+	msketch
+	</pre>
+      <p style="margin-left: 30.0px;">or give the full path of the application to start it:</p>
+      <pre style="margin-left: 30.0px;">	&lt;MARVINBEANSHOME&gt;/bin/msketch</pre>
+      <p style="margin-left: 30.0px;"><small>* &quot;&lt;MARVINBEANSHOME&gt;&quot; indicates the location where Marvin Beans was installed. Substitute this value with the home directory of Marvin Beans. E.g.: <code>/home/username/ChemAxon/MarvinBeans</code>.</small></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

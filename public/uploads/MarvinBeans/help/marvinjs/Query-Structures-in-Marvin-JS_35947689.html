@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Query Structures in Marvin JS</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Query Structures in Marvin JS </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Query structures are generalized structures representing a group of similar molecules which differ only in some structural elements.&nbsp;</p>
+      <h2 id="QueryStructuresinMarvinJS-Queryatoms">Query atoms</h2>
+      <p>Query atom represents a group of elements which has common properties.</p>
+      <p><strong>Create them in Marvin JS:</strong> you can find them on the <strong><a href="Atom-Toolbar_34079115.html">Atom toolbar</a></strong>. See the available query atoms, and more details in the<strong><a href="Query-Atoms..._34079139.html"> Query Atoms...</a></strong> page in the Editor Overview section.&nbsp;<br /><strong>Usage in Marvin JS:</strong> you can create and manipulate the query atoms as other atoms. For more details, please check the <strong><a href="Atom_34701334.html">Atom</a></strong> page in the Drawing features section.</p>
+      <h2 id="QueryStructuresinMarvinJS-AtomListsandNOTLists">Atom Lists and NOT Lists</h2>
+      <p>An Atom List query atom indicates any atom that is part of the list; similarly, a NOT List query atom can represent any atom that is not part of the list.</p>
+      <p><strong>Create them in Marvin JS:&nbsp;</strong>Atom Lists and NOT Lists can be defined using the&nbsp;<strong><a href="Periodic-table-dialog_35226387.html">Periodic Table</a></strong>.&nbsp;</p>
+      <p><strong style="line-height: 1.4285715;">Usage in Marvin JS: </strong>After creation, you can modify the elements in <strong><a href="Atom-properties-dialog_35946507.html#Atompropertiesdialog-listNOTlistProperties">Atom properties dialog</a></strong>, otherwise, you can handle them as other atoms (move, delete, overwrite etc.).<strong style="line-height: 1.4285715;">&nbsp;</strong>For more details, please check the&nbsp;<strong><a href="Atom_34701334.html#Atom-drawAtomList">Atom</a></strong>&nbsp;page in the Drawing features section.</p>
+      <h2 id="QueryStructuresinMarvinJS-Homologygroups">Homology groups</h2>
+      <p>Built-in homology groups of Marvin JS represent series of chemical compounds with the same specific structural properties.&nbsp;&nbsp;<a href="Atom-properties-dialog_35946507.html#Atompropertiesdialog-homologyGroupProperties">Click here for the list of the available homology groups.</a>&nbsp;<br /><em style="line-height: 1.4285715;">(If you need more information about the properties or search conditions of the homology groups, please, check the corresponding pages of JChem Base documentation or just click <a href="https://docs.chemaxon.com/display/jchembase/Homology+Groups+and+Markush+Structures#HomologyGroupsandMarkushStructures-list" rel="nofollow">here</a>.</em><em style="line-height: 1.4285715;">)</em></p>
+      <p><strong><strong>Create them in Marvin JS:&nbsp;</strong>&nbsp;</strong>Homology groups can be created via&nbsp;<strong><a href="Atom-properties-dialog_35946507.html">Atom properties<span style="color: rgb(0,0,255);">&nbsp;</span>dialog</a>,</strong> after a right-click on an atom. At the top of the dialog, change 'Element' to 'Homology Groups'&nbsp;then select the appropriate group from the list and choose either its full name or its alias at the 'Display' option.</p>
+      <p><strong>Usage in Marvin JS:</strong>&nbsp;On the canvas you can manipulate the homology groups as other atoms (move, delete, overwrite etc.).&nbsp;For more details, please check the&nbsp;<strong><a href="Atom_34701334.html#Atom-drawAtomList">Atom page</a></strong>&nbsp;in the Drawing features section.</p>
+      <h2 id="QueryStructuresinMarvinJS-bondQueryQuerybonds"><span class="confluence-anchor-link" id="QueryStructuresinMarvinJS-bondQuery"></span>Query bonds</h2>
+      <p>Bond query represents that the actual bond can be more than one type.&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">Type</th>
+          <th class="confluenceTh">Bond type</th>
+          <th class="confluenceTh">Representation</th>
+         </tr>
+         <tr>
+          <td rowspan="4" class="confluenceTd"><strong>Generic</strong><br /><br /><br /></td>
+          <td class="confluenceTd"><span>Any</span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-center" width="40" src="attachments/35947689/35947964.png" data-image-src="attachments/35947689/35947964.png" data-unresolved-comment-count="0" data-linked-resource-id="35947964" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-23 17:8:48.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span>Single or double</span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-center" width="40" src="attachments/35947689/35947965.png" data-image-src="attachments/35947689/35947965.png" data-unresolved-comment-count="0" data-linked-resource-id="35947965" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-23 17:10:1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span>Single or aromatic</span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-center" width="40" src="attachments/35947689/35947966.png" data-image-src="attachments/35947689/35947966.png" data-unresolved-comment-count="0" data-linked-resource-id="35947966" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-23 17:11:2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><span>Double or aromatic</span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-center" width="40" src="attachments/35947689/35947967.png" data-image-src="attachments/35947689/35947967.png" data-unresolved-comment-count="0" data-linked-resource-id="35947967" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-23 17:11:54.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span></td>
+         </tr>
+         <tr>
+          <td rowspan="3" class="confluenceTd"><strong>Stereo</strong></td>
+          <td class="confluenceTd">Double Cis or Trans</td>
+          <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="40" src="attachments/35947689/35947969.png" data-image-src="attachments/35947689/35947969.png" data-unresolved-comment-count="0" data-linked-resource-id="35947969" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-23 17:15:49.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Double C/T or Unspecified</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-center" width="42" src="attachments/35947689/35947970.png" data-image-src="attachments/35947689/35947970.png" data-unresolved-comment-count="0" data-linked-resource-id="35947970" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-23 17:17:13.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Single Up or Down</td>
+          <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail image-center" width="40" src="attachments/35947689/35947995.png" data-image-src="attachments/35947689/35947995.png" data-unresolved-comment-count="0" data-linked-resource-id="35947995" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-24 11:41:35.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><strong>Create them in Marvin JS: </strong>You can find these kind of bonds in the <strong><a href="Bonds..._34078788.html#Bonds...-kindOfBonds">Bonds combo-box</a></strong> on the Tools toolbar. Just click on the desired bond, and it will appear on the tip of the cursor. Now, you can put it anywhere on the canvas as many times as you want.</p>
+      <p><strong>Usage in Marvin JS:</strong> You can edit these bonds, as the others. <a href="Bond_34701336.html">See in details here.</a></p>
+      <h2 id="QueryStructuresinMarvinJS-PositionVariationBond(variablepointofattachment)">Position Variation Bond (variable point of attachment)</h2>
+      <p>Position variation bond represents a variable connection pointing from a group of atoms to an atom.</p>
+      <p><strong>Create them in Marvin JS: </strong>Find these kind of bonds in the&nbsp;<a href="Bonds..._34078788.html#Bonds...-kindOfBonds">Bonds combo-box</a>&nbsp;on the Tools toolbar. <a href="Bond_34701336.html#Bond-drawPosVarBond">Detailed description how to draw position variation bond here.</a></p>
+      <p><strong>Usage in Marvin JS: </strong>After creation, several properties of this bon is changeable, such as bond type, topology, location on the canvas, etc. <a href="Bond_34701336.html#Bond-changeBondProperties">You can see a detailed description about editing the bonds here.</a></p>
+      <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="25" src="attachments/35947689/35948102.png" data-image-src="attachments/35947689/35948102.png" data-unresolved-comment-count="0" data-linked-resource-id="35948102" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-28 13:6:17.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="35947689" data-linked-resource-container-version="49" /></span><span>&nbsp;</span><a href="Video-Tutorials_23692062.html#VideoTutorials-positionVariationBond">See how to use the&nbsp;<strong>Position variation tool</strong>&nbsp;here.</a></p>
+      <h2 id="QueryStructuresinMarvinJS-R-groupqueries">R-group queries</h2>
+      <p>You can create R-groups, manage R-group definitions and add attachment points in Marvin JS to your structures.&nbsp;</p>
+      <p><strong>Create and usage in Marvin JS:</strong>&nbsp;<a href="R-group_34701344.html">Here you can read a detailed description about how to manage R-group queries in Marvin JS.</a></p>
+      <h2 id="QueryStructuresinMarvinJS-Absolutestereoinformation">Absolute stereo information</h2>
+      <p>The &quot;Absolute&quot; chiral flag on a molecule indicates that every chiral center marked with wedge bonds has a known absolute configuration, in other words the structure represents a single, well-defined stereoisomer.</p>
+      <p><strong>Create them in Marvin JS: </strong>The chiral flag can be added to a molecule through the&nbsp;<strong><a href="Empty-Space-Context-menu_34702268.html">Empty space</a></strong> or the <strong><a href="Selection-Context-Menu_34702198.html">Selection</a></strong> pop-up menu.</p>
+      <p><strong>Display:</strong> <span>The visibility of the chiral flag can be turned on/off in the&nbsp;</span><strong><a href="View-Settings-dialog_35226318.html#ViewSettingsdialog-viewSettingsVisibility">View Settings</a></strong><span style="color: rgb(0,0,255);">&nbsp;</span><span>dialog window.</span></p>
+      <div class="panel" style="background-color: white;border-color: #ff9900;border-width: 1px;">
+       <div class="panelContent" style="background-color: white;"> 
+        <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> Depending on the file format, a molecule which has wedge bonds without a chiral flag has either of the following meanings:</p>
+        <ul>
+         <li>In MDL file types (MOL, SDF, ...): wedge bonds describe the relative configuration of chiral centers; the structure is a racemic mixture of two enantiomers.</li>
+         <li>In Daylight file types (SMILES, SMARTS): wedge bonds describe the absolute configuration of chiral centers; the structure represents a single enantiomer.</li>
+        </ul> 
+       </div>
+      </div>
+      <h2 id="QueryStructuresinMarvinJS-enhancedStereoEnhancedstereospecifications"><span class="confluence-anchor-link" id="QueryStructuresinMarvinJS-enhancedStereo"></span>Enhanced stereo specifications</h2>
+      <p>Marvin JS&nbsp;supports the MDL enhanced stereo representation. Enhanced stereo specifications refer to several stereoisomers of a molecule by drawing only one structure. Adding these notations to chiral centers makes it possible to represent stereochemical information: whether we know the absolute configuration of a stereogenic center or we have information only about the relative configuration of two or more chiral atoms. <br />Each group label consists of an identifier, and – in some cases – of a number. Each and every stereocenter belongs to<span> only</span> one stereogenic group.</p>
+      <h3 id="QueryStructuresinMarvinJS-Availableidentifiers:"><span>Available identifiers:</span></h3>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">&nbsp;</th>
+          <th class="confluenceTh">&nbsp;</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Off</strong></td>
+          <td class="confluenceTd"><span>We have no information about the configuration of the chiral atom</span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Abs</strong></td>
+          <td class="confluenceTd"><span>We know the absolute configuration of the chiral center</span></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><strong>Or</strong></td>
+          <td class="confluenceTd"><span>We only know the configuration of the atom relative to another chiral center, but we do not have information about the absolute configuration.<br />For a molecule with two chiral centers it either refers to the structure as drawn (</span><em>e.g.</em><span>,&nbsp;</span><strong>1<em>R</em></strong><em>,</em><strong>2<em>R</em></strong><span>&nbsp;configuration) or to its enantiomer, which has opposite configuration on its chiral atoms (</span><strong>1<em>S</em></strong><em>,</em><strong>2<em>S</em></strong><span>)</span></td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd"><strong>And</strong></td>
+          <td colspan="1" class="confluenceTd"><span>We use the „And&quot; notation if we want to represent a mixture of stereoisomers which can contain specified enantiomers/diastereomers or even every optical isomer.</span></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p><strong style="line-height: 1.4285715;">Set and modify these properties in Marvin JS:</strong> You can add these properties to the chiral atoms via <strong style="line-height: 1.4285715;"><a href="Atom-properties-dialog_35946507.html#Atompropertiesdialog-basicAtomProperties">Atom properties dialog</a></strong>.</p>
+      <p>You can find a more detailed description of enhanced stereo representation along with a set of examples in the&nbsp;<a href="https://docs.chemaxon.com/display/jchembase/Stereochemistry#Stereochemistry-mdl_enhanced_stereo" rel="nofollow">JChem Query Guide</a><a class="external-link" href="http://www.chemaxon.com/jchem/doc/user/query_stereochemistry.html#mdl_enhanced_stereo" rel="nofollow">.</a></p>
+      <p></p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        Please, note that import and export of enhanced stereo notations are not possible in MDL Molfile V2000 format, only in the extended MDL Molfile (V3000) format (provided that the relevant webservice is available).
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

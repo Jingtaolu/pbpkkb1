@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Where are the settings stored?</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Where are the settings stored? </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The settings of the Marvin applications MarvinSketch and MarvinView have three layers:</p>
+      <p>The first layer is the default settings Chemaxon provides inside the marvin-gui.jar file which is part of the default MarvinBeans installation.</p>
+      <p>The second layer is the marvin.properties file inside the system standard settings directory that contains settings for all users on the given operating system.</p>
+      <p>The third layer is the marvin.properties file inside the Chemaxon settings directory in the user home folder that contains settings for the actual user running the application on the given system.</p>
+      <p>The locations of these directories on different systems:</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">OS</th>
+          <th class="confluenceTh">System level location</th>
+          <th colspan="1" class="confluenceTh">User Level location</th>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Windows Systems</td>
+          <td class="confluenceTd">%ALLUSERSPROFILE%\ChemAxon</td>
+          <td colspan="1" class="confluenceTd">%USERHOME%\chemaxon</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Linux Systems</td>
+          <td class="confluenceTd">/etc/chemaxon</td>
+          <td colspan="1" class="confluenceTd">~/.chemaxon</td>
+         </tr>
+         <tr>
+          <td colspan="1" class="confluenceTd">Mac Systems</td>
+          <td colspan="1" class="confluenceTd">/Library/ChemAxon</td>
+          <td colspan="1" class="confluenceTd">~/.chemaxon</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p>&nbsp;</p>
+      <p>The settings are loaded hierarchically, the user level settings take precedence over the system level settings.</p>
+      <p>When no user or system level settings are defined then the Chemaxon default settings are used.</p>
+      <p>MarvinSketch saves only the differences from the earlier levels in the user level&nbsp; property file.</p>
+      <p>&nbsp;</p>
+      <p>With these layers a system administrator can define a system level default configuration for the users - that differ from the defaults provided by Chemaxon - by placing a marvin.properties file into the system level settings folder.</p>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>This development was released in 15.7.6 version.</p>
+       </div> 
+      </div> 
+      <p>&nbsp;</p>
+      <p>&nbsp;</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

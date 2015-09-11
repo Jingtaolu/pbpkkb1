@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta NAME="author" CONTENT="Nora Mate">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Concurrent plugin API usage examples</title>
+</head>
+<body>
+
+<h1>Concurrent plugin API usage examples</h1>
+
+
+<p>
+<a href="../../help/developer/beans/api/chemaxon/util/concurrent/package-summary.html">ChemAxon's concurrent framework</a> is based on the
+<a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/concurrent/package-summary.html" target="_blank">Java 5.0 <code>java.util.concurrent</code> API</a>. 
+</p>
+<p>
+There are three examples which show code samples making use of ChemAxon's concurrent framework.
+The common code is written in <a href="ConcurrentPluginApplication.java.txt">ConcurrentPluginApplication</a>:
+it starts a <a href="../../help/developer/beans/api/chemaxon/util/concurrent/ConcurrentProcessor.html">ConcurrentProcessor</a> with a
+specified <a href="../../help/developer/beans/api/chemaxon/util/concurrent/InputProducer.html">InputProducer</a> and
+<a href="../../help/developer/beans/api/chemaxon/util/concurrent/WorkUnitFactory.html">WorkUnitFactory</a>. The
+<a href="../../help/developer/beans/api/chemaxon/util/concurrent/InputProducer.html">InputProducer</a> is supposed to produce the
+plugin inputs: the input molecules and possibly the plugin objects which perform the calculation.
+The <a href="../../help/developer/beans/api/chemaxon/util/concurrent/WorkUnit.html">WorkUnit</a> objects produced by the
+<a href="../../help/developer/beans/api/chemaxon/util/concurrent/WorkUnitFactory.html">WorkUnitFactory</a> are run concurrently
+by the <a href="../../help/developer/beans/api/chemaxon/util/concurrent/ConcurrentProcessor.html">ConcurrentProcessor</a> and
+supposed to execute the plugin calculation (the <a href="../../help/developer/beans/api/chemaxon/marvin/plugin/CalculatorPlugin.html#run()"</a>CalculatorPlugin.run()</a> method). Finally, the results are collected in
+<code>ConcurrentPluginApplication.consume(Object result)</code> in the main thread. It is important
+to process the results in a single thread so that the order of the results was the same as the order of the
+input molecules. 
+</p>
+<p>
+Our examples show different ways to provide the inputs and outputs for the concurrent processor.
+Input molecules are read from <code>System.in</code> if the molecule file is omitted.
+<br>
+The following API is used:
+<ul>
+<li>Marvin specific API in 
+<a href="../../help/developer/beans/api/chemaxon/util/concurrent/marvin/package-summary.html">chemaxon.util.concurrent.marvin</a></li>
+<li>Plugin specific API in
+<a href="../../help/developer/beans/api/chemaxon/marvin/plugin/concurrent/package-summary.html">chemaxon.marvin.plugin.concurrent</a></li>
+</ul>
+</p>
+<p>In the following examples we use the <strong>test.smiles</strong> input molecule file:</p>
+<table border="0" cellspacing="0" align="center">
+	<tr>
+		<td><img border="0" src="test.png" alt=""></td>
+	</tr>
+</table>
+<p>
+<ul>
+<li><a href="logDPluginApplication.java.txt">logDPluginApplication</a> is a simple application showing
+concurrrent logD calculation. The input is the molecule, the output is the logD value at a given pH
+(the default pH is <code>7.4</code>).
+<pre>
+Usage:
+  java logDPluginApplication [pH] [molFile]
+
+Example:
+  java logDPluginApplication 5.2 test.smiles
+</pre>
+</li>
+<li><a href="pKaPluginApplication.java.txt">pKaPluginApplication</a> shows concurrent pKa calculation.
+The input is the molecule, the output is a result record storing the given number of strongest pKa values
+(or all, if this number is omitted).
+<pre>
+Usage:
+  java pKaPluginApplication [count] [molFile]
+
+Example:
+  java pKaPluginApplication 2 test.smiles
+</pre>
+</li>
+<li><a href="TautomerizationPluginApplication.java.txt">TautomerizationPluginApplication</a> shows concurrent tautomer generation. This example is more complex since the result may be a huge molecule array (with several thousand molecules). Therefore we do not store the result in memory. Instead, we use the plugin object itself as result object, which generates the tautomers on-the-fly. We face the problem of reusing the plugin objects: it would be too much overhead to create a new plugin for each input molecule. We have to fetch all results from the plugin before we can start the next computation using the same plugin object, therefore the work unit returns the plugin object as calculation result, as well as gets the plugin object to work with from the input producer together with the input molecule. The <code>consume(Object result)</code> (in the main thread) gets the tautomers from the plugin and writes the tautomer with minimal logD. Finally, it returns the plugin object for reuse to the input producer.
+<p>
+The input is the plugin object together with the molecule, the output is the plugin object.
+The application writes the tautomer with minimal logD. 
+The number of plugin objects to be generated initially can be specified (<code>10</code> if omitted).
+<pre>
+Usage:
+  java TautomerizationPluginApplication [pluginCount] [molFile]
+
+Example:
+  java TautomerizationPluginApplication 16 test.smiles
+</pre>
+</li>
+</ul>
+
+<p>The above examples can also be run by <strong>run.sh</strong> (Linux/UNIX) or <strong>RUN.BAT</strong> (Windows).</p>
+
+</body>
+</html>

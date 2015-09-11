@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Atom Menu</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Atom Menu </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p><span class="external-link">&nbsp; <span>This menu </span></span>contains all atom related properties such as charge, atom radicals, maps, and many more.</p>
+      <p>&nbsp;</p>
+      <div class="table-wrap">
+       <table style="line-height: 1.4285715;" class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd">Stereo &gt; R/S &gt; Off</td>
+          <td class="confluenceTd">Removes the absolute stereo configuration from a chiral atom along with the marking wedge bond.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Stereo &gt; R/S &gt; R</td>
+          <td class="confluenceTd">Sets the absolute stereo configuration on a chiral atom to R, marking it with wedge bond.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Stereo &gt; R/S &gt; S</td>
+          <td class="confluenceTd">Sets the absolute stereo configuration on a chiral atom to S, marking it with wedge bond.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomReactionStereoNone" rel="nofollow"></a>Stereo &gt; Reaction &gt; Off</td>
+          <td class="confluenceTd">Sets the stereo configuration of the atom not to be considered during the reaction.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomReactionStereoInversed" rel="nofollow"></a>Stereo &gt; Reaction &gt; Inversion</td>
+          <td class="confluenceTd">Sets the stereo configuration of the atom to be inverted during the reaction.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomReactionStereoRetained" rel="nofollow"></a>Stereo &gt; Reaction &gt; Retention</td>
+          <td class="confluenceTd">Sets the stereo configuration of the atom to be retained during the reaction.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomEnhancedStereo" rel="nofollow"></a>Stereo &gt; Enhanced</td>
+          <td class="confluenceTd">See <a href="https://docs.chemaxon.com/display/SB/Stereochemistry">Stereo documentation</a> for details.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomCharge" rel="nofollow"></a>Charge</td>
+          <td class="confluenceTd">Allows you to change the charge of any atom between [-128, 128]. The number of implicit hydrogens will be adjusted if possible to accommodate the new charge. Valence errors will be highlighted in red.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomValence" rel="nofollow"></a>Valence</td>
+          <td class="confluenceTd">Allows you to change the valence of any atom between [0, 8].</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Off</td>
+          <td class="confluenceTd">Removes the radical designation from an atom.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Monovalent</td>
+          <td class="confluenceTd">Sets Monovalent radical center.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Divalent</td>
+          <td class="confluenceTd">Sets Divalent radical center.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Divalent Singlet</td>
+          <td class="confluenceTd">Sets Divalent radical center with singlet electronic configuration.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Divalent Triplet</td>
+          <td class="confluenceTd">Sets Divalent radical center with triplet electronic configuration.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Trivalent</td>
+          <td class="confluenceTd">Sets Trivalent radical center.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Trivalent Doublet</td>
+          <td class="confluenceTd">Sets Trivalent radical center with doublet electronic configuration.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd">Radical &gt; Trivalent Quartet</td>
+          <td class="confluenceTd">Sets Trivalent radical center with quartet electronic configuration.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomIsotope" rel="nofollow"></a>Isotope</td>
+          <td class="confluenceTd">Sets or changes the isotope number of the selected element, or resets the default atom (no isotope) when it is set to Off.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomMap" rel="nofollow"></a>Map</td>
+          <td class="confluenceTd">Sets map labels/identifiers on the selected atoms that do not change while altering the molecule. They are useful when dealing with reactions, and can be saved in SMILES and MDL formats.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomRgroup" rel="nofollow"></a>R-group</td>
+          <td class="confluenceTd">Changes the selected atom to an R-group label. R-groups symbolize alternative substituents.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomRgroup" rel="nofollow"></a>R-group Attachment</td>
+          <td class="confluenceTd">The selected atom becomes the attachment point for the substituent.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomRgroup" rel="nofollow"></a>R-group Attachment Order</td>
+          <td class="confluenceTd">Changes the order (numbering) of the attachment points.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="atomLinkNode" rel="nofollow"></a>Link Node</td>
+          <td class="confluenceTd">Specifies query structures containing rings or chains of variable size.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="periodicSystem" rel="nofollow"></a>Periodic Table</td>
+          <td class="confluenceTd">Shows Periodic Table and query/atom property drawing window.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="branchAtom" rel="nofollow"></a>Edit Properties</td>
+          <td class="confluenceTd">Specifies the property of an atom.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="attachmentPoint" rel="nofollow"></a>Add S-group attachment</td>
+          <td class="confluenceTd">If the selected atom is part of an S-group, you can specify an attachment point.</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><a class="text" name="attachmentPoint" rel="nofollow"></a>Remove S-group attachment</td>
+          <td class="confluenceTd">Removes the highest-numbered attachment point from an atom of an S-group.</td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

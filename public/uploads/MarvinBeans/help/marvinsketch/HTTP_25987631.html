@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : HTTP</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : HTTP </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>HTTP Service is the most lightweight and unrestricted remote service: it supports <code>POST</code> and <code>GET</code> requests to a predefined URL. Result is retrieved as is.</p>
+      <h5 id="HTTP-Accessingchemicalize.orgviaHTTPServicefromAPI">Accessing <a class="external-link" href="http://chemicalize.org" rel="nofollow">chemicalize.org</a> via HTTP Service from API</h5>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: true" style="font-size:12px;">    HTTPServiceDescriptor descriptor = new HTTPServiceDescriptor();
+    descriptor.setURL(&quot;http://chemicalize.org/tomcat-files/datapage.jsp&quot;);
+    
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;mol&quot;, &quot;&quot;));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;special&quot;, &quot;&quot;));
+    descriptor.addArgument(ServiceArgument.createArgument(&quot;pka_width&quot;, 0));
+
+    Object result = null;
+    try {
+        result = descriptor.getServiceHandler().callService(descriptor, &quot;c1ccnccc1&quot;, &quot;pka&quot;, 300);
+    } catch (ServiceException e) {
+       System.err.println(&quot;Service call failed.&quot;);
+    }
+    System.out.println(&quot;Synchronized call returned: &quot; + String.valueOf(result));
+
+    
+    descriptor.getServiceHandler().callService(descriptor, new AsyncCallback&lt;String&gt;() {
+
+        @Override
+        public void onSuccess(String result) {
+            System.out.println(&quot;Aynchronous call returned: &quot; + result);
+        }
+
+        @Override
+        public void onFailure(ServiceException caught) {
+            System.err.println(&quot;Asynchronous call failed.&quot;);
+        }
+        
+    }, &quot;c1ccnccc1&quot;, &quot;pka&quot;, 300);
+		</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <pre>    </pre> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

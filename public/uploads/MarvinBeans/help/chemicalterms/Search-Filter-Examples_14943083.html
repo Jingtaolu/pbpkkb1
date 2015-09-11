@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Chemical Terms : Search Filter Examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Chemical Terms : Search Filter Examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div>
+       <h2 id="SearchFilterExamples-Searchfilterexamples(searchcontext)"><a href="https://docs.chemaxon.com/display/jchembase/Query+features#Queryfeatures-filtering">Search filter</a>&nbsp;examples (<a href="Input-Contexts_14943067.html#InputContexts-search_context">search context</a>)<br /><br /></h2>
+       <div class="panel" style="border-width: 1px;">
+        <div class="panelContent"> 
+         <p>The examples are divided into two groups:</p>
+         <p><a href="#SearchFilterExamples-structure_based_calculations">Structure based calculations (plugin calculations)</a></p>
+         <p><a href="#SearchFilterExamples-functions">Functions</a></p> 
+        </div>
+       </div>
+       <p>&nbsp;</p>
+      </div>
+      <h1 id="SearchFilterExamples-structure_based_calculationsStructurebasedcalculations(plugincalculations)"><span class="confluence-anchor-link" id="SearchFilterExamples-structure_based_calculations"></span>Structure based calculations (plugin calculations)<br />&nbsp;</h1>
+      <p>Plugin references provide access to ChemAxon's calculator plugins. These calculations equip our expressions with chemical meaning.</p>
+      <p>&nbsp;</p>
+      <ul style="margin-left: 20.0px;">
+       <li style="list-style-type: none;background-image: none;">
+        <ol style="margin-left: 20.0px;">
+         <li><p>Filter hits by requiring that the partial charge on target atom matching query map&nbsp;<code>1</code>&nbsp;should be positive:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(hm(1)) &gt; 0</pre> 
+           </div>
+          </div></li>
+         <li><p>The same with taking the physiological microspecies of the target at pH&nbsp;<code>7.4</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(hm(1), &quot;7.4&quot;) &gt; 0</pre> 
+           </div>
+          </div></li>
+         <li><p>Checking whether the partial charge on target atom matching query map&nbsp;<code>1</code>&nbsp;is greater than or equal to this charge value in the physiological microspecies at pH&nbsp;<code>7.4</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">charge(hm(1)) &gt; charge(hm(1), &quot;7.4&quot;)</pre> 
+           </div>
+          </div></li>
+         <li><p>The basic pKa&nbsp;value on target atom matching query map&nbsp;<code>3</code>&nbsp;should be greater than&nbsp;<code>8.0</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pka(hm(3) &quot;basic&quot;) &gt; 8.0</pre> 
+           </div>
+          </div></li>
+         <li><p>The strongest acidic pKa&nbsp;value of the target should be less than&nbsp;<code>0.5</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pka(&quot;acidic&quot;, &quot;1&quot;) &lt; 0.5</pre> 
+           </div>
+          </div>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Note that by default the expression refers to the target. Write&nbsp;<code>query()</code>&nbsp;to refer to the query:</p>
+            <div class="code panel pdl" style="border-width: 1px;">
+             <div class="codeContent panelContent pdl"> 
+              <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pka(query(), &quot;acidic&quot;, &quot;1&quot;) &lt; 0.5</pre> 
+             </div>
+            </div>
+           </div> 
+          </div> </li>
+         <li><p>The logP&nbsp;value of the query should be greater than that of the target:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logp(query()) &gt; logp()</pre> 
+           </div>
+          </div></li>
+         <li><p>The logD&nbsp;value at&nbsp;<code>pH=7.4</code>&nbsp;of the target should be less than the logD&nbsp;value at&nbsp;<code>pH=3.4</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logd(&quot;7.4&quot;) &lt; logd(&quot;3.4&quot;)</pre> 
+           </div>
+          </div>
+          <div class="confluence-information-macro confluence-information-macro-information"> 
+           <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+           <div class="confluence-information-macro-body">
+            <p>Note that in logD&nbsp;calculation the pH value should be enclosed in quotation marks.</p>
+           </div> 
+          </div> </li>
+         <li><p>Check the difference between logD&nbsp;values of the target at two different pHs:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">logd(&quot;7.4&quot;) - logd(&quot;3.8&quot;) &gt; 0.5</pre> 
+           </div>
+          </div></li>
+         <li><p>Require a sufficiently large target mass as well as a positive charge value at the target atom matching query map&nbsp;<code>1</code>:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">(mass() &gt; 500) &amp;&amp; (charge(hm(1)) &gt; 0)</pre> 
+           </div>
+          </div></li>
+        </ol></li>
+      </ul>
+      <h1 id="SearchFilterExamples-functionsFunctions"><span class="confluence-anchor-link" id="SearchFilterExamples-functions"></span>Functions<br /><br /></h1>
+      <p>There are different type of functions provided by ChemAxon:</p>
+      <p>&nbsp;</p>
+      <ul style="margin-left: 20.0px;">
+       <li style="list-style-type: none;background-image: none;">
+        <ol style="margin-left: 20.0px;">
+         <li><em>general purpose functions</em>: simple array utility functions, such as minimum, maximum, sum or number of array elements and an array element sorter function<p>&nbsp;</p></li>
+         <li><em>atomic functions</em>: functions referring to an input atom, such as the atom property query function of which queries atom properties (e.g. hydrogen count) or the containment function that checks whether an atom index is contained in an atom index array<br />&nbsp;</li>
+         <li><span style="line-height: 1.4285715;"><em>evaluator functions</em>: functions containing an inner expression string as parameter - evaluate this expression for each atom in an&nbsp;</span><a href="Input-Contexts_14943067.html#InputContexts-atom_context">atom context</a><span style="line-height: 1.4285715;">, examples include a filtering function that takes a boolean expression and returns atoms satisfying it and min-max functions which evaluate the inner expression for all atoms in the context, return the minimum or maximum value or the corresponding atom index.</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li>
+        </ol></li>
+      </ul>
+      <p>Examples are:<br />&nbsp;</p>
+      <ol style="margin-left: 20.0px;">
+       <li><p>The minimum of the partial charge values on target atoms matching maps&nbsp;<code>2</code>,&nbsp;<code>3</code>&nbsp;and&nbsp;<code>4</code>&nbsp;should be negative, that is there should be at least one negative among these charge values:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">min(charge(hm(2)), charge(hm(3)), charge(hm(4))) &lt; 0</pre> 
+         </div>
+        </div></li>
+       <li><p>The hydrogen counts on target atom matching map&nbsp;<code style="line-height: 1.4285715;">1</code>&nbsp;and on target atom matching map&nbsp;<code style="line-height: 1.4285715;">2</code>&nbsp;should be at least&nbsp;<code style="line-height: 1.4285715;">1</code>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">(hcount(hm(1)) &gt;= 1) &amp;&amp; (hcount(hm(2)) &gt;= 1)</pre> 
+         </div>
+        </div></li>
+       <li><p>The minimum of the partial charge values on target atoms matching maps&nbsp;<code>2</code>,&nbsp;<code>3</code>&nbsp;and&nbsp;<code>4</code>&nbsp;should be negative, that is there should be at least one negative among these charge values:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">min(charge(hm(2)), charge(hm(3)), charge(hm(4))) &lt; 0</pre> 
+         </div>
+        </div></li>
+       <li><p>The hydrogen counts on target atom matching map&nbsp;<code>1</code>&nbsp;and on target atom matching map&nbsp;<code>2</code>&nbsp;should be at least&nbsp;<code>1</code>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">(hcount(hm(1)) &gt;= 1) &amp;&amp; (hcount(hm(2)) &gt;= 1)</pre> 
+         </div>
+        </div></li>
+       <li><p>The valence of target atom matching map&nbsp;<code>1</code>&nbsp;or map&nbsp;<code>2</code>&nbsp;should be at least&nbsp;<code>1</code>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">(valence(hm(1)) &gt;= 1) || (valence(hm(2)) &gt;= 1)</pre> 
+         </div>
+        </div></li>
+       <li><p>The number of atoms with positive partial charge in the target should be at least that in the query:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">count(filter(&quot;charge() &gt; 0&quot;)) &gt;= count(filter(query()&quot;charge() &gt; 0&quot;))</pre> 
+         </div>
+        </div></li>
+       <li><p>The minimum acidic pKa&nbsp;value on hetero atoms with a single hydrogen in the target should be less than&nbsp;<code>0.75</code>, that is, there should be at least one hetero atom with a single hydrogen with acidic pKa&nbsp;less than&nbsp;<code>0.75</code>:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">min(pka(filter(&quot;match('[!#6!#1;H1]')&quot;), &quot;acidic&quot;)) &lt; 0.75</pre> 
+         </div>
+        </div></li>
+       <li><p>Testing whether the partial charge on the atom with the strongest basic pKa&nbsp;value exceeds the partial charge on the atom with the second strongest basic pKavalue in the target:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">x = maxAtom(&quot;pka('basic')&quot;, 2);
+charge(x[0]) &gt; charge(x[1])</pre> 
+         </div>
+        </div>
+        <div class="confluence-information-macro confluence-information-macro-information"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>Note that in the current version the above expression cannot be evaluated if there are less than two basic pKa values in the molecule.</p>
+         </div> 
+        </div> </li>
+       <li><p>Checking whether there is a sufficiently large difference between the two strongest basic pKa&nbsp;values among atoms with positive charge in the target and the query:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">x = max(pka(&quot;basic&quot;, query(), filter(query(), &quot;charge() &gt; 0&quot;)));
+y = max(pka(&quot;basic&quot;, filter(&quot;charge() &gt; 0&quot;)));
+(x - y &gt; 1.5) || (y - x &gt; 1.5)</pre> 
+         </div>
+        </div></li>
+       <li><p>Dissimilarity between the target and query using pharmacophore fingerprint as molecular descriptor with Tanimoto (default) metric should be sufficiently small:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">dissimilarity(&quot;PF&quot;, target(), query()) &lt; 0.6 </pre> 
+         </div>
+        </div>
+        <div class="confluence-information-macro confluence-information-macro-information"> 
+         <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+         <div class="confluence-information-macro-body">
+          <p>Note, that the target() can be omitted as in the above examples:</p>
+          <div class="code panel pdl" style="border-width: 1px;">
+           <div class="codeContent panelContent pdl"> 
+            <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">dissimilarity(&quot;PF&quot;, query()) &lt; 0.6 </pre> 
+           </div>
+          </div>
+         </div> 
+        </div> </li>
+       <li><p>The same using Euclidean metric:</p>
+        <div class="code panel pdl" style="border-width: 1px;">
+         <div class="codeContent panelContent pdl"> 
+          <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">dissimilarity(&quot;PF:Euclidean&quot;, target(), query()) &lt; 0.6 </pre> 
+         </div>
+        </div><p>&nbsp;</p><pre>&nbsp;</pre></li>
+      </ol> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

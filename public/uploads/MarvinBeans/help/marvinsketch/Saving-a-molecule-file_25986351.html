@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Saving a molecule file</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Saving a molecule file </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="Savingamoleculefile-Saveafile">Save a file</h2>
+      <p>You can save the molecule in any of the supported&nbsp; <a href="https://docs.chemaxon.com/display/FF/File+Formats+Home"> file formats.&nbsp;</a></p>
+      <p>In case of a single structure, the default behavior of the&nbsp;<strong class="buttonName">Save</strong>&nbsp;menu is to save the molecule to the same file which it was opened from, in the same format. If you want to change the file name or format, choose&nbsp;<strong class="buttonName">Save As</strong>.</p>
+      <p>If you are working with a new molecule,&nbsp;<strong class="buttonName">Save</strong> works the same way as&nbsp;<strong class="buttonName">Save As</strong>.</p>
+      <p>If you are working with a multistructure file, both&nbsp;<strong class="buttonName">Save</strong>&nbsp;and&nbsp;<strong class="buttonName">Save As</strong>&nbsp;will open a dialog window where you have to define the parameters for saving.<br />On the dialog window used for saving files, a&nbsp;<strong>Saving method</strong>&nbsp;tab can be opened with the help of the&nbsp;<strong>Advanced</strong>&nbsp;checkbox. The first half of the tab offers the following choices:</p>
+      <ul>
+       <li><strong>All structures TOGETHER:</strong>&nbsp;Saves all structures together in a single file.<br />This is the default behavior of saving. If you do not open the&nbsp;<strong>Saving method</strong>&nbsp;tab, this option will be applied.</li>
+       <li><strong>All structures SEPARATELY:</strong>&nbsp;Saves all structures separately in a single file.</li>
+       <li><strong>Into SEPARATE FILES:</strong>&nbsp;Saves each structure into a separate file.<br />In this last option, the numbering of molecule files begins with the molecule in the upper left corner.</li>
+      </ul>
+      <p>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/12584310/12746853.png" data-image-src="attachments/12584310/12746853.png" data-unresolved-comment-count="0" data-linked-resource-id="12746853" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="save1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="12584310" data-linked-resource-container-version="25" /></span></p>
+      <p>The second option remains inactive unless the chosen file type supports multimolecule files (such as <a href="https://docs.chemaxon.com/pages/viewpage.action?pageId=14943131"> MRV </a> or <a href="https://docs.chemaxon.com/display/FF/Molecule+Formats">SDF</a>). Similarly, for one molecule only files, only the first option is enabled.</p>
+      <p>The same applies to reactions and structures containing R-group definitions: in these cases only the 'All structures TOGETHER' option is available as well.</p>
+      <p><br />When the given parameters for saving (file name, format, and route) are the same as for an already existing file, the outcome will be determined by the other two radio buttons of the dialog window.</p>
+      <p>If you select the&nbsp;<strong class="buttonName">Overwrite file</strong>&nbsp;option, the original contents of the file will be replaced.</p>
+      <p>However, selecting the&nbsp;<strong class="buttonName">Append to end of file</strong>&nbsp;radio button will add the new structures to the original file, so its content will be preserved. In the first case, a new dialog window will be displayed, where you can reinforce or change your decision about overwriting the file.</p>
+      <p>If the chosen file format does not support multiple structures, the&nbsp;<strong>Overwrite</strong>&nbsp;option is applied automatically.</p> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

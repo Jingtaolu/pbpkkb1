@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Document to Structure : Code examples</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Document to Structure : Code examples </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>Document to Structure is a toolkit for extracting chemical structures out of text, HTML and PDF documents. Currently, it recognizes names, SMILES, and InChI. Its API class is chemaxon.naming.DocumentExtractor. Below is a list of real life use-cases and code examples that showcase the various ways to use it:</p>
+      <ol>
+       <li><a href="Code_28934340.html#Code-structures_intext">Finding structures in text</a>:<br /> Uses <code>DocumentExtractor</code>'s <code>processPlainText()</code> method to process a string.</li>
+       <li><a href="Code_28934340.html#Code-structures_webpage">Finding structures in a live webpage</a>:<br /> Downloads a live webpage and processes it using <code>DocumentExtractor</code>'s <code>processHTML()</code> method.</li>
+       <li><a href="Code_28934340.html#Code-structures_inPDF">Finding structures in a PDF document</a>:<br /> Creates a <code>DocumentExtractor</code> instance that reads the text from the PDF document.</li>
+       <li><a href="Code_28934340.html#Code-highlighting">Highlighting recognized structures in a webpage</a>:<br /> Finds the recognized names in the HTML code and wraps them with a special element for highlighting.</li>
+       <li><a href="Code_28934340.html#Code-saving_infile">Saving results in SDF or MRV file</a>:<br /> Saves the results and related information into a multi-molecule file for use in chemical editors.</li>
+       <li><a href="Code_28934340.html#Code-inJChemTable">Storing results in a JChem structure table</a>:<br /> Sets up a database connection and stores the hits in a chemical structure database for searching.</li>
+       <li><a href="Code_28934340.html#Code-increasing_speed">Increasing processing speed by multithreading</a>:<br /> Uses multithreading and breaks HTML pages into fragments.</li>
+      </ol> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

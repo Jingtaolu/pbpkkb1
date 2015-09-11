@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : EMF</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : EMF </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p><span>&nbsp;</span>The Marvin beans and applications are able to export in EMF (Windows Enhanced Metafile) format (as a vector graphical&nbsp;<span style="color: rgb(0,0,255);"><u><a href="Image-Export-in-Marvin_18448437.html"><span style="color: rgb(0,0,255);">image</span></a></u></span>). This function does not work in the applets (except signed applets). EMF export requires Java 1.4 (or higher version).</p>
+          <p>The EmfExport module recognizes the&nbsp;<u><span style="color: rgb(0,0,255);"><a href="Image-Export-in-Marvin_18448437.html#ImageExportinMarvin-exportOptions"><span style="color: rgb(0,0,255);">common image export options</span></a></span></u>.</p>
+          <h2 id="EMF-KnownIssues">Known Issues</h2>
+          <ul style="margin-left: 20.0px;">
+           <li>Sometimes, multi color bonds are curved.</li>
+           <li>In &quot;Ball and Stick&quot; and in &quot;Spacefill&quot; rendering mode, Marvin applets generate a zero length file when you save the molecule in EMF format. From Marvin Beans API or applications, copying and saving in EMF format works fine.</li>
+           <li>Marvin copy restricts &quot;Ball and Stick&quot; and &quot;Spacefill&quot; rendering mode at EMF copy. In this case, the copied image will be drawn in &quot;Wireframe&quot; or &quot;Sticks&quot; rendering mode.</li>
+          </ul>
+          <h2 id="EMF-References">References</h2>
+          <ul style="margin-left: 20.0px;">
+           <li><span style="color: rgb(0,0,255);"><a href="http://en.wikipedia.org/wiki/Enhanced_Metafile" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">Windows Metafile definition (in Wikipedia)</span></a></span></li>
+           <li><span style="color: rgb(0,0,255);"><a href="http://java.freehep.org/vectorgraphics/" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">VectorGraphics (2D Vector and Image Graphics Libary)</span></a></span></li>
+           <li><span style="color: rgb(0,0,255);"><a href="http://java.freehep.org/" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">FreeHEP Java Library</span></a></span></li>
+          </ul>
+          <p align="LEFT"><small>EmfExport uses the&nbsp;<em>VectorGraphics</em>&nbsp;package of&nbsp;<em>FreeHEP Java Library</em>&nbsp;that is an &quot;Open Source&quot; library distributed under the terms of the&nbsp;<span style="color: rgb(0,0,255);"><a href="http://www.gnu.org/copyleft/lesser.html" style="text-decoration: underline;" class="external-link" rel="nofollow"><span style="color: rgb(0,0,255);">GNU Lesser General Public License (LGLP)</span></a></span>. You can freely modify and recompile the&nbsp;<a href="http://java.freehep.org/vectorgraphics/SourceDistributions.html" style="text-decoration: underline;" class="external-link" rel="nofollow">source</a>&nbsp;of this library, then replace the binaries in Marvin with your own version, according to the requirements of the&nbsp;<em>LGLP</em>.<br />To update Marvin with your own version of&nbsp;<em>FreeHep library</em>, substitute the proper jar files (<code>freehep-base.jar, freehep-graphics2d.jar, freehep-graphicsio.jar, freehep-graphicsio-emf.jar</code>) in your Marvin package.</small></p>
+         </div> 
+        </div> 
+        <div class="cell aside" data-type="aside"> 
+         <div class="innerCell"> 
+          <div class="panel" style="border-width: 1px;">
+           <div class="panelContent"> 
+            <p><em>Codename:</em>&nbsp;<strong>emf</strong></p> 
+           </div>
+          </div>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

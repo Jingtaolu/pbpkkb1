@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Marvin JS : Reaction</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Marvin JS : Reaction </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="contentLayout2"> 
+       <div class="columnLayout single" data-layout="single"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <h2 id="Reaction-createReactionHowtocreatereactions"><span class="confluence-anchor-link" id="Reaction-createReaction"></span>How to create reactions</h2>
+          <p></p>
+          <h5 id="Reaction-"><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701342/34833017.png" data-image-src="attachments/34701342/34833017.png" data-unresolved-comment-count="0" data-linked-resource-id="34833017" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-16 17:51:1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701342" data-linked-resource-container-version="42" /></span>&nbsp;</h5>
+          <p><strong>How to put a &quot;+&quot; sign onto the canvas:</strong><br />Select the Reaction tool then left-click onto the canvas where you would like to place the &quot;+&quot; sign.</p>
+          <p>&nbsp;</p>
+          <p></p>
+          <div class="panel" style="background-color: white;border-color: #ff9900;border-width: 1px;">
+           <div class="panelContent" style="background-color: white;"> 
+            <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> If you select the reactant&nbsp;or the product side with the&nbsp;<strong>Selection</strong>&nbsp;tool, and then press the&nbsp;<strong>Reaction tool&nbsp;</strong>button, the &quot;+&quot; signs will be added automatically between each reactant or product molecule.<br /> However, it works only if the selection does not contain other &quot;+&quot; signs or a reaction arrow.</p>
+            <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/34701342/35948311.png" data-image-src="attachments/34701342/35948311.png" data-unresolved-comment-count="0" data-linked-resource-id="35948311" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-4-30 15:24:43.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701342" data-linked-resource-container-version="42" /></span></p> 
+           </div>
+          </div>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701342/34833018.png" data-image-src="attachments/34701342/34833018.png" data-unresolved-comment-count="0" data-linked-resource-id="34833018" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-2-16 17:55:15.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701342" data-linked-resource-container-version="42" /></span></p>
+          <p><strong style="line-height: 1.4285715;">How to put an arrow onto the canvas:</strong></p>
+          <p>Select the Reaction tool, then drag with it on the canvas where you would like to place the arrow. <span style="line-height: 1.4285715;">During the dragging a grey feedback shows the future position of the newly forming arrow. </span>Release the button to create the arrow.</p>
+          <p>If it is necessary the length and the direction of the arrow can be changed afterwards.</p>
+          <p>&nbsp;</p>
+          <div class="panel" style="background-color: white;border-color: #ff9900;border-width: 1px;">
+           <div class="panelContent" style="background-color: white;"> 
+            <p><strong><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)" /> Technical details - Export reactions</strong></p>
+            <ul>
+             <li>If the structure on the canvas contains <em>only a single step reaction</em>, then it will be automatically exported as a &quot;reaction file&quot; by Marvin JS. <br />(This means that in the exported file there will be separate blocks for reactants, products and agents making it possible to use the exported file in a reaction search.)<br />In this case, only those file formats are available in the&nbsp;<strong><a href="Export-dialog_34702304.html">Export&nbsp;dialog</a></strong> which support reactions (MRV, RXN, SMILES, CXSMILES, SMARTS, CXSMARTS, CML, RXN V3000, SDF, CSSDF, CDX, SKC).</li>
+            </ul>
+            <p style="text-align: left;margin-left: 30.0px;"><span><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)" /><strong> Please note, that the conversion of the structure to a reaction file happens on server side and requires the reaction converter web service to be available.</strong></span></p>
+            <ul>
+             <li>When the structure contains <em>more than one reaction or a multistep reaction</em> (or when the reaction converter web service is not available), the structure will not be converted to a reaction file.<br />In this case, there will not be reactant/product/agent blocks in the exported files and the + signs and arrows of the reaction(s) will be exported as text characters.</li>
+            </ul> 
+           </div>
+          </div>
+          <p></p>
+          <h2 id="Reaction-Displayofreactions">Display of reactions</h2>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701342/35946803.png" data-image-src="attachments/34701342/35946803.png" data-unresolved-comment-count="0" data-linked-resource-id="35946803" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-26 17:49:33.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701342" data-linked-resource-container-version="42" /></span><br />The Reaction operators are movable by dragging them on the canvas with active Selection tool.</p>
+          <p>&nbsp;</p>
+          <h2 id="Reaction-Howtodeletereactionoperators">How to delete reaction operators&nbsp;</h2>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701342/35946805.png" data-image-src="attachments/34701342/35946805.png" data-unresolved-comment-count="0" data-linked-resource-id="35946805" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-26 17:56:32.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701342" data-linked-resource-container-version="42" /></span></p>
+          <p><br />You can delete reaction operators by clicking on them with active Delete tool, or select them then push Delete button.</p>
+          <p>&nbsp;</p>
+          <p><span class="confluence-embedded-file-wrapper image-left-wrapper"><img class="confluence-embedded-image image-left" src="attachments/34701342/35946806.png" data-image-src="attachments/34701342/35946806.png" data-unresolved-comment-count="0" data-linked-resource-id="35946806" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image2015-3-26 17:58:47.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="34701342" data-linked-resource-container-version="42" /></span><br />Clicking on the middle of the arrows when Smart reaction tool is active deletes the arrow.</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 id="Reaction-Relatedpages">Related pages</h2>
+         </div> 
+        </div> 
+       </div> 
+       <div class="columnLayout three-equal" data-layout="three-equal"> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Auto-map_33293636.html">Auto map</a></p>
+          <p style="text-align: center;"><a href="Reaction..._34078845.html">Reaction...</a></p>
+          <p style="text-align: center;"><a href="Reaction_34701342.html">Reaction</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: center;"><a href="Reaction-Mechanism_34701346.html">Reaction Mechanism</a></p>
+          <p style="text-align: center;"><a href="Reaction-mechanisms-in-Marvin-JS_35947752.html">Reaction mechanisms in Marvin JS</a></p>
+         </div> 
+        </div> 
+        <div class="cell normal" data-type="normal"> 
+         <div class="innerCell"> 
+          <p style="text-align: right;">&nbsp;</p>
+          <p style="text-align: right;">&nbsp;</p>
+          <p style="text-align: right;"><a href="Drawing-features_34701332.html">...back to Drawing features pages</a></p>
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

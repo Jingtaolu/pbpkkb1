@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Calculator Plugins : Training the pKa Plugin</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Calculator Plugins : Training the pKa Plugin </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="panel" style="border-width: 1px;">
+       <div class="panelContent">
+         This manual gives you a walk-through on how to train the pK
+        <sub>a </sub>Plugin:
+        <br />
+        <p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1439200958742 {padding: 0px;}
+div.rbtoc1439200958742 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1439200958742 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p>
+        <div class="toc-macro rbtoc1439200958742"> 
+         <ul class="toc-indentation"> 
+          <li><a href="#TrainingthepKaPlugin-Introduction">Introduction&nbsp;</a></li> 
+          <li><a href="#TrainingthepKaPlugin-Trainingsteps">Training steps</a> 
+           <ul class="toc-indentation"> 
+            <li><a href="#TrainingthepKaPlugin-Preparingtheinputfile">Preparing the input file &nbsp;</a></li> 
+            <li><a href="#TrainingthepKaPlugin-Creatingthetraininglibrary">Creating the training library</a></li> 
+            <li><a href="#TrainingthepKaPlugin-Applyingthetraininglibrary">Applying the training library &nbsp;</a> 
+             <ul class="toc-indentation"> 
+              <li><a href="#TrainingthepKaPlugin-MarvinSketch">MarvinSketch</a></li> 
+              <li><a href="#TrainingthepKaPlugin-Cxcalc">Cxcalc &nbsp;</a></li> 
+              <li><a href="#TrainingthepKaPlugin-ChemicalTerms">Chemical Terms</a></li> 
+              <li><a href="#TrainingthepKaPlugin-InstantJChem">Instant JChem</a></li> 
+             </ul> </li> 
+           </ul> </li> 
+         </ul> 
+        </div>
+        <p></p> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <h1 id="TrainingthepKaPlugin-Introduction"><span style="line-height: 1.4285715;">Introduction&nbsp;</span></h1>
+      <p><span style="line-height: 1.4285715;"><br /></span></p>
+      <p><span style="line-height: 1.4285715;">If you think your experimental data can improve the accuracy of the p</span><em style="line-height: 1.4285715;">K</em><sub>a</sub><span style="line-height: 1.4285715;">&nbsp;calculation, you can take advantage of a supervised p</span><em style="line-height: 1.4285715;">K</em><sub>a&nbsp;</sub><span style="line-height: 1.4285715;">learning method that is built into the p</span><em style="line-height: 1.4285715;">K</em><sub>a</sub><span style="line-height: 1.4285715;">&nbsp;plugin. Special structural parts can have an effect on the p</span><em style="line-height: 1.4285715;">K</em><sub>a</sub><span style="line-height: 1.4285715;">&nbsp;values calculated by the built-in method, so your correction library based on your experimental data can help the p</span><em style="line-height: 1.4285715;">K</em><sub>a</sub><span style="line-height: 1.4285715;">&nbsp;plugin increase the prediction accuracy.</span><span style="color: rgb(61,61,61);">&nbsp;</span></p>
+      <p>Inaccurately predicted ionization centers need to be identified and experimental data for them have to be collected in order to handle them. Since the learning algorithm is based on linear regression analysis, you need to collect as much experimental p<em>K</em><sub>a</sub>&nbsp;data as possible to get enough correlation. There are no hard-and-fast rules about the amount of data to be applied. If your are to create a local model only for a certain type of ionization centers, then it may be enough to collect a few representative structures. A robust model, however, requires as many diverse structures and p<em>K</em><sub>a</sub>&nbsp;values as possible.</p>
+      <p>The experimental data should be collected in an <a href="https://docs.chemaxon.com/display/FF">SD</a> file. Then the training command has to be run in order to create a correction library. This will be stored on your local computer, in your user folder.</p>
+      <p>Finally, this correction library can be applied via <a href="https://docs.chemaxon.com/display/marvinsketch/MarvinSketch+Home">MarvinSketch</a>, <a href="https://docs.chemaxon.com/display/chemicalterms">Chemical Terms </a>or <a href="cxcalc-command-line-tool_12584204.html">cxcalc calculator functions</a> command line tool.</p>
+      <h1 id="TrainingthepKaPlugin-Trainingsteps">Training steps</h1>
+      <h2 id="TrainingthepKaPlugin-Preparingtheinputfile">Preparing the input file<br />&nbsp;</h2>
+      <p>To create a training library a proper input file in SDF or MRV format should be prepared first.&nbsp;This file can be compiled using either Instant JChem or JChem for Excel.</p>
+      <p>The SD file should contain the following pieces of information:</p>
+      <ul style="margin-left: 20.0px;">
+       <li>Structure of the molecule</li>
+       <li>p<em>K</em><sub>a</sub>&nbsp;value 1 (field name: pKa1)</li>
+       <li>ID of the atom which has the pKa1 value (field name: ID1). It can be viewed by checking the Atom number option in MarvinView (<em>View &gt; Misc </em>menu).</li>
+       <li>Additional fields of p<em>K</em><sub>a</sub>&nbsp;values are optional (recommended for handling multiprotic compounds). For example p<em>K</em><sub>a</sub>&nbsp;value 2 (pKa2), ID2, etc.</li>
+       <li>Definition of only one p<em>K</em><sub>a</sub>&nbsp;value is enough to apply the training data, but more values in case of multiprotic compounds will enhance the reliability of the p<em>K</em><sub>a</sub>&nbsp;training.</li>
+      </ul>
+      <p>A <a href="#TrainingthepKaPlugin-fig.1">sample of a typical training</a> set is shown in the picture (<a href="attachments/13338106/38404121.sdf" data-linked-resource-id="38404121" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKa_trainingset.sdf" data-linked-resource-content-type="application/x-upload-data" data-linked-resource-container-id="13338106" data-linked-resource-container-version="74">pKa_trainingset.sdf</a>). ID1 is the index of the atom with the experimental p<em>K</em><sub>a</sub>1 value.</p>
+      <p>&nbsp;</p>
+      <p><span class="confluence-anchor-link" id="TrainingthepKaPlugin-fig.1"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338106/29099462.png" data-image-src="attachments/13338106/29099462.png" data-unresolved-comment-count="0" data-linked-resource-id="29099462" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="mydata_zoomedmol.PNG" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338106" data-linked-resource-container-version="74" /></span><br />&nbsp;Fig. 1 Input for training library generation</p>
+      <h2 id="TrainingthepKaPlugin-Creatingthetraininglibrary">Creating the training library</h2>
+      <p>&nbsp;</p>
+      <p>The training library can be created using the&nbsp;<em><a href="cxtrain-command-line-tool_13336661.html">cxtrain</a></em>&nbsp;command line tool from an input structural file:<br />&nbsp;</p>
+      <pre>cxtrain pka -i [library name] [training file] <br />&nbsp;</pre>
+      <p><em>Example</em>:</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">cxtrain pka -i mypka mydata.sdf</pre> 
+       </div>
+      </div>
+      <h2 id="TrainingthepKaPlugin-Applyingthetraininglibrary">Applying the training library<br />&nbsp;</h2>
+      <p>Once the training library is generated, it can be applied in different ChemAxon tools for training.</p>
+      <h3 id="TrainingthepKaPlugin-MarvinSketch">MarvinSketch<br /><br /></h3>
+      <div>
+       To apply the pre-generated training library in MarvinSketch, see the following steps:
+      </div>
+      <ol>
+       <li>Select MarvinSketch menu&nbsp;<em>Tools &gt; Protonation &gt; pKa</em>.</li>
+       <li>Set the <em>Use correction library</em> option to activate the training option (see figure below).</li>
+       <li>If you have created multiple training sets, choose the most accurate one from the <a href="#TrainingthepKaPlugin-fig.2">dropdown list below</a> the checkbox.<br />&nbsp;</li>
+      </ol>
+      <p><span class="confluence-anchor-link" id="TrainingthepKaPlugin-fig.2"></span><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338106/29099458.png" data-image-src="attachments/13338106/29099458.png" data-unresolved-comment-count="0" data-linked-resource-id="29099458" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="pKa_options_panel.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338106" data-linked-resource-container-version="74" /></span></p>
+      <p>Fig. 2 Using the generated training library in MarvinSketch</p>
+      <p>&nbsp;</p>
+      <p>The following figure shows the results with (I) and without (II) applying the correction library.<br />&nbsp;</p>
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="400" src="attachments/13338106/29099460.png" data-image-src="attachments/13338106/29099460.png" data-unresolved-comment-count="0" data-linked-resource-id="29099460" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="trained.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338106" data-linked-resource-container-version="74" /></span></td>
+          <td class="confluenceTd"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" width="400" src="attachments/13338106/29099461.png" data-image-src="attachments/13338106/29099461.png" data-unresolved-comment-count="0" data-linked-resource-id="29099461" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="no_training.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338106" data-linked-resource-container-version="74" /></span></td>
+         </tr>
+         <tr>
+          <th class="confluenceTh">I. p<em>K</em><sub>a</sub>&nbsp;calculation with training data</th>
+          <th class="confluenceTh">II. p<em>K</em><sub>a</sub>&nbsp;calculation without training data</th>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <h3 id="TrainingthepKaPlugin-Cxcalc">Cxcalc<br />&nbsp;</h3>
+      <p>To include your correction library in the pKa&nbsp;calculation use the parameter&nbsp;<em>&nbsp;--correctionlibrary</em>&nbsp;or its short form<em>&nbsp;-L</em>&nbsp;:&nbsp;<br />&nbsp;</p>
+      <pre>cxcalc pKa  <code>--correctionlibrary</code>  [library name] [input file/string]<br />&nbsp;</pre>
+      <div class="confluence-information-macro confluence-information-macro-information"> 
+       <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span> 
+       <div class="confluence-information-macro-body">
+        <p>If you use cxcalc pKa calculation without the correction library, the results will be calculated with the built-in dataset.</p>
+       </div> 
+      </div> 
+      <p><em><br /></em></p>
+      <p><em>Example #1:</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc pKa --correctionlibrary mypka &quot;CSC1=NC2=C(N1)C=NC(O)=N2&quot;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><em>Result</em></p>
+      <pre> id      apKa1   apKa2   bpKa1   bpKa2   atoms</pre>
+      <pre> 1       11.19   16.01   2.34    -2.59   7,11,9,4</pre>
+      <p><em><br />Example #2<br /></em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">cxcalc pKa &quot;CSC1=NC2=C(N1)C=NC(O)=N2&quot;</pre> 
+       </div>
+      </div>
+      <p><em>&nbsp;</em></p>
+      <p><em>Result</em></p>
+      <pre> id      apKa1   apKa2   bpKa1   bpKa2   atoms</pre>
+      <pre> 1       8.34   16.01   2.34    -2.59   7,11,9,4<br /><br /></pre>
+      <h3 id="TrainingthepKaPlugin-ChemicalTerms">Chemical Terms</h3>
+      <p>&nbsp;</p>
+      <p>Chemical Terms are available from <a href="https://docs.chemaxon.com/display/chemicalterms/Chemical+Terms+Evaluator" rel="nofollow">Chemical Terms Evaluator</a> or from Instant JChem.&nbsp;Evaluator is designed to evaluate Chemical Terms expressions on molecules. Your correction library can be applied as follows:<br />&nbsp;</p>
+      <pre><code>evaluate -e &quot;pKa('correctionlibrary:[library name]')&quot; &quot;[input file/string]&quot;<br />&nbsp;</code></pre>
+      <p><em>Example</em></p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">evaluate -e &quot;pKa('correctionlibrary:mypka')&quot; &quot;CSC1=NC2=C(N1)C=NC(O)=N2&quot;</pre> 
+       </div>
+      </div>
+      <p>&nbsp;</p>
+      <p><em>Result</em></p>
+      <pre><code>;;;-2,59;;;11,19;;2,34;;16,01;<br />&nbsp;</code>&nbsp;</pre>
+      <h3 id="TrainingthepKaPlugin-InstantJChem">Instant JChem</h3>
+      <p>&nbsp;</p>
+      <p>Choose the 'New Chemical Terms Field icon' and type the chemical term into the window, use the <em>correctionlibrary:[library name]</em> parameter. Do not forget to adjust the <em>Name</em>, the <em>Type</em> and the <em>DB Column Name</em>.&nbsp;<br />&nbsp;</p>
+      <p><em>Example<strong>&nbsp;<br />&nbsp;</strong></em></p>
+      <p>The <a href="#TrainingthepKaPlugin-fig.3">following picture </a>demonstrates the usage of p<em>K</em><sub>a&nbsp;</sub>training in the 'New Chemical terms' window. The expression&nbsp;</p>
+      <div class="code panel pdl" style="border-width: 1px;">
+       <div class="codeContent panelContent pdl"> 
+        <pre class="theme: Confluence; brush: text; gutter: false" style="font-size:12px;">pKa('correctionlibrary:mypKa type:acidic','1') </pre> 
+       </div>
+      </div>
+      <p><br />defines that the plugin use the correction library named <em>mypKa</em>, and it calculates the strongest acidic p<em>K</em><em>a&nbsp;</em>of the molecule(s).<br /><br />&nbsp;<span class="confluence-anchor-link" id="TrainingthepKaPlugin-fig.3"></span></p>
+      <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338106/29099463.png" data-image-src="attachments/13338106/29099463.png" data-unresolved-comment-count="0" data-linked-resource-id="29099463" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="instantJChem_ChemicalTerms.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338106" data-linked-resource-container-version="74" /></span><br />Fig. 3 New Chemical terms window showing the options to be set for pK<sub>a</sub> training</p>
+      <p>&nbsp;</p>
+      <p>The results of this calculation are shown in the<a href="#TrainingthepKaPlugin-fig.4"> figure below</a>, with the untrained (<em>Strongest acidic pKa</em> column) and trained (<em>Trained strongest acidic pKa </em>column) p<em>K</em><sub>a</sub>&nbsp;values.<br /><span class="confluence-anchor-link" id="TrainingthepKaPlugin-fig.4"></span><br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/13338106/29099464.png" data-image-src="attachments/13338106/29099464.png" data-unresolved-comment-count="0" data-linked-resource-id="29099464" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="InstantJchem_results.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="13338106" data-linked-resource-container-version="74" /></span>&nbsp;</p>
+      <p>Fig. 4 JChem table showing the trained and untrained pK<sub>a</sub> values</p>
+      <pre>&nbsp;</pre> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

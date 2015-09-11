@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Structure parameters</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Structure parameters </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <div class="table-wrap">
+       <table class="confluenceTable">
+        <tbody>
+         <tr>
+          <th class="confluenceTh">
+           <div class="tablesorter-header-inner">
+            Parameter
+           </div></th>
+          <th class="confluenceTh">
+           <div class="tablesorter-header-inner">
+            Meaning
+           </div></th>
+          <th class="confluenceTh">
+           <div class="tablesorter-header-inner">
+            Default
+           </div></th>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>atomSetColor0<br />atomSetColor1<br />...<br />atomSetColor63</code></td>
+          <td class="confluenceTd">Atom set color as hexadecimal value.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>bondSetColor1<br />...<br />bondSetColor63</code></td>
+          <td class="confluenceTd">Bond set color as hexadecimal value.</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structureparameters-import"></span>importConv</code></td>
+          <td class="confluenceTd"><p>Conversion(s) after molecule loading. Currently the following options are implemented:</p>
+           <div class="table-wrap">
+            <table class="confluenceTable">
+             <tbody>
+              <tr>
+               <td class="confluenceTd">&quot;a&quot; or &quot;+a&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td class="confluenceTd"><a href="https://docs.chemaxon.com/display/SB/Methods">General</a> aromatization</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;a_bas&quot; or &quot;+a_bas&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td class="confluenceTd"><a href="https://docs.chemaxon.com/display/SB/Methods">Basic</a> aromatization</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;-a&quot;</td>
+               <td class="confluenceTd">dearomatization</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;H&quot; or &quot;+H&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td class="confluenceTd">add explicit H atoms</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;-H&quot;</td>
+               <td class="confluenceTd">remove explicit H atoms</td>
+              </tr>
+              <tr>
+               <td class="confluenceTd">&quot;c&quot;</td>
+               <td class="confluenceTd">automatic cleaning</td>
+              </tr>
+             </tbody>
+            </table>
+           </div></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structureparameters-Dim"></span>cleanDim</code></td>
+          <td class="confluenceTd">Number of space dimensions for cleaning.
+           <ul>
+            <li><code>2</code> - two-dimensional cleaning</li>
+            <li><code>3</code> - three-dimensional cleaning</li>
+           </ul>See also: <code><a href="#Structureparameters-clean">cleanOpts</a></code>, <a href="#Structureparameters-import"><code>importConv</code></a></td>
+          <td class="confluenceTd"><code>2</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structureparameters-clean"></span>cleanOpts</code></td>
+          <td class="confluenceTd">Options for 2D or 3D cleaning.<br /> <code>cleanOpts</code> accepts the same parameter values as <span class="confluence-link"><code>clean2dOpts</code></span>&nbsp; or&nbsp; <code><span class="confluence-link">clean3dOpts</span></code> depending on the cleaning dimension (<code><span class="confluence-link">cleanDim</span></code>).</td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structureparameters-2D"></span>clean2dOpts</code></td>
+          <td class="confluenceTd">Options for 2D cleaning (0D-&gt;2D) See <a href="https://docs.chemaxon.com/display/SR/Cleaning+options#Cleaningoptions-2D">base 2D cleaning options</a></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code><span class="confluence-anchor-link" id="Structureparameters-3D"></span>clean3dOpts</code></td>
+          <td class="confluenceTd">Options for 3D cleaning (0D-&gt;3D) See <span class="confluence-link">&nbsp;</span><span class="confluence-link"><span class="confluence-link"><span class="confluence-link"><a href="https://docs.chemaxon.com/display/SR/Cleaning+options#Cleaningoptions-3D">base 3D cleaning options</a></span></span> </span></td>
+          <td class="confluenceTd">&nbsp;</td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>setColoringEnabled</code></td>
+          <td class="confluenceTd">Atom/bond set coloring.</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+         <tr>
+          <td class="confluenceTd"><code>valenceCheckEnabled</code></td>
+          <td class="confluenceTd">Check valence errors in molecules on the SketchPanel (<code>true</code>) or not (<code>false</code>).</td>
+          <td class="confluenceTd"><code>true</code></td>
+         </tr>
+        </tbody>
+       </table>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

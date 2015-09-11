@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Document to Structure : Document to Structure Developer's Guide - Document Extractor</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> Document to Structure : Document to Structure Developer's Guide - Document Extractor </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="DocumenttoStructureDeveloper'sGuide-DocumentExtractor-Introduction"><span style="color: rgb(0,0,0);">Introduction</span></h2>
+      <p>The DocumentExtractor class extracts chemical names from text documents and converts them to chemical structures.</p>
+      <h2 class="lenia" id="DocumenttoStructureDeveloper'sGuide-DocumentExtractor-BasicAPIusage"><span style="color: rgb(0,0,0);">Basic API usage</span></h2>
+      <p>Example usage:</p>
+      <pre>// We have a document to process
+java.io.Reader document = ...;
+
+DocumentExtractor x = new DocumentExtractor();
+x.processHTML(document); // or processPlainText(document) for input in plain text format
+
+// Iterate through the hits
+for (Hit hit : x.getHits()) {
+  System.out.println(hit.position + &quot;: &quot; + hit.text + &quot;: &quot; + hit.structure.toFormat(&quot;smiles&quot;));
+}
+</pre>
+      <p>The field hit.position contains the position of the first character of the name in the document.</p>
+      <p>Note that hit.text contains the name as it appears in the source document. A cleaned version (of possible OCR errors, typos, ...) can be retrieved with <code>hit.structure.getName()</code>.</p>
+      <p>This class can also be called on the command-line. It then expects the name of a plain text file as the first argument (or from the standard input when absent). The list of hits is printed on the standard output.</p>
+      <h2 id="DocumenttoStructureDeveloper'sGuide-DocumentExtractor-Seealso">See also</h2>
+      <ul>
+       <li>Detailed <a href="http://www.chemaxon.com/marvin/examples/d2s/index.html" class="external-link" rel="nofollow">code examples</a> using Document to Structure in real-world situations.</li>
+       <li><a href="16449581.html">User documentation for d2s</a></li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

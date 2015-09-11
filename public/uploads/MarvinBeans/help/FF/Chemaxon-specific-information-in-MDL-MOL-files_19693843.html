@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>File Formats : Chemaxon specific information in MDL MOL files</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> File Formats : Chemaxon specific information in MDL MOL files </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <h2 id="ChemaxonspecificinformationinMDLMOLfiles-SpecialdatatypesinSDfileandRDfilefields">Special data types in SDfile and RDfile fields</h2>
+      <p>Data fields store strings normally, but other data types are also supported in Marvin, in a non-standard way. If the data starts with the &quot;MProp:scalar:&quot; or &quot;MProp:array:&quot; string, then it can have a special type:</p>
+      <ul>
+       <li>MProp:scalar:boolean:true and MProp:scalar:boolean:false — boolean values (java.lang.Boolean class),</li>
+       <li>MProp:scalar:integer:<em>n</em> — integer value (java.lang.Integer class),</li>
+       <li>MProp:array:<em>m</em>:integer: <em>n</em><sub>0</sub> ... <em>n</em><sub>m-1</sub> — <em>m</em>-element integer array (int[] in java),</li>
+       <li>MProp:scalar:double:<em>x</em> — double precision floating point value (java.lang.Double class),</li>
+       <li>MProp:scalar:MDocument:... — an MDocument object,</li>
+       <li>MProp:scalar:Molecule:... — a Molecule object (in SDfiles only; RDfiles store molecule properties in a different, standard way).</li>
+      </ul>
+      <h2 id="ChemaxonspecificinformationinMDLMOLfiles-ChemAxonspecificinformationinMOLfiles"><a class="anchor" name="specialinfo" rel="nofollow"></a>ChemAxon specific information in MOL files</h2>
+      <h3 id="ChemaxonspecificinformationinMDLMOLfiles-Implicithydrogensonaromaticnitrogen"><a class="anchor" name="implicith" rel="nofollow"></a>Implicit hydrogens on aromatic nitrogen</h3>
+      <p>The mol family of formats cannot store the implicit hydrogens of atoms, so it is calculated from the bond orders. This is always correct when the molecule is in Kekule format, but causes problems when nitrogen-containing aromatic rings are saved with aromatic bond types.</p>
+      <p>To counteract the information loss, implicit hydrogen count is stored in these formats as attached data on the nitrogen. The associated data sgroup has field name of MRV_IMPLICIT_H and value IMPL_H&lt;n&gt; where n is the number of implicit hydrogens. These special data attachments are then converted back to implicit hydrogens upon import. When the file is read in ISIS/Draw, the lost hydrogen will not reappear, but the attached data will be visible as a warning.</p>
+      <h3 id="ChemaxonspecificinformationinMDLMOLfiles-Stereobondinformationlosswithoutatomcoordinates"><a class="anchor" name="dimension" rel="nofollow"></a>Stereo bond information loss without atom coordinates</h3>
+      <p>The mol family of formats cannot store stereo information without bond coordinates in V2 version. If you have imported the molecule from a format that does not contain coordinates, but contain stereo information (e.g.: name, smiles), then to preserve the stereo information, while exporting the molecule into a V2 ctfile format, Marvin cleans the molecule in 2D. This clean can be omitted by passing the omitClean0D parameter to the exporter, or by using V3 format.</p>
+      <h3 id="ChemaxonspecificinformationinMDLMOLfiles-Multipagemoleculardocument"><a class="anchor" name="multipage" rel="nofollow"></a>Multipage molecular document</h3>
+      <p>To save information about multipage molecular document, properties are stored as attached data. The field names and values are the following:</p>
+      <ul>
+       <li><em>MRV_PAGE_SELECTED</em> - the selected page in multipage molecular document. Its value is a non-negative integer.</li>
+       <li><em>MRV_PAGE_COLUMN_COUNT</em> - number of columns in multipage molecular document. Its value is a non-negative integer.</li>
+       <li><em>MRV_PAGE_ROW_COUNT</em> - number of rows in multipage molecular document. Its value is a non-negative integer.</li>
+       <li><em>MRV_PAGE_WIDTH</em> - width of a page in multipage molecular document. Its value is a floating point number.</li>
+       <li><em>MRV_PAGE_HEIGHT</em> - height of a page in multipage molecular document. Its value is a floating point number.</li>
+       <li><em>MRV_PAGE_LEFT_MARGIN</em> - left margin of a page in multipage molecular document. Its value is a floating point number.</li>
+       <li><em>MRV_PAGE_RIGHT_MARGIN</em> - right of a page in multipage molecular document. Its value is a floating point number.</li>
+       <li><em>MRV_PAGE_TOP_MARGIN</em> - top margin of a page in multipage molecular document. Its value is a floating point number.</li>
+       <li><em>MRV_PAGE_BOTTOM_MARGIN</em> - bottom margin of a page in multipage molecular document. Its value is a floating point number.</li>
+      </ul>
+      <h3 id="ChemaxonspecificinformationinMDLMOLfiles-Coordinationcompoundsandmarkushstructures"><a class="anchor" name="multicenter" rel="nofollow"></a>Coordination compounds and markush structures</h3>
+      <p>To save information about coordination compounds and markush structures, properties are stored as attached data. The field names and values are the following:</p>
+      <ul>
+       <li><em>MRV_MULTICENTER_ATOM_INDEX</em> - index of the multi-center atom. Its value is a positive integer.</li>
+       <li><em>MRV_COORDINATE_BOND_TYPE</em> - index of the coordinate atom. Its value is a positive integer.</li>
+      </ul>
+      <h3 id="ChemaxonspecificinformationinMDLMOLfiles-ChargedisplayedonS-groupbracket"><a class="anchor" name="chargeOnBracket" rel="nofollow"></a>Charge displayed on S-group bracket</h3>
+      <p>To save information about charge location in S-groups in case of generic, monomer, mer and component S-group types, properties are stored as attached data. The field name and value are:</p>
+      <ul>
+       <li><em>MRV_CHARGE_ON_GROUP</em> - the charge displayed on the bracket. Its value is an integer.</li>
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>

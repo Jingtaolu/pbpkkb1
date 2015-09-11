@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>MarvinSketch : Template Library Manager</title> 
+  <link rel="stylesheet" href="styles/site.css" type="text/css" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <style>
+#content {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    background: #FFFFFF !important;
+}
+
+.aui-page-panel {
+    background: #FFFFFF !important;
+    border: 1px solid #ccc;
+    border-left-width: 0;
+    border-right-width: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.message-content {
+	border: solid 2px #fee796;
+	background-color: #fefaea;
+	border-radius: 10px;
+	display: table;
+	padding: 4px;
+	margin: 4px 4px 0px 4px;
+}
+</style> 
+ </head> 
+ <body class="theme-default aui-theme-default"> 
+  <div id="page"> 
+   <div id="main" class="aui-page-panel"> 
+    <div id="main-header"> 
+     <h1 id="title-heading" class="pagetitle"> <span id="title-text"> MarvinSketch : Template Library Manager </span> </h1> 
+    </div> 
+    <div id="content" class="view"> 
+     <div id="main-content" class="wiki-content group"> 
+      <p>The Template Library is a hierarchic display of template sets.</p>
+      <p>It contains several template sets by default (such as Generic, Rings, Amino Acids, etc), and a special set called <strong>My Templates</strong>.<br /><br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281176.png" data-image-src="attachments/16449890/26281176.png" data-unresolved-comment-count="0" data-linked-resource-id="26281176" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_library.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span><br />&nbsp;</p>
+      <p>The dialog has buttons to customize template handling. With the help of these buttons you can add<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/29100091.png" data-image-src="attachments/16449890/29100091.png" data-unresolved-comment-count="0" data-linked-resource-id="29100091" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="add_templates24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span>&nbsp; and remove<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/29100092.png" data-image-src="attachments/16449890/29100092.png" data-unresolved-comment-count="0" data-linked-resource-id="29100092" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="remove_templates24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span> template sets, can change order of a given template set, or open&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/29100093.png" data-image-src="attachments/16449890/29100093.png" data-unresolved-comment-count="0" data-linked-resource-id="29100093" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="options24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span> the <strong>Options</strong> dialog.</p>
+      <p>The cleaning options of the templates can be set using the last three buttons on the toolbar. With these buttons you can specify how the template will be placed onto the canvas (NoClean, 2D, or 3D). These options can be set separately for each template category. Note, that the buttons are synchronized with the <strong>Template Options</strong> dialog settings.</p>
+      <h4 id="TemplateLibraryManager-TemplateOptions">Template Options<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281177.png" data-image-src="attachments/16449890/26281177.png" data-unresolved-comment-count="0" data-linked-resource-id="26281177" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_options.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span><br />&nbsp;</h4>
+      <ul>
+       <li><strong>Maximum number of molecules:</strong> template sets can contain large number of molecules. This option maximizes the number of structures being loaded from a template set when it is selected in the Template Library. For example if the option is set to 100, only 100 structures will be loaded to memory and displayed in the library, even if the underlying molecule file contained 25000 structures.</li>
+       <li><p><strong>Coordinates:</strong> this option is to specify an operation affecting the coordinates when the templates are placed on the canvas.<br /> For example result of placing L-Alanine to the canvas with different options:</p>
+        <div class="table-wrap">
+         <table class="confluenceTable">
+          <tbody>
+           <tr>
+            <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281179.png" data-image-src="attachments/16449890/26281179.png" data-unresolved-comment-count="0" data-linked-resource-id="26281179" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_coordinates1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span></td>
+            <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281180.png" data-image-src="attachments/16449890/26281180.png" data-unresolved-comment-count="0" data-linked-resource-id="26281180" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_coordinates2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span></td>
+            <td style="text-align: center;" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281181.png" data-image-src="attachments/16449890/26281181.png" data-unresolved-comment-count="0" data-linked-resource-id="26281181" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_coordinates3.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span></td>
+           </tr>
+           <tr>
+            <td style="text-align: center;" class="confluenceTd">As in the original<br />structures</td>
+            <td style="text-align: center;" class="confluenceTd">Always perform<br />Clean2D</td>
+            <td style="text-align: center;" class="confluenceTd">Always perform<br />Clean3D</td>
+           </tr>
+          </tbody>
+         </table>
+        </div></li>
+       <li><strong>Size of templates:</strong> the size with which each template is displayed in the library, measured in pixels.</li>
+       <li><strong>Maximum number of buttons:</strong> this determines the maximum number of buttons allowed on the<strong> <a href="Advanced-Templates-Toolbar_16122186.html">Advanced Templates Toolbar.</a></strong></li>
+      </ul>
+      <h4 id="TemplateLibraryManager-Addinganewtemplatesettothelibrary">Adding a new template set to the library</h4>
+      <p>It is possible to add new template sets to the library using the <strong>Add Template Set</strong>&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/29100091.png" data-image-src="attachments/16449890/29100091.png" data-unresolved-comment-count="0" data-linked-resource-id="29100091" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="add_templates24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span> button on the tool bar.<br /> Using the 'Browse' button you can select a directory or a file of the file system. Specifying a directory will create a hierarchic template set containing all subdirectories and files.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281182.png" data-image-src="attachments/16449890/26281182.png" data-unresolved-comment-count="0" data-linked-resource-id="26281182" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_add1.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span><br />&nbsp;</p>
+      <p>It is also possible to specify a location with ftp protocol. The underlying subdirectories and files will be displayed as with the local file system.</p>
+      <p>Please note that protocols other than file and ftp are not supported. However remote file systems can help to overcome this restriction.<br /><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281183.png" data-image-src="attachments/16449890/26281183.png" data-unresolved-comment-count="0" data-linked-resource-id="26281183" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_add2.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span><br />&nbsp;</p>
+      <h4 id="TemplateLibraryManager-Removingatemplatesetfromthelibrary">Removing a template set from the library</h4>
+      <p>You can remove template sets from the library using the <strong>Remove Template Set</strong> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/29100092.png" data-image-src="attachments/16449890/29100092.png" data-unresolved-comment-count="0" data-linked-resource-id="29100092" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="remove_templates24.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span> button on the tool bar.<br /> The template set will only be removed from the library, without modifying files on the file system.<br />&nbsp;<span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/16449890/26281178.png" data-image-src="attachments/16449890/26281178.png" data-unresolved-comment-count="0" data-linked-resource-id="26281178" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="template_remove.png" data-base-url="https://docs.chemaxon.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="16449890" data-linked-resource-container-version="4" /></span></p> 
+     </div>  
+    </div> 
+   </div> 
+   <div id="footer"> 
+    <section class="footer-body" style="background-image:none"> 
+     <p style="font-size:16px">&copy; ChemAxon Ltd.</p> 
+    </section> 
+   </div> 
+  </div>   
+ </body>
+</html>
