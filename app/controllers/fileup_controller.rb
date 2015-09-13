@@ -13,7 +13,7 @@ class FileupController < ApplicationController
     end
 
     # convert mol file to picture
-    %x(public\\uploads\\MarvinBeans\\bin\\molconvert jpeg:w500,h500 public\\uploads\\user_uploaded -o public\\uploads\\chemstruct.jpeg)
+    %x(bash public/uploads/MarvinBeans/bin/molconvert jpeg:w500,h500 public/uploads/user_uploaded -o public/uploads/chemstruct.jpeg)
 
     # read mol file and read to variable (string)
   mol=File.open(Rails.root.join('public', 'uploads', 'user_uploaded'), 'rb') do |file|
@@ -47,9 +47,9 @@ class FileupController < ApplicationController
   def maccs_keys
     @PUBCHEM_COMPOUND_CID=Rails.cache.read("PUBCHEM_COMPOUND_CID")
     @CSID = Rails.cache.read("CSID")
-    %x(public\\uploads\\maccs.bat)
+    %x(java -jar public/uploads/fpcalc/maccs/PaDEL-Descriptor.jar -fingerprints -dir public/uploads/user_uploaded -file public/uploads/maccs_fingerprint.txt)
 
-    f=IO.readlines("public\\uploads\\maccs_fingerprint.txt")
+    f=IO.readlines("public/uploads/maccs_fingerprint.txt")
     @f0=f[0].split(",")
     @f1=f[1].split(",")
 
