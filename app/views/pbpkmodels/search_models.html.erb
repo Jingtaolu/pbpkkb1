@@ -19,11 +19,14 @@ Structure_______
 <br/><br/><br/>
 
 
+<div align="center">
 <%= form_tag("/pbpkmodels/search_models", method: "get") do %>
     <%= label_tag(:q, "Search for:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
 <% end %>
+</div>
+
 
 <br/>
 <br/>
@@ -77,7 +80,7 @@ Structure_______
     <%if @pbpk_searched_models_chemical.include? a[0] %>
         <%model=@pbpkmodels_searched.select { |b| b["chemical"] == a[0]} %>
         <%if model.length > 1%>
-            <% width_ajs=2.4153*model.length - 2.3615%>
+            <% width_ajs=3*model.length - 2.3615%>
         <%else%>
             <% width_ajs=0%>
         <% end %>

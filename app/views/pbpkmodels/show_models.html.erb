@@ -81,7 +81,7 @@ Structure_______
     <%if @pbpkmodels_chemical.include? a[0] %>
         <%model=@pbpkmodels_all.select { |b| b["chemical"] == a[0]} %>
         <%if model.length > 1%>
-            <% width_ajs=2.4153*model.length - 2.3615%>
+            <% width_ajs=3*model.length - 2.3615%>
         <%else%>
             <% width_ajs=0%>
         <% end %>

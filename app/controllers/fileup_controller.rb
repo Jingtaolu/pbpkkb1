@@ -58,9 +58,9 @@ class FileupController < ApplicationController
   def pubchem_keys
     @PUBCHEM_COMPOUND_CID=Rails.cache.read("PUBCHEM_COMPOUND_CID")
     @CSID = Rails.cache.read("CSID")
-    %x(public\\uploads\\pubchem.bat)
+    %x(java -jar public/uploads/fpcalc/pubchem/PaDEL-Descriptor.jar -fingerprints -dir public/uploads/user_uploaded -file public/uploads/pubchem_fingerprint.txt)
 
-    f=IO.readlines("public\\uploads\\pubchem_fingerprint.txt")
+    f=IO.readlines("public/uploads/pubchem_fingerprint.txt")
     @f0=f[0].split(",")
     @f1=f[1].split(",")
 
@@ -85,7 +85,7 @@ class FileupController < ApplicationController
       a=a.map {|b| b.strip.to_i}
     end
 
-    fp=IO.readlines("public\\uploads\\maccs_fingerprint.txt")
+    fp=IO.readlines("public/uploads/maccs_fingerprint.txt")
     fp1=fp[1].split(",")
     fp1.delete_at(0)
     fp1=fp1.map {|b| b.strip.to_i}
@@ -133,7 +133,7 @@ class FileupController < ApplicationController
       a=a.map {|b| b.strip.to_i}
     end
 
-    fp=IO.readlines("public\\uploads\\pubchem_fingerprint.txt")
+    fp=IO.readlines("public/uploads/pubchem_fingerprint.txt")
     fp1=fp[1].split(",")
     fp1.delete_at(0)
     fp1=fp1.map {|b| b.strip.to_i}
